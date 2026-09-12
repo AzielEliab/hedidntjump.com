@@ -1,6 +1,6 @@
 {
   "snapshot_commit": "399eddebd5995e6a195959d4f13f596fd3424726",
-  "file_count": 154,
+  "file_count": 156,
   "files": [
     {
       "path": "README.md",
@@ -191,6 +191,11 @@
       "path": "dist/assets/plates/work-or-play.webp",
       "bytes": 158846,
       "sha256": "edabab72e215159db90012a8c99f0c069e64e7fc3ac05a04c6956d5d5f200a34"
+    },
+    {
+      "path": "dist/assets/sigil.png",
+      "bytes": 75035,
+      "sha256": "af095e8b0916a7262860a53619c7110f25539988806775b1c7bff8df7b0ee848"
     },
     {
       "path": "dist/assets/social-card-foia.jpg",
@@ -663,14 +668,19 @@
       "sha256": "574948ee7a1f20875b7bf4e426bf38d9a6d498f86575a37053cf232630071f2f"
     },
     {
+      "path": "dist/azieleliab.html",
+      "bytes": 19175,
+      "sha256": "66099cebdcbf5f814cff93c9768a0522ed15b83f236ddc5a4430a7044c1a773a"
+    },
+    {
       "path": "dist/favicon.svg",
       "bytes": 219,
       "sha256": "5df583f98838368866798f638b63267c21a9c14fec2d6101af122924d52f00b9"
     },
     {
       "path": "dist/foia.html",
-      "bytes": 30138,
-      "sha256": "6243199173288662c2c2efd9c73899a710daafb9e01e5a4bda80bfe679e2ea96"
+      "bytes": 30399,
+      "sha256": "eb62596a6fa5970d0a0f4868442a11133b49c4bba62fbb9c6904d0b01e35509f"
     },
     {
       "path": "dist/foia.js",
@@ -679,28 +689,28 @@
     },
     {
       "path": "dist/index.html",
-      "bytes": 56653,
-      "sha256": "910e7cf097cfcf75d08f496bd0226b29c9f6d31b8e4b727620aba43b1d5373c7"
+      "bytes": 56839,
+      "sha256": "0365f1c6a8488717b4d0fbb048374f8070137019b5f3de182bfd6747f2208624"
     },
     {
       "path": "dist/llms-full.txt",
-      "bytes": 5952,
-      "sha256": "3d908c382876ae07caa3c47c8260ed77cf0cc1a7c79424631c2de1445843cf5e"
+      "bytes": 6303,
+      "sha256": "19e942a5f33f1b815986ca800bc7e187f93a576ce71176e1f0dff82cf15247e3"
     },
     {
       "path": "dist/llms.txt",
-      "bytes": 3403,
-      "sha256": "656925bfc33087b6277b0ae58adbb4e0a5d57b9bf3849b0249e9abff63bf79e3"
+      "bytes": 3673,
+      "sha256": "fe69be85c69ff9973bffc5ed6a2c5243796a1c1cfab9ecb5c4e1fd8186d0d981"
     },
     {
       "path": "dist/official-narrative.html",
-      "bytes": 27615,
-      "sha256": "2ae4c009c222ec1a10f1563bef5fc8c0928578cdb98871f57cdbd00ec95ef7b7"
+      "bytes": 27876,
+      "sha256": "cb9756731e2861b689f1e9c5e19152647653f6aa238e5c578edc4498185ab4e2"
     },
     {
       "path": "dist/reader.html",
-      "bytes": 14954,
-      "sha256": "902bb623314daf00ecb317316b46a437aca8c6ee75b4b224405a160af5ff11a4"
+      "bytes": 15140,
+      "sha256": "bc1aed24d802d768a4cdd18d28f00da9eda15b7b0d5b8548ead513afd3d2cefd"
     },
     {
       "path": "dist/reader.js",
@@ -714,13 +724,13 @@
     },
     {
       "path": "dist/rubye.html",
-      "bytes": 28645,
-      "sha256": "988fe7e7d21c10a89f236f775b2ec97da6816de49681a89733e1f336320a0ec2"
+      "bytes": 28906,
+      "sha256": "0f56a7f7eb7ba128347b7e59d078f5c3a11cc90a4e97a1f068310428a6a88851"
     },
     {
       "path": "dist/sitemap.xml",
-      "bytes": 2156,
-      "sha256": "510282c62181eacc8ef0215acd5f21e67dee16b05ff9cea644a9e2840aeb92fa"
+      "bytes": 2327,
+      "sha256": "fc8bfacd93aa0d4fe69dcdaac93bdd99a5e60bea4ec9041f70407feeb8f1bb0f"
     },
     {
       "path": "dist/stats.js",
@@ -729,8 +739,8 @@
     },
     {
       "path": "dist/style.css",
-      "bytes": 22407,
-      "sha256": "e51af95cdf9a8bdbabd425f7c247a52cc8441219b52f21e10b0f31addd49980a"
+      "bytes": 22778,
+      "sha256": "cbfe9c70ac988ca1d36fe062fa532c7c40195270efe6c1815738f1443a564335"
     },
     {
       "path": "dist/volumes.json",
@@ -764,13 +774,13 @@
     },
     {
       "path": "scripts/inject_seo.py",
-      "bytes": 46967,
-      "sha256": "76f94dc852477f978a4771736130c895e9dfb8ac4be8b242510d3541888956cc"
+      "bytes": 51385,
+      "sha256": "529fbf5ff83b9c737dc280a98f40219b435f761d0d50c52355feb578c0196d54"
     },
     {
       "path": "verify_handoff.py",
-      "bytes": 1070,
-      "sha256": "8a86605480118020e768653a359f1227d3b3f5c8b90c93c32ab9e1af58cb6ce9"
+      "bytes": 2492,
+      "sha256": "7ad9984baa1ba3f6437f4f2a9e403cf289dd66b5aedbdfb2240b60961f09a9ce"
     }
   ]
 }
