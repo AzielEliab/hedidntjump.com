@@ -23,6 +23,7 @@ Related, not sameAs: [Donate](https://www.azieleliab.com/donate?v=png). Statute 
 - [Official narrative](https://hedidntjump.com/official-narrative.html): The contemporary reported sequence, from the Washington apartment press through Gallinger, the train west, and the official Arctic Building suicide account.
 - [Rubye paper](https://hedidntjump.com/rubye.html): Rubye Nix Zioncheck in the car; Volume II family-battle clippings; later legal actions against Nadeau as Volume V states them. Alias: [https://hedidntjump.com/aziel.html](https://hedidntjump.com/aziel.html).
 - [FOIA paper](https://hedidntjump.com/foia.html): William Nadeau in Volumes IV–V; Aziel’s 28 July 2026 FOIA Binary Acknowledgement; hash-chained ledger of Zioncheck FOIA denials only.
+- [AzielEliab](https://hedidntjump.com/azieleliab.html): Publisher page dated Seattle, Washington · 9/12/2026. Distinct from the Rubye alias at [https://hedidntjump.com/aziel.html](https://hedidntjump.com/aziel.html). Last edition tag in the paper nav / project strip.
 - [Volume reader](https://hedidntjump.com/reader.html): Facsimile WebP pages for Volumes I–V.
 
 ## Record

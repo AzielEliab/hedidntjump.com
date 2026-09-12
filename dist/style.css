@@ -282,6 +282,21 @@ main img:not(.page-image){
   background:#cfc09a;
 }
 .plate img{filter:grayscale(.15) contrast(1.04)}
+.author-mark{
+  width:var(--archive-cut);
+  max-width:var(--archive-cut);
+  min-width:0;
+  margin:0 auto 16px;
+  overflow:hidden;
+}
+.author-mark img{
+  filter:none;
+  background:transparent;
+  border:0;
+}
+.signed{
+  font-style:italic;
+}
 figcaption,.cutline{
   display:flex;
   flex-direction:column;
@@ -830,9 +845,14 @@ html,body{overflow-x:hidden!important;max-width:100vw!important;}
 *{box-sizing:border-box;}
 img,svg,video,canvas{max-width:100%;height:auto;}
 /* Portrait defines the cut — do not shrink/enlarge .portrait */
-.portrait{width:var(--archive-cut);max-width:var(--archive-cut);}
+.portrait,.author-mark{width:var(--archive-cut);max-width:var(--archive-cut);}
+.author-mark img{
+  filter:none!important;
+  background:transparent!important;
+  border:0!important;
+}
 .photo-well,.plate,.arctic-plate,.stone-well,.building-trio .arctic-plate,
-main figure:not(.portrait):not(.reader-page):not(.page-shot){
+main figure:not(.portrait):not(.author-mark):not(.reader-page):not(.page-shot){
   width:var(--archive-cut)!important;
   max-width:var(--archive-cut)!important;
   margin-left:0;
