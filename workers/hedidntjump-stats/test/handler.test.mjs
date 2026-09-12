@@ -25,6 +25,37 @@ function memoryKv(seed = {}) {
   };
 }
 
+test('GET /api/stats is public-read CORS and does not increment', async () => {
+  const env = { STATS: memoryKv({ views: '4', downloads: '2' }) };
+  const res = await handleRequest(
+    new Request('https://stats.test/api/stats', { headers: { Origin: 'https://evil.example' } }),
+    env,
+  );
+  assert.equal(res.status, 200);
+  assert.equal(res.headers.get('access-control-allow-origin'), '*');
+  const body = await res.json();
+  assert.equal(body.views, 4);
+  assert.equal(body.downloads, 2);
+});
+
+test('GET /api/meta returns identity plus live counters', async () => {
+  const env = { STATS: memoryKv({ views: '104', downloads: '0' }) };
+  const res = await handleRequest(
+    new Request('https://stats.test/api/meta', { headers: { Origin: 'https://elsewhere.example' } }),
+    env,
+  );
+  assert.equal(res.status, 200);
+  assert.equal(res.headers.get('access-control-allow-origin'), '*');
+  const body = await res.json();
+  assert.equal(body.who.name, 'Aziel Eliab');
+  assert.ok(body.who.jobTitle.includes('Truthseeker'));
+  assert.ok(body.pages.some((p) => p.id === 'azieleliab'));
+  assert.equal(body.counters.views, 104);
+  assert.equal(body.counters.downloads, 0);
+  assert.match(body.as_of, /^\d{4}-\d{2}-\d{2}T/);
+  assert.match(body.encouragement, /Read the five volumes/);
+});
+
 test('GET /api/stats does not increment', async () => {
   const env = { STATS: memoryKv({ views: '4', downloads: '2' }) };
   const res = await handleRequest(new Request('https://stats.test/api/stats'), env);

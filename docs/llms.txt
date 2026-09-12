@@ -39,3 +39,6 @@ Related, not sameAs: [Donate](https://www.azieleliab.com/donate?v=png). Statute 
 
 - [llms-full.txt](https://hedidntjump.com/llms-full.txt) — longer inventory of inquiries and plates
 - [sitemap.xml](https://hedidntjump.com/sitemap.xml)
+- [cite.json](https://hedidntjump.com/cite.json) — citation package: site, author Person, sameAs, editions, how to cite
+- [stats.json](https://hedidntjump.com/stats.json) — public counters pointer. Live totals: [Worker /api/stats](https://hedidntjump-stats.vibelock.workers.dev/api/stats)
+- [meta.json](https://hedidntjump.com/meta.json) — crawler blob (what / who / why / pages). Alias: [site.json](https://hedidntjump.com/site.json)

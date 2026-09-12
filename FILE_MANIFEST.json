@@ -1,6 +1,6 @@
 {
   "snapshot_commit": "399eddebd5995e6a195959d4f13f596fd3424726",
-  "file_count": 156,
+  "file_count": 164,
   "files": [
     {
       "path": "README.md",
@@ -9,8 +9,8 @@
     },
     {
       "path": "dist/_headers",
-      "bytes": 796,
-      "sha256": "45b351e91ef1ce0f4cc8bf588eb806b84a437f792171a56a82077a46052261a5"
+      "bytes": 1316,
+      "sha256": "3bc520a066462d8be2dc734e584cd7d87b04f4732ac556c780d08803e939a1cd"
     },
     {
       "path": "dist/assets/arctic-building-1917.webp",
@@ -669,8 +669,13 @@
     },
     {
       "path": "dist/azieleliab.html",
-      "bytes": 19175,
-      "sha256": "66099cebdcbf5f814cff93c9768a0522ed15b83f236ddc5a4430a7044c1a773a"
+      "bytes": 19503,
+      "sha256": "109218d6892b7539ae626b7af3dfadf566e1234d96c7c5c4e98e01fbafaa1050"
+    },
+    {
+      "path": "dist/cite.json",
+      "bytes": 3369,
+      "sha256": "60d7ba4b3e1ae2c874290d5207fb7dac00066db337c8b0a135540edeefad88ee"
     },
     {
       "path": "dist/favicon.svg",
@@ -679,8 +684,8 @@
     },
     {
       "path": "dist/foia.html",
-      "bytes": 30399,
-      "sha256": "eb62596a6fa5970d0a0f4868442a11133b49c4bba62fbb9c6904d0b01e35509f"
+      "bytes": 30727,
+      "sha256": "5cb21f133d8a04f507154ceba35f869e36742aedf3e99d33a79961d4b03cac25"
     },
     {
       "path": "dist/foia.js",
@@ -689,28 +694,33 @@
     },
     {
       "path": "dist/index.html",
-      "bytes": 56839,
-      "sha256": "0365f1c6a8488717b4d0fbb048374f8070137019b5f3de182bfd6747f2208624"
+      "bytes": 57167,
+      "sha256": "bbfeac93a6c339ea8f9271e491914e43a1da3751b5ae2d29383a28fe0a335560"
     },
     {
       "path": "dist/llms-full.txt",
-      "bytes": 6303,
-      "sha256": "19e942a5f33f1b815986ca800bc7e187f93a576ce71176e1f0dff82cf15247e3"
+      "bytes": 6715,
+      "sha256": "5b03ea01cb181e18ca2490860657c122cde6c2514e295c7fecfef79c335a709e"
     },
     {
       "path": "dist/llms.txt",
-      "bytes": 3673,
-      "sha256": "fe69be85c69ff9973bffc5ed6a2c5243796a1c1cfab9ecb5c4e1fd8186d0d981"
+      "bytes": 4114,
+      "sha256": "22ef21e9fbe7d3e93bc8ff8fa131fe21f7758e2e558be5288808d5243e68c4b0"
+    },
+    {
+      "path": "dist/meta.json",
+      "bytes": 3273,
+      "sha256": "24b9b13fff6670df0e862bad92e5766734fd9ed53475e7c38bcb19a8a6dc42a6"
     },
     {
       "path": "dist/official-narrative.html",
-      "bytes": 27876,
-      "sha256": "cb9756731e2861b689f1e9c5e19152647653f6aa238e5c578edc4498185ab4e2"
+      "bytes": 28204,
+      "sha256": "7640fad783a7fb3b1519515acf4d1cabadf04f65d9cc67e1fd1deae5baab7960"
     },
     {
       "path": "dist/reader.html",
-      "bytes": 15140,
-      "sha256": "bc1aed24d802d768a4cdd18d28f00da9eda15b7b0d5b8548ead513afd3d2cefd"
+      "bytes": 15468,
+      "sha256": "365f977b81be87d8ec5c62a2c869ad883e16dfd3c5fb4d68cabb3681a3a37f0a"
     },
     {
       "path": "dist/reader.js",
@@ -724,18 +734,28 @@
     },
     {
       "path": "dist/rubye.html",
-      "bytes": 28906,
-      "sha256": "0f56a7f7eb7ba128347b7e59d078f5c3a11cc90a4e97a1f068310428a6a88851"
+      "bytes": 29234,
+      "sha256": "857e8ba1df2abe285678e5248aed0c6515217745d7da6058f7e4fdecab379d16"
+    },
+    {
+      "path": "dist/site.json",
+      "bytes": 3273,
+      "sha256": "24b9b13fff6670df0e862bad92e5766734fd9ed53475e7c38bcb19a8a6dc42a6"
     },
     {
       "path": "dist/sitemap.xml",
-      "bytes": 2327,
-      "sha256": "fc8bfacd93aa0d4fe69dcdaac93bdd99a5e60bea4ec9041f70407feeb8f1bb0f"
+      "bytes": 2988,
+      "sha256": "e03c703886d474847dcb640a05f97462114de98232705deef034db992b939535"
     },
     {
       "path": "dist/stats.js",
       "bytes": 3829,
       "sha256": "b096ef2c6e859a86be85ad71cacee05dc5e7770b81f91627ef182643df73f49f"
+    },
+    {
+      "path": "dist/stats.json",
+      "bytes": 591,
+      "sha256": "6792d3457e83f3430fcd94e57df2f4eeb5d2770c785a137ae4fdd26ab41b82b7"
     },
     {
       "path": "dist/style.css",
@@ -773,14 +793,34 @@
       "sha256": "d83dde42699917e512670f0783e187f5e16954f9e6de4c8ff25226ba79a5c473"
     },
     {
+      "path": "functions/api/meta.js",
+      "bytes": 270,
+      "sha256": "c2e258262d140ca96546ed7d96a0f3231854d726a9c75cd8f12384edf1739402"
+    },
+    {
+      "path": "functions/meta.json.js",
+      "bytes": 267,
+      "sha256": "1fa07cada615e5adc635af4496b8eedfca1bfc6aefbd473162476ca5981f7283"
+    },
+    {
+      "path": "functions/stats.json.js",
+      "bytes": 838,
+      "sha256": "7dde2a13e76c3322934a5e8c215c6f85bebe4c10dc587b9de80810a8a8f308d0"
+    },
+    {
       "path": "scripts/inject_seo.py",
-      "bytes": 51385,
-      "sha256": "529fbf5ff83b9c737dc280a98f40219b435f761d0d50c52355feb578c0196d54"
+      "bytes": 58103,
+      "sha256": "a32b92ecef62f63cd7f8c274bfe9f26250dc4d8a2d7ffea41b620220fd841f3a"
     },
     {
       "path": "verify_handoff.py",
-      "bytes": 2492,
-      "sha256": "7ad9984baa1ba3f6437f4f2a9e403cf289dd66b5aedbdfb2240b60961f09a9ce"
+      "bytes": 3840,
+      "sha256": "483d8790676df30b0b5f55d7e90a41860672a79fe1de145b4f358f2d058aa3b6"
+    },
+    {
+      "path": "workers/hedidntjump-stats/src/identity.js",
+      "bytes": 5096,
+      "sha256": "8506d0148fa2007103a4960f32a7b71635be4de01282ffa741bb31cca32b4ebe"
     }
   ]
 }
