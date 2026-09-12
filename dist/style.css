@@ -1265,3 +1265,27 @@ header.masthead[data-wireframe="drawn-v1"] .paper-folio .folio-stat span{
   font-weight:400 !important;
   color:inherit !important;
 }
+
+/* Triple rule pack sits at stats-row height (under folio) */
+header.masthead[data-wireframe="drawn-v1"] .rule-triple{
+  display:block !important;
+  width:100% !important;
+  margin:0 !important;
+  padding:0 !important;
+  line-height:0 !important;
+}
+header.masthead[data-wireframe="drawn-v1"] .rule-triple .paper-rule{
+  display:block !important;
+  width:100% !important;
+  height:0 !important;
+  margin:0 !important;
+  padding:0 !important;
+  border:0 !important;
+  border-top:1px solid var(--ink) !important;
+}
+header.masthead[data-wireframe="drawn-v1"] .rule-triple .paper-rule + .paper-rule{
+  margin-top:2px !important;
+}
+header.masthead[data-wireframe="drawn-v1"] .nameplate .paper-folio{
+  margin-bottom:0 !important;
+}
