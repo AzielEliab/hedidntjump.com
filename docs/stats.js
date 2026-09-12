@@ -42,27 +42,16 @@
   }
 
   async function request(path) {
-    const urls = [endpoint(path)];
-    if (apiBase()) urls.push(path);
-    let lastError = new Error('stats unavailable');
-    for (const url of urls) {
-      try {
-        const res = await fetch(url, {
-          method: 'GET',
-          mode: 'cors',
-          credentials: 'omit',
-          cache: 'no-store',
-        });
-        if (!res.ok) {
-          lastError = new Error('stats ' + res.status);
-          continue;
-        }
-        return await res.json();
-      } catch (err) {
-        lastError = err;
-      }
-    }
-    throw lastError;
+    // Always hit the stats Worker. Same-origin /api stubs lack the KV binding and return zeros.
+    const url = endpoint(path);
+    const res = await fetch(url, {
+      method: 'GET',
+      mode: 'cors',
+      credentials: 'omit',
+      cache: 'no-store',
+    });
+    if (!res.ok) throw new Error('stats ' + res.status);
+    return await res.json();
   }
 
   async function loadStats() {
