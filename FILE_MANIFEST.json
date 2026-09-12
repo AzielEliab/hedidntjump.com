@@ -13,6 +13,21 @@
       "sha256": "a1c2e04b93640c30f9cf963b72c15b87f18ed3250fcd73e927fa7f265311ba67"
     },
     {
+      "path": "dist/assets/arctic-old-club-1909.webp",
+      "bytes": 295552,
+      "sha256": "675be80a581c25b49e1c9eee7071d7c0aa88c1bd165044768fbddb0b6e34be31"
+    },
+    {
+      "path": "dist/assets/arctic-old-morrison.webp",
+      "bytes": 70648,
+      "sha256": "de57da9a20957044705d899491803f0c4a8d9dd329d7fb10362594f54755d013"
+    },
+    {
+      "path": "dist/assets/arctic-two-buildings.webp",
+      "bytes": 106174,
+      "sha256": "ef2fa08a0b826cc9adc3f69aefb5680491b93cdc34c7e5d4fe86f5f476b2efe6"
+    },
+    {
       "path": "dist/assets/marion-gravestone.webp",
       "bytes": 129458,
       "sha256": "d133fc4d401574abc8df2cc9fdec9b09203e74801b7a2561e76a59db2c653dd0"
@@ -499,13 +514,13 @@
     },
     {
       "path": "dist/stats.js",
-      "bytes": 3829,
-      "sha256": "b096ef2c6e859a86be85ad71cacee05dc5e7770b81f91627ef182643df73f49f"
+      "bytes": 4691,
+      "sha256": "996d96a194b804e54c4102d4a6eb632543befd5135a405cb991829906f660a6d"
     },
     {
       "path": "dist/style.css",
-      "bytes": 14859,
-      "sha256": "1c627bcf46d38306869b20cbfb901fc5bf3d1a346e90b03acb2ad84f12d21c1c"
+      "bytes": 14851,
+      "sha256": "acdbdefa635ed2915093ecba6edd32607fe9000d974e9ad606eb65362dba34cd"
     },
     {
       "path": "dist/volumes.json",
@@ -541,21 +556,6 @@
       "path": "verify_handoff.py",
       "bytes": 884,
       "sha256": "8c5e92d12e80f4a5dc338af5453ea5af8da88c0aed7735672202741d012269a4"
-    },
-    {
-      "path": "dist/assets/arctic-old-morrison.webp",
-      "bytes": 70648,
-      "sha256": "de57da9a20957044705d899491803f0c4a8d9dd329d7fb10362594f54755d013"
-    },
-    {
-      "path": "dist/assets/arctic-old-club-1909.webp",
-      "bytes": 295552,
-      "sha256": "675be80a581c25b49e1c9eee7071d7c0aa88c1bd165044768fbddb0b6e34be31"
-    },
-    {
-      "path": "dist/assets/arctic-two-buildings.webp",
-      "bytes": 106174,
-      "sha256": "ef2fa08a0b826cc9adc3f69aefb5680491b93cdc34c7e5d4fe86f5f476b2efe6"
     }
   ]
 }
