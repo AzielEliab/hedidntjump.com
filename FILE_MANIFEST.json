@@ -1,6 +1,6 @@
 {
   "snapshot_commit": "399eddebd5995e6a195959d4f13f596fd3424726",
-  "file_count": 108,
+  "file_count": 111,
   "files": [
     {
       "path": "README.md",
@@ -9,18 +9,18 @@
     },
     {
       "path": "dist/assets/arctic-building.webp",
-      "bytes": 8218,
-      "sha256": "966347fbf29f61c2c2af9d133a70e11184e984b9f0222d9e5f16fb97b6c85b55"
+      "bytes": 186030,
+      "sha256": "a1c2e04b93640c30f9cf963b72c15b87f18ed3250fcd73e927fa7f265311ba67"
     },
     {
       "path": "dist/assets/marion-gravestone.webp",
-      "bytes": 7954,
-      "sha256": "be2c705a5bf8079dbcd5f48d39ccff7fa03d16bf392bcc46de868583de90bfaf"
+      "bytes": 129458,
+      "sha256": "d133fc4d401574abc8df2cc9fdec9b09203e74801b7a2561e76a59db2c653dd0"
     },
     {
       "path": "dist/assets/marion-rubye.webp",
-      "bytes": 9360,
-      "sha256": "62d66db3b30b1bf0e3ba441071aae10377770ceed1e60009ade484ef36455953"
+      "bytes": 124306,
+      "sha256": "4acdd4c4ac431eb5ba3484077c9f8b875513ed7108529d259d1c0af5a6e2a5b2"
     },
     {
       "path": "dist/assets/marion-zioncheck.webp",
@@ -484,8 +484,8 @@
     },
     {
       "path": "dist/index.html",
-      "bytes": 21684,
-      "sha256": "c08439d3a9e6c5316cd5114dcb4b92bbade67b0949eb9900fbfa6468ec63ab04"
+      "bytes": 22693,
+      "sha256": "0bfcf93761c046bf8b4dd5864acd648b3ba594ac62a0b858410e4b341f56d1a9"
     },
     {
       "path": "dist/reader.html",
@@ -504,8 +504,8 @@
     },
     {
       "path": "dist/style.css",
-      "bytes": 12534,
-      "sha256": "c027b4230c79441299afff0233e3eaca6faaf702c1305f85f94b53dc77e7ad75"
+      "bytes": 14859,
+      "sha256": "1c627bcf46d38306869b20cbfb901fc5bf3d1a346e90b03acb2ad84f12d21c1c"
     },
     {
       "path": "dist/volumes.json",
@@ -541,6 +541,21 @@
       "path": "verify_handoff.py",
       "bytes": 884,
       "sha256": "8c5e92d12e80f4a5dc338af5453ea5af8da88c0aed7735672202741d012269a4"
+    },
+    {
+      "path": "dist/assets/arctic-old-morrison.webp",
+      "bytes": 70648,
+      "sha256": "de57da9a20957044705d899491803f0c4a8d9dd329d7fb10362594f54755d013"
+    },
+    {
+      "path": "dist/assets/arctic-old-club-1909.webp",
+      "bytes": 295552,
+      "sha256": "675be80a581c25b49e1c9eee7071d7c0aa88c1bd165044768fbddb0b6e34be31"
+    },
+    {
+      "path": "dist/assets/arctic-two-buildings.webp",
+      "bytes": 106174,
+      "sha256": "ef2fa08a0b826cc9adc3f69aefb5680491b93cdc34c7e5d4fe86f5f476b2efe6"
     }
   ]
 }

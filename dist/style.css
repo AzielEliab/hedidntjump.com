@@ -426,3 +426,49 @@ select{max-width:100%}
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
 }
+
+
+/* Adaptive hardening + two Arctic buildings */
+html,body{overflow-x:hidden}
+img,svg,video{max-width:100%;height:auto}
+.project-tab{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-height:44px;padding:10px 14px;border:1px solid #f3e6c8;
+  color:#f3e6c8;text-decoration:none;font-size:13px;letter-spacing:.04em;
+  white-space:nowrap;
+}
+.project-tab.brand-tab{background:#f3e6c8;color:#2a241c;border-color:#f3e6c8;font-weight:700}
+.project-tab:hover{background:#f3e6c8;color:#2a241c}
+.volume-download,.download-all,.button,.pill{min-height:44px}
+.stat-pills .pill,.pill{
+  display:inline-flex;align-items:center;gap:6px;
+  min-height:36px;padding:6px 10px;border:1px solid var(--ink);
+  text-decoration:none;font-size:12px;letter-spacing:.04em;
+}
+.two-arctics{margin:28px 0 8px;padding:18px 0 8px;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
+.two-arctics-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:stretch}
+.arctic-plate{margin:0}
+.arctic-plate img{width:100%;height:auto;display:block;border:1px solid var(--ink);background:#ece6d8;object-fit:cover;aspect-ratio:4/3}
+.arctic-plate figcaption{display:flex;flex-direction:column;gap:2px;margin-top:8px;font-family:Georgia,"Times New Roman",serif;font-size:12px;letter-spacing:.02em}
+.arctic-plate figcaption span:first-child{font-weight:700;text-transform:uppercase}
+.arctic-plate figcaption span:last-child{color:#444;font-style:italic}
+.two-arctics-note{margin:12px 0 0;font-family:Georgia,"Times New Roman",serif;font-size:14px;line-height:1.45;max-width:62ch}
+@media (max-width:900px){
+  .project-strip-inner{gap:8px}
+  .project-tab{font-size:12px;padding:10px 12px}
+  .archive-toolbar{width:100%}
+  .download-all{width:100%;justify-content:center}
+}
+@media (max-width:720px){
+  .two-arctics-grid{grid-template-columns:1fr}
+  .stat-pills{width:100%}
+  .dateline{flex-wrap:wrap;gap:8px}
+}
+@media (max-width:620px){
+  .project-strip-inner{justify-content:stretch}
+  .project-tab{flex:1 1 calc(50% - 8px);text-align:center;white-space:normal;line-height:1.25}
+  .project-tab.brand-tab{flex:1 1 100%}
+  .midpage-photo,.stone-block{padding-left:0;padding-right:0}
+  .photo-well img,.stone-well img{max-height:none}
+  .volume-download{display:flex;align-items:center;justify-content:center;padding:12px}
+}
