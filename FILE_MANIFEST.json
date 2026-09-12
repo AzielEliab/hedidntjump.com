@@ -114,8 +114,8 @@
     },
     {
       "path": "dist/assets/plates/escort-dc-bishop.webp",
-      "bytes": 177604,
-      "sha256": "b3f7845abc7da39f3aa00ccad911a5b207f3829af6bb39d58b9182433a9e7f9a"
+      "bytes": 181622,
+      "sha256": "6c925bf969b4ecb7db884a6dab9c105fcc5367c102e87514c01e533a032e581a"
     },
     {
       "path": "dist/assets/plates/foia-fbi-response-p1.webp",
@@ -750,7 +750,7 @@
     {
       "path": "dist/index.html",
       "bytes": 67564,
-      "sha256": "021a78172ad8876fa60f22a2d396a63a9f3f6d5b3c5556394e3515eaffe116b9"
+      "sha256": "7d17c347429f1f8423f6c533c94e030753aa6e6ed2511629dbaa893955952591"
     },
     {
       "path": "dist/llms-full.txt",
