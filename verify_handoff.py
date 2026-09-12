@@ -52,8 +52,20 @@ assert "public vital records as preserved for historical research" in copyrights
 assert "Wikimedia Commons" in copyrights
 assert "credited archives" in copyrights
 assert "Aziel’s Research Volumes" in html
-assert html.count('class="volume-nav-row"') == 1
+assert 'href="/aziel.html">About Aziel</a>' in html
+assert 'id="publisher"' not in html
+assert html.count('class="volume-nav-row"') == 0
 assert "called his cousin there for protection" in html
+aziel = (root / "dist/aziel.html").read_text()
+assert "url=/rubye.html" not in aziel
+assert "http-equiv" not in aziel.lower()
+assert "Researcher. Builder. Just a man." in aziel
+assert "I am temporary. The truth is not." in aziel
+assert "— Aziel Eliab" in aziel
+assert "everblooming-sigil.webp" in aziel
+assert "index,follow" in aziel
+assert "https://hedidntjump.com/aziel.html" in aziel
+assert (root / "dist/assets/everblooming-sigil.webp").is_file()
 foia = (root / "dist/foia.html").read_text()
 assert "foia-request.webp" in foia
 assert foia.count("foia-fee-waiver.webp") == 1
