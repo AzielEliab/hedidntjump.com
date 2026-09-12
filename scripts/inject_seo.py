@@ -366,7 +366,7 @@ def write_index():
         title="He Didn't Jump — The Marion Zioncheck Archive",
         description=(
             "An Aziel Eliab Project: independent newspaper archive on Marion Zioncheck’s 7 August 1936 death in Seattle. "
-            "Five research volumes, contemporary plates, and 20 inquiries of the record."
+            "Five research volumes, contemporary plates, and 21 inquiries of the record."
         ),
         canonical=f"{ORIGIN}/",
         og_type="article",
@@ -563,6 +563,96 @@ def write_foia():
     print("updated", path)
 
 
+def write_official():
+    path = DIST / "official-narrative.html"
+    text = path.read_text()
+    extra = """<script src="/stats.js" defer></script>
+<script type="application/ld+json">
+""" + dumps({
+        "@context": "https://schema.org",
+        "@graph": [
+            *identity_nodes(),
+            breadcrumbs(
+                ("Main paper", f"{ORIGIN}/"),
+                ("Official narrative", f"{ORIGIN}/official-narrative.html"),
+            ),
+            image(
+                "/assets/plates/playboy-leaps.webp",
+                "Congress Playboy Leaps to His Death at Seattle · Volume II, PDF page 4",
+                518,
+                783,
+                "Volume II facsimile",
+            ),
+            image(
+                "/assets/social-card.jpg",
+                "He Didn't Jump masthead beside a Marion Zioncheck archive portrait",
+                1200,
+                630,
+            ),
+            {
+                "@type": "NewsArticle",
+                "@id": f"{ORIGIN}/official-narrative.html#lead-article",
+                "headline": "What the official narrative said happened",
+                "alternativeHeadline": (
+                    "From the Washington apartment to a fifth-floor window in Seattle. "
+                    "The contemporary reported sequence — not the investigation’s case against it."
+                ),
+                "description": (
+                    "The official and contemporary press account of Marion Zioncheck’s last months, "
+                    "as Volume I–II clippings print it, from the Washington apartment through the "
+                    "reported Arctic Building suicide of 7 August 1936."
+                ),
+                "url": f"{ORIGIN}/official-narrative.html",
+                "mainEntityOfPage": f"{ORIGIN}/official-narrative.html",
+                "image": [
+                    f"{ORIGIN}/assets/social-card.jpg",
+                    f"{ORIGIN}/assets/plates/playboy-leaps.webp",
+                ],
+                "datePublished": "2026-09-12",
+                "dateModified": LASTMOD,
+                "inLanguage": "en",
+                "isAccessibleForFree": True,
+                "author": {"@id": f"{ORIGIN}/#aziel-eliab"},
+                "publisher": {"@id": f"{ORIGIN}/#organization"},
+                "isPartOf": {"@id": f"{ORIGIN}/#website"},
+                "about": [
+                    {"@type": "Person", "name": "Marion Zioncheck"},
+                    {"@type": "Person", "name": "Rubye Nix Zioncheck"},
+                ],
+                "articleSection": "Official narrative",
+            },
+            {
+                "@type": "WebPage",
+                "@id": f"{ORIGIN}/official-narrative.html#webpage",
+                "url": f"{ORIGIN}/official-narrative.html",
+                "name": "The Official Narrative — He Didn't Jump",
+                "isPartOf": {"@id": f"{ORIGIN}/#website"},
+                "primaryImageOfPage": {"@id": f"{ORIGIN}/assets/plates/playboy-leaps.webp"},
+                "breadcrumb": breadcrumbs(
+                    ("Main paper", f"{ORIGIN}/"),
+                    ("Official narrative", f"{ORIGIN}/official-narrative.html"),
+                ),
+            },
+        ],
+    }) + "\n</script>\n"
+    block = head_meta(
+        title="The Official Narrative — He Didn't Jump",
+        description=(
+            "Aziel Eliab edition: the contemporary official account of Marion Zioncheck’s last months — "
+            "Washington apartment press, Gallinger, the train west, and the reported Arctic Building suicide."
+        ),
+        canonical=f"{ORIGIN}/official-narrative.html",
+        og_type="article",
+        image_path="/assets/social-card.jpg",
+        image_alt="He Didn't Jump masthead beside a Marion Zioncheck archive portrait",
+        keywords="Aziel Eliab, Marion Zioncheck, official narrative, Arctic Building, Seattle 1936, An Aziel Eliab Project",
+        extra=extra,
+    )
+    text = replace_between(text, "<title>", "<body", block + "</head>\n")
+    path.write_text(text)
+    print("updated", path)
+
+
 def write_reader():
     path = DIST / "reader.html"
     text = path.read_text()
@@ -717,6 +807,7 @@ Sitemap: https://hedidntjump.com/sitemap.xml
 
     urls = [
         ("/", "1.0"),
+        ("/official-narrative.html", "0.9"),
         ("/rubye.html", "0.9"),
         ("/foia.html", "0.9"),
         ("/reader.html", "0.8"),
@@ -764,7 +855,8 @@ Related, not sameAs: [Donate]({DONATE_URL}). Statute only, not an Aziel property
 
 ## Editions on this host
 
-- [Main paper]({ORIGIN}/): Broadsheet. Lead: “What happened at the Arctic Building?” Twenty inquiries, plates, two Arctic buildings, volume downloads.
+- [Main paper]({ORIGIN}/): Broadsheet. Lead: “What happened at the Arctic Building?” Twenty-one inquiries, plates, two Arctic buildings, volume downloads.
+- [Official narrative]({ORIGIN}/official-narrative.html): The contemporary reported sequence, from the Washington apartment press through Gallinger, the train west, and the official Arctic Building suicide account.
 - [Rubye paper]({ORIGIN}/rubye.html): Rubye Nix Zioncheck in the car; Volume II family-battle clippings; later legal actions against Nadeau as Volume V states them. Alias: [{ORIGIN}/aziel.html]({ORIGIN}/aziel.html).
 - [FOIA paper]({ORIGIN}/foia.html): William Nadeau in Volumes IV–V; Aziel’s 28 July 2026 FOIA Binary Acknowledgement; hash-chained ledger of Zioncheck FOIA denials only.
 - [Volume reader]({ORIGIN}/reader.html): Facsimile WebP pages for Volumes I–V.
@@ -815,7 +907,7 @@ He Didn't Jump (hedidntjump.com) is a static newspaper and archive about Marion 
 
 Lead headline: What happened at the Arctic Building?
 
-Twenty inquiries of the record (titles only; answers live on the page and in the volumes):
+Twenty-one inquiries of the record (titles only; answers live on the page and in the volumes):
 
 1. Why was Marion sent from Washington, D.C. to Seattle, Washington?
 2. Why do archive records conflict with the official narrative online today?
@@ -826,17 +918,22 @@ Twenty inquiries of the record (titles only; answers live on the page and in the
 7. Why did Marion dress up for a speech — then decide to “jump”?
 8. Why did his wife never give a statement as the most prolific witness?
 9. Why did Rubye hide testimony in her art for a later generation to find?
-10. Why are the injuries inconsistent with a five-story fall?
-11. Why were so few witnesses named — and why was one of them the person who broke the story?
-12. Why was the janitor unnamed — and why would he have walked away during the event?
-13. How and why did the record get meshed between the old Arctic building at 501 3rd Avenue and the new Arctic building at 3rd Avenue and Cherry Street?
-14. Where are his dinner-party speech papers?
-15. Why does his “suicide note” read like part of a speech — and why was it folded if he had just written it?
-16. Why was cousin “Vic” in the area to witness at all if he worked in another building — and why do minimal records of Vic or his cigar shop exist today?
-17. Does Marion’s work and background — from Naval Intelligence to fighting the Alaskan Highway Bill and being backed to establish a third political party — play a role?
-18. Is it a coincidence that Illinois statesman John Bolton died suspiciously less than one month before?
-19. Why are most of Nadeau’s records missing? Was he naval intelligence too?
-20. Why are FOIA requests on Marion denied to this day?
+10. Why did Rubye relentlessly sue the Nadeaus after? Was it spite, or was she silenced too?
+11. Why are the injuries inconsistent with a five-story fall?
+12. Why were so few witnesses named — and why was one of them the person who broke the story?
+13. Why was the janitor unnamed — and why would he have walked away during the event?
+14. How and why did the record get meshed between the old Arctic building at 501 3rd Avenue and the new Arctic building at 3rd Avenue and Cherry Street?
+15. Where are his dinner-party speech papers?
+16. Why does his “suicide note” read like part of a speech — and why was it folded if he had just written it?
+17. Why was cousin “Vic” in the area to witness at all if he worked in another building — and why do minimal records of Vic or his cigar shop exist today?
+18. Does Marion’s work and background — from Naval Intelligence to fighting the Alaskan Highway Bill and being backed to establish a third political party — play a role?
+19. Is it a coincidence that Illinois statesman John Bolton died suspiciously less than one month before?
+20. Why are most of Nadeau’s records missing? Was he naval intelligence too?
+21. Why are FOIA requests on Marion denied to this day?
+
+## Official narrative ({ORIGIN}/official-narrative.html)
+
+Labeled contemporary / official reported sequence only: Washington apartment press, Gallinger and Maryland observation, Romney’s return west, and the August 7 Arctic Building suicide account as Volume I–II clippings print it. Contrasts with the investigation on the main paper. No invented quotes.
 
 ## Rubye paper ({ORIGIN}/rubye.html)
 
@@ -923,7 +1020,7 @@ PUBLISHER_BOX = """      <div class="rail-box" id="publisher">
 
 
 def patch_chrome():
-    for name in ("index.html", "rubye.html", "foia.html", "reader.html"):
+    for name in ("index.html", "official-narrative.html", "rubye.html", "foia.html", "reader.html"):
         path = DIST / name
         text = path.read_text()
         text = text.replace('href="https://x.com/azieleliab"', 'href="https://x.com/AzielEliab"')
@@ -977,6 +1074,7 @@ def patch_chrome():
 def main():
     write_crawl_files()
     write_index()
+    write_official()
     write_rubye()
     write_foia()
     write_reader()
