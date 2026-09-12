@@ -499,13 +499,18 @@
     },
     {
       "path": "dist/stats.js",
-      "bytes": 3829,
-      "sha256": "b096ef2c6e859a86be85ad71cacee05dc5e7770b81f91627ef182643df73f49f"
+      "bytes": 4691,
+      "sha256": "996d96a194b804e54c4102d4a6eb632543befd5135a405cb991829906f660a6d"
     },
     {
       "path": "dist/style.css",
+<<<<<<< HEAD
       "bytes": 14859,
       "sha256": "1c627bcf46d38306869b20cbfb901fc5bf3d1a346e90b03acb2ad84f12d21c1c"
+=======
+      "bytes": 12526,
+      "sha256": "34b986527bbe6be11389f06a631b53bee23a36b03d8529570398008eec66f517"
+>>>>>>> 2d792c5 (Fix photo-well framing and keep download hits alive)
     },
     {
       "path": "dist/volumes.json",
