@@ -866,7 +866,7 @@ Related, not sameAs: [Donate]({DONATE_URL}). Statute only, not an Aziel property
 
 ## Editions on this host
 
-- [Main paper]({ORIGIN}/): Broadsheet. Lead: “What happened at the Arctic Building?” Twenty-three inquiries, plates, two Arctic buildings, volume downloads.
+- [Main paper]({ORIGIN}/): Broadsheet. Lead: “What happened at the Arctic Building?” Twenty-three inquiries, plates, two Arctic buildings, Aziel’s Research Volumes (I–V) in the masthead.
 - [Official narrative]({ORIGIN}/official-narrative.html): The contemporary reported sequence, from the Washington apartment press through Gallinger, the train west, and the official Arctic Building suicide account.
 - [Rubye paper]({ORIGIN}/rubye.html): Rubye Nix Zioncheck in the car; Volume II family-battle clippings; later legal actions against Nadeau as Volume V states them. Alias: [{ORIGIN}/aziel.html]({ORIGIN}/aziel.html).
 - [FOIA paper]({ORIGIN}/foia.html): William Nadeau in Volumes IV–V; Aziel’s 28 July 2026 FOIA Binary Acknowledgement; supplied FBI FOIPA no-records packet (redacted); hash-chained ledger of Zioncheck FOIA denials only.

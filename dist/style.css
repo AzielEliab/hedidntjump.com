@@ -66,14 +66,14 @@ h1,h2,h3,.brand{overflow-wrap:anywhere;word-break:break-word}
   margin:0 auto;
   padding:0 4%;
 }
-header.masthead,main,footer{
+header.masthead,main,footer,.volume-nav{
   width:100%;
   max-width:min(1180px,100%);
   margin:auto;
 }
 main{padding:0 4%;max-width:min(1180px,100%);overflow-x:hidden}
 @media(min-width:1180px){
-  header.masthead,main,footer{max-width:1180px}
+  header.masthead,main,footer,.volume-nav{max-width:1180px}
 }
 
 /* —— Masthead —— */
@@ -130,6 +130,31 @@ main{padding:0 4%;max-width:min(1180px,100%);overflow-x:hidden}
   padding:10px 0 4px;
 }
 nav a{font-size:14px;text-decoration:none;letter-spacing:.3px;min-height:44px;display:inline-flex;align-items:center}
+.volume-nav{
+  padding:8px 4% 12px;
+  border-bottom:1px solid var(--ink);
+}
+.volume-nav-kicker{
+  margin:0 0 8px;
+  text-align:center;
+  font-size:11px;
+  letter-spacing:1.6px;
+  text-transform:uppercase;
+}
+.volume-nav-kicker a{min-height:auto;font-size:inherit;letter-spacing:inherit}
+.volume-nav-row{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:8px;
+}
+.volume-nav-row a{
+  padding:10px 14px;
+  border:1px solid var(--ink);
+  background:rgba(255,248,228,.35);
+  font-size:13px;
+  letter-spacing:.4px;
+}
 nav a:hover,.text-link:hover,.cutline a:hover{color:var(--red)}
 
 .byline-line,.dateline .byline-line{
