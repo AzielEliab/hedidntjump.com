@@ -29,6 +29,18 @@ assert (root / "dist/assets/plates/escort-dc-bishop.webp").is_file()
 assert (root / "dist/copyrights.html").is_file()
 assert "marion-death-certificate.webp" in html
 assert "frances-death-certificate.webp" in html
+injuries = html.split('id="q11"', 1)[1].split('id="q12"', 1)[0]
+assert "marion-death-certificate.webp" in injuries
+assert "frances-death-certificate.webp" not in injuries
+assert "Marion A. Zioncheck’s Washington State death certificate" in injuries
+assert "Frances" not in injuries
+mother = html.split("The mother’s record", 1)[1]
+assert "frances-death-certificate.webp" in mother
+assert "Mrs. Frances Zioncheck’s Washington State death certificate" in mother
+assert "marion-death-certificate.webp" not in mother
+closed = html.split("The closed file", 1)[1].split("The mother’s record", 1)[0]
+assert "marion-death-certificate.webp" not in closed
+assert "frances-death-certificate.webp" not in closed
 assert "bogeyman-disguise.webp" in html
 assert "whos-crazy-topic.webp" in html
 assert "Involutional Melancholia" in html
