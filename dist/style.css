@@ -132,6 +132,26 @@ main{padding:0 4%;max-width:min(1180px,100%);overflow-x:hidden}
   padding:10px 0 4px;
 }
 nav a{font-size:14px;text-decoration:none;letter-spacing:.3px;min-height:44px;display:inline-flex;align-items:center}
+
+/* Newspaper page marks in masthead nav */
+nav a .nav-pg{
+  font-size:10px;
+  font-weight:400;
+  letter-spacing:.2px;
+  text-transform:none;
+  opacity:.72;
+  margin-left:.28em;
+  white-space:nowrap;
+  font-family:inherit;
+  line-height:1;
+  align-self:baseline;
+  position:relative;
+  top:-0.15em;
+}
+nav a{
+  align-items:baseline;
+}
+
 .volume-nav{
   padding:8px 4% 12px;
   border-bottom:1px solid var(--ink);
