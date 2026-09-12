@@ -7,7 +7,7 @@ Domain owned by user: hedidntjump.com
 ## Task for Grok
 Upload this complete snapshot to the existing repository. Preserve the website's wording, the 21 entries in their present order, five Volume I-V links, the Aziel Eliab credit, the five original PDFs, and all reader images. Do not rewrite or regenerate content.
 
-The complete static site is in dist/. docs/ is an identical GitHub Pages copy (plus CNAME). Serve either as the web root. Links begin with / and therefore require root hosting, not a /repository-name/ subdirectory.
+The complete static site is in dist/. docs/ is an identical GitHub Pages copy (plus CNAME). Serve either as the web root. Links begin with / and therefore require root hosting, not a /repository-name/ subdirectory. The landing paper now carries 23 inquiries of the record.
 
 Live view and download pills call a Cloudflare Worker + KV stub:
 
@@ -45,7 +45,7 @@ GitHub upload does not activate the custom domain. For a static host, serve dist
 
 ## Acceptance checks
 - Landing page opens with portrait, styling and favicon.
-- Exactly 21 case entries open and close, in existing order.
+- Exactly 23 case entries open and close, in existing order.
 - Volume I-V controls open matching readers.
 - Reader page totals are 20, 20, 21, 15, 14.
 - Previous/next, page selector, direct page links and PDF downloads work.
