@@ -18,7 +18,7 @@ import { appendDenial, gateUpload, readLedger, readObject, sniffType } from "./f
 const ALLOWED_ORIGIN = [
   /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/i,
   /^https:\/\/([a-z0-9-]+\.)?hedidntjump\.com$/i,
-  /^https:\/\/[a-z0-9-]+\.pages\.dev$/i,
+  /^https:\/\/([a-z0-9-]+\.)+pages\.dev$/i,
   /^https:\/\/azieleliab\.github\.io$/i,
 ];
 

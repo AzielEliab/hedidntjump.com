@@ -34,3 +34,6 @@
 
 /style.css
   Cache-Control: no-store, max-age=0, must-revalidate
+
+/stats.js
+  Cache-Control: no-store, max-age=0, must-revalidate
