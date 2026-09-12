@@ -5,7 +5,7 @@
     {
       "path": "README.md",
       "bytes": 3779,
-      "sha256": "36a28afcbb043a15fe62f3abc43baff136e696f25e9810fca57d3e9178a79148"
+      "sha256": "4c2def94908a868c516dd831c7e8568c423683b6d5ca625547841cfd33690cf1"
     },
     {
       "path": "dist/_headers",
@@ -674,18 +674,18 @@
     },
     {
       "path": "dist/index.html",
-      "bytes": 47854,
-      "sha256": "7842fac6b7424c8ee213c78c41a020c3b5a0867a1841c442d82b4e15f9f377ea"
+      "bytes": 54425,
+      "sha256": "8537fcad3fae77ce1e7e026f4d2799c3e81c9877beb755da0d3d8b86ce314e96"
     },
     {
       "path": "dist/llms-full.txt",
-      "bytes": 5111,
-      "sha256": "42f78276edf93e0278c9f038da4cbb5d0bd4487f401a0edd67b8354899e0fbfc"
+      "bytes": 5479,
+      "sha256": "3b2bc5af30dd10205d8e91942758b7956ce4e8375dd21a57e84e62b7f20540df"
     },
     {
       "path": "dist/llms.txt",
-      "bytes": 3172,
-      "sha256": "ee2868d48a8a249d8a0b4893595c1daebccce742f4a4be84b7700d467d1dee23"
+      "bytes": 3169,
+      "sha256": "84f3d86764a6fd996c65caef1c88aaa098d7154a7b95d99bbf97ff277e1d29de"
     },
     {
       "path": "dist/reader.html",
@@ -704,8 +704,8 @@
     },
     {
       "path": "dist/rubye.html",
-      "bytes": 28222,
-      "sha256": "eac2cb02650faef6ae477dcf53fb594677eaeced5bd079624ce026d5f1d7efc6"
+      "bytes": 28310,
+      "sha256": "4a5201db6ac53b6377ca29cf57066564c19504b10306f7d9dca8ec78d7481cbb"
     },
     {
       "path": "dist/sitemap.xml",
@@ -754,13 +754,13 @@
     },
     {
       "path": "scripts/inject_seo.py",
-      "bytes": 41737,
-      "sha256": "fd0477e1454e4b7d31129a704bb545dfb2f75a35f42001b4d62681ee8e33a7ac"
+      "bytes": 42104,
+      "sha256": "4421fd5697caf49e486a18bcc8d97f13106c077913542b35400902783367caca"
     },
     {
       "path": "verify_handoff.py",
       "bytes": 928,
-      "sha256": "370c69c5701cdac3f6ae04fd9462de6ccf1844940095aa8f55a3c4c17e5c2586"
+      "sha256": "3d8948fb8401f4bc9f63d67e4e219e87ee5cac4e7afe77e9a4ead3a91bf6ff6d"
     }
   ]
 }
