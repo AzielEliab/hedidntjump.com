@@ -1,0 +1,235 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [4 0 R 6 0 R 8 0 R 10 0 R] /Count 4 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 5 0 R >>
+endobj
+5 0 obj
+<< /Length 1666 >>
+stream
+BT
+/F1 11 Tf
+14 TL
+1 0 0 1 50 720 Tm
+(CITATION TRANSCRIPT ? NOT A SCAN OF THE AUTHOR'S ORIGINAL FILE) Tj
+1 0 0 1 50 704 Tm
+(Prepared for hedidntjump.com because the original PDF bytes were not available in this) Tj
+1 0 0 1 50 688 Tm
+(environment.) Tj
+1 0 0 1 50 672 Tm
+() Tj
+/F1 16 Tf
+1 0 0 1 50 656 Tm
+(Acknowledgement of Structural Failure in FOIA Practice) Tj
+/F1 11 Tf
+/F1 12 Tf
+1 0 0 1 50 634 Tm
+(The Time-Volume / Cost Binary as Controlled Access) Tj
+/F1 11 Tf
+1 0 0 1 50 614 Tm
+(Aziel · 28 July 2026) Tj
+1 0 0 1 50 598 Tm
+() Tj
+1 0 0 1 50 582 Tm
+(Abstract) Tj
+1 0 0 1 50 566 Tm
+(The Freedom of Information Act establishes a statutory right of access to federal) Tj
+1 0 0 1 50 550 Tm
+(agency records. In operational practice that right is rationed by two primary mechanisms) Tj
+1 0 0 1 50 534 Tm
+(that together convert the statute into a system of controlled disclosure: \(1\) strict) Tj
+1 0 0 1 50 518 Tm
+(processing clocks and volume limits that force agencies toward denial or minimal) Tj
+1 0 0 1 50 502 Tm
+(production, and \(2\) search and review fees that externalize cost onto the requester) Tj
+1 0 0 1 50 486 Tm
+(until the request becomes financially prohibitive. Both pathways ? information remains) Tj
+1 0 0 1 50 470 Tm
+(under institutional control. This paper records the binary as an observed structural) Tj
+1 0 0 1 50 454 Tm
+(fact rather than an administrative accident or isolated failure of implementation.) Tj
+1 0 0 1 50 438 Tm
+() Tj
+1 0 0 1 50 422 Tm
+(Keywords: Freedom of Information Act, FOIA, information access, fee barriers,) Tj
+1 0 0 1 50 406 Tm
+(processing delays, transparency architecture, controlled disclosure, public records.) Tj
+ET
+endstreamendobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 7 0 R >>
+endobj
+7 0 obj
+<< /Length 2021 >>
+stream
+BT
+/F1 11 Tf
+14 TL
+1 0 0 1 50 720 Tm
+(1. The Binary Stated) Tj
+1 0 0 1 50 704 Tm
+(FOIA practice, as experienced by independent requesters, reduces to a forced choice:) Tj
+1 0 0 1 50 688 Tm
+(Mode 1 ? Process the request under severe time and volume constraints: the agency) Tj
+1 0 0 1 50 672 Tm
+(denies or releases the absolute minimum that can be justified under exemption language.) Tj
+1 0 0 1 50 656 Tm
+(Mode 2 ? Allow the request to expand in scope or volume: the agency shifts the) Tj
+1 0 0 1 50 640 Tm
+(financial burden onto the requester through search, review, and duplication fees until) Tj
+1 0 0 1 50 624 Tm
+(the cost becomes prohibitive.) Tj
+1 0 0 1 50 608 Tm
+(Either outcome leaves the information under institutional control. Neither outcome) Tj
+1 0 0 1 50 592 Tm
+(constitutes freedom of information. The binary is not a rhetorical device. It is the) Tj
+1 0 0 1 50 576 Tm
+(practical operating surface of the statute as implemented.) Tj
+1 0 0 1 50 560 Tm
+() Tj
+1 0 0 1 50 544 Tm
+(2. Statutory Baseline) Tj
+1 0 0 1 50 528 Tm
+(The Freedom of Information Act, 5 U.S.C. § 552, requires federal agencies to respond to) Tj
+1 0 0 1 50 512 Tm
+(requests within twenty working days. ?Unusual circumstances? may extend that period by) Tj
+1 0 0 1 50 496 Tm
+(ten working days; further delay requires the requester?s agreement. The statute) Tj
+1 0 0 1 50 480 Tm
+(authorizes fees for search, review, and duplication, with different cost structures) Tj
+1 0 0 1 50 464 Tm
+(depending on requester category \(commercial, educational, news media, or other\).) Tj
+1 0 0 1 50 448 Tm
+(Public-interest fee waivers exist in the text and are discretionary in application.) Tj
+1 0 0 1 50 432 Tm
+(These provisions create the formal architecture. The binary arises from the) Tj
+1 0 0 1 50 416 Tm
+(intersection of those provisions with institutional capacity, incentive structures, and) Tj
+1 0 0 1 50 400 Tm
+(the absence of an automatic default-to-disclosure mechanism.) Tj
+1 0 0 1 50 384 Tm
+(Statute reference: https://www.foia.gov/) Tj
+ET
+endstreamendobj
+8 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 9 0 R >>
+endobj
+9 0 obj
+<< /Length 1778 >>
+stream
+BT
+/F1 11 Tf
+14 TL
+1 0 0 1 50 720 Tm
+(3. Mode 1 ? Temporal and Volume Pressure) Tj
+1 0 0 1 50 704 Tm
+(Agencies operate under hard clocks. When a request exceeds internal processing capacity) Tj
+1 0 0 1 50 688 Tm
+(? illustrated by the practical threshold many requesters encounter of roughly one) Tj
+1 0 0 1 50 672 Tm
+(hundred pages within limited processing windows ? the rational institutional response is) Tj
+1 0 0 1 50 656 Tm
+(to narrow the request, invoke exemptions aggressively, issue partial releases, or deny.) Tj
+1 0 0 1 50 640 Tm
+(The statutory clock becomes a control surface. Volume is converted into a defense. The) Tj
+1 0 0 1 50 624 Tm
+(agency that cannot process the full request within the allotted time is not required to) Tj
+1 0 0 1 50 608 Tm
+(expand its capacity; it is permitted to contract the disclosure.) Tj
+1 0 0 1 50 592 Tm
+(This mode does not require bad faith. It requires only ordinary bureaucratic) Tj
+1 0 0 1 50 576 Tm
+(self-preservation under resource constraint. The statute supplies the pressure; the) Tj
+1 0 0 1 50 560 Tm
+(institution supplies the predictable response.) Tj
+1 0 0 1 50 544 Tm
+() Tj
+1 0 0 1 50 528 Tm
+(4. Mode 2 ? Cost as Filter) Tj
+1 0 0 1 50 512 Tm
+(Where the clock cannot finish the work, fees finish the selection. Search and review) Tj
+1 0 0 1 50 496 Tm
+(charges move the cost of institutional opacity onto the requester. A request that would) Tj
+1 0 0 1 50 480 Tm
+(be answerable as a matter of record becomes unanswerable as a matter of price. The) Tj
+1 0 0 1 50 464 Tm
+(public-interest waiver exists on the page and is not the default in the room.) Tj
+1 0 0 1 50 448 Tm
+(Mode 2 is the second door of the same building. It does not open the file. It prices) Tj
+1 0 0 1 50 432 Tm
+(the file until the requester leaves.) Tj
+ET
+endstreamendobj
+10 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 11 0 R >>
+endobj
+11 0 obj
+<< /Length 1588 >>
+stream
+BT
+/F1 11 Tf
+14 TL
+1 0 0 1 50 720 Tm
+(8. Closing Acknowledgement / Section 8) Tj
+1 0 0 1 50 704 Tm
+(Both pathways ration information. Control is retained. That is not freedom of) Tj
+1 0 0 1 50 688 Tm
+(information.) Tj
+1 0 0 1 50 672 Tm
+(The time-volume door \(Mode 1\) and the cost door \(Mode 2\) are not opposite remedies.) Tj
+1 0 0 1 50 656 Tm
+(They are complementary instruments of the same architecture. A denial issued under clock) Tj
+1 0 0 1 50 640 Tm
+(and volume pressure, and a fee estimate that makes production impossible, are two) Tj
+1 0 0 1 50 624 Tm
+(receipts for the same withheld record.) Tj
+1 0 0 1 50 608 Tm
+(This acknowledgement is structural, not personal. It does not require a named villain) Tj
+1 0 0 1 50 592 Tm
+(at a desk. It requires only that the statute as implemented keep the default on the) Tj
+1 0 0 1 50 576 Tm
+(institution?s side of the door.) Tj
+1 0 0 1 50 560 Tm
+(Lived instance cited by the Zioncheck archive: federal-records requests concerning) Tj
+1 0 0 1 50 544 Tm
+(surveillance or monitoring of Marion Zioncheck during 1935?1936 appear in Volume IV and) Tj
+1 0 0 1 50 528 Tm
+(Volume V. The supplied research PDFs contain those requests for records, but no agency) Tj
+1 0 0 1 50 512 Tm
+(denial letter explaining a present-day refusal. The public ledger on /foia.html is the) Tj
+1 0 0 1 50 496 Tm
+(place those denial letters, when they exist, are to be hashed and chained.) Tj
+1 0 0 1 50 480 Tm
+() Tj
+1 0 0 1 50 464 Tm
+(End of citation transcript. For the statute as published by the government, see) Tj
+1 0 0 1 50 448 Tm
+(https://www.foia.gov/) Tj
+ET
+endstreamendobj
+xref
+0 12
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000134 00000 n 
+0000000204 00000 n 
+0000000330 00000 n 
+0000002047 00000 n 
+0000002173 00000 n 
+0000004245 00000 n 
+0000004371 00000 n 
+0000006200 00000 n 
+0000006328 00000 n 
+trailer
+<< /Size 12 /Root 1 0 R >>
+startxref
+7968
+%%EOF

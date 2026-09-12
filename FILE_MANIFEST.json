@@ -1,16 +1,61 @@
 {
   "snapshot_commit": "399eddebd5995e6a195959d4f13f596fd3424726",
-  "file_count": 111,
+  "file_count": 137,
   "files": [
     {
       "path": "README.md",
-      "bytes": 3418,
-      "sha256": "b514deee39f426ebc3bea5738065e35a85fe0c82c1b721812c4f32e5f0c1e35b"
+      "bytes": 3779,
+      "sha256": "36a28afcbb043a15fe62f3abc43baff136e696f25e9810fca57d3e9178a79148"
+    },
+    {
+      "path": "dist/assets/arctic-building-1917.webp",
+      "bytes": 186030,
+      "sha256": "a1c2e04b93640c30f9cf963b72c15b87f18ed3250fcd73e927fa7f265311ba67"
     },
     {
       "path": "dist/assets/arctic-building.webp",
       "bytes": 186030,
       "sha256": "a1c2e04b93640c30f9cf963b72c15b87f18ed3250fcd73e927fa7f265311ba67"
+    },
+    {
+      "path": "dist/assets/arctic-old-club-1909.webp",
+      "bytes": 295552,
+      "sha256": "675be80a581c25b49e1c9eee7071d7c0aa88c1bd165044768fbddb0b6e34be31"
+    },
+    {
+      "path": "dist/assets/arctic-old-morrison.webp",
+      "bytes": 70648,
+      "sha256": "de57da9a20957044705d899491803f0c4a8d9dd329d7fb10362594f54755d013"
+    },
+    {
+      "path": "dist/assets/arctic-two-buildings.webp",
+      "bytes": 106174,
+      "sha256": "ef2fa08a0b826cc9adc3f69aefb5680491b93cdc34c7e5d4fe86f5f476b2efe6"
+    },
+    {
+      "path": "dist/assets/foia-binary-acknowledgement.pdf",
+      "bytes": 8274,
+      "sha256": "160c8e713257ea1085fea831223b2209856bd1b98837440b4ac77c516bbf35c0"
+    },
+    {
+      "path": "dist/assets/fonts/fonts.css",
+      "bytes": 553,
+      "sha256": "68528cb4b2e556df3e983c800884dcce46ed55e6c454c53b09a453015eaab187"
+    },
+    {
+      "path": "dist/assets/fonts/playfair-700-latin.woff2",
+      "bytes": 38404,
+      "sha256": "e0c764a8e9e1cce92163c55bac4b2ad6cd4cf8c696ce2289ab5c41565e65b7e2"
+    },
+    {
+      "path": "dist/assets/fonts/playfair-italic-latin.woff2",
+      "bytes": 38804,
+      "sha256": "54af24bd0f911f0fd7399d5445ea2023ff501d6a69f2d728f1213072f977ab14"
+    },
+    {
+      "path": "dist/assets/fonts/unifrakturcook-700.woff2",
+      "bytes": 17280,
+      "sha256": "3304757748716ececd1b87999cb92d61ff5332aefbe8331d5155bbb68218e588"
     },
     {
       "path": "dist/assets/marion-gravestone.webp",
@@ -26,6 +71,91 @@
       "path": "dist/assets/marion-zioncheck.webp",
       "bytes": 249188,
       "sha256": "739efbe2e5525f6b6175107360bf6d0e3ab36de06dfd4659a0ec287c47ade8c5"
+    },
+    {
+      "path": "dist/assets/plates/arctic-window-arrows.webp",
+      "bytes": 145164,
+      "sha256": "12684ee1390e7459d9f74b086e70b2b46f266ea6783a57b6b8b0a2dc9bc7e487"
+    },
+    {
+      "path": "dist/assets/plates/bolton-record.webp",
+      "bytes": 78192,
+      "sha256": "d39975919636b72e2dab5713712bebf9986e4308a965a6ff173a1d45e23dac73"
+    },
+    {
+      "path": "dist/assets/plates/could-not-remain-silent.webp",
+      "bytes": 201928,
+      "sha256": "e15e8fa3916dc449b36b50902f5201ce024ab0e0c84919d8432de460604264e7"
+    },
+    {
+      "path": "dist/assets/plates/death-certificate.webp",
+      "bytes": 49792,
+      "sha256": "d2ec703547e4be537cc3300a811f657943929a370ca1b690684e3cc4d2bc81ed"
+    },
+    {
+      "path": "dist/assets/plates/gallinger-hospital.webp",
+      "bytes": 234708,
+      "sha256": "2b0aaba857c5d3d0a1bfc2d56426318aa90b13f62fd7e31046122b2caafa7971"
+    },
+    {
+      "path": "dist/assets/plates/house-note.webp",
+      "bytes": 27904,
+      "sha256": "766fbaad04d566a1a7b1048ae14cef21e5ee40a4e8d4c42605e9b34803521169"
+    },
+    {
+      "path": "dist/assets/plates/marion-microphone.webp",
+      "bytes": 21586,
+      "sha256": "bae35c3cac66bb2923d525329c61bd1d08a66c7ee9f80b5ac1c67227f8ca8fb0"
+    },
+    {
+      "path": "dist/assets/plates/nadeau-chapter.webp",
+      "bytes": 71020,
+      "sha256": "f7e698f96e854976c85499e2b758addb7a706d6603c3a5194f41a61009e9e0a1"
+    },
+    {
+      "path": "dist/assets/plates/office-desk.webp",
+      "bytes": 51030,
+      "sha256": "e6f12214c5904e11697e07079bfb00cfaa0ad586cb8763813d6574333764179f"
+    },
+    {
+      "path": "dist/assets/plates/playboy-leaps.webp",
+      "bytes": 96210,
+      "sha256": "36efb991537056a3d47d4237d7087d49fff6293ce49d01a47355312e18149968"
+    },
+    {
+      "path": "dist/assets/plates/return-seattle.webp",
+      "bytes": 113986,
+      "sha256": "d147560783951c649be1a8de44f2bd75ec9e476362cb7b4ab15c978802091ef6"
+    },
+    {
+      "path": "dist/assets/plates/rubye-lawsuits.webp",
+      "bytes": 48576,
+      "sha256": "10a508d1f2cb2782a2560a3c34248b4c77c4244028862a6379ed51592d07c069"
+    },
+    {
+      "path": "dist/assets/plates/rubye-was-with-him.webp",
+      "bytes": 374788,
+      "sha256": "3bab9e42022b84079a2ee59900a4faaea022f1a8ef45d076590c355e8bc707a6"
+    },
+    {
+      "path": "dist/assets/plates/suicide-friday.webp",
+      "bytes": 93534,
+      "sha256": "a99b90e39aa77c89865adf95894d4cab03920abdc68b1a31e362da45dae4a0dd"
+    },
+    {
+      "path": "dist/assets/plates/there-is-more.webp",
+      "bytes": 183732,
+      "sha256": "c49cb5e82aebf4c5746ddce4da575a63eb2d52cf532a2a399c3160569032ae27"
+    },
+    {
+      "path": "dist/assets/plates/vic-nadeau.webp",
+      "bytes": 55098,
+      "sha256": "99532957f99332c2d83748344d965908616fadcfb153c2bf1f953760c6fe3475"
+    },
+    {
+      "path": "dist/assets/plates/work-or-play.webp",
+      "bytes": 90028,
+      "sha256": "46655eef2e5d6b369ab060f05c558a3eb4b4d6d1fceb378ab4f9d337d9e0d228"
     },
     {
       "path": "dist/assets/v1/1.webp",
@@ -483,19 +613,34 @@
       "sha256": "5df583f98838368866798f638b63267c21a9c14fec2d6101af122924d52f00b9"
     },
     {
+      "path": "dist/foia.html",
+      "bytes": 16177,
+      "sha256": "e424c158932b6ef286b824ba2639957336aca2302a8beca46f401706143f7a55"
+    },
+    {
+      "path": "dist/foia.js",
+      "bytes": 5329,
+      "sha256": "5720412e9d9758f0ec4c87f4c90927c14cbeaf5aed17c2fc735b6a5b224cef2a"
+    },
+    {
       "path": "dist/index.html",
-      "bytes": 22693,
-      "sha256": "0bfcf93761c046bf8b4dd5864acd648b3ba594ac62a0b858410e4b341f56d1a9"
+      "bytes": 47945,
+      "sha256": "6b155a895d2d1368cb31ea3626ce87440be88d74470bfac645a1287409093c0b"
     },
     {
       "path": "dist/reader.html",
-      "bytes": 2699,
-      "sha256": "90deb07eb49b97f8a833a8cb34a3be37da55643ca7cd63c96b4d6ad93a759de5"
+      "bytes": 2899,
+      "sha256": "39bdcf7091d50b040e391015b474c84dc0b2d7d17c5ce16bb0779d74b54285e0"
     },
     {
       "path": "dist/reader.js",
       "bytes": 2441,
       "sha256": "f1defa027c9e403efb960d3109c27000ac23b5762913f02db9a0a4d6ddaeedc7"
+    },
+    {
+      "path": "dist/rubye.html",
+      "bytes": 9626,
+      "sha256": "797ea4b2ce8d7f65e9613240c80f8970a8bc65391b06991925d292ce877ee82f"
     },
     {
       "path": "dist/stats.js",
@@ -504,8 +649,8 @@
     },
     {
       "path": "dist/style.css",
-      "bytes": 14859,
-      "sha256": "1c627bcf46d38306869b20cbfb901fc5bf3d1a346e90b03acb2ad84f12d21c1c"
+      "bytes": 17814,
+      "sha256": "31a5ac4a5153215ee726b7bd05253eda7ce455cabb1d14f363e7c2706bb6e1a3"
     },
     {
       "path": "dist/volumes.json",
@@ -541,21 +686,6 @@
       "path": "verify_handoff.py",
       "bytes": 884,
       "sha256": "8c5e92d12e80f4a5dc338af5453ea5af8da88c0aed7735672202741d012269a4"
-    },
-    {
-      "path": "dist/assets/arctic-old-morrison.webp",
-      "bytes": 70648,
-      "sha256": "de57da9a20957044705d899491803f0c4a8d9dd329d7fb10362594f54755d013"
-    },
-    {
-      "path": "dist/assets/arctic-old-club-1909.webp",
-      "bytes": 295552,
-      "sha256": "675be80a581c25b49e1c9eee7071d7c0aa88c1bd165044768fbddb0b6e34be31"
-    },
-    {
-      "path": "dist/assets/arctic-two-buildings.webp",
-      "bytes": 106174,
-      "sha256": "ef2fa08a0b826cc9adc3f69aefb5680491b93cdc34c7e5d4fe86f5f476b2efe6"
     }
   ]
 }

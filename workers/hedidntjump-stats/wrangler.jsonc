@@ -12,5 +12,11 @@
       "binding": "STATS",
       "id": "80d1a3920ce2472ba272035e7bbe12aa"
     }
+  ],
+  "r2_buckets": [
+    {
+      "binding": "DENIALS",
+      "bucket_name": "hedidntjump-foia-denials"
+    }
   ]
 }
