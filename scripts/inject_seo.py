@@ -366,7 +366,7 @@ def write_index():
         title="He Didn't Jump — The Marion Zioncheck Archive",
         description=(
             "An Aziel Eliab Project: independent newspaper archive on Marion Zioncheck’s 7 August 1936 death in Seattle. "
-            "Five research volumes, contemporary plates, and 17 inquiries of the record."
+            "Five research volumes, contemporary plates, and 20 inquiries of the record."
         ),
         canonical=f"{ORIGIN}/",
         og_type="article",
@@ -764,7 +764,7 @@ Related, not sameAs: [Donate]({DONATE_URL}). Statute only, not an Aziel property
 
 ## Editions on this host
 
-- [Main paper]({ORIGIN}/): Broadsheet. Lead: “What happened at the Arctic Building?” Seventeen inquiries, plates, two Arctic buildings, volume downloads.
+- [Main paper]({ORIGIN}/): Broadsheet. Lead: “What happened at the Arctic Building?” Twenty inquiries, plates, two Arctic buildings, volume downloads.
 - [Rubye paper]({ORIGIN}/rubye.html): Rubye Nix Zioncheck in the car; Volume II family-battle clippings; later legal actions against Nadeau as Volume V states them. Alias: [{ORIGIN}/aziel.html]({ORIGIN}/aziel.html).
 - [FOIA paper]({ORIGIN}/foia.html): William Nadeau in Volumes IV–V; Aziel’s 28 July 2026 FOIA Binary Acknowledgement; hash-chained ledger of Zioncheck FOIA denials only.
 - [Volume reader]({ORIGIN}/reader.html): Facsimile WebP pages for Volumes I–V.
@@ -815,25 +815,28 @@ He Didn't Jump (hedidntjump.com) is a static newspaper and archive about Marion 
 
 Lead headline: What happened at the Arctic Building?
 
-Seventeen inquiries of the record (titles only; answers live on the page and in the volumes):
+Twenty inquiries of the record (titles only; answers live on the page and in the volumes):
 
 1. Why was Marion sent from Washington, D.C. to Seattle, Washington?
 2. Why do archive records conflict with the official narrative online today?
 3. Why was Marion trying to stay in the media and spotlight?
 4. What can photographs establish?
-5. Where are records to his “Who’s Crazy Now” speech?
-6. Why did Marion dress up for a speech — then decide to “jump”?
-7. Why did his wife never give a statement as the most prolific witness?
-8. Why are the injuries inconsistent with a five-story fall?
-9. Why were so few witnesses named — and why was one of them the person who broke the story?
-10. How and why did the record get meshed between the old Arctic building at 501 3rd Avenue and the new Arctic building at 3rd Avenue and Cherry Street?
-11. Where are his dinner-party speech papers?
-12. Why does his “suicide note” read like part of a speech — and why was it folded if he had just written it?
-13. Where did cousin “Vic” go after that fateful day?
-14. Why was “Vic” there that night when he worked in the opposite Arctic building?
-15. Does Marion’s work and background — from Naval Intelligence to fighting the Alaskan Highway Bill and being backed to establish a third political party — play a role?
-16. Is it a coincidence that Illinois statesman John Bolton died suspiciously less than one month before?
-17. Why are FOIA requests on Marion denied to this day?
+5. Why does Nadeau’s account not match the setup of Zioncheck’s office — and why did his account change?
+6. Where are records to his “Who’s Crazy Now” speech?
+7. Why did Marion dress up for a speech — then decide to “jump”?
+8. Why did his wife never give a statement as the most prolific witness?
+9. Why did Rubye hide testimony in her art for a later generation to find?
+10. Why are the injuries inconsistent with a five-story fall?
+11. Why were so few witnesses named — and why was one of them the person who broke the story?
+12. Why was the janitor unnamed — and why would he have walked away during the event?
+13. How and why did the record get meshed between the old Arctic building at 501 3rd Avenue and the new Arctic building at 3rd Avenue and Cherry Street?
+14. Where are his dinner-party speech papers?
+15. Why does his “suicide note” read like part of a speech — and why was it folded if he had just written it?
+16. Why was cousin “Vic” in the area to witness at all if he worked in another building — and why do minimal records of Vic or his cigar shop exist today?
+17. Does Marion’s work and background — from Naval Intelligence to fighting the Alaskan Highway Bill and being backed to establish a third political party — play a role?
+18. Is it a coincidence that Illinois statesman John Bolton died suspiciously less than one month before?
+19. Why are most of Nadeau’s records missing? Was he naval intelligence too?
+20. Why are FOIA requests on Marion denied to this day?
 
 ## Rubye paper ({ORIGIN}/rubye.html)
 
@@ -957,8 +960,8 @@ def patch_chrome():
             )
         if name == "rubye.html" and 'id="publisher"' not in text:
             text = text.replace(
-                '        <p><a class="text-link" href="/#q07">Inquiry 07 · The wife in the car</a></p>\n      </div>\n',
-                '        <p><a class="text-link" href="/#q07">Inquiry 07 · The wife in the car</a></p>\n      </div>\n'
+                '        <p><a class="text-link" href="/#q09">Inquiry 09 · Testimony in the art</a></p>\n      </div>\n',
+                '        <p><a class="text-link" href="/#q09">Inquiry 09 · Testimony in the art</a></p>\n      </div>\n'
                 + PUBLISHER_BOX,
             )
         if name == "foia.html" and 'id="publisher"' not in text:
