@@ -1118,11 +1118,17 @@ def patch_chrome():
     <span>The Record, Not the Verdict</span>
     <span>Seattle · Friday, August 7, 1936</span>
     <span>An Independent Investigation</span>
+  </div>
+  <div class="nameplate">
+    <a class="brand" href="/">He Didn’t Jump<span>The Marion Zioncheck Archive</span></a>
   </div>""",
                 """  <div class="masthead-flag">
     <span>The Record, Not the Verdict</span>
-    <span class="flag-city">Seattle, Washington</span>
     <span>Friday, August 7, 1936</span>
+  </div>
+  <div class="nameplate">
+    <a class="brand" href="/">He Didn’t Jump<span>The Marion Zioncheck Archive</span></a>
+    <p class="flag-city">Seattle, Washington</p>
   </div>""",
             )
         if name == "index.html" and 'id="publisher"' not in text:
