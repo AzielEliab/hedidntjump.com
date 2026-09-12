@@ -1,0 +1,39 @@
+User-agent: *
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+# No private or admin surfaces are published on this static site.
+# Cloudflare Pages Functions under /api/ are machine endpoints, not editions.
+Disallow: /api/
+Disallow: /functions/
+
+Sitemap: https://hedidntjump.com/sitemap.xml
