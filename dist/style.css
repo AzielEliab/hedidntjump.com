@@ -1304,3 +1304,175 @@ header.masthead[data-wireframe="drawn-v1"] > hr.paper-rule,
 header.masthead[data-wireframe="drawn-v1"] > hr.paper-rule-thick{
   display:none !important;
 }
+
+/* ===== HOMEPAGE VERTICAL COMPACT ===== */
+body[data-stats-page="landing"] header.masthead,
+body[data-stats-page="landing"] header.masthead[data-wireframe="drawn-v1"]{
+  padding-top:6px !important;
+  padding-bottom:0 !important;
+  gap:0 !important;
+}
+body[data-stats-page="landing"] header.masthead[data-wireframe="drawn-v1"] .masthead-flag{
+  padding:2px 0 !important;
+  margin:0 !important;
+  border:0 !important;
+  gap:4px 8px !important;
+}
+body[data-stats-page="landing"] header.masthead[data-wireframe="drawn-v1"] .nameplate{
+  padding:4px 0 0 !important;
+  margin:0 !important;
+  border:0 !important;
+}
+body[data-stats-page="landing"] header.masthead[data-wireframe="drawn-v1"] .masthead .brand span,
+body[data-stats-page="landing"] header.masthead[data-wireframe="drawn-v1"] .brand span{
+  margin-top:2px !important;
+}
+body[data-stats-page="landing"] header.masthead[data-wireframe="drawn-v1"] .flag-city{
+  margin:2px 0 !important;
+}
+body[data-stats-page="landing"] header.masthead[data-wireframe="drawn-v1"] .paper-folio{
+  margin:0 !important;
+  padding:0 !important;
+  min-height:1.15em !important;
+}
+body[data-stats-page="landing"] header.masthead[data-wireframe="drawn-v1"] .rule-triple{
+  margin:1px 0 0 !important;
+  padding:0 !important;
+}
+body[data-stats-page="landing"] header.masthead[data-wireframe="drawn-v1"] nav.paper-tabs{
+  margin:0 !important;
+  padding:2px 0 0 !important;
+  gap:0 !important;
+}
+body[data-stats-page="landing"] header.masthead[data-wireframe="drawn-v1"] nav.paper-tabs .tab-row{
+  margin:0 !important;
+  padding:0 !important;
+}
+body[data-stats-page="landing"] header.masthead[data-wireframe="drawn-v1"] nav.paper-tabs a{
+  padding:0 !important;
+  line-height:1.05 !important;
+}
+
+body[data-stats-page="landing"] main{
+  padding-top:0 !important;
+  padding-bottom:0 !important;
+}
+body[data-stats-page="landing"] .front{
+  gap:10px 16px !important;
+  padding:8px 0 6px !important;
+}
+body[data-stats-page="landing"] .lead-banner{
+  margin:4px 0 6px !important;
+}
+body[data-stats-page="landing"] .lead-banner-center{
+  margin:2px 0 0 !important;
+}
+body[data-stats-page="landing"] .lead .headline{
+  margin:0 0 6px !important;
+  padding-bottom:4px !important;
+}
+body[data-stats-page="landing"] .deck{
+  margin:0 0 8px !important;
+}
+body[data-stats-page="landing"] .lead-columns p{margin:0 0 8px !important;}
+body[data-stats-page="landing"] .kicker{margin:0 0 3px !important;}
+body[data-stats-page="landing"] .portrait,
+body[data-stats-page="landing"] .photo-well,
+body[data-stats-page="landing"] .plate,
+body[data-stats-page="landing"] .stone-well,
+body[data-stats-page="landing"] .arctic-plate,
+body[data-stats-page="landing"] main figure:not(.page-image-well){
+  margin:0 0 6px !important;
+}
+body[data-stats-page="landing"] figcaption,
+body[data-stats-page="landing"] .cutline{
+  margin-top:4px !important;
+  padding-bottom:3px !important;
+  gap:2px !important;
+}
+body[data-stats-page="landing"] .clip-cite{
+  margin:0 0 8px !important;
+  padding:6px 0 6px !important;
+}
+body[data-stats-page="landing"] .edition-rail{gap:8px !important;}
+body[data-stats-page="landing"] .rail-box{padding:8px 10px !important;}
+body[data-stats-page="landing"] .rail-box h2{margin:0 0 4px !important;}
+body[data-stats-page="landing"] .rail-stats li{padding:4px 0 !important;}
+body[data-stats-page="landing"] .vertical-banner{padding:4px 0 !important;}
+
+body[data-stats-page="landing"] .inquiry{
+  margin:8px 0 !important;
+  padding:8px 10px !important;
+}
+body[data-stats-page="landing"] .inquiry-kicker{margin:0 0 3px !important;}
+body[data-stats-page="landing"] .inquiry h3{margin:0 0 4px !important;}
+body[data-stats-page="landing"] .inquiry p{margin:0 0 6px !important;}
+
+body[data-stats-page="landing"] .spread{
+  padding:10px 0 !important;
+}
+body[data-stats-page="landing"] .spread-head{
+  margin-bottom:8px !important;
+  padding-bottom:4px !important;
+  gap:6px 12px !important;
+}
+body[data-stats-page="landing"] .two-arctics-grid{gap:8px 12px !important;}
+body[data-stats-page="landing"] .two-arctics-note{margin:6px 0 0 !important;}
+body[data-stats-page="landing"] .building-trio{
+  gap:8px !important;
+  margin-top:8px !important;
+}
+
+body[data-stats-page="landing"] .story{
+  padding:10px 0 !important;
+}
+body[data-stats-page="landing"] .story-body p{margin:0 0 8px !important;}
+body[data-stats-page="landing"] .headline{margin:0 0 6px !important;}
+
+body[data-stats-page="landing"] .inquiry-index{
+  padding:12px 0 6px !important;
+}
+body[data-stats-page="landing"] .inquiry-index h2{margin:0 0 4px !important;}
+body[data-stats-page="landing"] .index-lead{margin:0 0 8px !important;}
+body[data-stats-page="landing"] .index-list{margin:0 0 10px !important;gap:2px 12px !important;}
+body[data-stats-page="landing"] .index-list a{padding:4px 0 !important;min-height:0 !important;}
+body[data-stats-page="landing"] .questions summary{
+  padding:8px 0 !important;
+  gap:8px !important;
+  min-height:0 !important;
+}
+body[data-stats-page="landing"] .detail{margin:0 0 10px 28px !important;}
+body[data-stats-page="landing"] .question-sources{gap:4px !important;}
+
+body[data-stats-page="landing"] .closing{padding:12px 0 10px !important;}
+body[data-stats-page="landing"] .closing h2{margin:4px 0 8px !important;}
+body[data-stats-page="landing"] .archive-toolbar{margin:0 0 10px !important;gap:6px !important;}
+body[data-stats-page="landing"] .button,
+body[data-stats-page="landing"] .download-all,
+body[data-stats-page="landing"] .volume-download{
+  padding:8px 12px !important;
+  gap:8px !important;
+}
+body[data-stats-page="landing"] .volume-buttons{gap:8px !important;}
+body[data-stats-page="landing"] .volume-button strong{padding:8px 10px 0 !important;}
+body[data-stats-page="landing"] .volume-caption{padding:6px 10px 6px !important;}
+body[data-stats-page="landing"] .stone-block{padding:12px 0 4px !important;}
+
+body[data-stats-page="landing"] .project-strip-inner{padding:8px 0 !important;}
+body[data-stats-page="landing"] footer{
+  padding:14px 4% !important;
+  gap:10px 16px !important;
+}
+body[data-stats-page="landing"] .dateline{
+  padding:4px 0 6px !important;
+  gap:4px 10px !important;
+}
+body[data-stats-page="landing"] .text-link,
+body[data-stats-page="landing"] .inquiry-source a,
+body[data-stats-page="landing"] .question-sources a,
+body[data-stats-page="landing"] figcaption a,
+body[data-stats-page="landing"] .cutline a,
+body[data-stats-page="landing"] .clip-cite a{
+  min-height:0 !important;
+  padding:2px 0 !important;
+}
