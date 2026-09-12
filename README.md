@@ -14,6 +14,8 @@ Live view and download pills call a Cloudflare Worker + KV stub:
 - Client: `/stats.js` → `/api/stats` and `/api/hit?type=view|download&id=...`
 - Worker: `workers/hedidntjump-stats/` (CORS for hedidntjump.com, *.pages.dev, localhost)
 - Deploy: `npx wrangler deploy` from that folder. Default host is set in `<meta name="hdj-stats-api">`.
+- FOIA paper: `/foia.html` (Nadeau columns + Aziel’s FOIA Binary editorial + hash-chained denial ledger). Rubye / Aziel project paper: `/rubye.html`.
+- Ledger upload: `POST /api/foia/upload` (Zioncheck FOIA denials only). Create R2 bucket `hedidntjump-foia-denials` and bind `DENIALS` before public uploads work — see `workers/hedidntjump-stats/README.md`.
 
 Drop historic plates over the placeholders at `/assets/arctic-building.webp`, `/assets/marion-rubye.webp`, and `/assets/marion-gravestone.webp`. Optional all-volumes zip: `scripts/make-all-volumes-zip.sh` (otherwise the landing control downloads each PDF).
 
