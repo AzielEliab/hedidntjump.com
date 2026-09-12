@@ -719,8 +719,8 @@
     },
     {
       "path": "dist/style.css",
-      "bytes": 21301,
-      "sha256": "7724ce49ad70a5f620d1ace022b0325904090e8763fb8dd0b440ed4e25a24f3d"
+      "bytes": 21620,
+      "sha256": "f702ed9890d918ad98d90526d7d77319d44d1425b7f36bb746ced531c02422cc"
     },
     {
       "path": "dist/volumes.json",

@@ -221,7 +221,13 @@ nav a:hover,.text-link:hover,.cutline a:hover{color:var(--red)}
 }
 .large{font:21px/1.4 Georgia,serif}
 .muted{color:var(--muted)}
-.text-link{font-size:14px;text-underline-offset:4px}
+.text-link{
+  display:inline-flex;
+  align-items:center;
+  font-size:14px;
+  text-underline-offset:4px;
+  min-height:44px;
+}
 
 .portrait,.photo-well,.plate,.stone-well,.arctic-plate{
   margin:0 0 12px;
@@ -275,6 +281,11 @@ figcaption span:first-child,.cutline strong{
   letter-spacing:1px;
   font-weight:700;
   text-transform:uppercase;
+}
+figcaption a,.cutline a{
+  display:inline-flex;
+  align-items:center;
+  min-height:44px;
 }
 
 .edition-rail{
@@ -335,7 +346,12 @@ figcaption span:first-child,.cutline strong{
 .inquiry p{margin:0 0 10px;font-size:15px}
 .inquiry p:last-child{margin-bottom:0}
 .inquiry-source{display:flex;flex-direction:column;align-items:flex-start;gap:6px}
-.inquiry-source a{font-size:13px}
+.inquiry-source a{
+  display:inline-flex;
+  align-items:center;
+  font-size:13px;
+  min-height:44px;
+}
 
 /* —— Photo features / articles —— */
 .spread{
@@ -449,6 +465,11 @@ figcaption span:first-child,.cutline strong{
 .detail{margin:0 0 18px 34px;max-width:46em}
 .detail a{font-size:14px}
 .question-sources{display:flex;flex-direction:column;align-items:flex-start;gap:8px}
+.question-sources a{
+  display:inline-flex;
+  align-items:center;
+  min-height:44px;
+}
 
 /* —— Archive / volumes —— */
 .closing{padding:28px 0 18px}
