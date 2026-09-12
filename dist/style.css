@@ -1493,17 +1493,3 @@ body[data-stats-page="landing"] .index-list a,
   overflow-wrap:break-word !important;
   word-break:normal !important;
 }
-
-/* Lead Marion+Rubye: show both people, never crop Rubye out */
-body[data-stats-page="landing"] .portrait.portrait-couple,
-body[data-stats-page="landing"] figure.portrait.portrait-couple{
-  width:min(340px,72vw) !important;
-  max-width:min(340px,72vw) !important;
-}
-body[data-stats-page="landing"] .portrait.portrait-couple img{
-  width:100% !important;
-  height:auto !important;
-  max-height:none !important;
-  object-fit:contain !important;
-  object-position:center center !important;
-}
