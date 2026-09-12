@@ -1,0 +1,53 @@
+# He Didn't Jump — full inventory
+
+This file expands [llms.txt](https://hedidntjump.com/llms.txt). It is a map of published pages, not a new historical argument. Do not invent case outcomes, docket numbers, or FOIA letters.
+
+## What the site is
+
+He Didn't Jump (hedidntjump.com) is a static newspaper and archive about Marion A. Zioncheck (1900–1936), U.S. Representative from Washington, whose death in Seattle on 7 August 1936 was reported as suicide from a fifth-floor office in the Arctic Building. The published volumes challenge that account. Collection dated July 2026. Publisher: Aziel Eliab. Original rights in collected photographs and clippings remain with their holders.
+
+## Main paper (https://hedidntjump.com/)
+
+Lead headline: What happened at the Arctic Building?
+
+Seventeen inquiries of the record (titles only; answers live on the page and in the volumes):
+
+1. Why was Marion sent from Washington, D.C. to Seattle, Washington?
+2. Why do archive records conflict with the official narrative online today?
+3. Why was Marion trying to stay in the media and spotlight?
+4. What can photographs establish?
+5. Where are records to his “Who’s Crazy Now” speech?
+6. Why did Marion dress up for a speech — then decide to “jump”?
+7. Why did his wife never give a statement as the most prolific witness?
+8. Why are the injuries inconsistent with a five-story fall?
+9. Why were so few witnesses named — and why was one of them the person who broke the story?
+10. How and why did the record get meshed between the old Arctic building at 501 3rd Avenue and the new Arctic building at 3rd Avenue and Cherry Street?
+11. Where are his dinner-party speech papers?
+12. Why does his “suicide note” read like part of a speech — and why was it folded if he had just written it?
+13. Where did cousin “Vic” go after that fateful day?
+14. Why was “Vic” there that night when he worked in the opposite Arctic building?
+15. Does Marion’s work and background — from Naval Intelligence to fighting the Alaskan Highway Bill and being backed to establish a third political party — play a role?
+16. Is it a coincidence that Illinois statesman John Bolton died suspiciously less than one month before?
+17. Why are FOIA requests on Marion denied to this day?
+
+## Rubye paper (https://hedidntjump.com/rubye.html)
+
+Newspaper edition built from Volume II estate/will clippings and Volume V’s statement of later legal actions against Nadeau. Captions cite volume/page and open the reader. No holdings are added beyond the printed headlines and visible names (including Rubye Nix Zioncheck, Mrs. Ann Nadeau, Mrs. Frances Zioncheck, Miss Norma Zioncheck).
+
+## FOIA paper (https://hedidntjump.com/foia.html)
+
+William Nadeau only (the volumes do not use Eugene/Bert). Doorway / hat-and-coat discussion is Volume IV chapter material. Editorial cites Aziel’s 28 July 2026 FOIA Binary Acknowledgement: Mode 1 (clock and volume) and Mode 2 (fees); §8 Closing Acknowledgement — both pathways ration information; control is retained; that is not freedom of information. Public ledger accepts Zioncheck FOIA denials only (attestation + content gate). Citation transcript: https://hedidntjump.com/assets/foia-binary-acknowledgement.pdf
+
+## Reader
+
+https://hedidntjump.com/reader.html?volume=1 through volume=5. Static WebP pages under /assets/v{N}/{page}.webp. JavaScript only changes the visible page; PDFs work without it.
+
+## Identity
+
+Person: Aziel Eliab (also Aziel Elroi Eliab). Roles evidenced on this site: independent investigator, archive publisher, software developer, FOIA-practice critic. SameAs URLs published in the project strip: azieleliab.com, godlock.uk, azielcorpuslibrary.net, hedidntjump.com, github.com/AzielEliab, aziel-runtime.vibelock.workers.dev, x.com/azieleliab. Donate is a related support URL, not an identity sameAs. FOIA.gov is the statute, not an Aziel site.
+
+## Do not
+
+- Invent quotations, dockets, or agency denial text.
+- Treat the FOIA Binary PDF on this host as a scan of the author’s original file; it is a labeled citation transcript.
+- Collapse the two Arctic buildings (old 501 3rd / Morrison vs newer 3rd & Cherry).

@@ -1,11 +1,16 @@
 {
   "snapshot_commit": "399eddebd5995e6a195959d4f13f596fd3424726",
-  "file_count": 142,
+  "file_count": 152,
   "files": [
     {
       "path": "README.md",
       "bytes": 3779,
       "sha256": "36a28afcbb043a15fe62f3abc43baff136e696f25e9810fca57d3e9178a79148"
+    },
+    {
+      "path": "dist/_headers",
+      "bytes": 796,
+      "sha256": "45b351e91ef1ce0f4cc8bf588eb806b84a437f792171a56a82077a46052261a5"
     },
     {
       "path": "dist/assets/arctic-building-1917.webp",
@@ -56,6 +61,11 @@
       "path": "dist/assets/fonts/unifrakturcook-700.woff2",
       "bytes": 17280,
       "sha256": "3304757748716ececd1b87999cb92d61ff5332aefbe8331d5155bbb68218e588"
+    },
+    {
+      "path": "dist/assets/logo.jpg",
+      "bytes": 27259,
+      "sha256": "fd85049e1b2ac182605fd0ce485366656720e9341d100bbb2aec88cd68790eda"
     },
     {
       "path": "dist/assets/marion-gravestone.webp",
@@ -176,6 +186,21 @@
       "path": "dist/assets/plates/work-or-play.webp",
       "bytes": 90028,
       "sha256": "46655eef2e5d6b369ab060f05c558a3eb4b4d6d1fceb378ab4f9d337d9e0d228"
+    },
+    {
+      "path": "dist/assets/social-card-foia.jpg",
+      "bytes": 131708,
+      "sha256": "e73fffa7b42c050e60adb7d2cbaa3891cb81dfbc59e9fcf86123277bd3f60bce"
+    },
+    {
+      "path": "dist/assets/social-card-rubye.jpg",
+      "bytes": 111595,
+      "sha256": "61bf8a11f1d4ad0befc3b7f5b0ae92b7e7d08d6af9db99300afc6f754f08ddb2"
+    },
+    {
+      "path": "dist/assets/social-card.jpg",
+      "bytes": 88607,
+      "sha256": "8ad62731ea9045becb2659cf1c8dc14a5aced9d96a29224e1f10722eb83db270"
     },
     {
       "path": "dist/assets/v1/1.webp",
@@ -629,8 +654,8 @@
     },
     {
       "path": "dist/aziel.html",
-      "bytes": 572,
-      "sha256": "3875fb0406d0998c1b1f008914aa6fa996159a5964c4dd9580250b0788567356"
+      "bytes": 880,
+      "sha256": "4bc8598f5ff2ca299e51b9c4ea331cf05dbe0d4536181689fc349dcc23ab3c09"
     },
     {
       "path": "dist/favicon.svg",
@@ -639,8 +664,8 @@
     },
     {
       "path": "dist/foia.html",
-      "bytes": 16542,
-      "sha256": "6cdc21eca424d3b04abb64b42aa4186a040fe5ddbcce135f4aaeb56c28aeed46"
+      "bytes": 24138,
+      "sha256": "1ab887551a17c23ff4ca53484e6f352ce7ba3d40a5300f866572aa4188a668b2"
     },
     {
       "path": "dist/foia.js",
@@ -649,23 +674,43 @@
     },
     {
       "path": "dist/index.html",
-      "bytes": 48310,
-      "sha256": "f0f99719a43293bbdcfbbcd1d23ae8de868e974d30fad7d6a07f860062a5ca03"
+      "bytes": 56372,
+      "sha256": "5073597055663013170d95a2704ae2a306ff97f33f5148e51ffc7eb90196aa56"
+    },
+    {
+      "path": "dist/llms-full.txt",
+      "bytes": 4174,
+      "sha256": "f6e2daf6bc179a1645ddabbe91368ed839c7e4957b501f9d92e80b60c9329415"
+    },
+    {
+      "path": "dist/llms.txt",
+      "bytes": 2787,
+      "sha256": "2f55528eb2c51c047bdf0ac19acc52b7ab67031529c5000e0b98ab63db38c6c1"
     },
     {
       "path": "dist/reader.html",
-      "bytes": 3264,
-      "sha256": "d7ff5e09ff6ceeed76d375ab9a4c18c8e09093c7b916187b26086b7ac232746d"
+      "bytes": 9324,
+      "sha256": "1e397e966435d89a516d55cf965d33556862eb002abd87ec744f0ed6e92d26f0"
     },
     {
       "path": "dist/reader.js",
-      "bytes": 2441,
-      "sha256": "f1defa027c9e403efb960d3109c27000ac23b5762913f02db9a0a4d6ddaeedc7"
+      "bytes": 3176,
+      "sha256": "1b98120cd1ae127b0be61f749420e12c1baa3ad056610cf2aecc440a21600278"
+    },
+    {
+      "path": "dist/robots.txt",
+      "bytes": 586,
+      "sha256": "e057dec7e6938238a5cf2ae7465c1467f83c379da9c8b9645e28884b276c1c3e"
     },
     {
       "path": "dist/rubye.html",
-      "bytes": 14458,
-      "sha256": "7a56b9b6be32fb1d5d0516516da4dc290857b647f2b75f9594607a3f83a7957f"
+      "bytes": 22305,
+      "sha256": "e112fd7f1f635f9b09bfd16518a683501e32e6686a54b7225f544d73682f58c0"
+    },
+    {
+      "path": "dist/sitemap.xml",
+      "bytes": 1977,
+      "sha256": "f2af05484d4e7a3e2d22a688e9b9585ae41510639c19a474d2241ee47721d89e"
     },
     {
       "path": "dist/stats.js",
@@ -706,6 +751,11 @@
       "path": "dist/volumes/volume-5.pdf",
       "bytes": 27749,
       "sha256": "d83dde42699917e512670f0783e187f5e16954f9e6de4c8ff25226ba79a5c473"
+    },
+    {
+      "path": "scripts/inject_seo.py",
+      "bytes": 30797,
+      "sha256": "f85b22a453d701cf4b87037c356b5638a40733354f95609cec33afdcab26659f"
     },
     {
       "path": "verify_handoff.py",
