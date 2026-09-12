@@ -150,7 +150,7 @@ h1{
   margin:22px 0;
 }
 h1 em{font-style:italic;color:var(--red)}
-.deck{font:29px/1.2 Georgia,serif;margin:22px 0}
+.deck{font:clamp(20px,3.2vw,29px)/1.2 Georgia,serif;margin:22px 0}
 .intro{max-width:450px;color:var(--muted)}
 .button{
   display:inline-flex;
@@ -231,11 +231,13 @@ h2{font:clamp(32px,5vw,48px)/1.1 Georgia,serif;letter-spacing:-1.2px;margin:16px
 .questions summary{
   list-style:none;
   cursor:pointer;
-  padding:23px 0;
+  padding:14px 0;
+  min-height:44px;
   display:flex;
   align-items:baseline;
   gap:30px;
-  font:25px/1.3 Georgia,serif;
+  font:clamp(18px,3.4vw,25px)/1.3 Georgia,serif;
+  overflow-wrap:anywhere;
 }
 .questions summary::-webkit-details-marker{display:none}
 .questions summary>span:first-child{font:13px Arial,Helvetica,sans-serif;color:var(--red);flex-shrink:0;min-width:20px}
@@ -245,7 +247,7 @@ h2{font:clamp(32px,5vw,48px)/1.1 Georgia,serif;letter-spacing:-1.2px;margin:16px
 .detail a{font-size:14px}
 .question-sources{display:flex;flex-direction:column;align-items:flex-start;gap:8px}
 .closing{padding:70px 0 40px}
-.closing h2{font-size:52px}
+.closing h2{font-size:clamp(32px,5.5vw,52px)}
 .archive-toolbar{
   display:flex;
   justify-content:flex-start;
@@ -366,7 +368,12 @@ footer p{color:var(--muted)}
   background:var(--paper);
   color:var(--ink);
   font:14px Georgia,serif;
-  min-height:42px;
+  min-height:44px;
+}
+.reader-controls a{
+  min-height:44px;
+  display:inline-flex;
+  align-items:center;
 }
 .reader-controls button{cursor:pointer}
 .reader-controls button:disabled{opacity:.35;cursor:default}
@@ -443,46 +450,68 @@ select{max-width:100%}
 
 
 /* Adaptive hardening + two Arctic buildings */
-html,body{overflow-x:hidden}
-img,svg,video{max-width:100%;height:auto}
+html,body{overflow-x:clip;max-width:100%}
+img,svg,video{max-width:100%}
+.photo-well img,.stone-well img,.arctic-plate img,.page-image{height:auto}
+.masthead-flag,.dateline,.collection-strip,.hero-copy,.case-text,.volume-button,.project-strip-inner,footer{min-width:0}
+.project-strip-inner{display:flex;flex-wrap:wrap}
 .project-tab{
   display:inline-flex;align-items:center;justify-content:center;
   min-height:44px;padding:10px 14px;border:1px solid #f3e6c8;
   color:#f3e6c8;text-decoration:none;font-size:13px;letter-spacing:.04em;
-  white-space:nowrap;
+  overflow-wrap:anywhere;text-align:center;
 }
 .project-tab.brand-tab{background:#f3e6c8;color:#2a241c;border-color:#f3e6c8;font-weight:700}
-.project-tab:hover{background:#f3e6c8;color:#2a241c}
-.volume-download,.download-all,.button,.pill{min-height:44px}
-.stat-pills .pill,.pill{
-  display:inline-flex;align-items:center;gap:6px;
-  min-height:36px;padding:6px 10px;border:1px solid var(--ink);
-  text-decoration:none;font-size:12px;letter-spacing:.04em;
+.project-tab:hover,.project-tab:focus-visible{background:#9c2a22;border-color:#9c2a22;color:#f6ecd4}
+.volume-download,.download-all,.button,.pill,.stat-pills .pill,footer>a:last-child{
+  min-height:44px;
+  display:inline-flex;
+  align-items:center;
 }
+.stat-pills{display:flex;flex-wrap:wrap;gap:8px}
+.stat-pills .pill,.pill{
+  gap:6px;
+  padding:8px 12px;
+  border:1px solid var(--line);
+  text-decoration:none;
+  font-size:12px;
+  letter-spacing:.04em;
+}
+footer{flex-wrap:wrap}
 .two-arctics{margin:28px 0 8px;padding:18px 0 8px;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
 .two-arctics-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:stretch}
-.arctic-plate{margin:0}
+.arctic-plate{margin:0;min-width:0}
 .arctic-plate img{width:100%;height:auto;display:block;border:1px solid var(--ink);background:#ece6d8;object-fit:cover;aspect-ratio:4/3}
 .arctic-plate figcaption{display:flex;flex-direction:column;gap:2px;margin-top:8px;font-family:Georgia,"Times New Roman",serif;font-size:12px;letter-spacing:.02em}
 .arctic-plate figcaption span:first-child{font-weight:700;text-transform:uppercase}
 .arctic-plate figcaption span:last-child{color:#444;font-style:italic}
 .two-arctics-note{margin:12px 0 0;font-family:Georgia,"Times New Roman",serif;font-size:14px;line-height:1.45;max-width:62ch}
 @media (max-width:900px){
+  .hero{grid-template-columns:1fr}
+  .hero-copy{border-right:none;padding-right:0;border-bottom:1px solid var(--rule);padding-bottom:18px}
   .project-strip-inner{gap:8px}
   .project-tab{font-size:12px;padding:10px 12px}
   .archive-toolbar{width:100%}
   .download-all{width:100%;justify-content:center}
 }
+@media (max-width:768px){
+  .masthead-flag{flex-wrap:wrap;gap:6px 12px}
+  .paper-name{letter-spacing:2px}
+  footer{gap:18px}
+}
 @media (max-width:720px){
   .two-arctics-grid{grid-template-columns:1fr}
   .stat-pills{width:100%}
   .dateline{flex-wrap:wrap;gap:8px}
+  .dateline > span:nth-child(3){display:none}
 }
 @media (max-width:620px){
+  .masthead-flag span:nth-child(2),.masthead-flag span:nth-child(3){display:none}
   .project-strip-inner{justify-content:stretch}
-  .project-tab{flex:1 1 calc(50% - 8px);text-align:center;white-space:normal;line-height:1.25}
-  .project-tab.brand-tab{flex:1 1 100%}
+  .project-tab{flex:1 1 100%;line-height:1.25}
   .midpage-photo,.stone-block{padding-left:0;padding-right:0}
   .photo-well img,.stone-well img{max-height:none}
+  .volume-buttons{grid-template-columns:1fr}
   .volume-download{display:flex;align-items:center;justify-content:center;padding:12px}
+  h1{overflow-wrap:anywhere}
 }
