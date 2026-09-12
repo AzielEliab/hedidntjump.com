@@ -1578,3 +1578,16 @@ body[data-stats-page="landing"] #questions.inquiries-full h2{
   font:clamp(26px,4vw,38px)/1.1 "Playfair Display",Georgia,serif !important;
   margin:0 0 6px !important;
 }
+
+/* Inquiries newspaper edition */
+body[data-stats-page="inquiries"] main.inquiries-edition{
+  padding:8px 4% 24px !important;
+  max-width:min(1180px,100%);
+  margin:0 auto;
+}
+body[data-stats-page="inquiries"] .inquiry{
+  margin:12px 0 !important;
+}
+body[data-stats-page="inquiries"] #inquiry-jump{
+  margin:0 0 10px !important;
+}
