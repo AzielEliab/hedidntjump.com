@@ -933,6 +933,8 @@ Twenty-three inquiries of the record (titles only; answers live on the page and 
 22. Why was Marion’s mother never informed of his death — and is this why she died of Involutional Melancholia?
 23. Was Marion Zioncheck a threat to the establishment that couldn’t be silenced?
 
+Supplied plates on the main paper (cropped to the clipping or certificate, not WSU/catalog chrome): Marion’s death certificate in The Closed File; Frances’s certificate (Involutional Melancholia) with inquiry 22; bogeyman disguise; “‘Who’s Crazy?’ Will Be Topic For Zioncheck”; “Playboy Subdued After Battle”; “Last Picture of Congressman and Bride”; Hoover-era “Zioncheck Arrested” crop (Volume I, PDF p. 3).
+
 ## Official narrative ({ORIGIN}/official-narrative.html)
 
 Labeled contemporary / official reported sequence only: Washington apartment press, Gallinger and Maryland observation, Romney’s return west, and the August 7 Arctic Building suicide account as Volume I–II clippings print it. Contrasts with the investigation on the main paper. No invented quotes.

@@ -1,6 +1,6 @@
 {
   "snapshot_commit": "399eddebd5995e6a195959d4f13f596fd3424726",
-  "file_count": 157,
+  "file_count": 161,
   "files": [
     {
       "path": "README.md",
@@ -84,8 +84,8 @@
     },
     {
       "path": "dist/assets/plates/arctic-window-arrows.webp",
-      "bytes": 182026,
-      "sha256": "cbbd3f626827b3ca87357218165948ce34cfd9385600051a0f3530701d0b4b2b"
+      "bytes": 143440,
+      "sha256": "b2a330e21e3c062f9c473af350c95b40e90540f24d8db9e9f018c1d0ce2194b6"
     },
     {
       "path": "dist/assets/plates/bogeyman-disguise.webp",
@@ -104,8 +104,8 @@
     },
     {
       "path": "dist/assets/plates/daughters-estate.webp",
-      "bytes": 79742,
-      "sha256": "5bf2b9766c4b4c65ad28c023d943a6184ee31827adf42135d7eaa5eadb9fcf88"
+      "bytes": 48692,
+      "sha256": "e2aae724dddeb632a6c7cbe7b8b52305649fcf200e9f1eb80529fcaa413d20dd"
     },
     {
       "path": "dist/assets/plates/death-certificate.webp",
@@ -119,18 +119,28 @@
     },
     {
       "path": "dist/assets/plates/gallinger-hospital.webp",
-      "bytes": 366584,
-      "sha256": "dcba1795bc91439ef1bc719ef48cde782672e79287e66229d656e96716873887"
+      "bytes": 238648,
+      "sha256": "401e8140b8809440aa1a44a53e5add00480ec811c61c260044be52c40e605412"
+    },
+    {
+      "path": "dist/assets/plates/hoover-arrested.webp",
+      "bytes": 86694,
+      "sha256": "193c382884be399947bb6f0678a5dbcf5074c8649330e9fabe656ae3aee36285"
     },
     {
       "path": "dist/assets/plates/house-note.webp",
-      "bytes": 40564,
-      "sha256": "3dc8ff5768a0d199d96a74e39bc27e7b2181ba4e578409d18fe148ae30b51dce"
+      "bytes": 20986,
+      "sha256": "102674eb4dd0398ae3f88d80fe6b6205af1d4729c075e5e1fb517fffa860f0d5"
     },
     {
       "path": "dist/assets/plates/kin-fight-will.webp",
-      "bytes": 105338,
-      "sha256": "f6b04197f1a1ad5f67ef4731dc41d20cee5d2562323eefc5e272cf617c3a493c"
+      "bytes": 59536,
+      "sha256": "f51cafffcb946c143bdbf448892f3eba75f2c1ef2041b1938f919a045a6db494"
+    },
+    {
+      "path": "dist/assets/plates/last-picture-bride.webp",
+      "bytes": 23536,
+      "sha256": "38844762dc20fb11baff8317151b04bedd664019b33bc26c310cbdc2326e7024"
     },
     {
       "path": "dist/assets/plates/marion-death-certificate.webp",
@@ -149,28 +159,33 @@
     },
     {
       "path": "dist/assets/plates/nurse-defends-will.webp",
-      "bytes": 141752,
-      "sha256": "ca20941df24517e82615f93db8d708e0f115040b6382841caad6ad41f9152d51"
+      "bytes": 84196,
+      "sha256": "f4a743d7ae09725decb96831f3dc5b49570c0b7057d4ba8f8258b3cfcd0c6fda"
     },
     {
       "path": "dist/assets/plates/office-desk.webp",
-      "bytes": 91802,
-      "sha256": "d74b06b30b2ce8d94b64702cedf33aa0e124756ff886a61a27f2c307f808bda9"
+      "bytes": 54144,
+      "sha256": "cbba5b223d40381a957851be7357e1990be49eef754ec7fc94666edff95710c4"
     },
     {
       "path": "dist/assets/plates/office-room.webp",
-      "bytes": 45560,
-      "sha256": "e85b43dee61a2e51b2a10cb39a7b2c5d4f85bfe01c4476fc11c96437f45d9bbf"
+      "bytes": 40842,
+      "sha256": "ccbb0dc570d7259ee2c739731c8e44c681d1b720bc70e556a2c9a0d7b6a5e663"
     },
     {
       "path": "dist/assets/plates/playboy-leaps.webp",
-      "bytes": 151386,
-      "sha256": "dc1ef8bf8a6ee803a19eeb33be63f81768ca00b5f619c5df42064d78aebdf677"
+      "bytes": 94862,
+      "sha256": "99b0dd88c7899912f7f746e0d31bd78c54db5b0d3ad16b85cc63891c21134b6f"
+    },
+    {
+      "path": "dist/assets/plates/playboy-subdued.webp",
+      "bytes": 68336,
+      "sha256": "c681d298ab3e5e358ed80393e94ccf0e0d5eebfe66d8583c9ba9b01133d51fe8"
     },
     {
       "path": "dist/assets/plates/return-seattle.webp",
-      "bytes": 172904,
-      "sha256": "119204b2c0f19fcb91b53a62124f8edd6d30caa3a0d7186b1681e756486d88ba"
+      "bytes": 113494,
+      "sha256": "4ccd45051c5c7f638d4710ae15bfa59a934945b3719a1a9aa206b0c9f8dcf1cd"
     },
     {
       "path": "dist/assets/plates/rubye-lawsuits.webp",
@@ -184,8 +199,8 @@
     },
     {
       "path": "dist/assets/plates/suicide-friday.webp",
-      "bytes": 149382,
-      "sha256": "3a99cf58dd44c2de872b7bfa89c92f9dc266eb010a183a7dd4bda7d721d6bc6e"
+      "bytes": 92130,
+      "sha256": "0d1fd371b8cb1fdbe65dbcc1013970744016453d80a1d40e208ebd3ee5a70315"
     },
     {
       "path": "dist/assets/plates/there-is-more.webp",
@@ -198,14 +213,19 @@
       "sha256": "b29e96af4b74fa0fe2283e0221dcf49b67e7d3e518f5d6d1875ad8eecef34a6c"
     },
     {
+      "path": "dist/assets/plates/whos-crazy-topic.webp",
+      "bytes": 122854,
+      "sha256": "c27bac881fb46d906952c9be900743741ad059ad250c00ff4ce6aa98268c953c"
+    },
+    {
       "path": "dist/assets/plates/widow-yield-stocks.webp",
       "bytes": 81828,
       "sha256": "8824fed75391a6f096f6a092df82134422466e523af6589ec5d585fd75f6ab9c"
     },
     {
       "path": "dist/assets/plates/work-or-play.webp",
-      "bytes": 158846,
-      "sha256": "edabab72e215159db90012a8c99f0c069e64e7fc3ac05a04c6956d5d5f200a34"
+      "bytes": 77708,
+      "sha256": "bc865f02d8df83930b46ac32727c285bf17d1f3c407b16293935b21512f6a4e4"
     },
     {
       "path": "dist/assets/social-card-foia.jpg",
@@ -685,7 +705,7 @@
     {
       "path": "dist/foia.html",
       "bytes": 30138,
-      "sha256": "6243199173288662c2c2efd9c73899a710daafb9e01e5a4bda80bfe679e2ea96"
+      "sha256": "ae37b2024c985f9283237c4e75c0fa2ad04b4983a4fe15d7b5c9308e0475a8e7"
     },
     {
       "path": "dist/foia.js",
@@ -694,13 +714,13 @@
     },
     {
       "path": "dist/index.html",
-      "bytes": 61377,
-      "sha256": "23f607de162828a4088f8a72cb644a458edf80975be8286d2dd346b95b55c1db"
+      "bytes": 63873,
+      "sha256": "caf6fffef242a73008e66d7c405932facdcf7984b2cd7b1ad7bd8322bbd49a7b"
     },
     {
       "path": "dist/llms-full.txt",
-      "bytes": 6154,
-      "sha256": "e1f55fbcf9ccbf6d1231a7ede00e55b7865c9c775fb362883394f4becd014dcb"
+      "bytes": 6591,
+      "sha256": "c3c0315dbc92a5105f6d9f834a4103bc888fb0c1a07388f757d68bbad05da3e2"
     },
     {
       "path": "dist/llms.txt",
@@ -709,8 +729,8 @@
     },
     {
       "path": "dist/official-narrative.html",
-      "bytes": 27615,
-      "sha256": "2ae4c009c222ec1a10f1563bef5fc8c0928578cdb98871f57cdbd00ec95ef7b7"
+      "bytes": 28211,
+      "sha256": "3821f4c106000e6df7ec6e78f957d90eba37c8d02848ee477c023cc2da757ffe"
     },
     {
       "path": "dist/reader.html",
@@ -729,8 +749,8 @@
     },
     {
       "path": "dist/rubye.html",
-      "bytes": 28645,
-      "sha256": "988fe7e7d21c10a89f236f775b2ec97da6816de49681a89733e1f336320a0ec2"
+      "bytes": 29114,
+      "sha256": "22b94b1c131202fab181fe21c1c1776c3cd9fbad28feca6be61095381cc2d1c9"
     },
     {
       "path": "dist/sitemap.xml",
@@ -779,13 +799,13 @@
     },
     {
       "path": "scripts/inject_seo.py",
-      "bytes": 47171,
-      "sha256": "a7618c019ed686d907df7795f6cd81a09a5aaae448e765d42aeb0533c37bc4b0"
+      "bytes": 47608,
+      "sha256": "c8c0244af43d421a9701dd33c8ae9122df7fb9181c2e48d614e023f75b249e10"
     },
     {
       "path": "verify_handoff.py",
-      "bytes": 1472,
-      "sha256": "d7be8a02fd812d5d1d1b2f72111ba1adc8f967e2a1f3d5d18a26e0a16c1072ec"
+      "bytes": 1826,
+      "sha256": "eb2b560426d60a830bd4ba6504d7386c75c5aa7ca4b53c5d64a469a46692e099"
     }
   ]
 }
