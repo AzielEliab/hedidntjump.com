@@ -5,3 +5,14 @@
 .volume-buttons{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}.volume-button{display:flex;flex-direction:column;border:1px solid var(--line);text-decoration:none;min-width:0}.volume-button-label{display:flex;justify-content:space-between;background:var(--red);color:white;padding:13px 15px;font-weight:700;font-size:15px}.volume-button strong{font:19px/1.25 Georgia,serif;padding:17px 15px 0}.volume-caption{font-size:14px;line-height:1.55;padding:12px 15px 20px;color:#535951}.volume-button:hover{border-color:var(--red)}.volume-button:hover .volume-button-label{background:#82271f}@media(max-width:1000px){.volume-buttons{grid-template-columns:repeat(3,minmax(0,1fr))}}@media(max-width:620px){.volume-buttons{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:380px){.volume-buttons{grid-template-columns:1fr}}
 
 .question-sources{display:flex;flex-direction:column;align-items:flex-start;gap:8px}.questions summary>span:first-child{flex-shrink:0;min-width:20px}.questions summary .plus{flex-shrink:0}
+
+/* Two Arctic buildings comparison */
+.two-arctics{margin:28px 0 8px;padding:18px 0 8px;border-top:1px solid #1a1a1a;border-bottom:1px solid #1a1a1a}
+.two-arctics-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:stretch}
+.arctic-plate{margin:0}
+.arctic-plate img{width:100%;height:auto;display:block;border:1px solid #1a1a1a;background:#ece6d8;object-fit:cover;aspect-ratio:4/3}
+.arctic-plate figcaption{display:flex;flex-direction:column;gap:2px;margin-top:8px;font-family:Georgia,"Times New Roman",serif;font-size:12px;letter-spacing:.02em}
+.arctic-plate figcaption span:first-child{font-weight:700;text-transform:uppercase}
+.arctic-plate figcaption span:last-child{color:#444;font-style:italic}
+.two-arctics-note{margin:12px 0 0;font-family:Georgia,"Times New Roman",serif;font-size:14px;line-height:1.45;max-width:62ch}
+@media (max-width:720px){.two-arctics-grid{grid-template-columns:1fr}}
