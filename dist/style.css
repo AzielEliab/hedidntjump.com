@@ -41,8 +41,18 @@ body::before{
   background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .42  0 0 0 0 .36  0 0 0 0 .2  0 0 0 .5 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
 }
 body>*{position:relative;z-index:1;max-width:100%}
-img,svg,video,canvas,iframe{max-width:100%;height:auto;display:block}
-figure,article,section,aside,header,main,footer,nav{max-width:100%;min-width:0}
+img,svg,video,canvas,iframe,picture{
+  max-width:100%;
+  width:100%;
+  height:auto;
+  display:block;
+  min-width:0;
+  box-sizing:border-box;
+}
+figure,article,section,aside,header,main,footer,nav,picture{
+  max-width:100%;
+  min-width:0;
+}
 a{color:inherit}
 a,button,summary{touch-action:manipulation}
 a:focus-visible,button:focus-visible,summary:focus-visible,select:focus-visible{outline:3px solid var(--red);outline-offset:4px}
@@ -54,8 +64,12 @@ h1,h2,h3,.brand{overflow-wrap:anywhere;word-break:break-word}
   margin:0 auto;
   padding:0 4%;
 }
-header.masthead,main,footer{max-width:1180px;margin:auto}
-main{padding:0 4%;max-width:100%}
+header.masthead,main,footer{
+  width:100%;
+  max-width:min(1180px,100%);
+  margin:auto;
+}
+main{padding:0 4%;max-width:min(1180px,100%);overflow-x:clip}
 @media(min-width:1180px){
   header.masthead,main,footer{max-width:1180px}
 }
@@ -207,17 +221,29 @@ nav a:hover,.text-link:hover,.cutline a:hover{color:var(--red)}
 .muted{color:var(--muted)}
 .text-link{font-size:14px;text-underline-offset:4px}
 
-.portrait,.photo-well,.plate,.stone-well,.arctic-plate{margin:0}
-.portrait img,.photo-well img,.plate img,.stone-well img,.arctic-plate img{
+.portrait,.photo-well,.plate,.stone-well,.arctic-plate{
+  margin:0;
   width:100%;
+  max-width:100%;
+  min-width:0;
+  overflow:hidden;
+}
+.portrait img,.photo-well img,.plate img,.stone-well img,.arctic-plate img,.page-image,.ledger img,.receipt img{
+  width:100%;
+  max-width:100%;
   height:auto;
-  max-height:none;
-  object-fit:cover;
+  min-width:0;
+  object-fit:contain;
+  object-position:center top;
   filter:grayscale(1) contrast(1.06);
   border:1px solid var(--ink);
   background:#cfc09a;
 }
-.plate img{filter:grayscale(.15) contrast(1.04)}
+.portrait img,.photo-well img{
+  object-fit:cover;
+  object-position:center top;
+}
+.plate img{filter:grayscale(.15) contrast(1.04);object-fit:contain}
 figcaption,.cutline{
   display:flex;
   flex-direction:column;
@@ -542,7 +568,7 @@ footer p{color:var(--muted);margin:0}
 .skip:focus{top:12px}
 
 /* —— Reader —— */
-.reader-main{max-width:1050px;padding:0 4% 40px}
+.reader-main{max-width:min(1050px,100%);width:100%;padding:0 4% 40px;overflow-x:clip;min-width:0}
 .reader-title{font:clamp(26px,4vw,36px)/1.2 "Playfair Display",Georgia,serif;margin:22px 0 10px}
 .reader-meta{font-size:14px;color:var(--muted)}
 .reader-controls{
@@ -572,7 +598,17 @@ footer p{color:var(--muted);margin:0}
 .reader-controls button:disabled{opacity:.35;cursor:default}
 .reader-controls label{font-size:14px}
 .reader-controls a{font-size:14px;min-height:44px;display:inline-flex;align-items:center}
-.page-image{display:block;width:100%;max-width:100%;height:auto;box-shadow:0 2px 15px #0001;background:#fff;border:1px solid var(--ink)}
+.page-image{
+  display:block;
+  width:100%;
+  max-width:100%;
+  height:auto;
+  min-width:0;
+  object-fit:contain;
+  box-shadow:0 2px 15px #0001;
+  background:#fff;
+  border:1px solid var(--ink);
+}
 .reader-status{font-size:14px}
 .reader-disclaimer{font-size:14px;max-width:850px}
 select{max-width:100%}
@@ -580,13 +616,12 @@ select{max-width:100%}
 .reader-masthead .brand{font-size:clamp(22px,8vw,40px)}
 
 /* —— Breakpoints —— */
-@media(min-width:720px){
+@media(min-width:769px){
   .two-arctics-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .lead-columns{column-count:2}
   .story-body.columns-2{column-count:2}
   .index-list{grid-template-columns:repeat(2,minmax(0,1fr))}
   .volume-buttons{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .building-trio{grid-template-columns:repeat(3,minmax(0,1fr))}
 }
 @media(min-width:960px){
   .front{grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);align-items:start}
@@ -595,6 +630,7 @@ select{max-width:100%}
   .paper-grid .story:nth-child(odd){padding-right:14px;border-right:1px solid var(--hair)}
   .paper-grid .story:nth-child(even){padding-left:14px}
   .volume-buttons{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .building-trio{grid-template-columns:repeat(3,minmax(0,1fr))}
   .lead .headline{font-size:48px}
 }
 @media(min-width:1100px){
@@ -603,7 +639,16 @@ select{max-width:100%}
   .index-list{grid-template-columns:repeat(3,minmax(0,1fr))}
 }
 
-@media(max-width:719px){
+@media(max-width:768px){
+  .front,.paper-grid,.two-arctics-grid,.building-trio,.volume-buttons{
+    grid-template-columns:minmax(0,1fr);
+  }
+  .paper-grid .story:nth-child(odd),
+  .paper-grid .story:nth-child(even){
+    padding-left:0;
+    padding-right:0;
+    border-right:none;
+  }
   .masthead-flag{font-size:10px;letter-spacing:.6px}
   .dateline{font-size:11px;letter-spacing:.6px}
   .deck{font-size:18px}
@@ -616,12 +661,21 @@ select{max-width:100%}
   .reader-controls select{max-width:160px}
   footer{display:block}
   footer p{margin-top:12px}
+  img,.page-image{max-width:100%;height:auto}
 }
 @media(max-width:430px){
   .paper-shell,header.masthead,main,footer,.reader-main,.project-strip-inner{padding-left:4%;padding-right:4%}
   .masthead .brand{font-size:clamp(26px,11vw,34px)}
   .volume-buttons{grid-template-columns:minmax(0,1fr)}
   .questions summary{font-size:16px}
+  .portrait,.photo-well,.plate,.stone-well,.arctic-plate,.page-image{max-width:100%}
+}
+@media(max-width:390px){
+  main,.reader-main,.project-strip-inner{padding-left:3.5%;padding-right:3.5%}
+  .lead .headline{font-size:clamp(24px,10vw,32px)}
+}
+@media(max-width:360px){
+  main,.reader-main{padding-left:3%;padding-right:3%}
 }
 
 @media(prefers-reduced-motion:reduce){
