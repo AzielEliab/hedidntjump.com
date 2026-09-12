@@ -36,6 +36,9 @@ assert "libraries.wsu.edu" not in html
 assert "escort-dc-bishop.webp" in html
 assert "foia-fbi-response-p1.webp" in html
 assert "copyrights.html" in html
+assert "Aziel’s Research Volumes" in html
+assert html.count('class="volume-nav-row"') == 1
+assert "called his cousin there for protection" in html
 foia = (root / "dist/foia.html").read_text()
 assert "foia-request.webp" in foia
 assert foia.count("foia-fee-waiver.webp") == 1
