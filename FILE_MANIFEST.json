@@ -499,8 +499,8 @@
     },
     {
       "path": "dist/index.html",
-      "bytes": 22693,
-      "sha256": "0bfcf93761c046bf8b4dd5864acd648b3ba594ac62a0b858410e4b341f56d1a9"
+      "bytes": 22789,
+      "sha256": "907a31ee28ac52a96062091fdea7fc87837df50be1ae91627ccb75c753860190"
     },
     {
       "path": "dist/reader.html",
@@ -519,8 +519,8 @@
     },
     {
       "path": "dist/style.css",
-      "bytes": 14851,
-      "sha256": "acdbdefa635ed2915093ecba6edd32607fe9000d974e9ad606eb65362dba34cd"
+      "bytes": 15339,
+      "sha256": "9a70e9704293a57e1a4fe7211e61745321e2521b194764fb9abdc43153cd3318"
     },
     {
       "path": "dist/volumes.json",
