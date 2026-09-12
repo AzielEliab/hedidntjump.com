@@ -1266,7 +1266,15 @@ header.masthead[data-wireframe="drawn-v1"] .paper-folio .folio-stat span{
   color:inherit !important;
 }
 
-/* Triple rule pack sits at stats-row height (under folio) */
+/* Moved (not added): the three masthead rules now pack flush under folio/stats */
+header.masthead[data-wireframe="drawn-v1"] .nameplate{
+  padding-bottom:0 !important;
+}
+header.masthead[data-wireframe="drawn-v1"] .nameplate .paper-folio,
+header.masthead[data-wireframe="drawn-v1"] .paper-folio{
+  margin-bottom:0 !important;
+  padding-bottom:2px !important;
+}
 header.masthead[data-wireframe="drawn-v1"] .rule-triple{
   display:block !important;
   width:100% !important;
@@ -1286,6 +1294,7 @@ header.masthead[data-wireframe="drawn-v1"] .rule-triple .paper-rule{
 header.masthead[data-wireframe="drawn-v1"] .rule-triple .paper-rule + .paper-rule{
   margin-top:2px !important;
 }
-header.masthead[data-wireframe="drawn-v1"] .nameplate .paper-folio{
-  margin-bottom:0 !important;
+header.masthead[data-wireframe="drawn-v1"] nav.paper-tabs{
+  margin-top:0 !important;
+  padding-top:2px !important;
 }
