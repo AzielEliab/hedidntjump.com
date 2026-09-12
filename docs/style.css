@@ -116,6 +116,13 @@ main{padding:0 4%;max-width:100%}
 nav a{font-size:14px;text-decoration:none;letter-spacing:.3px;min-height:44px;display:inline-flex;align-items:center}
 nav a:hover,.text-link:hover,.cutline a:hover{color:var(--red)}
 
+.byline-line,.dateline .byline-line{
+  font-size:13px;
+  letter-spacing:.3px;
+  text-transform:none;
+}
+.byline-line a{font-weight:700;text-decoration:none}
+.rail-box#publisher p{margin:0 0 8px;font-size:14px;line-height:1.45}
 .dateline{
   display:flex;
   justify-content:space-between;

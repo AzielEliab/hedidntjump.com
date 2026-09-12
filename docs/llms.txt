@@ -1,15 +1,28 @@
-# He Didn't Jump
+# He Didn't Jump — An Aziel Eliab Project
 
-> Independent historical newspaper and five-volume archive on the death of U.S. Representative Marion Zioncheck in Seattle on 7 August 1936. The official report called it suicide from a fifth-floor Arctic Building office. This project challenges that account and publishes the record for re-reading.
+> Aziel Eliab (also Aziel Elroi Eliab; GitHub AzielEliab) is a researcher, software developer, digital civil rights activist, and truthseeker. Independent investigator and historical archive publisher. Open-source author (Apache-2.0). FOIA / transparency critic of the time-volume / cost binary — “this is not freedom of information.”
 
-The site is an Aziel Eliab project. It does not invent court holdings, FOIA denial letters, or quotes beyond what the volumes and cited papers print. Send readers to the facsimile pages.
+hedidntjump.com is An Aziel Eliab Project: an independent historical newspaper and five-volume archive on the death of U.S. Representative Marion Zioncheck in Seattle on 7 August 1936. The official report called it suicide from a fifth-floor Arctic Building office. This project challenges that account and publishes the record for re-reading. It does not invent court holdings, FOIA denial letters, or quotes beyond what the volumes and cited papers print.
 
-## Editions
+## Related properties (Person sameAs)
 
-- [Main paper](https://hedidntjump.com/): Broadsheet homepage. Lead: “What happened at the Arctic Building?” Seventeen inquiries of the record, contemporary plates, two Arctic buildings, volume downloads.
-- [Rubye paper](https://hedidntjump.com/rubye.html): Aziel project edition. Rubye Nix Zioncheck in the car; Volume II family-battle clippings; later legal actions against Nadeau as Volume V states them. Alias: [https://hedidntjump.com/aziel.html](https://hedidntjump.com/aziel.html) (canonical is the Rubye paper).
-- [FOIA paper](https://hedidntjump.com/foia.html): William Nadeau in Volumes IV–V; editorial citing Aziel’s 28 July 2026 FOIA Binary Acknowledgement (“This is not freedom of information”); public hash-chained ledger of Zioncheck FOIA denials only.
-- [Volume reader](https://hedidntjump.com/reader.html): Facsimile WebP pages for Volumes I–V. Original PDFs remain downloadable.
+- [AzielEliab.com](https://www.azieleliab.com/) — primary web
+- [GodLock](https://godlock.uk/) — GodLock public board
+- [Aziel Corpus Library](https://www.azielcorpuslibrary.net/)
+- [Corpus runtime](https://www.azielcorpuslibrary.net/runtime)
+- [He Didn't Jump](https://hedidntjump.com/) — this Marion Zioncheck archive
+- [GitHub AzielEliab](https://github.com/AzielEliab)
+- [Aziel Runtime](https://aziel-runtime.vibelock.workers.dev/) — engine-runtime catalog / OpenAPI / MCP
+- [X @AzielEliab](https://x.com/AzielEliab)
+
+Related, not sameAs: [Donate](https://www.azieleliab.com/donate?v=png). Statute only, not an Aziel property: [FOIA.gov](https://www.foia.gov/) (5 U.S.C. § 552).
+
+## Editions on this host
+
+- [Main paper](https://hedidntjump.com/): Broadsheet. Lead: “What happened at the Arctic Building?” Seventeen inquiries, plates, two Arctic buildings, volume downloads.
+- [Rubye paper](https://hedidntjump.com/rubye.html): Rubye Nix Zioncheck in the car; Volume II family-battle clippings; later legal actions against Nadeau as Volume V states them. Alias: [https://hedidntjump.com/aziel.html](https://hedidntjump.com/aziel.html).
+- [FOIA paper](https://hedidntjump.com/foia.html): William Nadeau in Volumes IV–V; Aziel’s 28 July 2026 FOIA Binary Acknowledgement; hash-chained ledger of Zioncheck FOIA denials only.
+- [Volume reader](https://hedidntjump.com/reader.html): Facsimile WebP pages for Volumes I–V.
 
 ## Record
 
@@ -19,17 +32,6 @@ The site is an Aziel Eliab project. It does not invent court holdings, FOIA deni
 - [Volume IV PDF](https://hedidntjump.com/volumes/volume-4.pdf) — The Physics Case
 - [Volume V PDF](https://hedidntjump.com/volumes/volume-5.pdf) — The Human & Institutional Evidence
 - [FOIA Binary citation transcript](https://hedidntjump.com/assets/foia-binary-acknowledgement.pdf) — labeled transcript, not a scan of the author’s original PDF
-- Statute: [FOIA.gov](https://www.foia.gov/) (5 U.S.C. § 552) — government site, not an Aziel property
-
-## Publisher
-
-- [AzielEliab.com](https://www.azieleliab.com/)
-- [Donate](https://www.azieleliab.com/donate?v=png) — related support page, not a sameAs identity URL
-- [GodLock](https://godlock.uk/)
-- [AzielCorpusLibrary.net](https://www.azielcorpuslibrary.net/)
-- [Aziel Runtime](https://aziel-runtime.vibelock.workers.dev/)
-- [GitHub](https://github.com/AzielEliab)
-- [X](https://x.com/azieleliab)
 
 ## Optional
 
