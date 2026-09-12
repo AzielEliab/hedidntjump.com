@@ -1,11 +1,26 @@
 {
   "snapshot_commit": "399eddebd5995e6a195959d4f13f596fd3424726",
-  "file_count": 104,
+  "file_count": 111,
   "files": [
     {
       "path": "README.md",
-      "bytes": 2808,
-      "sha256": "7bba4e1846c873789f6826f0ad572d5c44316bcc0a963d3f4331cea625798b90"
+      "bytes": 3418,
+      "sha256": "b514deee39f426ebc3bea5738065e35a85fe0c82c1b721812c4f32e5f0c1e35b"
+    },
+    {
+      "path": "dist/assets/arctic-building.webp",
+      "bytes": 186030,
+      "sha256": "a1c2e04b93640c30f9cf963b72c15b87f18ed3250fcd73e927fa7f265311ba67"
+    },
+    {
+      "path": "dist/assets/marion-gravestone.webp",
+      "bytes": 129458,
+      "sha256": "d133fc4d401574abc8df2cc9fdec9b09203e74801b7a2561e76a59db2c653dd0"
+    },
+    {
+      "path": "dist/assets/marion-rubye.webp",
+      "bytes": 124306,
+      "sha256": "4acdd4c4ac431eb5ba3484077c9f8b875513ed7108529d259d1c0af5a6e2a5b2"
     },
     {
       "path": "dist/assets/marion-zioncheck.webp",
@@ -469,23 +484,33 @@
     },
     {
       "path": "dist/index.html",
-      "bytes": 17687,
-      "sha256": "97b527a7364c8aac18125a41bbc3362caa15179c2c15d1ee05a16824a76199d0"
+      "bytes": 22693,
+      "sha256": "0bfcf93761c046bf8b4dd5864acd648b3ba594ac62a0b858410e4b341f56d1a9"
     },
     {
       "path": "dist/reader.html",
-      "bytes": 1541,
-      "sha256": "592a7084207e2af2a40549ef5be460465186e46d3e7fc34a14f4c085617e313f"
+      "bytes": 2699,
+      "sha256": "90deb07eb49b97f8a833a8cb34a3be37da55643ca7cd63c96b4d6ad93a759de5"
     },
     {
       "path": "dist/reader.js",
-      "bytes": 2302,
-      "sha256": "229265f08b06eb2cf2aac4889cbe7f26b9c34f93947ed471c41f178087f3127e"
+      "bytes": 2441,
+      "sha256": "f1defa027c9e403efb960d3109c27000ac23b5762913f02db9a0a4d6ddaeedc7"
+    },
+    {
+      "path": "dist/stats.js",
+      "bytes": 3829,
+      "sha256": "b096ef2c6e859a86be85ad71cacee05dc5e7770b81f91627ef182643df73f49f"
     },
     {
       "path": "dist/style.css",
-      "bytes": 9030,
-      "sha256": "64af08ff6bca8fe364b3774284fd086063c30581e975cabb9196d26c38693953"
+      "bytes": 14859,
+      "sha256": "1c627bcf46d38306869b20cbfb901fc5bf3d1a346e90b03acb2ad84f12d21c1c"
+    },
+    {
+      "path": "dist/volumes.json",
+      "bytes": 229,
+      "sha256": "b838793d7bb612d93ebecef3305dfcb842f8c58a71aef8d70e4fd1bd7dad05d4"
     },
     {
       "path": "dist/volumes/volume-1.pdf",
@@ -513,14 +538,24 @@
       "sha256": "d83dde42699917e512670f0783e187f5e16954f9e6de4c8ff25226ba79a5c473"
     },
     {
-      "path": "dist/volumes.json",
-      "bytes": 229,
-      "sha256": "b838793d7bb612d93ebecef3305dfcb842f8c58a71aef8d70e4fd1bd7dad05d4"
-    },
-    {
       "path": "verify_handoff.py",
       "bytes": 884,
       "sha256": "8c5e92d12e80f4a5dc338af5453ea5af8da88c0aed7735672202741d012269a4"
+    },
+    {
+      "path": "dist/assets/arctic-old-morrison.webp",
+      "bytes": 70648,
+      "sha256": "de57da9a20957044705d899491803f0c4a8d9dd329d7fb10362594f54755d013"
+    },
+    {
+      "path": "dist/assets/arctic-old-club-1909.webp",
+      "bytes": 295552,
+      "sha256": "675be80a581c25b49e1c9eee7071d7c0aa88c1bd165044768fbddb0b6e34be31"
+    },
+    {
+      "path": "dist/assets/arctic-two-buildings.webp",
+      "bytes": 106174,
+      "sha256": "ef2fa08a0b826cc9adc3f69aefb5680491b93cdc34c7e5d4fe86f5f476b2efe6"
     }
   ]
 }
