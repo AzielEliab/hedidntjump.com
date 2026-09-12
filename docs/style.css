@@ -1512,33 +1512,6 @@ body[data-stats-page="landing"] .portrait.portrait-lead-full img{
   display:block !important;
 }
 
-/* Triple rule under "A Disputed Account" — same tight stack as folio */
-.lead-banner .rule-triple-lead,
-body[data-stats-page="landing"] .lead-banner .rule-triple-lead{
-  display:block !important;
-  width:100% !important;
-  margin:2px 0 0 !important;
-  padding:0 !important;
-  line-height:0 !important;
-  font-size:0 !important;
-}
-.lead-banner .rule-triple-lead .paper-rule,
-body[data-stats-page="landing"] .lead-banner .rule-triple-lead .paper-rule{
-  display:block !important;
-  width:100% !important;
-  height:0 !important;
-  margin:0 !important;
-  padding:0 !important;
-  border:0 !important;
-  border-top:1px solid var(--ink) !important;
-}
-.lead-banner .rule-triple-lead .paper-rule + .paper-rule,
-body[data-stats-page="landing"] .lead-banner .rule-triple-lead .paper-rule + .paper-rule{
-  margin-top:2px !important;
-}
-body[data-stats-page="landing"] .lead-banner-center{
-  margin-bottom:0 !important;
-}
 
 /* Flag phrases: sit clean on one line each */
 header.masthead[data-wireframe="drawn-v1"] .masthead-flag .flag-motto,
@@ -1552,4 +1525,46 @@ body[data-stats-page="landing"] header.masthead[data-wireframe="drawn-v1"] .mast
   overflow:hidden !important;
   text-overflow:ellipsis !important;
   max-width:100% !important;
+}
+
+/* All lead triples — identical tight stack to masthead folio rules */
+.rule-triple-lead,
+body[data-stats-page="landing"] .rule-triple-lead,
+.lead-banner .rule-triple-lead,
+body[data-stats-page="landing"] .lead-banner .rule-triple-lead,
+.lead-columns .rule-triple-lead,
+body[data-stats-page="landing"] .lead-columns .rule-triple-lead{
+  display:block !important;
+  width:100% !important;
+  margin:2px 0 0 !important;
+  padding:0 !important;
+  line-height:0 !important;
+  font-size:0 !important;
+}
+.rule-triple-lead .paper-rule,
+body[data-stats-page="landing"] .rule-triple-lead .paper-rule,
+.rule-triple-lead hr.paper-rule{
+  display:block !important;
+  width:100% !important;
+  height:0 !important;
+  min-height:0 !important;
+  margin:0 !important;
+  padding:0 !important;
+  border:0 !important;
+  border-top:1px solid var(--ink) !important;
+  background:none !important;
+}
+.rule-triple-lead .paper-rule + .paper-rule,
+body[data-stats-page="landing"] .rule-triple-lead .paper-rule + .paper-rule{
+  margin-top:2px !important;
+}
+body[data-stats-page="landing"] .lead-banner-center{
+  margin-bottom:0 !important;
+}
+body[data-stats-page="landing"] .lead-columns{
+  margin-bottom:0 !important;
+}
+body[data-stats-page="landing"] .lead-columns + .rule-triple-lead,
+body[data-stats-page="landing"] .lead-columns .rule-triple-lead{
+  margin-top:2px !important;
 }
