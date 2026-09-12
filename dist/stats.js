@@ -4,11 +4,15 @@
   const DEFAULT_API = 'https://hedidntjump-stats.vibelock.workers.dev';
 
   function apiBase() {
-    const meta = document.querySelector('meta[name="hdj-stats-api"]');
-    if (meta && meta.content.trim()) return meta.content.trim().replace(/\/+$/, '');
     if (typeof window.HDJ_STATS_API === 'string' && window.HDJ_STATS_API) {
       return window.HDJ_STATS_API.replace(/\/+$/, '');
     }
+    const host = location.hostname;
+    if (host === 'localhost' || host === '127.0.0.1') {
+      return 'http://127.0.0.1:8787';
+    }
+    const meta = document.querySelector('meta[name="hdj-stats-api"]');
+    if (meta && meta.content.trim()) return meta.content.trim().replace(/\/+$/, '');
     return DEFAULT_API;
   }
 
@@ -73,13 +77,34 @@
     }
   }
 
-  async function hit(type, id) {
+  function bumpPill(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const current = Number(String(el.childNodes[0] && el.childNodes[0].textContent || '').replace(/,/g, ''));
+    if (Number.isFinite(current)) setPill(id, current + 1);
+  }
+
+  function hit(type, id) {
     const params = new URLSearchParams({ type: type, id: id || 'site' });
-    try {
-      paint(await request('/api/hit?' + params.toString()));
-    } catch (err) {
-      /* pills stay at last known value */
-    }
+    const path = '/api/hit?' + params.toString();
+    if (type === 'download') bumpPill('downloads');
+    const url = endpoint(path);
+    fetch(url, {
+      method: 'GET',
+      mode: 'cors',
+      credentials: 'omit',
+      cache: 'no-store',
+      keepalive: true,
+    })
+      .then(function (res) { return res.ok ? res.json() : null; })
+      .then(function (data) { if (data) paint(data); })
+      .catch(function () {
+        try {
+          if (navigator.sendBeacon) navigator.sendBeacon(url);
+        } catch (err) {
+          /* pills stay at last known or optimistic value */
+        }
+      });
   }
 
   async function zipExists(href) {
