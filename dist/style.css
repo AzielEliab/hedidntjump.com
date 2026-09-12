@@ -1568,3 +1568,13 @@ body[data-stats-page="landing"] .lead-columns + .rule-triple-lead,
 body[data-stats-page="landing"] .lead-columns .rule-triple-lead{
   margin-top:2px !important;
 }
+
+/* Jump list is not Pg.3 — keep its heading quieter */
+body[data-stats-page="landing"] #inquiry-jump .jump-heading{
+  font:clamp(20px,3.2vw,28px)/1.15 "Playfair Display",Georgia,serif !important;
+  margin:0 0 6px !important;
+}
+body[data-stats-page="landing"] #questions.inquiries-full h2{
+  font:clamp(26px,4vw,38px)/1.1 "Playfair Display",Georgia,serif !important;
+  margin:0 0 6px !important;
+}
