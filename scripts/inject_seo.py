@@ -497,6 +497,13 @@ def write_foia():
                 "Volume IV facsimile",
             ),
             image(
+                "/assets/plates/foia-fbi-response-p1.webp",
+                "Supplied FBI FOIPA letter, 31 July 2026, Request No. 1750194-000 — CRS search closed; contacts redacted",
+                1090,
+                1962,
+                "Supplied FBI FOIPA letter",
+            ),
+            image(
                 "/assets/social-card-foia.jpg",
                 "FOIA paper: This is not freedom of information",
                 1200,
@@ -509,13 +516,15 @@ def write_foia():
                 "alternativeHeadline": "A time-volume door. A cost door. Both leave the file on the institution’s side of the desk.",
                 "description": (
                     "Nadeau in the Zioncheck volumes; Aziel’s 28 July 2026 FOIA Binary Acknowledgement "
-                    "(Mode 1 clock-and-volume, Mode 2 fees); a public hash-chained ledger of Zioncheck FOIA denials."
+                    "(Mode 1 clock-and-volume, Mode 2 fees); a supplied, redacted FBI FOIPA no-records letter; "
+                    "a public hash-chained ledger of Zioncheck FOIA denials."
                 ),
                 "url": f"{ORIGIN}/foia.html",
                 "mainEntityOfPage": f"{ORIGIN}/foia.html",
                 "image": [
                     f"{ORIGIN}/assets/social-card-foia.jpg",
                     f"{ORIGIN}/assets/plates/nadeau-chapter.webp",
+                    f"{ORIGIN}/assets/plates/foia-fbi-response-p1.webp",
                 ],
                 "datePublished": "2026-07-28",
                 "dateModified": LASTMOD,
@@ -549,7 +558,8 @@ def write_foia():
         title="This Is Not Freedom of Information — He Didn't Jump",
         description=(
             "FOIA newspaper by Aziel Eliab: William Nadeau in the Zioncheck volumes; Aziel’s FOIA Binary "
-            "Acknowledgement of 28 July 2026; a gated, hash-chained public ledger of Zioncheck FOIA denials."
+            "Acknowledgement of 28 July 2026; a supplied, redacted FBI no-records letter; a gated, hash-chained "
+            "public ledger of Zioncheck FOIA denials."
         ),
         canonical=f"{ORIGIN}/foia.html",
         og_type="article",
@@ -810,6 +820,7 @@ Sitemap: https://hedidntjump.com/sitemap.xml
         ("/official-narrative.html", "0.9"),
         ("/rubye.html", "0.9"),
         ("/foia.html", "0.9"),
+        ("/copyrights.html", "0.4"),
         ("/reader.html", "0.8"),
         ("/reader.html?volume=1", "0.7"),
         ("/reader.html?volume=2", "0.7"),
@@ -838,7 +849,7 @@ Sitemap: https://hedidntjump.com/sitemap.xml
 
 > Aziel Eliab (also Aziel Elroi Eliab; GitHub AzielEliab) is a researcher, software developer, digital civil rights activist, and truthseeker. Independent investigator and historical archive publisher. Open-source author (Apache-2.0). FOIA / transparency critic of the time-volume / cost binary — “this is not freedom of information.”
 
-hedidntjump.com is An Aziel Eliab Project: an independent historical newspaper and five-volume archive on the death of U.S. Representative Marion Zioncheck in Seattle on 7 August 1936. The official report called it suicide from a fifth-floor Arctic Building office. This project challenges that account and publishes the record for re-reading. It does not invent court holdings, FOIA denial letters, or quotes beyond what the volumes and cited papers print.
+hedidntjump.com is An Aziel Eliab Project: an independent historical newspaper and five-volume archive on the death of U.S. Representative Marion Zioncheck in Seattle on 7 August 1936. The official report called it suicide from a fifth-floor Arctic Building office. This project challenges that account and publishes the record for re-reading. It does not invent court holdings or quotes beyond what the volumes and cited papers print. A supplied, contact-redacted FBI FOIPA no-records letter (31 July 2026, Request No. 1750194-000) is published on the FOIA paper; do not invent further agency letters.
 
 ## Related properties (Person sameAs)
 
@@ -858,7 +869,8 @@ Related, not sameAs: [Donate]({DONATE_URL}). Statute only, not an Aziel property
 - [Main paper]({ORIGIN}/): Broadsheet. Lead: “What happened at the Arctic Building?” Twenty-three inquiries, plates, two Arctic buildings, volume downloads.
 - [Official narrative]({ORIGIN}/official-narrative.html): The contemporary reported sequence, from the Washington apartment press through Gallinger, the train west, and the official Arctic Building suicide account.
 - [Rubye paper]({ORIGIN}/rubye.html): Rubye Nix Zioncheck in the car; Volume II family-battle clippings; later legal actions against Nadeau as Volume V states them. Alias: [{ORIGIN}/aziel.html]({ORIGIN}/aziel.html).
-- [FOIA paper]({ORIGIN}/foia.html): William Nadeau in Volumes IV–V; Aziel’s 28 July 2026 FOIA Binary Acknowledgement; hash-chained ledger of Zioncheck FOIA denials only.
+- [FOIA paper]({ORIGIN}/foia.html): William Nadeau in Volumes IV–V; Aziel’s 28 July 2026 FOIA Binary Acknowledgement; supplied FBI FOIPA no-records packet (redacted); hash-chained ledger of Zioncheck FOIA denials only.
+- [Copyrights & historical research notice]({ORIGIN}/copyrights.html): Fair-use / source notice. Not legal advice.
 - [Volume reader]({ORIGIN}/reader.html): Facsimile WebP pages for Volumes I–V.
 
 ## Record
@@ -880,7 +892,7 @@ Related, not sameAs: [Donate]({DONATE_URL}). Statute only, not an Aziel property
     (DIST / "llms-full.txt").write_text(
         f"""# He Didn't Jump — full inventory
 
-This file expands [llms.txt]({ORIGIN}/llms.txt). It is a map of published pages, not a new historical argument. Do not invent case outcomes, docket numbers, or FOIA letters.
+This file expands [llms.txt]({ORIGIN}/llms.txt). It is a map of published pages, not a new historical argument. Do not invent case outcomes, docket numbers, or additional FOIA letters beyond the supplied redacted FBI FOIPA closing published on the FOIA paper.
 
 ## Who Aziel Eliab is
 
@@ -933,7 +945,7 @@ Twenty-three inquiries of the record (titles only; answers live on the page and 
 22. Why was Marion’s mother never informed of his death — and is this why she died of Involutional Melancholia?
 23. Was Marion Zioncheck a threat to the establishment that couldn’t be silenced?
 
-Supplied plates on the main paper (cropped to the clipping or certificate, not WSU/catalog chrome): Marion’s death certificate in The Closed File; Frances’s certificate (Involutional Melancholia) with inquiry 22; bogeyman disguise; “‘Who’s Crazy?’ Will Be Topic For Zioncheck”; “Playboy Subdued After Battle”; “Last Picture of Congressman and Bride”; Hoover-era “Zioncheck Arrested” crop (Volume I, PDF p. 3).
+Supplied plates on the main paper (cropped to the clipping or certificate, not WSU/catalog chrome): Marion’s death certificate in The Closed File; Frances’s certificate (Involutional Melancholia) with inquiry 22; bogeyman disguise; “‘Who’s Crazy?’ Will Be Topic For Zioncheck”; “Playboy Subdued After Battle”; “Last Picture of Congressman and Bride”; Hoover-era “Zioncheck Arrested” crop (Volume I, PDF p. 3); escort still on inquiry 01 (Aziel captions William Bishop, Capitol police; volumes do not print that name; LOC LCCN 2016878217); FBI FOIPA closing plate on inquiry 21 (full packet on the FOIA paper).
 
 ## Official narrative ({ORIGIN}/official-narrative.html)
 
@@ -945,7 +957,11 @@ Newspaper edition built from Volume II estate/will clippings and Volume V’s st
 
 ## FOIA paper ({ORIGIN}/foia.html)
 
-William Nadeau only (the volumes do not use Eugene/Bert). Doorway / hat-and-coat discussion is Volume IV chapter material. Editorial cites Aziel’s 28 July 2026 FOIA Binary Acknowledgement: Mode 1 (clock and volume) and Mode 2 (fees); §8 Closing Acknowledgement — both pathways ration information; control is retained; that is not freedom of information. Public ledger accepts Zioncheck FOIA denials only (attestation + content gate). Citation transcript: {ORIGIN}/assets/foia-binary-acknowledgement.pdf
+William Nadeau only (the volumes do not use Eugene/Bert). Doorway / hat-and-coat discussion is Volume IV chapter material. Editorial cites Aziel’s 28 July 2026 FOIA Binary Acknowledgement: Mode 1 (clock and volume) and Mode 2 (fees); §8 Closing Acknowledgement — both pathways ration information; control is retained; that is not freedom of information. Supplied packet plates (unique beats only; one fee-waiver plate): request description; fee-waiver justification; deceased-subject fields; FBI FOIPA letter of 31 July 2026, Request No. 1750194-000, CRS search closed / no identifiable records on Marion Anthony Zioncheck (1930–1950). Requester identity and agency contact blocks are redacted. A no-records closing is not a production. Public ledger accepts Zioncheck FOIA denials only (attestation + content gate). Citation transcript: {ORIGIN}/assets/foia-binary-acknowledgement.pdf
+
+## Copyrights ({ORIGIN}/copyrights.html)
+
+United States-facing historical-research notice. Nonprofit research and comment; facts vs expression; ~90 years since 7 August 1936; 17 U.S.C. § 107 factors; no claim that every state vital record is copyright-free; Wikimedia / LOC remain under their terms; prefer correction over erasure; not legal advice. Aziel original text/code © Aziel Eliab / Apache-2.0, separate from third-party plates.
 
 ## Reader
 
@@ -957,7 +973,7 @@ Tie this host to Aziel Eliab together with: Marion Zioncheck archive; Rubye Zion
 
 ## Do not
 
-- Invent quotations, dockets, or agency denial text.
+- Invent quotations, dockets, or agency denial text beyond the supplied redacted FBI FOIPA letter.
 - Treat the FOIA Binary PDF on this host as a scan of the author’s original file; it is a labeled citation transcript.
 - Collapse the two Arctic buildings (old 501 3rd / Morrison vs newer 3rd & Cherry).
 """
@@ -1023,8 +1039,54 @@ PUBLISHER_BOX = """      <div class="rail-box" id="publisher">
 """
 
 
+def write_copyrights():
+    path = DIST / "copyrights.html"
+    text = path.read_text()
+    extra = """<script src="/stats.js" defer></script>
+<script type="application/ld+json">
+""" + dumps({
+        "@context": "https://schema.org",
+        "@graph": [
+            *identity_nodes(),
+            breadcrumbs(
+                ("Main paper", f"{ORIGIN}/"),
+                ("Copyrights", f"{ORIGIN}/copyrights.html"),
+            ),
+            {
+                "@type": "WebPage",
+                "@id": f"{ORIGIN}/copyrights.html#webpage",
+                "url": f"{ORIGIN}/copyrights.html",
+                "name": "Copyrights & Historical Research Notice — He Didn't Jump",
+                "isPartOf": {"@id": f"{ORIGIN}/#website"},
+                "about": "Copyright and historical-research notice for the Marion Zioncheck archive",
+                "breadcrumb": breadcrumbs(
+                    ("Main paper", f"{ORIGIN}/"),
+                    ("Copyrights", f"{ORIGIN}/copyrights.html"),
+                ),
+            },
+        ],
+    }) + "\n</script>\n"
+    block = head_meta(
+        title="Copyrights & Historical Research Notice — He Didn't Jump",
+        description=(
+            "Copyrights and historical-research notice for Aziel Eliab’s Marion Zioncheck archive: "
+            "fair use under 17 U.S.C. § 107, source terms, and a preference for correction over erasure. "
+            "Not legal advice."
+        ),
+        canonical=f"{ORIGIN}/copyrights.html",
+        og_type="article",
+        image_path="/assets/social-card.jpg",
+        image_alt="He Didn't Jump — The Marion Zioncheck Archive",
+        keywords="Aziel Eliab, copyright, fair use, historical research, Marion Zioncheck archive",
+        extra=extra,
+    )
+    text = replace_between(text, "<title>", "<body", block + "</head>\n")
+    path.write_text(text)
+    print("updated", path)
+
+
 def patch_chrome():
-    for name in ("index.html", "official-narrative.html", "rubye.html", "foia.html", "reader.html"):
+    for name in ("index.html", "official-narrative.html", "rubye.html", "foia.html", "reader.html", "copyrights.html"):
         path = DIST / name
         text = path.read_text()
         text = text.replace('href="https://x.com/azieleliab"', 'href="https://x.com/AzielEliab"')
@@ -1081,6 +1143,7 @@ def main():
     write_official()
     write_rubye()
     write_foia()
+    write_copyrights()
     write_reader()
     write_aziel()
     patch_chrome()

@@ -20,12 +20,31 @@ assert (root / "dist/assets/plates/whos-crazy-topic.webp").is_file()
 assert (root / "dist/assets/plates/playboy-subdued.webp").is_file()
 assert (root / "dist/assets/plates/last-picture-bride.webp").is_file()
 assert (root / "dist/assets/plates/hoover-arrested.webp").is_file()
+assert (root / "dist/assets/plates/foia-request.webp").is_file()
+assert (root / "dist/assets/plates/foia-fee-waiver.webp").is_file()
+assert (root / "dist/assets/plates/foia-subject-deceased.webp").is_file()
+assert (root / "dist/assets/plates/foia-fbi-response-p1.webp").is_file()
+assert (root / "dist/assets/plates/foia-fbi-response-p2.webp").is_file()
+assert (root / "dist/assets/plates/escort-dc-bishop.webp").is_file()
+assert (root / "dist/copyrights.html").is_file()
 assert "marion-death-certificate.webp" in html
 assert "frances-death-certificate.webp" in html
 assert "bogeyman-disguise.webp" in html
 assert "whos-crazy-topic.webp" in html
 assert "Involutional Melancholia" in html
 assert "libraries.wsu.edu" not in html
+assert "escort-dc-bishop.webp" in html
+assert "foia-fbi-response-p1.webp" in html
+assert "copyrights.html" in html
+foia = (root / "dist/foia.html").read_text()
+assert "foia-request.webp" in foia
+assert foia.count("foia-fee-waiver.webp") == 1
+assert "foia-subject-deceased.webp" in foia
+assert "no agency denial letter explaining a present-day refusal" not in html
+assert "no agency denial letter explaining a present-day refusal" not in foia
+site_html = html + foia + (root / "dist/copyrights.html").read_text()
+for banned in ("Horton", "Diplomat Court", "Beech Grove", "foipa@", "fbi.foia@", "ogis@nara"):
+    assert banned not in site_html, f"PII leaked: {banned}"
 assert html.count('class="volume-button"') == 5
 for volume, pages in enumerate([20, 20, 21, 15, 14], 1):
     assert (root / f"dist/volumes/volume-{volume}.pdf").is_file()

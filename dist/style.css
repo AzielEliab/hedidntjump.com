@@ -619,6 +619,23 @@ footer .brand{font-size:22px;font-weight:900;letter-spacing:-.5px;line-height:1.
 footer .brand span{display:block;font-size:12px;letter-spacing:1.4px;font-weight:500;margin-top:6px}
 footer p,footer>a:last-child{font-size:12px}
 footer p{color:var(--muted);margin:0}
+.rights-bar{
+  width:100%;
+  max-width:min(1180px,100%);
+  margin:0 auto;
+  padding:4px 4% 28px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.rights-bar a{
+  display:inline-flex;
+  align-items:center;
+  min-height:44px;
+  font-size:12px;
+  letter-spacing:.04em;
+  color:var(--muted);
+}
 
 .skip{position:fixed;left:12px;top:-100px;background:#f6ecd4;padding:12px;z-index:100}
 .skip:focus{top:12px}
