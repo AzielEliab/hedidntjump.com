@@ -664,8 +664,8 @@
     },
     {
       "path": "dist/foia.html",
-      "bytes": 30371,
-      "sha256": "3e03108054f56e5531c6406e2010f451b457301ba6c5dd156350080f2a0b980c"
+      "bytes": 30286,
+      "sha256": "7917c235d9bac6f5b60c4077eafe28fbbb840d0ef0a446e660b318482a7d6589"
     },
     {
       "path": "dist/foia.js",
@@ -674,8 +674,8 @@
     },
     {
       "path": "dist/index.html",
-      "bytes": 62164,
-      "sha256": "2738adfc642e2d018aa1beeee4f1da993ed5c8738fec9b3541ed0401daa651bc"
+      "bytes": 60428,
+      "sha256": "5e5ea8dc6e2ad59c631fa2f7da9bdd2f367f03d7aeb6e4b1cda2d641be52318a"
     },
     {
       "path": "dist/llms-full.txt",
@@ -704,8 +704,8 @@
     },
     {
       "path": "dist/rubye.html",
-      "bytes": 28490,
-      "sha256": "36a6d6b1f8d0812035a849217cac498cbe404bd268de8beb61b1c1509f13379e"
+      "bytes": 28405,
+      "sha256": "495b87da371e214151919e46079109ba618a591a01418064136cbda1db2d4765"
     },
     {
       "path": "dist/sitemap.xml",
@@ -719,8 +719,8 @@
     },
     {
       "path": "dist/style.css",
-      "bytes": 21620,
-      "sha256": "f702ed9890d918ad98d90526d7d77319d44d1425b7f36bb746ced531c02422cc"
+      "bytes": 21783,
+      "sha256": "5d18be0a765a749cf8f538c5284db29901d12321bc3d8cab9fc48f95282d2b73"
     },
     {
       "path": "dist/volumes.json",
