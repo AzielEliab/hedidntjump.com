@@ -171,6 +171,7 @@ nav a:hover,.text-link:hover,.cutline a:hover{color:var(--red)}
   letter-spacing:.4px;
 }
 .pill span{color:#c9b896;font-weight:650;text-transform:uppercase;letter-spacing:.7px}
+.pill.live-nodes{letter-spacing:.2px;white-space:nowrap}
 
 /* —— Front page —— */
 .front,.paper-grid,.two-arctics-grid,.building-trio,.volume-buttons,.dateline,.masthead-flag,.project-strip-inner,.reader-controls{
@@ -744,6 +745,7 @@ select{max-width:100%}
   .pill{
     flex:1 1 auto;
   }
+  .pill.live-nodes{white-space:normal}
 }
 @media(max-width:430px){
   .paper-shell,header.masthead,main,footer,.reader-main,.project-strip-inner{padding-left:4%;padding-right:4%}

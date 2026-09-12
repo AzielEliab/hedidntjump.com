@@ -12,6 +12,7 @@ The complete static site is in dist/. docs/ is an identical GitHub Pages copy (p
 Live view and download pills call a Cloudflare Worker + KV stub:
 
 - Client: `/stats.js` → `/api/stats` and `/api/hit?type=view|download&id=...`
+- Live Nodes pill (read-only): `/stats.js` → `/api/mesh` (Worker proxy of aziel-runtime `GET /v1/mesh`) or a client fetch of that runtime URL. Display is always **Live Nodes · N / mesh on**. GET never enables. Not a Softwares catalog.
 - Worker: `workers/hedidntjump-stats/` (CORS for hedidntjump.com, *.pages.dev, localhost)
 - Deploy: `npx wrangler deploy` from that folder. Default host is set in `<meta name="hdj-stats-api">`.
 - FOIA paper: `/foia.html` (Nadeau columns + Aziel’s FOIA Binary editorial + hash-chained denial ledger). Rubye / Aziel project paper: `/rubye.html`.

@@ -2,6 +2,7 @@
 
 (function () {
   const DEFAULT_API = 'https://hedidntjump-stats.vibelock.workers.dev';
+  const RUNTIME_MESH = 'https://aziel-runtime.vibelock.workers.dev/v1/mesh';
 
   function apiBase() {
     const meta = document.querySelector('meta[name="hdj-stats-api"]');
@@ -33,6 +34,72 @@
     if (!data || typeof data !== 'object') return;
     setPill('views', data.views);
     setPill('downloads', data.downloads);
+  }
+
+  function liveNodeCount(data) {
+    if (!data || typeof data !== 'object') return null;
+    const src = data.src && typeof data.src === 'object' ? data.src : null;
+    const n =
+      data.live_nodes != null
+        ? data.live_nodes
+        : src && src.live_nodes != null
+          ? src.live_nodes
+          : data.rollup && data.rollup.live != null
+            ? data.rollup.live
+            : Array.isArray(data.nodes)
+              ? data.nodes.length
+              : null;
+    const num = Number(n);
+    return Number.isFinite(num) && num >= 0 ? Math.floor(num) : null;
+  }
+
+  function paintMesh(data) {
+    const el = document.getElementById('aziel-live-nodes');
+    if (!el) return;
+    const n = liveNodeCount(data);
+    const count = n == null ? '—' : formatCount(n);
+    let label = el.querySelector('span');
+    if (!label) {
+      label = document.createElement('span');
+    }
+    label.textContent = 'mesh on';
+    el.replaceChildren(document.createTextNode('Live Nodes · ' + count + ' / '), label);
+  }
+
+  function meshUrls() {
+    const urls = ['/api/mesh', '/api/mesh/status'];
+    const base = apiBase();
+    if (base) {
+      urls.push(base + '/api/mesh');
+      urls.push(base + '/api/mesh/status');
+    }
+    urls.push(RUNTIME_MESH);
+    urls.push(RUNTIME_MESH + '/status');
+    return urls;
+  }
+
+  async function loadMesh() {
+    paintMesh({ live_nodes: null });
+    for (const url of meshUrls()) {
+      try {
+        const res = await fetch(url, {
+          method: 'GET',
+          mode: 'cors',
+          credentials: 'omit',
+          cache: 'no-store',
+          headers: { Accept: 'application/json' },
+        });
+        if (!res.ok) continue;
+        const data = await res.json();
+        if (data && typeof data === 'object') {
+          paintMesh(data);
+          return;
+        }
+      } catch (err) {
+        /* try the next source */
+      }
+    }
+    paintMesh({ live_nodes: null });
   }
 
   function endpoint(path) {
@@ -137,4 +204,5 @@
   } else {
     void loadStats();
   }
+  void loadMesh();
 })();

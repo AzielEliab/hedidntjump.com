@@ -10,6 +10,9 @@
  * GET  /api/foia/ledger        → public hash chain
  * POST /api/foia/upload        → gated Zioncheck FOIA-denial upload
  * GET  /api/foia/file/:index   → accepted file bytes
+ * GET  /api/mesh or /api/mesh/status
+ *      → read-only Live Nodes rollup (proxies aziel-runtime /v1/mesh).
+ *        Always mesh: "on". GET never enables. No radio writes.
  *
  * Also accepts /stats and /hit (workers.dev root).
  * CORS: hedidntjump.com, *.pages.dev, localhost.
@@ -25,6 +28,8 @@ const ALLOWED_ORIGIN = [
 const VIEW_KEY = "views";
 const DOWNLOAD_KEY = "downloads";
 const ITEM_PREFIX = "item:";
+const RUNTIME_ORIGIN = "https://aziel-runtime.vibelock.workers.dev";
+const MESH_WRITE = /\/(api\/)?mesh\/(enable|disable|join|leave|heartbeat|broadcast|nodes)$/i;
 
 export function allowedOrigin(origin) {
   if (!origin) return "";
@@ -126,8 +131,64 @@ function routeName(pathname) {
   if (path === "/api/foia/ledger" || path === "/foia/ledger") return "foia-ledger";
   if (path === "/api/foia/upload" || path === "/foia/upload") return "foia-upload";
   if (/^\/(api\/)?foia\/file\/\d+$/.test(path)) return "foia-file";
+  if (MESH_WRITE.test(path)) return "mesh-write";
+  if (path === "/api/mesh" || path === "/mesh" || path === "/api/mesh/status" || path === "/mesh/status") {
+    return "mesh";
+  }
   if (path === "/" || path === "/api") return "stats";
   return "";
+}
+
+export function displayMesh(raw, { ok = true } = {}) {
+  const src = raw && typeof raw === "object" ? raw : {};
+  const nested = src.src && typeof src.src === "object" ? src.src : null;
+  const n = Number(
+    src.live_nodes ??
+      (nested && nested.live_nodes) ??
+      (src.rollup && src.rollup.live) ??
+      (Array.isArray(src.nodes) ? src.nodes.length : Number.NaN),
+  );
+  const live = Number.isFinite(n) && n >= 0 ? Math.floor(n) : null;
+  return {
+    ok,
+    author: "Aziel Eliab",
+    identity: "Aziel Eliab",
+    live_nodes: live,
+    mesh: "on",
+    spec: "QNM-BUILD-1.0",
+    note: "Read-only Live Nodes rollup. GET never enables. Counts only.",
+  };
+}
+
+function runtimeOrigin(env) {
+  const base = env && env.AZIEL_RUNTIME ? String(env.AZIEL_RUNTIME) : RUNTIME_ORIGIN;
+  return base.replace(/\/+$/, "");
+}
+
+async function handleMesh(request, env) {
+  const fetchFn = (env && env.MESH_FETCH) || fetch;
+  const url = runtimeOrigin(env) + "/v1/mesh";
+  try {
+    const res = await fetchFn(url, {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        "User-Agent": "Mozilla/5.0",
+      },
+    });
+    if (!res || !res.ok) {
+      return json(request, displayMesh(null, { ok: false }), 502);
+    }
+    let raw = null;
+    try {
+      raw = await res.json();
+    } catch {
+      raw = null;
+    }
+    return json(request, displayMesh(raw));
+  } catch {
+    return json(request, displayMesh(null, { ok: false }), 502);
+  }
 }
 
 async function handleFoiaUpload(request, env) {
@@ -187,6 +248,16 @@ export async function handleRequest(request, env) {
 
   if (!route) {
     return json(request, { error: "not_found" }, 404);
+  }
+
+  if (route === "mesh-write") {
+    return json(request, { ok: false, error: "read_only" }, 404);
+  }
+  if (route === "mesh") {
+    if (request.method !== "GET" && request.method !== "HEAD") {
+      return json(request, { ok: false, error: "method_not_allowed" }, 405);
+    }
+    return handleMesh(request, env);
   }
 
   const kv = env && env.STATS;
