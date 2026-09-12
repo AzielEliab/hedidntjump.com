@@ -84,108 +84,108 @@
     },
     {
       "path": "dist/assets/plates/arctic-window-arrows.webp",
-      "bytes": 145164,
-      "sha256": "12684ee1390e7459d9f74b086e70b2b46f266ea6783a57b6b8b0a2dc9bc7e487"
+      "bytes": 182026,
+      "sha256": "cbbd3f626827b3ca87357218165948ce34cfd9385600051a0f3530701d0b4b2b"
     },
     {
       "path": "dist/assets/plates/bolton-record.webp",
-      "bytes": 78192,
-      "sha256": "d39975919636b72e2dab5713712bebf9986e4308a965a6ff173a1d45e23dac73"
+      "bytes": 94732,
+      "sha256": "f70597e79d9f89a0a70492e22e327b1c55c08d8bfe42ab9a46d94579a71c9e25"
     },
     {
       "path": "dist/assets/plates/could-not-remain-silent.webp",
-      "bytes": 201928,
-      "sha256": "e15e8fa3916dc449b36b50902f5201ce024ab0e0c84919d8432de460604264e7"
+      "bytes": 250758,
+      "sha256": "3a8ec2e7e9714e258ebb29523b46a00cb922893bc9a1a833ff122bff2447db27"
     },
     {
       "path": "dist/assets/plates/daughters-estate.webp",
-      "bytes": 61502,
-      "sha256": "0cf991ad3353c5baf87a50b00e54226a665c0e941bed854ff9fc7778b24c7c2f"
+      "bytes": 79742,
+      "sha256": "5bf2b9766c4b4c65ad28c023d943a6184ee31827adf42135d7eaa5eadb9fcf88"
     },
     {
       "path": "dist/assets/plates/death-certificate.webp",
-      "bytes": 49792,
-      "sha256": "d2ec703547e4be537cc3300a811f657943929a370ca1b690684e3cc4d2bc81ed"
+      "bytes": 60184,
+      "sha256": "4312f206557ea221f4374104d98532717b3f94e46a1a0ed17c5ec8981856f774"
     },
     {
       "path": "dist/assets/plates/gallinger-hospital.webp",
-      "bytes": 234708,
-      "sha256": "2b0aaba857c5d3d0a1bfc2d56426318aa90b13f62fd7e31046122b2caafa7971"
+      "bytes": 366584,
+      "sha256": "dcba1795bc91439ef1bc719ef48cde782672e79287e66229d656e96716873887"
     },
     {
       "path": "dist/assets/plates/house-note.webp",
-      "bytes": 27904,
-      "sha256": "766fbaad04d566a1a7b1048ae14cef21e5ee40a4e8d4c42605e9b34803521169"
+      "bytes": 40564,
+      "sha256": "3dc8ff5768a0d199d96a74e39bc27e7b2181ba4e578409d18fe148ae30b51dce"
     },
     {
       "path": "dist/assets/plates/kin-fight-will.webp",
-      "bytes": 73172,
-      "sha256": "362617a831cf56d1e22dbc9a91175f2bcda8e0022dc963efa5e3a545f53b5942"
+      "bytes": 105338,
+      "sha256": "f6b04197f1a1ad5f67ef4731dc41d20cee5d2562323eefc5e272cf617c3a493c"
     },
     {
       "path": "dist/assets/plates/marion-microphone.webp",
-      "bytes": 21586,
-      "sha256": "bae35c3cac66bb2923d525329c61bd1d08a66c7ee9f80b5ac1c67227f8ca8fb0"
+      "bytes": 21108,
+      "sha256": "9315206617e0df899908193b60216118569910ef4ab0a2c915e7cf7c7b993b80"
     },
     {
       "path": "dist/assets/plates/nadeau-chapter.webp",
-      "bytes": 71020,
-      "sha256": "f7e698f96e854976c85499e2b758addb7a706d6603c3a5194f41a61009e9e0a1"
+      "bytes": 99662,
+      "sha256": "dc5872a2c91e4d09dd9b81cecca76a5c98f923053d5ca0f86ed21bcb0adbb961"
     },
     {
       "path": "dist/assets/plates/nurse-defends-will.webp",
-      "bytes": 93572,
-      "sha256": "c9d17a39f57d014b589a044b21896a8a64ece39af91472b33264217c127a0761"
+      "bytes": 141752,
+      "sha256": "ca20941df24517e82615f93db8d708e0f115040b6382841caad6ad41f9152d51"
     },
     {
       "path": "dist/assets/plates/office-desk.webp",
-      "bytes": 51030,
-      "sha256": "e6f12214c5904e11697e07079bfb00cfaa0ad586cb8763813d6574333764179f"
+      "bytes": 91802,
+      "sha256": "d74b06b30b2ce8d94b64702cedf33aa0e124756ff886a61a27f2c307f808bda9"
     },
     {
       "path": "dist/assets/plates/playboy-leaps.webp",
-      "bytes": 96210,
-      "sha256": "36efb991537056a3d47d4237d7087d49fff6293ce49d01a47355312e18149968"
+      "bytes": 151386,
+      "sha256": "dc1ef8bf8a6ee803a19eeb33be63f81768ca00b5f619c5df42064d78aebdf677"
     },
     {
       "path": "dist/assets/plates/return-seattle.webp",
-      "bytes": 113986,
-      "sha256": "d147560783951c649be1a8de44f2bd75ec9e476362cb7b4ab15c978802091ef6"
+      "bytes": 172904,
+      "sha256": "119204b2c0f19fcb91b53a62124f8edd6d30caa3a0d7186b1681e756486d88ba"
     },
     {
       "path": "dist/assets/plates/rubye-lawsuits.webp",
-      "bytes": 48576,
-      "sha256": "10a508d1f2cb2782a2560a3c34248b4c77c4244028862a6379ed51592d07c069"
+      "bytes": 65964,
+      "sha256": "ba80b6f8ec5bce3c7e75e7cd6018e99d29ab62c0c0694faca0d48b188f01edc9"
     },
     {
       "path": "dist/assets/plates/rubye-was-with-him.webp",
-      "bytes": 374788,
-      "sha256": "3bab9e42022b84079a2ee59900a4faaea022f1a8ef45d076590c355e8bc707a6"
+      "bytes": 502056,
+      "sha256": "e089289e2f07b9aa8f5de560a99e30aef69869be912167f8c5edc329850992e5"
     },
     {
       "path": "dist/assets/plates/suicide-friday.webp",
-      "bytes": 93534,
-      "sha256": "a99b90e39aa77c89865adf95894d4cab03920abdc68b1a31e362da45dae4a0dd"
+      "bytes": 149382,
+      "sha256": "3a99cf58dd44c2de872b7bfa89c92f9dc266eb010a183a7dd4bda7d721d6bc6e"
     },
     {
       "path": "dist/assets/plates/there-is-more.webp",
-      "bytes": 183732,
-      "sha256": "c49cb5e82aebf4c5746ddce4da575a63eb2d52cf532a2a399c3160569032ae27"
+      "bytes": 240510,
+      "sha256": "4441c37ccb0ee351ba876f5468fc95f42bbd228702bf68e8fdf865cf8afc2f49"
     },
     {
       "path": "dist/assets/plates/vic-nadeau.webp",
-      "bytes": 55098,
-      "sha256": "99532957f99332c2d83748344d965908616fadcfb153c2bf1f953760c6fe3475"
+      "bytes": 75296,
+      "sha256": "b29e96af4b74fa0fe2283e0221dcf49b67e7d3e518f5d6d1875ad8eecef34a6c"
     },
     {
       "path": "dist/assets/plates/widow-yield-stocks.webp",
-      "bytes": 60472,
-      "sha256": "8426ac4d859d7102b65247df17fb2a8e5bbfa9a9868255b8c3a20602b0b1ae9e"
+      "bytes": 81828,
+      "sha256": "8824fed75391a6f096f6a092df82134422466e523af6589ec5d585fd75f6ab9c"
     },
     {
       "path": "dist/assets/plates/work-or-play.webp",
-      "bytes": 90028,
-      "sha256": "46655eef2e5d6b369ab060f05c558a3eb4b4d6d1fceb378ab4f9d337d9e0d228"
+      "bytes": 158846,
+      "sha256": "edabab72e215159db90012a8c99f0c069e64e7fc3ac05a04c6956d5d5f200a34"
     },
     {
       "path": "dist/assets/social-card-foia.jpg",
@@ -664,8 +664,8 @@
     },
     {
       "path": "dist/foia.html",
-      "bytes": 30286,
-      "sha256": "7917c235d9bac6f5b60c4077eafe28fbbb840d0ef0a446e660b318482a7d6589"
+      "bytes": 29959,
+      "sha256": "c5f797a894eac3b9539dc3d8464dc71cf6c71c54ce76fc9b5564b2cc6de3297c"
     },
     {
       "path": "dist/foia.js",
@@ -674,8 +674,8 @@
     },
     {
       "path": "dist/index.html",
-      "bytes": 60428,
-      "sha256": "5e5ea8dc6e2ad59c631fa2f7da9bdd2f367f03d7aeb6e4b1cda2d641be52318a"
+      "bytes": 47854,
+      "sha256": "7842fac6b7424c8ee213c78c41a020c3b5a0867a1841c442d82b4e15f9f377ea"
     },
     {
       "path": "dist/llms-full.txt",
@@ -704,8 +704,8 @@
     },
     {
       "path": "dist/rubye.html",
-      "bytes": 28405,
-      "sha256": "495b87da371e214151919e46079109ba618a591a01418064136cbda1db2d4765"
+      "bytes": 28222,
+      "sha256": "eac2cb02650faef6ae477dcf53fb594677eaeced5bd079624ce026d5f1d7efc6"
     },
     {
       "path": "dist/sitemap.xml",
@@ -719,8 +719,8 @@
     },
     {
       "path": "dist/style.css",
-      "bytes": 20509,
-      "sha256": "8fa16a31645104803e2a4dc6d444f2db2605251671ff582a1ca45eb4eaac2cfb"
+      "bytes": 22407,
+      "sha256": "e51af95cdf9a8bdbabd425f7c247a52cc8441219b52f21e10b0f31addd49980a"
     },
     {
       "path": "dist/volumes.json",
@@ -759,8 +759,8 @@
     },
     {
       "path": "verify_handoff.py",
-      "bytes": 884,
-      "sha256": "8c5e92d12e80f4a5dc338af5453ea5af8da88c0aed7735672202741d012269a4"
+      "bytes": 928,
+      "sha256": "370c69c5701cdac3f6ae04fd9462de6ccf1844940095aa8f55a3c4c17e5c2586"
     }
   ]
 }
