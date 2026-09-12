@@ -1396,3 +1396,58 @@ body[data-stats-page="landing"] .clip-cite a{
   min-height:0 !important;
   padding:1px 0 !important;
 }
+
+/* Folio text ABOVE triple; tabs flush under triple */
+header.masthead[data-wireframe="drawn-v1"] .paper-folio,
+header.masthead[data-wireframe="drawn-v1"] .paper-folio.folio-on-rules,
+body[data-stats-page="landing"] header.masthead[data-wireframe="drawn-v1"] .paper-folio{
+  position:relative !important;
+  display:block !important;
+  width:100% !important;
+  min-height:1.15em !important;
+  margin:1px 0 0 !important;
+  padding:0 !important;
+  border:0 !important;
+  line-height:1.1 !important;
+}
+header.masthead[data-wireframe="drawn-v1"] .paper-folio #views,
+header.masthead[data-wireframe="drawn-v1"] .paper-folio #downloads{
+  position:absolute !important;
+  top:0 !important;
+  bottom:auto !important;
+  line-height:1.1 !important;
+}
+header.masthead[data-wireframe="drawn-v1"] .paper-folio .folio-price{
+  position:relative !important;
+  display:block !important;
+  width:100% !important;
+  margin:0 !important;
+  padding:0 !important;
+  line-height:1.1 !important;
+}
+header.masthead[data-wireframe="drawn-v1"] .rule-triple{
+  display:block !important;
+  width:100% !important;
+  margin:2px 0 0 !important; /* just under the counters */
+  padding:0 !important;
+  line-height:0 !important;
+  font-size:0 !important;
+}
+header.masthead[data-wireframe="drawn-v1"] .rule-triple .paper-rule{
+  display:block !important;
+  width:100% !important;
+  height:0 !important;
+  margin:0 !important;
+  padding:0 !important;
+  border:0 !important;
+  border-top:1px solid var(--ink) !important;
+}
+header.masthead[data-wireframe="drawn-v1"] .rule-triple .paper-rule + .paper-rule{
+  margin-top:2px !important;
+}
+header.masthead[data-wireframe="drawn-v1"] nav.paper-tabs,
+body[data-stats-page="landing"] header.masthead[data-wireframe="drawn-v1"] nav.paper-tabs{
+  margin:2px 0 0 !important; /* bump tabs right under triple */
+  padding:0 !important;
+  gap:1px !important;
+}
