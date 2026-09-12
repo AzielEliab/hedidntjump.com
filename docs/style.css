@@ -1,3 +1,4 @@
+html,body{overflow-x:hidden;max-width:100%;}
 :root{
   --paper:#f4ecd4;
   --paper-deep:#e8d9b4;
@@ -794,3 +795,39 @@ input[type="checkbox"]{width:20px;height:20px;margin-top:2px;flex-shrink:0}
 }
 .receipt-file{margin:10px 0 0}
 .receipt-file a{min-height:44px;display:inline-flex;align-items:center}
+
+
+/* USER LOCK 2026-09-12: all images = Marion portrait box; portrait size unchanged */
+html,body{overflow-x:hidden!important;max-width:100vw!important;}
+*{box-sizing:border-box;}
+img,svg,video,canvas{max-width:100%;height:auto;}
+/* Portrait defines the cut — do not shrink/enlarge .portrait */
+.portrait{width:var(--archive-cut);max-width:var(--archive-cut);}
+.photo-well,.plate,.arctic-plate,.stone-well,.building-trio .arctic-plate,
+main figure:not(.portrait):not(.reader-page):not(.page-shot){
+  width:var(--archive-cut)!important;
+  max-width:var(--archive-cut)!important;
+  margin-left:0;
+  margin-right:auto;
+}
+.photo-well img,.plate img,.arctic-plate img,.stone-well img,
+main figure:not(.portrait):not(.reader-page) img:not(.page-image){
+  width:100%!important;
+  max-width:100%!important;
+  height:auto!important;
+  max-height:none!important;
+  object-fit:contain!important;
+  display:block;
+}
+.two-arctics-grid,.building-trio{
+  display:flex!important;
+  flex-wrap:wrap;
+  gap:14px;
+  max-width:100%;
+  justify-content:flex-start;
+}
+.midpage-photo,.two-arctics,.stone-block{max-width:100%;overflow:hidden;}
+.project-strip-inner,.archive-toolbar,.dateline,.masthead,.nameplate{max-width:100%;}
+@media(max-width:620px){
+  .hero,.case,.spread,.deck-grid{max-width:100%;}
+}
