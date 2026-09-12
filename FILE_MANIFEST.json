@@ -1,6 +1,6 @@
 {
   "snapshot_commit": "399eddebd5995e6a195959d4f13f596fd3424726",
-  "file_count": 137,
+  "file_count": 142,
   "files": [
     {
       "path": "README.md",
@@ -88,6 +88,11 @@
       "sha256": "e15e8fa3916dc449b36b50902f5201ce024ab0e0c84919d8432de460604264e7"
     },
     {
+      "path": "dist/assets/plates/daughters-estate.webp",
+      "bytes": 61502,
+      "sha256": "0cf991ad3353c5baf87a50b00e54226a665c0e941bed854ff9fc7778b24c7c2f"
+    },
+    {
       "path": "dist/assets/plates/death-certificate.webp",
       "bytes": 49792,
       "sha256": "d2ec703547e4be537cc3300a811f657943929a370ca1b690684e3cc4d2bc81ed"
@@ -103,6 +108,11 @@
       "sha256": "766fbaad04d566a1a7b1048ae14cef21e5ee40a4e8d4c42605e9b34803521169"
     },
     {
+      "path": "dist/assets/plates/kin-fight-will.webp",
+      "bytes": 73172,
+      "sha256": "362617a831cf56d1e22dbc9a91175f2bcda8e0022dc963efa5e3a545f53b5942"
+    },
+    {
       "path": "dist/assets/plates/marion-microphone.webp",
       "bytes": 21586,
       "sha256": "bae35c3cac66bb2923d525329c61bd1d08a66c7ee9f80b5ac1c67227f8ca8fb0"
@@ -111,6 +121,11 @@
       "path": "dist/assets/plates/nadeau-chapter.webp",
       "bytes": 71020,
       "sha256": "f7e698f96e854976c85499e2b758addb7a706d6603c3a5194f41a61009e9e0a1"
+    },
+    {
+      "path": "dist/assets/plates/nurse-defends-will.webp",
+      "bytes": 93572,
+      "sha256": "c9d17a39f57d014b589a044b21896a8a64ece39af91472b33264217c127a0761"
     },
     {
       "path": "dist/assets/plates/office-desk.webp",
@@ -151,6 +166,11 @@
       "path": "dist/assets/plates/vic-nadeau.webp",
       "bytes": 55098,
       "sha256": "99532957f99332c2d83748344d965908616fadcfb153c2bf1f953760c6fe3475"
+    },
+    {
+      "path": "dist/assets/plates/widow-yield-stocks.webp",
+      "bytes": 60472,
+      "sha256": "8426ac4d859d7102b65247df17fb2a8e5bbfa9a9868255b8c3a20602b0b1ae9e"
     },
     {
       "path": "dist/assets/plates/work-or-play.webp",
@@ -608,14 +628,19 @@
       "sha256": "d6d8da5fb459aa37821c2a8aca3c843bcb9fd1713e05d3a5d1c28d806aa8f895"
     },
     {
+      "path": "dist/aziel.html",
+      "bytes": 572,
+      "sha256": "3875fb0406d0998c1b1f008914aa6fa996159a5964c4dd9580250b0788567356"
+    },
+    {
       "path": "dist/favicon.svg",
       "bytes": 219,
       "sha256": "5df583f98838368866798f638b63267c21a9c14fec2d6101af122924d52f00b9"
     },
     {
       "path": "dist/foia.html",
-      "bytes": 16177,
-      "sha256": "e424c158932b6ef286b824ba2639957336aca2302a8beca46f401706143f7a55"
+      "bytes": 16542,
+      "sha256": "6cdc21eca424d3b04abb64b42aa4186a040fe5ddbcce135f4aaeb56c28aeed46"
     },
     {
       "path": "dist/foia.js",
@@ -624,13 +649,13 @@
     },
     {
       "path": "dist/index.html",
-      "bytes": 47945,
-      "sha256": "6b155a895d2d1368cb31ea3626ce87440be88d74470bfac645a1287409093c0b"
+      "bytes": 48310,
+      "sha256": "f0f99719a43293bbdcfbbcd1d23ae8de868e974d30fad7d6a07f860062a5ca03"
     },
     {
       "path": "dist/reader.html",
-      "bytes": 2899,
-      "sha256": "39bdcf7091d50b040e391015b474c84dc0b2d7d17c5ce16bb0779d74b54285e0"
+      "bytes": 3264,
+      "sha256": "d7ff5e09ff6ceeed76d375ab9a4c18c8e09093c7b916187b26086b7ac232746d"
     },
     {
       "path": "dist/reader.js",
@@ -639,8 +664,8 @@
     },
     {
       "path": "dist/rubye.html",
-      "bytes": 9626,
-      "sha256": "797ea4b2ce8d7f65e9613240c80f8970a8bc65391b06991925d292ce877ee82f"
+      "bytes": 14458,
+      "sha256": "7a56b9b6be32fb1d5d0516516da4dc290857b647f2b75f9594607a3f83a7957f"
     },
     {
       "path": "dist/stats.js",
@@ -649,8 +674,8 @@
     },
     {
       "path": "dist/style.css",
-      "bytes": 17814,
-      "sha256": "31a5ac4a5153215ee726b7bd05253eda7ce455cabb1d14f363e7c2706bb6e1a3"
+      "bytes": 18282,
+      "sha256": "201f95b4eb8e37ef09cdece91f043bda7f328418d4a9ee7abd6ab852a593ae9d"
     },
     {
       "path": "dist/volumes.json",
