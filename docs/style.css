@@ -1003,16 +1003,16 @@ header.masthead[data-wireframe="drawn-v1"] .masthead-flag{
 header.masthead[data-wireframe="drawn-v1"] .masthead-flag .flag-motto{
   justify-self:start !important;
   text-align:left !important;
-  font-size:11px;
-  letter-spacing:.12em;
+  font-size:9px;
+  letter-spacing:.08em;
   text-transform:uppercase;
 }
 header.masthead[data-wireframe="drawn-v1"] .masthead-flag .flag-date{
   justify-self:end !important;
   text-align:right !important;
   margin-left:auto !important;
-  font-size:11px;
-  letter-spacing:.12em;
+  font-size:9px;
+  letter-spacing:.08em;
   text-transform:uppercase;
 }
 header.masthead[data-wireframe="drawn-v1"] hr.paper-rule{
@@ -1538,4 +1538,18 @@ body[data-stats-page="landing"] .lead-banner .rule-triple-lead .paper-rule + .pa
 }
 body[data-stats-page="landing"] .lead-banner-center{
   margin-bottom:0 !important;
+}
+
+/* Flag phrases: sit clean on one line each */
+header.masthead[data-wireframe="drawn-v1"] .masthead-flag .flag-motto,
+header.masthead[data-wireframe="drawn-v1"] .masthead-flag .flag-date,
+body[data-stats-page="landing"] header.masthead[data-wireframe="drawn-v1"] .masthead-flag .flag-motto,
+body[data-stats-page="landing"] header.masthead[data-wireframe="drawn-v1"] .masthead-flag .flag-date{
+  font-size:9px !important;
+  letter-spacing:.08em !important;
+  line-height:1.1 !important;
+  white-space:nowrap !important;
+  overflow:hidden !important;
+  text-overflow:ellipsis !important;
+  max-width:100% !important;
 }
