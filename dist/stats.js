@@ -127,15 +127,15 @@
   }
 
   async function downloadAllVolumes(event) {
+    event.preventDefault();
     const link = event.currentTarget;
     const href = link.getAttribute('href') || '/volumes/hedidntjump-all-volumes.zip';
     const hasZip = await zipExists(href);
+    void hit('download', 'all-volumes');
     if (hasZip) {
-      void hit('download', 'all-volumes');
+      startFileDownload(href, 'hedidntjump-all-volumes.zip');
       return;
     }
-    event.preventDefault();
-    void hit('download', 'all-volumes');
     for (let i = 1; i <= 5; i += 1) {
       startFileDownload('/volumes/volume-' + i + '.pdf', 'hedidntjump-volume-' + i + '.pdf');
       void hit('download', 'volume-' + i);
