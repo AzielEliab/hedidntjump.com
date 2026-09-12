@@ -1096,10 +1096,7 @@ def patch_chrome():
             text = text.replace(FOOTER_OLD, FOOTER_NEW)
         if 'class="byline-line"' not in text:
             if name == "index.html":
-                text = text.replace(
-                    "    <span>An Independent Investigation</span>\n",
-                    '    <span>An Independent Investigation</span>\n    <span class="byline-line">By <a rel="author" href="https://www.azieleliab.com/">Aziel Eliab</a></span>\n',
-                )
+                pass
             elif name == "rubye.html":
                 text = text.replace(
                     "    <span>From Volumes II and V</span>\n",
@@ -1115,6 +1112,19 @@ def patch_chrome():
                     '    <p class="paper-name">The Marion Zioncheck Archive</p>\n',
                     '    <p class="paper-name">The Marion Zioncheck Archive</p>\n    <p class="byline-line">An Aziel Eliab Project · <a rel="author" href="https://www.azieleliab.com/">Aziel Eliab</a></p>\n',
                 )
+        if name == "index.html" and 'class="flag-city"' not in text:
+            text = text.replace(
+                """  <div class="masthead-flag">
+    <span>The Record, Not the Verdict</span>
+    <span>Seattle · Friday, August 7, 1936</span>
+    <span>An Independent Investigation</span>
+  </div>""",
+                """  <div class="masthead-flag">
+    <span>The Record, Not the Verdict</span>
+    <span class="flag-city">Seattle, Washington</span>
+    <span>Friday, August 7, 1936</span>
+  </div>""",
+            )
         if name == "index.html" and 'id="publisher"' not in text:
             text = text.replace(
                 '        <a class="text-link" href="/reader.html?volume=1">Start with Volume I ↗</a>\n      </div>\n',
