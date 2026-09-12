@@ -282,6 +282,11 @@ figcaption span:first-child,.cutline strong{
   font-weight:700;
   text-transform:uppercase;
 }
+figcaption a,.cutline a{
+  display:inline-flex;
+  align-items:center;
+  min-height:44px;
+}
 
 .edition-rail{
   display:flex;
