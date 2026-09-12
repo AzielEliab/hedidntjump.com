@@ -1188,3 +1188,67 @@ header.masthead[data-wireframe="drawn-v1"] nav.paper-tabs a .nav-pg{
   letter-spacing:0 !important;
   vertical-align:baseline !important;
 }
+
+/* Folio glued under Seattle — EXACTLY as drawn */
+header.masthead[data-wireframe="drawn-v1"] .nameplate{
+  border:0 !important;
+  border-bottom:0 !important;
+  padding-bottom:0 !important;
+}
+header.masthead[data-wireframe="drawn-v1"] .flag-city{
+  border:0 !important;
+  border-bottom:0 !important;
+  margin:6px 0 2px !important;
+  padding-bottom:0 !important;
+  text-decoration:none !important;
+}
+header.masthead[data-wireframe="drawn-v1"] .nameplate .paper-folio,
+header.masthead[data-wireframe="drawn-v1"] .paper-folio{
+  display:grid !important;
+  grid-template-columns:1fr auto 1fr !important;
+  align-items:baseline !important;
+  width:100% !important;
+  max-width:100% !important;
+  margin:4px 0 8px !important;
+  padding:0 !important;
+  border:0 !important;
+  border-top:0 !important;
+  border-bottom:0 !important;
+  background:transparent !important;
+  font-size:11px !important;
+  font-weight:400 !important;
+  letter-spacing:.08em !important;
+  text-transform:uppercase !important;
+}
+header.masthead[data-wireframe="drawn-v1"] .paper-folio #views{
+  grid-column:1 !important;
+  justify-self:start !important;
+  text-align:left !important;
+}
+header.masthead[data-wireframe="drawn-v1"] .paper-folio .folio-price{
+  grid-column:2 !important;
+  justify-self:center !important;
+  text-align:center !important;
+  text-transform:none !important;
+  font-size:13px !important;
+  font-weight:600 !important;
+  letter-spacing:0 !important;
+}
+header.masthead[data-wireframe="drawn-v1"] .paper-folio #downloads{
+  grid-column:3 !important;
+  justify-self:end !important;
+  text-align:right !important;
+}
+header.masthead[data-wireframe="drawn-v1"] .paper-folio .folio-stat,
+header.masthead[data-wireframe="drawn-v1"] .paper-folio .folio-stat span{
+  background:none !important;
+  border:0 !important;
+  border-radius:0 !important;
+  box-shadow:none !important;
+  padding:0 !important;
+  min-height:0 !important;
+  min-width:0 !important;
+  font-size:11px !important;
+  font-weight:400 !important;
+  color:inherit !important;
+}
