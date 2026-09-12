@@ -4,17 +4,20 @@
  * R2 binding: DENIALS (FOIA denial files)
  * AI binding: optional Workers AI for image transcription
  *
- * GET  /api/stats              → current totals
+ * GET  /api/stats              → current totals (public-read CORS)
+ * GET  /api/meta               → identity + live counters (public-read CORS)
  * GET  /api/hit?type=view|download&id=...
  * POST /api/hit                → JSON { type, id } or same query string
  * GET  /api/foia/ledger        → public hash chain
  * POST /api/foia/upload        → gated Zioncheck FOIA-denial upload
  * GET  /api/foia/file/:index   → accepted file bytes
  *
- * Also accepts /stats and /hit (workers.dev root).
- * CORS: hedidntjump.com, *.pages.dev, localhost.
+ * Also accepts /stats, /meta, and /hit (workers.dev root).
+ * Write CORS: hedidntjump.com, *.pages.dev, localhost.
+ * Public-read CORS (*): GET /api/stats and GET /api/meta.
  */
 import { appendDenial, gateUpload, readLedger, readObject, sniffType } from "./foia.js";
+import { buildMeta } from "./identity.js";
 const ALLOWED_ORIGIN = [
   /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/i,
   /^https:\/\/([a-z0-9-]+\.)?hedidntjump\.com$/i,
@@ -31,7 +34,7 @@ export function allowedOrigin(origin) {
   return ALLOWED_ORIGIN.some((re) => re.test(origin)) ? origin : "";
 }
 
-export function corsHeaders(request, extra = {}) {
+export function corsHeaders(request, extra = {}, { publicRead = false } = {}) {
   const origin = allowedOrigin(request.headers.get("Origin") || "");
   const headers = {
     "content-type": "application/json; charset=utf-8",
@@ -43,14 +46,19 @@ export function corsHeaders(request, extra = {}) {
     vary: "Origin",
     ...extra,
   };
-  if (origin) headers["access-control-allow-origin"] = origin;
+  if (publicRead) {
+    headers["access-control-allow-origin"] = "*";
+    delete headers.vary;
+  } else if (origin) {
+    headers["access-control-allow-origin"] = origin;
+  }
   return headers;
 }
 
-function json(request, body, status = 200) {
+function json(request, body, status = 200, opts = {}) {
   return new Response(JSON.stringify(body), {
     status,
-    headers: corsHeaders(request),
+    headers: corsHeaders(request, {}, opts),
   });
 }
 
@@ -122,6 +130,7 @@ async function parseHit(request, url) {
 function routeName(pathname) {
   const path = pathname.replace(/\/+$/, "") || "/";
   if (path === "/api/stats" || path === "/stats") return "stats";
+  if (path === "/api/meta" || path === "/meta") return "meta";
   if (path === "/api/hit" || path === "/hit") return "hit";
   if (path === "/api/foia/ledger" || path === "/foia/ledger") return "foia-ledger";
   if (path === "/api/foia/upload" || path === "/foia/upload") return "foia-upload";
@@ -182,7 +191,8 @@ export async function handleRequest(request, env) {
   const route = routeName(url.pathname);
 
   if (request.method === "OPTIONS") {
-    return new Response(null, { status: 204, headers: corsHeaders(request) });
+    const publicRead = route === "stats" || route === "meta";
+    return new Response(null, { status: 204, headers: corsHeaders(request, {}, { publicRead }) });
   }
 
   if (!route) {
@@ -191,7 +201,10 @@ export async function handleRequest(request, env) {
 
   const kv = env && env.STATS;
   if (route === "stats") {
-    return json(request, await snapshot(kv));
+    return json(request, await snapshot(kv), 200, { publicRead: true });
+  }
+  if (route === "meta") {
+    return json(request, buildMeta(await snapshot(kv), { live: true }), 200, { publicRead: true });
   }
   if (route === "foia-ledger") {
     return json(request, await readLedger(kv));

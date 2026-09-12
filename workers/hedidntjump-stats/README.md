@@ -6,7 +6,8 @@ Cloudflare Worker + KV counters and the Zioncheck FOIA denial ledger for [hedidn
 
 | Method | Path | Action |
 | --- | --- | --- |
-| `GET` | `/api/stats` or `/stats` | Read totals. Does not increment. |
+| `GET` | `/api/stats` or `/stats` | Read totals. Does not increment. Public-read CORS (`*`). |
+| `GET` | `/api/meta` or `/meta` | Identity + live counters. Public-read CORS (`*`). |
 | `GET`/`POST` | `/api/hit?type=view\|download&id=...` | Increment and return totals. |
 | `GET` | `/api/foia/ledger` | Public hash-chained receipt list + running count. |
 | `POST` | `/api/foia/upload` | Multipart `file` + `attestation=zioncheck-foia-denial`. Hard-gated. |
@@ -14,7 +15,7 @@ Cloudflare Worker + KV counters and the Zioncheck FOIA denial ledger for [hedidn
 
 `POST` hit may send JSON `{ "type": "download", "id": "volume-1" }`.
 
-CORS is open to `hedidntjump.com`, `*.pages.dev`, and `localhost`.
+Write CORS (`/api/hit`, FOIA upload) is limited to `hedidntjump.com`, `*.pages.dev`, and `localhost`. `GET /api/stats` and `GET /api/meta` send `Access-Control-Allow-Origin: *` so scrapers and other sites can read counters and identity.
 
 ## FOIA content gate
 

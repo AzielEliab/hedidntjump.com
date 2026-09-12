@@ -1,0 +1,11 @@
+{
+  "site": "https://hedidntjump.com/",
+  "as_of": "live",
+  "counters_url": "https://hedidntjump-stats.vibelock.workers.dev/api/stats",
+  "meta_url": "https://hedidntjump-stats.vibelock.workers.dev/api/meta",
+  "views": null,
+  "downloads": null,
+  "items": null,
+  "encouragement": "Read the five volumes and compare the plates with the official narrative. Download a PDF when you need the original page. The archive is for review of the record, not a verdict to copy.",
+  "note": "Static pointer. GET counters_url for the current views and downloads. This file does not invent counts."
+}

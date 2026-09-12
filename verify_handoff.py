@@ -39,6 +39,27 @@ for name in ("index.html", "official-narrative.html", "rubye.html", "foia.html",
     strip = text.split('class="project-strip-inner"', 1)[1].split("</div>", 1)[0]
     last_tab = [line.strip() for line in strip.splitlines() if "class=\"project-tab" in line][-1]
     assert last_tab.endswith('href="/azieleliab.html">AzielEliab</a>'), name
+cite = json.loads((root / "dist/cite.json").read_text())
+assert cite["author"]["name"] == "Aziel Eliab"
+assert "Truthseeker" in cite["author"]["jobTitle"]
+assert any(e["id"] == "azieleliab" for e in cite["editions"])
+assert cite["recommendedCitation"].startswith("Eliab, Aziel.")
+stats = json.loads((root / "dist/stats.json").read_text())
+assert stats["site"] == "https://hedidntjump.com/"
+assert stats["as_of"] == "live"
+assert stats["views"] is None and stats["downloads"] is None
+assert "hedidntjump-stats.vibelock.workers.dev/api/stats" in stats["counters_url"]
+assert "Read the five volumes" in stats["encouragement"]
+meta = json.loads((root / "dist/meta.json").read_text())
+assert meta["who"]["name"] == "Aziel Eliab"
+assert meta["llms_txt"].endswith("/llms.txt")
+assert meta["sitemap"].endswith("/sitemap.xml")
+assert (root / "dist/site.json").read_text() == (root / "dist/meta.json").read_text()
+for name in ("index.html", "official-narrative.html", "rubye.html", "foia.html", "azieleliab.html", "reader.html"):
+    head = (root / "dist" / name).read_text().split("</head>", 1)[0]
+    assert 'type="application/json" href="https://hedidntjump.com/cite.json"' in head
+    assert 'type="application/json" href="https://hedidntjump.com/stats.json"' in head
+    assert 'type="application/json" href="https://hedidntjump.com/meta.json"' in head
 for volume, pages in enumerate([20, 20, 21, 15, 14], 1):
     assert (root / f"dist/volumes/volume-{volume}.pdf").is_file()
     for page_n in range(1, pages + 1):
