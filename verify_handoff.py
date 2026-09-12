@@ -10,10 +10,12 @@ for item in manifest["files"]:
     assert hashlib.sha256(data).hexdigest() == item["sha256"], f"Hash mismatch: {path}"
 html = (root / "dist/index.html").read_text()
 assert html.count("<details>") == 0
-assert html.count('class="inquiry"') == 17
+assert html.count('class="inquiry"') == 21
+assert (root / "dist/official-narrative.html").is_file()
+assert (root / "dist/assets/plates/office-room.webp").is_file()
 assert html.count('class="volume-button"') == 5
 for volume, pages in enumerate([20, 20, 21, 15, 14], 1):
     assert (root / f"dist/volumes/volume-{volume}.pdf").is_file()
     for page in range(1, pages + 1):
         assert (root / f"dist/assets/v{volume}/{page}.webp").is_file()
-print(f"Verified {len(manifest['files'])} files, 17 inquiries and 90 reader pages.")
+print(f"Verified {len(manifest['files'])} files, 21 inquiries, official narrative, and 90 reader pages.")
