@@ -1,11 +1,26 @@
 {
   "snapshot_commit": "399eddebd5995e6a195959d4f13f596fd3424726",
-  "file_count": 104,
+  "file_count": 108,
   "files": [
     {
       "path": "README.md",
-      "bytes": 2808,
-      "sha256": "7bba4e1846c873789f6826f0ad572d5c44316bcc0a963d3f4331cea625798b90"
+      "bytes": 3418,
+      "sha256": "b514deee39f426ebc3bea5738065e35a85fe0c82c1b721812c4f32e5f0c1e35b"
+    },
+    {
+      "path": "dist/assets/arctic-building.webp",
+      "bytes": 8218,
+      "sha256": "966347fbf29f61c2c2af9d133a70e11184e984b9f0222d9e5f16fb97b6c85b55"
+    },
+    {
+      "path": "dist/assets/marion-gravestone.webp",
+      "bytes": 7954,
+      "sha256": "be2c705a5bf8079dbcd5f48d39ccff7fa03d16bf392bcc46de868583de90bfaf"
+    },
+    {
+      "path": "dist/assets/marion-rubye.webp",
+      "bytes": 9360,
+      "sha256": "62d66db3b30b1bf0e3ba441071aae10377770ceed1e60009ade484ef36455953"
     },
     {
       "path": "dist/assets/marion-zioncheck.webp",
@@ -469,23 +484,33 @@
     },
     {
       "path": "dist/index.html",
-      "bytes": 17687,
-      "sha256": "97b527a7364c8aac18125a41bbc3362caa15179c2c15d1ee05a16824a76199d0"
+      "bytes": 21684,
+      "sha256": "c08439d3a9e6c5316cd5114dcb4b92bbade67b0949eb9900fbfa6468ec63ab04"
     },
     {
       "path": "dist/reader.html",
-      "bytes": 1541,
-      "sha256": "592a7084207e2af2a40549ef5be460465186e46d3e7fc34a14f4c085617e313f"
+      "bytes": 2699,
+      "sha256": "90deb07eb49b97f8a833a8cb34a3be37da55643ca7cd63c96b4d6ad93a759de5"
     },
     {
       "path": "dist/reader.js",
-      "bytes": 2302,
-      "sha256": "229265f08b06eb2cf2aac4889cbe7f26b9c34f93947ed471c41f178087f3127e"
+      "bytes": 2441,
+      "sha256": "f1defa027c9e403efb960d3109c27000ac23b5762913f02db9a0a4d6ddaeedc7"
+    },
+    {
+      "path": "dist/stats.js",
+      "bytes": 3829,
+      "sha256": "b096ef2c6e859a86be85ad71cacee05dc5e7770b81f91627ef182643df73f49f"
     },
     {
       "path": "dist/style.css",
-      "bytes": 9030,
-      "sha256": "64af08ff6bca8fe364b3774284fd086063c30581e975cabb9196d26c38693953"
+      "bytes": 12534,
+      "sha256": "c027b4230c79441299afff0233e3eaca6faaf702c1305f85f94b53dc77e7ad75"
+    },
+    {
+      "path": "dist/volumes.json",
+      "bytes": 229,
+      "sha256": "b838793d7bb612d93ebecef3305dfcb842f8c58a71aef8d70e4fd1bd7dad05d4"
     },
     {
       "path": "dist/volumes/volume-1.pdf",
@@ -511,11 +536,6 @@
       "path": "dist/volumes/volume-5.pdf",
       "bytes": 27749,
       "sha256": "d83dde42699917e512670f0783e187f5e16954f9e6de4c8ff25226ba79a5c473"
-    },
-    {
-      "path": "dist/volumes.json",
-      "bytes": 229,
-      "sha256": "b838793d7bb612d93ebecef3305dfcb842f8c58a71aef8d70e4fd1bd7dad05d4"
     },
     {
       "path": "verify_handoff.py",
