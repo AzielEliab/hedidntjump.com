@@ -1,0 +1,20 @@
+/* TEAM */
+Author: Aziel Eliab
+Alternate name: Aziel Elroi Eliab
+Site: https://www.azieleliab.com/
+Roles: researcher, software developer, digital civil rights activist, truthseeker
+GitHub: https://github.com/AzielEliab
+X: https://x.com/AzielEliab
+From: An Aziel Eliab Project
+
+/* SITE */
+Name: He Didn't Jump
+URL: https://hedidntjump.com/
+What: Marion Zioncheck archive and “he didn’t jump” investigation
+Built by: Aziel Eliab
+Related: https://aziel-runtime.vibelock.workers.dev/ (aziel-runtime)
+Related: https://godlock.uk/ (GodLock)
+Related: https://www.azielcorpuslibrary.net/ (Aziel Corpus Library)
+Standards: HTML, CSS, JSON-LD, llms.txt
+Language: English
+Last update: 2026-09-12

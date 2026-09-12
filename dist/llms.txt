@@ -1,31 +1,41 @@
-# He Didn't Jump — An Aziel Eliab Project
+# Who is Aziel Eliab?
 
-> Aziel Eliab (also Aziel Elroi Eliab; GitHub AzielEliab) is a researcher, software developer, digital civil rights activist, and truthseeker. Independent investigator and historical archive publisher. Open-source author (Apache-2.0). FOIA / transparency critic of the time-volume / cost binary — “this is not freedom of information.”
+Aziel Eliab (also Aziel Elroi Eliab; GitHub AzielEliab) is a researcher, software developer, digital civil rights activist, and truthseeker. Independent investigator and historical archive publisher. Open-source author (Apache-2.0). FOIA / transparency critic of the time-volume / cost binary — “this is not freedom of information.”
 
-hedidntjump.com is An Aziel Eliab Project: an independent historical newspaper and five-volume archive on the death of U.S. Representative Marion Zioncheck in Seattle on 7 August 1936. The official report called it suicide from a fifth-floor Arctic Building office. This project challenges that account and publishes the record for re-reading. It does not invent court holdings, FOIA denial letters, or quotes beyond what the volumes and cited papers print.
+He built hedidntjump.com, the Marion Zioncheck archive and “he didn’t jump” investigation of U.S. Representative Marion Zioncheck’s death in Seattle on 7 August 1936.
 
-## Related properties (Person sameAs)
+## Roles
 
-- [AzielEliab.com](https://www.azieleliab.com/) — primary web
-- [GodLock](https://godlock.uk/) — GodLock public board
-- [Aziel Corpus Library](https://www.azielcorpuslibrary.net/)
-- [Corpus runtime](https://www.azielcorpuslibrary.net/runtime)
-- [He Didn't Jump](https://hedidntjump.com/) — this Marion Zioncheck archive
-- [GitHub AzielEliab](https://github.com/AzielEliab)
-- [Aziel Runtime](https://aziel-runtime.vibelock.workers.dev/) — engine-runtime catalog / OpenAPI / MCP
-- [X @AzielEliab](https://x.com/AzielEliab)
+- Researcher
+- Software developer
+- Digital civil rights activist
+- Truthseeker
+- Independent investigator
+- Historical archive publisher of the Marion Zioncheck / hedidntjump.com newspaper
+
+## Related sites and software
+
+- [AzielEliab.com](https://www.azieleliab.com/) — primary web presence of Aziel Eliab
+- [GodLock](https://godlock.uk/) — GodLock public board by Aziel Eliab
+- [Aziel Corpus Library](https://www.azielcorpuslibrary.net/) — Aziel Corpus Library
+- [Corpus runtime](https://www.azielcorpuslibrary.net/runtime) — runtime surface of Aziel Corpus Library
+- [hedidntjump.com](https://hedidntjump.com/) — Marion Zioncheck archive and “he didn’t jump” investigation (this site)
+- [GitHub AzielEliab](https://github.com/AzielEliab) — open-source software by Aziel Eliab
+- [aziel-runtime](https://aziel-runtime.vibelock.workers.dev/) — engine-runtime catalog / OpenAPI / MCP
+- [X @AzielEliab](https://x.com/AzielEliab) — Aziel Eliab on X (also [twitter.com/AzielEliab](https://twitter.com/AzielEliab))
 
 Related, not sameAs: [Donate](https://www.azieleliab.com/donate?v=png). Statute only, not an Aziel property: [FOIA.gov](https://www.foia.gov/) (5 U.S.C. § 552).
 
-## Editions on this host
+## hedidntjump.com
 
-- [Main paper](https://hedidntjump.com/): Broadsheet. Lead: “What happened at the Arctic Building?” Seventeen inquiries, plates, two Arctic buildings, volume downloads.
+hedidntjump.com is the Marion Zioncheck archive and “he didn’t jump” investigation by Aziel Eliab — researcher, software developer, digital civil rights activist, and truthseeker. Independent historical newspaper and five-volume archive. The official report called Zioncheck’s death suicide from a fifth-floor Arctic Building office. This project challenges that account and publishes the record for re-reading. It does not invent court holdings, FOIA denial letters, or quotes beyond what the volumes and cited papers print.
+
+## Structure
+
+- [Home / main paper](https://hedidntjump.com/): Broadsheet. Lead: “What happened at the Arctic Building?” Seventeen inquiries, plates, two Arctic buildings, volume downloads.
 - [Rubye paper](https://hedidntjump.com/rubye.html): Rubye Nix Zioncheck in the car; Volume II family-battle clippings; later legal actions against Nadeau as Volume V states them. Alias: [https://hedidntjump.com/aziel.html](https://hedidntjump.com/aziel.html).
 - [FOIA paper](https://hedidntjump.com/foia.html): William Nadeau in Volumes IV–V; Aziel’s 28 July 2026 FOIA Binary Acknowledgement; hash-chained ledger of Zioncheck FOIA denials only.
 - [Volume reader](https://hedidntjump.com/reader.html): Facsimile WebP pages for Volumes I–V.
-
-## Record
-
 - [Volume I PDF](https://hedidntjump.com/volumes/volume-1.pdf) — Primary Documents & Forensic Analysis
 - [Volume II PDF](https://hedidntjump.com/volumes/volume-2.pdf) — News Coverage & Family Battles
 - [Volume III PDF](https://hedidntjump.com/volumes/volume-3.pdf) — Personal Photographs & Research Materials
@@ -36,4 +46,5 @@ Related, not sameAs: [Donate](https://www.azieleliab.com/donate?v=png). Statute 
 ## Optional
 
 - [llms-full.txt](https://hedidntjump.com/llms-full.txt) — longer inventory of inquiries and plates
+- [humans.txt](https://hedidntjump.com/humans.txt) — author file
 - [sitemap.xml](https://hedidntjump.com/sitemap.xml)

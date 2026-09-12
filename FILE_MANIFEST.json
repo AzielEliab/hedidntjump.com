@@ -1,6 +1,6 @@
 {
   "snapshot_commit": "399eddebd5995e6a195959d4f13f596fd3424726",
-  "file_count": 152,
+  "file_count": 153,
   "files": [
     {
       "path": "README.md",
@@ -9,8 +9,8 @@
     },
     {
       "path": "dist/_headers",
-      "bytes": 796,
-      "sha256": "45b351e91ef1ce0f4cc8bf588eb806b84a437f792171a56a82077a46052261a5"
+      "bytes": 889,
+      "sha256": "17e8914a11fa576ecd435aee00e8b7be16f4e6d13a72b6efb6846692496add93"
     },
     {
       "path": "dist/assets/arctic-building-1917.webp",
@@ -654,8 +654,8 @@
     },
     {
       "path": "dist/aziel.html",
-      "bytes": 1276,
-      "sha256": "574948ee7a1f20875b7bf4e426bf38d9a6d498f86575a37053cf232630071f2f"
+      "bytes": 7895,
+      "sha256": "9fba12885a55675b784668d3e52f57b7592b081fc374da44353aaebedd4c0da4"
     },
     {
       "path": "dist/favicon.svg",
@@ -664,8 +664,8 @@
     },
     {
       "path": "dist/foia.html",
-      "bytes": 29959,
-      "sha256": "c5f797a894eac3b9539dc3d8464dc71cf6c71c54ce76fc9b5564b2cc6de3297c"
+      "bytes": 42247,
+      "sha256": "f860e7ff9db19c6108eca6810393afd2809ac6329f9fdbf10ab9782e03d45f71"
     },
     {
       "path": "dist/foia.js",
@@ -673,44 +673,49 @@
       "sha256": "5720412e9d9758f0ec4c87f4c90927c14cbeaf5aed17c2fc735b6a5b224cef2a"
     },
     {
+      "path": "dist/humans.txt",
+      "bytes": 691,
+      "sha256": "3aa8db344f138241723bd4120943009e893eab5e3db61ccec7a6744f2c18c549"
+    },
+    {
       "path": "dist/index.html",
-      "bytes": 47854,
-      "sha256": "7842fac6b7424c8ee213c78c41a020c3b5a0867a1841c442d82b4e15f9f377ea"
+      "bytes": 60377,
+      "sha256": "70180bd0bf2b689a98b89a79ab686b3ecc311e20109e3c67ee53fe1ffda6e33a"
     },
     {
       "path": "dist/llms-full.txt",
-      "bytes": 5111,
-      "sha256": "42f78276edf93e0278c9f038da4cbb5d0bd4487f401a0edd67b8354899e0fbfc"
+      "bytes": 6293,
+      "sha256": "796fc6cc4e630a8454217085c8b66a1a3479970e1464be18792630890a87eadb"
     },
     {
       "path": "dist/llms.txt",
-      "bytes": 3172,
-      "sha256": "ee2868d48a8a249d8a0b4893595c1daebccce742f4a4be84b7700d467d1dee23"
+      "bytes": 3947,
+      "sha256": "44de255a1c889a4917099c660dd9d81dcaa46817c778e1ac396c664f4a8f124f"
     },
     {
       "path": "dist/reader.html",
-      "bytes": 14810,
-      "sha256": "700929eccb289c4f04957cc690ad4eaa452f8025c834954b198f3009c1a788a0"
+      "bytes": 26734,
+      "sha256": "431ac91f28ba80896d6dd75e3de1f3fd4caf243551ac379fb6512247626cb18e"
     },
     {
       "path": "dist/reader.js",
-      "bytes": 3176,
-      "sha256": "1b98120cd1ae127b0be61f749420e12c1baa3ad056610cf2aecc440a21600278"
+      "bytes": 3269,
+      "sha256": "572004dd685b771bf5171fac441abddb075b1dfe68c11a229584744906f6d947"
     },
     {
       "path": "dist/robots.txt",
-      "bytes": 586,
-      "sha256": "e057dec7e6938238a5cf2ae7465c1467f83c379da9c8b9645e28884b276c1c3e"
+      "bytes": 1477,
+      "sha256": "1aa5038e7659dd7a6f7fe21b56f15ffd06c45cba5c6d30eb225950a542ced277"
     },
     {
       "path": "dist/rubye.html",
-      "bytes": 28222,
-      "sha256": "eac2cb02650faef6ae477dcf53fb594677eaeced5bd079624ce026d5f1d7efc6"
+      "bytes": 40866,
+      "sha256": "6671208d52ed966bd874bd0a53c9080c1e336b1edc72aa6c7ffcc87b6b7aaeb3"
     },
     {
       "path": "dist/sitemap.xml",
-      "bytes": 1977,
-      "sha256": "f2af05484d4e7a3e2d22a688e9b9585ae41510639c19a474d2241ee47721d89e"
+      "bytes": 3217,
+      "sha256": "75e39929c8d3fc2bd16ff9349cd716c8bb46535eb20d9b81b21c5c15cce76509"
     },
     {
       "path": "dist/stats.js",
@@ -719,8 +724,8 @@
     },
     {
       "path": "dist/style.css",
-      "bytes": 22407,
-      "sha256": "e51af95cdf9a8bdbabd425f7c247a52cc8441219b52f21e10b0f31addd49980a"
+      "bytes": 22535,
+      "sha256": "2a141b779407407623b3b60be22f6513db75a25eab72164aefa8829f235868ed"
     },
     {
       "path": "dist/volumes.json",
@@ -754,8 +759,8 @@
     },
     {
       "path": "scripts/inject_seo.py",
-      "bytes": 41737,
-      "sha256": "fd0477e1454e4b7d31129a704bb545dfb2f75a35f42001b4d62681ee8e33a7ac"
+      "bytes": 57985,
+      "sha256": "438b7048a221eb37b0c0514b2bf7477740ebb5e2ec48b2644789827caa425247"
     },
     {
       "path": "verify_handoff.py",
