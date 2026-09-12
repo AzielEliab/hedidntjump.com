@@ -1,0 +1,16 @@
+{
+  "name": "hedidntjump-stats",
+  "main": "src/index.js",
+  "compatibility_date": "2026-09-12",
+  "workers_dev": true,
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
+  },
+  "kv_namespaces": [
+    {
+      "binding": "STATS",
+      "id": "1917a6bc70804f6f927d29598264e092"
+    }
+  ]
+}
