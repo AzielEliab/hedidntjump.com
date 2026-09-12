@@ -1097,45 +1097,7 @@ header.masthead[data-wireframe="drawn-v1"] .paper-folio .folio-stat span{
   font-weight:400 !important;
   color:inherit !important;
 }
-header.masthead[data-wireframe="drawn-v1"] nav.paper-tabs{
-  display:grid !important;
-  grid-template-columns:repeat(4, minmax(0, 1fr)) !important;
-  grid-template-rows:auto auto !important;
-  column-gap:8px !important;
-  row-gap:6px !important;
-  width:100% !important;
-  margin:0 !important;
-  padding:8px 0 !important;
-  border:0 !important;
-  justify-content:stretch !important;
-  align-items:start !important;
-  flex-wrap:nowrap !important;
-}
-header.masthead[data-wireframe="drawn-v1"] nav.paper-tabs a{
-  display:block !important;
-  width:100% !important;
-  max-width:100% !important;
-  font-size:12px !important;
-  line-height:1.25 !important;
-  min-height:0 !important;
-  padding:2px 2px !important;
-  text-align:center !important;
-  text-decoration:none !important;
-  box-sizing:border-box !important;
-  overflow-wrap:anywhere;
-}
-header.masthead[data-wireframe="drawn-v1"] nav.paper-tabs a.tab-wide{
-  grid-column:auto !important;
-}
-header.masthead[data-wireframe="drawn-v1"] nav.paper-tabs a .nav-pg{
-  font-size:8px !important;
-  font-weight:400 !important;
-  opacity:.65 !important;
-  margin-left:.15em !important;
-  display:inline !important;
-  text-transform:none !important;
-  white-space:nowrap !important;
-}
+
 /* Kill old landing flag overrides that break the drawn layout */
 @media (max-width:620px){
   header.masthead[data-wireframe="drawn-v1"] .masthead-flag{
@@ -1176,4 +1138,53 @@ header.masthead[data-wireframe="drawn-v1"] nav.paper-tabs a .nav-pg{
   font-weight:700 !important;
   letter-spacing:.05em !important;
   text-transform:uppercase !important;
+}
+
+/* Tab grid: 5 on row 1, 4 on row 2; Pg.# three sizes smaller than tab name */
+header.masthead[data-wireframe="drawn-v1"] nav.paper-tabs{
+  display:flex !important;
+  flex-direction:column !important;
+  gap:6px !important;
+  width:100% !important;
+  margin:0 !important;
+  padding:8px 0 !important;
+  border:0 !important;
+  grid-template-columns:unset !important;
+  grid-template-rows:unset !important;
+}
+header.masthead[data-wireframe="drawn-v1"] nav.paper-tabs .tab-row{
+  display:grid !important;
+  width:100% !important;
+  column-gap:6px !important;
+  row-gap:0 !important;
+  align-items:start !important;
+}
+header.masthead[data-wireframe="drawn-v1"] nav.paper-tabs .tab-row-5{
+  grid-template-columns:repeat(5, minmax(0, 1fr)) !important;
+}
+header.masthead[data-wireframe="drawn-v1"] nav.paper-tabs .tab-row-4{
+  grid-template-columns:repeat(4, minmax(0, 1fr)) !important;
+}
+header.masthead[data-wireframe="drawn-v1"] nav.paper-tabs a{
+  display:block !important;
+  width:100% !important;
+  font-size:13px !important;
+  line-height:1.2 !important;
+  text-align:center !important;
+  text-decoration:none !important;
+  min-height:0 !important;
+  padding:2px 1px !important;
+  box-sizing:border-box !important;
+  overflow-wrap:anywhere;
+}
+header.masthead[data-wireframe="drawn-v1"] nav.paper-tabs a .nav-pg{
+  font-size:7px !important; /* ~3 steps under 13px tab name */
+  font-weight:400 !important;
+  opacity:.7 !important;
+  margin-left:.12em !important;
+  display:inline !important;
+  text-transform:none !important;
+  white-space:nowrap !important;
+  letter-spacing:0 !important;
+  vertical-align:baseline !important;
 }
