@@ -24,7 +24,7 @@
     let label = el.querySelector('span');
     if (!label) {
       label = document.createElement('span');
-      label.textContent = id === 'downloads' ? 'downloads' : 'views';
+      label.textContent = id === 'downloads' ? ' downloads' : ' views';
     }
     el.replaceChildren(document.createTextNode(formatCount(value)), label);
   }
