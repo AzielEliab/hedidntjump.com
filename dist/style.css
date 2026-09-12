@@ -78,6 +78,38 @@ main{padding:0 4%;max-width:min(1180px,100%);overflow-x:hidden}
 
 /* —— Masthead —— */
 .masthead{padding:14px 4% 0}
+.brandrow{
+  display:flex;
+  flex-wrap:nowrap;
+  align-items:center;
+  justify-content:flex-start;
+  gap:12px;
+  min-height:48px;
+  padding:0 0 8px;
+}
+.brandmark-link{
+  display:block;
+  flex:0 0 40px;
+  width:40px;
+  height:40px;
+  line-height:0;
+  order:-1;
+}
+.brandmark,
+header.masthead img.brandmark{
+  width:40px;
+  height:40px;
+  max-width:40px;
+  max-height:40px;
+  min-width:40px;
+  border-radius:10px;
+  object-fit:cover;
+  flex:0 0 40px;
+  box-shadow:0 0 0 1px rgba(20,17,13,.25),0 0 0 1px #c9a227;
+  filter:none;
+  border:0;
+  background:transparent;
+}
 .masthead-flag{
   display:flex;
   flex-wrap:wrap;
@@ -174,7 +206,7 @@ nav a:hover,.text-link:hover,.cutline a:hover{color:var(--red)}
 .pill.live-nodes{letter-spacing:.2px;white-space:nowrap}
 
 /* —— Front page —— */
-.front,.paper-grid,.two-arctics-grid,.building-trio,.volume-buttons,.dateline,.masthead-flag,.project-strip-inner,.reader-controls{
+.front,.paper-grid,.two-arctics-grid,.building-trio,.volume-buttons,.dateline,.masthead-flag,.project-strip-inner,.reader-controls,.brandrow{
   width:100%;
   max-width:100%;
 }
@@ -857,7 +889,20 @@ main figure:not(.portrait):not(.reader-page) img:not(.page-image){
   justify-content:flex-start;
 }
 .midpage-photo,.two-arctics,.stone-block{max-width:100%;overflow:hidden;}
-.project-strip-inner,.archive-toolbar,.dateline,.masthead,.nameplate{max-width:100%;}
+.project-strip-inner,.archive-toolbar,.dateline,.masthead,.nameplate,.brandrow{max-width:100%;}
+/* Brand mark: 40px rose-star; do not inherit archive-cut / grayscale / full-bleed img rules */
+header.masthead img.brandmark,
+img.brandmark{
+  width:40px!important;
+  height:40px!important;
+  max-width:40px!important;
+  max-height:40px!important;
+  object-fit:cover!important;
+  filter:none!important;
+  border:0!important;
+  background:transparent!important;
+  display:block;
+}
 @media(max-width:620px){
   .hero,.case,.spread,.deck-grid{max-width:100%;}
 }

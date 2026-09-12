@@ -1,6 +1,6 @@
 {
   "snapshot_commit": "399eddebd5995e6a195959d4f13f596fd3424726",
-  "file_count": 154,
+  "file_count": 155,
   "files": [
     {
       "path": "README.md",
@@ -9,8 +9,8 @@
     },
     {
       "path": "dist/_headers",
-      "bytes": 796,
-      "sha256": "45b351e91ef1ce0f4cc8bf588eb806b84a437f792171a56a82077a46052261a5"
+      "bytes": 847,
+      "sha256": "f5c6ec4a76b8b4ab2002a50d0872164e623a2f71da51c3d5dccb8dd018629111"
     },
     {
       "path": "dist/assets/arctic-building-1917.webp",
@@ -669,8 +669,8 @@
     },
     {
       "path": "dist/foia.html",
-      "bytes": 30322,
-      "sha256": "240c0b775251f0bd4017498f1bebdc2af96e7e9dd4e2f4d7f0a8c762f68b0e17"
+      "bytes": 30448,
+      "sha256": "dd2369ee5b1ba193261076b0a5094d7b5c75c6feeaab77cf2369a017434a9af3"
     },
     {
       "path": "dist/foia.js",
@@ -679,8 +679,8 @@
     },
     {
       "path": "dist/index.html",
-      "bytes": 56837,
-      "sha256": "695ffdef84c85bf907fc74c19e822f7a7a50fac466561be098682b0a08589248"
+      "bytes": 56963,
+      "sha256": "d76e7a1e035b818d7776dd7dae27a61e169e2ec291ac88bc64d706cc02e8850d"
     },
     {
       "path": "dist/llms-full.txt",
@@ -694,13 +694,13 @@
     },
     {
       "path": "dist/official-narrative.html",
-      "bytes": 27799,
-      "sha256": "388b248fa19d14b38a6afa6796d41379001364f2d82249de18eef62e7b7a889a"
+      "bytes": 27925,
+      "sha256": "46b06f3a22cf1600acdc21370c4dec40354b5935f2ce3666988623ad17cfd1eb"
     },
     {
       "path": "dist/reader.html",
-      "bytes": 15138,
-      "sha256": "f85c2a3d3f6520f566109cd521881c1ae529f1dc90d3d6ccd20c3998e9d11df6"
+      "bytes": 15264,
+      "sha256": "28deb6ed88e284f8e34dc702b6394cede783089ae787ce99bf8e840feddc8e02"
     },
     {
       "path": "dist/reader.js",
@@ -714,8 +714,13 @@
     },
     {
       "path": "dist/rubye.html",
-      "bytes": 28829,
-      "sha256": "2d4ac768756069ab50e4c792fb24b225f597b095a53934710cddd848c23884c4"
+      "bytes": 28955,
+      "sha256": "25915f5705430e790d39c87e7a5440702c40d058554e4594e76d27cc6f1d3123"
+    },
+    {
+      "path": "dist/sigil.png",
+      "bytes": 75035,
+      "sha256": "af095e8b0916a7262860a53619c7110f25539988806775b1c7bff8df7b0ee848"
     },
     {
       "path": "dist/sitemap.xml",
@@ -729,8 +734,8 @@
     },
     {
       "path": "dist/style.css",
-      "bytes": 22503,
-      "sha256": "b20577e0411c8b3478e454e11bd9c54aacc9a102b84b25561b78d5618879f95b"
+      "bytes": 23467,
+      "sha256": "e4fcfe43c68beb77f09047cb3ba937082c7972aef35a9dec9651b28567d88af0"
     },
     {
       "path": "dist/volumes.json",
