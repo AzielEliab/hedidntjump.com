@@ -495,8 +495,29 @@ figcaption span:first-child,.cutline strong{
   text-align:center;
   line-height:1.25;
 }
-.project-tab.brand-tab{background:#f3e6c8;color:#231e18;border-color:#f3e6c8;font-weight:700}
+.project-tab.brand-tab{
+  flex-direction:column;
+  gap:2px;
+  background:#f3e6c8;
+  color:#231e18;
+  border:2px solid #f6ecd4;
+  border-radius:2px;
+  font-family:"Playfair Display",Georgia,serif;
+  font-weight:700;
+  font-size:15px;
+  letter-spacing:.02em;
+  box-shadow:3px 3px 0 #000;
+  min-width:min(100%,220px);
+}
+.brand-tab-go{
+  display:block;
+  font:11px/1.2 Georgia,"Times New Roman",Times,serif;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  font-weight:600;
+}
 a.project-tab:hover{background:#8d261f;border-color:#8d261f;color:#f6ecd4}
+a.project-tab.brand-tab:hover{background:#f6ecd4;color:#8d261f;border-color:#8d261f}
 footer{
   padding:26px 4%;
   display:flex;
