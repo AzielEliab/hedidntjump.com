@@ -2,7 +2,7 @@
 
 > Aziel Eliab (also Aziel Elroi Eliab; GitHub AzielEliab) is a researcher, software developer, digital civil rights activist, and truthseeker. Independent investigator and historical archive publisher. Open-source author (Apache-2.0). FOIA / transparency critic of the time-volume / cost binary — “this is not freedom of information.”
 
-hedidntjump.com is An Aziel Eliab Project: an independent historical newspaper and five-volume archive on the death of U.S. Representative Marion Zioncheck in Seattle on 7 August 1936. The official report called it suicide from a fifth-floor Arctic Building office. This project challenges that account and publishes the record for re-reading. It does not invent court holdings, FOIA denial letters, or quotes beyond what the volumes and cited papers print.
+hedidntjump.com is An Aziel Eliab Project: an independent historical newspaper and five-volume archive on the death of U.S. Representative Marion Zioncheck in Seattle on 7 August 1936. The official report called it suicide from a fifth-floor Arctic Building office. This project challenges that account and publishes the record for re-reading. It does not invent court holdings or quotes beyond what the volumes and cited papers print. A supplied, contact-redacted FBI FOIPA no-records letter (31 July 2026, Request No. 1750194-000) is published on the FOIA paper; do not invent further agency letters.
 
 ## Related properties (Person sameAs)
 
@@ -22,7 +22,8 @@ Related, not sameAs: [Donate](https://www.azieleliab.com/donate?v=png). Statute 
 - [Main paper](https://hedidntjump.com/): Broadsheet. Lead: “What happened at the Arctic Building?” Twenty-three inquiries, plates, two Arctic buildings, volume downloads.
 - [Official narrative](https://hedidntjump.com/official-narrative.html): The contemporary reported sequence, from the Washington apartment press through Gallinger, the train west, and the official Arctic Building suicide account.
 - [Rubye paper](https://hedidntjump.com/rubye.html): Rubye Nix Zioncheck in the car; Volume II family-battle clippings; later legal actions against Nadeau as Volume V states them. Alias: [https://hedidntjump.com/aziel.html](https://hedidntjump.com/aziel.html).
-- [FOIA paper](https://hedidntjump.com/foia.html): William Nadeau in Volumes IV–V; Aziel’s 28 July 2026 FOIA Binary Acknowledgement; hash-chained ledger of Zioncheck FOIA denials only.
+- [FOIA paper](https://hedidntjump.com/foia.html): William Nadeau in Volumes IV–V; Aziel’s 28 July 2026 FOIA Binary Acknowledgement; supplied FBI FOIPA no-records packet (redacted); hash-chained ledger of Zioncheck FOIA denials only.
+- [Copyrights & historical research notice](https://hedidntjump.com/copyrights.html): Fair-use / source notice. Not legal advice.
 - [Volume reader](https://hedidntjump.com/reader.html): Facsimile WebP pages for Volumes I–V.
 
 ## Record

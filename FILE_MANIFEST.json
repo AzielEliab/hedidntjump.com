@@ -1,6 +1,6 @@
 {
   "snapshot_commit": "399eddebd5995e6a195959d4f13f596fd3424726",
-  "file_count": 161,
+  "file_count": 168,
   "files": [
     {
       "path": "README.md",
@@ -111,6 +111,36 @@
       "path": "dist/assets/plates/death-certificate.webp",
       "bytes": 249962,
       "sha256": "bdfc2c630108cd576e4ffe2214efe3c8419b0be0fa82b3f22befffd7cf768dd3"
+    },
+    {
+      "path": "dist/assets/plates/escort-dc-bishop.webp",
+      "bytes": 177604,
+      "sha256": "b3f7845abc7da39f3aa00ccad911a5b207f3829af6bb39d58b9182433a9e7f9a"
+    },
+    {
+      "path": "dist/assets/plates/foia-fbi-response-p1.webp",
+      "bytes": 208880,
+      "sha256": "96ae151ea4271563d7f0aea4730565365c53dc4e2fea39dda0adfbe35597db1d"
+    },
+    {
+      "path": "dist/assets/plates/foia-fbi-response-p2.webp",
+      "bytes": 44144,
+      "sha256": "127c2acba026a2e9f039b42155aed6a7f0fc443954df7efea89ccb8fa82d04a8"
+    },
+    {
+      "path": "dist/assets/plates/foia-fee-waiver.webp",
+      "bytes": 109410,
+      "sha256": "5d0dc5fbd4ff2389bc6eb1388761ff9cbba5d64d0dd5bc9d210076ae9fa20406"
+    },
+    {
+      "path": "dist/assets/plates/foia-request.webp",
+      "bytes": 104866,
+      "sha256": "c78a0cb25cafdcef5da39ab0111e3420223e259d50caf8c0e9ba8ff28638fbde"
+    },
+    {
+      "path": "dist/assets/plates/foia-subject-deceased.webp",
+      "bytes": 12648,
+      "sha256": "40b68a6425984b6fbba8a5bcc1c97dc68a3c8bb0d4c29c126b82c50a3c5c3532"
     },
     {
       "path": "dist/assets/plates/frances-death-certificate.webp",
@@ -698,14 +728,19 @@
       "sha256": "574948ee7a1f20875b7bf4e426bf38d9a6d498f86575a37053cf232630071f2f"
     },
     {
+      "path": "dist/copyrights.html",
+      "bytes": 22704,
+      "sha256": "feacdb2f4fd9c52b008cfa4a6809cf53edfac7f16aa826f7d09f86f99be99e26"
+    },
+    {
       "path": "dist/favicon.svg",
       "bytes": 219,
       "sha256": "5df583f98838368866798f638b63267c21a9c14fec2d6101af122924d52f00b9"
     },
     {
       "path": "dist/foia.html",
-      "bytes": 30138,
-      "sha256": "ae37b2024c985f9283237c4e75c0fa2ad04b4983a4fe15d7b5c9308e0475a8e7"
+      "bytes": 37714,
+      "sha256": "99a71d7af849fda4dbf090fa2ca1767d45a36dfa03ed851786a530dc8e2111e6"
     },
     {
       "path": "dist/foia.js",
@@ -714,28 +749,28 @@
     },
     {
       "path": "dist/index.html",
-      "bytes": 63873,
-      "sha256": "caf6fffef242a73008e66d7c405932facdcf7984b2cd7b1ad7bd8322bbd49a7b"
+      "bytes": 65896,
+      "sha256": "6027c8dc154a3a6a1c5ce6aa5ee30a72e424c0a7e25831424b4a6a952b57b952"
     },
     {
       "path": "dist/llms-full.txt",
-      "bytes": 6591,
-      "sha256": "c3c0315dbc92a5105f6d9f834a4103bc888fb0c1a07388f757d68bbad05da3e2"
+      "bytes": 7763,
+      "sha256": "5398f8373b1ecbbbe0dbd673a8bfc3b2ec52776a80c82691b929bd1c8c4a1904"
     },
     {
       "path": "dist/llms.txt",
-      "bytes": 3405,
-      "sha256": "0f1a41b9070c9a0831b8e8c66460690444e42948308b8b2174bd9239d464ad1c"
+      "bytes": 3729,
+      "sha256": "2fd8ecdc4902ce6b26b2e9ae3e9613425761d5cc9f31939cab142438accd3c94"
     },
     {
       "path": "dist/official-narrative.html",
-      "bytes": 28211,
-      "sha256": "3821f4c106000e6df7ec6e78f957d90eba37c8d02848ee477c023cc2da757ffe"
+      "bytes": 28428,
+      "sha256": "ac3444c7ad8e1001229ecb6f4b7ac12566f75b5583cf69e76699542aac13b657"
     },
     {
       "path": "dist/reader.html",
-      "bytes": 14954,
-      "sha256": "902bb623314daf00ecb317316b46a437aca8c6ee75b4b224405a160af5ff11a4"
+      "bytes": 15171,
+      "sha256": "535ee36834e7b6369ab0ee5e1cdfb7e98c6f3d49eddc22344b70519de2fdcb46"
     },
     {
       "path": "dist/reader.js",
@@ -749,13 +784,13 @@
     },
     {
       "path": "dist/rubye.html",
-      "bytes": 29114,
-      "sha256": "22b94b1c131202fab181fe21c1c1776c3cd9fbad28feca6be61095381cc2d1c9"
+      "bytes": 29331,
+      "sha256": "3ffa4e898da51ee972c7efb695d582b2d1da8284bc6c1210f2e41c4adf293dd1"
     },
     {
       "path": "dist/sitemap.xml",
-      "bytes": 2156,
-      "sha256": "510282c62181eacc8ef0215acd5f21e67dee16b05ff9cea644a9e2840aeb92fa"
+      "bytes": 2327,
+      "sha256": "615fee59b829838eb65881d3581fbdc781dc2991854f3122cecd80bac1af2632"
     },
     {
       "path": "dist/stats.js",
@@ -764,8 +799,8 @@
     },
     {
       "path": "dist/style.css",
-      "bytes": 22407,
-      "sha256": "e51af95cdf9a8bdbabd425f7c247a52cc8441219b52f21e10b0f31addd49980a"
+      "bytes": 22715,
+      "sha256": "4714c77f2815307e1574a04b35cec0639bcb8612d577d6e9ebdc463a36fc96c0"
     },
     {
       "path": "dist/volumes.json",
@@ -799,13 +834,13 @@
     },
     {
       "path": "scripts/inject_seo.py",
-      "bytes": 47608,
-      "sha256": "c8c0244af43d421a9701dd33c8ae9122df7fb9181c2e48d614e023f75b249e10"
+      "bytes": 51556,
+      "sha256": "30818397d442f850d109e24218989e0004eb2486617b7fc2de163cf2d5f382dc"
     },
     {
       "path": "verify_handoff.py",
-      "bytes": 1826,
-      "sha256": "eb2b560426d60a830bd4ba6504d7386c75c5aa7ca4b53c5d64a469a46692e099"
+      "bytes": 2964,
+      "sha256": "30ba5895a7b7d4c15637c88c846047c6d58505807ca0d5d733818f3666e4c733"
     }
   ]
 }
