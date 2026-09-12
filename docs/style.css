@@ -1511,3 +1511,31 @@ body[data-stats-page="landing"] .portrait.portrait-lead-full img{
   object-position:center center !important;
   display:block !important;
 }
+
+/* Triple rule under "A Disputed Account" — same tight stack as folio */
+.lead-banner .rule-triple-lead,
+body[data-stats-page="landing"] .lead-banner .rule-triple-lead{
+  display:block !important;
+  width:100% !important;
+  margin:2px 0 0 !important;
+  padding:0 !important;
+  line-height:0 !important;
+  font-size:0 !important;
+}
+.lead-banner .rule-triple-lead .paper-rule,
+body[data-stats-page="landing"] .lead-banner .rule-triple-lead .paper-rule{
+  display:block !important;
+  width:100% !important;
+  height:0 !important;
+  margin:0 !important;
+  padding:0 !important;
+  border:0 !important;
+  border-top:1px solid var(--ink) !important;
+}
+.lead-banner .rule-triple-lead .paper-rule + .paper-rule,
+body[data-stats-page="landing"] .lead-banner .rule-triple-lead .paper-rule + .paper-rule{
+  margin-top:2px !important;
+}
+body[data-stats-page="landing"] .lead-banner-center{
+  margin-bottom:0 !important;
+}
