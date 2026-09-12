@@ -1034,7 +1034,7 @@ header.masthead[data-wireframe="drawn-v1"] hr.paper-rule-thick{
 }
 header.masthead[data-wireframe="drawn-v1"] .nameplate{
   text-align:center !important;
-  padding:10px 0 4px !important;
+  padding:10px 0 0 !important;
   border:0 !important;
   margin:0 !important;
 }
@@ -1266,21 +1266,22 @@ header.masthead[data-wireframe="drawn-v1"] .paper-folio .folio-stat span{
   color:inherit !important;
 }
 
-/* Moved (not added): the three masthead rules now pack flush under folio/stats */
+/* ONLY three rules in masthead — flush under folio verbiage */
 header.masthead[data-wireframe="drawn-v1"] .nameplate{
   padding-bottom:0 !important;
 }
 header.masthead[data-wireframe="drawn-v1"] .nameplate .paper-folio,
 header.masthead[data-wireframe="drawn-v1"] .paper-folio{
-  margin-bottom:0 !important;
-  padding-bottom:2px !important;
+  margin:2px 0 0 !important;
+  padding:0 !important;
 }
 header.masthead[data-wireframe="drawn-v1"] .rule-triple{
   display:block !important;
   width:100% !important;
-  margin:0 !important;
+  margin:1px 0 0 !important;
   padding:0 !important;
   line-height:0 !important;
+  font-size:0 !important;
 }
 header.masthead[data-wireframe="drawn-v1"] .rule-triple .paper-rule{
   display:block !important;
@@ -1296,5 +1297,10 @@ header.masthead[data-wireframe="drawn-v1"] .rule-triple .paper-rule + .paper-rul
 }
 header.masthead[data-wireframe="drawn-v1"] nav.paper-tabs{
   margin-top:0 !important;
-  padding-top:2px !important;
+  padding-top:4px !important;
+  border-top:0 !important;
+}
+header.masthead[data-wireframe="drawn-v1"] > hr.paper-rule,
+header.masthead[data-wireframe="drawn-v1"] > hr.paper-rule-thick{
+  display:none !important;
 }
