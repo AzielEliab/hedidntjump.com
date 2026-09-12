@@ -1493,3 +1493,21 @@ body[data-stats-page="landing"] .index-list a,
   overflow-wrap:break-word !important;
   word-break:normal !important;
 }
+
+/* Lead couple: full content width, same height as old solo portrait, never crop Rubye */
+body[data-stats-page="landing"] .portrait.portrait-lead-full{
+  width:100% !important;
+  max-width:100% !important;
+  /* old cut was min(280px,55vw) wide × 452/348 aspect ≈ that height */
+  height:calc(min(280px, 55vw) * 452 / 348) !important;
+  margin:0 0 6px !important;
+  overflow:hidden !important;
+}
+body[data-stats-page="landing"] .portrait.portrait-lead-full img{
+  width:100% !important;
+  height:100% !important;
+  max-height:none !important;
+  object-fit:contain !important;
+  object-position:center center !important;
+  display:block !important;
+}
