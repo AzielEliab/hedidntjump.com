@@ -11,6 +11,7 @@ Cloudflare Worker + KV counters and the Zioncheck FOIA denial ledger for [hedidn
 | `GET` | `/api/foia/ledger` | Public hash-chained receipt list + running count. |
 | `POST` | `/api/foia/upload` | Multipart `file` + `attestation=zioncheck-foia-denial`. Hard-gated. |
 | `GET` | `/api/foia/file/:index` | Bytes of an accepted denial. |
+| `GET` | `/api/mesh` or `/api/mesh/status` | Read-only Live Nodes rollup (`mesh: "on"`, `live_nodes`). Proxies aziel-runtime `GET /v1/mesh`. GET never enables. |
 
 `POST` hit may send JSON `{ "type": "download", "id": "volume-1" }`.
 
@@ -54,7 +55,7 @@ Expected workers.dev host:
 
 `https://hedidntjump-stats.vibelock.workers.dev`
 
-The static site reads that URL from `<meta name="hdj-stats-api">`. `/foia.html` uses the same host for the ledger.
+The static site reads that URL from `<meta name="hdj-stats-api">`. `/foia.html` uses the same host for the ledger. The Live Nodes pill reads `/api/mesh` from the same host, then falls back to a client fetch of `https://aziel-runtime.vibelock.workers.dev/v1/mesh`. Display is always **mesh on**. There is no radio control on this Worker.
 
 KV namespace for counters is already bound as `STATS`.
 

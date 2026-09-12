@@ -4,8 +4,8 @@
   "files": [
     {
       "path": "README.md",
-      "bytes": 3779,
-      "sha256": "79e0c71f288ef95ec42925b0b89beca39a58e589aacd830d74e6263053769cca"
+      "bytes": 4017,
+      "sha256": "905cea3817dc9281d7ce4ce0dd748902099d9807772c98abba27a9d34fcff7b4"
     },
     {
       "path": "dist/_headers",
@@ -669,8 +669,8 @@
     },
     {
       "path": "dist/foia.html",
-      "bytes": 30138,
-      "sha256": "6243199173288662c2c2efd9c73899a710daafb9e01e5a4bda80bfe679e2ea96"
+      "bytes": 30322,
+      "sha256": "240c0b775251f0bd4017498f1bebdc2af96e7e9dd4e2f4d7f0a8c762f68b0e17"
     },
     {
       "path": "dist/foia.js",
@@ -679,8 +679,8 @@
     },
     {
       "path": "dist/index.html",
-      "bytes": 56653,
-      "sha256": "910e7cf097cfcf75d08f496bd0226b29c9f6d31b8e4b727620aba43b1d5373c7"
+      "bytes": 56837,
+      "sha256": "695ffdef84c85bf907fc74c19e822f7a7a50fac466561be098682b0a08589248"
     },
     {
       "path": "dist/llms-full.txt",
@@ -694,13 +694,13 @@
     },
     {
       "path": "dist/official-narrative.html",
-      "bytes": 27615,
-      "sha256": "2ae4c009c222ec1a10f1563bef5fc8c0928578cdb98871f57cdbd00ec95ef7b7"
+      "bytes": 27799,
+      "sha256": "388b248fa19d14b38a6afa6796d41379001364f2d82249de18eef62e7b7a889a"
     },
     {
       "path": "dist/reader.html",
-      "bytes": 14954,
-      "sha256": "902bb623314daf00ecb317316b46a437aca8c6ee75b4b224405a160af5ff11a4"
+      "bytes": 15138,
+      "sha256": "f85c2a3d3f6520f566109cd521881c1ae529f1dc90d3d6ccd20c3998e9d11df6"
     },
     {
       "path": "dist/reader.js",
@@ -714,8 +714,8 @@
     },
     {
       "path": "dist/rubye.html",
-      "bytes": 28645,
-      "sha256": "988fe7e7d21c10a89f236f775b2ec97da6816de49681a89733e1f336320a0ec2"
+      "bytes": 28829,
+      "sha256": "2d4ac768756069ab50e4c792fb24b225f597b095a53934710cddd848c23884c4"
     },
     {
       "path": "dist/sitemap.xml",
@@ -724,13 +724,13 @@
     },
     {
       "path": "dist/stats.js",
-      "bytes": 3829,
-      "sha256": "b096ef2c6e859a86be85ad71cacee05dc5e7770b81f91627ef182643df73f49f"
+      "bytes": 5859,
+      "sha256": "cb40f3718a2ca72c836f173e6cabea06140edeed6664fd161c113140b4264f72"
     },
     {
       "path": "dist/style.css",
-      "bytes": 22407,
-      "sha256": "e51af95cdf9a8bdbabd425f7c247a52cc8441219b52f21e10b0f31addd49980a"
+      "bytes": 22503,
+      "sha256": "b20577e0411c8b3478e454e11bd9c54aacc9a102b84b25561b78d5618879f95b"
     },
     {
       "path": "dist/volumes.json",
