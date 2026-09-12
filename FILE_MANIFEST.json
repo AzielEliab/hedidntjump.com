@@ -1,11 +1,11 @@
 {
   "snapshot_commit": "399eddebd5995e6a195959d4f13f596fd3424726",
-  "file_count": 154,
+  "file_count": 157,
   "files": [
     {
       "path": "README.md",
-      "bytes": 3779,
-      "sha256": "79e0c71f288ef95ec42925b0b89beca39a58e589aacd830d74e6263053769cca"
+      "bytes": 3837,
+      "sha256": "b17a10ae68800486b114d9f5da0e890d3732f574598bce2796e11903f0c2bf21"
     },
     {
       "path": "dist/_headers",
@@ -88,6 +88,11 @@
       "sha256": "cbbd3f626827b3ca87357218165948ce34cfd9385600051a0f3530701d0b4b2b"
     },
     {
+      "path": "dist/assets/plates/bogeyman-disguise.webp",
+      "bytes": 381178,
+      "sha256": "29904843dc74b17c55250abaf4cb7c6004d41b488884dfb1d5b43b6a2fe7a8b8"
+    },
+    {
       "path": "dist/assets/plates/bolton-record.webp",
       "bytes": 94732,
       "sha256": "f70597e79d9f89a0a70492e22e327b1c55c08d8bfe42ab9a46d94579a71c9e25"
@@ -104,6 +109,11 @@
     },
     {
       "path": "dist/assets/plates/death-certificate.webp",
+      "bytes": 249962,
+      "sha256": "bdfc2c630108cd576e4ffe2214efe3c8419b0be0fa82b3f22befffd7cf768dd3"
+    },
+    {
+      "path": "dist/assets/plates/frances-death-certificate.webp",
       "bytes": 60184,
       "sha256": "4312f206557ea221f4374104d98532717b3f94e46a1a0ed17c5ec8981856f774"
     },
@@ -121,6 +131,11 @@
       "path": "dist/assets/plates/kin-fight-will.webp",
       "bytes": 105338,
       "sha256": "f6b04197f1a1ad5f67ef4731dc41d20cee5d2562323eefc5e272cf617c3a493c"
+    },
+    {
+      "path": "dist/assets/plates/marion-death-certificate.webp",
+      "bytes": 249962,
+      "sha256": "bdfc2c630108cd576e4ffe2214efe3c8419b0be0fa82b3f22befffd7cf768dd3"
     },
     {
       "path": "dist/assets/plates/marion-microphone.webp",
@@ -679,18 +694,18 @@
     },
     {
       "path": "dist/index.html",
-      "bytes": 56653,
-      "sha256": "910e7cf097cfcf75d08f496bd0226b29c9f6d31b8e4b727620aba43b1d5373c7"
+      "bytes": 61377,
+      "sha256": "23f607de162828a4088f8a72cb644a458edf80975be8286d2dd346b95b55c1db"
     },
     {
       "path": "dist/llms-full.txt",
-      "bytes": 5952,
-      "sha256": "3d908c382876ae07caa3c47c8260ed77cf0cc1a7c79424631c2de1445843cf5e"
+      "bytes": 6154,
+      "sha256": "e1f55fbcf9ccbf6d1231a7ede00e55b7865c9c775fb362883394f4becd014dcb"
     },
     {
       "path": "dist/llms.txt",
-      "bytes": 3403,
-      "sha256": "656925bfc33087b6277b0ae58adbb4e0a5d57b9bf3849b0249e9abff63bf79e3"
+      "bytes": 3405,
+      "sha256": "0f1a41b9070c9a0831b8e8c66460690444e42948308b8b2174bd9239d464ad1c"
     },
     {
       "path": "dist/official-narrative.html",
@@ -764,13 +779,13 @@
     },
     {
       "path": "scripts/inject_seo.py",
-      "bytes": 46967,
-      "sha256": "76f94dc852477f978a4771736130c895e9dfb8ac4be8b242510d3541888956cc"
+      "bytes": 47171,
+      "sha256": "a7618c019ed686d907df7795f6cd81a09a5aaae448e765d42aeb0533c37bc4b0"
     },
     {
       "path": "verify_handoff.py",
-      "bytes": 1070,
-      "sha256": "8a86605480118020e768653a359f1227d3b3f5c8b90c93c32ab9e1af58cb6ce9"
+      "bytes": 1472,
+      "sha256": "d7be8a02fd812d5d1d1b2f72111ba1adc8f967e2a1f3d5d18a26e0a16c1072ec"
     }
   ]
 }

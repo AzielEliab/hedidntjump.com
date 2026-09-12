@@ -366,7 +366,7 @@ def write_index():
         title="He Didn't Jump — The Marion Zioncheck Archive",
         description=(
             "An Aziel Eliab Project: independent newspaper archive on Marion Zioncheck’s 7 August 1936 death in Seattle. "
-            "Five research volumes, contemporary plates, and 21 inquiries of the record."
+            "Five research volumes, contemporary plates, and 23 inquiries of the record."
         ),
         canonical=f"{ORIGIN}/",
         og_type="article",
@@ -855,7 +855,7 @@ Related, not sameAs: [Donate]({DONATE_URL}). Statute only, not an Aziel property
 
 ## Editions on this host
 
-- [Main paper]({ORIGIN}/): Broadsheet. Lead: “What happened at the Arctic Building?” Twenty-one inquiries, plates, two Arctic buildings, volume downloads.
+- [Main paper]({ORIGIN}/): Broadsheet. Lead: “What happened at the Arctic Building?” Twenty-three inquiries, plates, two Arctic buildings, volume downloads.
 - [Official narrative]({ORIGIN}/official-narrative.html): The contemporary reported sequence, from the Washington apartment press through Gallinger, the train west, and the official Arctic Building suicide account.
 - [Rubye paper]({ORIGIN}/rubye.html): Rubye Nix Zioncheck in the car; Volume II family-battle clippings; later legal actions against Nadeau as Volume V states them. Alias: [{ORIGIN}/aziel.html]({ORIGIN}/aziel.html).
 - [FOIA paper]({ORIGIN}/foia.html): William Nadeau in Volumes IV–V; Aziel’s 28 July 2026 FOIA Binary Acknowledgement; hash-chained ledger of Zioncheck FOIA denials only.
@@ -907,7 +907,7 @@ He Didn't Jump (hedidntjump.com) is a static newspaper and archive about Marion 
 
 Lead headline: What happened at the Arctic Building?
 
-Twenty-one inquiries of the record (titles only; answers live on the page and in the volumes):
+Twenty-three inquiries of the record (titles only; answers live on the page and in the volumes):
 
 1. Why was Marion sent from Washington, D.C. to Seattle, Washington?
 2. Why do archive records conflict with the official narrative online today?
@@ -930,6 +930,8 @@ Twenty-one inquiries of the record (titles only; answers live on the page and in
 19. Is it a coincidence that Illinois statesman John Bolton died suspiciously less than one month before?
 20. Why are most of Nadeau’s records missing? Was he naval intelligence too?
 21. Why are FOIA requests on Marion denied to this day?
+22. Why was Marion’s mother never informed of his death — and is this why she died of Involutional Melancholia?
+23. Was Marion Zioncheck a threat to the establishment that couldn’t be silenced?
 
 ## Official narrative ({ORIGIN}/official-narrative.html)
 
