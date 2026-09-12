@@ -7,11 +7,22 @@ Domain owned by user: hedidntjump.com
 ## Task for Grok
 Upload this complete snapshot to the existing repository. Preserve the website's wording, the 17 entries in their present order, five Volume I-V links, the Aziel Eliab credit, the five original PDFs, and all reader images. Do not rewrite or regenerate content.
 
-The complete static site is in dist/. There is no build step, package manager, backend, database, secret, or API dependency. Serve dist/ as the web root. Links begin with / and therefore require root hosting, not a /repository-name/ subdirectory.
+The complete static site is in dist/. docs/ is an identical GitHub Pages copy (plus CNAME). Serve either as the web root. Links begin with / and therefore require root hosting, not a /repository-name/ subdirectory.
+
+Live view and download pills call a Cloudflare Worker + KV stub:
+
+- Client: `/stats.js` → `/api/stats` and `/api/hit?type=view|download&id=...`
+- Worker: `workers/hedidntjump-stats/` (CORS for hedidntjump.com, *.pages.dev, localhost)
+- Deploy: `npx wrangler deploy` from that folder. Default host is set in `<meta name="hdj-stats-api">`.
+
+Drop historic plates over the placeholders at `/assets/arctic-building.webp`, `/assets/marion-rubye.webp`, and `/assets/marion-gravestone.webp`. Optional all-volumes zip: `scripts/make-all-volumes-zip.sh` (otherwise the landing control downloads each PDF).
 
 ## Local preview
 python3 -m http.server 8000 --directory dist
 Open http://localhost:8000
+
+## GitHub Pages sync
+scripts/sync_docs.sh
 
 ## Validate the handoff
 python3 verify_handoff.py
