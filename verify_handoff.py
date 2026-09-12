@@ -36,6 +36,21 @@ assert "libraries.wsu.edu" not in html
 assert "escort-dc-bishop.webp" in html
 assert "foia-fbi-response-p1.webp" in html
 assert "copyrights.html" in html
+assert "rights-bar" in html
+assert "An Independent Investigation" not in html
+assert 'class="byline-line"' not in html
+assert 'class="flag-city"' in html
+assert "Seattle, Washington" in html
+assert "Friday, August 7, 1936" in html
+assert "The Record, Not the Verdict" in html
+copyrights = (root / "dist/copyrights.html").read_text()
+assert "17 U.S.C. § 107" in copyrights
+assert "not legal advice" in copyrights.lower()
+assert "not a shrine" in copyrights
+assert "Apache-2.0" in copyrights
+assert "public vital records as preserved for historical research" in copyrights
+assert "Wikimedia Commons" in copyrights
+assert "credited archives" in copyrights
 assert "Aziel’s Research Volumes" in html
 assert html.count('class="volume-nav-row"') == 1
 assert "called his cousin there for protection" in html
