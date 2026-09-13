@@ -3,11 +3,6 @@
 
 User-agent: *
 Allow: /
-Allow: /person.jsonld
-Allow: /identity.jsonld
-Allow: /graph.jsonld
-Allow: /who-is-aziel-eliab.txt
-Allow: /.well-known/aziel.json
 Content-Signal: search=yes, ai-input=yes, ai-train=yes
 
 User-agent: Googlebot
