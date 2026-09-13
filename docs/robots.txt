@@ -1,5 +1,9 @@
+# He Didn't Jump — AZindex growth robots
+# Open Allow + Content-Signal. Do not Disallow GPTBot/Claude/etc for budget.
+
 User-agent: *
 Allow: /
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 
 User-agent: Googlebot
 Allow: /
@@ -19,21 +23,55 @@ Allow: /
 User-agent: ChatGPT-User
 Allow: /
 
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
 User-agent: anthropic-ai
 Allow: /
 
 User-agent: ClaudeBot
 Allow: /
 
+User-agent: Claude-Web
+Allow: /
+
 User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
 Allow: /
 
 User-agent: Bytespider
 Allow: /
 
-# No private or admin surfaces are published on this static site.
-# Cloudflare Pages Functions under /api/ are machine endpoints, not editions.
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: Meta-ExternalFetcher
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+# Machine/admin endpoints only — public editions stay Allow.
 Disallow: /api/
 Disallow: /functions/
 
 Sitemap: https://hedidntjump.com/sitemap.xml
+Sitemap: https://www.hedidntjump.com/sitemap.xml
+Sitemap: https://hedidntjump.com/sitemap-index.xml

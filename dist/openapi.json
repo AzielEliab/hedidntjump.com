@@ -1,0 +1,256 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "He Didn't Jump \u2014 public archive surfaces",
+    "description": "Read-only discovery OpenAPI for the Marion Zioncheck static archive on hedidntjump.com. No local MCP. Aziel Runtime MCP: https://glama.ai/mcp/servers/AzielEliab/aziel-runtime",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Aziel Eliab",
+      "url": "https://www.azieleliab.com/"
+    },
+    "license": {
+      "name": "Apache-2.0",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://www.hedidntjump.com"
+    },
+    {
+      "url": "https://hedidntjump.com"
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "summary": "Main broadsheet edition",
+        "responses": {
+          "200": {
+            "description": "HTML newspaper"
+          }
+        }
+      }
+    },
+    "/Case": {
+      "get": {
+        "summary": "Case edition",
+        "responses": {
+          "200": {
+            "description": "HTML"
+          }
+        }
+      }
+    },
+    "/Press": {
+      "get": {
+        "summary": "Press tip + social directory",
+        "responses": {
+          "200": {
+            "description": "HTML"
+          }
+        }
+      }
+    },
+    "/Inquiries": {
+      "get": {
+        "summary": "Inquiries of the Record 1\u201323",
+        "responses": {
+          "200": {
+            "description": "HTML"
+          }
+        }
+      }
+    },
+    "/Rubye": {
+      "get": {
+        "summary": "Rubye paper",
+        "responses": {
+          "200": {
+            "description": "HTML"
+          }
+        }
+      }
+    },
+    "/Archives": {
+      "get": {
+        "summary": "Archives edition",
+        "responses": {
+          "200": {
+            "description": "HTML"
+          }
+        }
+      }
+    },
+    "/FOIA": {
+      "get": {
+        "summary": "FOIA paper",
+        "responses": {
+          "200": {
+            "description": "HTML"
+          }
+        }
+      }
+    },
+    "/Volumes": {
+      "get": {
+        "summary": "Volume reader",
+        "responses": {
+          "200": {
+            "description": "HTML"
+          }
+        }
+      }
+    },
+    "/Narrative": {
+      "get": {
+        "summary": "Official Narrative edition",
+        "responses": {
+          "200": {
+            "description": "HTML"
+          }
+        }
+      }
+    },
+    "/AboutAziel": {
+      "get": {
+        "summary": "About Aziel / project",
+        "responses": {
+          "200": {
+            "description": "HTML"
+          }
+        }
+      }
+    },
+    "/Copyrights": {
+      "get": {
+        "summary": "Copyrights notice",
+        "responses": {
+          "200": {
+            "description": "HTML"
+          }
+        }
+      }
+    },
+    "/llms.txt": {
+      "get": {
+        "summary": "LLM brief",
+        "responses": {
+          "200": {
+            "description": "text/plain"
+          }
+        }
+      }
+    },
+    "/llms-full.txt": {
+      "get": {
+        "summary": "Longer LLM inventory",
+        "responses": {
+          "200": {
+            "description": "text/plain"
+          }
+        }
+      }
+    },
+    "/ai.txt": {
+      "get": {
+        "summary": "AI crawl aid",
+        "responses": {
+          "200": {
+            "description": "text/plain"
+          }
+        }
+      }
+    },
+    "/cite.json": {
+      "get": {
+        "summary": "Person/sameAs citation lattice",
+        "responses": {
+          "200": {
+            "description": "application/json"
+          }
+        }
+      }
+    },
+    "/openapi.json": {
+      "get": {
+        "summary": "This OpenAPI document",
+        "responses": {
+          "200": {
+            "description": "application/json"
+          }
+        }
+      }
+    },
+    "/sitemap.xml": {
+      "get": {
+        "summary": "URL sitemap",
+        "responses": {
+          "200": {
+            "description": "application/xml"
+          }
+        }
+      }
+    },
+    "/robots.txt": {
+      "get": {
+        "summary": "Robots + Content-Signal",
+        "responses": {
+          "200": {
+            "description": "text/plain"
+          }
+        }
+      }
+    },
+    "/volumes/volume-1.pdf": {
+      "get": {
+        "summary": "Volume I PDF",
+        "responses": {
+          "200": {
+            "description": "application/pdf"
+          }
+        }
+      }
+    },
+    "/volumes/volume-2.pdf": {
+      "get": {
+        "summary": "Volume II PDF",
+        "responses": {
+          "200": {
+            "description": "application/pdf"
+          }
+        }
+      }
+    },
+    "/volumes/volume-3.pdf": {
+      "get": {
+        "summary": "Volume III PDF",
+        "responses": {
+          "200": {
+            "description": "application/pdf"
+          }
+        }
+      }
+    },
+    "/volumes/volume-4.pdf": {
+      "get": {
+        "summary": "Volume IV PDF",
+        "responses": {
+          "200": {
+            "description": "application/pdf"
+          }
+        }
+      }
+    },
+    "/volumes/volume-5.pdf": {
+      "get": {
+        "summary": "Volume V PDF",
+        "responses": {
+          "200": {
+            "description": "application/pdf"
+          }
+        }
+      }
+    }
+  }
+}
