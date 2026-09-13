@@ -163,7 +163,7 @@ def main() -> None:
         assert not (ROOT / tree / "AzielEliab.html").exists()
         assert not (ROOT / tree / "inquiry").exists()
         aziel = (ROOT / tree / "aziel.html").read_text(encoding="utf-8")
-        assert "https://hedidntjump.com/aziel" in aziel
+        assert "hedidntjump.com/aziel" in aziel
         assert PERSON_ID in aziel
         assert "#aziel-eliab" not in aziel
         assert DISAMBIGUATING in aziel

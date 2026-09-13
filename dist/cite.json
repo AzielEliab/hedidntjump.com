@@ -1,4 +1,22 @@
 {
+  "about": "Marion A. Zioncheck archive",
+  "subject": "Marion A. Zioncheck",
+  "alternate_subject": [
+    "Marion Zioncheck",
+    "Marion Anthony Zioncheck",
+    "Congressman Marion A. Zioncheck",
+    "Congressman Zioncheck"
+  ],
+  "purpose": "Marion A. Zioncheck archive: U.S. Representative / Seattle congressman (1933–1936). Official reports said suicide at the Arctic Building on 7 August 1936. This project re-examines that account from published newspapers and volumes.",
+  "canonical": "https://www.hedidntjump.com/",
+  "case": "https://www.hedidntjump.com/Case",
+  "query_urls": [
+    "https://www.hedidntjump.com/",
+    "https://www.hedidntjump.com/Case",
+    "https://www.hedidntjump.com/Narrative",
+    "https://www.hedidntjump.com/Inquiries",
+    "https://www.hedidntjump.com/Volumes"
+  ],
   "author": "Aziel Eliab",
   "author_id": "https://www.azieleliab.com/#aziel",
   "identity": "Aziel Eliab",

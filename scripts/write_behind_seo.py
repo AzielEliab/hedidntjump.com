@@ -44,9 +44,9 @@ FAQ_CONCORDANCE = (
 # Pretty path, html file, priority. /AzielEliab rewrites to aziel.html — no second body.
 EDITION_PATHS = [
     ("/", "index.html", "1.0"),
-    ("/Case", "case.html", "0.9"),
-    ("/case", "case.html", "0.6"),
-    ("/case.html", "case.html", "0.5"),
+    ("/Case", "case.html", "1.0"),
+    ("/case", "case.html", "0.1"),
+    ("/case.html", "case.html", "0.1"),
     ("/Press", "press.html", "0.9"),
     ("/press", "press.html", "0.6"),
     ("/press.html", "press.html", "0.5"),
@@ -122,32 +122,17 @@ def url_entry(loc: str, priority: str, host: str = ORIGIN) -> str:
 
 
 def write_sitemap() -> None:
-    parts = [
-        '<?xml version="1.0" encoding="UTF-8"?>',
-        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
-        url_entry("/", "1.0", ORIGIN),
-        url_entry("/", "1.0", WWW),
-    ]
-    seen = {f"{ORIGIN}/", f"{WWW}/"}
-    for loc, _html, pri in EDITION_PATHS:
-        if loc == "/":
-            continue
-        key = f"{ORIGIN}{loc}"
-        if key not in seen:
-            parts.append(url_entry(loc, pri))
-            seen.add(key)
-    for n in range(1, 6):
-        parts.append(url_entry(f"/reader?volume={n}", "0.5"))
-    for loc, pri in DISCOVERY:
-        parts.append(url_entry(loc, pri, WWW))
-        parts.append(url_entry(loc, pri, ORIGIN))
-    for loc, pri in PDFS:
-        parts.append(url_entry(loc, pri))
-    parts.append("</urlset>\n")
-    body = "\n".join(parts)
-    for tree in TREES:
-        (tree / "sitemap.xml").write_text(body, encoding="utf-8")
-        print("wrote", (tree / "sitemap.xml").relative_to(ROOT))
+    """www-only sitemap. Home + /Case at 1.0. No apex duplicates."""
+    import importlib.util
+
+    spec = importlib.util.spec_from_file_location(
+        "write_zioncheck_serp",
+        Path(__file__).resolve().parent / "write_zioncheck_serp.py",
+    )
+    mod = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(mod)
+    mod.write_sitemap()
 
 
 def write_redirects() -> None:
