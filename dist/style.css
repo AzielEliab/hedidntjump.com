@@ -1850,15 +1850,52 @@ body[data-stats-page="landing"] img.lead-motion-frame.is-animating{
   background:#111;
 }
 
-/* motion plates — animated WebP <img>; always plays, no autoplay policy */
-body[data-stats-page="landing"] figure[data-motion-plate] .lead-motion-anim{
+/* v3 motion plates: H.264 under poster; never visibility:hidden */
+body[data-stats-page="landing"] figure[data-motion-plate]{
+  position:relative;
+  overflow:hidden;
+}
+body[data-stats-page="landing"] figure[data-motion-plate] .lead-motion-poster{
   display:block;
+  position:relative;
+  z-index:2;
   width:100%;
   height:auto;
   max-width:100%;
   margin:0;
-  padding:0;
-  border:0;
   background:#111;
   object-fit:contain;
+}
+body[data-stats-page="landing"] figure[data-motion-plate] .lead-motion-video{
+  display:block !important;
+  position:absolute;
+  left:0;
+  top:0;
+  z-index:1;
+  width:100%;
+  height:auto;
+  max-width:100%;
+  margin:0;
+  background:#111;
+  object-fit:contain;
+  opacity:0.02;
+  pointer-events:none;
+  visibility:visible !important;
+}
+body[data-stats-page="landing"] figure[data-motion-plate].is-playing .lead-motion-video{
+  position:relative;
+  z-index:2;
+  opacity:1 !important;
+}
+body[data-stats-page="landing"] figure[data-motion-plate].is-playing .lead-motion-poster{
+  display:none !important;
+}
+body[data-stats-page="landing"] figure[data-motion-plate] video::-webkit-media-controls,
+body[data-stats-page="landing"] figure[data-motion-plate] video::-webkit-media-controls-enclosure,
+body[data-stats-page="landing"] figure[data-motion-plate] video::-webkit-media-controls-start-playback-button{
+  display:none !important;
+  -webkit-appearance:none !important;
+  opacity:0 !important;
+  width:0 !important;
+  height:0 !important;
 }
