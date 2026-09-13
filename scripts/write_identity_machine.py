@@ -143,48 +143,8 @@ KNOWS_ABOUT = [
     "aziel-runtime",
 ]
 
-# Local meter stays /api/stats. Sister URLs are awareness tethers only.
-STATS = {
-    "local": {
-        "stats": f"{WWW}/api/stats",
-        "stats_apex": f"{ORIGIN}/api/stats",
-        "hit": f"{WWW}/api/hit",
-        "worker_stats": "https://hedidntjump-stats.vibelock.workers.dev/api/stats",
-        "worker_hit": "https://hedidntjump-stats.vibelock.workers.dev/api/hit",
-        "meter_contract": (
-            "bc-66a02bb3 — folio pills read GET /api/stats; views/downloads increment via "
-            "/api/hit?type=view|download&id=… (sendBeacon/keepalive on download). "
-            "Do not retarget #views/#downloads to sister hubs."
-        ),
-    },
-    "sister_hubs": [
-        {
-            "id": "official",
-            "label": "AzielEliab.com",
-            "stats": "https://www.azieleliab.com/v1/stats",
-            "view_increment": "https://www.azieleliab.com/v1/view",
-            "mesh_status": "https://www.azieleliab.com/v1/mesh/status",
-        },
-        {
-            "id": "godlock",
-            "label": "GodLock.uk",
-            "health": "https://godlock.uk/health",
-            "mesh_status": "https://godlock.uk/v1/mesh/status",
-        },
-        {
-            "id": "library",
-            "label": "Aziel Corpus Library",
-            "health": "https://www.azielcorpuslibrary.net/v1/health",
-            "mesh": "https://www.azielcorpuslibrary.net/v1/mesh",
-        },
-        {
-            "id": "runtime",
-            "label": "Aziel Runtime",
-            "uses": "https://aziel-runtime.vibelock.workers.dev/v1/uses",
-            "mesh_status": "https://aziel-runtime.vibelock.workers.dev/v1/mesh/status",
-        },
-    ],
-}
+# Awareness link only — do not implement a second meter.
+STATS = f"{WWW}/api/stats"
 
 PERSON_LOCK = {
     "@type": "Person",
@@ -401,12 +361,6 @@ def who_is_txt() -> str:
     same = "\n".join(f"- {u}" for u in SAME_AS)
     hebrew = "\n".join(f"- {h}" for h in HEBREW_FORMS)
     miss = "\n".join(f"- {m}" for m in MISSPELLINGS)
-    sisters = "\n".join(
-        f"- {h['label']}: " + ", ".join(
-            f"{k}={v}" for k, v in h.items() if k not in {"id", "label"}
-        )
-        for h in STATS["sister_hubs"]
-    )
     return f"""Who is Aziel Eliab?
 
 Person @id (shared identity lock): {PERSON_ID}
@@ -447,14 +401,8 @@ A: {FAQ_BIBLICAL_ELIAB}
 sameAs / reciprocal hubs
 {same}
 
-Local meter (do not retarget folio pills)
-- {STATS['local']['stats']}
-- {STATS['local']['hit']}
-- {STATS['local']['worker_stats']}
-- {STATS['local']['meter_contract']}
-
-Sister-hub stats / social-status (awareness only)
-{sisters}
+Archive counters (awareness link only; no second meter)
+- GET {STATS}
 
 Identity machine on this host
 - {WWW}/person.jsonld
