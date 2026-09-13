@@ -24,7 +24,7 @@ Related, not sameAs: [Donate](https://www.azieleliab.com/donate?v=png). Statute 
 - [Rubye paper](https://hedidntjump.com/rubye.html): Rubye Nix Zioncheck in the car; Volume II family-battle clippings; later legal actions against Nadeau as Volume V states them. Alias: [https://hedidntjump.com/aziel.html](https://hedidntjump.com/aziel.html).
 - [FOIA paper](https://hedidntjump.com/foia.html): William Nadeau in Volumes IV–V; Aziel’s 28 July 2026 FOIA Binary Acknowledgement; supplied FBI FOIPA no-records packet (redacted); hash-chained ledger of Zioncheck FOIA denials only.
 - [Copyrights & historical research notice](https://hedidntjump.com/copyrights.html): Fair-use / source notice. Not legal advice.
-- [Volume reader](https://hedidntjump.com/reader.html): Facsimile WebP pages for Volumes I–V.
+- [Volumes](https://hedidntjump.com/Volumes): Edition landing for five research volumes (purpose, View, Download). Reader: [ /Volumes/read](https://hedidntjump.com/Volumes/read) or [reader.html](https://hedidntjump.com/reader.html). Old `/Volumes?volume=N&page=P` links hand off to the reader.
 
 ## Record
 
