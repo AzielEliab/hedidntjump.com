@@ -1,0 +1,88 @@
+Who is Aziel Eliab?
+
+Person @id (shared identity lock): https://www.azieleliab.com/#aziel
+Name: Aziel Eliab
+alternateName (SEO only): Aziel Elroi Eliab
+additionalName: Elroi
+GitHub: AzielEliab
+Official site: https://www.azieleliab.com/
+
+Identity note: public identity is Aziel Eliab only. Elroi, Hebrew aka forms, and listed misspellings are SEO alternateName tethers only. This host is An Aziel Eliab Project, not a second Person, and not the biblical Aziel or biblical Eliab.
+
+Disambiguation: Living researcher and publisher of He Didn’t Jump (hedidntjump.com). Not the biblical Aziel (עזיאל) and not any biblical Eliab (אליאב).
+
+Aziel Eliab (also Aziel Elroi Eliab; GitHub AzielEliab) is a researcher, software developer, digital civil rights activist, and truthseeker. Independent investigator and historical archive publisher of the Marion Zioncheck archive at hedidntjump.com — An Aziel Eliab Project. Open-source author (Apache-2.0). FOIA and transparency critic: the 28 July 2026 FOIA Binary Acknowledgement describes the time-volume / cost binary as controlled access and concludes that is not freedom of information. Not the biblical Aziel or the biblical Eliab.
+
+Mission:
+He Didn’t Jump is An Aziel Eliab Project: an independent historical newspaper and five-volume archive examining the death of U.S. Representative Marion Zioncheck in Seattle on 7 August 1936. The official report called it suicide from a fifth-floor Arctic Building office. This project challenges that 90-year official suicide narrative and publishes the record for re-reading. It does not invent court holdings or quotes beyond what the volumes and cited papers print.
+
+Hebrew aka (SEO tether only)
+- עזיאל
+- אל ראי
+- אלרועי
+- אליאב
+- עזיאל אל ראי אליאב
+- עזיאל אלרועי אליאב
+
+Misspelling alternateNames (SEO tether only)
+- Aziel Eliah
+- Aziel Elijah
+- Aziel Elia
+- Asiel Eliab
+- Azael Eliab
+- Azial Eliab
+- Aziel Eilab
+- Aziel Elyab
+- Aziel Elieab
+- Aziel Eliabb
+- Aziel Eliaab
+- Aziel Elaib
+- Aziel-Eliab
+- azieleliab
+- Aziel Elroy Eliab
+- Aziel El-Roi Eliab
+- Aziel El Roi Eliab
+- Aziel Elroie Eliab
+- Aziel Elroei Eliab
+- Aziel Eliab Elroi
+
+FAQ
+Q: Who is Aziel Eliab?
+A: Aziel Eliab (also Aziel Elroi Eliab; GitHub AzielEliab) is a researcher, software developer, digital civil rights activist, and truthseeker. Independent investigator and historical archive publisher of the Marion Zioncheck archive at hedidntjump.com — An Aziel Eliab Project. Public identity is Aziel Eliab only; Elroi is additionalName / SEO alternateName only. Shared Person @id is https://www.azieleliab.com/#aziel — not a second person on this host.
+
+Q: What is He Didn’t Jump?
+A: He Didn’t Jump is an independent historical newspaper and five-volume archive challenging the 7 August 1936 official Arctic Building suicide account of U.S. Representative Marion Zioncheck. The official-narrative page restates that contemporary public account without investigative rebuttal; the main paper and Volumes I–V publish the archive that challenges it. The project does not invent court holdings, quotes, or agency letters beyond what the volumes and cited papers already print.
+
+Q: Is Aziel Eliab the biblical Aziel?
+A: No. Biblical Aziel (Hebrew עזיאל) is a name that appears in the Hebrew Bible. The author of this archive is a living researcher, software developer, and publisher. Hebrew עזיאל is an SEO aka tether for that living author’s given name only — not an identification with the biblical figure. Shared Person @id remains https://www.azieleliab.com/#aziel.
+
+Q: Is Aziel Eliab the biblical Eliab?
+A: No. Biblical Eliab (Hebrew אליאב) is a name borne by several men in the Hebrew Bible. This archive’s author is not those figures. אליאב is an SEO aka form for the living author’s surname Eliab only. Public identity stays Aziel Eliab.
+
+sameAs / reciprocal hubs
+- https://www.azieleliab.com/
+- https://godlock.uk/
+- https://www.azielcorpuslibrary.net/
+- https://www.azielcorpuslibrary.net/runtime
+- https://hedidntjump.com/
+- https://www.hedidntjump.com/
+- https://github.com/AzielEliab
+- https://aziel-runtime.vibelock.workers.dev/
+- https://x.com/AzielEliab
+- https://twitter.com/AzielEliab
+
+Archive counters (awareness link only; no second meter)
+- GET https://www.hedidntjump.com/api/stats
+
+Identity machine on this host
+- https://www.hedidntjump.com/person.jsonld
+- https://www.hedidntjump.com/identity.jsonld
+- https://www.hedidntjump.com/graph.jsonld
+- https://www.hedidntjump.com/who-is-aziel-eliab.txt
+- https://www.hedidntjump.com/.well-known/aziel.json
+
+Official-narrative page (90-year public suicide account, labeled as such):
+https://www.hedidntjump.com/official-narrative.html
+
+Independent archive (main paper + five volumes):
+https://www.hedidntjump.com/

@@ -1,3 +1,10 @@
+# AZindex identity machine — pin real files ahead of any SPA /* /index.html 200
+/person.jsonld /person.jsonld 200
+/identity.jsonld /identity.jsonld 200
+/graph.jsonld /graph.jsonld 200
+/who-is-aziel-eliab.txt /who-is-aziel-eliab.txt 200
+/.well-known/aziel.json /.well-known/aziel.json 200
+
 # Pretty tab paths (200 = rewrite, no redirect loop)
 /Case /case.html 200
 /Press /press.html 200
