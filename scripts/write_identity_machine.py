@@ -577,7 +577,7 @@ Person @id (shared identity lock): {PERSON_ID}
 Name: Aziel Eliab
 givenName: Aziel
 familyName: Eliab
-alternateName (SEO only): Aziel Elroi Eliab; Elias Artista; The Revealer of The Sealed; Revealer of The Sealed
+alternateName (SEO only): Aziel Elroi Eliab; The Revealer of The Sealed; Revealer of The Sealed; Elias Artista
 additionalName: Elroi
 Hebrew: {HEBREW_ONELINER}
 GitHub: AzielEliab
