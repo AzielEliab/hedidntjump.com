@@ -112,3 +112,11 @@
 /.well-known/aziel.json
   Content-Type: application/json; charset=utf-8
   Cache-Control: public, max-age=3600
+
+/inquiry/*
+  Content-Type: text/html; charset=utf-8
+  Cache-Control: public, max-age=3600
+
+/AzielEliab.html
+  Content-Type: text/html; charset=utf-8
+  Cache-Control: public, max-age=3600

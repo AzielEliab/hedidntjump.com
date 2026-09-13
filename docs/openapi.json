@@ -271,6 +271,66 @@
           }
         }
       }
+    },
+    "/aziel": {
+      "get": {
+        "summary": "About Aziel \u2014 living author identity page (200)",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/AzielEliab": {
+      "get": {
+        "summary": "About Aziel alias (200, canonical /aziel)",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/who-is-aziel-eliab.txt": {
+      "get": {
+        "summary": "Who is Aziel Eliab \u2014 plain-text identity lock",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/person.jsonld": {
+      "get": {
+        "summary": "Person JSON-LD (shared @id azieleliab.com/#aziel)",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/inquiry/01": {
+      "get": {
+        "summary": "Inquiry 01 indexable path (hash target promoted)",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/inquiry/two-arctics": {
+      "get": {
+        "summary": "Two Arctic buildings \u2014 indexable path",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   }
 }

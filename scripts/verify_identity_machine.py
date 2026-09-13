@@ -13,6 +13,7 @@ FAQ_NAMES = {
     "What is He Didn’t Jump?",
     "Is Aziel Eliab the biblical Aziel?",
     "Is Aziel Eliab the biblical Eliab?",
+    "Is Aziel Eliab the biblical Aziel and biblical Eliab combined?",
     "What does “The Record, Not the Verdict” mean?",
     "Is He Didn’t Jump a shrine or a theory blog?",
     "What is the official jump line versus the published record?",
@@ -53,22 +54,49 @@ def main() -> None:
         assert "The Record, Not the Verdict" in person["description"]
         assert "75%" in person["description"]
         about = next(n for n in graph["@graph"] if n.get("@type") == "AboutPage")
-        assert about["url"] == "https://www.hedidntjump.com/aziel.html"
+        assert about["url"] in {
+            "https://hedidntjump.com/aziel",
+            "https://www.hedidntjump.com/aziel",
+            "https://www.hedidntjump.com/aziel.html",
+        }
         assert "person.jsonld" in "".join(about["significantLink"])
-        assert well["aboutPage"] == "https://www.hedidntjump.com/aziel.html"
+        assert well["aboutPage"].endswith("/aziel") or well["aboutPage"].endswith("/aziel.html")
         assert well["motto"] == "The Record, Not the Verdict."
         assert "I am temporary" in who
+        assert "living author" in who.lower()
+        assert "Who is Aziel Eliab?" in who
+        assert person["givenName"] == "Aziel"
+        assert person["familyName"] == "Eliab"
+        cite = load(f"{tree}/cite.json")
+        assert cite["living_author"] is True
+        assert "biblical Aziel" in cite["disambiguation"]
+        assert cite["about_page"].endswith("/aziel")
 
         sitemap = (ROOT / tree / "sitemap.xml").read_text(encoding="utf-8")
         headers = (ROOT / tree / "_headers").read_text(encoding="utf-8")
+        redirects = (ROOT / tree / "_redirects").read_text(encoding="utf-8")
         for path in (
             "person.jsonld",
             "identity.jsonld",
             "graph.jsonld",
             "who-is-aziel-eliab.txt",
             ".well-known/aziel.json",
+            "/aziel",
+            "/AzielEliab",
+            "/inquiry/01",
+            "/inquiry/23",
+            "/inquiry/two-arctics",
         ):
-            assert path in sitemap
+            assert path in sitemap, path
+        assert "/aziel /aziel.html 200" in redirects
+        assert "/AzielEliab /aziel.html 200" in redirects
+        assert (ROOT / tree / "aziel.html").is_file()
+        assert (ROOT / tree / "AzielEliab.html").is_file()
+        assert (ROOT / tree / "inquiry" / "01.html").is_file()
+        assert (ROOT / tree / "inquiry" / "23.html").is_file()
+        aziel = (ROOT / tree / "aziel.html").read_text(encoding="utf-8")
+        assert "https://hedidntjump.com/aziel" in aziel
+        assert "living author" in aziel.lower() or "Living author" in aziel
         assert "application/ld+json" in headers
 
     for rel in (
