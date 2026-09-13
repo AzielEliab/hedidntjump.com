@@ -37,5 +37,9 @@ Related, not sameAs: [Donate](https://www.azieleliab.com/donate?v=png). Statute 
 
 ## Optional
 
+- [ai.txt](https://hedidntjump.com/ai.txt) — AI crawl aid (AZindex)
+- [cite.json](https://hedidntjump.com/cite.json) — Person/sameAs citation lattice
+- [openapi.json](https://hedidntjump.com/openapi.json) — read-only OpenAPI of public surfaces
+- [sitemap-index.xml](https://hedidntjump.com/sitemap-index.xml) — cross-site sitemap index
 - [llms-full.txt](https://hedidntjump.com/llms-full.txt) — longer inventory of inquiries and plates
 - [sitemap.xml](https://hedidntjump.com/sitemap.xml)

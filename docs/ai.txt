@@ -1,0 +1,32 @@
+# He Didn't Jump — AI / assistant crawl aid (AZindex)
+
+Alias companion to /llms.txt. Live: https://www.hedidntjump.com/ai.txt
+
+Author: Aziel Eliab only
+Person @id: https://www.azieleliab.com/#aziel
+AlternateName (SEO only): Aziel Elroi Eliab
+Official site: https://www.azieleliab.com/
+Aziel Corpus Library: https://www.azielcorpuslibrary.net/
+He Didn't Jump (this host): https://www.hedidntjump.com/
+GodLock.uk: https://godlock.uk/
+GitHub: https://github.com/AzielEliab/hedidntjump.com
+aziel-runtime GitHub: https://github.com/AzielEliab/aziel-runtime
+Official Runtime Worker (secondary): https://aziel-runtime.vibelock.workers.dev/
+Try on Glama: https://glama.ai/mcp/servers/AzielEliab/aziel-runtime
+
+This host is a static historical newspaper / five-volume Marion Zioncheck archive (An Aziel Eliab Project). It is not a Softwares card and does not host a local MCP door. Agent MCP/OpenAPI for Aziel engines lives on aziel-runtime (prefer Glama).
+
+Discovery on this host:
+- https://www.hedidntjump.com/llms.txt
+- https://www.hedidntjump.com/llms-full.txt
+- https://www.hedidntjump.com/ai.txt
+- https://www.hedidntjump.com/cite.json
+- https://www.hedidntjump.com/openapi.json
+- https://www.hedidntjump.com/sitemap.xml
+- https://www.hedidntjump.com/robots.txt
+
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+
+Works with ChatGPT (GPT Actions / OpenAI), Grok (xAI), Venice, Claude (Anthropic), Cursor (MCP), Glama (MCP), Perplexity, Microsoft Copilot / Bing, Google Gemini / Vertex, Mistral, Meta AI, Apple Intelligence surfaces, Amazon Q tooling, DuckAssist, You.com, Cohere, and other MCP/OpenAPI-capable assistants.
+
+See /llms.txt for the edition brief. Do not invent FOIA letters, court holdings, or quotes beyond the volumes and cited papers.

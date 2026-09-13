@@ -1,0 +1,138 @@
+{
+  "author": "Aziel Eliab",
+  "author_id": "https://www.azieleliab.com/#aziel",
+  "identity": "Aziel Eliab",
+  "identity_note": "Aziel Eliab only. Aziel Elroi Eliab is SEO alternateName only. Shared Person @id is https://www.azieleliab.com/#aziel.",
+  "person_id": "https://www.azieleliab.com/#aziel",
+  "alternateName": "Aziel Elroi Eliab",
+  "title": "He Didn't Jump",
+  "subtitle": "Marion Zioncheck archive \u2014 An Aziel Eliab Project",
+  "license": "Apache-2.0",
+  "how_to_cite": "Eliab, Aziel. (2026). He Didn't Jump [Historical archive]. https://www.hedidntjump.com/",
+  "doi": null,
+  "zenodo_status": "Do not invent DOIs.",
+  "surface": "static-archive-crawl-aid",
+  "live_cite": "https://www.hedidntjump.com/cite.json",
+  "official_site": "https://www.azieleliab.com/",
+  "library": "https://www.azielcorpuslibrary.net/",
+  "site": "https://www.hedidntjump.com/",
+  "site_apex": "https://hedidntjump.com/",
+  "github": "https://github.com/AzielEliab/hedidntjump.com",
+  "llms": "https://www.hedidntjump.com/llms.txt",
+  "ai": "https://www.hedidntjump.com/ai.txt",
+  "openapi": "https://www.hedidntjump.com/openapi.json",
+  "sitemap": "https://www.hedidntjump.com/sitemap.xml",
+  "runtime_origin": "https://aziel-runtime.vibelock.workers.dev/",
+  "runtime_glama": "https://glama.ai/mcp/servers/AzielEliab/aziel-runtime",
+  "runtime_glama_note": "This archive has no local MCP. Prefer Try on Glama for Aziel Runtime MCP. Worker is secondary.",
+  "mcp_local": false,
+  "mcp_note": "Sister MCP door is aziel-runtime on Glama \u2014 not hosted on hedidntjump.com.",
+  "ecosystem": [
+    {
+      "id": "official",
+      "label": "Official site",
+      "href": "https://www.azieleliab.com/"
+    },
+    {
+      "id": "library",
+      "label": "Aziel Corpus Library",
+      "href": "https://www.azielcorpuslibrary.net/"
+    },
+    {
+      "id": "hedidntjump",
+      "label": "He Didn't Jump",
+      "href": "https://www.hedidntjump.com/"
+    },
+    {
+      "id": "godlock",
+      "label": "GodLock.uk",
+      "href": "https://godlock.uk/"
+    },
+    {
+      "id": "runtime-github",
+      "label": "Aziel Runtime on GitHub",
+      "href": "https://github.com/AzielEliab/aziel-runtime"
+    },
+    {
+      "id": "runtime",
+      "label": "Aziel Runtime",
+      "href": "https://aziel-runtime.vibelock.workers.dev/",
+      "secondary": true
+    },
+    {
+      "id": "glama",
+      "label": "Try on Glama",
+      "href": "https://glama.ai/mcp/servers/AzielEliab/aziel-runtime"
+    },
+    {
+      "id": "github",
+      "label": "Archive repo",
+      "href": "https://github.com/AzielEliab/hedidntjump.com"
+    }
+  ],
+  "editions": [
+    {
+      "id": "home",
+      "href": "https://www.hedidntjump.com/"
+    },
+    {
+      "id": "case",
+      "href": "https://www.hedidntjump.com/Case"
+    },
+    {
+      "id": "press",
+      "href": "https://www.hedidntjump.com/Press"
+    },
+    {
+      "id": "inquiries",
+      "href": "https://www.hedidntjump.com/Inquiries"
+    },
+    {
+      "id": "rubye",
+      "href": "https://www.hedidntjump.com/Rubye"
+    },
+    {
+      "id": "archives",
+      "href": "https://www.hedidntjump.com/Archives"
+    },
+    {
+      "id": "foia",
+      "href": "https://www.hedidntjump.com/FOIA"
+    },
+    {
+      "id": "volumes",
+      "href": "https://www.hedidntjump.com/Volumes"
+    },
+    {
+      "id": "narrative",
+      "href": "https://www.hedidntjump.com/Narrative"
+    },
+    {
+      "id": "about-aziel",
+      "href": "https://www.hedidntjump.com/AboutAziel"
+    },
+    {
+      "id": "copyrights",
+      "href": "https://www.hedidntjump.com/Copyrights"
+    }
+  ],
+  "ai_clients": [
+    "ChatGPT (GPT Actions / OpenAI)",
+    "Grok (xAI)",
+    "Venice",
+    "Claude (Anthropic)",
+    "Cursor (MCP)",
+    "Glama (MCP)",
+    "Perplexity",
+    "Microsoft Copilot / Bing",
+    "Google Gemini / Vertex",
+    "Mistral",
+    "Meta AI",
+    "Apple Intelligence surfaces",
+    "Amazon Q tooling",
+    "DuckAssist",
+    "You.com",
+    "Cohere",
+    "other MCP/OpenAPI-capable assistants"
+  ]
+}

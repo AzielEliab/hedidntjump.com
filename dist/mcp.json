@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "aziel-runtime": {
+      "description": "Aziel Runtime MCP (not hosted on hedidntjump.com). Prefer Glama listing.",
+      "url": "https://aziel-runtime.vibelock.workers.dev/mcp",
+      "glama": "https://glama.ai/mcp/servers/AzielEliab/aziel-runtime",
+      "note": "Static Zioncheck archive has no local MCP tools/list. Use aziel-runtime for engine doors."
+    }
+  }
+}
