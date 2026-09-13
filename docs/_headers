@@ -91,3 +91,24 @@
 /sitemap-index.xml
   Content-Type: application/xml; charset=utf-8
   Cache-Control: public, max-age=3600
+
+# AZindex identity machine — never SPA HTML
+/person.jsonld
+  Content-Type: application/ld+json; charset=utf-8
+  Cache-Control: public, max-age=3600
+
+/identity.jsonld
+  Content-Type: application/ld+json; charset=utf-8
+  Cache-Control: public, max-age=3600
+
+/graph.jsonld
+  Content-Type: application/ld+json; charset=utf-8
+  Cache-Control: public, max-age=3600
+
+/who-is-aziel-eliab.txt
+  Content-Type: text/plain; charset=utf-8
+  Cache-Control: public, max-age=3600
+
+/.well-known/aziel.json
+  Content-Type: application/json; charset=utf-8
+  Cache-Control: public, max-age=3600

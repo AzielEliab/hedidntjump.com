@@ -43,3 +43,8 @@ Related, not sameAs: [Donate](https://www.azieleliab.com/donate?v=png). Statute 
 - [sitemap-index.xml](https://hedidntjump.com/sitemap-index.xml) — cross-site sitemap index
 - [llms-full.txt](https://hedidntjump.com/llms-full.txt) — longer inventory of inquiries and plates
 - [sitemap.xml](https://hedidntjump.com/sitemap.xml)
+- [person.jsonld](https://www.hedidntjump.com/person.jsonld) — shared Person lock (`https://www.azieleliab.com/#aziel`)
+- [identity.jsonld](https://www.hedidntjump.com/identity.jsonld)
+- [graph.jsonld](https://www.hedidntjump.com/graph.jsonld)
+- [who-is-aziel-eliab.txt](https://www.hedidntjump.com/who-is-aziel-eliab.txt)
+- [.well-known/aziel.json](https://www.hedidntjump.com/.well-known/aziel.json)
