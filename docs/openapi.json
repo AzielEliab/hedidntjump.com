@@ -271,6 +271,46 @@
           }
         }
       }
+    },
+    "/aziel": {
+      "get": {
+        "summary": "About Aziel \u2014 living author (aziel.html, canonical /aziel)",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/AzielEliab": {
+      "get": {
+        "summary": "200 rewrite to aziel.html \u2014 not a second About body",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/who-is-aziel-eliab.txt": {
+      "get": {
+        "summary": "Who is Aziel Eliab \u2014 plain-text identity lock",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/person.jsonld": {
+      "get": {
+        "summary": "Person JSON-LD (shared @id https://www.azieleliab.com/#aziel)",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   }
 }

@@ -7,16 +7,30 @@
 
 # Pretty tab paths (200 = rewrite, no redirect loop)
 /Case /case.html 200
+/case /case.html 200
 /Press /press.html 200
+/press /press.html 200
 /Inquiries /inquiries.html 200
+/inquiries /inquiries.html 200
 /inquires /inquiries.html 200
 /Rubye /rubye.html 200
+/rubye /rubye.html 200
 /Rubeye /rubye.html 200
 /Archives /archives.html 200
+/archives /archives.html 200
 /Archive /archives.html 200
 /FOIA /foia.html 200
+/foia /foia.html 200
 /Volumes /volumes.html 200
+/volumes /volumes.html 200
 /Narrative /official-narrative.html 200
-/AboutAziel /aziel.html 200
-/Aziel /aziel.html 200
 /Copyrights /copyrights.html 200
+/copyrights /copyrights.html 200
+# Do not add /reader → reader.html (Cloudflare 308 loop with html-extension strip).
+# Do not add /Volumes/read → reader.html (collides with /volumes/ PDF dir).
+
+# About Aziel — one body (aziel.html). Aliases 200 rewrite. Canonical /aziel.
+/aziel /aziel.html 200
+/Aziel /aziel.html 200
+/AboutAziel /aziel.html 200
+/AzielEliab /aziel.html 200
