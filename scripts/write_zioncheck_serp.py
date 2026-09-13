@@ -137,46 +137,7 @@ def website() -> dict:
 
 
 def faq_page(page_id: str) -> dict:
-    qa = [
-        (
-            "Who was Marion Zioncheck?",
-            "Marion Zioncheck (Marion A. Zioncheck; also Marion Anthony Zioncheck) "
-            "was a U.S. Representative and Seattle congressman from 1933 to 1936. "
-            "Official reports said he died by suicide at the Arctic Building in "
-            "Seattle on 7 August 1936. This archive publishes newspapers and five "
-            "volumes that re-examine that official account.",
-        ),
-        (
-            "Who was Marion A. Zioncheck?",
-            "Marion A. Zioncheck was a U.S. Representative from Seattle, Washington "
-            "(1933–1936). The official report of 7 August 1936 called his Arctic "
-            "Building death a suicide. He Didn't Jump re-examines that account from "
-            "published newspapers and archive volumes; it does not invent quotes or holdings.",
-        ),
-        (
-            "Who was Congressman Marion A. Zioncheck?",
-            "Congressman Marion A. Zioncheck was the Seattle / Washington U.S. "
-            "Representative whose death at the Arctic Building on 7 August 1936 was "
-            "officially reported as suicide. This project publishes the newspaper "
-            "and volume record that questions that official suicide account.",
-        ),
-        (
-            "Who was Congressman Zioncheck?",
-            "Congressman Zioncheck is Marion A. Zioncheck, the Seattle congressman "
-            "and U.S. Representative (1933–1936). Official reports said suicide at "
-            "the Arctic Building on 7 August 1936. This archive challenges that "
-            "account with published volumes.",
-        ),
-        (
-            "What is the official account of the Seattle congressman suicide?",
-            "Contemporary official and press accounts said Seattle congressman "
-            "Marion A. Zioncheck died by suicide from a fifth-floor Arctic Building "
-            "office on 7 August 1936. He Didn't Jump publishes newspapers and five "
-            "research volumes that re-examine that official suicide account. It does "
-            "not invent court holdings or quotes beyond what those volumes and cited "
-            "papers print.",
-        ),
-    ]
+    qa = zioncheck_faq_pairs()
     return {
         "@type": "FAQPage",
         "@id": page_id,
@@ -574,6 +535,135 @@ def write_redirects() -> None:
         print("redirects", path.relative_to(ROOT))
 
 
+
+def zioncheck_faq_pairs():
+    return [
+        (
+            "Who was Marion Zioncheck?",
+            "Marion Zioncheck (Marion A. Zioncheck; also Marion Anthony Zioncheck) "
+            "was a U.S. Representative and Seattle congressman from 1933 to 1936. "
+            "Official reports said he died by suicide at the Arctic Building in "
+            "Seattle on 7 August 1936. This archive publishes newspapers and five "
+            "volumes that re-examine that official account.",
+        ),
+        (
+            "Who was Marion A. Zioncheck?",
+            "Marion A. Zioncheck was a U.S. Representative from Seattle, Washington "
+            "(1933–1936). The official report of 7 August 1936 called his Arctic "
+            "Building death a suicide. He Didn't Jump re-examines that account from "
+            "published newspapers and archive volumes; it does not invent quotes or holdings.",
+        ),
+        (
+            "Who was Congressman Marion A. Zioncheck?",
+            "Congressman Marion A. Zioncheck was the Seattle / Washington U.S. "
+            "Representative whose death at the Arctic Building on 7 August 1936 was "
+            "officially reported as suicide. This project publishes the newspaper "
+            "and volume record that questions that official suicide account.",
+        ),
+        (
+            "Who was Congressman Zioncheck?",
+            "Congressman Zioncheck is Marion A. Zioncheck, the Seattle congressman "
+            "and U.S. Representative (1933–1936). Official reports said suicide at "
+            "the Arctic Building on 7 August 1936. This archive challenges that "
+            "account with published volumes.",
+        ),
+        (
+            "What is the official account of the Seattle congressman suicide?",
+            "Contemporary official and press accounts said Seattle congressman "
+            "Marion A. Zioncheck died by suicide from a fifth-floor Arctic Building "
+            "office on 7 August 1936. He Didn't Jump publishes newspapers and five "
+            "research volumes that re-examine that official suicide account. It does "
+            "not invent court holdings or quotes beyond what those volumes and cited "
+            "papers print.",
+        ),
+    ]
+
+
+def write_machine_surfaces() -> None:
+    """Marion Person + Zioncheck FAQ on cite / llms / graph only — never HTML."""
+    qa = zioncheck_faq_pairs()
+    marion = zioncheck_person()
+    faq = {
+        "@type": "FAQPage",
+        "@id": f"{WWW}/#zioncheck-faq",
+        "url": f"{APEX}/",
+        "name": "Marion A. Zioncheck — query FAQ",
+        "isPartOf": {"@id": SITE_ID},
+        "about": {"@id": ZION_ID},
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "@id": f"{WWW}/#zioncheck-faq-{i}",
+                "name": q,
+                "acceptedAnswer": {"@type": "Answer", "text": a},
+            }
+            for i, (q, a) in enumerate(qa, 1)
+        ],
+    }
+    section = "## Marion A. Zioncheck FAQ (machine)\n\n"
+    for q, a in qa:
+        section += f"Q: {q}\nA: {a}\n\n"
+    section += (
+        f"Marion Person `@id`: {ZION_ID}\n"
+        f"Machine graph: {APEX}/graph.jsonld\n"
+        f"Cite FAQ block: {APEX}/cite.json → zioncheck_faq\n\n"
+    )
+    for tree in TREES:
+        gpath = tree / "graph.jsonld"
+        g = json.loads(gpath.read_text(encoding="utf-8"))
+        nodes = [
+            n
+            for n in g["@graph"]
+            if n.get("@id") not in (ZION_ID, f"{WWW}/#zioncheck-faq")
+        ]
+        new_nodes = [marion]
+        inserted = False
+        for n in nodes:
+            new_nodes.append(n)
+            if n.get("@type") == "FAQPage" and not inserted:
+                new_nodes.append(faq)
+                inserted = True
+        if not inserted:
+            new_nodes.append(faq)
+        g["@graph"] = new_nodes
+        gpath.write_text(dumps(g) + "\n", encoding="utf-8")
+        print("graph-machine", gpath.relative_to(ROOT))
+
+        cpath = tree / "cite.json"
+        cite = json.loads(cpath.read_text(encoding="utf-8"))
+        cite["marion_person_id"] = ZION_ID
+        cite["marion_person"] = {
+            "@id": ZION_ID,
+            "name": marion["name"],
+            "alternateName": marion["alternateName"],
+            "jobTitle": marion.get("jobTitle"),
+            "description": marion["description"],
+            "sameAs": marion.get("sameAs", []),
+            "url": f"{APEX}/",
+        }
+        cite["zioncheck_faq"] = [{"q": q, "a": a} for q, a in qa]
+        cpath.write_text(dumps(cite) + "\n", encoding="utf-8")
+        print("cite-machine", cpath.relative_to(ROOT))
+
+        lpath = tree / "llms.txt"
+        text = lpath.read_text(encoding="utf-8")
+        if "## Marion A. Zioncheck FAQ (machine)" in text:
+            text = re.sub(
+                r"## Marion A\. Zioncheck FAQ \(machine\)[\s\S]*?(?=\n## |\n# |\Z)",
+                section,
+                text,
+                count=1,
+            )
+        else:
+            m = re.search(r"(\n# He Didn't Jump — An Aziel Eliab Project)", text)
+            if m:
+                text = text[: m.start()] + "\n" + section + text[m.start() + 1 :]
+            else:
+                text = text.rstrip() + "\n\n" + section
+        lpath.write_text(text if text.endswith("\n") else text + "\n", encoding="utf-8")
+        print("llms-machine", lpath.relative_to(ROOT))
+
+
 def write_llms() -> None:
     lead = f"""# He Didn't Jump — Marion A. Zioncheck archive
 
@@ -690,6 +780,7 @@ def main() -> None:
     write_redirects()
     write_llms()
     write_cite()
+    write_machine_surfaces()
     write_robots()
     print("zioncheck SERP lock written (Crazytown omitted — not attested in repo/volumes)")
 
