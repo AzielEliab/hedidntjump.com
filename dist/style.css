@@ -1547,6 +1547,16 @@ body[data-stats-page="landing"] .portrait.portrait-lead-full video.lead-motion{
   object-fit:contain;
   vertical-align:bottom;
 }
+body[data-stats-page="landing"] .portrait.portrait-lead-full video.lead-motion{
+  pointer-events:none;
+}
+body[data-stats-page="landing"] .portrait.portrait-lead-full video.lead-motion::-webkit-media-controls{
+  display:none !important;
+}
+body[data-stats-page="landing"] .portrait.portrait-lead-full video.lead-motion::-webkit-media-controls-enclosure{
+  display:none !important;
+}
+
 body[data-stats-page="landing"] .portrait.portrait-lead-full img{
   width:100% !important;
   height:100% !important;
