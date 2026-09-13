@@ -1899,3 +1899,19 @@ body[data-stats-page="landing"] figure[data-motion-plate] video::-webkit-media-c
   width:0 !important;
   height:0 !important;
 }
+
+/* Lead motion plate: no fixed portrait crop height (was leaving a dead gap under the cutline) */
+body[data-stats-page="landing"] .portrait.portrait-lead-full.portrait-lead-motion,
+body[data-stats-page="landing"] .portrait.portrait-lead-full[data-motion-plate]{
+  height:auto !important;
+  max-height:none !important;
+  overflow:visible !important;
+  margin:0 0 4px !important;
+}
+body[data-stats-page="landing"] .portrait.portrait-lead-full.portrait-lead-motion figcaption,
+body[data-stats-page="landing"] .portrait.portrait-lead-full[data-motion-plate] figcaption{
+  margin-top:4px !important;
+  margin-bottom:0 !important;
+  padding-bottom:4px !important;
+  gap:0 !important;
+}
