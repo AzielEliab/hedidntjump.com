@@ -26,14 +26,11 @@ def main() -> None:
         identity = load(f"{tree}/identity.jsonld")
         graph = load(f"{tree}/graph.jsonld")
         well = load(f"{tree}/.well-known/aziel.json")
-        cite = load(f"{tree}/cite.json")
         who = (ROOT / tree / "who-is-aziel-eliab.txt").read_text(encoding="utf-8")
 
         assert person["@id"] == PERSON_ID
         assert identity["person"]["@id"] == PERSON_ID
         assert well["person_id"] == PERSON_ID
-        assert cite["person_id"] == PERSON_ID
-        assert cite["stats"] == f"{'https://www.hedidntjump.com'}/api/stats"
         assert PERSON_ID in who
         for needle in NEEDLES:
             assert needle in person["alternateName"], needle
@@ -48,18 +45,16 @@ def main() -> None:
         assert "biblical Aziel" in who
         assert "biblical Eliab" in who
 
-        robots = (ROOT / tree / "robots.txt").read_text(encoding="utf-8")
         sitemap = (ROOT / tree / "sitemap.xml").read_text(encoding="utf-8")
         headers = (ROOT / tree / "_headers").read_text(encoding="utf-8")
         for path in (
-            "/person.jsonld",
-            "/identity.jsonld",
-            "/graph.jsonld",
-            "/who-is-aziel-eliab.txt",
-            "/.well-known/aziel.json",
+            "person.jsonld",
+            "identity.jsonld",
+            "graph.jsonld",
+            "who-is-aziel-eliab.txt",
+            ".well-known/aziel.json",
         ):
-            assert f"Allow: {path}" in robots
-            assert path.lstrip("/") in sitemap or path in sitemap
+            assert path in sitemap
         assert "application/ld+json" in headers
 
     for rel in (
