@@ -1638,3 +1638,15 @@ body[data-stats-page="inquiries"] #inquiry-jump{
 .see-more-text a:hover{
   text-decoration:underline;
 }
+
+/* Brand title always returns home */
+.masthead .brand{
+  cursor:pointer;
+  position:relative;
+  z-index:5;
+  color:inherit;
+}
+.masthead .brand:hover{
+  opacity:.85;
+}
+
