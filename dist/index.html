@@ -46,7 +46,7 @@
 <meta name="twitter:image:alt" content="He Didn't Jump masthead beside a Marion Zioncheck archive portrait">
 <meta name="hdj-stats-api" content="https://hedidntjump-stats.vibelock.workers.dev">
 <link rel="stylesheet" href="/assets/fonts/fonts.css?v=1789258322">
-<link rel="stylesheet" href="/style.css?v=1789262100">
+<link rel="stylesheet" href="/style.css?v=1789262200">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <script src="/stats.js?v=1789262500" defer></script>
 <script type="application/ld+json">
@@ -430,17 +430,16 @@
           disablepictureinpicture
           disableRemotePlayback
           preload="auto"
-          poster="/assets/video/bogeyman-disguise-poster.webp"
+          poster="/assets/video/marion-rubye-together-poster.webp"
           width="1280"
           height="720"
-          aria-label="Interpretive motion plate: Bogeyman of Washington Politics tries on disguise">
-          <source src="/assets/video/bogeyman-disguise.mp4" type="video/mp4">
+          aria-label="Interpretive motion plate: Marion Zioncheck and Rubye Louise Nix">
+          <source src="/assets/video/marion-rubye-together.mp4" type="video/mp4">
         </video>
         <script>
         (function () {
           var v = document.currentScript && document.currentScript.previousElementSibling;
-          if (!v || v.tagName !== 'VIDEO') v = document.querySelector('video.lead-motion');
-          if (!v) return;
+          if (!v || v.tagName !== 'VIDEO') return;
           v.muted = true;
           v.defaultMuted = true;
           v.loop = true;
@@ -458,8 +457,8 @@
         })();
         </script>
         <figcaption>
-          <span>‘Bogeyman of Washington Politics’ Tries on Disguise</span>
-          <span>Interpretive motion plate, generated 2026 · not a 1936 newsreel · not Volume II source</span>
+          <span>Marion and Rubye</span>
+          <span>Interpretive motion plate, generated 2026, silent · built from the published last picture of congressman and bride · not a 1936 newsreel · not Volume II source</span>
         </figcaption>
       </figure>
       <div class="lead-columns">
@@ -512,6 +511,49 @@
 </article>
 </section>
 </main>
+
+<figure class="portrait portrait-lead-full portrait-footer-motion" id="plate-bogeyman-disguise-motion">
+        <video
+          class="lead-motion footer-motion"
+          autoplay
+          muted
+          loop
+          playsinline
+          webkit-playsinline
+          disablepictureinpicture
+          disableRemotePlayback
+          preload="auto"
+          poster="/assets/video/bogeyman-disguise-poster.webp"
+          width="1280"
+          height="720"
+          aria-label="Interpretive motion plate: Bogeyman of Washington Politics tries on disguise">
+          <source src="/assets/video/bogeyman-disguise.mp4" type="video/mp4">
+        </video>
+        <script>
+        (function () {
+          var v = document.currentScript && document.currentScript.previousElementSibling;
+          if (!v || v.tagName !== 'VIDEO') return;
+          v.muted = true;
+          v.defaultMuted = true;
+          v.loop = true;
+          v.playsInline = true;
+          v.removeAttribute('controls');
+          var kick = function () {
+            var p = v.play();
+            if (p && p.catch) p.catch(function () {});
+          };
+          kick();
+          v.addEventListener('ended', function () { v.currentTime = 0; kick(); });
+          document.addEventListener('visibilitychange', function () {
+            if (!document.hidden) kick();
+          });
+        })();
+        </script>
+        <figcaption>
+          <span>‘Bogeyman of Washington Politics’ Tries on Disguise</span>
+          <span>Interpretive motion plate, generated 2026 · not a 1936 newsreel · not Volume II source</span>
+        </figcaption>
+      </figure>
 <footer>
   <nav class="ecosystem" aria-label="Part of the Aziel Eliab ecosystem">
     <p class="ecosystem-title">Part of the Aziel Eliab ecosystem</p>
