@@ -1,3 +1,17 @@
+# He Didn't Jump — Marion A. Zioncheck archive
+
+This host is the Marion A. Zioncheck archive: U.S. Representative / Seattle congressman (1933–1936). Official reports said suicide from a fifth-floor Arctic Building office in Seattle on 7 August 1936. He Didn't Jump publishes newspapers and five volumes that re-examine that official account. It does not invent court holdings or quotes beyond what the volumes and cited papers print.
+
+## Query-relevant URLs
+
+- [https://www.hedidntjump.com/](https://www.hedidntjump.com/) — money page (priority 1.0)
+- [https://www.hedidntjump.com/Case](https://www.hedidntjump.com/Case) — Case edition (priority 1.0)
+- [https://www.hedidntjump.com/Narrative](https://www.hedidntjump.com/Narrative) — official reported sequence
+- [https://www.hedidntjump.com/Inquiries](https://www.hedidntjump.com/Inquiries) — 23 inquiries of the record
+- [https://www.hedidntjump.com/Volumes](https://www.hedidntjump.com/Volumes) — Volumes I–V
+- [https://www.hedidntjump.com/llms.txt](https://www.hedidntjump.com/llms.txt)
+- [https://www.hedidntjump.com/cite.json](https://www.hedidntjump.com/cite.json)
+
 # He Didn't Jump — An Aziel Eliab Project
 
 > Aziel Eliab (also Aziel Elroi Eliab; GitHub AzielEliab) is a researcher, software developer, digital civil rights activist, and truthseeker. Independent investigator and historical archive publisher. Open-source author (Apache-2.0). FOIA / transparency critic of the time-volume / cost binary — “this is not freedom of information.”

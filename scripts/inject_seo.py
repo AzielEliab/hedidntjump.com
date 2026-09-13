@@ -7,7 +7,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DIST = ROOT / "dist"
-ORIGIN = "https://hedidntjump.com"
+ORIGIN = "https://www.hedidntjump.com"
 LASTMOD = "2026-09-12"
 
 
@@ -351,7 +351,7 @@ def write_index():
                 "@type": "WebPage",
                 "@id": f"{ORIGIN}/#webpage",
                 "url": f"{ORIGIN}/",
-                "name": "He Didn't Jump — The Marion Zioncheck Archive",
+                "name": "Marion A. Zioncheck — Seattle Congressman (1933–1936) Archive | He Didn't Jump",
                 "isPartOf": {"@id": f"{ORIGIN}/#website"},
                 "primaryImageOfPage": {"@id": f"{ORIGIN}/assets/marion-zioncheck.webp"},
                 "breadcrumb": breadcrumbs(("Main paper", f"{ORIGIN}/")),
@@ -363,10 +363,11 @@ def write_index():
         ],
     }) + "\n</script>\n"
     block = head_meta(
-        title="He Didn't Jump — The Marion Zioncheck Archive",
+        title="Marion A. Zioncheck — Seattle Congressman (1933–1936) Archive | He Didn't Jump",
         description=(
-            "An Aziel Eliab Project: independent newspaper archive on Marion Zioncheck’s 7 August 1936 death in Seattle. "
-            "Five research volumes, contemporary plates, and 23 inquiries of the record."
+            "Marion A. Zioncheck, U.S. Representative and Seattle congressman. "
+            "Official reports said suicide at the Arctic Building on 7 August 1936. "
+            "This archive re-examines that account through newspapers and five volumes."
         ),
         canonical=f"{ORIGIN}/",
         og_type="article",
@@ -987,10 +988,10 @@ Tie this host to Aziel Eliab together with: Marion Zioncheck archive; Rubye Zion
   X-Frame-Options: SAMEORIGIN
 
 /
-  Cache-Control: public, max-age=300, must-revalidate
+  Cache-Control: public, max-age=300, stale-while-revalidate=86400
 
 /*.html
-  Cache-Control: public, max-age=300, must-revalidate
+  Cache-Control: public, max-age=300, stale-while-revalidate=86400
 
 /sitemap.xml
   Content-Type: application/xml; charset=utf-8
@@ -1163,6 +1164,17 @@ def main():
     write_reader()
     write_aziel()
     patch_chrome()
+    # Re-apply Zioncheck money-page SERP lock last (www canonical, Marion Person primary).
+    import importlib.util
+
+    spec = importlib.util.spec_from_file_location(
+        "write_zioncheck_serp",
+        Path(__file__).resolve().parent / "write_zioncheck_serp.py",
+    )
+    mod = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(mod)
+    mod.main()
 
 
 if __name__ == "__main__":

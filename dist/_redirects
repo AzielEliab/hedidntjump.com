@@ -28,3 +28,6 @@
 /Aziel /aziel.html 200
 /AboutAziel /aziel.html 200
 /AzielEliab /aziel.html 200
+# www is the canonical host (apex 301). Pretty Case is the Case URL.
+https://hedidntjump.com/* https://www.hedidntjump.com/:splat 301
+http://hedidntjump.com/* https://www.hedidntjump.com/:splat 301
