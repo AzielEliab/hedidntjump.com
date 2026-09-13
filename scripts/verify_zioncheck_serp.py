@@ -40,9 +40,10 @@ def main() -> None:
         assert any(n.get("@type") == "FAQPage" for n in g["@graph"])
         pub = next(n for n in g["@graph"] if n.get("@id") == "https://www.azieleliab.com/#aziel")
         assert pub["jobTitle"] == "Publisher"
-        assert "Not biblical Aziel or Eliab" in idx
+        assert "Not biblical Aziel; not biblical Eliab" in idx
         assert "not euaziel.site" in idx
-        assert "not Aziel S." in idx
+        assert "not Aziel S. (Flutter/portfolio)" in idx
+        assert "not other engineers named Aziel" in idx
         assert sitemap.count("<priority>1.0</priority>") == 2
         assert "<loc>https://www.hedidntjump.com/</loc>" in sitemap
         assert "<loc>https://www.hedidntjump.com/Case</loc>" in sitemap

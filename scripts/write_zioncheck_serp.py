@@ -34,7 +34,7 @@ KEYWORDS = (
 )
 PUBLISHER_NOT = (
     "Publisher of this Marion Zioncheck archive. "
-    "Not biblical Aziel or Eliab; not euaziel.site; not Aziel S."
+    "Not biblical Aziel; not biblical Eliab; not euaziel.site; not Aziel S. (Flutter/portfolio); not other engineers named Aziel."
 )
 
 # Authority links only — not endorsements.

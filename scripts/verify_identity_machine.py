@@ -17,11 +17,11 @@ NEEDLES = (
     "The Revealer of The Sealed",
     "Revealer of The Sealed",
 )
-FAQ_CONCORDANCE_NAME = "Is Aziel Eliab a 1 Chronicles 15:20 / concordance namesake?"
+FAQ_NOT_NAME = "Who is Aziel Eliab not?"
 FAQ_NAMES = {
     "Who is Aziel Eliab?",
     "What is He Didn’t Jump?",
-    FAQ_CONCORDANCE_NAME,
+    FAQ_NOT_NAME,
     "What does “The Record, Not the Verdict” mean?",
     "Is He Didn’t Jump a shrine or a theory blog?",
     "What is the official jump line versus the published record?",
@@ -33,10 +33,19 @@ BANNED_FAQ = {
     "Is Aziel Eliab the biblical Eliab?",
     "Is Aziel Eliab the biblical Aziel and biblical Eliab combined?",
     "Is Aziel Eliab the same person as Aziel S.?",
+    "Is Aziel Eliab a 1 Chronicles 15:20 / concordance namesake?",
 }
 DISAMBIGUATING = (
-    "Living author of He Didn’t Jump / Zioncheck archive; not 1 Chronicles 15:20 / concordance; not Aziel S.; not euaziel.site."
+    "Living author of He Didn’t Jump / Zioncheck archive. "
+    "Not biblical Aziel; not biblical Eliab; not euaziel.site; not Aziel S. (Flutter/portfolio); not other engineers named Aziel."
 )
+NOT_LIST = [
+    "biblical Aziel",
+    "biblical Eliab",
+    "euaziel.site",
+    "Aziel S. (Flutter/portfolio engineer)",
+    "other engineers named Aziel",
+]
 VERSE_SNIPPET = "1 Chronicles 15:20"
 COMBO_SNIPPET = "biblical Aziel and biblical Eliab combined"
 NEVER_SAME_AS = ("euaziel", "aziel s", "flutter-react", "flutter", "react")
@@ -78,23 +87,30 @@ def main() -> None:
         names = {q["name"] for q in faq["mainEntity"]}
         assert FAQ_NAMES <= names, names
         assert names.isdisjoint(BANNED_FAQ), names & BANNED_FAQ
-        concordance_qs = [n for n in names if VERSE_SNIPPET in n or "concordance" in n.lower()]
-        assert concordance_qs == [FAQ_CONCORDANCE_NAME], concordance_qs
+        not_qs = [n for n in names if n == FAQ_NOT_NAME or "not?" in n.lower()]
+        assert not_qs == [FAQ_NOT_NAME], not_qs
+        verse_qs = [n for n in names if VERSE_SNIPPET in n or "concordance" in n.lower()]
+        assert verse_qs == [], verse_qs
         assert graph["stats"] == STATS
         assert well["stats"] == STATS
         assert load(f"{tree}/cite.json")["stats"] == STATS
         assert STATS in who
         assert person["disambiguatingDescription"] == DISAMBIGUATING
         assert len(person["disambiguatingDescription"]) < 180
-        assert VERSE_SNIPPET in person["disambiguatingDescription"]
-        assert "concordance" in person["disambiguatingDescription"]
+        assert "biblical Aziel" in person["disambiguatingDescription"]
+        assert "biblical Eliab" in person["disambiguatingDescription"]
+        assert "euaziel.site" in person["disambiguatingDescription"]
+        assert "Aziel S." in person["disambiguatingDescription"]
+        assert "other engineers named Aziel" in person["disambiguatingDescription"]
+        assert VERSE_SNIPPET not in person["disambiguatingDescription"]
+        assert "concordance" not in person["disambiguatingDescription"]
         assert VERSE_SNIPPET not in person["description"]
         assert "concordance" not in person["description"]
         assert "Living stack:" in person["description"]
         assert "He Didn’t Jump" in person["description"] or "He Didn't Jump" in person["description"]
         assert "Zioncheck" in person["description"]
         assert who.count("Disambiguation (single field):") == 1
-        assert who.count(VERSE_SNIPPET) <= 3
+        assert who.count(VERSE_SNIPPET) == 0
         assert COMBO_SNIPPET not in who
         assert "David’s brother" not in who
         assert "The Record, Not the Verdict" in person["description"]
@@ -120,14 +136,18 @@ def main() -> None:
         assert cite["person_id"] == PERSON_ID
         assert cite["disambiguation"] == DISAMBIGUATING
         assert VERSE_SNIPPET not in cite.get("identity_note", "")
+        assert VERSE_SNIPPET not in json.dumps(cite)
         assert cite["about_page"] == "https://hedidntjump.com/aziel"
-        assert cite["not"] == ["euaziel.site", "Aziel S.", "Flutter-React"]
+        assert cite["not"] == NOT_LIST
         assert "euaziel.site" in cite["disambiguation"]
         assert "Aziel S." in cite["disambiguation"]
+        assert "other engineers named Aziel" in cite["disambiguation"]
         cite_faq_names = [item["q"] for item in cite["faq"]]
-        assert FAQ_CONCORDANCE_NAME in cite_faq_names
-        assert cite_faq_names.count(FAQ_CONCORDANCE_NAME) == 1
+        assert FAQ_NOT_NAME in cite_faq_names
+        assert cite_faq_names.count(FAQ_NOT_NAME) == 1
         assert "Is Aziel Eliab the same person as Aziel S.?" not in cite_faq_names
+        assert well.get("not") == NOT_LIST
+        assert well.get("disambiguatingDescription") == DISAMBIGUATING
 
         sitemap = (ROOT / tree / "sitemap.xml").read_text(encoding="utf-8")
         headers = (ROOT / tree / "_headers").read_text(encoding="utf-8")

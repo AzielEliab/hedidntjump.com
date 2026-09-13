@@ -162,11 +162,13 @@
   "who_is": "Aziel Eliab is the living author of He Didn’t Jump (hedidntjump.com), the Marion Zioncheck / Zioncheck archive — An Aziel Eliab Project. Living stack: researcher, software developer, digital civil rights activist, and truthseeker.",
   "living_author": true,
   "archive": "He Didn't Jump / Marion Zioncheck archive",
-  "disambiguation": "Living author of He Didn’t Jump / Zioncheck archive; not 1 Chronicles 15:20 / concordance; not Aziel S.; not euaziel.site.",
+  "disambiguation": "Living author of He Didn’t Jump / Zioncheck archive. Not biblical Aziel; not biblical Eliab; not euaziel.site; not Aziel S. (Flutter/portfolio); not other engineers named Aziel.",
   "not": [
+    "biblical Aziel",
+    "biblical Eliab",
     "euaziel.site",
-    "Aziel S.",
-    "Flutter-React"
+    "Aziel S. (Flutter/portfolio engineer)",
+    "other engineers named Aziel"
   ],
   "about_page": "https://hedidntjump.com/aziel",
   "about_aliases": [
@@ -184,10 +186,10 @@
       "a": "Aziel Eliab is the living author of He Didn’t Jump (hedidntjump.com), the Marion Zioncheck / Zioncheck archive — An Aziel Eliab Project. Living stack: researcher, software developer, digital civil rights activist, and truthseeker."
     },
     {
-      "q": "Is Aziel Eliab a 1 Chronicles 15:20 / concordance namesake?",
-      "a": "No. Use the single disambiguatingDescription on Person @id https://www.azieleliab.com/#aziel. Never sameAs euaziel.site or Aziel S."
+      "q": "Who is Aziel Eliab not?",
+      "a": "Not biblical Aziel. Not biblical Eliab. Not euaziel.site. Not Aziel S. (Flutter/portfolio engineer). Not other engineers named Aziel. Use Person @id https://www.azieleliab.com/#aziel."
     }
   ],
-  "disambiguatingDescription": "Living author of He Didn’t Jump / Zioncheck archive; not 1 Chronicles 15:20 / concordance; not Aziel S.; not euaziel.site.",
+  "disambiguatingDescription": "Living author of He Didn’t Jump / Zioncheck archive. Not biblical Aziel; not biblical Eliab; not euaziel.site; not Aziel S. (Flutter/portfolio); not other engineers named Aziel.",
   "who_is_plain": "https://www.hedidntjump.com/who-is"
 }
