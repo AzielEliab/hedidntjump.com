@@ -1591,3 +1591,50 @@ body[data-stats-page="inquiries"] .inquiry{
 body[data-stats-page="inquiries"] #inquiry-jump{
   margin:0 0 10px !important;
 }
+
+/* Jump list: volumes CTA + see more */
+.jump-volumes-wrap{
+  display:flex;
+  justify-content:center;
+  margin:10px 0 8px;
+  padding:0;
+}
+.button-black,.jump-volumes-btn{
+  background:#111 !important;
+  color:#f6ecd7 !important;
+  border:1px solid #111;
+  text-decoration:none;
+  font:600 13px/1.2 "Source Sans 3",system-ui,sans-serif;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  padding:12px 18px;
+  min-height:44px;
+}
+.button-black:hover,.jump-volumes-btn:hover{
+  background:#000 !important;
+  color:#fff !important;
+}
+.see-more-pg{
+  margin:6px 0 4px;
+  padding:0;
+  text-align:center;
+}
+.see-more-rule{
+  border:0;
+  border-top:3px solid #111;
+  margin:0;
+  height:0;
+}
+.see-more-text{
+  margin:6px 0;
+  padding:0;
+  font:700 14px/1.3 "Source Sans 3",system-ui,sans-serif;
+  color:#111;
+}
+.see-more-text a{
+  color:#111;
+  text-decoration:none;
+}
+.see-more-text a:hover{
+  text-decoration:underline;
+}
