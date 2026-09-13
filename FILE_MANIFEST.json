@@ -9,8 +9,8 @@
     },
     {
       "path": "dist/_headers",
-      "bytes": 796,
-      "sha256": "45b351e91ef1ce0f4cc8bf588eb806b84a437f792171a56a82077a46052261a5"
+      "bytes": 2968,
+      "sha256": "612053f4ddd6be5c216f66058834fc9d5420838dc099beebcfb14155a20d5f7d"
     },
     {
       "path": "dist/assets/arctic-building-1917.webp",
@@ -724,13 +724,13 @@
     },
     {
       "path": "dist/aziel.html",
-      "bytes": 1276,
-      "sha256": "574948ee7a1f20875b7bf4e426bf38d9a6d498f86575a37053cf232630071f2f"
+      "bytes": 24594,
+      "sha256": "53dc807bda448cd59e1f7fbf470f4288baf2d97776e5da6a44622ecf988210fa"
     },
     {
       "path": "dist/copyrights.html",
-      "bytes": 23659,
-      "sha256": "4ecfbc6331a2d964414720a799605715a9986b0fa4f9295b953b536b2ecfcf19"
+      "bytes": 27941,
+      "sha256": "acd72c0b910f21e432bb9052fa777c2583b1bbf7f04507d8b2b7bb8670fed410"
     },
     {
       "path": "dist/favicon.svg",
@@ -739,8 +739,8 @@
     },
     {
       "path": "dist/foia.html",
-      "bytes": 38229,
-      "sha256": "20f8ad26ff27268102f690a966dbbc5fb97f8f7413f1d5a984b30f9e67e99db8"
+      "bytes": 42140,
+      "sha256": "44c5be2624804cf41134b26a3189ed044f12d1968f68709ee125acd4b9fb0406"
     },
     {
       "path": "dist/foia.js",
@@ -749,28 +749,28 @@
     },
     {
       "path": "dist/index.html",
-      "bytes": 67355,
-      "sha256": "2c0c14c78a1fe59f58e5d3d39178b1e117008ec37c6a36be713b955b8c5ab371"
+      "bytes": 27411,
+      "sha256": "59920a3a49e044830c953fb60a22d9eb7316a0b8b637111db97a82c212812ffc"
     },
     {
       "path": "dist/llms-full.txt",
-      "bytes": 7763,
-      "sha256": "5398f8373b1ecbbbe0dbd673a8bfc3b2ec52776a80c82691b929bd1c8c4a1904"
+      "bytes": 8567,
+      "sha256": "638d27ce673527a20243cb9f91c6ecf69c92b142d2d9df72e87f2a49058e09a9"
     },
     {
       "path": "dist/llms.txt",
-      "bytes": 3763,
-      "sha256": "a6cbc2ae39e6de278343539904d8ddb4643a547f900ae30d4959c1c549834a1f"
+      "bytes": 5513,
+      "sha256": "c7d53ca7634ebabcc23b49350254bd29e9b377cf1347429c015fbeb6cdb884ba"
     },
     {
       "path": "dist/official-narrative.html",
-      "bytes": 28943,
-      "sha256": "a4917d2a603c846178b2adc98450cf7c2645728bb81f0ecbfae6330b03f23283"
+      "bytes": 26778,
+      "sha256": "29bb6e66a7c6438fe7b212e7683ffce67bedaab02f16edf28f3c9fe600eab87b"
     },
     {
       "path": "dist/reader.html",
-      "bytes": 15642,
-      "sha256": "6e61ebc7407b7f1d626065ec523cb2b03353fc5ce06bf13fd27a6c8c29a62189"
+      "bytes": 19567,
+      "sha256": "1660864a5515e78167a0e97f44767772ebabc57532837fb1d68cb81ecac1b307"
     },
     {
       "path": "dist/reader.js",
@@ -784,13 +784,13 @@
     },
     {
       "path": "dist/rubye.html",
-      "bytes": 29806,
-      "sha256": "b35a9b307f555fa0f2e5f51b54e92c082706d4453e6a45c127fddc3a1716881c"
+      "bytes": 27855,
+      "sha256": "0573f5d2655633f56ed1f37dd60b4f93a4a6efa97ba10daa55a6c6ce33d44ad7"
     },
     {
       "path": "dist/sitemap.xml",
-      "bytes": 2327,
-      "sha256": "615fee59b829838eb65881d3581fbdc781dc2991854f3122cecd80bac1af2632"
+      "bytes": 13259,
+      "sha256": "cd5c1c78a5bd12cb6fa175c631550963922aa84604669eac6c41e829f3305c31"
     },
     {
       "path": "dist/stats.js",
