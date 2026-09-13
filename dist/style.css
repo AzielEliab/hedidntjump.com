@@ -1930,3 +1930,24 @@ body[data-stats-page="landing"] .portrait.portrait-lead-full[data-motion-plate] 
   padding-bottom:4px !important;
   gap:0 !important;
 }
+
+/* five-story leap plate (controls, no autoplay — packet rule) */
+body[data-stats-page="landing"] #plate-five-story-leap-motion{
+  height:auto !important;
+  max-height:none !important;
+  overflow:visible !important;
+  margin:8px 0 10px !important;
+  width:100% !important;
+}
+body[data-stats-page="landing"] #plate-five-story-leap-motion video{
+  display:block;
+  width:100%;
+  height:auto;
+  background:#111;
+  aspect-ratio:4/3;
+}
+body[data-stats-page="landing"] #plate-five-story-leap-motion figcaption{
+  margin-top:4px !important;
+  padding-bottom:4px !important;
+  gap:3px !important;
+}
