@@ -131,11 +131,13 @@ MISSPELLINGS = [
 ]
 
 REVEALER_AKA = "The Revealer of The Sealed"
+REVEALER_AKA_SHORT = "Revealer of The Sealed"
 
 ALTERNATE_NAMES = [
     "Aziel Elroi Eliab",
     "AzielEliab",
     REVEALER_AKA,
+    REVEALER_AKA_SHORT,
     *HEBREW_FORMS,
     *MISSPELLINGS,
 ]
@@ -543,7 +545,7 @@ Person @id (shared identity lock): {PERSON_ID}
 Name: Aziel Eliab
 givenName: Aziel
 familyName: Eliab
-alternateName (SEO only): Aziel Elroi Eliab; The Revealer of The Sealed
+alternateName (SEO only): Aziel Elroi Eliab; The Revealer of The Sealed; Revealer of The Sealed
 additionalName: Elroi
 GitHub: AzielEliab
 Official site: https://www.azieleliab.com/
