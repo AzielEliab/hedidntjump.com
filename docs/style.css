@@ -1869,3 +1869,12 @@ body[data-stats-page="landing"] .portrait.portrait-lead-full img.lead-motion{
   object-fit:contain;
   pointer-events:none;
 }
+
+
+body[data-stats-page="landing"] img.lead-motion-frame{
+  background:#111;
+  min-height:12rem;
+}
+body[data-stats-page="landing"] img.lead-motion-frame.is-animating{
+  background:#111;
+}
