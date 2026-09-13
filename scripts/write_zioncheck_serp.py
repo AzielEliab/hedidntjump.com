@@ -13,14 +13,17 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 TREES = [ROOT / "dist", ROOT / "docs"]
+# ZionBot inventory: money page + canonical are apex. www is an alias.
+APEX = "https://hedidntjump.com"
 WWW = "https://www.hedidntjump.com"
 PERSON_ID = "https://www.azieleliab.com/#aziel"
-ZION_ID = f"{WWW}/#marion-zioncheck"
-ORG_ID = f"{WWW}/#organization"
-SITE_ID = f"{WWW}/#website"
+ZION_ID = f"{APEX}/#marion-zioncheck"
+ORG_ID = f"{APEX}/#organization"
+SITE_ID = f"{APEX}/#website"
 LASTMOD = "2026-09-13"
 
 TITLE = "Marion A. Zioncheck — Seattle Congressman (1933–1936) Archive | He Didn't Jump"
+CASE_TITLE = "The Case — Marion A. Zioncheck, Seattle congressman | He Didn't Jump"
 DESCRIPTION = (
     "Marion A. Zioncheck, U.S. Representative and Seattle congressman. "
     "Official reports said suicide at the Arctic Building on 7 August 1936. "
@@ -46,19 +49,19 @@ SAME_AS = [
 ]
 
 CANONICAL_BY_FILE = {
-    "index.html": f"{WWW}/",
-    "case.html": f"{WWW}/Case",
-    "press.html": f"{WWW}/Press",
-    "inquiries.html": f"{WWW}/Inquiries",
-    "inquires.html": f"{WWW}/Inquiries",
-    "rubye.html": f"{WWW}/Rubye",
-    "archives.html": f"{WWW}/Archives",
-    "foia.html": f"{WWW}/FOIA",
-    "volumes.html": f"{WWW}/Volumes",
-    "reader.html": f"{WWW}/reader",
-    "official-narrative.html": f"{WWW}/Narrative",
-    "aziel.html": f"{WWW}/aziel",
-    "copyrights.html": f"{WWW}/Copyrights",
+    "index.html": f"{APEX}/",
+    "case.html": f"{APEX}/Case",
+    "press.html": f"{APEX}/Press",
+    "inquiries.html": f"{APEX}/Inquiries",
+    "inquires.html": f"{APEX}/Inquiries",
+    "rubye.html": f"{APEX}/Rubye",
+    "archives.html": f"{APEX}/Archives",
+    "foia.html": f"{APEX}/FOIA",
+    "volumes.html": f"{APEX}/Volumes",
+    "reader.html": f"{APEX}/reader",
+    "official-narrative.html": f"{APEX}/Narrative",
+    "aziel.html": f"{APEX}/aziel",
+    "copyrights.html": f"{APEX}/Copyrights",
 }
 
 HTML_CACHE = "public, max-age=300, stale-while-revalidate=86400"
@@ -92,7 +95,7 @@ def zioncheck_person() -> dict:
             "name": "Seattle, Washington",
         },
         "sameAs": SAME_AS,
-        "url": f"{WWW}/",
+        "url": f"{APEX}/",
     }
 
 
@@ -112,7 +115,7 @@ def organization() -> dict:
         "@type": "Organization",
         "@id": ORG_ID,
         "name": "He Didn't Jump — The Marion Zioncheck Archive",
-        "url": f"{WWW}/",
+        "url": f"{APEX}/",
         "founder": {"@id": PERSON_ID},
         "author": {"@id": PERSON_ID},
     }
@@ -124,7 +127,7 @@ def website() -> dict:
         "@id": SITE_ID,
         "name": "He Didn't Jump",
         "alternateName": "The Marion Zioncheck Archive",
-        "url": f"{WWW}/",
+        "url": f"{APEX}/",
         "inLanguage": "en",
         "description": DESCRIPTION,
         "about": {"@id": ZION_ID},
@@ -278,7 +281,7 @@ def write_headers() -> None:
 def write_sitemap() -> None:
     editions = [
         ("/", "1.0"),
-        ("/Case", "1.0"),
+        ("/Case", "0.9"),
         ("/Press", "0.8"),
         ("/Inquiries", "0.8"),
         ("/Rubye", "0.7"),
@@ -286,7 +289,7 @@ def write_sitemap() -> None:
         ("/FOIA", "0.7"),
         ("/Volumes", "0.8"),
         ("/reader", "0.6"),
-        ("/Narrative", "0.8"),
+        ("/Narrative", "0.6"),
         ("/aziel", "0.5"),
         ("/AzielEliab", "0.4"),
         ("/AboutAziel", "0.4"),
@@ -326,7 +329,7 @@ def write_sitemap() -> None:
         parts.extend(
             [
                 "  <url>",
-                f"    <loc>{WWW}{loc}</loc>",
+                f"    <loc>{APEX}{loc}</loc>",
                 f"    <lastmod>{LASTMOD}</lastmod>",
                 "    <changefreq>weekly</changefreq>",
                 f"    <priority>{pri}</priority>",
@@ -369,9 +372,9 @@ def money_head_fields(canonical: str) -> dict[str, str]:
     }
 
 
-def apply_money_meta(text: str, canonical: str) -> str:
+def apply_money_meta(text: str, canonical: str, title: str = TITLE) -> str:
     text = strip_http_equiv_cache(text)
-    text = set_tag(text, r"<title>[^<]*</title>", f"<title>{TITLE}</title>")
+    text = set_tag(text, r"<title>[^<]*</title>", f"<title>{title}</title>")
     text = set_tag(
         text,
         r'<meta name="description" content="[^"]*">',
@@ -404,7 +407,7 @@ def apply_money_meta(text: str, canonical: str) -> str:
     text = set_tag(
         text,
         r'<meta property="og:title" content="[^"]*">',
-        f'<meta property="og:title" content="{TITLE}">',
+        f'<meta property="og:title" content="{title}">',
     )
     text = set_tag(
         text,
@@ -419,7 +422,7 @@ def apply_money_meta(text: str, canonical: str) -> str:
     text = set_tag(
         text,
         r'<meta name="twitter:title" content="[^"]*">',
-        f'<meta name="twitter:title" content="{TITLE}">',
+        f'<meta name="twitter:title" content="{title}">',
     )
     text = set_tag(
         text,
@@ -429,7 +432,7 @@ def apply_money_meta(text: str, canonical: str) -> str:
     text = set_tag(
         text,
         r'<link rel="alternate" type="text/plain" href="[^"]*"',
-        f'<link rel="alternate" type="text/plain" href="{WWW}/llms.txt"',
+        f'<link rel="alternate" type="text/plain" href="{APEX}/llms.txt"',
     )
     return text
 
@@ -467,13 +470,13 @@ def write_money_pages() -> None:
     for tree in TREES:
         index = tree / "index.html"
         text = index.read_text(encoding="utf-8")
-        text = apply_money_meta(text, f"{WWW}/")
+        text = apply_money_meta(text, f"{APEX}/")
         text = replace_or_insert_jsonld(
             text,
             money_graph(
-                page_url=f"{WWW}/",
+                page_url=f"{APEX}/",
                 page_name=TITLE,
-                page_id=f"{WWW}/#webpage",
+                page_id=f"{APEX}/#webpage",
             ),
         )
         text = ensure_h1(text)
@@ -482,7 +485,7 @@ def write_money_pages() -> None:
 
         case = tree / "case.html"
         ctext = case.read_text(encoding="utf-8")
-        ctext = apply_money_meta(ctext, f"{WWW}/Case")
+        ctext = apply_money_meta(ctext, f"{APEX}/Case", title=CASE_TITLE)
         # Drop the mistaken inquiries alternate / OG leftover.
         ctext = re.sub(
             r'<link rel="alternate" href="[^"]*inquires[^"]*">\n?',
@@ -492,10 +495,10 @@ def write_money_pages() -> None:
         if 'property="og:title"' not in ctext:
             ctext = ctext.replace(
                 "</head>",
-                f'<meta property="og:title" content="{TITLE}">\n'
+                f'<meta property="og:title" content="{CASE_TITLE}">\n'
                 f'<meta property="og:description" content="{DESCRIPTION}">\n'
-                f'<meta property="og:url" content="{WWW}/Case">\n'
-                f'<meta name="twitter:title" content="{TITLE}">\n'
+                f'<meta property="og:url" content="{APEX}/Case">\n'
+                f'<meta name="twitter:title" content="{CASE_TITLE}">\n'
                 f'<meta name="twitter:description" content="{DESCRIPTION}">\n'
                 "</head>",
                 1,
@@ -503,9 +506,9 @@ def write_money_pages() -> None:
         ctext = replace_or_insert_jsonld(
             ctext,
             money_graph(
-                page_url=f"{WWW}/Case",
-                page_name=TITLE,
-                page_id=f"{WWW}/Case#webpage",
+                page_url=f"{APEX}/Case",
+                page_name=CASE_TITLE,
+                page_id=f"{APEX}/Case#webpage",
             ),
         )
         ctext = ensure_h1(ctext)
@@ -539,17 +542,33 @@ def unify_canonicals() -> None:
 
 def write_redirects() -> None:
     extra = (
-        "\n# www is the canonical host (apex 301). Do not 301 /case↔/Case "
-        "(Cloudflare pretty-URL 308 can loop).\n"
-        "https://hedidntjump.com/* https://www.hedidntjump.com/:splat 301\n"
-        "http://hedidntjump.com/* https://www.hedidntjump.com/:splat 301\n"
+        "\n# ZionBot inventory: apex is canonical. www aliases 301 here. "
+        "Do not 301 /case↔/Case (Cloudflare pretty-URL 308 can loop).\n"
+        "https://www.hedidntjump.com/* https://hedidntjump.com/:splat 301\n"
+        "http://www.hedidntjump.com/* https://hedidntjump.com/:splat 301\n"
     )
     for tree in TREES:
         path = tree / "_redirects"
         text = path.read_text(encoding="utf-8")
         text = text.replace("/case /Case 301\n", "")
         text = text.replace("/case.html /Case 301\n", "")
-        if "www.hedidntjump.com/:splat" not in text:
+        # Drop the earlier apex→www experiment.
+        text = re.sub(
+            r"\n# www is the canonical host[\s\S]*?(?=\Z)",
+            "",
+            text,
+        )
+        text = re.sub(
+            r"https://hedidntjump.com/\* https://www.hedidntjump.com/:splat 301\n",
+            "",
+            text,
+        )
+        text = re.sub(
+            r"http://hedidntjump.com/\* https://www.hedidntjump.com/:splat 301\n",
+            "",
+            text,
+        )
+        if "https://www.hedidntjump.com/* https://hedidntjump.com/:splat 301" not in text:
             text = text.rstrip() + extra
         path.write_text(text if text.endswith("\n") else text + "\n", encoding="utf-8")
         print("redirects", path.relative_to(ROOT))
@@ -562,22 +581,26 @@ This host is the Marion A. Zioncheck archive: U.S. Representative / Seattle cong
 
 ## Query-relevant URLs
 
-- [{WWW}/]({WWW}/) — money page (priority 1.0)
-- [{WWW}/Case]({WWW}/Case) — Case edition (priority 1.0)
-- [{WWW}/Narrative]({WWW}/Narrative) — official reported sequence
-- [{WWW}/Inquiries]({WWW}/Inquiries) — 23 inquiries of the record
-- [{WWW}/Volumes]({WWW}/Volumes) — Volumes I–V
-- [{WWW}/llms.txt]({WWW}/llms.txt)
-- [{WWW}/cite.json]({WWW}/cite.json)
+- [{APEX}/]({APEX}/) — money page (priority 1.0)
+- [{APEX}/Case]({APEX}/Case) — supporting Case edition
+- [{APEX}/Narrative]({APEX}/Narrative) — official-account contrast only
+- [{APEX}/Inquiries]({APEX}/Inquiries) — 23 inquiries of the record
+- [{APEX}/Volumes]({APEX}/Volumes) — Volumes I–V
+- [{APEX}/llms.txt]({APEX}/llms.txt)
+- [{APEX}/cite.json]({APEX}/cite.json)
 
 """
     for tree in TREES:
         path = tree / "llms.txt"
         text = path.read_text(encoding="utf-8")
-        if "Marion A. Zioncheck archive" in text[:400] and "Query-relevant URLs" in text:
-            continue
-        # Keep the existing Aziel identity lock after the Zioncheck lead.
-        if text.startswith("# He Didn't Jump"):
+        if text.startswith("# He Didn't Jump — Marion A. Zioncheck archive"):
+            text = re.sub(
+                r"^# He Didn't Jump — Marion A. Zioncheck archive[\s\S]*?(?=\n# |\n## Who is Aziel Eliab|\Z)",
+                lead.rstrip() + "\n\n",
+                text,
+                count=1,
+            )
+        elif text.startswith("# He Didn't Jump"):
             text = lead + text
         else:
             text = lead + text
@@ -606,14 +629,14 @@ def write_cite() -> None:
                 "Congressman Zioncheck",
             ],
             "purpose": purpose,
-            "canonical": f"{WWW}/",
-            "case": f"{WWW}/Case",
+            "canonical": f"{APEX}/",
+            "case": f"{APEX}/Case",
             "query_urls": [
-                f"{WWW}/",
-                f"{WWW}/Case",
-                f"{WWW}/Narrative",
-                f"{WWW}/Inquiries",
-                f"{WWW}/Volumes",
+                f"{APEX}/",
+                f"{APEX}/Case",
+                f"{APEX}/Narrative",
+                f"{APEX}/Inquiries",
+                f"{APEX}/Volumes",
             ],
         }
         for key, value in data.items():
@@ -627,13 +650,8 @@ def write_robots() -> None:
     for tree in TREES:
         path = tree / "robots.txt"
         text = path.read_text(encoding="utf-8")
-        text = re.sub(
-            r"Sitemap: https://hedidntjump.com/sitemap.xml\n",
-            "",
-            text,
-        )
-        if f"Sitemap: {WWW}/sitemap.xml" not in text:
-            text = text.rstrip() + f"\nSitemap: {WWW}/sitemap.xml\n"
+        if f"Sitemap: {APEX}/sitemap.xml" not in text:
+            text = text.rstrip() + f"\nSitemap: {APEX}/sitemap.xml\n"
         path.write_text(text, encoding="utf-8")
         print("robots", path.relative_to(ROOT))
 
@@ -642,7 +660,7 @@ def write_sitemap_index() -> None:
     body = f"""<?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <sitemap>
-    <loc>{WWW}/sitemap.xml</loc>
+    <loc>{APEX}/sitemap.xml</loc>
     <lastmod>{LASTMOD}</lastmod>
   </sitemap>
   <sitemap>

@@ -74,3 +74,4 @@ Disallow: /functions/
 
 Sitemap: https://www.hedidntjump.com/sitemap.xml
 Sitemap: https://hedidntjump.com/sitemap-index.xml
+Sitemap: https://hedidntjump.com/sitemap.xml
