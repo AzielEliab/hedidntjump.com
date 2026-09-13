@@ -9,7 +9,12 @@ from __future__ import annotations
 
 import json
 import re
+import sys
 from pathlib import Path
+
+_SCRIPTS = Path(__file__).resolve().parent
+if str(_SCRIPTS) not in sys.path:
+    sys.path.insert(0, str(_SCRIPTS))
 
 ROOT = Path(__file__).resolve().parents[1]
 TREES = [ROOT / "dist", ROOT / "docs"]
@@ -35,6 +40,8 @@ KEYWORDS = (
     "congressman Zioncheck, Seattle congressman suicide, Arctic Building, "
     "7 August 1936, He Didn't Jump"
 )
+from aziel_person import publisher_person as aziel_publisher_person
+
 PUBLISHER_NOT = (
     "Publisher of this Marion Zioncheck archive. "
     "Not biblical Aziel; not biblical Eliab; not euaziel.site; not Aziel S. (Flutter/portfolio); not other engineers named Aziel."
@@ -100,14 +107,17 @@ def zioncheck_person() -> dict:
 
 
 def publisher_person() -> dict:
-    return {
-        "@type": "Person",
-        "@id": PERSON_ID,
-        "name": "Aziel Eliab",
-        "url": "https://www.azieleliab.com/",
-        "jobTitle": "Publisher",
-        "description": PUBLISHER_NOT,
-    }
+    return aziel_publisher_person(
+        job_title="Publisher",
+        existing={
+            "@type": "Person",
+            "@id": PERSON_ID,
+            "name": "Aziel Eliab",
+            "url": "https://www.azieleliab.com/",
+            "jobTitle": "Publisher",
+            "description": PUBLISHER_NOT,
+        },
+    )
 
 
 def organization() -> dict:
