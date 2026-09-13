@@ -749,8 +749,8 @@
     },
     {
       "path": "dist/index.html",
-      "bytes": 27935,
-      "sha256": "381df4994c0ddbceae47d97ca2e8066af7045911cb60d66e8f1456cf17ebea90"
+      "bytes": 27763,
+      "sha256": "56f43090243d5d88f364dc6c8182e849dae85d1adcb29fda42f2e5455e77e7df"
     },
     {
       "path": "dist/llms-full.txt",
