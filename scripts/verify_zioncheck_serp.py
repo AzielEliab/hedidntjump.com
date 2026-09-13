@@ -58,6 +58,19 @@ def main() -> None:
         assert "https://www.hedidntjump.com/* https://hedidntjump.com/:splat 301" in redirects
         assert "https://hedidntjump.com/* https://www.hedidntjump.com/:splat 301" not in redirects
         assert llms.startswith("# He Didn't Jump — Marion A. Zioncheck archive")
+        # Machine surfaces (cite / llms / graph) — no HTML required for Marion FAQ
+        cite = json.loads((ROOT / tree / "cite.json").read_text(encoding="utf-8"))
+        assert cite["marion_person_id"] == f"{APEX}/#marion-zioncheck"
+        assert cite["marion_person"]["name"] == "Marion A. Zioncheck"
+        assert len(cite["zioncheck_faq"]) >= 5
+        assert any(q["q"] == "Who was Marion A. Zioncheck?" for q in cite["zioncheck_faq"])
+        assert "Not biblical Aziel; not biblical Eliab" in cite["disambiguatingDescription"]
+        graph_doc = json.loads((ROOT / tree / "graph.jsonld").read_text(encoding="utf-8"))
+        assert graph_doc["@graph"][0]["@id"] == f"{APEX}/#marion-zioncheck"
+        assert any(n.get("@id") == "https://www.hedidntjump.com/#zioncheck-faq" for n in graph_doc["@graph"])
+        assert any(n.get("@id") == "https://www.azieleliab.com/#aziel" for n in graph_doc["@graph"])
+        assert "## Marion A. Zioncheck FAQ (machine)" in llms
+        assert "Who was Congressman Zioncheck?" in llms
         # No second meter / stats rewrite in this lane.
         assert "views" in idx and "downloads" in idx
     print("zioncheck SERP lock OK")
