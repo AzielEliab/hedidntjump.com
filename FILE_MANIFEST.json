@@ -724,13 +724,13 @@
     },
     {
       "path": "dist/aziel.html",
-      "bytes": 24362,
-      "sha256": "e31d15c4a16061bb68248bd2483f63657369f4bb6374a5034700d74c05125c06"
+      "bytes": 27142,
+      "sha256": "90225f8b16bd6795011751aac18c9e3a6f7e34535b80bc166521f1e2b1e3ab53"
     },
     {
       "path": "dist/copyrights.html",
-      "bytes": 27941,
-      "sha256": "acd72c0b910f21e432bb9052fa777c2583b1bbf7f04507d8b2b7bb8670fed410"
+      "bytes": 31189,
+      "sha256": "d476151814ee3dc598734f78251e156ff34a3921d88be0f2dd08c3207b0683f5"
     },
     {
       "path": "dist/favicon.svg",
@@ -739,8 +739,8 @@
     },
     {
       "path": "dist/foia.html",
-      "bytes": 42140,
-      "sha256": "44c5be2624804cf41134b26a3189ed044f12d1968f68709ee125acd4b9fb0406"
+      "bytes": 45388,
+      "sha256": "317945e4daf0bd8f55d31dd5eb15d4969e9006bf6d23ccd70bddbfdcddc07ee3"
     },
     {
       "path": "dist/foia.js",
@@ -749,28 +749,28 @@
     },
     {
       "path": "dist/index.html",
-      "bytes": 27763,
-      "sha256": "56f43090243d5d88f364dc6c8182e849dae85d1adcb29fda42f2e5455e77e7df"
+      "bytes": 32274,
+      "sha256": "c37e6fcf958d8409b1eb236304232139b3967d66306b1490fe861f06fa706717"
     },
     {
       "path": "dist/llms-full.txt",
-      "bytes": 8546,
-      "sha256": "48ae7ac8b2bc3676f77cdbeaa787e62a391acdd1840291949f57e02da18c1e64"
+      "bytes": 9363,
+      "sha256": "0ee84c9d8afa83bfded2726137a55fcb723fbc9d446b88d7238e99a58cfad4b1"
     },
     {
       "path": "dist/llms.txt",
-      "bytes": 9352,
-      "sha256": "10560b0d9b2385b015faefb11c2cf3d39714d74de0ef1a9afbea60fbe87f9542"
+      "bytes": 10169,
+      "sha256": "89e576d9cbc5c4ad68b019535c42119bc5b516d13cf25679342063b7f2d05548"
     },
     {
       "path": "dist/official-narrative.html",
-      "bytes": 26778,
-      "sha256": "29bb6e66a7c6438fe7b212e7683ffce67bedaab02f16edf28f3c9fe600eab87b"
+      "bytes": 30008,
+      "sha256": "0fde952f584c5f61478bc9d29139d331406ff65d3c54efd4046a297c3b06099f"
     },
     {
       "path": "dist/reader.html",
-      "bytes": 19567,
-      "sha256": "1660864a5515e78167a0e97f44767772ebabc57532837fb1d68cb81ecac1b307"
+      "bytes": 22825,
+      "sha256": "29cda09dae0cc1809d0d00894d4cae87a28ff957776d89cf3fd03b043664c7d7"
     },
     {
       "path": "dist/reader.js",
@@ -784,8 +784,8 @@
     },
     {
       "path": "dist/rubye.html",
-      "bytes": 27855,
-      "sha256": "0573f5d2655633f56ed1f37dd60b4f93a4a6efa97ba10daa55a6c6ce33d44ad7"
+      "bytes": 31103,
+      "sha256": "0f7e09d3e15e30dd1d01b9adb26ffc2b5cf4e189f7f177003fe5136a93c41f17"
     },
     {
       "path": "dist/sitemap.xml",
@@ -834,8 +834,8 @@
     },
     {
       "path": "scripts/inject_seo.py",
-      "bytes": 52076,
-      "sha256": "1c804394ecb0719ad6a0033c8b14b723e7d4abe1d65cb35964de96b7102f67ee"
+      "bytes": 53039,
+      "sha256": "43eaf8b2149858757c0253684fe270837bcd3bbdf5c1edaf4f60e6e5c19419d2"
     },
     {
       "path": "verify_handoff.py",

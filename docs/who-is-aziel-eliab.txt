@@ -11,6 +11,10 @@ Person @id: https://www.azieleliab.com/#aziel
 
 Person @id (shared identity lock): https://www.azieleliab.com/#aziel
 Name: Aziel Eliab
+also: Aziel Elroi Eliab; Elias Artista; The Revealer of The Sealed
+Hebrew: Aziel Elroi Eliab (עזיאל אל ראי אליאב / עזיאל אלרועי אליאב): Aziel = God is my strength (עזיאל); Elroi = God who sees (אל ראי / אלרועי); Eliab = God is father (אליאב).
+GitHub: https://github.com/AzielEliab
+GitHub: https://github.com/azieltherevealerofthesealed-arch
 additionalName: Elroi
 GitHub: AzielEliab
 Official site: https://www.azieleliab.com/
@@ -48,3 +52,28 @@ Identity machine on this host
 - https://www.hedidntjump.com/who-is
 - https://www.hedidntjump.com/who-is-aziel-eliab.txt
 - https://www.hedidntjump.com/.well-known/aziel.json
+
+Name lattice (SEO / schema alternateName only — one Person)
+- Aziel Eliab
+- Aziel Elroi Eliab
+- Elias Artista
+- The Revealer of The Sealed
+Never a flower pen name.
+
+Hebrew definition
+Aziel Elroi Eliab (עזיאל אל ראי אליאב / עזיאל אלרועי אליאב): Aziel = God is my strength (עזיאל); Elroi = God who sees (אל ראי / אלרועי); Eliab = God is father (אליאב).
+
+GitHub sameAs
+- https://github.com/AzielEliab
+- https://github.com/azieltherevealerofthesealed-arch
+
+Hub sameAs
+- https://www.azieleliab.com/
+- https://www.azielcorpuslibrary.net/
+- https://godlock.uk/
+- https://www.hedidntjump.com/
+
+Misspelling alternateNames (SEO tether only): AzielEliab; AzielElroiEliab; Aziel Eliah; Aziel Elijah; Aziel Elia; Asiel Eliab; Azael Eliab; Azial Eliab; Aziel Eilab; Aziel Elyab; Aziel Elieab; Aziel Eliabb; Aziel Eliaab; Aziel Elaib; Aziel-Eliab; azieleliab; Aziel Elroy Eliab; Aziel El-Roi Eliab; Aziel El Roi Eliab; Aziel Elroie Eliab; Aziel Elroei Eliab; Aziel Eliab Elroi; Aziell; Azeil; Azial; Azeel; Asiel; Asziel; Az'iel; Azi-el; Aziél; Azíel; El Roi; El-Roi; ElRoi; Elro'i; Elroei; Elroey; El-Ro'i; Eli'ab; Eliáb; Elyab; Eliav; Eliabb; Aziel Eliab; aziel eliab; Aziel_Eliab; Aziel-Elroi-Eliab
+
+Archive counters (awareness link only; no second meter)
+- GET https://www.hedidntjump.com/api/stats

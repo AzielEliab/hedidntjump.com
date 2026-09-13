@@ -3,7 +3,12 @@
 from __future__ import annotations
 
 import json
+import sys
 from pathlib import Path
+
+_SCRIPTS = Path(__file__).resolve().parent
+if str(_SCRIPTS) not in sys.path:
+    sys.path.insert(0, str(_SCRIPTS))
 
 ROOT = Path(__file__).resolve().parents[1]
 DIST = ROOT / "dist"
@@ -19,17 +24,28 @@ DONATE_URL = "https://www.azieleliab.com/donate?v=png"
 PERSON_ID = "https://www.azieleliab.com/#aziel"
 ORG_ID = f"{ORIGIN}/#organization"
 
-SAME_AS = [
-    "https://www.azieleliab.com/",
-    "https://godlock.uk/",
-    "https://www.azielcorpuslibrary.net/",
-    "https://www.azielcorpuslibrary.net/runtime",
-    f"{ORIGIN}/",
-    "https://github.com/AzielEliab",
-    "https://aziel-runtime.vibelock.workers.dev/",
-    "https://x.com/AzielEliab",
-    "https://twitter.com/AzielEliab",
-]
+from aziel_person import (
+    GITHUB_PRIMARY,
+    GITHUB_REVEALER,
+    HEBREW_ONELINER,
+    alternate_names as lattice_alternate_names,
+    same_as as lattice_same_as,
+)
+
+SAME_AS = lattice_same_as(
+    [
+        "https://www.azieleliab.com/",
+        "https://godlock.uk/",
+        "https://www.azielcorpuslibrary.net/",
+        "https://www.azielcorpuslibrary.net/runtime",
+        f"{ORIGIN}/",
+        GITHUB_PRIMARY,
+        GITHUB_REVEALER,
+        "https://aziel-runtime.vibelock.workers.dev/",
+        "https://x.com/AzielEliab",
+        "https://twitter.com/AzielEliab",
+    ]
+)
 
 KNOWS_ABOUT = [
     {"@type": "Person", "name": "Marion Zioncheck"},
@@ -50,8 +66,9 @@ PERSON = {
     "@type": "Person",
     "@id": PERSON_ID,
     "name": "Aziel Eliab",
-    "alternateName": ["Aziel Elroi Eliab", "AzielEliab"],
+    "alternateName": lattice_alternate_names(["Aziel Elroi Eliab", "Elias Artista", "The Revealer of The Sealed", "AzielEliab"]),
     "additionalName": "Elroi",
+    "hebrewDefinition": HEBREW_ONELINER,
     "url": "https://www.azieleliab.com/",
     "jobTitle": [
         "Researcher",
