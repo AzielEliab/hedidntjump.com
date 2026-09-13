@@ -9,8 +9,8 @@
     },
     {
       "path": "dist/_headers",
-      "bytes": 2968,
-      "sha256": "612053f4ddd6be5c216f66058834fc9d5420838dc099beebcfb14155a20d5f7d"
+      "bytes": 3448,
+      "sha256": "7b90d05693dfba5dfad08ce011bd7a4105aa9524b6cfff9dc5c78172584ee1d2"
     },
     {
       "path": "dist/assets/arctic-building-1917.webp",
@@ -724,8 +724,8 @@
     },
     {
       "path": "dist/aziel.html",
-      "bytes": 24594,
-      "sha256": "53dc807bda448cd59e1f7fbf470f4288baf2d97776e5da6a44622ecf988210fa"
+      "bytes": 24362,
+      "sha256": "e31d15c4a16061bb68248bd2483f63657369f4bb6374a5034700d74c05125c06"
     },
     {
       "path": "dist/copyrights.html",
@@ -749,18 +749,18 @@
     },
     {
       "path": "dist/index.html",
-      "bytes": 27411,
-      "sha256": "59920a3a49e044830c953fb60a22d9eb7316a0b8b637111db97a82c212812ffc"
+      "bytes": 27935,
+      "sha256": "381df4994c0ddbceae47d97ca2e8066af7045911cb60d66e8f1456cf17ebea90"
     },
     {
       "path": "dist/llms-full.txt",
-      "bytes": 8567,
-      "sha256": "638d27ce673527a20243cb9f91c6ecf69c92b142d2d9df72e87f2a49058e09a9"
+      "bytes": 8546,
+      "sha256": "48ae7ac8b2bc3676f77cdbeaa787e62a391acdd1840291949f57e02da18c1e64"
     },
     {
       "path": "dist/llms.txt",
-      "bytes": 5513,
-      "sha256": "c7d53ca7634ebabcc23b49350254bd29e9b377cf1347429c015fbeb6cdb884ba"
+      "bytes": 9352,
+      "sha256": "10560b0d9b2385b015faefb11c2cf3d39714d74de0ef1a9afbea60fbe87f9542"
     },
     {
       "path": "dist/official-narrative.html",
@@ -779,8 +779,8 @@
     },
     {
       "path": "dist/robots.txt",
-      "bytes": 586,
-      "sha256": "e057dec7e6938238a5cf2ae7465c1467f83c379da9c8b9645e28884b276c1c3e"
+      "bytes": 1202,
+      "sha256": "23f2ce42718e276f8ada7dc790b6e355bb19a3c122ac8b9cd8679fe8260f7fa2"
     },
     {
       "path": "dist/rubye.html",
@@ -789,8 +789,8 @@
     },
     {
       "path": "dist/sitemap.xml",
-      "bytes": 13259,
-      "sha256": "cd5c1c78a5bd12cb6fa175c631550963922aa84604669eac6c41e829f3305c31"
+      "bytes": 6320,
+      "sha256": "51e8151f4a8e85b22cc21ab3dc514456e82e37d2f4b4ef710aa378849f6a3b17"
     },
     {
       "path": "dist/stats.js",
@@ -799,8 +799,8 @@
     },
     {
       "path": "dist/style.css",
-      "bytes": 25562,
-      "sha256": "8f19d62a3c8f67637172e468b92911932dc9610e761d39610879475f5a49fbc5"
+      "bytes": 56466,
+      "sha256": "a60ba41fc4021f26588ff06b4be66dec844ad2f196aeff7ff405c81838c1f3d5"
     },
     {
       "path": "dist/volumes.json",

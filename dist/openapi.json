@@ -292,6 +292,16 @@
         }
       }
     },
+    "/who": {
+      "get": {
+        "summary": "Who is Aziel Eliab \u2014 visible HTML lock (H1 + 1 Chronicles 15:20)",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/who-is-aziel-eliab.txt": {
       "get": {
         "summary": "Who is Aziel Eliab \u2014 plain-text identity lock",
