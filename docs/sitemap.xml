@@ -1,39 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://hedidntjump.com/</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <image:image>
-      <image:loc>https://hedidntjump.com/assets/social-card.jpg</image:loc>
-      <image:title>He Didn't Jump — independent archive challenging the official 7 Aug 1936 Arctic Building suicide account</image:title>
-      <image:caption>Five-volume Marion Zioncheck archive. Contrast the labeled official-narrative page. Does not invent court holdings.</image:caption>
-    </image:image>
-    <PageMap xmlns="http://www.google.com/schemas/sitemap-pagemap/1.0">
-      <DataObject type="document">
-        <Attribute name="title">He Didn't Jump — independent archive challenging the official 7 Aug 1936 Arctic Building suicide account</Attribute>
-        <Attribute name="description">An Aziel Eliab Project: five research volumes and newspaper inquiries challenging the official 7 August 1936 Arctic Building suicide account of U.S. Representative Marion Zioncheck. Publishes the record; does not invent court holdings, quotes, or agency letters.</Attribute>
-      </DataObject>
-    </PageMap>
   </url>
   <url>
     <loc>https://www.hedidntjump.com/</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <image:image>
-      <image:loc>https://www.hedidntjump.com/assets/social-card.jpg</image:loc>
-      <image:title>He Didn't Jump — independent archive challenging the official 7 Aug 1936 Arctic Building suicide account</image:title>
-      <image:caption>Five-volume Marion Zioncheck archive. Contrast the labeled official-narrative page. Does not invent court holdings.</image:caption>
-    </image:image>
-    <PageMap xmlns="http://www.google.com/schemas/sitemap-pagemap/1.0">
-      <DataObject type="document">
-        <Attribute name="title">He Didn't Jump — independent archive challenging the official 7 Aug 1936 Arctic Building suicide account</Attribute>
-        <Attribute name="description">An Aziel Eliab Project: five research volumes and newspaper inquiries challenging the official 7 August 1936 Arctic Building suicide account of U.S. Representative Marion Zioncheck. Publishes the record; does not invent court holdings, quotes, or agency letters.</Attribute>
-      </DataObject>
-    </PageMap>
   </url>
   <url>
     <loc>https://hedidntjump.com/Case</loc>
@@ -111,35 +88,7 @@
     <loc>https://hedidntjump.com/official-narrative.html</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://hedidntjump.com/assets/plates/playboy-leaps.webp</image:loc>
-      <image:title>Official 7 Aug 1936 Arctic Building suicide account — labeled contemporary narrative</image:title>
-      <image:caption>Official/contemporary public story only. Contrast the independent five-volume archive on the main paper. Does not invent court holdings.</image:caption>
-    </image:image>
-    <PageMap xmlns="http://www.google.com/schemas/sitemap-pagemap/1.0">
-      <DataObject type="document">
-        <Attribute name="title">Official 7 Aug 1936 Arctic Building suicide account — He Didn't Jump</Attribute>
-        <Attribute name="description">Labeled official/contemporary account only: the 90-year public story that Marion Zioncheck died by suicide from a fifth-floor Arctic Building office on 7 August 1936. Contrast the independent five-volume archive on the main paper. Does not invent court holdings.</Attribute>
-      </DataObject>
-    </PageMap>
-  </url>
-  <url>
-    <loc>https://www.hedidntjump.com/official-narrative.html</loc>
-    <lastmod>2026-09-13</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://www.hedidntjump.com/assets/plates/playboy-leaps.webp</image:loc>
-      <image:title>Official 7 Aug 1936 Arctic Building suicide account — labeled contemporary narrative</image:title>
-      <image:caption>Official/contemporary public story only. Contrast the independent five-volume archive on the main paper. Does not invent court holdings.</image:caption>
-    </image:image>
-    <PageMap xmlns="http://www.google.com/schemas/sitemap-pagemap/1.0">
-      <DataObject type="document">
-        <Attribute name="title">Official 7 Aug 1936 Arctic Building suicide account — He Didn't Jump</Attribute>
-        <Attribute name="description">Labeled official/contemporary account only: the 90-year public story that Marion Zioncheck died by suicide from a fifth-floor Arctic Building office on 7 August 1936. Contrast the independent five-volume archive on the main paper. Does not invent court holdings.</Attribute>
-      </DataObject>
-    </PageMap>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://hedidntjump.com/rubye.html</loc>

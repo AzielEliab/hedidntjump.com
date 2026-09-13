@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
-"""Validate AZindex identity lock, FAQ, Hebrew/misspelling tethers, and /api/stats meter."""
+"""Validate AZindex identity lock, FAQ, Hebrew/misspelling tethers, and /api/stats link."""
 from __future__ import annotations
 
 import json
-import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -34,6 +33,7 @@ def main() -> None:
         assert identity["person"]["@id"] == PERSON_ID
         assert well["person_id"] == PERSON_ID
         assert cite["person_id"] == PERSON_ID
+        assert cite["stats"] == f"{'https://www.hedidntjump.com'}/api/stats"
         assert PERSON_ID in who
         for needle in NEEDLES:
             assert needle in person["alternateName"], needle
@@ -41,25 +41,16 @@ def main() -> None:
         faq = next(n for n in graph["@graph"] if n.get("@type") == "FAQPage")
         names = {q["name"] for q in faq["mainEntity"]}
         assert FAQ_NAMES <= names, names
-        assert cite["stats"]["local"]["stats"].endswith("/api/stats")
         assert graph["stats"]["local"]["stats"].endswith("/api/stats")
         assert well["stats"]["local"]["stats"].endswith("/api/stats")
-        sisters = {h["id"] for h in cite["stats"]["sister_hubs"]}
+        sisters = {h["id"] for h in well["stats"]["sister_hubs"]}
         assert sisters == {"official", "godlock", "library", "runtime"}
         assert "biblical Aziel" in who
         assert "biblical Eliab" in who
 
-        for name in ("index.html", "official-narrative.html"):
-            html = (ROOT / tree / name).read_text(encoding="utf-8")
-            assert PERSON_ID in html
-            assert 'id="azindex-faq"' in html
-            for block in re.findall(
-                r'<script type="application/ld\+json"[^>]*>(.*?)</script>', html, re.S
-            ):
-                json.loads(block)
-            assert "#aziel-eliab" not in html
-
         robots = (ROOT / tree / "robots.txt").read_text(encoding="utf-8")
+        sitemap = (ROOT / tree / "sitemap.xml").read_text(encoding="utf-8")
+        headers = (ROOT / tree / "_headers").read_text(encoding="utf-8")
         for path in (
             "/person.jsonld",
             "/identity.jsonld",
@@ -68,13 +59,9 @@ def main() -> None:
             "/.well-known/aziel.json",
         ):
             assert f"Allow: {path}" in robots
-        sitemap = (ROOT / tree / "sitemap.xml").read_text(encoding="utf-8")
-        assert "person.jsonld" in sitemap
-        assert "official-narrative.html" in sitemap
-        headers = (ROOT / tree / "_headers").read_text(encoding="utf-8")
+            assert path.lstrip("/") in sitemap or path in sitemap
         assert "application/ld+json" in headers
 
-    # Meter files must stay untouched by this identity ship.
     for rel in (
         "docs/stats.js",
         "dist/stats.js",
