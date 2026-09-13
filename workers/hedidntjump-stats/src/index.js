@@ -98,25 +98,47 @@ async function increment(kv, type, id) {
   return snapshot(kv);
 }
 
+function applyHitFields(target, type, id) {
+  if (type) target.type = String(type).toLowerCase();
+  if (id) target.id = String(id);
+}
+
 async function parseHit(request, url) {
-  let type = (url.searchParams.get("type") || "view").toLowerCase();
-  let id = url.searchParams.get("id") || "";
+  const parsed = {
+    type: (url.searchParams.get("type") || "view").toLowerCase(),
+    id: url.searchParams.get("id") || "",
+  };
   if (request.method === "POST") {
-    const ctype = request.headers.get("content-type") || "";
-    if (ctype.includes("application/json")) {
-      try {
+    const ctype = (request.headers.get("content-type") || "").toLowerCase();
+    try {
+      if (ctype.includes("application/json")) {
         const body = await request.json();
         if (body && typeof body === "object") {
-          if (body.type) type = String(body.type).toLowerCase();
-          if (body.id) id = String(body.id);
+          applyHitFields(parsed, body.type, body.id);
         }
-      } catch {
-        /* keep query values */
+      } else if (
+        ctype.includes("application/x-www-form-urlencoded") ||
+        ctype.includes("text/plain")
+      ) {
+        const text = await request.text();
+        if (text) {
+          try {
+            const body = JSON.parse(text);
+            if (body && typeof body === "object") {
+              applyHitFields(parsed, body.type, body.id);
+            }
+          } catch {
+            const body = new URLSearchParams(text);
+            applyHitFields(parsed, body.get("type"), body.get("id"));
+          }
+        }
       }
+    } catch {
+      /* keep query values — sendBeacon often POSTs an empty body */
     }
   }
-  if (type !== "download") type = "view";
-  return { type, id };
+  if (parsed.type !== "download") parsed.type = "view";
+  return parsed;
 }
 
 function routeName(pathname) {
