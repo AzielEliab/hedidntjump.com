@@ -87,11 +87,12 @@ ABOUT_METHOD = (
 # One short schema.org field. 1 Chronicles / concordance live here only (plus one FAQ).
 # Never put verse copy in description. Never sameAs euaziel / Aziel S. / Flutter-React.
 DISAMBIGUATING = (
-    "Living author of He Didn’t Jump / Zioncheck archive; not 1 Chronicles 15:20 / concordance; not Aziel S. or Flutter-React."
+    "Living author of He Didn’t Jump / Zioncheck archive; not 1 Chronicles 15:20 / concordance; not Aziel S.; not euaziel.site."
 )
 
 NEVER_SAME_AS = (
     "euaziel",
+    "euaziel.site",
     "Aziel S",
     "Flutter-React",
 )
@@ -129,9 +130,12 @@ MISSPELLINGS = [
     "Aziel Eliab Elroi",
 ]
 
+REVEALER_AKA = "The Revealer of The Sealed"
+
 ALTERNATE_NAMES = [
     "Aziel Elroi Eliab",
     "AzielEliab",
+    REVEALER_AKA,
     *HEBREW_FORMS,
     *MISSPELLINGS,
 ]
@@ -192,7 +196,7 @@ FAQ_TEMPORARY = (
 FAQ_CONCORDANCE_NAME = "Is Aziel Eliab a 1 Chronicles 15:20 / concordance namesake?"
 FAQ_CONCORDANCE = (
     "No. Use the single disambiguatingDescription on Person @id "
-    "https://www.azieleliab.com/#aziel. Never sameAs euaziel, Aziel S., or Flutter-React."
+    "https://www.azieleliab.com/#aziel. Never sameAs euaziel.site or Aziel S."
 )
 
 # Reciprocal hubs only. Never euaziel / Aziel S. / Flutter-React.
@@ -234,6 +238,8 @@ IDENTITY_SURFACES = [
     f"{WWW}/identity.jsonld",
     f"{WWW}/graph.jsonld",
     f"{WWW}/who-is-aziel-eliab.txt",
+    f"{WWW}/who-is",
+    f"{ORIGIN}/who-is",
     f"{WWW}/.well-known/aziel.json",
 ]
 
@@ -512,7 +518,8 @@ def well_known_aziel() -> dict:
             "person_jsonld": f"{WWW}/person.jsonld",
             "identity_jsonld": f"{WWW}/identity.jsonld",
             "graph_jsonld": f"{WWW}/graph.jsonld",
-            "who_is": f"{WWW}/who-is-aziel-eliab.txt",
+            "who_is": f"{WWW}/who-is",
+            "who_is_txt": f"{WWW}/who-is-aziel-eliab.txt",
             "well_known": f"{WWW}/.well-known/aziel.json",
         },
     }
@@ -536,7 +543,7 @@ Person @id (shared identity lock): {PERSON_ID}
 Name: Aziel Eliab
 givenName: Aziel
 familyName: Eliab
-alternateName (SEO only): Aziel Elroi Eliab
+alternateName (SEO only): Aziel Elroi Eliab; The Revealer of The Sealed
 additionalName: Elroi
 GitHub: AzielEliab
 Official site: https://www.azieleliab.com/
@@ -599,6 +606,7 @@ Identity machine on this host
 - {WWW}/person.jsonld
 - {WWW}/identity.jsonld
 - {WWW}/graph.jsonld
+- {WWW}/who-is
 - {WWW}/who-is-aziel-eliab.txt
 - {WWW}/.well-known/aziel.json
 
@@ -620,6 +628,7 @@ def write_identity_files() -> None:
         "identity.jsonld": dumps(identity_jsonld()),
         "graph.jsonld": dumps(graph_jsonld()),
         "who-is-aziel-eliab.txt": who_is_txt(),
+        "who-is": who_is_txt(),
         ".well-known/aziel.json": dumps(well_known_aziel()),
     }
     for tree in TREES:
