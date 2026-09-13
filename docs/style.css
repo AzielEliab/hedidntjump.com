@@ -1535,27 +1535,6 @@ body[data-stats-page="landing"] .portrait.portrait-lead-full{
   margin:0 0 6px !important;
   overflow:hidden !important;
 }
-body[data-stats-page="landing"] .portrait.portrait-lead-full video.lead-motion{
-  display:block;
-  width:100%;
-  height:auto;
-  max-width:100%;
-  margin:0;
-  padding:0;
-  border:0;
-  background:#111;
-  object-fit:contain;
-  vertical-align:bottom;
-}
-body[data-stats-page="landing"] .portrait.portrait-lead-full video.lead-motion{
-  pointer-events:none;
-}
-body[data-stats-page="landing"] .portrait.portrait-lead-full video.lead-motion::-webkit-media-controls{
-  display:none !important;
-}
-body[data-stats-page="landing"] .portrait.portrait-lead-full video.lead-motion::-webkit-media-controls-enclosure{
-  display:none !important;
-}
 
 body[data-stats-page="landing"] .portrait.portrait-lead-full img{
   width:100% !important;
@@ -1847,14 +1826,6 @@ body[data-stats-page="landing"] .portrait.portrait-footer-motion{
 }
 
 
-body[data-stats-page="landing"] video.lead-motion::-webkit-media-controls-start-playback-button{
-  display:none !important;
-  -webkit-appearance:none;
-  opacity:0;
-  pointer-events:none;
-  width:0;
-  height:0;
-}
 
 
 body[data-stats-page="landing"] .portrait.portrait-lead-full img.lead-motion{
@@ -1879,10 +1850,8 @@ body[data-stats-page="landing"] img.lead-motion-frame.is-animating{
   background:#111;
 }
 
-
-
-body[data-stats-page="landing"] figure[data-motion-plate] .lead-motion-poster,
-body[data-stats-page="landing"] figure[data-motion-plate] .lead-motion-video{
+/* motion plates — animated WebP <img>; always plays, no autoplay policy */
+body[data-stats-page="landing"] figure[data-motion-plate] .lead-motion-anim{
   display:block;
   width:100%;
   height:auto;
@@ -1892,70 +1861,4 @@ body[data-stats-page="landing"] figure[data-motion-plate] .lead-motion-video{
   border:0;
   background:#111;
   object-fit:contain;
-}
-body[data-stats-page="landing"] figure[data-motion-plate] .lead-motion-video{
-  position:absolute;
-  left:0;
-  top:0;
-  width:100%;
-  height:auto;
-  opacity:0;
-  pointer-events:none;
-  visibility:hidden;
-}
-body[data-stats-page="landing"] figure[data-motion-plate].is-playing .lead-motion-video{
-  position:static;
-  opacity:1;
-  visibility:visible;
-}
-body[data-stats-page="landing"] figure[data-motion-plate].is-playing .lead-motion-poster{
-  display:none;
-}
-body[data-stats-page="landing"] figure[data-motion-plate] video::-webkit-media-controls,
-body[data-stats-page="landing"] figure[data-motion-plate] video::-webkit-media-controls-enclosure,
-body[data-stats-page="landing"] figure[data-motion-plate] video::-webkit-media-controls-start-playback-button{
-  display:none !important;
-  -webkit-appearance:none !important;
-  opacity:0 !important;
-}
-
-/* motion plates: poster until playing; keep video in layout pipeline (no visibility:hidden) */
-body[data-stats-page="landing"] figure[data-motion-plate]{
-  position:relative;
-}
-body[data-stats-page="landing"] figure[data-motion-plate] .lead-motion-poster,
-body[data-stats-page="landing"] figure[data-motion-plate] .lead-motion-video{
-  display:block;
-  width:100%;
-  height:auto;
-  max-width:100%;
-  margin:0;
-  padding:0;
-  border:0;
-  background:#111;
-  object-fit:contain;
-}
-body[data-stats-page="landing"] figure[data-motion-plate] .lead-motion-video{
-  position:absolute;
-  left:0;
-  top:0;
-  width:100%;
-  height:auto;
-  opacity:0;
-  pointer-events:none;
-  /* keep visibility:visible so engines still decode/play under the poster */
-}
-body[data-stats-page="landing"] figure[data-motion-plate].is-playing .lead-motion-video{
-  position:static;
-  opacity:1;
-}
-body[data-stats-page="landing"] figure[data-motion-plate].is-playing .lead-motion-poster{
-  display:none;
-}
-body[data-stats-page="landing"] figure[data-motion-plate] video::-webkit-media-controls,
-body[data-stats-page="landing"] figure[data-motion-plate] video::-webkit-media-controls-enclosure,
-body[data-stats-page="landing"] figure[data-motion-plate] video::-webkit-media-controls-start-playback-button{
-  display:none !important;
-  -webkit-appearance:none !important;
-  opacity:0 !important;
 }
