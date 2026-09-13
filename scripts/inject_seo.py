@@ -7,7 +7,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DIST = ROOT / "dist"
-ORIGIN = "https://www.hedidntjump.com"
+ORIGIN = "https://hedidntjump.com"
 LASTMOD = "2026-09-12"
 
 
