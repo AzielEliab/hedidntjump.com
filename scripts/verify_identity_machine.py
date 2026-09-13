@@ -8,7 +8,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 PERSON_ID = "https://www.azieleliab.com/#aziel"
-NEEDLES = ("עזיאל", "אל ראי", "אלרועי", "אליאב", "Aziel Eliah")
+NEEDLES = ("עזיאל", "אל ראי", "אלרועי", "אליאב", "Aziel Eliah", "The Revealer of The Sealed")
 FAQ_CONCORDANCE_NAME = "Is Aziel Eliab a 1 Chronicles 15:20 / concordance namesake?"
 FAQ_NAMES = {
     "Who is Aziel Eliab?",
@@ -27,7 +27,7 @@ BANNED_FAQ = {
     "Is Aziel Eliab the same person as Aziel S.?",
 }
 DISAMBIGUATING = (
-    "Living author of He Didn’t Jump / Zioncheck archive; not 1 Chronicles 15:20 / concordance; not Aziel S. or Flutter-React."
+    "Living author of He Didn’t Jump / Zioncheck archive; not 1 Chronicles 15:20 / concordance; not Aziel S.; not euaziel.site."
 )
 VERSE_SNIPPET = "1 Chronicles 15:20"
 COMBO_SNIPPET = "biblical Aziel and biblical Eliab combined"
@@ -113,7 +113,9 @@ def main() -> None:
         assert cite["disambiguation"] == DISAMBIGUATING
         assert VERSE_SNIPPET not in cite.get("identity_note", "")
         assert cite["about_page"] == "https://hedidntjump.com/aziel"
-        assert cite["not"] == ["euaziel", "Aziel S.", "Flutter-React"]
+        assert cite["not"] == ["euaziel.site", "Aziel S.", "Flutter-React"]
+        assert "euaziel.site" in cite["disambiguation"]
+        assert "Aziel S." in cite["disambiguation"]
         cite_faq_names = [item["q"] for item in cite["faq"]]
         assert FAQ_CONCORDANCE_NAME in cite_faq_names
         assert cite_faq_names.count(FAQ_CONCORDANCE_NAME) == 1
@@ -127,6 +129,7 @@ def main() -> None:
             "identity.jsonld",
             "graph.jsonld",
             "who-is-aziel-eliab.txt",
+            "/who-is",
             ".well-known/aziel.json",
             "/aziel",
             "/AzielEliab",
@@ -134,6 +137,11 @@ def main() -> None:
         ):
             assert path in sitemap, path
         assert "/inquiry/" not in sitemap
+        assert "hedidntjump.com/who-is</loc>" in sitemap
+        assert "/who-is /who-is-aziel-eliab.txt 200" in redirects
+        assert "/who-is\n  Content-Type: text/plain" in headers
+        assert (ROOT / tree / "who-is").is_file()
+        assert (ROOT / tree / "who-is").read_text(encoding="utf-8") == who
         assert "/aziel /aziel.html 200" not in redirects
         assert "Do not add /aziel" in redirects
         assert "/Aziel /aziel.html 200" in redirects
