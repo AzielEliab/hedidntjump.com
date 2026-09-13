@@ -1721,3 +1721,13 @@ img, svg, video, iframe {
   height: auto;
 }
 
+/* Aziel page: thin black rule between every paragraph */
+body[data-stats-page="aziel"] main p {
+  margin: 0 0 10px !important;
+  padding: 0 0 10px !important;
+  border-bottom: 1px solid #111 !important;
+}
+body[data-stats-page="aziel"] main p:last-child {
+  border-bottom: 1px solid #111 !important;
+}
+
