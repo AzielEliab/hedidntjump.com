@@ -8,7 +8,12 @@ Does not retarget the /api/stats meter (bc-66a02bb3 contract).
 from __future__ import annotations
 
 import json
+import sys
 from pathlib import Path
+
+_SCRIPTS = Path(__file__).resolve().parent
+if str(_SCRIPTS) not in sys.path:
+    sys.path.insert(0, str(_SCRIPTS))
 
 ROOT = Path(__file__).resolve().parents[1]
 TREES = [ROOT / "dist", ROOT / "docs"]
@@ -108,6 +113,7 @@ NEVER_SAME_AS = (
 
 HEBREW_AKA = {
     "note": "SEO aka tether only for Aziel Elroi Eliab. Not a second identity.",
+    "definition": HEBREW_ONELINER,
     "aziel": "עזיאל",
     "elroi": ["אל ראי", "אלרועי"],
     "eliab": "אליאב",
@@ -139,17 +145,27 @@ MISSPELLINGS = [
     "Aziel Eliab Elroi",
 ]
 
+from aziel_person import (
+    GITHUB_PRIMARY,
+    GITHUB_REVEALER,
+    HEBREW_ONELINER,
+    alternate_names as lattice_alternate_names,
+    same_as as lattice_same_as,
+)
+
 REVEALER_AKA = "The Revealer of The Sealed"
 REVEALER_AKA_SHORT = "Revealer of The Sealed"
 
-ALTERNATE_NAMES = [
-    "Aziel Elroi Eliab",
-    "AzielEliab",
-    REVEALER_AKA,
-    REVEALER_AKA_SHORT,
-    *HEBREW_FORMS,
-    *MISSPELLINGS,
-]
+ALTERNATE_NAMES = lattice_alternate_names(
+    [
+        "Aziel Elroi Eliab",
+        "Elias Artista",
+        REVEALER_AKA,
+        REVEALER_AKA_SHORT,
+        *HEBREW_FORMS,
+        *MISSPELLINGS,
+    ]
+)
 
 FAQ_WHO = (
     "Aziel Eliab is a living author. He is the researcher, software developer, digital civil "
@@ -211,19 +227,22 @@ FAQ_NOT = (
     "Use Person @id https://www.azieleliab.com/#aziel."
 )
 
-# Reciprocal hubs only. Never euaziel / Aziel S. / Flutter-React.
-SAME_AS = [
-    "https://www.azieleliab.com/",
-    "https://godlock.uk/",
-    "https://www.azielcorpuslibrary.net/",
-    "https://www.azielcorpuslibrary.net/runtime",
-    f"{ORIGIN}/",
-    WWW + "/",
-    "https://github.com/AzielEliab",
-    "https://aziel-runtime.vibelock.workers.dev/",
-    "https://x.com/AzielEliab",
-    "https://twitter.com/AzielEliab",
-]
+# Reciprocal hubs + both GitHub accounts. Never euaziel / Aziel S. / Flutter-React.
+SAME_AS = lattice_same_as(
+    [
+        "https://www.azieleliab.com/",
+        "https://godlock.uk/",
+        "https://www.azielcorpuslibrary.net/",
+        "https://www.azielcorpuslibrary.net/runtime",
+        f"{ORIGIN}/",
+        WWW + "/",
+        GITHUB_PRIMARY,
+        GITHUB_REVEALER,
+        "https://aziel-runtime.vibelock.workers.dev/",
+        "https://x.com/AzielEliab",
+        "https://twitter.com/AzielEliab",
+    ]
+)
 
 KNOWS_ABOUT = [
     {"@type": "Person", "name": "Marion Zioncheck"},
@@ -292,6 +311,7 @@ PERSON_LOCK = {
     ],
     "description": PERSON_DESCRIPTION,
     "disambiguatingDescription": DISAMBIGUATING,
+    "hebrewDefinition": HEBREW_ONELINER,
     "sameAs": SAME_AS,
     "knowsAbout": KNOWS_ABOUT + [
         "Who is Aziel Eliab",
@@ -557,9 +577,12 @@ Person @id (shared identity lock): {PERSON_ID}
 Name: Aziel Eliab
 givenName: Aziel
 familyName: Eliab
-alternateName (SEO only): Aziel Elroi Eliab; The Revealer of The Sealed; Revealer of The Sealed
+alternateName (SEO only): Aziel Elroi Eliab; Elias Artista; The Revealer of The Sealed; Revealer of The Sealed
 additionalName: Elroi
+Hebrew: {HEBREW_ONELINER}
 GitHub: AzielEliab
+GitHub: {GITHUB_PRIMARY}
+GitHub: {GITHUB_REVEALER}
 Official site: https://www.azieleliab.com/
 About on this host: {ABOUT_PAGE}
 About aliases:

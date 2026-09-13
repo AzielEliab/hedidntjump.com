@@ -48,6 +48,26 @@ def main() -> None:
         assert any(n.get("@type") == "FAQPage" for n in g["@graph"])
         pub = next(n for n in g["@graph"] if n.get("@id") == "https://www.azieleliab.com/#aziel")
         assert pub["jobTitle"] == "Publisher"
+        assert pub["name"] == "Aziel Eliab"
+        assert "Elias Artista" in pub["alternateName"]
+        assert "The Revealer of The Sealed" in pub["alternateName"]
+        assert "Aziel Elroi Eliab" in pub["alternateName"]
+        assert "Everblooming Flower" not in json.dumps(pub)
+        assert "https://github.com/AzielEliab" in pub["sameAs"]
+        assert "https://github.com/azieltherevealerofthesealed-arch" in pub["sameAs"]
+        for hub in (
+            "https://www.azieleliab.com/",
+            "https://www.azielcorpuslibrary.net/",
+            "https://godlock.uk/",
+            "https://www.hedidntjump.com/",
+        ):
+            assert hub in pub["sameAs"], hub
+        hebrew = (
+            "Aziel Elroi Eliab (עזיאל אל ראי אליאב / עזיאל אלרועי אליאב): "
+            "Aziel = God is my strength (עזיאל); Elroi = God who sees (אל ראי / אלרועי); "
+            "Eliab = God is father (אליאב)."
+        )
+        assert hebrew in json.dumps(pub, ensure_ascii=False)
         assert "Not biblical Aziel; not biblical Eliab" in idx
         assert "not euaziel.site" in idx
         assert "not Aziel S. (Flutter/portfolio)" in idx

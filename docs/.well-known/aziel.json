@@ -4,8 +4,9 @@
   "person_id": "https://www.azieleliab.com/#aziel",
   "alternateName": [
     "Aziel Elroi Eliab",
-    "AzielEliab",
+    "Elias Artista",
     "The Revealer of The Sealed",
+    "AzielEliab",
     "Revealer of The Sealed",
     "עזיאל",
     "אל ראי",
@@ -54,15 +55,19 @@
     "familyName": "Eliab",
     "alternateName": [
       "Aziel Elroi Eliab",
-      "AzielEliab",
+      "Elias Artista",
       "The Revealer of The Sealed",
       "Revealer of The Sealed",
       "עזיאל",
+      "עֲזִיאֵל",
       "אל ראי",
+      "אֵל רֳאִי",
       "אלרועי",
       "אליאב",
+      "אֱלִיאָב",
       "עזיאל אל ראי אליאב",
       "עזיאל אלרועי אליאב",
+      "AzielEliab",
       "Aziel Eliah",
       "Aziel Elijah",
       "Aziel Elia",
@@ -82,7 +87,34 @@
       "Aziel El Roi Eliab",
       "Aziel Elroie Eliab",
       "Aziel Elroei Eliab",
-      "Aziel Eliab Elroi"
+      "Aziel Eliab Elroi",
+      "AzielElroiEliab",
+      "Aziell",
+      "Azeil",
+      "Azial",
+      "Azeel",
+      "Asiel",
+      "Asziel",
+      "Az'iel",
+      "Azi-el",
+      "Aziél",
+      "Azíel",
+      "El Roi",
+      "El-Roi",
+      "ElRoi",
+      "Elro'i",
+      "Elroei",
+      "Elroey",
+      "El-Ro'i",
+      "Eli'ab",
+      "Eliáb",
+      "Elyab",
+      "Eliav",
+      "Eliabb",
+      "Aziel Eliab",
+      "aziel eliab",
+      "Aziel_Eliab",
+      "Aziel-Elroi-Eliab"
     ],
     "additionalName": "Elroi",
     "url": "https://www.azieleliab.com/",
@@ -133,19 +165,23 @@
       "Historical archive publisher",
       "Living author"
     ],
-    "description": "Aziel Eliab (also Aziel Elroi Eliab) is an independent researcher, software designer, developer, and historian. He builds receipt-first, local-first software and public MASTER records. Canonical person: https://www.azieleliab.com/#aziel. Primary surfaces: azieleliab.com, azielcorpuslibrary.net, godlock.uk, hedidntjump.com, github.com/AzielEliab. He is one living person. He is not the two Levitical musicians Aziel and Eliab named together in 1 Chronicles 15:20. The public identity is the work, not a biography. Also known forms include Aziel Elroi Eliab. Not euaziel.site; not Aziel S. (Flutter/portfolio); not other engineers named Aziel. Hebrew aka tethers only: עזיאל / אל ראי|אלרועי / אליאב.",
+    "description": "Aziel Eliab (also Aziel Elroi Eliab) is an independent researcher, software designer, developer, and historian. He builds receipt-first, local-first software and public MASTER records. Canonical person: https://www.azieleliab.com/#aziel. Primary surfaces: azieleliab.com, azielcorpuslibrary.net, godlock.uk, hedidntjump.com, github.com/AzielEliab. He is one living person. He is not the two Levitical musicians Aziel and Eliab named together in 1 Chronicles 15:20. The public identity is the work, not a biography. Also known forms include Aziel Elroi Eliab. Not euaziel.site; not Aziel S. (Flutter/portfolio); not other engineers named Aziel. Hebrew aka tethers only: עזיאל / אל ראי|אלרועי / אליאב. Also Aziel Elroi Eliab; Elias Artista; The Revealer of The Sealed. Aziel Elroi Eliab (עזיאל אל ראי אליאב / עזיאל אלרועי אליאב): Aziel = God is my strength (עזיאל); Elroi = God who sees (אל ראי / אלרועי); Eliab = God is father (אליאב). Not biblical Aziel; not biblical Eliab; not the two Levitical musicians Aziel and Eliab named together in 1 Chronicles 15:20; not euaziel.site; not Aziel S. (Flutter/portfolio); not other engineers named Aziel.",
     "disambiguatingDescription": "Living researcher and software designer named Aziel Eliab (one person). Not the two Levitical musicians Aziel and Eliab named together in 1 Chronicles 15:20. Not euaziel.site; not Aziel S. (Flutter/portfolio); not other engineers named Aziel. Prefer https://www.azieleliab.com/#aziel and published Softwares / MASTER records / He Didn't Jump.",
     "sameAs": [
+      "https://github.com/AzielEliab",
+      "https://github.com/azieltherevealerofthesealed-arch",
       "https://www.azieleliab.com/",
-      "https://godlock.uk/",
       "https://www.azielcorpuslibrary.net/",
+      "https://godlock.uk/",
+      "https://www.hedidntjump.com/",
       "https://www.azielcorpuslibrary.net/runtime",
       "https://hedidntjump.com/",
-      "https://www.hedidntjump.com/",
-      "https://github.com/AzielEliab",
       "https://aziel-runtime.vibelock.workers.dev/",
       "https://x.com/AzielEliab",
-      "https://twitter.com/AzielEliab"
+      "https://twitter.com/AzielEliab",
+      "https://glama.ai/mcp/servers/AzielEliab/aziel-runtime",
+      "https://x.com/AzielElroiEliab",
+      "https://x.com/azieleliab"
     ],
     "knowsAbout": [
       {
@@ -186,16 +222,14 @@
         }
       }
     ],
-    "identifier": [
+    "identifier": "Aziel Eliab",
+    "hebrewDefinition": "Aziel Elroi Eliab (עזיאל אל ראי אליאב / עזיאל אלרועי אליאב): Aziel = God is my strength (עזיאל); Elroi = God who sees (אל ראי / אלרועי); Eliab = God is father (אליאב).",
+    "additionalProperty": [
       {
         "@type": "PropertyValue",
-        "propertyID": "github",
-        "value": "AzielEliab"
-      },
-      {
-        "@type": "PropertyValue",
-        "propertyID": "person_id",
-        "value": "https://www.azieleliab.com/#aziel"
+        "name": "Hebrew name definition",
+        "propertyID": "hebrewDefinition",
+        "value": "Aziel Elroi Eliab (עזיאל אל ראי אליאב / עזיאל אלרועי אליאב): Aziel = God is my strength (עזיאל); Elroi = God who sees (אל ראי / אלרועי); Eliab = God is father (אליאב)."
       }
     ]
   },
@@ -210,7 +244,11 @@
     "combined": [
       "עזיאל אל ראי אליאב",
       "עזיאל אלרועי אליאב"
-    ]
+    ],
+    "definition": "Aziel Elroi Eliab (עזיאל אל ראי אליאב / עזיאל אלרועי אליאב): Aziel = God is my strength (עזיאל); Elroi = God who sees (אל ראי / אלרועי); Eliab = God is father (אליאב).",
+    "aziel_meaning": "God is my strength",
+    "elroi_meaning": "God who sees",
+    "eliab_meaning": "God is father"
   },
   "misspellingAlternateName": [
     "Aziel Eliah",
@@ -278,16 +316,20 @@
   },
   "stats": "https://www.hedidntjump.com/api/stats",
   "sameAs": [
+    "https://github.com/AzielEliab",
+    "https://github.com/azieltherevealerofthesealed-arch",
     "https://www.azieleliab.com/",
-    "https://godlock.uk/",
     "https://www.azielcorpuslibrary.net/",
+    "https://godlock.uk/",
+    "https://www.hedidntjump.com/",
     "https://www.azielcorpuslibrary.net/runtime",
     "https://hedidntjump.com/",
-    "https://www.hedidntjump.com/",
-    "https://github.com/AzielEliab",
     "https://aziel-runtime.vibelock.workers.dev/",
     "https://x.com/AzielEliab",
-    "https://twitter.com/AzielEliab"
+    "https://twitter.com/AzielEliab",
+    "https://glama.ai/mcp/servers/AzielEliab/aziel-runtime",
+    "https://x.com/AzielElroiEliab",
+    "https://x.com/azieleliab"
   ],
   "official_site": "https://www.azieleliab.com/",
   "library": "https://www.azielcorpuslibrary.net/",
@@ -302,5 +344,7 @@
     "who_is": "https://www.hedidntjump.com/who-is",
     "who_is_txt": "https://www.hedidntjump.com/who-is-aziel-eliab.txt",
     "well_known": "https://www.hedidntjump.com/.well-known/aziel.json"
-  }
+  },
+  "hebrewDefinition": "Aziel Elroi Eliab (עזיאל אל ראי אליאב / עזיאל אלרועי אליאב): Aziel = God is my strength (עזיאל); Elroi = God who sees (אל ראי / אלרועי); Eliab = God is father (אליאב).",
+  "github_revealer": "https://github.com/azieltherevealerofthesealed-arch"
 }

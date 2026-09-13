@@ -1,0 +1,406 @@
+#!/usr/bin/env python3
+"""Stamp full Aziel publisher lattice onto machine surfaces only.
+
+Does not rewrite Marion Zioncheck money-page H1/title/visible chrome.
+Adds name lattice + Hebrew definition + both GitHub sameAs to Person nodes.
+Writes dist/ and docs/.
+"""
+from __future__ import annotations
+
+import json
+import re
+import sys
+from pathlib import Path
+
+_SCRIPTS = Path(__file__).resolve().parent
+if str(_SCRIPTS) not in sys.path:
+    sys.path.insert(0, str(_SCRIPTS))
+
+from aziel_person import (
+    CANONICAL_URL,
+    CROSS_TETHER_ROUTES,
+    GITHUB_PRIMARY,
+    GITHUB_REVEALER,
+    HEBREW_AKA,
+    HEBREW_ONELINER,
+    HUB_SAME_AS,
+    MISSPELLINGS,
+    NEVER_SAME_AS,
+    PERSON_ID,
+    PERSON_NAME,
+    REQUIRED_AKA,
+    REQUIRED_SAME_AS,
+    WWW,
+    dumps,
+    enrich_ld,
+    enrich_person_node,
+    publisher_person,
+    same_as,
+)
+
+ROOT = Path(__file__).resolve().parents[1]
+TREES = [ROOT / "dist", ROOT / "docs"]
+
+HTML_PAGES = (
+    "index.html",
+    "case.html",
+    "aziel.html",
+    "who.html",
+    "press.html",
+    "inquiries.html",
+    "inquires.html",
+    "rubye.html",
+    "archives.html",
+    "foia.html",
+    "volumes.html",
+    "reader.html",
+    "official-narrative.html",
+    "copyrights.html",
+)
+
+MONEY_PAGES = {"index.html", "case.html"}
+
+LD_RE = re.compile(r'<script type="application/ld\+json">([\s\S]*?)</script>')
+
+REL_ME_REVEALER = f'<link rel="me" href="{GITHUB_REVEALER}">'
+REL_ME_PRIMARY = f'<link rel="me" href="{GITHUB_PRIMARY}">'
+
+
+def _load_json(path: Path) -> dict:
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def _write_json(path: Path, data: dict) -> None:
+    path.write_text(dumps(data) + "\n", encoding="utf-8")
+    print("wrote", path.relative_to(ROOT))
+
+
+def enrich_person_file(path: Path) -> None:
+    data = _load_json(path)
+    if data.get("@type") == "Person" or data.get("@id") == PERSON_ID:
+        data = enrich_person_node(data)
+    elif "person" in data and isinstance(data["person"], dict):
+        data["person"] = enrich_person_node(data["person"])
+        if data.get("@id") == PERSON_ID or data.get("mainEntity"):
+            data = enrich_ld(data)
+    else:
+        data = enrich_ld(data)
+    data["hebrewDefinition"] = HEBREW_ONELINER
+    data["hebrewAka"] = {**data.get("hebrewAka", {}), **HEBREW_AKA}
+    _write_json(path, data)
+
+
+def enrich_graph(path: Path) -> None:
+    data = enrich_ld(_load_json(path))
+    for node in data.get("@graph", []):
+        if node.get("@type") == "AboutPage":
+            links = list(node.get("significantLink") or [])
+            for url in CROSS_TETHER_ROUTES:
+                if url not in links:
+                    links.append(url)
+            node["significantLink"] = links
+    data["hebrewDefinition"] = HEBREW_ONELINER
+    data["hebrewAka"] = {**data.get("hebrewAka", {}), **HEBREW_AKA}
+    _write_json(path, data)
+
+
+def enrich_well_known(path: Path) -> None:
+    data = _load_json(path)
+    data["name"] = PERSON_NAME
+    data["person_id"] = PERSON_ID
+    data["hebrewDefinition"] = HEBREW_ONELINER
+    data["hebrewAka"] = {**data.get("hebrewAka", {}), **HEBREW_AKA}
+    aka = data.get("alternateName") or []
+    if isinstance(aka, str):
+        aka = [aka]
+    for name in REQUIRED_AKA:
+        if name not in aka:
+            aka.insert(0 if name == REQUIRED_AKA[0] else len(aka), name)
+    # Keep required names first.
+    ordered = []
+    for name in REQUIRED_AKA:
+        if name in aka and name not in ordered:
+            ordered.append(name)
+    ordered.extend(n for n in aka if n not in ordered)
+    data["alternateName"] = ordered
+    data["sameAs"] = same_as(data.get("sameAs"))
+    data["github"] = GITHUB_PRIMARY
+    data["github_revealer"] = GITHUB_REVEALER
+    if isinstance(data.get("person"), dict):
+        data["person"] = enrich_person_node(data["person"])
+    _write_json(path, data)
+
+
+def enrich_cite(path: Path) -> None:
+    data = _load_json(path)
+    data["author"] = PERSON_NAME
+    data["author_id"] = PERSON_ID
+    data["identity"] = PERSON_NAME
+    data["person_id"] = PERSON_ID
+    data["hebrewDefinition"] = HEBREW_ONELINER
+    data["hebrewAka"] = HEBREW_AKA
+    aka = data.get("alternateName")
+    names = [aka] if isinstance(aka, str) else list(aka or [])
+    for name in REQUIRED_AKA:
+        if name not in names:
+            names.append(name)
+    data["alternateName"] = names
+    data["github"] = GITHUB_PRIMARY
+    data["github_person"] = GITHUB_PRIMARY
+    data["github_revealer"] = GITHUB_REVEALER
+    data["sameAs"] = same_as(data.get("sameAs"))
+    data["hubs"] = HUB_SAME_AS
+    data["publisher_person"] = publisher_person(job_title="Publisher")
+    data["identity_note"] = (
+        "Aziel Eliab only. Aziel Elroi Eliab, Elias Artista, and "
+        "The Revealer of The Sealed are SEO alternateName tethers only. "
+        f"Shared Person @id is {PERSON_ID}. "
+        "Never sameAs euaziel.site."
+    )
+    not_lock = (
+        "Not biblical Aziel; not biblical Eliab; not euaziel.site; "
+        "not Aziel S. (Flutter/portfolio); not other engineers named Aziel."
+    )
+    for key in ("disambiguation", "disambiguatingDescription"):
+        val = data.get(key) or ""
+        if "Not biblical Aziel" not in val:
+            data[key] = (val.rstrip().rstrip(".") + ". " + not_lock).strip()
+    not_list = list(data.get("not") or [])
+    for item in (
+        "biblical Aziel",
+        "biblical Eliab",
+        "euaziel.site",
+        "Aziel S. (Flutter/portfolio engineer)",
+        "other engineers named Aziel",
+    ):
+        if item not in not_list:
+            not_list.append(item)
+    data["not"] = not_list
+    _write_json(path, data)
+
+
+LATTICE_TXT = f"""Name lattice (SEO / schema alternateName only — one Person)
+- {PERSON_NAME}
+- Aziel Elroi Eliab
+- Elias Artista
+- The Revealer of The Sealed
+Never a flower pen name.
+
+Hebrew definition
+{HEBREW_ONELINER}
+
+GitHub sameAs
+- {GITHUB_PRIMARY}
+- {GITHUB_REVEALER}
+
+Hub sameAs
+- {CANONICAL_URL}
+- https://www.azielcorpuslibrary.net/
+- https://godlock.uk/
+- {WWW}/
+"""
+
+
+def enrich_who_is(path: Path) -> None:
+    text = path.read_text(encoding="utf-8")
+    if "Elias Artista" not in text:
+        insert = (
+            f"also: Aziel Elroi Eliab; Elias Artista; The Revealer of The Sealed\n"
+            f"Hebrew: {HEBREW_ONELINER}\n"
+            f"GitHub: {GITHUB_PRIMARY}\n"
+            f"GitHub: {GITHUB_REVEALER}\n"
+        )
+        if "Name: Aziel Eliab\n" in text:
+            text = text.replace("Name: Aziel Eliab\n", "Name: Aziel Eliab\n" + insert, 1)
+        else:
+            text = text.rstrip() + "\n\n" + insert
+    if HEBREW_ONELINER not in text:
+        text = text.rstrip() + "\n\nHebrew definition\n" + HEBREW_ONELINER + "\n"
+    for url in REQUIRED_SAME_AS:
+        if url not in text:
+            if "sameAs / reciprocal hubs" in text:
+                text = text.replace(
+                    "sameAs / reciprocal hubs\n",
+                    f"sameAs / reciprocal hubs\n- {url}\n",
+                    1,
+                )
+            else:
+                text = text.rstrip() + f"\n- {url}\n"
+    miss_line = "Misspelling alternateNames (SEO tether only): " + "; ".join(MISSPELLINGS)
+    if "Aziel Eliah" not in text:
+        text = text.rstrip() + "\n\n" + miss_line + "\n"
+    if LATTICE_TXT.splitlines()[0] not in text:
+        text = text.rstrip() + "\n\n" + LATTICE_TXT
+    stats = "https://www.hedidntjump.com/api/stats"
+    if stats not in text:
+        text = text.rstrip() + f"\n\nArchive counters (awareness link only; no second meter)\n- GET {stats}\n"
+    if re.search(r"(?i)(?<!never: )Everblooming Flower", text):
+        raise SystemExit(f"banned aka leaked into {path}")
+    path.write_text(text if text.endswith("\n") else text + "\n", encoding="utf-8")
+    print("wrote", path.relative_to(ROOT))
+
+
+def enrich_llms(path: Path) -> None:
+    text = path.read_text(encoding="utf-8")
+    block = (
+        "\n## Aziel publisher name lattice (machine)\n\n"
+        f"{LATTICE_TXT}\n"
+        f"Person @id: {PERSON_ID}\n"
+        "Never sameAs euaziel.site or Aziel S. Keep the biblical / 1 Chronicles 15:20 NOT lock.\n"
+    )
+    if "## Aziel publisher name lattice (machine)" in text:
+        text = re.sub(
+            r"## Aziel publisher name lattice \(machine\)[\s\S]*?(?=\n## |\n# |\Z)",
+            block.lstrip(),
+            text,
+            count=1,
+        )
+    elif "## Related properties (Person sameAs)" in text:
+        text = text.replace(
+            "## Related properties (Person sameAs)",
+            block.lstrip() + "\n## Related properties (Person sameAs)",
+            1,
+        )
+    else:
+        text = text.rstrip() + "\n" + block
+    for url in (GITHUB_PRIMARY, GITHUB_REVEALER):
+        if url not in text:
+            text = text.replace(
+                "- [GitHub AzielEliab](https://github.com/AzielEliab)\n",
+                "- [GitHub AzielEliab](https://github.com/AzielEliab)\n"
+                f"- [GitHub azieltherevealerofthesealed-arch]({GITHUB_REVEALER})\n",
+                1,
+            )
+            if url not in text:
+                text = text.rstrip() + f"\n- {url}\n"
+    if "Elias Artista" not in text:
+        text = text.replace(
+            "Aziel Eliab (also Aziel Elroi Eliab)",
+            "Aziel Eliab (also Aziel Elroi Eliab; Elias Artista; The Revealer of The Sealed)",
+        )
+    if HEBREW_ONELINER not in text:
+        text = text.replace(
+            "Hebrew forms are SEO aka tethers for the living author’s given name and surname only.",
+            "Hebrew forms are SEO aka tethers for the living author’s given name and surname only. "
+            + HEBREW_ONELINER,
+            1,
+        )
+    path.write_text(text if text.endswith("\n") else text + "\n", encoding="utf-8")
+    print("wrote", path.relative_to(ROOT))
+
+
+def enrich_ai(path: Path) -> None:
+    text = path.read_text(encoding="utf-8")
+    extra = (
+        "\nPublisher name lattice:\n"
+        f"- Name: {PERSON_NAME}\n"
+        "- Also: Aziel Elroi Eliab; Elias Artista; The Revealer of The Sealed\n"
+        "- Never a flower pen name\n"
+        f"- Hebrew: {HEBREW_ONELINER}\n"
+        f"- GitHub: {GITHUB_PRIMARY}\n"
+        f"- GitHub: {GITHUB_REVEALER}\n"
+        f"- Person @id: {PERSON_ID}\n"
+        f"- Hubs: {', '.join(HUB_SAME_AS)}\n"
+    )
+    if "Publisher name lattice:" in text:
+        text = re.sub(
+            r"\nPublisher name lattice:[\s\S]*$",
+            extra,
+            text,
+        )
+    else:
+        text = text.rstrip() + extra
+    if GITHUB_REVEALER not in text:
+        text = text.replace(
+            f"GitHub: {GITHUB_PRIMARY}/hedidntjump.com",
+            f"GitHub: {GITHUB_PRIMARY}/hedidntjump.com\n"
+            f"Person GitHub: {GITHUB_PRIMARY}\n"
+            f"Person GitHub: {GITHUB_REVEALER}",
+            1,
+        )
+    path.write_text(text if text.endswith("\n") else text + "\n", encoding="utf-8")
+    print("wrote", path.relative_to(ROOT))
+
+
+def _insert_jsonld(text: str, graph: dict) -> str:
+    block = (
+        '<script type="application/ld+json">\n'
+        + dumps(graph)
+        + "\n</script>\n"
+    )
+    return text.replace("</head>", block + "</head>", 1)
+
+
+def enrich_html(path: Path, *, money: bool) -> None:
+    text = path.read_text(encoding="utf-8")
+    title_before = re.search(r"<title>([^<]*)</title>", text)
+    h1_before = re.search(r"<h1\b[^>]*>[\s\S]*?</h1>", text)
+
+    matches = list(LD_RE.finditer(text))
+    if not matches:
+        text = _insert_jsonld(
+            text,
+            {"@context": "https://schema.org", "@graph": [publisher_person()]},
+        )
+    else:
+        # Walk last-to-first so offsets stay valid.
+        for m in reversed(matches):
+            raw = m.group(1)
+            try:
+                data = json.loads(raw)
+            except json.JSONDecodeError as exc:
+                raise SystemExit(f"{path}: invalid JSON-LD: {exc}") from exc
+            data = enrich_ld(data, money=money)
+            new = (
+                '<script type="application/ld+json">\n'
+                + dumps(data)
+                + "\n</script>"
+            )
+            text = text[: m.start()] + new + text[m.end() :]
+
+    if REL_ME_PRIMARY in text and REL_ME_REVEALER not in text:
+        text = text.replace(REL_ME_PRIMARY, REL_ME_PRIMARY + "\n" + REL_ME_REVEALER, 1)
+
+    title_after = re.search(r"<title>([^<]*)</title>", text)
+    h1_after = re.search(r"<h1\b[^>]*>[\s\S]*?</h1>", text)
+    if title_before and title_after and title_before.group(1) != title_after.group(1):
+        raise SystemExit(f"{path}: title changed")
+    if h1_before and h1_after and h1_before.group(0) != h1_after.group(0):
+        raise SystemExit(f"{path}: H1 changed")
+    if "Everblooming Flower" in text:
+        raise SystemExit(f"{path}: banned aka")
+    path.write_text(text, encoding="utf-8")
+    print("html", path.relative_to(ROOT))
+
+
+def guard_same_as() -> None:
+    blob = " ".join(REQUIRED_SAME_AS + HUB_SAME_AS).lower()
+    for banned in NEVER_SAME_AS:
+        if banned.lower() in blob:
+            raise SystemExit(f"sameAs must not include {banned}")
+
+
+def main() -> None:
+    guard_same_as()
+    for tree in TREES:
+        enrich_person_file(tree / "person.jsonld")
+        enrich_person_file(tree / "identity.jsonld")
+        enrich_graph(tree / "graph.jsonld")
+        enrich_well_known(tree / ".well-known" / "aziel.json")
+        enrich_cite(tree / "cite.json")
+        enrich_who_is(tree / "who-is-aziel-eliab.txt")
+        who_txt = (tree / "who-is-aziel-eliab.txt").read_text(encoding="utf-8")
+        (tree / "who-is").write_text(who_txt, encoding="utf-8")
+        print("wrote", (tree / "who-is").relative_to(ROOT))
+        enrich_llms(tree / "llms.txt")
+        enrich_llms(tree / "llms-full.txt")
+        enrich_ai(tree / "ai.txt")
+        for name in HTML_PAGES:
+            path = tree / name
+            if path.is_file():
+                enrich_html(path, money=name in MONEY_PAGES)
+    print("aziel publisher lattice written")
+
+
+if __name__ == "__main__":
+    main()

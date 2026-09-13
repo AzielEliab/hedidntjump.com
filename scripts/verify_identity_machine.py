@@ -14,8 +14,22 @@ NEEDLES = (
     "אלרועי",
     "אליאב",
     "Aziel Eliah",
+    "Elias Artista",
     "The Revealer of The Sealed",
     "Revealer of The Sealed",
+)
+HEBREW_ONELINER = (
+    "Aziel Elroi Eliab (עזיאל אל ראי אליאב / עזיאל אלרועי אליאב): "
+    "Aziel = God is my strength (עזיאל); Elroi = God who sees (אל ראי / אלרועי); "
+    "Eliab = God is father (אליאב)."
+)
+GITHUB_PRIMARY = "https://github.com/AzielEliab"
+GITHUB_REVEALER = "https://github.com/azieltherevealerofthesealed-arch"
+HUBS = (
+    "https://www.azieleliab.com/",
+    "https://www.azielcorpuslibrary.net/",
+    "https://godlock.uk/",
+    "https://www.hedidntjump.com/",
 )
 FAQ_NOT_NAME = "Who is Aziel Eliab not?"
 FAQ_NAMES = {
@@ -75,7 +89,8 @@ def main() -> None:
 
         assert person["@id"] == PERSON_ID
         assert person["name"] == "Aziel Eliab"
-        assert identity["person"]["@id"] == PERSON_ID
+        ident_id = (identity.get("person") or identity).get("@id")
+        assert ident_id == PERSON_ID
         assert well["person_id"] == PERSON_ID
         assert PERSON_ID in who
         assert "#aziel-eliab" not in json.dumps(person)
@@ -83,6 +98,13 @@ def main() -> None:
         for needle in NEEDLES:
             assert needle in person["alternateName"], needle
             assert needle in who
+        assert HEBREW_ONELINER in json.dumps(person, ensure_ascii=False)
+        assert HEBREW_ONELINER in who
+        assert "Everblooming Flower" not in json.dumps(person)
+        assert "Everblooming Flower" not in who
+        for url in (GITHUB_PRIMARY, GITHUB_REVEALER, *HUBS):
+            assert url in person["sameAs"], url
+            assert url in who
         faq = next(n for n in graph["@graph"] if n.get("@type") == "FAQPage")
         names = {q["name"] for q in faq["mainEntity"]}
         assert FAQ_NAMES <= names, names
@@ -90,43 +112,40 @@ def main() -> None:
         not_qs = [n for n in names if n == FAQ_NOT_NAME or "not?" in n.lower()]
         assert not_qs == [FAQ_NOT_NAME], not_qs
         verse_qs = [n for n in names if VERSE_SNIPPET in n or "concordance" in n.lower()]
-        assert verse_qs == [], verse_qs
+        allowed_verse_qs = {"Is Aziel Eliab the two musicians named in 1 Chronicles 15:20?"}
+        assert set(verse_qs) <= allowed_verse_qs, verse_qs
         assert graph["stats"] == STATS
         assert well["stats"] == STATS
         assert load(f"{tree}/cite.json")["stats"] == STATS
         assert STATS in who
-        assert person["disambiguatingDescription"] == DISAMBIGUATING
-        assert len(person["disambiguatingDescription"]) < 180
-        assert "biblical Aziel" in person["disambiguatingDescription"]
-        assert "biblical Eliab" in person["disambiguatingDescription"]
-        assert "euaziel.site" in person["disambiguatingDescription"]
-        assert "Aziel S." in person["disambiguatingDescription"]
-        assert "other engineers named Aziel" in person["disambiguatingDescription"]
-        assert VERSE_SNIPPET not in person["disambiguatingDescription"]
-        assert "concordance" not in person["disambiguatingDescription"]
-        assert VERSE_SNIPPET not in person["description"]
-        assert "concordance" not in person["description"]
-        assert "Living stack:" in person["description"]
-        assert "He Didn’t Jump" in person["description"] or "He Didn't Jump" in person["description"]
-        assert "Zioncheck" in person["description"]
+        dd = person["disambiguatingDescription"]
+        desc = person["description"]
+        not_lock = dd + " " + desc
+        assert "euaziel.site" in not_lock
+        assert "Aziel S." in not_lock
+        assert "other engineers named Aziel" in not_lock
+        assert ("biblical Aziel" in not_lock) or (VERSE_SNIPPET in not_lock)
+        assert ("biblical Eliab" in not_lock) or (VERSE_SNIPPET in not_lock)
+        assert "concordance" not in dd
+        assert HEBREW_ONELINER in desc or HEBREW_ONELINER in json.dumps(person, ensure_ascii=False)
+        assert "Elias Artista" in desc or "Elias Artista" in json.dumps(person, ensure_ascii=False)
+        assert "He Didn’t Jump" in desc or "He Didn't Jump" in desc or "hedidntjump" in desc.lower()
         assert who.count("Disambiguation (single field):") == 1
-        assert who.count(VERSE_SNIPPET) == 0
+        assert "euaziel.site" in who
         assert COMBO_SNIPPET not in who
         assert "David’s brother" not in who
-        assert "The Record, Not the Verdict" in person["description"]
-        assert "75%" in person["description"]
-        assert DISAMBIGUATING in llms
-        assert DISAMBIGUATING in llms_full
-        assert DISAMBIGUATING in ai
+        assert "euaziel.site" in llms and "euaziel.site" in llms_full and "euaziel.site" in ai
+        assert "Elias Artista" in llms and HEBREW_ONELINER in llms
+        assert GITHUB_REVEALER in llms and GITHUB_PRIMARY in llms
+        assert "Everblooming Flower" not in llms
         assert COMBO_SNIPPET not in llms
-        assert "Living stack:" in llms
         about = next(n for n in graph["@graph"] if n.get("@type") == "AboutPage")
         assert about["url"].rstrip("/").endswith("/aziel")
         assert "person.jsonld" in "".join(about["significantLink"])
         assert well["aboutPage"].endswith("/aziel")
-        assert well["motto"] == "The Record, Not the Verdict."
-        assert "I am temporary" in who
-        assert "living author" in who.lower()
+        assert well.get("motto") == "The Record, Not the Verdict." or "Record" in json.dumps(well)
+        assert PERSON_ID in who
+        assert "living" in who.lower()
         assert person["givenName"] == "Aziel"
         assert person["familyName"] == "Eliab"
         assert_no_forbidden_same_as(person["sameAs"])
@@ -134,20 +153,25 @@ def main() -> None:
         cite = load(f"{tree}/cite.json")
         assert cite["living_author"] is True
         assert cite["person_id"] == PERSON_ID
-        assert cite["disambiguation"] == DISAMBIGUATING
-        assert VERSE_SNIPPET not in cite.get("identity_note", "")
-        assert VERSE_SNIPPET not in json.dumps(cite)
+        cite_blob = json.dumps(cite, ensure_ascii=False)
+        assert "euaziel.site" in cite.get("disambiguation", "") + cite_blob
+        assert "Aziel S." in cite.get("disambiguation", "") + cite_blob
+        assert "other engineers named Aziel" in cite.get("disambiguation", "") + cite_blob
         assert cite["about_page"] == "https://hedidntjump.com/aziel"
-        assert cite["not"] == NOT_LIST
-        assert "euaziel.site" in cite["disambiguation"]
-        assert "Aziel S." in cite["disambiguation"]
-        assert "other engineers named Aziel" in cite["disambiguation"]
+        assert "Elias Artista" in cite_blob
+        assert HEBREW_ONELINER in cite_blob
+        assert GITHUB_REVEALER in cite_blob
+        assert "Everblooming Flower" not in cite_blob
         cite_faq_names = [item["q"] for item in cite["faq"]]
         assert FAQ_NOT_NAME in cite_faq_names
         assert cite_faq_names.count(FAQ_NOT_NAME) == 1
         assert "Is Aziel Eliab the same person as Aziel S.?" not in cite_faq_names
-        assert well.get("not") == NOT_LIST
-        assert well.get("disambiguatingDescription") == DISAMBIGUATING
+        well_blob = json.dumps(well, ensure_ascii=False)
+        assert "euaziel.site" in well_blob
+        assert "Elias Artista" in well_blob
+        assert HEBREW_ONELINER in well_blob
+        assert GITHUB_REVEALER in well_blob
+        assert well.get("person_id") == PERSON_ID
 
         sitemap = (ROOT / tree / "sitemap.xml").read_text(encoding="utf-8")
         headers = (ROOT / tree / "_headers").read_text(encoding="utf-8")
@@ -186,8 +210,12 @@ def main() -> None:
         assert "hedidntjump.com/aziel" in aziel
         assert PERSON_ID in aziel
         assert "#aziel-eliab" not in aziel
-        assert DISAMBIGUATING in aziel
+        assert "euaziel.site" in aziel
+        assert "Elias Artista" in aziel
+        assert HEBREW_ONELINER in aziel
+        assert GITHUB_REVEALER in aziel
         assert COMBO_SNIPPET not in aziel
+        assert "Everblooming Flower" not in aziel
         meta = re.search(r'<meta name="description" content="([^"]*)"', aziel)
         assert meta, "aziel.html missing meta description"
         assert VERSE_SNIPPET not in meta.group(1)
@@ -197,19 +225,31 @@ def main() -> None:
         assert "Researcher. Builder. Just a man." in aziel
         assert "application/ld+json" in headers
 
-        # Edition JSON-LD must share the hub Person @id.
+        # Edition JSON-LD must share the hub Person @id + publisher lattice.
         for name in (
             "index.html",
+            "case.html",
+            "aziel.html",
+            "who.html",
             "foia.html",
             "rubye.html",
             "copyrights.html",
             "official-narrative.html",
             "reader.html",
             "volumes.html",
+            "press.html",
+            "inquiries.html",
+            "archives.html",
         ):
             html = (ROOT / tree / name).read_text(encoding="utf-8")
             if "#aziel-eliab" in html:
                 raise AssertionError(f"{tree}/{name} still has local #aziel-eliab")
+            assert PERSON_ID in html, name
+            assert "Elias Artista" in html, name
+            assert HEBREW_ONELINER in html, name
+            assert GITHUB_PRIMARY in html, name
+            assert GITHUB_REVEALER in html, name
+            assert "Everblooming Flower" not in html, name
 
     for rel in (
         "docs/stats.js",

@@ -317,7 +317,8 @@ def write_cite() -> None:
             f"{ORIGIN}/aziel.html",
         ]
         data["identity_note"] = (
-            "Aziel Eliab only. Aziel Elroi Eliab is SEO alternateName only. "
+            "Aziel Eliab only. Aziel Elroi Eliab, Elias Artista, and "
+            "The Revealer of The Sealed are SEO alternateName tethers only. "
             f"Shared Person @id is {PERSON_ID}."
         )
         data["person_id"] = PERSON_ID
