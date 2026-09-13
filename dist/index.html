@@ -46,7 +46,7 @@
 <meta name="twitter:image:alt" content="He Didn't Jump masthead beside a Marion Zioncheck archive portrait">
 <meta name="hdj-stats-api" content="https://hedidntjump-stats.vibelock.workers.dev">
 <link rel="stylesheet" href="/assets/fonts/fonts.css?v=1789258322">
-<link rel="stylesheet" href="/style.css?v=1789262700">
+<link rel="stylesheet" href="/style.css?v=1789262800">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <script src="/stats.js?v=1789262500" defer></script>
 <script type="application/ld+json">
@@ -419,16 +419,27 @@
     <article class="lead">
                   </div>
 <p class="deck" id="lead-deck">The death of Marion Zioncheck. The record deserves another reading.</p>
-                        <figure class="portrait portrait-lead-full portrait-lead-motion" data-motion-plate>
+                        <figure class="portrait portrait-lead-full portrait-lead-motion" data-motion-plate data-src="/assets/video/marion-rubye-together.loop.mp4" data-poster="/assets/video/marion-rubye-together-poster.webp">
         <img
-          class="lead-motion lead-motion-frame"
+          class="lead-motion lead-motion-poster"
           src="/assets/video/marion-rubye-together-poster.webp"
-          data-anim="/assets/video/marion-rubye-together.anim.webp"
-          width="640"
-          height="360"
+          width="854"
+          height="480"
           alt="Marion A. Zioncheck with Rubye Louise Nix — interpretive motion plate, generated 2026"
           decoding="async"
           fetchpriority="high">
+        <video
+          class="lead-motion lead-motion-video"
+          muted
+          loop
+          playsinline
+          webkit-playsinline
+          preload="auto"
+          playsInline
+          width="854"
+          height="480"
+          aria-label="Interpretive motion plate: Marion Zioncheck and Rubye Louise Nix"
+          disablepictureinpicture></video>
         <figcaption>
           <span>Marion and Rubye</span>
           <span>Interpretive motion plate, generated 2026, silent · built from the published last picture of congressman and bride · not a 1936 newsreel · not Volume II source</span>
@@ -489,16 +500,27 @@
 
 
 
-<figure class="portrait portrait-lead-full portrait-footer-motion" id="plate-bogeyman-disguise-motion" data-motion-plate>
+
+<figure class="portrait portrait-lead-full portrait-footer-motion" id="plate-bogeyman-disguise-motion" data-motion-plate data-src="/assets/video/bogeyman-disguise.loop.mp4" data-poster="/assets/video/bogeyman-disguise-poster.webp">
         <img
-          class="lead-motion lead-motion-frame"
+          class="lead-motion lead-motion-poster"
           src="/assets/video/bogeyman-disguise-poster.webp"
-          data-anim="/assets/video/bogeyman-disguise.anim.webp"
-          width="640"
-          height="360"
+          width="854"
+          height="480"
           alt="Bogeyman of Washington Politics tries on disguise — interpretive motion plate, generated 2026"
           decoding="async"
           loading="lazy">
+        <video
+          class="lead-motion lead-motion-video"
+          muted
+          loop
+          playsinline
+          webkit-playsinline
+          preload="auto"
+          width="854"
+          height="480"
+          aria-label="Interpretive motion plate: Bogeyman of Washington Politics tries on disguise"
+          disablepictureinpicture></video>
         <figcaption>
           <span>‘Bogeyman of Washington Politics’ Tries on Disguise</span>
           <span>Interpretive motion plate, generated 2026 · not a 1936 newsreel · not Volume II source</span>
@@ -523,33 +545,77 @@
 
 
 
+
+
 <script>
 (function () {
-  var BUFFER_MS = 1000;
-  function armPlate(fig) {
-    var img = fig.querySelector('img.lead-motion-frame[data-anim]');
-    if (!img) return;
-    var animUrl = img.getAttribute('data-anim');
-    if (!animUrl) return;
-    var started = Date.now();
-    var pre = new Image();
-    pre.decoding = 'async';
-    function reveal() {
-      var wait = Math.max(0, BUFFER_MS - (Date.now() - started));
-      setTimeout(function () {
-        img.src = animUrl;
-        img.classList.add('is-animating');
-      }, wait);
+  var BUFFER_SEC = 1;
+  function hasBuffer(v, sec) {
+    try {
+      if (!v.buffered || !v.buffered.length) return false;
+      var t = v.currentTime || 0;
+      for (var i = 0; i < v.buffered.length; i++) {
+        if (v.buffered.start(i) <= t + 0.05 && v.buffered.end(i) >= t + sec) return true;
+      }
+    } catch (e) {}
+    return v.readyState >= 3;
+  }
+  function arm(fig) {
+    var src = fig.getAttribute('data-src');
+    var poster = fig.querySelector('img.lead-motion-poster');
+    var v = fig.querySelector('video.lead-motion-video');
+    if (!src || !v) return;
+    v.muted = true;
+    v.defaultMuted = true;
+    v.volume = 0;
+    v.loop = true;
+    v.playsInline = true;
+    v.setAttribute('muted', '');
+    v.setAttribute('playsinline', '');
+    v.setAttribute('webkit-playsinline', '');
+    v.setAttribute('loop', '');
+    v.removeAttribute('controls');
+    v.setAttribute('poster', fig.getAttribute('data-poster') || '');
+    if (!v.querySelector('source')) {
+      var s = document.createElement('source');
+      s.src = src;
+      s.type = 'video/mp4';
+      v.appendChild(s);
     }
-    pre.onload = reveal;
-    pre.onerror = function () { /* keep poster */ };
-    pre.src = animUrl;
+    v.load();
+    var revealed = false;
+    function reveal() {
+      if (revealed) return;
+      revealed = true;
+      fig.classList.add('is-playing');
+    }
+    function kick() {
+      if (!hasBuffer(v, BUFFER_SEC) && v.readyState < 4) return;
+      var p = v.play();
+      if (p && p.then) {
+        p.then(reveal).catch(function () {});
+      } else if (!v.paused) {
+        reveal();
+      }
+    }
+    v.addEventListener('playing', reveal);
+    v.addEventListener('canplay', kick);
+    v.addEventListener('canplaythrough', kick);
+    v.addEventListener('progress', kick);
+    v.addEventListener('loadeddata', kick);
+    // Retry briefly while buffering
+    var n = 0;
+    var timer = setInterval(function () {
+      kick();
+      if (revealed || ++n > 40) clearInterval(timer);
+    }, 250);
   }
   function run() {
-    document.querySelectorAll('figure[data-motion-plate]').forEach(armPlate);
+    document.querySelectorAll('figure[data-motion-plate]').forEach(arm);
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run);
   else run();
+  window.addEventListener('load', run);
 })();
 </script>
 
