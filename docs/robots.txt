@@ -3,6 +3,8 @@
 
 User-agent: *
 Allow: /
+Allow: /who
+Allow: /who.html
 Content-Signal: search=yes, ai-input=yes, ai-train=yes
 
 User-agent: Googlebot
