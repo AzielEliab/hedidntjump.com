@@ -794,8 +794,8 @@
     },
     {
       "path": "dist/stats.js",
-      "bytes": 3829,
-      "sha256": "b096ef2c6e859a86be85ad71cacee05dc5e7770b81f91627ef182643df73f49f"
+      "bytes": 6440,
+      "sha256": "5d66e7726daa93e924e11b5516bd6b9af084ee696363119f4b7c7afc75e0b13d"
     },
     {
       "path": "dist/style.css",

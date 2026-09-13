@@ -12,7 +12,7 @@ Cloudflare Worker + KV counters and the Zioncheck FOIA denial ledger for [hedidn
 | `POST` | `/api/foia/upload` | Multipart `file` + `attestation=zioncheck-foia-denial`. Hard-gated. |
 | `GET` | `/api/foia/file/:index` | Bytes of an accepted denial. |
 
-`POST` hit may send JSON `{ "type": "download", "id": "volume-1" }`.
+`POST` hit may send JSON `{ "type": "download", "id": "volume-1" }`, a form/text body, or an empty `sendBeacon` body with the same query string. The client uses `navigator.sendBeacon` plus `fetch(..., { keepalive: true })` so PDF download clicks still increment.
 
 CORS is open to `hedidntjump.com`, `*.pages.dev`, and `localhost`.
 
