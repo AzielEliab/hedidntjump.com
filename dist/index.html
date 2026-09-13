@@ -46,7 +46,7 @@
 <meta name="twitter:image:alt" content="He Didn't Jump masthead beside a Marion Zioncheck archive portrait">
 <meta name="hdj-stats-api" content="https://hedidntjump-stats.vibelock.workers.dev">
 <link rel="stylesheet" href="/assets/fonts/fonts.css?v=1789258322">
-<link rel="stylesheet" href="/style.css?v=1789262400">
+<link rel="stylesheet" href="/style.css?v=1789262500">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <script src="/stats.js?v=1789262500" defer></script>
 <script type="application/ld+json">
@@ -420,14 +420,20 @@
                   </div>
 <p class="deck" id="lead-deck">The death of Marion Zioncheck. The record deserves another reading.</p>
                         <figure class="portrait portrait-lead-full portrait-lead-motion">
-        <img
+        <video
           class="lead-motion"
-          src="/assets/video/marion-rubye-together.anim.webp"
+          autoplay
+          muted
+          loop
+          playsinline
+          webkit-playsinline
+          preload="auto"
+          poster="/assets/video/marion-rubye-together-poster.webp"
           width="960"
           height="540"
-          alt="Marion A. Zioncheck with Rubye Louise Nix — interpretive motion plate, generated 2026"
-          decoding="async"
-          fetchpriority="high">
+          aria-label="Interpretive motion plate: Marion Zioncheck and Rubye Louise Nix">
+          <source src="/assets/video/marion-rubye-together.loop.mp4" type="video/mp4">
+        </video>
         <figcaption>
           <span>Marion and Rubye</span>
           <span>Interpretive motion plate, generated 2026, silent · built from the published last picture of congressman and bride · not a 1936 newsreel · not Volume II source</span>
@@ -485,15 +491,22 @@
 </main>
 
 
+
 <figure class="portrait portrait-lead-full portrait-footer-motion" id="plate-bogeyman-disguise-motion">
-        <img
+        <video
           class="lead-motion footer-motion"
-          src="/assets/video/bogeyman-disguise.anim.webp"
+          autoplay
+          muted
+          loop
+          playsinline
+          webkit-playsinline
+          preload="metadata"
+          poster="/assets/video/bogeyman-disguise-poster.webp"
           width="960"
           height="540"
-          alt="Bogeyman of Washington Politics tries on disguise — interpretive motion plate, generated 2026"
-          decoding="async"
-          loading="lazy">
+          aria-label="Interpretive motion plate: Bogeyman of Washington Politics tries on disguise">
+          <source src="/assets/video/bogeyman-disguise.loop.mp4" type="video/mp4">
+        </video>
         <figcaption>
           <span>‘Bogeyman of Washington Politics’ Tries on Disguise</span>
           <span>Interpretive motion plate, generated 2026 · not a 1936 newsreel · not Volume II source</span>
@@ -514,6 +527,44 @@
   </nav>
 </footer>
 
+
+
+<script>
+(function () {
+  function arm(v) {
+    if (!v || v.nodeName !== 'VIDEO') return;
+    v.muted = true;
+    v.defaultMuted = true;
+    v.volume = 0;
+    v.loop = true;
+    v.playsInline = true;
+    v.autoplay = true;
+    v.removeAttribute('controls');
+    v.setAttribute('muted', '');
+    v.setAttribute('playsinline', '');
+    v.setAttribute('webkit-playsinline', '');
+    v.setAttribute('autoplay', '');
+    v.setAttribute('loop', '');
+    function kick() {
+      try {
+        var p = v.play();
+        if (p && p.then) p.catch(function () {});
+      } catch (e) {}
+    }
+    if (v.readyState >= 2) kick();
+    else v.addEventListener('loadeddata', kick, { once: true });
+    v.addEventListener('canplay', kick);
+    v.addEventListener('ended', function () { try { v.currentTime = 0; } catch (e) {} kick(); });
+  }
+  function armAll() {
+    document.querySelectorAll('video.lead-motion').forEach(arm);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', armAll);
+  else armAll();
+  window.addEventListener('load', armAll);
+  document.addEventListener('visibilitychange', function () { if (!document.hidden) armAll(); });
+})();
+</script>
 
 </body>
 </html>
