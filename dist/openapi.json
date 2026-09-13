@@ -274,7 +274,7 @@
     },
     "/aziel": {
       "get": {
-        "summary": "About Aziel \u2014 living author identity page (200)",
+        "summary": "About Aziel \u2014 living author (aziel.html, canonical /aziel)",
         "responses": {
           "200": {
             "description": "OK"
@@ -284,7 +284,7 @@
     },
     "/AzielEliab": {
       "get": {
-        "summary": "About Aziel alias (200, canonical /aziel)",
+        "summary": "200 rewrite to aziel.html \u2014 not a second About body",
         "responses": {
           "200": {
             "description": "OK"
@@ -304,27 +304,7 @@
     },
     "/person.jsonld": {
       "get": {
-        "summary": "Person JSON-LD (shared @id azieleliab.com/#aziel)",
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/inquiry/01": {
-      "get": {
-        "summary": "Inquiry 01 indexable path (hash target promoted)",
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/inquiry/two-arctics": {
-      "get": {
-        "summary": "Two Arctic buildings \u2014 indexable path",
+        "summary": "Person JSON-LD (shared @id https://www.azieleliab.com/#aziel)",
         "responses": {
           "200": {
             "description": "OK"

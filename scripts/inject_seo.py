@@ -16,7 +16,7 @@ def dumps(obj) -> str:
 
 
 DONATE_URL = "https://www.azieleliab.com/donate?v=png"
-PERSON_ID = f"{ORIGIN}/#aziel-eliab"
+PERSON_ID = "https://www.azieleliab.com/#aziel"
 ORG_ID = f"{ORIGIN}/#organization"
 
 SAME_AS = [
@@ -184,7 +184,7 @@ SOFTWARE = {
     "codeRepository": "https://github.com/AzielEliab/hedidntjump.com",
     "license": "https://www.apache.org/licenses/LICENSE-2.0",
     "programmingLanguage": ["HTML", "CSS", "JavaScript"],
-    "author": {"@id": f"{ORIGIN}/#aziel-eliab"},
+    "author": {"@id": PERSON_ID},
 }
 
 
@@ -338,7 +338,7 @@ def write_index():
                 "dateModified": LASTMOD,
                 "inLanguage": "en",
                 "isAccessibleForFree": True,
-                "author": {"@id": f"{ORIGIN}/#aziel-eliab"},
+                "author": {"@id": PERSON_ID},
                 "publisher": {"@id": f"{ORIGIN}/#organization"},
                 "isPartOf": {"@id": f"{ORIGIN}/#website"},
                 "about": [
@@ -434,7 +434,7 @@ def write_rubye():
                 "dateModified": LASTMOD,
                 "inLanguage": "en",
                 "isAccessibleForFree": True,
-                "author": {"@id": f"{ORIGIN}/#aziel-eliab"},
+                "author": {"@id": PERSON_ID},
                 "publisher": {"@id": f"{ORIGIN}/#organization"},
                 "isPartOf": {"@id": f"{ORIGIN}/#website"},
                 "about": [
@@ -531,7 +531,7 @@ def write_foia():
                 "inLanguage": "en",
                 "isAccessibleForFree": True,
                 "citation": "https://www.foia.gov/",
-                "author": {"@id": f"{ORIGIN}/#aziel-eliab"},
+                "author": {"@id": PERSON_ID},
                 "publisher": {"@id": f"{ORIGIN}/#organization"},
                 "isPartOf": {"@id": f"{ORIGIN}/#website"},
                 "about": [
@@ -622,7 +622,7 @@ def write_official():
                 "dateModified": LASTMOD,
                 "inLanguage": "en",
                 "isAccessibleForFree": True,
-                "author": {"@id": f"{ORIGIN}/#aziel-eliab"},
+                "author": {"@id": PERSON_ID},
                 "publisher": {"@id": f"{ORIGIN}/#organization"},
                 "isPartOf": {"@id": f"{ORIGIN}/#website"},
                 "about": [
