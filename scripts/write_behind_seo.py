@@ -167,7 +167,8 @@ def write_redirects() -> None:
 /Narrative /official-narrative.html 200
 /Copyrights /copyrights.html 200
 /copyrights /copyrights.html 200
-/reader /reader.html 200
+# Do not add /reader → reader.html (Cloudflare 308 loop with html-extension strip).
+# Do not add /Volumes/read → reader.html (collides with /volumes/ PDF dir).
 
 # About Aziel — one body (aziel.html). Aliases 200 rewrite. Canonical /aziel.
 /aziel /aziel.html 200
