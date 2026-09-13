@@ -97,6 +97,9 @@ def main() -> None:
         assert "/Aziel /aziel.html 200" in redirects
         assert "/AboutAziel /aziel.html 200" in redirects
         assert "/AzielEliab /aziel.html 200" in redirects
+        assert "/reader /reader.html 200" not in redirects
+        assert "/Volumes/read /reader.html" not in redirects
+        assert "/Volumes/read /volumes" not in redirects
         assert (ROOT / tree / "aziel.html").is_file()
         assert not (ROOT / tree / "AzielEliab.html").exists()
         assert not (ROOT / tree / "inquiry").exists()
