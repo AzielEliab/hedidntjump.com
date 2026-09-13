@@ -1880,9 +1880,7 @@ body[data-stats-page="landing"] img.lead-motion-frame.is-animating{
 }
 
 
-body[data-stats-page="landing"] figure[data-motion-plate]{
-  position:relative;
-}
+
 body[data-stats-page="landing"] figure[data-motion-plate] .lead-motion-poster,
 body[data-stats-page="landing"] figure[data-motion-plate] .lead-motion-video{
   display:block;
@@ -1909,6 +1907,47 @@ body[data-stats-page="landing"] figure[data-motion-plate].is-playing .lead-motio
   position:static;
   opacity:1;
   visibility:visible;
+}
+body[data-stats-page="landing"] figure[data-motion-plate].is-playing .lead-motion-poster{
+  display:none;
+}
+body[data-stats-page="landing"] figure[data-motion-plate] video::-webkit-media-controls,
+body[data-stats-page="landing"] figure[data-motion-plate] video::-webkit-media-controls-enclosure,
+body[data-stats-page="landing"] figure[data-motion-plate] video::-webkit-media-controls-start-playback-button{
+  display:none !important;
+  -webkit-appearance:none !important;
+  opacity:0 !important;
+}
+
+/* motion plates: poster until playing; keep video in layout pipeline (no visibility:hidden) */
+body[data-stats-page="landing"] figure[data-motion-plate]{
+  position:relative;
+}
+body[data-stats-page="landing"] figure[data-motion-plate] .lead-motion-poster,
+body[data-stats-page="landing"] figure[data-motion-plate] .lead-motion-video{
+  display:block;
+  width:100%;
+  height:auto;
+  max-width:100%;
+  margin:0;
+  padding:0;
+  border:0;
+  background:#111;
+  object-fit:contain;
+}
+body[data-stats-page="landing"] figure[data-motion-plate] .lead-motion-video{
+  position:absolute;
+  left:0;
+  top:0;
+  width:100%;
+  height:auto;
+  opacity:0;
+  pointer-events:none;
+  /* keep visibility:visible so engines still decode/play under the poster */
+}
+body[data-stats-page="landing"] figure[data-motion-plate].is-playing .lead-motion-video{
+  position:static;
+  opacity:1;
 }
 body[data-stats-page="landing"] figure[data-motion-plate].is-playing .lead-motion-poster{
   display:none;
