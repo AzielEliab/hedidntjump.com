@@ -87,6 +87,15 @@ def main() -> None:
         assert well["person_id"] == PERSON_ID
         assert HEBREW_ONELINER in json.dumps(well, ensure_ascii=False)
         assert HEBREW_ONELINER in json.dumps(cite, ensure_ascii=False)
+        assert cite.get("stats") == "https://www.hedidntjump.com/api/stats"
+        for blob in (who, who_plain):
+            assert "Marion Zioncheck" in blob
+            assert "FOIA Binary Acknowledgement" in blob
+            assert "official-narrative" in blob
+            assert "five volumes" in blob or "Volumes I–V" in blob
+            assert "An Aziel Eliab Project" in blob
+            assert "living author of He Didn’t Jump" in blob or "living author of He Didn't Jump" in blob
+            assert "https://www.hedidntjump.com/api/stats" in blob
         for blob in (who, who_plain, llms, ai):
             assert PERSON_ID in blob
             assert "Elias Artista" in blob
