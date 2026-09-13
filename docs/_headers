@@ -110,6 +110,10 @@
   Content-Type: text/plain; charset=utf-8
   Cache-Control: public, max-age=3600
 
+/who
+  Content-Type: text/html; charset=utf-8
+  Cache-Control: public, max-age=300, stale-while-revalidate=86400
+
 # Motion plate MP4s — never cache HTML mistakes long
 /assets/video/*.mp4
   Content-Type: video/mp4

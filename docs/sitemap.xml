@@ -175,6 +175,12 @@
     <priority>0.4</priority>
   </url>
   <url>
+    <loc>https://hedidntjump.com/who</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://hedidntjump.com/.well-known/aziel.json</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
