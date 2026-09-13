@@ -1,17 +1,17 @@
 <!doctype html>
-<html data-bust="strip-btns-1789259482" lang="en">
+<html data-bust="volumes-landing-1789261200" lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Volume Reader — He Didn't Jump</title>
-<meta name="description" content="Aziel Eliab’s Marion Zioncheck archive reader: five facsimile volumes. Original PDFs remain available without JavaScript.">
+<title>Volumes — He Didn't Jump</title>
+<meta name="description" content="Five research volumes of the Marion Zioncheck archive. View the in-site facsimile reader or download the original PDFs.">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="theme-color" content="#f4ecd4">
 <meta name="color-scheme" content="light">
 <meta name="author" content="Aziel Eliab">
-<meta name="keywords" content="Aziel Eliab, Marion Zioncheck archive, volume reader, He Didn't Jump">
+<meta name="keywords" content="Aziel Eliab, Marion Zioncheck archive, research volumes, He Didn't Jump, facsimile reader">
 <link rel="author" href="https://www.azieleliab.com/">
-<link rel="canonical" href="https://hedidntjump.com/Volumes/read">
+<link rel="canonical" href="https://hedidntjump.com/Volumes">
 <link rel="alternate" type="text/plain" href="https://hedidntjump.com/llms.txt" title="LLM instructions">
 <link rel="me" href="https://www.azieleliab.com/">
 <link rel="me" href="https://godlock.uk/">
@@ -23,27 +23,34 @@
 <link rel="me" href="https://twitter.com/AzielEliab">
 <meta property="og:site_name" content="He Didn't Jump — An Aziel Eliab Project">
 <meta property="og:locale" content="en_US">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Volume Reader — He Didn't Jump">
-<meta property="og:description" content="Aziel Eliab’s Marion Zioncheck archive reader: five facsimile volumes. Original PDFs remain available without JavaScript.">
-<meta property="og:url" content="https://hedidntjump.com/Volumes/read">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Volumes — He Didn't Jump">
+<meta property="og:description" content="Five research volumes of the Marion Zioncheck archive. View the in-site facsimile reader or download the original PDFs.">
+<meta property="og:url" content="https://hedidntjump.com/Volumes">
 <meta property="og:image" content="https://hedidntjump.com/assets/social-card.jpg">
 <meta property="og:image:alt" content="He Didn't Jump — The Marion Zioncheck Archive">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="article:author" content="Aziel Eliab">
+<meta property="article:author" content="https://hedidntjump.com/#aziel-eliab">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@AzielEliab">
 <meta name="twitter:creator" content="@AzielEliab">
-<meta name="twitter:title" content="Volume Reader — He Didn't Jump">
-<meta name="twitter:description" content="Aziel Eliab’s Marion Zioncheck archive reader: five facsimile volumes. Original PDFs remain available without JavaScript.">
+<meta name="twitter:title" content="Volumes — He Didn't Jump">
+<meta name="twitter:description" content="Five research volumes of the Marion Zioncheck archive. View the in-site facsimile reader or download the original PDFs.">
 <meta name="twitter:image" content="https://hedidntjump.com/assets/social-card.jpg">
 <meta name="twitter:image:alt" content="He Didn't Jump — The Marion Zioncheck Archive">
 <meta name="hdj-stats-api" content="https://hedidntjump-stats.vibelock.workers.dev">
 <link rel="stylesheet" href="/assets/fonts/fonts.css?v=1789258322">
 <link rel="stylesheet" href="/style.css?v=1789261200">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<script src="/reader.js" defer></script>
-<script src="/stats.js?v=1789258748" defer></script>
+<script>
+(function () {
+  var q = new URLSearchParams(location.search);
+  if (q.has("volume")) location.replace("/Volumes/read" + location.search);
+})();
+</script>
+<script src="/stats.js?v=1789259881" defer></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -78,26 +85,6 @@
         "https://x.com/AzielEliab",
         "https://twitter.com/AzielEliab"
       ],
-      "knowsAbout": [
-        {
-          "@type": "Person",
-          "name": "Marion Zioncheck"
-        },
-        {
-          "@type": "Person",
-          "name": "Rubye Nix Zioncheck"
-        },
-        "Marion Zioncheck archive",
-        "He Didn't Jump",
-        "Rubye Zioncheck litigation newspaper",
-        "Nadeau FOIA newspaper",
-        "Zioncheck FOIA denial ledger",
-        "FOIA Binary Acknowledgement",
-        "Freedom of Information Act practice",
-        "GodLock public board",
-        "Aziel Corpus Library",
-        "aziel-runtime"
-      ],
       "affiliation": {
         "@id": "https://hedidntjump.com/#organization"
       },
@@ -129,12 +116,7 @@
       "author": {
         "@id": "https://hedidntjump.com/#aziel-eliab"
       },
-      "publishingPrinciples": "https://hedidntjump.com/llms.txt",
-      "knowsAbout": [
-        "Marion Zioncheck archive",
-        "Rubye Zioncheck litigation newspaper page",
-        "Nadeau FOIA newspaper and denial ledger"
-      ]
+      "publishingPrinciples": "https://hedidntjump.com/llms.txt"
     },
     {
       "@type": "WebSite",
@@ -152,102 +134,47 @@
       },
       "author": {
         "@id": "https://hedidntjump.com/#aziel-eliab"
-      },
-      "creator": {
-        "@id": "https://hedidntjump.com/#aziel-eliab"
       }
     },
     {
-      "@type": "SoftwareSourceCode",
-      "@id": "https://github.com/AzielEliab/hedidntjump.com#repo",
-      "name": "hedidntjump.com",
-      "codeRepository": "https://github.com/AzielEliab/hedidntjump.com",
-      "license": "https://www.apache.org/licenses/LICENSE-2.0",
-      "programmingLanguage": [
-        "HTML",
-        "CSS",
-        "JavaScript"
-      ],
-      "author": {
-        "@id": "https://hedidntjump.com/#aziel-eliab"
-      }
-    },
-    {
-      "@type": "WebPage",
-      "@id": "https://www.azieleliab.com/donate?v=png#related",
-      "url": "https://www.azieleliab.com/donate?v=png",
-      "name": "Donate — Aziel Eliab",
-      "description": "Related support page for Aziel Eliab’s published work. Not an identity sameAs URL.",
-      "about": {
-        "@id": "https://hedidntjump.com/#aziel-eliab"
-      },
+      "@type": "Collection",
+      "@id": "https://hedidntjump.com/Volumes#collection",
+      "name": "Marion Zioncheck research volumes",
+      "url": "https://hedidntjump.com/Volumes",
+      "numberOfItems": 5,
       "isPartOf": {
-        "@type": "WebSite",
-        "url": "https://www.azieleliab.com/"
-      }
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://www.azieleliab.com/#site",
-      "name": "AzielEliab.com",
-      "url": "https://www.azieleliab.com/",
-      "author": {
-        "@id": "https://hedidntjump.com/#aziel-eliab"
+        "@id": "https://hedidntjump.com/#website"
       },
       "creator": {
         "@id": "https://hedidntjump.com/#aziel-eliab"
-      }
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://godlock.uk/#site",
-      "name": "GodLock",
-      "alternateName": "GodLock public board",
-      "url": "https://godlock.uk/",
-      "author": {
-        "@id": "https://hedidntjump.com/#aziel-eliab"
       },
-      "creator": {
-        "@id": "https://hedidntjump.com/#aziel-eliab"
-      }
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://www.azielcorpuslibrary.net/#site",
-      "name": "Aziel Corpus Library",
-      "url": "https://www.azielcorpuslibrary.net/",
-      "author": {
-        "@id": "https://hedidntjump.com/#aziel-eliab"
-      },
-      "creator": {
-        "@id": "https://hedidntjump.com/#aziel-eliab"
-      }
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://www.azielcorpuslibrary.net/runtime#site",
-      "name": "Aziel Corpus Library runtime",
-      "url": "https://www.azielcorpuslibrary.net/runtime",
-      "isPartOf": {
-        "@id": "https://www.azielcorpuslibrary.net/#site"
-      },
-      "author": {
-        "@id": "https://hedidntjump.com/#aziel-eliab"
-      }
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://aziel-runtime.vibelock.workers.dev/#site",
-      "name": "Aziel Runtime",
-      "alternateName": "aziel-runtime",
-      "url": "https://aziel-runtime.vibelock.workers.dev/",
-      "description": "Engine-runtime catalog / OpenAPI / MCP.",
-      "author": {
-        "@id": "https://hedidntjump.com/#aziel-eliab"
-      },
-      "creator": {
-        "@id": "https://hedidntjump.com/#aziel-eliab"
-      }
+      "hasPart": [
+        {
+          "@type": "CreativeWork",
+          "name": "Volume I — Primary Documents & Forensic Analysis",
+          "url": "https://hedidntjump.com/Volumes/read?volume=1&page=1"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Volume II — News Coverage & Family Battles",
+          "url": "https://hedidntjump.com/Volumes/read?volume=2&page=1"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Volume III — Personal Photographs & Research Materials",
+          "url": "https://hedidntjump.com/Volumes/read?volume=3&page=1"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Volume IV — The Physics Case",
+          "url": "https://hedidntjump.com/Volumes/read?volume=4&page=1"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Volume V — The Human & Institutional Evidence",
+          "url": "https://hedidntjump.com/Volumes/read?volume=5&page=1"
+        }
+      ]
     },
     {
       "@type": "BreadcrumbList",
@@ -263,12 +190,6 @@
           "position": 2,
           "name": "Volumes",
           "item": "https://hedidntjump.com/Volumes"
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "name": "Volume reader",
-          "item": "https://hedidntjump.com/Volumes/read"
         }
       ]
     },
@@ -277,19 +198,22 @@
       "@id": "https://hedidntjump.com/assets/social-card.jpg",
       "url": "https://hedidntjump.com/assets/social-card.jpg",
       "contentUrl": "https://hedidntjump.com/assets/social-card.jpg",
-      "caption": "He Didn't Jump volume reader",
+      "caption": "He Didn't Jump — The Marion Zioncheck Archive",
       "width": 1200,
       "height": 630,
       "inLanguage": "en"
     },
     {
       "@type": "WebPage",
-      "@id": "https://hedidntjump.com/Volumes/read#webpage",
-      "url": "https://hedidntjump.com/Volumes/read",
-      "name": "Volume Reader — He Didn't Jump",
-      "description": "Facsimile reader for five Marion Zioncheck archive volumes. Page images are static WebP files; original PDFs remain downloadable without JavaScript.",
+      "@id": "https://hedidntjump.com/Volumes#webpage",
+      "url": "https://hedidntjump.com/Volumes",
+      "name": "Volumes — He Didn't Jump",
+      "description": "Edition landing for five Marion Zioncheck research volumes, with facsimile reader and original PDF downloads.",
       "isPartOf": {
         "@id": "https://hedidntjump.com/#website"
+      },
+      "mainEntity": {
+        "@id": "https://hedidntjump.com/Volumes#collection"
       },
       "breadcrumb": {
         "@type": "BreadcrumbList",
@@ -305,12 +229,6 @@
             "position": 2,
             "name": "Volumes",
             "item": "https://hedidntjump.com/Volumes"
-          },
-          {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "Volume reader",
-            "item": "https://hedidntjump.com/Volumes/read"
           }
         ]
       }
@@ -318,10 +236,9 @@
   ]
 }
 </script>
-<!-- strip-btns -->
 </head>
-<body data-stats-page="reader">
-<a class="skip" href="#title">Skip to content</a>
+<body data-stats-page="volumes">
+<a class="skip" href="#main">Skip to content</a>
 
 <header class="masthead" data-wireframe="drawn-v1">
   <div class="masthead-flag">
@@ -349,7 +266,7 @@
     </div>
     <div class="tab-row tab-row-5" style="display:grid;grid-template-columns:repeat(5,minmax(0,1fr));width:100%;column-gap:2px;align-items:baseline;margin:0;padding:0;line-height:1;">
       <a href="/FOIA" style="display:block;width:100%;font-size:8px;line-height:1.1;text-align:center;text-decoration:none;padding:0;margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">F.O.I.A. <span class="nav-pg" style="font-size:6px;font-weight:400;opacity:.75;margin-left:.1em;white-space:nowrap;">(Pg. 6)</span></a>
-      <a href="/Volumes" style="display:block;width:100%;font-size:8px;line-height:1.1;text-align:center;text-decoration:none;padding:0;margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Volumes <span class="nav-pg" style="font-size:6px;font-weight:400;opacity:.75;margin-left:.1em;white-space:nowrap;">(Pg. 7)</span></a>
+      <a href="/Volumes" aria-current="page" style="display:block;width:100%;font-size:8px;line-height:1.1;text-align:center;text-decoration:none;padding:0;margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Volumes <span class="nav-pg" style="font-size:6px;font-weight:400;opacity:.75;margin-left:.1em;white-space:nowrap;">(Pg. 7)</span></a>
       <a href="/Narrative" style="display:block;width:100%;font-size:8px;line-height:1.1;text-align:center;text-decoration:none;padding:0;margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Narrative <span class="nav-pg" style="font-size:6px;font-weight:400;opacity:.75;margin-left:.1em;white-space:nowrap;">(Pg. 8)</span></a>
       <a href="/AboutAziel" style="display:block;width:100%;font-size:8px;line-height:1.1;text-align:center;text-decoration:none;padding:0;margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Aziel <span class="nav-pg" style="font-size:6px;font-weight:400;opacity:.75;margin-left:.1em;white-space:nowrap;">(Pg. 9)</span></a>
       <a href="/Copyrights" style="display:block;width:100%;font-size:8px;line-height:1.1;text-align:center;text-decoration:none;padding:0;margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Copyrights <span class="nav-pg" style="font-size:6px;font-weight:400;opacity:.75;margin-left:.1em;white-space:nowrap;">(Pg. 10)</span></a>
@@ -363,40 +280,100 @@
         <p class="lead-banner-center">A Disputed Account.</p>
         <div class="rule-triple rule-triple-lead" aria-hidden="true"><hr class="paper-rule"><hr class="paper-rule"><hr class="paper-rule"></div>
 </header>
-<main class="reader-main">
-  <p class="reader-edition-link"><a href="/Volumes">The Volumes · Pg. 7</a></p>
-  <h1 class="reader-title" id="title">Volume reader</h1>
-  <p class="reader-meta" id="meta"></p>
-  <div class="reader-controls">
-    <button id="prev" type="button" aria-label="Previous page">← Previous</button>
-    <label for="page">PDF page</label>
-    <select id="page" aria-label="Select PDF page"></select>
-    <button id="next" type="button" aria-label="Next page">Next →</button>
-    <a id="download" data-download="volume-1" href="/volumes/volume-1.pdf" download="hedidntjump-volume-1.pdf">Download PDF ↓</a>
-  </div>
-  <p class="reader-status" id="status" aria-live="polite"></p>
-  <figure class="page-image-well">
-    <img class="page-image" id="page-image" alt="Archive volume facsimile page. Open the original PDF for its available text layer." width="1010" height="1307">
-  </figure>
+<main id="main" class="volumes-edition">
+<section class="volumes-paper" id="volumes" aria-labelledby="volumes-title">
+  <header class="volumes-head">
+    <p class="narrative-kicker">THE VOLUMES · PG. 7</p>
+    <h1 class="headline" id="volumes-title">Five Research Volumes</h1>
+    <p class="deck">The archive is bound in five books. View the facsimile pages in this paper, or take the original PDFs. Collection dated July 2026.</p>
+  </header>
+
+  <ol class="volume-card-list">
+    <li>
+      <article class="volume-card" id="volume-1">
+        <p class="volume-card-num">Volume I</p>
+        <h2>Primary Documents &amp; Forensic Analysis</h2>
+        <p class="volume-card-purpose">This first book gathers the primary documents and forensic plates of the collection — clippings, photographs, and document images against which the later volumes are checked. It preserves the material examined in the investigation; it does not close the case.</p>
+        <p class="volume-card-folio">20 PDF pages · 20.8 MB</p>
+        <p class="volume-card-actions">
+          <a class="button volume-card-view" href="/Volumes/read?volume=1&amp;page=1">View</a>
+          <a class="volume-download volume-card-download" data-download="volume-1" href="/volumes/volume-1.pdf" download="hedidntjump-volume-1.pdf">Download</a>
+        </p>
+      </article>
+    </li>
+    <li>
+      <article class="volume-card" id="volume-2">
+        <p class="volume-card-num">Volume II</p>
+        <h2>News Coverage &amp; Family Battles</h2>
+        <p class="volume-card-purpose">Contemporary newspaper columns record how the death was told to the public in 1936, and how the family later fought over the will and the estate. The plates keep those headlines and the disputes that followed.</p>
+        <p class="volume-card-folio">20 PDF pages · 18.4 MB</p>
+        <p class="volume-card-actions">
+          <a class="button volume-card-view" href="/Volumes/read?volume=2&amp;page=1">View</a>
+          <a class="volume-download volume-card-download" data-download="volume-2" href="/volumes/volume-2.pdf" download="hedidntjump-volume-2.pdf">Download</a>
+        </p>
+      </article>
+    </li>
+    <li>
+      <article class="volume-card" id="volume-3">
+        <p class="volume-card-num">Volume III</p>
+        <h2>Personal Photographs &amp; Research Materials</h2>
+        <p class="volume-card-purpose">Personal photographs, funeral-related material, and research notes widen the record beyond the day of the death. The plates here are the private and documentary remainder of the collection.</p>
+        <p class="volume-card-folio">21 PDF pages · 16.9 MB</p>
+        <p class="volume-card-actions">
+          <a class="button volume-card-view" href="/Volumes/read?volume=3&amp;page=1">View</a>
+          <a class="volume-download volume-card-download" data-download="volume-3" href="/volumes/volume-3.pdf" download="hedidntjump-volume-3.pdf">Download</a>
+        </p>
+      </article>
+    </li>
+    <li>
+      <article class="volume-card" id="volume-4">
+        <p class="volume-card-num">Volume IV</p>
+        <h2>The Physics Case</h2>
+        <p class="volume-card-purpose">This volume tests the reported office sequence — window clearance, timing, and witness proximity — against the plates. It is the collection’s argument from space and time, not a courtroom finding.</p>
+        <p class="volume-card-folio">15 PDF pages · 0.03 MB</p>
+        <p class="volume-card-actions">
+          <a class="button volume-card-view" href="/Volumes/read?volume=4&amp;page=1">View</a>
+          <a class="volume-download volume-card-download" data-download="volume-4" href="/volumes/volume-4.pdf" download="hedidntjump-volume-4.pdf">Download</a>
+        </p>
+      </article>
+    </li>
+    <li>
+      <article class="volume-card" id="volume-5">
+        <p class="volume-card-num">Volume V</p>
+        <h2>The Human &amp; Institutional Evidence</h2>
+        <p class="volume-card-purpose">The closing book examines witness accounts, institutional conflict, and the human evidence surrounding the death. It sets those names and proposed motives beside the earlier volumes.</p>
+        <p class="volume-card-folio">14 PDF pages · 0.02 MB</p>
+        <p class="volume-card-actions">
+          <a class="button volume-card-view" href="/Volumes/read?volume=5&amp;page=1">View</a>
+          <a class="volume-download volume-card-download" data-download="volume-5" href="/volumes/volume-5.pdf" download="hedidntjump-volume-5.pdf">Download</a>
+        </p>
+      </article>
+    </li>
+  </ol>
+
   <noscript>
-    <p>JavaScript turns the page images. The original PDFs are the record:</p>
+    <p>The facsimile reader needs JavaScript. The original PDFs are the record:</p>
     <ul>
-      <li><a href="/volumes/volume-1.pdf">Volume I — Primary Documents &amp; Forensic Analysis (PDF)</a></li>
-      <li><a href="/volumes/volume-2.pdf">Volume II — News Coverage &amp; Family Battles (PDF)</a></li>
-      <li><a href="/volumes/volume-3.pdf">Volume III — Personal Photographs &amp; Research Materials (PDF)</a></li>
-      <li><a href="/volumes/volume-4.pdf">Volume IV — The Physics Case (PDF)</a></li>
-      <li><a href="/volumes/volume-5.pdf">Volume V — The Human &amp; Institutional Evidence (PDF)</a></li>
+      <li><a href="/volumes/volume-1.pdf" download="hedidntjump-volume-1.pdf">Volume I — Primary Documents &amp; Forensic Analysis (PDF)</a></li>
+      <li><a href="/volumes/volume-2.pdf" download="hedidntjump-volume-2.pdf">Volume II — News Coverage &amp; Family Battles (PDF)</a></li>
+      <li><a href="/volumes/volume-3.pdf" download="hedidntjump-volume-3.pdf">Volume III — Personal Photographs &amp; Research Materials (PDF)</a></li>
+      <li><a href="/volumes/volume-4.pdf" download="hedidntjump-volume-4.pdf">Volume IV — The Physics Case (PDF)</a></li>
+      <li><a href="/volumes/volume-5.pdf" download="hedidntjump-volume-5.pdf">Volume V — The Human &amp; Institutional Evidence (PDF)</a></li>
     </ul>
-    <p><a href="/Archives">Return to the archive on the main paper</a></p>
   </noscript>
+</section>
 
 <div class="see-more-pg" aria-label="Continue to page 8">
   <hr class="see-more-rule">
   <p class="see-more-text"><a href="/Narrative">See more on Pg. 8.</a></p>
   <hr class="see-more-rule">
 </div>
-
 </main>
+<footer>
+  <a class="brand" href="/" title="Home">HE DIDN’T JUMP<span>THE MARION ZIONCHECK ARCHIVE</span></a>
+  <p>An Aziel Eliab Project. <a rel="author" href="https://www.azieleliab.com/">Aziel Eliab</a> — researcher, software developer, digital civil rights activist, truthseeker; independent investigator and publisher of this Marion Zioncheck archive.<br>Collection dated July 2026. Original rights remain with their respective holders.</p>
+  <a href="#main">Back to top ↑</a>
+</footer>
 <nav class="rights-bar" aria-label="Copyrights and source notice">
   <a href="/Copyrights">Copyrights &amp; historical research notice</a>
 </nav>

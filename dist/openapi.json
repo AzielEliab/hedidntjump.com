@@ -94,7 +94,27 @@
     },
     "/Volumes": {
       "get": {
-        "summary": "Volume reader",
+        "summary": "Volumes edition landing (five purpose cards)",
+        "responses": {
+          "200": {
+            "description": "HTML"
+          }
+        }
+      }
+    },
+    "/Volumes/read": {
+      "get": {
+        "summary": "In-site facsimile volume reader",
+        "responses": {
+          "200": {
+            "description": "HTML"
+          }
+        }
+      }
+    },
+    "/volumes.html": {
+      "get": {
+        "summary": "Volumes edition HTML file",
         "responses": {
           "200": {
             "description": "HTML"
