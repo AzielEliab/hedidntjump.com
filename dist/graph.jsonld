@@ -263,41 +263,5 @@
     "Aziel Elroei Eliab",
     "Aziel Eliab Elroi"
   ],
-  "stats": {
-    "local": {
-      "stats": "https://www.hedidntjump.com/api/stats",
-      "stats_apex": "https://hedidntjump.com/api/stats",
-      "hit": "https://www.hedidntjump.com/api/hit",
-      "worker_stats": "https://hedidntjump-stats.vibelock.workers.dev/api/stats",
-      "worker_hit": "https://hedidntjump-stats.vibelock.workers.dev/api/hit",
-      "meter_contract": "bc-66a02bb3 — folio pills read GET /api/stats; views/downloads increment via /api/hit?type=view|download&id=… (sendBeacon/keepalive on download). Do not retarget #views/#downloads to sister hubs."
-    },
-    "sister_hubs": [
-      {
-        "id": "official",
-        "label": "AzielEliab.com",
-        "stats": "https://www.azieleliab.com/v1/stats",
-        "view_increment": "https://www.azieleliab.com/v1/view",
-        "mesh_status": "https://www.azieleliab.com/v1/mesh/status"
-      },
-      {
-        "id": "godlock",
-        "label": "GodLock.uk",
-        "health": "https://godlock.uk/health",
-        "mesh_status": "https://godlock.uk/v1/mesh/status"
-      },
-      {
-        "id": "library",
-        "label": "Aziel Corpus Library",
-        "health": "https://www.azielcorpuslibrary.net/v1/health",
-        "mesh": "https://www.azielcorpuslibrary.net/v1/mesh"
-      },
-      {
-        "id": "runtime",
-        "label": "Aziel Runtime",
-        "uses": "https://aziel-runtime.vibelock.workers.dev/v1/uses",
-        "mesh_status": "https://aziel-runtime.vibelock.workers.dev/v1/mesh/status"
-      }
-    ]
-  }
+  "stats": "https://www.hedidntjump.com/api/stats"
 }

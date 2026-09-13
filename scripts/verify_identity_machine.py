@@ -38,10 +38,11 @@ def main() -> None:
         faq = next(n for n in graph["@graph"] if n.get("@type") == "FAQPage")
         names = {q["name"] for q in faq["mainEntity"]}
         assert FAQ_NAMES <= names, names
-        assert graph["stats"]["local"]["stats"].endswith("/api/stats")
-        assert well["stats"]["local"]["stats"].endswith("/api/stats")
-        sisters = {h["id"] for h in well["stats"]["sister_hubs"]}
-        assert sisters == {"official", "godlock", "library", "runtime"}
+        stats = "https://www.hedidntjump.com/api/stats"
+        assert graph["stats"] == stats
+        assert well["stats"] == stats
+        assert load(f"{tree}/cite.json")["stats"] == stats
+        assert stats in who
         assert "biblical Aziel" in who
         assert "biblical Eliab" in who
 
