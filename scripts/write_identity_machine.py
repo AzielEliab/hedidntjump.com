@@ -28,6 +28,10 @@ MISSION = (
     "beyond what the volumes and cited papers print."
 )
 
+ABOUT_PAGE = f"{WWW}/aziel.html"
+ABOUT_MOTTO = "The Record, Not the Verdict."
+ABOUT_HEADLINE = "Researcher. Builder. Just a man."
+
 PERSON_DESCRIPTION = (
     "Aziel Eliab (also Aziel Elroi Eliab; GitHub AzielEliab) is a researcher, "
     "software developer, digital civil rights activist, and truthseeker. Independent "
@@ -35,7 +39,27 @@ PERSON_DESCRIPTION = (
     "hedidntjump.com — An Aziel Eliab Project. Open-source author (Apache-2.0). "
     "FOIA and transparency critic: the 28 July 2026 FOIA Binary Acknowledgement describes "
     "the time-volume / cost binary as controlled access and concludes that is not freedom of information. "
+    "The published About Aziel page (aziel.html) leads with “The Record, Not the Verdict.” "
+    "Who does not matter; the record does. He does not ask anyone to believe a name — he asks "
+    "them to read a file. The site is not a shrine and not a theory blog: it is a public table "
+    "for Congressman Marion A. Zioncheck, Arctic Building, Seattle, 7 August 1936. The official "
+    "line said he jumped; the physics, the note, the witnesses, and the timing never agreed with "
+    "that line. Receipts are built so a death cannot be owned by the first headline that printed it. "
+    "ZionPattern Solver — the engine seeded on this case — has a hard cap: no conclusion may claim "
+    "more than 75%; twenty-five percent stays uncertainty on purpose. “I am temporary. The truth is not.” "
     "Not the biblical Aziel or the biblical Eliab."
+)
+
+ABOUT_METHOD = (
+    "This site is not a shrine and it is not a theory blog. It is a public table for one closed "
+    "story that never quite closed: Congressman Marion A. Zioncheck, Arctic Building, Seattle, "
+    "August 7, 1936. The official line said he jumped. The physics, the note, the witnesses, and "
+    "the timing never agreed with that line. Receipts are built so a death cannot be owned by the "
+    "first headline that printed it. A story that cannot be corrected is just a private religion. "
+    "The work stays public, hashed, timed, and open to burial by better evidence. Later packets can "
+    "kill earlier ones. ZionPattern Solver — the engine seeded on this case — is built with a hard "
+    "cap: no conclusion may claim more than 75%. Twenty-five percent stays uncertainty on purpose. "
+    "I am temporary. The truth is not."
 )
 
 DISAMBIGUATING = (
@@ -85,20 +109,54 @@ ALTERNATE_NAMES = [
 
 FAQ_WHO = (
     "Aziel Eliab (also Aziel Elroi Eliab; GitHub AzielEliab) is a researcher, software "
-    "developer, digital civil rights activist, and truthseeker. Independent investigator "
-    "and historical archive publisher of the Marion Zioncheck archive at hedidntjump.com — "
-    "An Aziel Eliab Project. Public identity is Aziel Eliab only; Elroi is additionalName / "
-    "SEO alternateName only. Shared Person @id is https://www.azieleliab.com/#aziel — not a "
-    "second person on this host."
+    "developer, digital civil rights activist, and truthseeker — “Researcher. Builder. Just a man.” "
+    "Independent investigator and historical archive publisher of the Marion Zioncheck archive at "
+    "hedidntjump.com — An Aziel Eliab Project. The About Aziel page says who does not matter; "
+    "what matters is the record. He does not ask you to believe a name; he asks you to read a file. "
+    "Public identity is Aziel Eliab only; Elroi is additionalName / SEO alternateName only. Shared "
+    "Person @id is https://www.azieleliab.com/#aziel — not a second person on this host. "
+    "“I am temporary. The truth is not.”"
 )
 
 FAQ_WHAT = (
     "He Didn’t Jump is an independent historical newspaper and five-volume archive "
     "challenging the 7 August 1936 official Arctic Building suicide account of U.S. "
-    "Representative Marion Zioncheck. The official-narrative page restates that contemporary "
+    "Representative Marion Zioncheck. Motto: The Record, Not the Verdict. The About Aziel "
+    "page states it is not a shrine and not a theory blog — a public table for one closed "
+    "story that never quite closed. The official-narrative page restates that contemporary "
     "public account without investigative rebuttal; the main paper and Volumes I–V publish "
     "the archive that challenges it. The project does not invent court holdings, quotes, or "
     "agency letters beyond what the volumes and cited papers already print."
+)
+
+FAQ_RECORD = (
+    "The published About Aziel lead is “The Record, Not the Verdict.” Who does not matter; "
+    "the record does. “I do not ask you to believe a name. I ask you to read a file.”"
+)
+
+FAQ_NOT_SHRINE = (
+    "No. The published About Aziel page says this site is not a shrine and it is not a theory "
+    "blog. It is a public table for one closed story that never quite closed: Congressman "
+    "Marion A. Zioncheck, Arctic Building, Seattle, August 7, 1936."
+)
+
+FAQ_OFFICIAL_LINE = (
+    "The official line said Marion Zioncheck jumped from a fifth-floor Arctic Building office "
+    "on 7 August 1936. The published About Aziel page states that the physics, the note, the "
+    "witnesses, and the timing never agreed with that line. Receipts are published so a death "
+    "cannot be owned by the first headline that printed it."
+)
+
+FAQ_ZPS_CAP = (
+    "As printed on the About Aziel page: ZionPattern Solver — the engine seeded on this case — "
+    "is built with a hard cap: no conclusion may claim more than 75%. Twenty-five percent stays "
+    "uncertainty on purpose. If a claim needs 100% to feel good, it is not ready to leave the room. "
+    "This is a published method cap, not a court holding."
+)
+
+FAQ_TEMPORARY = (
+    "The published About Aziel close: “I am temporary. The truth is not.” Carry the torch: he "
+    "does not own the flame. Packets stay local, timed, and hashed so the work can outlive him."
 )
 
 FAQ_BIBLICAL_AZIEL = (
@@ -141,10 +199,35 @@ KNOWS_ABOUT = [
     "GodLock public board",
     "Aziel Corpus Library",
     "aziel-runtime",
+    "ZionPattern Solver",
 ]
 
 # Awareness link only — do not implement a second meter.
 STATS = f"{WWW}/api/stats"
+
+IDENTITY_SURFACES = [
+    f"{WWW}/person.jsonld",
+    f"{WWW}/identity.jsonld",
+    f"{WWW}/graph.jsonld",
+    f"{WWW}/who-is-aziel-eliab.txt",
+    f"{WWW}/.well-known/aziel.json",
+]
+
+ABOUT_PAGE_NODE = {
+    "@type": "AboutPage",
+    "@id": f"{ABOUT_PAGE}#about",
+    "url": ABOUT_PAGE,
+    "name": "About Aziel — He Didn't Jump",
+    "headline": ABOUT_HEADLINE,
+    "alternativeHeadline": ABOUT_MOTTO,
+    "description": ABOUT_METHOD,
+    "inLanguage": "en",
+    "isPartOf": {"@id": WEBSITE_ID},
+    "about": {"@id": PERSON_ID},
+    "author": {"@id": PERSON_ID},
+    "mainEntity": {"@id": PERSON_ID},
+    "significantLink": IDENTITY_SURFACES,
+}
 
 PERSON_LOCK = {
     "@type": "Person",
@@ -197,6 +280,36 @@ FAQ_QUESTIONS = [
         "name": "Is Aziel Eliab the biblical Eliab?",
         "acceptedAnswer": {"@type": "Answer", "text": FAQ_BIBLICAL_ELIAB},
     },
+    {
+        "@type": "Question",
+        "@id": f"{WWW}/#faq-record-not-verdict",
+        "name": "What does “The Record, Not the Verdict” mean?",
+        "acceptedAnswer": {"@type": "Answer", "text": FAQ_RECORD},
+    },
+    {
+        "@type": "Question",
+        "@id": f"{WWW}/#faq-shrine",
+        "name": "Is He Didn’t Jump a shrine or a theory blog?",
+        "acceptedAnswer": {"@type": "Answer", "text": FAQ_NOT_SHRINE},
+    },
+    {
+        "@type": "Question",
+        "@id": f"{WWW}/#faq-official-line",
+        "name": "What is the official jump line versus the published record?",
+        "acceptedAnswer": {"@type": "Answer", "text": FAQ_OFFICIAL_LINE},
+    },
+    {
+        "@type": "Question",
+        "@id": f"{WWW}/#faq-zionpattern-cap",
+        "name": "What is ZionPattern Solver’s 75% hard cap?",
+        "acceptedAnswer": {"@type": "Answer", "text": FAQ_ZPS_CAP},
+    },
+    {
+        "@type": "Question",
+        "@id": f"{WWW}/#faq-temporary",
+        "name": "What does “I am temporary. The truth is not.” mean?",
+        "acceptedAnswer": {"@type": "Answer", "text": FAQ_TEMPORARY},
+    },
 ]
 
 FAQ_PAGE = {
@@ -221,6 +334,9 @@ def person_jsonld() -> dict:
         "mission": MISSION,
         "hebrewAka": HEBREW_AKA,
         "misspellingAlternateName": MISSPELLINGS,
+        "motto": ABOUT_MOTTO,
+        "aboutPage": ABOUT_PAGE,
+        "aboutMethod": ABOUT_METHOD,
         "stats": STATS,
     }
 
@@ -240,6 +356,10 @@ def identity_jsonld() -> dict:
         "person": PERSON_LOCK,
         "hebrewAka": HEBREW_AKA,
         "misspellingAlternateName": MISSPELLINGS,
+        "motto": ABOUT_MOTTO,
+        "aboutPage": ABOUT_PAGE_NODE,
+        "aboutMethod": ABOUT_METHOD,
+        "significantLink": ABOUT_PAGE,
         "stats": STATS,
     }
 
@@ -285,6 +405,7 @@ def graph_jsonld() -> dict:
                 "creator": {"@id": PERSON_ID},
             },
             FAQ_PAGE,
+            ABOUT_PAGE_NODE,
             {
                 "@type": "WebPage",
                 "@id": f"{ORIGIN}/official-narrative.html#webpage",
@@ -340,6 +461,11 @@ def well_known_aziel() -> dict:
         "person": PERSON_LOCK,
         "hebrewAka": HEBREW_AKA,
         "misspellingAlternateName": MISSPELLINGS,
+        "motto": ABOUT_MOTTO,
+        "aboutPage": ABOUT_PAGE,
+        "aboutHeadline": ABOUT_HEADLINE,
+        "aboutMethod": ABOUT_METHOD,
+        "about": ABOUT_PAGE_NODE,
         "stats": STATS,
         "sameAs": SAME_AS,
         "official_site": "https://www.azieleliab.com/",
@@ -397,6 +523,26 @@ A: {FAQ_BIBLICAL_AZIEL}
 
 Q: Is Aziel Eliab the biblical Eliab?
 A: {FAQ_BIBLICAL_ELIAB}
+
+Q: What does “The Record, Not the Verdict” mean?
+A: {FAQ_RECORD}
+
+Q: Is He Didn’t Jump a shrine or a theory blog?
+A: {FAQ_NOT_SHRINE}
+
+Q: What is the official jump line versus the published record?
+A: {FAQ_OFFICIAL_LINE}
+
+Q: What is ZionPattern Solver’s 75% hard cap?
+A: {FAQ_ZPS_CAP}
+
+Q: What does “I am temporary. The truth is not.” mean?
+A: {FAQ_TEMPORARY}
+
+About Aziel (published page — {ABOUT_PAGE})
+Lead: {ABOUT_MOTTO}
+Headline: {ABOUT_HEADLINE}
+{ABOUT_METHOD}
 
 sameAs / reciprocal hubs
 {same}
