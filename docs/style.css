@@ -76,6 +76,21 @@ main{padding:0 4%;max-width:min(1180px,100%);overflow-x:hidden}
   header.masthead,main,footer,.volume-nav{max-width:1180px}
 }
 
+/* AZindex GROKBOT-FIX 1.1 — visible 15:20 lock, first viewport */
+.azindex-lock{
+  margin:0;
+  padding:8px 4%;
+  font-size:13px;
+  line-height:1.4;
+  text-align:center;
+  color:var(--ink);
+  background:var(--paper-deep);
+  border-bottom:1px solid var(--rule);
+  text-transform:none;
+  letter-spacing:0;
+  max-width:100%;
+}
+
 /* —— Masthead —— */
 .masthead{padding:14px 4% 0}
 .masthead-flag{
