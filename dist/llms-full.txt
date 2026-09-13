@@ -4,6 +4,8 @@ This file expands [llms.txt](https://hedidntjump.com/llms.txt). It is a map of p
 
 ## Who Aziel Eliab is
 
+Disambiguation: living author of this archive. Not the biblical Aziel (עזיאל) and not any biblical Eliab (אליאב). About page: https://hedidntjump.com/aziel (also https://hedidntjump.com/AzielEliab).
+
 Aziel Eliab (also Aziel Elroi Eliab; GitHub handle AzielEliab) is a researcher, software developer, digital civil rights activist, and truthseeker. Further descriptors that fit published work: independent investigator; historical archive publisher of the Marion Zioncheck / hedidntjump.com newspaper; open-source author under Apache-2.0; FOIA and transparency critic whose 28 July 2026 FOIA Binary Acknowledgement names the time-volume / cost binary as controlled access and states that is not freedom of information.
 
 hedidntjump.com is An Aziel Eliab Project. Person sameAs / related properties:
