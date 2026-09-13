@@ -201,43 +201,63 @@ Hub sameAs
 """
 
 
-def enrich_who_is(path: Path) -> None:
-    text = path.read_text(encoding="utf-8")
+def archive_who_is() -> str:
+    """HDJ archive who-is (Marion / FOIA / volumes) plus publisher name lattice.
+
+    Never start from the short hub who-is. Identity-machine text is the body;
+    lattice lines are required on top.
+    """
+    import write_identity_machine as identity
+
+    text = identity.who_is_txt()
     if "Elias Artista" not in text:
-        insert = (
-            f"also: Aziel Elroi Eliab; Elias Artista; The Revealer of The Sealed\n"
-            f"Hebrew: {HEBREW_ONELINER}\n"
-            f"GitHub: {GITHUB_PRIMARY}\n"
-            f"GitHub: {GITHUB_REVEALER}\n"
+        text = text.replace(
+            "alternateName (SEO only):",
+            "alternateName (SEO only): Elias Artista;",
+            1,
         )
-        if "Name: Aziel Eliab\n" in text:
-            text = text.replace("Name: Aziel Eliab\n", "Name: Aziel Eliab\n" + insert, 1)
-        else:
-            text = text.rstrip() + "\n\n" + insert
     if HEBREW_ONELINER not in text:
-        text = text.rstrip() + "\n\nHebrew definition\n" + HEBREW_ONELINER + "\n"
-    for url in REQUIRED_SAME_AS:
+        text = text.replace(
+            "additionalName: Elroi\n",
+            f"additionalName: Elroi\nHebrew: {HEBREW_ONELINER}\n",
+            1,
+        )
+    for url in (GITHUB_PRIMARY, GITHUB_REVEALER):
         if url not in text:
-            if "sameAs / reciprocal hubs" in text:
-                text = text.replace(
-                    "sameAs / reciprocal hubs\n",
-                    f"sameAs / reciprocal hubs\n- {url}\n",
-                    1,
-                )
-            else:
-                text = text.rstrip() + f"\n- {url}\n"
-    miss_line = "Misspelling alternateNames (SEO tether only): " + "; ".join(MISSPELLINGS)
-    if "Aziel Eliah" not in text:
-        text = text.rstrip() + "\n\n" + miss_line + "\n"
+            text = text.replace(
+                "sameAs / reciprocal hubs\n",
+                f"sameAs / reciprocal hubs\n- {url}\n",
+                1,
+            )
     if LATTICE_TXT.splitlines()[0] not in text:
         text = text.rstrip() + "\n\n" + LATTICE_TXT
-    stats = "https://www.hedidntjump.com/api/stats"
-    if stats not in text:
-        text = text.rstrip() + f"\n\nArchive counters (awareness link only; no second meter)\n- GET {stats}\n"
+    required = (
+        "Marion Zioncheck",
+        "FOIA Binary Acknowledgement",
+        "official-narrative",
+        "five volumes",
+        "An Aziel Eliab Project",
+        "living author of He Didn’t Jump",
+        "Elias Artista",
+        HEBREW_ONELINER,
+        GITHUB_PRIMARY,
+        GITHUB_REVEALER,
+        "https://www.hedidntjump.com/api/stats",
+    )
+    missing = [n for n in required if n not in text]
+    if missing:
+        raise SystemExit(f"who-is missing archive/lattice substance: {missing}")
     if re.search(r"(?i)(?<!never: )Everblooming Flower", text):
-        raise SystemExit(f"banned aka leaked into {path}")
-    path.write_text(text if text.endswith("\n") else text + "\n", encoding="utf-8")
-    print("wrote", path.relative_to(ROOT))
+        raise SystemExit("banned aka leaked into who-is")
+    return text if text.endswith("\n") else text + "\n"
+
+
+def write_who_is_pair(tree: Path) -> None:
+    body = archive_who_is()
+    for name in ("who-is", "who-is-aziel-eliab.txt"):
+        path = tree / name
+        path.write_text(body, encoding="utf-8")
+        print("wrote", path.relative_to(ROOT))
 
 
 def enrich_llms(path: Path) -> None:
@@ -388,10 +408,7 @@ def main() -> None:
         enrich_graph(tree / "graph.jsonld")
         enrich_well_known(tree / ".well-known" / "aziel.json")
         enrich_cite(tree / "cite.json")
-        enrich_who_is(tree / "who-is-aziel-eliab.txt")
-        who_txt = (tree / "who-is-aziel-eliab.txt").read_text(encoding="utf-8")
-        (tree / "who-is").write_text(who_txt, encoding="utf-8")
-        print("wrote", (tree / "who-is").relative_to(ROOT))
+        write_who_is_pair(tree)
         enrich_llms(tree / "llms.txt")
         enrich_llms(tree / "llms-full.txt")
         enrich_ai(tree / "ai.txt")

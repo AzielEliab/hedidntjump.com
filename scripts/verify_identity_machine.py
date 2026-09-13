@@ -146,6 +146,10 @@ def main() -> None:
         assert well.get("motto") == "The Record, Not the Verdict." or "Record" in json.dumps(well)
         assert PERSON_ID in who
         assert "living" in who.lower()
+        assert "Marion Zioncheck" in who
+        assert "FOIA Binary Acknowledgement" in who
+        assert "official-narrative" in who
+        assert "An Aziel Eliab Project" in who
         assert person["givenName"] == "Aziel"
         assert person["familyName"] == "Eliab"
         assert_no_forbidden_same_as(person["sameAs"])

@@ -15,6 +15,14 @@ _SCRIPTS = Path(__file__).resolve().parent
 if str(_SCRIPTS) not in sys.path:
     sys.path.insert(0, str(_SCRIPTS))
 
+from aziel_person import (
+    GITHUB_PRIMARY,
+    GITHUB_REVEALER,
+    HEBREW_ONELINER,
+    alternate_names as lattice_alternate_names,
+    same_as as lattice_same_as,
+)
+
 ROOT = Path(__file__).resolve().parents[1]
 TREES = [ROOT / "dist", ROOT / "docs"]
 
@@ -144,14 +152,6 @@ MISSPELLINGS = [
     "Aziel Elroei Eliab",
     "Aziel Eliab Elroi",
 ]
-
-from aziel_person import (
-    GITHUB_PRIMARY,
-    GITHUB_REVEALER,
-    HEBREW_ONELINER,
-    alternate_names as lattice_alternate_names,
-    same_as as lattice_same_as,
-)
 
 REVEALER_AKA = "The Revealer of The Sealed"
 REVEALER_AKA_SHORT = "Revealer of The Sealed"
