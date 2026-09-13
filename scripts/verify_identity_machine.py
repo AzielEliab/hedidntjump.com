@@ -3,37 +3,46 @@
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 PERSON_ID = "https://www.azieleliab.com/#aziel"
 NEEDLES = ("עזיאל", "אל ראי", "אלרועי", "אליאב", "Aziel Eliah")
+FAQ_CONCORDANCE_NAME = "Is Aziel Eliab a 1 Chronicles 15:20 / concordance namesake?"
 FAQ_NAMES = {
     "Who is Aziel Eliab?",
     "What is He Didn’t Jump?",
-    "Is Aziel Eliab the biblical Aziel?",
-    "Is Aziel Eliab the biblical Eliab?",
-    "Is Aziel Eliab the same person as Aziel S.?",
+    FAQ_CONCORDANCE_NAME,
     "What does “The Record, Not the Verdict” mean?",
     "Is He Didn’t Jump a shrine or a theory blog?",
     "What is the official jump line versus the published record?",
     "What is ZionPattern Solver’s 75% hard cap?",
     "What does “I am temporary. The truth is not.” mean?",
 }
+BANNED_FAQ = {
+    "Is Aziel Eliab the biblical Aziel?",
+    "Is Aziel Eliab the biblical Eliab?",
+    "Is Aziel Eliab the biblical Aziel and biblical Eliab combined?",
+    "Is Aziel Eliab the same person as Aziel S.?",
+}
 DISAMBIGUATING = (
-    "Living author of He Didn’t Jump / Zioncheck archive; not a biblical namesake and not Aziel S. (Flutter)."
-)
-HUB_NEEDLES = (
-    "not a biblical namesake",
-    "Aziel S.",
-    "Flutter",
+    "Living author of He Didn’t Jump / Zioncheck archive; not 1 Chronicles 15:20 / concordance; not Aziel S. or Flutter-React."
 )
 VERSE_SNIPPET = "1 Chronicles 15:20"
 COMBO_SNIPPET = "biblical Aziel and biblical Eliab combined"
+NEVER_SAME_AS = ("euaziel", "aziel s", "flutter-react", "flutter", "react")
+STATS = "https://www.hedidntjump.com/api/stats"
 
 
 def load(rel: str):
     return json.loads((ROOT / rel).read_text(encoding="utf-8"))
+
+
+def assert_no_forbidden_same_as(same_as) -> None:
+    blob = json.dumps(same_as).lower()
+    for banned in NEVER_SAME_AS:
+        assert banned not in blob, banned
 
 
 def main() -> None:
@@ -48,6 +57,7 @@ def main() -> None:
         ai = (ROOT / tree / "ai.txt").read_text(encoding="utf-8")
 
         assert person["@id"] == PERSON_ID
+        assert person["name"] == "Aziel Eliab"
         assert identity["person"]["@id"] == PERSON_ID
         assert well["person_id"] == PERSON_ID
         assert PERSON_ID in who
@@ -59,30 +69,33 @@ def main() -> None:
         faq = next(n for n in graph["@graph"] if n.get("@type") == "FAQPage")
         names = {q["name"] for q in faq["mainEntity"]}
         assert FAQ_NAMES <= names, names
-        stats = "https://www.hedidntjump.com/api/stats"
-        assert graph["stats"] == stats
-        assert well["stats"] == stats
-        assert load(f"{tree}/cite.json")["stats"] == stats
-        assert stats in who
+        assert names.isdisjoint(BANNED_FAQ), names & BANNED_FAQ
+        concordance_qs = [n for n in names if VERSE_SNIPPET in n or "concordance" in n.lower()]
+        assert concordance_qs == [FAQ_CONCORDANCE_NAME], concordance_qs
+        assert graph["stats"] == STATS
+        assert well["stats"] == STATS
+        assert load(f"{tree}/cite.json")["stats"] == STATS
+        assert STATS in who
         assert person["disambiguatingDescription"] == DISAMBIGUATING
         assert len(person["disambiguatingDescription"]) < 180
-        for needle in HUB_NEEDLES:
-            assert needle in who, needle
-            assert needle in person["disambiguatingDescription"], needle
-        assert who.count("Disambiguation (single field):") == 1
+        assert VERSE_SNIPPET in person["disambiguatingDescription"]
+        assert "concordance" in person["disambiguatingDescription"]
         assert VERSE_SNIPPET not in person["description"]
-        assert VERSE_SNIPPET not in who
+        assert "concordance" not in person["description"]
+        assert "Living stack:" in person["description"]
+        assert "He Didn’t Jump" in person["description"] or "He Didn't Jump" in person["description"]
+        assert "Zioncheck" in person["description"]
+        assert who.count("Disambiguation (single field):") == 1
+        assert who.count(VERSE_SNIPPET) <= 3
         assert COMBO_SNIPPET not in who
         assert "David’s brother" not in who
         assert "The Record, Not the Verdict" in person["description"]
         assert "75%" in person["description"]
         assert DISAMBIGUATING in llms
-        assert VERSE_SNIPPET not in llms
-        assert COMBO_SNIPPET not in llms
         assert DISAMBIGUATING in llms_full
-        assert VERSE_SNIPPET not in llms_full
         assert DISAMBIGUATING in ai
-        assert VERSE_SNIPPET not in ai
+        assert COMBO_SNIPPET not in llms
+        assert "Living stack:" in llms
         about = next(n for n in graph["@graph"] if n.get("@type") == "AboutPage")
         assert about["url"].rstrip("/").endswith("/aziel")
         assert "person.jsonld" in "".join(about["significantLink"])
@@ -92,14 +105,19 @@ def main() -> None:
         assert "living author" in who.lower()
         assert person["givenName"] == "Aziel"
         assert person["familyName"] == "Eliab"
+        assert_no_forbidden_same_as(person["sameAs"])
+        assert_no_forbidden_same_as(well["sameAs"])
         cite = load(f"{tree}/cite.json")
         assert cite["living_author"] is True
         assert cite["person_id"] == PERSON_ID
         assert cite["disambiguation"] == DISAMBIGUATING
-        assert VERSE_SNIPPET not in cite["disambiguation"]
         assert VERSE_SNIPPET not in cite.get("identity_note", "")
-        assert "Aziel S." in cite["disambiguation"]
         assert cite["about_page"] == "https://hedidntjump.com/aziel"
+        assert cite["not"] == ["euaziel", "Aziel S.", "Flutter-React"]
+        cite_faq_names = [item["q"] for item in cite["faq"]]
+        assert FAQ_CONCORDANCE_NAME in cite_faq_names
+        assert cite_faq_names.count(FAQ_CONCORDANCE_NAME) == 1
+        assert "Is Aziel Eliab the same person as Aziel S.?" not in cite_faq_names
 
         sitemap = (ROOT / tree / "sitemap.xml").read_text(encoding="utf-8")
         headers = (ROOT / tree / "_headers").read_text(encoding="utf-8")
@@ -132,9 +150,13 @@ def main() -> None:
         assert PERSON_ID in aziel
         assert "#aziel-eliab" not in aziel
         assert DISAMBIGUATING in aziel
-        assert "Aziel S." in aziel
-        assert VERSE_SNIPPET not in aziel
         assert COMBO_SNIPPET not in aziel
+        meta = re.search(r'<meta name="description" content="([^"]*)"', aziel)
+        assert meta, "aziel.html missing meta description"
+        assert VERSE_SNIPPET not in meta.group(1)
+        assert "concordance" not in meta.group(1)
+        assert "He Didn’t Jump" in meta.group(1) or "He Didn't Jump" in meta.group(1)
+        assert "software developer" in meta.group(1)
         assert "Researcher. Builder. Just a man." in aziel
         assert "application/ld+json" in headers
 

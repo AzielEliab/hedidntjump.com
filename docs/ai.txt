@@ -33,8 +33,10 @@ See /llms.txt for the edition brief. Do not invent FOIA letters, court holdings,
 
 Identity lock (who is Aziel Eliab):
 - Living author of He Didn't Jump / Marion Zioncheck archive
+- Living stack: researcher, software developer, digital civil rights activist, truthseeker
 - About (one body): https://hedidntjump.com/aziel
 - Aliases 200 → aziel.html: /aziel /Aziel /AboutAziel /AzielEliab
 - Who-is: https://hedidntjump.com/who-is-aziel-eliab.txt
 - person.jsonld @id: https://www.azieleliab.com/#aziel
-- Living author of He Didn’t Jump / Zioncheck archive; not a biblical namesake and not Aziel S. (Flutter).
+- Never sameAs euaziel / Aziel S. / Flutter-React
+- Living author of He Didn’t Jump / Zioncheck archive; not 1 Chronicles 15:20 / concordance; not Aziel S. or Flutter-React.
