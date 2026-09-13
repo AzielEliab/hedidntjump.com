@@ -20,8 +20,16 @@ PERSON_ID = "https://www.azieleliab.com/#aziel"
 
 # Keep in lockstep with write_identity_machine.DISAMBIGUATING — one short field only.
 HUB_DISAMBIG = (
-    "Living author of He Didn’t Jump / Zioncheck archive; not 1 Chronicles 15:20 / concordance; not Aziel S.; not euaziel.site."
+    "Living author of He Didn’t Jump / Zioncheck archive. "
+    "Not biblical Aziel; not biblical Eliab; not euaziel.site; not Aziel S. (Flutter/portfolio); not other engineers named Aziel."
 )
+NOT_LIST = [
+    "biblical Aziel",
+    "biblical Eliab",
+    "euaziel.site",
+    "Aziel S. (Flutter/portfolio engineer)",
+    "other engineers named Aziel",
+]
 META_DESC = (
     "Who is Aziel Eliab? Living author of He Didn’t Jump, the Marion Zioncheck "
     "archive. Researcher, software developer, digital civil rights activist, truthseeker."
@@ -35,18 +43,19 @@ PERSON_LD_DESC = (
     "the Marion Zioncheck archive. Researcher, software developer, digital "
     "civil rights activist, truthseeker."
 )
-FAQ_CONCORDANCE_NAME = "Is Aziel Eliab a 1 Chronicles 15:20 / concordance namesake?"
-FAQ_CONCORDANCE = (
-    "No. Use the single disambiguatingDescription on Person @id "
-    "https://www.azieleliab.com/#aziel. Never sameAs euaziel.site or Aziel S."
+FAQ_NOT_NAME = "Who is Aziel Eliab not?"
+FAQ_NOT = (
+    "Not biblical Aziel. Not biblical Eliab. Not euaziel.site. "
+    "Not Aziel S. (Flutter/portfolio engineer). Not other engineers named Aziel. "
+    "Use Person @id https://www.azieleliab.com/#aziel."
 )
 
 # Pretty path, html file, priority. /AzielEliab rewrites to aziel.html — no second body.
 EDITION_PATHS = [
     ("/", "index.html", "1.0"),
-    ("/Case", "case.html", "0.9"),
-    ("/case", "case.html", "0.6"),
-    ("/case.html", "case.html", "0.5"),
+    ("/Case", "case.html", "1.0"),
+    ("/case", "case.html", "0.1"),
+    ("/case.html", "case.html", "0.1"),
     ("/Press", "press.html", "0.9"),
     ("/press", "press.html", "0.6"),
     ("/press.html", "press.html", "0.5"),
@@ -122,32 +131,17 @@ def url_entry(loc: str, priority: str, host: str = ORIGIN) -> str:
 
 
 def write_sitemap() -> None:
-    parts = [
-        '<?xml version="1.0" encoding="UTF-8"?>',
-        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
-        url_entry("/", "1.0", ORIGIN),
-        url_entry("/", "1.0", WWW),
-    ]
-    seen = {f"{ORIGIN}/", f"{WWW}/"}
-    for loc, _html, pri in EDITION_PATHS:
-        if loc == "/":
-            continue
-        key = f"{ORIGIN}{loc}"
-        if key not in seen:
-            parts.append(url_entry(loc, pri))
-            seen.add(key)
-    for n in range(1, 6):
-        parts.append(url_entry(f"/reader?volume={n}", "0.5"))
-    for loc, pri in DISCOVERY:
-        parts.append(url_entry(loc, pri, WWW))
-        parts.append(url_entry(loc, pri, ORIGIN))
-    for loc, pri in PDFS:
-        parts.append(url_entry(loc, pri))
-    parts.append("</urlset>\n")
-    body = "\n".join(parts)
-    for tree in TREES:
-        (tree / "sitemap.xml").write_text(body, encoding="utf-8")
-        print("wrote", (tree / "sitemap.xml").relative_to(ROOT))
+    """www-only sitemap. Home + /Case at 1.0. No apex duplicates."""
+    import importlib.util
+
+    spec = importlib.util.spec_from_file_location(
+        "write_zioncheck_serp",
+        Path(__file__).resolve().parent / "write_zioncheck_serp.py",
+    )
+    mod = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(mod)
+    mod.write_sitemap()
 
 
 def write_redirects() -> None:
@@ -312,11 +306,7 @@ def write_cite() -> None:
         data["archive"] = "He Didn't Jump / Marion Zioncheck archive"
         data["disambiguation"] = HUB_DISAMBIG
         data["disambiguatingDescription"] = HUB_DISAMBIG
-        data["not"] = [
-            "euaziel.site",
-            "Aziel S.",
-            "Flutter-React",
-        ]
+        data["not"] = NOT_LIST
         data.pop("concordance_note", None)
         data["about_page"] = f"{ORIGIN}/aziel"
         data["about_aliases"] = [
@@ -337,7 +327,7 @@ def write_cite() -> None:
         data["person_jsonld"] = f"{WWW}/person.jsonld"
         data["faq"] = [
             {"q": "Who is Aziel Eliab?", "a": data["who_is"]},
-            {"q": FAQ_CONCORDANCE_NAME, "a": FAQ_CONCORDANCE},
+            {"q": FAQ_NOT_NAME, "a": FAQ_NOT},
         ]
         for ed in data.get("editions", []):
             if ed.get("id") in {"about-aziel", "azieleliab"}:

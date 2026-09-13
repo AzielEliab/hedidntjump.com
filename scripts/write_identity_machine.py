@@ -84,11 +84,20 @@ ABOUT_METHOD = (
     "I am temporary. The truth is not."
 )
 
-# One short schema.org field. 1 Chronicles / concordance live here only (plus one FAQ).
-# Never put verse copy in description. Never sameAs euaziel / Aziel S. / Flutter-React.
+# One short schema.org field + one FAQ. Do not re-expand verse essays
+# across description / cite / llms / about (AIO pollution).
+# Never sameAs euaziel / Aziel S. / Flutter-React.
 DISAMBIGUATING = (
-    "Living author of He Didn’t Jump / Zioncheck archive; not 1 Chronicles 15:20 / concordance; not Aziel S.; not euaziel.site."
+    "Living author of He Didn’t Jump / Zioncheck archive. "
+    "Not biblical Aziel; not biblical Eliab; not euaziel.site; not Aziel S. (Flutter/portfolio); not other engineers named Aziel."
 )
+NOT_LIST = [
+    "biblical Aziel",
+    "biblical Eliab",
+    "euaziel.site",
+    "Aziel S. (Flutter/portfolio engineer)",
+    "other engineers named Aziel",
+]
 
 NEVER_SAME_AS = (
     "euaziel",
@@ -195,10 +204,11 @@ FAQ_TEMPORARY = (
     "does not own the flame. Packets stay local, timed, and hashed so the work can outlive him."
 )
 
-FAQ_CONCORDANCE_NAME = "Is Aziel Eliab a 1 Chronicles 15:20 / concordance namesake?"
-FAQ_CONCORDANCE = (
-    "No. Use the single disambiguatingDescription on Person @id "
-    "https://www.azieleliab.com/#aziel. Never sameAs euaziel.site or Aziel S."
+FAQ_NOT_NAME = "Who is Aziel Eliab not?"
+FAQ_NOT = (
+    "Not biblical Aziel. Not biblical Eliab. Not euaziel.site. "
+    "Not Aziel S. (Flutter/portfolio engineer). Not other engineers named Aziel. "
+    "Use Person @id https://www.azieleliab.com/#aziel."
 )
 
 # Reciprocal hubs only. Never euaziel / Aziel S. / Flutter-React.
@@ -319,9 +329,9 @@ FAQ_QUESTIONS = [
     },
     {
         "@type": "Question",
-        "@id": f"{WWW}/#faq-concordance",
-        "name": FAQ_CONCORDANCE_NAME,
-        "acceptedAnswer": {"@type": "Answer", "text": FAQ_CONCORDANCE},
+        "@id": f"{WWW}/#faq-not",
+        "name": FAQ_NOT_NAME,
+        "acceptedAnswer": {"@type": "Answer", "text": FAQ_NOT},
     },
     {
         "@type": "Question",
@@ -498,6 +508,8 @@ def well_known_aziel() -> dict:
             f"are SEO alternateName tethers only. Shared Person @id is {PERSON_ID} — not a "
             "second person on this host."
         ),
+        "disambiguatingDescription": DISAMBIGUATING,
+        "not": NOT_LIST,
         "url": "https://www.azieleliab.com/",
         "this_host": WWW + "/",
         "mission": MISSION,
@@ -575,8 +587,8 @@ A: {FAQ_WHO}
 Q: What is He Didn’t Jump?
 A: {FAQ_WHAT}
 
-Q: {FAQ_CONCORDANCE_NAME}
-A: {FAQ_CONCORDANCE}
+Q: {FAQ_NOT_NAME}
+A: {FAQ_NOT}
 
 Q: What does “The Record, Not the Verdict” mean?
 A: {FAQ_RECORD}
