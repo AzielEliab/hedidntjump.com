@@ -53,3 +53,71 @@ test('download hits increment downloads and item id', async () => {
   assert.equal(body.downloads, 1);
   assert.equal(body.items['volume-1'], 1);
 });
+
+test('POST /api/hit with query string (sendBeacon) increments downloads', async () => {
+  const env = { STATS: memoryKv() };
+  const res = await handleRequest(
+    new Request('https://stats.test/api/hit?type=download&id=volume-2', { method: 'POST' }),
+    env,
+  );
+  const body = await res.json();
+  assert.equal(body.downloads, 1);
+  assert.equal(body.items['volume-2'], 1);
+});
+
+test('POST /api/hit form body increments downloads', async () => {
+  const env = { STATS: memoryKv() };
+  const res = await handleRequest(
+    new Request('https://stats.test/api/hit', {
+      method: 'POST',
+      headers: { 'content-type': 'application/x-www-form-urlencoded' },
+      body: 'type=download&id=volume-3',
+    }),
+    env,
+  );
+  const body = await res.json();
+  assert.equal(body.downloads, 1);
+  assert.equal(body.items['volume-3'], 1);
+});
+
+test('POST /api/hit text/plain JSON body increments downloads', async () => {
+  const env = { STATS: memoryKv() };
+  const res = await handleRequest(
+    new Request('https://stats.test/api/hit', {
+      method: 'POST',
+      headers: { 'content-type': 'text/plain;charset=UTF-8' },
+      body: JSON.stringify({ type: 'download', id: 'volume-5' }),
+    }),
+    env,
+  );
+  const body = await res.json();
+  assert.equal(body.downloads, 1);
+  assert.equal(body.items['volume-5'], 1);
+});
+
+test('POST /api/hit JSON body increments downloads', async () => {
+  const env = { STATS: memoryKv() };
+  const res = await handleRequest(
+    new Request('https://stats.test/api/hit', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ type: 'download', id: 'volume-4' }),
+    }),
+    env,
+  );
+  const body = await res.json();
+  assert.equal(body.downloads, 1);
+  assert.equal(body.items['volume-4'], 1);
+});
+
+test('GET /api/stats CORS allows www and pages.dev', async () => {
+  const env = { STATS: memoryKv({ views: '3', downloads: '1' }) };
+  for (const origin of ['https://www.hedidntjump.com', 'https://hedidntjump.com', 'https://preview.pages.dev']) {
+    const res = await handleRequest(
+      new Request('https://stats.test/api/stats', { headers: { Origin: origin } }),
+      env,
+    );
+    assert.equal(res.headers.get('access-control-allow-origin'), origin);
+    assert.equal(res.headers.get('access-control-allow-methods'), 'GET, POST, OPTIONS');
+  }
+});

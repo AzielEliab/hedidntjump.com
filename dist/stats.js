@@ -35,40 +35,66 @@
     setPill('downloads', data.downloads);
   }
 
+  function readPill(id) {
+    const el = document.getElementById(id);
+    if (!el || !el.childNodes[0]) return null;
+    const n = Number(String(el.childNodes[0].textContent).replace(/,/g, ''));
+    return Number.isFinite(n) ? n : null;
+  }
+
   function endpoint(path) {
     const base = apiBase();
     if (!base) return path;
     return base + path;
   }
 
-  async function request(path) {
-    // Prefer same-origin /api (Pages Function proxies to the Worker). Fallback to Worker URL.
-    const urls = [path, endpoint(path)];
+  function candidateUrls(path) {
+    const urls = [];
+    const remote = endpoint(path);
+    if (remote) urls.push(remote);
+    try {
+      urls.push(new URL(path, location.href).href);
+    } catch (err) {
+      urls.push(path);
+    }
+    const seen = Object.create(null);
+    return urls.filter(function (url) {
+      if (!url || seen[url]) return false;
+      seen[url] = true;
+      return true;
+    });
+  }
+
+  function isStubPayload(data) {
+    return (
+      data &&
+      Number(data.views) === 0 &&
+      Number(data.downloads) === 0 &&
+      data.items &&
+      typeof data.items === 'object' &&
+      Object.keys(data.items).length === 0
+    );
+  }
+
+  async function request(path, options) {
+    const opts = options || {};
+    const urls = [path].concat(endpoint(path) === path ? [] : [endpoint(path)]);
     let lastError = new Error('stats unavailable');
     for (const url of urls) {
       try {
         const res = await fetch(url, {
-          method: 'GET',
+          method: opts.method || 'GET',
           mode: 'cors',
           credentials: 'omit',
           cache: 'no-store',
+          keepalive: opts.keepalive !== false,
         });
         if (!res.ok) {
           lastError = new Error('stats ' + res.status);
           continue;
         }
         const data = await res.json();
-        // Ignore empty stub payloads from an unbound Pages Function
-        if (
-          data &&
-          Number(data.views) === 0 &&
-          Number(data.downloads) === 0 &&
-          data.items &&
-          typeof data.items === 'object' &&
-          Object.keys(data.items).length === 0 &&
-          url === path &&
-          apiBase()
-        ) {
+        if (isStubPayload(data) && url === path && apiBase()) {
           lastError = new Error('stats stub');
           continue;
         }
@@ -88,10 +114,45 @@
     }
   }
 
+  // POST the hit in a way that survives PDF navigation / file-download unload.
+  // sendBeacon is always POST; the Worker reads type/id from the query string.
+  // Prefer the Worker host first so a same-origin stub cannot swallow the increment.
+  function beaconHit(path) {
+    if (typeof navigator.sendBeacon !== 'function') return false;
+    for (const url of candidateUrls(path)) {
+      try {
+        if (navigator.sendBeacon(url)) return true;
+      } catch (err) {
+        /* try next */
+      }
+    }
+    return false;
+  }
+
   async function hit(type, id) {
     const params = new URLSearchParams({ type: type, id: id || 'site' });
+    const path = '/api/hit?' + params.toString();
+
+    if (type === 'download') {
+      const queued = beaconHit(path);
+      const before = readPill('downloads');
+      if (queued && before != null) setPill('downloads', before + 1);
+      try {
+        const data = queued
+          ? await request('/api/stats', { keepalive: true })
+          : await request(path, { keepalive: true });
+        if (queued && before != null && Number(data.downloads) < before + 1) {
+          return;
+        }
+        paint(data);
+      } catch (err) {
+        /* pills stay at last known / optimistic value */
+      }
+      return;
+    }
+
     try {
-      paint(await request('/api/hit?' + params.toString()));
+      paint(await request(path, { keepalive: true }));
     } catch (err) {
       /* pills stay at last known value */
     }
@@ -99,7 +160,7 @@
 
   async function zipExists(href) {
     try {
-      const res = await fetch(href, { method: 'HEAD', cache: 'no-store' });
+      const res = await fetch(href, { method: 'HEAD', cache: 'no-store', keepalive: true });
       return res.ok;
     } catch (err) {
       return false;
@@ -116,34 +177,39 @@
     a.remove();
   }
 
-  async function downloadAllVolumes(event) {
-    const link = event.currentTarget;
-    const href = link.getAttribute('href') || '/volumes/hedidntjump-all-volumes.zip';
-    const hasZip = await zipExists(href);
-    if (hasZip) {
-      void hit('download', 'all-volumes');
-      return;
-    }
-    event.preventDefault();
+  function downloadAllVolumes(event, link) {
+    const href = (link && link.getAttribute('href')) || '/volumes/hedidntjump-all-volumes.zip';
+    // Record immediately — waiting on HEAD lets the zip navigation cancel the hit.
     void hit('download', 'all-volumes');
-    for (let i = 1; i <= 5; i += 1) {
-      startFileDownload('/volumes/volume-' + i + '.pdf', 'hedidntjump-volume-' + i + '.pdf');
-      void hit('download', 'volume-' + i);
-    }
+    event.preventDefault();
+    void (async function () {
+      const hasZip = await zipExists(href);
+      if (hasZip) {
+        startFileDownload(href);
+        return;
+      }
+      for (let i = 1; i <= 5; i += 1) {
+        startFileDownload('/volumes/volume-' + i + '.pdf', 'hedidntjump-volume-' + i + '.pdf');
+        void hit('download', 'volume-' + i);
+      }
+    })();
   }
 
-  function onDownloadClick(event) {
-    const link = event.currentTarget;
+  function onDownloadClick(event, link) {
     const id = link.getAttribute('data-download') || 'download';
     if (id === 'all-volumes') {
-      void downloadAllVolumes(event);
+      downloadAllVolumes(event, link);
       return;
     }
     void hit('download', id);
   }
 
-  document.querySelectorAll('[data-download]').forEach(function (link) {
-    link.addEventListener('click', onDownloadClick);
+  document.addEventListener('click', function (event) {
+    if (event.defaultPrevented) return;
+    if (event.button != null && event.button !== 0) return;
+    const link = event.target && event.target.closest && event.target.closest('[data-download]');
+    if (!link) return;
+    onDownloadClick(event, link);
   });
 
   const page = document.body.getAttribute('data-stats-page') || '';
