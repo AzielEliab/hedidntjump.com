@@ -1731,3 +1731,12 @@ body[data-stats-page="aziel"] main p:last-child {
   border-bottom: 1px solid #111 !important;
 }
 
+/* Press tip directory */
+.press-tips{padding:8px 0 16px;max-width:100%;}
+.press-tips .headline{margin:4px 0 8px;}
+.tip-source-list{list-style:decimal;margin:12px 0;padding:0 0 0 1.4em;max-width:100%;}
+.tip-source-list li{margin:0 0 10px;padding:0 0 10px;border-bottom:1px solid #111;font:15px/1.45 Georgia,"Times New Roman",Times,serif;overflow-wrap:anywhere;}
+.tip-outlet{font-weight:700;color:inherit;text-decoration:underline;}
+.tip-source a[href^="mailto:"]{color:inherit;}
+.tip-note{font-size:13px;margin-top:14px;}
+
