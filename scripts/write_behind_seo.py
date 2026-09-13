@@ -156,6 +156,7 @@ def write_redirects() -> None:
 /identity.jsonld /identity.jsonld 200
 /graph.jsonld /graph.jsonld 200
 /who-is-aziel-eliab.txt /who-is-aziel-eliab.txt 200
+# Identity routing only (ZionBot owns newspaper HTML). /who-is must be plain text, not the SPA shell.
 /who-is /who-is-aziel-eliab.txt 200
 /.well-known/aziel.json /.well-known/aziel.json 200
 
@@ -438,7 +439,11 @@ Identity lock (who is Aziel Eliab):
 
 def pin_who_is_plain() -> None:
     """Serve /who-is as the same plain identity text other hubs use."""
-    rewrite = "/who-is /who-is-aziel-eliab.txt 200\n"
+    rewrite = (
+        "# Identity routing only (ZionBot owns newspaper HTML). "
+        "/who-is must be plain text, not the SPA shell.\n"
+        "/who-is /who-is-aziel-eliab.txt 200\n"
+    )
     header = (
         "\n/who-is\n"
         "  Content-Type: text/plain; charset=utf-8\n"
@@ -469,6 +474,14 @@ def pin_who_is_plain() -> None:
             )
             redirects.write_text(rtext, encoding="utf-8")
             print("pinned who-is", redirects.relative_to(ROOT))
+        elif "ZionBot owns newspaper HTML" not in rtext:
+            rtext = rtext.replace(
+                "/who-is /who-is-aziel-eliab.txt 200\n",
+                rewrite,
+                1,
+            )
+            redirects.write_text(rtext, encoding="utf-8")
+            print("annotated who-is", redirects.relative_to(ROOT))
         headers = tree / "_headers"
         htext = headers.read_text(encoding="utf-8")
         if "\n/who-is\n" not in htext:

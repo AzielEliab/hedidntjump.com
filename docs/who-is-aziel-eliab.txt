@@ -11,7 +11,7 @@ Person @id (shared identity lock): https://www.azieleliab.com/#aziel
 Name: Aziel Eliab
 givenName: Aziel
 familyName: Eliab
-alternateName (SEO only): Aziel Elroi Eliab; The Revealer of The Sealed
+alternateName (SEO only): Aziel Elroi Eliab; The Revealer of The Sealed; Revealer of The Sealed
 additionalName: Elroi
 GitHub: AzielEliab
 Official site: https://www.azieleliab.com/
