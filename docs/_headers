@@ -115,3 +115,10 @@
 /who-is
   Content-Type: text/plain; charset=utf-8
   Cache-Control: public, max-age=3600
+
+# Motion plate MP4s — never cache HTML mistakes long
+/assets/video/*.mp4
+  Content-Type: video/mp4
+  Cache-Control: public, max-age=300, must-revalidate
+  Accept-Ranges: bytes
+
