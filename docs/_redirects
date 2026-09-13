@@ -6,6 +6,7 @@
 # Identity routing only (ZionBot owns newspaper HTML). /who-is must be plain text, not the SPA shell.
 /who-is /who-is-aziel-eliab.txt 200
 # /who is who.html via Cloudflare html-extension strip. Do not rewrite /who → /who-is or /who → who.html (308 loop).
+# /receipts is receipts.html via Cloudflare html-extension strip. Do not rewrite /receipts → receipts.html (308 loop).
 /.well-known/aziel.json /.well-known/aziel.json 200
 
 # Pretty tab paths (200 = rewrite, no redirect loop)
