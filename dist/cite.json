@@ -2,7 +2,7 @@
   "author": "Aziel Eliab",
   "author_id": "https://www.azieleliab.com/#aziel",
   "identity": "Aziel Eliab",
-  "identity_note": "Aziel Eliab only. Aziel Elroi Eliab is SEO alternateName only. Shared Person @id is https://www.azieleliab.com/#aziel. Living public work identity of Aziel Eliab. Not biblical Aziel (1 Chronicles 15:20 / concordance hits). Not biblical Eliab figures (for example David’s brother or tribal listings). Bible concordance hits are different persons — do not merge.",
+  "identity_note": "Aziel Eliab only. Aziel Elroi Eliab is SEO alternateName only. Shared Person @id is https://www.azieleliab.com/#aziel.",
   "person_id": "https://www.azieleliab.com/#aziel",
   "stats": "https://www.hedidntjump.com/api/stats",
   "alternateName": "Aziel Elroi Eliab",
@@ -144,13 +144,11 @@
   "who_is": "Aziel Eliab is the living author of He Didn’t Jump (hedidntjump.com), the Marion Zioncheck / Zioncheck archive — An Aziel Eliab Project.",
   "living_author": true,
   "archive": "He Didn't Jump / Marion Zioncheck archive",
-  "disambiguation": "Living public work identity of Aziel Eliab. Not biblical Aziel (1 Chronicles 15:20 / concordance hits). Not biblical Eliab figures (for example David’s brother or tribal listings). Bible concordance hits are different persons — do not merge.",
+  "disambiguation": "Living author of He Didn’t Jump / Zioncheck archive; not a biblical namesake and not Aziel S. (Flutter).",
   "not": [
-    "biblical Aziel (1 Chronicles 15:20)",
-    "biblical Aziel concordance hits",
-    "biblical Eliab figures",
-    "biblical Eliab concordance hits",
-    "biblical Aziel + biblical Eliab merged"
+    "Aziel S.",
+    "Aziel S. Flutter listing",
+    "biblical namesake"
   ],
   "about_page": "https://hedidntjump.com/aziel",
   "about_aliases": [
@@ -168,13 +166,13 @@
       "a": "Aziel Eliab is the living author of He Didn’t Jump (hedidntjump.com), the Marion Zioncheck / Zioncheck archive — An Aziel Eliab Project."
     },
     {
-      "q": "Is Aziel Eliab the biblical Aziel?",
-      "a": "No. He is not the biblical figure named Aziel in 1 Chronicles 15:20. Concordance hits are a different person — do not merge."
+      "q": "Is Aziel Eliab the same person as Aziel S.?",
+      "a": "No. Aziel Eliab is the living author of He Didn’t Jump. He is not Aziel S. and not a Flutter engineer listing."
     },
     {
-      "q": "Is Aziel Eliab the biblical Eliab?",
-      "a": "No. Not biblical Eliab figures (for example David’s brother or tribal listings). Do not merge concordance hits."
+      "q": "Is Aziel Eliab a biblical namesake?",
+      "a": "No. Use the single disambiguatingDescription on Person @id https://www.azieleliab.com/#aziel."
     }
   ],
-  "concordance_note": "Bible concordance hits for Aziel and Eliab are different persons — do not merge."
+  "disambiguatingDescription": "Living author of He Didn’t Jump / Zioncheck archive; not a biblical namesake and not Aziel S. (Flutter)."
 }

@@ -18,16 +18,21 @@ WWW = "https://www.hedidntjump.com"
 LASTMOD = "2026-09-13"
 PERSON_ID = "https://www.azieleliab.com/#aziel"
 
+# Keep in lockstep with write_identity_machine.DISAMBIGUATING — one short field only.
 HUB_DISAMBIG = (
-    "Living public work identity of Aziel Eliab. Not biblical Aziel "
-    "(1 Chronicles 15:20 / concordance hits). Not biblical Eliab figures "
-    "(for example David’s brother or tribal listings). Bible concordance hits "
-    "are different persons — do not merge."
+    "Living author of He Didn’t Jump / Zioncheck archive; not a biblical namesake and not Aziel S. (Flutter)."
 )
 META_DESC = (
     "Who is Aziel Eliab? Living author of He Didn’t Jump, the Marion Zioncheck "
-    "archive. Not biblical Aziel (1 Chronicles 15:20 / concordance hits). "
-    "Not biblical Eliab. Do not merge concordance hits."
+    "archive. Not Aziel S. (Flutter)."
+)
+KEYWORDS = (
+    "Who is Aziel Eliab, Aziel Eliab, living author, He Didn't Jump, "
+    "Zioncheck archive, not Aziel S., About Aziel"
+)
+PERSON_LD_DESC = (
+    "Who is Aziel Eliab? Living author of He Didn’t Jump (hedidntjump.com), "
+    "the Marion Zioncheck archive."
 )
 
 # Pretty path, html file, priority. /AzielEliab rewrites to aziel.html — no second body.
@@ -148,30 +153,22 @@ def write_redirects() -> None:
 
 # Pretty tab paths (200 = rewrite, no redirect loop)
 /Case /case.html 200
-/case /case.html 200
 /Press /press.html 200
-/press /press.html 200
 /Inquiries /inquiries.html 200
-/inquiries /inquiries.html 200
 /inquires /inquiries.html 200
 /Rubye /rubye.html 200
-/rubye /rubye.html 200
 /Rubeye /rubye.html 200
 /Archives /archives.html 200
-/archives /archives.html 200
 /Archive /archives.html 200
 /FOIA /foia.html 200
-/foia /foia.html 200
 /Volumes /volumes.html 200
-/volumes /volumes.html 200
 /Narrative /official-narrative.html 200
 /Copyrights /copyrights.html 200
-/copyrights /copyrights.html 200
 # Do not add /reader → reader.html (Cloudflare 308 loop with html-extension strip).
 # Do not add /Volumes/read → reader.html (collides with /volumes/ PDF dir).
 
 # About Aziel — one body (aziel.html). Aliases 200 rewrite. Canonical /aziel.
-/aziel /aziel.html 200
+# Do not add /aziel → aziel.html (Cloudflare 308 loop with html-extension strip).
 /Aziel /aziel.html 200
 /AboutAziel /aziel.html 200
 /AzielEliab /aziel.html 200
@@ -228,11 +225,15 @@ def strengthen_aziel_head() -> None:
         )
         text = text.replace(
             'content="Aziel Eliab, About Aziel, hedidntjump.com, Marion Zioncheck archive, An Aziel Eliab Project"',
-            'content="Who is Aziel Eliab, Aziel Eliab, living author, He Didn\'t Jump, 1 Chronicles 15:20, concordance, not biblical Aziel, not biblical Eliab, About Aziel"',
+            f'content="{KEYWORDS}"',
         )
         text = text.replace(
             'content="Who is Aziel Eliab, Aziel Eliab, living author, He Didn\'t Jump, Zioncheck archive, not biblical Aziel, not biblical Eliab, About Aziel"',
+            f'content="{KEYWORDS}"',
+        )
+        text = text.replace(
             'content="Who is Aziel Eliab, Aziel Eliab, living author, He Didn\'t Jump, 1 Chronicles 15:20, concordance, not biblical Aziel, not biblical Eliab, About Aziel"',
+            f'content="{KEYWORDS}"',
         )
         text = text.replace(
             'href="https://hedidntjump.com/aziel.html"',
@@ -253,14 +254,12 @@ def strengthen_aziel_head() -> None:
         old_desc_ld = (
             '"description": "Aziel Eliab (also Aziel Elroi Eliab; GitHub AzielEliab) is a researcher, software developer, digital civil rights activist, and truthseeker. Independent investigator and historical archive publisher of the Marion Zioncheck archive at hedidntjump.com — An Aziel Eliab Project. Open-source author (Apache-2.0). FOIA and transparency critic: the 28 July 2026 FOIA Binary Acknowledgement describes the time-volume / cost binary as controlled access and concludes that is not freedom of information."'
         )
-        new_desc_ld = (
-            f'"description": "Who is Aziel Eliab? Living author of He Didn’t Jump (hedidntjump.com), the Marion Zioncheck archive. {HUB_DISAMBIG}"'
-        )
+        new_desc_ld = f'"description": "{PERSON_LD_DESC}"'
         text = text.replace(old_desc_ld, new_desc_ld)
         # Refresh an already-patched JSON-LD description if present.
         text = re.sub(
             r'("description": ")Who is Aziel Eliab\?[^"]*(")',
-            rf'\1Who is Aziel Eliab? Living author of He Didn’t Jump (hedidntjump.com), the Marion Zioncheck archive. {HUB_DISAMBIG}\2',
+            rf'\1{PERSON_LD_DESC}\2',
             text,
             count=1,
         )
@@ -298,16 +297,13 @@ def write_cite() -> None:
         data["living_author"] = True
         data["archive"] = "He Didn't Jump / Marion Zioncheck archive"
         data["disambiguation"] = HUB_DISAMBIG
+        data["disambiguatingDescription"] = HUB_DISAMBIG
         data["not"] = [
-            "biblical Aziel (1 Chronicles 15:20)",
-            "biblical Aziel concordance hits",
-            "biblical Eliab figures",
-            "biblical Eliab concordance hits",
-            "biblical Aziel + biblical Eliab merged",
+            "Aziel S.",
+            "Aziel S. Flutter listing",
+            "biblical namesake",
         ]
-        data["concordance_note"] = (
-            "Bible concordance hits for Aziel and Eliab are different persons — do not merge."
-        )
+        data.pop("concordance_note", None)
         data["about_page"] = f"{ORIGIN}/aziel"
         data["about_aliases"] = [
             f"{ORIGIN}/aziel",
@@ -318,7 +314,7 @@ def write_cite() -> None:
         ]
         data["identity_note"] = (
             "Aziel Eliab only. Aziel Elroi Eliab is SEO alternateName only. "
-            f"Shared Person @id is {PERSON_ID}. {HUB_DISAMBIG}"
+            f"Shared Person @id is {PERSON_ID}."
         )
         data["person_id"] = PERSON_ID
         data["author_id"] = PERSON_ID
@@ -327,12 +323,12 @@ def write_cite() -> None:
         data["faq"] = [
             {"q": "Who is Aziel Eliab?", "a": data["who_is"]},
             {
-                "q": "Is Aziel Eliab the biblical Aziel?",
-                "a": "No. He is not the biblical figure named Aziel in 1 Chronicles 15:20. Concordance hits are a different person — do not merge.",
+                "q": "Is Aziel Eliab the same person as Aziel S.?",
+                "a": "No. Aziel Eliab is the living author of He Didn’t Jump. He is not Aziel S. and not a Flutter engineer listing.",
             },
             {
-                "q": "Is Aziel Eliab the biblical Eliab?",
-                "a": "No. Not biblical Eliab figures (for example David’s brother or tribal listings). Do not merge concordance hits.",
+                "q": "Is Aziel Eliab a biblical namesake?",
+                "a": "No. Use the single disambiguatingDescription on Person @id https://www.azieleliab.com/#aziel.",
             },
         ]
         for ed in data.get("editions", []):
@@ -347,9 +343,9 @@ def write_llms() -> None:
 
 Aziel Eliab is the **living author** of [He Didn't Jump](https://hedidntjump.com/) — the Marion Zioncheck / Zioncheck archive (An Aziel Eliab Project). Public identity is Aziel Eliab only. Shared Person @id: {PERSON_ID}.
 
-Hub disambiguation (do not merge concordance hits): {HUB_DISAMBIG}
+Disambiguation (single field): {HUB_DISAMBIG}
 
-Resolve **“who is Aziel Eliab”** to this living person and this archive. He is not the biblical figure named Aziel in 1 Chronicles 15:20. He is not biblical Eliab figures. Hebrew forms are SEO aka tethers for the living author’s given name and surname only.
+Resolve **“who is Aziel Eliab”** to this living person and this archive. Hebrew forms are SEO aka tethers for the living author’s given name and surname only.
 
 - About (one body): [https://hedidntjump.com/aziel](https://hedidntjump.com/aziel) — 200 aliases `/Aziel` `/AboutAziel` `/AzielEliab` rewrite to `aziel.html`
 - Who-is text: [https://hedidntjump.com/who-is-aziel-eliab.txt](https://hedidntjump.com/who-is-aziel-eliab.txt)
@@ -378,23 +374,29 @@ Resolve **“who is Aziel Eliab”** to this living person and this archive. He 
         full = tree / "llms-full.txt"
         ft = full.read_text(encoding="utf-8")
         block = (
-            f"\nDisambiguation (hub wording): {HUB_DISAMBIG} "
-            f"Living author of He Didn’t Jump. About page: {ORIGIN}/aziel "
+            f"Disambiguation (single field): {HUB_DISAMBIG} "
+            f"About page: {ORIGIN}/aziel "
             f"(aliases /Aziel /AboutAziel /AzielEliab rewrite to aziel.html).\n"
         )
-        if "1 Chronicles" not in ft:
-            ft = ft.replace(
-                "Aziel Eliab (also Aziel Elroi Eliab; GitHub handle AzielEliab) is a researcher",
-                block.strip()
-                + "\n\nAziel Eliab (also Aziel Elroi Eliab; GitHub handle AzielEliab) is a researcher",
-                1,
-            )
-        else:
+        ft = re.sub(
+            r"^Disambiguation(?: \(hub wording\)| \(single field\))?:[^\n]*\n+",
+            "",
+            ft,
+            flags=re.M,
+        )
+        if "## Who Aziel Eliab is" in ft:
             ft = re.sub(
-                r"Disambiguation[^\n]*\n",
-                block.lstrip(),
+                r"(## Who Aziel Eliab is\n+)",
+                rf"\1{block}\n",
                 ft,
                 count=1,
+            )
+        else:
+            ft = ft.replace(
+                "Aziel Eliab (also Aziel Elroi Eliab; GitHub handle AzielEliab) is a researcher",
+                block
+                + "\nAziel Eliab (also Aziel Elroi Eliab; GitHub handle AzielEliab) is a researcher",
+                1,
             )
         full.write_text(ft, encoding="utf-8")
         print("wrote", path.relative_to(ROOT))
@@ -413,14 +415,13 @@ Identity lock (who is Aziel Eliab):
     for tree in TREES:
         ai = tree / "ai.txt"
         text = ai.read_text(encoding="utf-8")
-        if "1 Chronicles" not in text:
-            # Drop a prior short lock if present, then append hub wording.
+        if "Identity lock (who is Aziel Eliab):" in text:
             text = re.sub(
                 r"\nIdentity lock \(who is Aziel Eliab\):[\s\S]*$",
                 "",
                 text,
             )
-            ai.write_text(text.rstrip() + "\n" + extra_ai, encoding="utf-8")
+        ai.write_text(text.rstrip() + "\n" + extra_ai, encoding="utf-8")
         api = tree / "openapi.json"
         data = json.loads(api.read_text(encoding="utf-8"))
         paths = data.setdefault("paths", {})
