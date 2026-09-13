@@ -13,6 +13,11 @@ FAQ_NAMES = {
     "What is He Didn’t Jump?",
     "Is Aziel Eliab the biblical Aziel?",
     "Is Aziel Eliab the biblical Eliab?",
+    "What does “The Record, Not the Verdict” mean?",
+    "Is He Didn’t Jump a shrine or a theory blog?",
+    "What is the official jump line versus the published record?",
+    "What is ZionPattern Solver’s 75% hard cap?",
+    "What does “I am temporary. The truth is not.” mean?",
 }
 
 
@@ -45,6 +50,14 @@ def main() -> None:
         assert stats in who
         assert "biblical Aziel" in who
         assert "biblical Eliab" in who
+        assert "The Record, Not the Verdict" in person["description"]
+        assert "75%" in person["description"]
+        about = next(n for n in graph["@graph"] if n.get("@type") == "AboutPage")
+        assert about["url"] == "https://www.hedidntjump.com/aziel.html"
+        assert "person.jsonld" in "".join(about["significantLink"])
+        assert well["aboutPage"] == "https://www.hedidntjump.com/aziel.html"
+        assert well["motto"] == "The Record, Not the Verdict."
+        assert "I am temporary" in who
 
         sitemap = (ROOT / tree / "sitemap.xml").read_text(encoding="utf-8")
         headers = (ROOT / tree / "_headers").read_text(encoding="utf-8")

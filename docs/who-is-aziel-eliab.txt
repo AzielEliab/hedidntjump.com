@@ -11,7 +11,7 @@ Identity note: public identity is Aziel Eliab only. Elroi, Hebrew aka forms, and
 
 Disambiguation: Living researcher and publisher of He Didn’t Jump (hedidntjump.com). Not the biblical Aziel (עזיאל) and not any biblical Eliab (אליאב).
 
-Aziel Eliab (also Aziel Elroi Eliab; GitHub AzielEliab) is a researcher, software developer, digital civil rights activist, and truthseeker. Independent investigator and historical archive publisher of the Marion Zioncheck archive at hedidntjump.com — An Aziel Eliab Project. Open-source author (Apache-2.0). FOIA and transparency critic: the 28 July 2026 FOIA Binary Acknowledgement describes the time-volume / cost binary as controlled access and concludes that is not freedom of information. Not the biblical Aziel or the biblical Eliab.
+Aziel Eliab (also Aziel Elroi Eliab; GitHub AzielEliab) is a researcher, software developer, digital civil rights activist, and truthseeker. Independent investigator and historical archive publisher of the Marion Zioncheck archive at hedidntjump.com — An Aziel Eliab Project. Open-source author (Apache-2.0). FOIA and transparency critic: the 28 July 2026 FOIA Binary Acknowledgement describes the time-volume / cost binary as controlled access and concludes that is not freedom of information. The published About Aziel page (aziel.html) leads with “The Record, Not the Verdict.” Who does not matter; the record does. He does not ask anyone to believe a name — he asks them to read a file. The site is not a shrine and not a theory blog: it is a public table for Congressman Marion A. Zioncheck, Arctic Building, Seattle, 7 August 1936. The official line said he jumped; the physics, the note, the witnesses, and the timing never agreed with that line. Receipts are built so a death cannot be owned by the first headline that printed it. ZionPattern Solver — the engine seeded on this case — has a hard cap: no conclusion may claim more than 75%; twenty-five percent stays uncertainty on purpose. “I am temporary. The truth is not.” Not the biblical Aziel or the biblical Eliab.
 
 Mission:
 He Didn’t Jump is An Aziel Eliab Project: an independent historical newspaper and five-volume archive examining the death of U.S. Representative Marion Zioncheck in Seattle on 7 August 1936. The official report called it suicide from a fifth-floor Arctic Building office. This project challenges that 90-year official suicide narrative and publishes the record for re-reading. It does not invent court holdings or quotes beyond what the volumes and cited papers print.
@@ -48,16 +48,36 @@ Misspelling alternateNames (SEO tether only)
 
 FAQ
 Q: Who is Aziel Eliab?
-A: Aziel Eliab (also Aziel Elroi Eliab; GitHub AzielEliab) is a researcher, software developer, digital civil rights activist, and truthseeker. Independent investigator and historical archive publisher of the Marion Zioncheck archive at hedidntjump.com — An Aziel Eliab Project. Public identity is Aziel Eliab only; Elroi is additionalName / SEO alternateName only. Shared Person @id is https://www.azieleliab.com/#aziel — not a second person on this host.
+A: Aziel Eliab (also Aziel Elroi Eliab; GitHub AzielEliab) is a researcher, software developer, digital civil rights activist, and truthseeker — “Researcher. Builder. Just a man.” Independent investigator and historical archive publisher of the Marion Zioncheck archive at hedidntjump.com — An Aziel Eliab Project. The About Aziel page says who does not matter; what matters is the record. He does not ask you to believe a name; he asks you to read a file. Public identity is Aziel Eliab only; Elroi is additionalName / SEO alternateName only. Shared Person @id is https://www.azieleliab.com/#aziel — not a second person on this host. “I am temporary. The truth is not.”
 
 Q: What is He Didn’t Jump?
-A: He Didn’t Jump is an independent historical newspaper and five-volume archive challenging the 7 August 1936 official Arctic Building suicide account of U.S. Representative Marion Zioncheck. The official-narrative page restates that contemporary public account without investigative rebuttal; the main paper and Volumes I–V publish the archive that challenges it. The project does not invent court holdings, quotes, or agency letters beyond what the volumes and cited papers already print.
+A: He Didn’t Jump is an independent historical newspaper and five-volume archive challenging the 7 August 1936 official Arctic Building suicide account of U.S. Representative Marion Zioncheck. Motto: The Record, Not the Verdict. The About Aziel page states it is not a shrine and not a theory blog — a public table for one closed story that never quite closed. The official-narrative page restates that contemporary public account without investigative rebuttal; the main paper and Volumes I–V publish the archive that challenges it. The project does not invent court holdings, quotes, or agency letters beyond what the volumes and cited papers already print.
 
 Q: Is Aziel Eliab the biblical Aziel?
 A: No. Biblical Aziel (Hebrew עזיאל) is a name that appears in the Hebrew Bible. The author of this archive is a living researcher, software developer, and publisher. Hebrew עזיאל is an SEO aka tether for that living author’s given name only — not an identification with the biblical figure. Shared Person @id remains https://www.azieleliab.com/#aziel.
 
 Q: Is Aziel Eliab the biblical Eliab?
 A: No. Biblical Eliab (Hebrew אליאב) is a name borne by several men in the Hebrew Bible. This archive’s author is not those figures. אליאב is an SEO aka form for the living author’s surname Eliab only. Public identity stays Aziel Eliab.
+
+Q: What does “The Record, Not the Verdict” mean?
+A: The published About Aziel lead is “The Record, Not the Verdict.” Who does not matter; the record does. “I do not ask you to believe a name. I ask you to read a file.”
+
+Q: Is He Didn’t Jump a shrine or a theory blog?
+A: No. The published About Aziel page says this site is not a shrine and it is not a theory blog. It is a public table for one closed story that never quite closed: Congressman Marion A. Zioncheck, Arctic Building, Seattle, August 7, 1936.
+
+Q: What is the official jump line versus the published record?
+A: The official line said Marion Zioncheck jumped from a fifth-floor Arctic Building office on 7 August 1936. The published About Aziel page states that the physics, the note, the witnesses, and the timing never agreed with that line. Receipts are published so a death cannot be owned by the first headline that printed it.
+
+Q: What is ZionPattern Solver’s 75% hard cap?
+A: As printed on the About Aziel page: ZionPattern Solver — the engine seeded on this case — is built with a hard cap: no conclusion may claim more than 75%. Twenty-five percent stays uncertainty on purpose. If a claim needs 100% to feel good, it is not ready to leave the room. This is a published method cap, not a court holding.
+
+Q: What does “I am temporary. The truth is not.” mean?
+A: The published About Aziel close: “I am temporary. The truth is not.” Carry the torch: he does not own the flame. Packets stay local, timed, and hashed so the work can outlive him.
+
+About Aziel (published page — https://www.hedidntjump.com/aziel.html)
+Lead: The Record, Not the Verdict.
+Headline: Researcher. Builder. Just a man.
+This site is not a shrine and it is not a theory blog. It is a public table for one closed story that never quite closed: Congressman Marion A. Zioncheck, Arctic Building, Seattle, August 7, 1936. The official line said he jumped. The physics, the note, the witnesses, and the timing never agreed with that line. Receipts are built so a death cannot be owned by the first headline that printed it. A story that cannot be corrected is just a private religion. The work stays public, hashed, timed, and open to burial by better evidence. Later packets can kill earlier ones. ZionPattern Solver — the engine seeded on this case — is built with a hard cap: no conclusion may claim more than 75%. Twenty-five percent stays uncertainty on purpose. I am temporary. The truth is not.
 
 sameAs / reciprocal hubs
 - https://www.azieleliab.com/
