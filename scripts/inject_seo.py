@@ -16,7 +16,7 @@ def dumps(obj) -> str:
 
 
 DONATE_URL = "https://www.azieleliab.com/donate?v=png"
-PERSON_ID = "https://www.azieleliab.com/#aziel"
+PERSON_ID = f"{ORIGIN}/#aziel-eliab"
 ORG_ID = f"{ORIGIN}/#organization"
 
 SAME_AS = [
@@ -50,41 +50,8 @@ PERSON = {
     "@type": "Person",
     "@id": PERSON_ID,
     "name": "Aziel Eliab",
-    "alternateName": [
-        "Aziel Elroi Eliab",
-        "AzielEliab",
-        "עזיאל",
-        "אל ראי",
-        "אלרועי",
-        "אליאב",
-        "עזיאל אל ראי אליאב",
-        "עזיאל אלרועי אליאב",
-        "Aziel Eliah",
-        "Aziel Elijah",
-        "Aziel Elia",
-        "Asiel Eliab",
-        "Azael Eliab",
-        "Azial Eliab",
-        "Aziel Eilab",
-        "Aziel Elyab",
-        "Aziel Elieab",
-        "Aziel Eliabb",
-        "Aziel Eliaab",
-        "Aziel Elaib",
-        "Aziel-Eliab",
-        "azieleliab",
-        "Aziel Elroy Eliab",
-        "Aziel El-Roi Eliab",
-        "Aziel El Roi Eliab",
-        "Aziel Elroie Eliab",
-        "Aziel Elroei Eliab",
-        "Aziel Eliab Elroi",
-    ],
+    "alternateName": ["Aziel Elroi Eliab", "AzielEliab"],
     "additionalName": "Elroi",
-    "disambiguatingDescription": (
-        "Living researcher and publisher of He Didn’t Jump (hedidntjump.com). "
-        "Not the biblical Aziel (עזיאל) and not any biblical Eliab (אליאב)."
-    ),
     "url": "https://www.azieleliab.com/",
     "jobTitle": [
         "Researcher",
@@ -217,7 +184,7 @@ SOFTWARE = {
     "codeRepository": "https://github.com/AzielEliab/hedidntjump.com",
     "license": "https://www.apache.org/licenses/LICENSE-2.0",
     "programmingLanguage": ["HTML", "CSS", "JavaScript"],
-    "author": {"@id": PERSON_ID},
+    "author": {"@id": f"{ORIGIN}/#aziel-eliab"},
 }
 
 
@@ -371,7 +338,7 @@ def write_index():
                 "dateModified": LASTMOD,
                 "inLanguage": "en",
                 "isAccessibleForFree": True,
-                "author": {"@id": PERSON_ID},
+                "author": {"@id": f"{ORIGIN}/#aziel-eliab"},
                 "publisher": {"@id": f"{ORIGIN}/#organization"},
                 "isPartOf": {"@id": f"{ORIGIN}/#website"},
                 "about": [
@@ -467,7 +434,7 @@ def write_rubye():
                 "dateModified": LASTMOD,
                 "inLanguage": "en",
                 "isAccessibleForFree": True,
-                "author": {"@id": PERSON_ID},
+                "author": {"@id": f"{ORIGIN}/#aziel-eliab"},
                 "publisher": {"@id": f"{ORIGIN}/#organization"},
                 "isPartOf": {"@id": f"{ORIGIN}/#website"},
                 "about": [
@@ -564,7 +531,7 @@ def write_foia():
                 "inLanguage": "en",
                 "isAccessibleForFree": True,
                 "citation": "https://www.foia.gov/",
-                "author": {"@id": PERSON_ID},
+                "author": {"@id": f"{ORIGIN}/#aziel-eliab"},
                 "publisher": {"@id": f"{ORIGIN}/#organization"},
                 "isPartOf": {"@id": f"{ORIGIN}/#website"},
                 "about": [
@@ -655,7 +622,7 @@ def write_official():
                 "dateModified": LASTMOD,
                 "inLanguage": "en",
                 "isAccessibleForFree": True,
-                "author": {"@id": PERSON_ID},
+                "author": {"@id": f"{ORIGIN}/#aziel-eliab"},
                 "publisher": {"@id": f"{ORIGIN}/#organization"},
                 "isPartOf": {"@id": f"{ORIGIN}/#website"},
                 "about": [

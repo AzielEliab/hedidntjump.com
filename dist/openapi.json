@@ -192,56 +192,6 @@
         }
       }
     },
-    "/person.jsonld": {
-      "get": {
-        "summary": "Shared Person lock (https://www.azieleliab.com/#aziel)",
-        "responses": {
-          "200": {
-            "description": "application/ld+json"
-          }
-        }
-      }
-    },
-    "/identity.jsonld": {
-      "get": {
-        "summary": "Identity lock + mission",
-        "responses": {
-          "200": {
-            "description": "application/ld+json"
-          }
-        }
-      }
-    },
-    "/graph.jsonld": {
-      "get": {
-        "summary": "Person + archive + FAQ graph",
-        "responses": {
-          "200": {
-            "description": "application/ld+json"
-          }
-        }
-      }
-    },
-    "/who-is-aziel-eliab.txt": {
-      "get": {
-        "summary": "Who is Aziel Eliab / What is He Didn’t Jump",
-        "responses": {
-          "200": {
-            "description": "text/plain"
-          }
-        }
-      }
-    },
-    "/.well-known/aziel.json": {
-      "get": {
-        "summary": "Well-known Aziel identity lock",
-        "responses": {
-          "200": {
-            "description": "application/json"
-          }
-        }
-      }
-    },
     "/openapi.json": {
       "get": {
         "summary": "This OpenAPI document",
