@@ -1917,23 +1917,18 @@ body[data-stats-page="landing"] .portrait.portrait-lead-full[data-motion-plate] 
   gap:0 !important;
 }
 
-/* five-story leap plate (controls, no autoplay — packet rule) */
+/* five-story leap — same autoplay motion-plate stack as Marion/bogeyman */
 body[data-stats-page="landing"] #plate-five-story-leap-motion{
   height:auto !important;
   max-height:none !important;
   overflow:visible !important;
   margin:8px 0 10px !important;
   width:100% !important;
+  aspect-ratio:auto;
 }
-body[data-stats-page="landing"] #plate-five-story-leap-motion video{
-  display:block;
-  width:100%;
-  height:auto;
-  background:#111;
+body[data-stats-page="landing"] #plate-five-story-leap-motion .lead-motion-poster,
+body[data-stats-page="landing"] #plate-five-story-leap-motion .lead-motion-video{
   aspect-ratio:4/3;
-}
-body[data-stats-page="landing"] #plate-five-story-leap-motion figcaption{
-  margin-top:4px !important;
-  padding-bottom:4px !important;
-  gap:3px !important;
+  object-fit:contain;
+  background:#111;
 }
