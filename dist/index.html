@@ -46,7 +46,7 @@
 <meta name="twitter:image:alt" content="He Didn't Jump masthead beside a Marion Zioncheck archive portrait">
 <meta name="hdj-stats-api" content="https://hedidntjump-stats.vibelock.workers.dev">
 <link rel="stylesheet" href="/assets/fonts/fonts.css?v=1789258322">
-<link rel="stylesheet" href="/style.css?v=1789265000">
+<link rel="stylesheet" href="/style.css?v=1789265600">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <script src="/stats.js?v=1789262500" defer></script>
 <script type="application/ld+json">
@@ -421,13 +421,29 @@
 <p class="deck" id="lead-deck">The death of Marion Zioncheck. The record deserves another reading.</p>
                         <figure class="portrait portrait-lead-full portrait-lead-motion" data-motion-plate>
         <img
-          class="lead-motion lead-motion-anim"
-          src="/assets/video/marion-rubye-together.anim.webp"
-          width="540"
-          height="304"
+          class="lead-motion lead-motion-poster"
+          src="/assets/video/marion-rubye-together-poster.v3.webp"
+          width="720"
+          height="404"
           alt="Marion A. Zioncheck with Rubye Louise Nix — interpretive motion plate, generated 2026"
           decoding="async"
           fetchpriority="high">
+        <video
+          class="lead-motion lead-motion-video"
+          src="/assets/video/marion-rubye-together.loop.v3.mp4"
+          poster="/assets/video/marion-rubye-together-poster.v3.webp"
+          muted
+          defaultMuted
+          autoplay
+          loop
+          playsinline
+          webkit-playsinline
+          preload="auto"
+          width="720"
+          height="404"
+          aria-label="Interpretive motion plate: Marion Zioncheck and Rubye Louise Nix"
+          disablepictureinpicture
+          controlslist="nodownload nofullscreen noremoteplayback"></video>
         <figcaption>
           <span>Marion and Rubye</span>
           <span>Interpretive motion plate, generated 2026, silent · built from the published last picture of congressman and bride · not a 1936 newsreel · not Volume II source</span>
@@ -491,15 +507,32 @@
 
 
 
+
 <figure class="portrait portrait-lead-full portrait-footer-motion" id="plate-bogeyman-disguise-motion" data-motion-plate>
         <img
-          class="lead-motion lead-motion-anim"
-          src="/assets/video/bogeyman-disguise.anim.webp"
-          width="540"
-          height="304"
+          class="lead-motion lead-motion-poster"
+          src="/assets/video/bogeyman-disguise-poster.v3.webp"
+          width="720"
+          height="404"
           alt="Bogeyman of Washington Politics tries on disguise — interpretive motion plate, generated 2026"
           decoding="async"
           loading="lazy">
+        <video
+          class="lead-motion lead-motion-video"
+          src="/assets/video/bogeyman-disguise.loop.v3.mp4"
+          poster="/assets/video/bogeyman-disguise-poster.v3.webp"
+          muted
+          defaultMuted
+          autoplay
+          loop
+          playsinline
+          webkit-playsinline
+          preload="auto"
+          width="720"
+          height="404"
+          aria-label="Interpretive motion plate: Bogeyman of Washington Politics tries on disguise"
+          disablepictureinpicture
+          controlslist="nodownload nofullscreen noremoteplayback"></video>
         <figcaption>
           <span>‘Bogeyman of Washington Politics’ Tries on Disguise</span>
           <span>Interpretive motion plate, generated 2026 · not a 1936 newsreel · not Volume II source</span>
@@ -530,6 +563,53 @@
 
 
 
+
+
+<script>
+(function () {
+  function arm(fig) {
+    if (fig.getAttribute('data-armed') === '1') return;
+    fig.setAttribute('data-armed', '1');
+    var v = fig.querySelector('video.lead-motion-video');
+    if (!v) return;
+    v.muted = true;
+    v.defaultMuted = true;
+    v.volume = 0;
+    v.loop = true;
+    v.playsInline = true;
+    v.controls = false;
+    v.setAttribute('muted', '');
+    v.setAttribute('playsinline', '');
+    v.setAttribute('webkit-playsinline', '');
+    v.setAttribute('autoplay', '');
+    var shown = false;
+    function show() {
+      if (shown) return;
+      shown = true;
+      fig.classList.add('is-playing');
+    }
+    function kick() {
+      v.muted = true;
+      v.volume = 0;
+      var p = v.play();
+      if (p && p.then) p.then(show).catch(function () {});
+      else if (!v.paused) show();
+    }
+    v.addEventListener('playing', show);
+    v.addEventListener('timeupdate', function () { if (v.currentTime > 0.01) show(); });
+    ['canplay', 'loadeddata', 'loadedmetadata'].forEach(function (e) { v.addEventListener(e, kick); });
+    kick();
+    var n = 0, t = setInterval(function () { kick(); if (shown || ++n > 60) clearInterval(t); }, 200);
+    function unlock() { kick(); }
+    ['pointerdown','touchstart','scroll','keydown','click'].forEach(function (e) {
+      window.addEventListener(e, unlock, { capture: true, passive: true });
+    });
+  }
+  function run() { document.querySelectorAll('figure[data-motion-plate]').forEach(arm); }
+  run();
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run);
+})();
+</script>
 
 </body>
 </html>
