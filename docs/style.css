@@ -1855,3 +1855,17 @@ body[data-stats-page="landing"] video.lead-motion::-webkit-media-controls-start-
   width:0;
   height:0;
 }
+
+
+body[data-stats-page="landing"] .portrait.portrait-lead-full img.lead-motion{
+  display:block;
+  width:100%;
+  height:auto;
+  max-width:100%;
+  margin:0;
+  padding:0;
+  border:0;
+  background:#111;
+  object-fit:contain;
+  pointer-events:none;
+}
