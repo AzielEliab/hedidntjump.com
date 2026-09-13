@@ -1932,3 +1932,7 @@ body[data-stats-page="landing"] #plate-five-story-leap-motion .lead-motion-video
   object-fit:contain;
   background:#111;
 }
+
+body[data-stats-page="landing"] #plate-five-story-leap-motion{
+  margin-bottom:4px !important;
+}
