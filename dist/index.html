@@ -46,7 +46,7 @@
 <meta name="twitter:image:alt" content="He Didn't Jump masthead beside a Marion Zioncheck archive portrait">
 <meta name="hdj-stats-api" content="https://hedidntjump-stats.vibelock.workers.dev">
 <link rel="stylesheet" href="/assets/fonts/fonts.css?v=1789258322">
-<link rel="stylesheet" href="/style.css?v=1789262600">
+<link rel="stylesheet" href="/style.css?v=1789262700">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <script src="/stats.js?v=1789262500" defer></script>
 <script type="application/ld+json">
@@ -419,10 +419,11 @@
     <article class="lead">
                   </div>
 <p class="deck" id="lead-deck">The death of Marion Zioncheck. The record deserves another reading.</p>
-                        <figure class="portrait portrait-lead-full portrait-lead-motion">
+                        <figure class="portrait portrait-lead-full portrait-lead-motion" data-motion-plate>
         <img
-          class="lead-motion"
-          src="/assets/video/marion-rubye-together.anim.webp"
+          class="lead-motion lead-motion-frame"
+          src="/assets/video/marion-rubye-together-poster.webp"
+          data-anim="/assets/video/marion-rubye-together.anim.webp"
           width="640"
           height="360"
           alt="Marion A. Zioncheck with Rubye Louise Nix — interpretive motion plate, generated 2026"
@@ -487,10 +488,12 @@
 
 
 
-<figure class="portrait portrait-lead-full portrait-footer-motion" id="plate-bogeyman-disguise-motion">
+
+<figure class="portrait portrait-lead-full portrait-footer-motion" id="plate-bogeyman-disguise-motion" data-motion-plate>
         <img
-          class="lead-motion footer-motion"
-          src="/assets/video/bogeyman-disguise.anim.webp"
+          class="lead-motion lead-motion-frame"
+          src="/assets/video/bogeyman-disguise-poster.webp"
+          data-anim="/assets/video/bogeyman-disguise.anim.webp"
           width="640"
           height="360"
           alt="Bogeyman of Washington Politics tries on disguise — interpretive motion plate, generated 2026"
@@ -518,6 +521,37 @@
 
 
 
+
+
+<script>
+(function () {
+  var BUFFER_MS = 1000;
+  function armPlate(fig) {
+    var img = fig.querySelector('img.lead-motion-frame[data-anim]');
+    if (!img) return;
+    var animUrl = img.getAttribute('data-anim');
+    if (!animUrl) return;
+    var started = Date.now();
+    var pre = new Image();
+    pre.decoding = 'async';
+    function reveal() {
+      var wait = Math.max(0, BUFFER_MS - (Date.now() - started));
+      setTimeout(function () {
+        img.src = animUrl;
+        img.classList.add('is-animating');
+      }, wait);
+    }
+    pre.onload = reveal;
+    pre.onerror = function () { /* keep poster */ };
+    pre.src = animUrl;
+  }
+  function run() {
+    document.querySelectorAll('figure[data-motion-plate]').forEach(armPlate);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run);
+  else run();
+})();
+</script>
 
 </body>
 </html>
