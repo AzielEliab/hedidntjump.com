@@ -1845,3 +1845,13 @@ body[data-stats-page="landing"] .portrait.portrait-footer-motion{
   padding:0 .75rem;
   box-sizing:border-box;
 }
+
+
+body[data-stats-page="landing"] video.lead-motion::-webkit-media-controls-start-playback-button{
+  display:none !important;
+  -webkit-appearance:none;
+  opacity:0;
+  pointer-events:none;
+  width:0;
+  height:0;
+}
