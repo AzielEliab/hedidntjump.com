@@ -102,7 +102,7 @@
         }
       }
     },
-    "/Volumes/read": {
+    "/reader": {
       "get": {
         "summary": "In-site facsimile volume reader",
         "responses": {

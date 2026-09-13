@@ -73,7 +73,7 @@ United States-facing historical-research notice. Nonprofit research and comment;
 
 ## Reader
 
-Landing: https://hedidntjump.com/Volumes (five purpose cards). Reader: https://hedidntjump.com/Volumes/read?volume=1 through volume=5, also https://hedidntjump.com/reader.html?volume=1. Old /Volumes?volume=N&page=P links hand off to the reader. Static WebP pages under /assets/v{N}/{page}.webp. JavaScript only changes the visible page; PDFs work without it.
+Landing: https://hedidntjump.com/Volumes (five purpose cards). Reader: https://hedidntjump.com/reader?volume=1 through volume=5, also https://hedidntjump.com/reader.html?volume=1. Old /Volumes?volume=N&page=P links hand off to the reader. Static WebP pages under /assets/v{N}/{page}.webp. JavaScript only changes the visible page; PDFs work without it.
 
 ## Knowledge-graph hints
 
