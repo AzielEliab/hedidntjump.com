@@ -68,7 +68,7 @@ COLD-MULTI-SHELF-1.0 (AZindex; sister cite of live corpus /shelves):
 - Growth-ON. NO-FAN. Machine only. No visible 15:20.
 - REDLINE doors/refuse: FragGate single door; CNS-PLANE-B-ALL-TARGETS; CNS-GITFLIC-EMAIL; CNS-GITLAB-CF-LOOP; CNS-ZENODO-IP-BAN; FL-TIP-FOLD-REFUSE
 - Plane A: 5 surfaces / 2 family radii (cloudflare + github). This host is one CF mirror, not a fifth shelf.
-- Plane B ALL-TARGETS: Codeberg + archive.org + Framagit; tip-pack b549362c0736ddb54ddc488812327c464e0da1167281f92fd1a4263eedf5df37 PASS (https://archive.org/details/aziel-lockset-tip); Framagit URL null; GitFlic CNS-GITFLIC-EMAIL; GitLab CNS-GITLAB-CF-LOOP; still SLOT (CNS-PLANE-B-ALL-TARGETS); Zenodo CNS-ZENODO-IP-BAN doi null
+- Plane B ALL-TARGETS: Codeberg + archive.org + Framagit; tip-pack b549362c0736ddb54ddc488812327c464e0da1167281f92fd1a4263eedf5df37 PASS (https://archive.org/details/aziel-lockset-tip + https://archive.org/details/aziel-lockset-tip_202609, same blast_radius; zip wrap on 202609 — flat IA sha256 may be null; inner tar hash-verifies); Framagit URL null; GitFlic CNS-GITFLIC-EMAIL; GitLab CNS-GITLAB-CF-LOOP; still SLOT (CNS-PLANE-B-ALL-TARGETS); Zenodo CNS-ZENODO-IP-BAN doi null
 - Plane C: USB attest SLOT (CNS-OPERATOR-ATTEST)
 - Cap-7: design_of + resolves_to_hub:false (hedidntjump design_of https://www.hedidntjump.com/)
 - FoldLock: tip-safe cite only; never fold c831429befc221bd41caeb0a6d1c5361602db5684abab7af6d39714084b6b245

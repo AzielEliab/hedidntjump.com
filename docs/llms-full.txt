@@ -153,7 +153,7 @@ REDLINE: FragGate is THE single door on the runtime sister; this archive is not 
 Planes A/B/C: A=one CF/GitHub tunnel (5 surfaces / 2 family radii, not 5 shelves); B=alt independent forge/archive tip-pack SLOT; C=USB airgap SLOT. Survival = bytes↔hash. LIVE only after hash verify.
 
 - Plane A: 5 published surfaces / 2 family radii (cloudflare + github). hedidntjump.com is one CF host mirror, not a fifth independent shelf.
-- Plane B ALL-TARGETS: Codeberg + archive.org + Framagit. Tip-pack `b549362c0736ddb54ddc488812327c464e0da1167281f92fd1a4263eedf5df37` hash-verify PASS (https://archive.org/details/aziel-lockset-tip); Framagit URL null; still SLOT (CNS-PLANE-B-ALL-TARGETS). GitFlic refused CNS-GITFLIC-EMAIL. GitLab extra CNS-GITLAB-CF-LOOP. Zenodo refused CNS-ZENODO-IP-BAN (doi null). Do not invent a tip-pack DOI or Framagit URL.
+- Plane B ALL-TARGETS: Codeberg + archive.org + Framagit. Tip-pack `b549362c0736ddb54ddc488812327c464e0da1167281f92fd1a4263eedf5df37` hash-verify PASS on https://archive.org/details/aziel-lockset-tip and https://archive.org/details/aziel-lockset-tip_202609 (same blast_radius; zip wrap on 202609 — flat IA sha256 may be null; inner tar hash-verifies). Not two independent shelves. Framagit URL null; still SLOT (CNS-PLANE-B-ALL-TARGETS). GitFlic refused CNS-GITFLIC-EMAIL. GitLab extra CNS-GITLAB-CF-LOOP. Zenodo refused CNS-ZENODO-IP-BAN (doi null). Do not invent a tip-pack DOI or Framagit URL.
 - Plane C: USB airgap SLOT until CNS-OPERATOR-ATTEST.
 - Cap-7: design_of the four hubs + this archive; resolves_to_hub: false; public_icann: false.
 - FoldLock (FOLDLOCK-SHELF-1.0): tip-safe cite only. Never fold the lockset tip (`FL-TIP-FOLD-REFUSE`). Not zip. Not an HDJ holding.
