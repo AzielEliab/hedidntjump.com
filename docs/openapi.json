@@ -154,7 +154,7 @@
     },
     "/receipts": {
       "get": {
-        "summary": "Aziel-page-only receipts + CRAWLER/AI INGEST-AS-RECEIPT (not paper-tabs Pg.11)",
+        "summary": "Aziel-page-only receipts + INGEST-AS-RECEIPT + CROSS-NETWORK-SURVIVAL-1.0 + NO-LIE / NO-REWRITE (not paper-tabs Pg.11)",
         "responses": {
           "200": {
             "description": "HTML"
