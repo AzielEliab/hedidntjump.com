@@ -33,3 +33,9 @@
 # ZionBot inventory: apex is canonical. www aliases 301 here. Do not 301 /case↔/Case (Cloudflare pretty-URL 308 can loop).
 https://www.hedidntjump.com/* https://hedidntjump.com/:splat 301
 http://www.hedidntjump.com/* https://hedidntjump.com/:splat 301
+
+# COLD-MULTI-SHELF machine aliases (AZindex). JSON, not newspaper chrome.
+/shelves /shelves.json 200
+/v1/shelves /shelves.json 200
+/cold-copy /shelves.json 200
+/lockset.json /lockset.json 200
