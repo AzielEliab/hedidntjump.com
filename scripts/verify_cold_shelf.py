@@ -13,6 +13,9 @@ if str(ROOT / "scripts") not in sys.path:
     sys.path.insert(0, str(ROOT / "scripts"))
 
 from write_cold_shelf import (
+    ARCHIVE_ORG_DOWNLOAD,
+    ARCHIVE_ORG_IDENTIFIER,
+    ARCHIVE_ORG_ITEM,
     ARCHIVE_ORG_URL,
     CANON_SHELVES,
     CAP7,
@@ -97,9 +100,13 @@ def main() -> None:
         assert shelves["planes"]["B"]["codeberg_tip_pack"]["hash_verify"] == "pass"
         assert shelves["planes"]["B"]["codeberg_tip_pack"]["status"] == "slot"
         assert shelves["planes"]["B"]["archive_org_tip_pack"]["url"] == ARCHIVE_ORG_URL
+        assert shelves["planes"]["B"]["archive_org_tip_pack"]["identifier"] == ARCHIVE_ORG_IDENTIFIER
+        assert shelves["planes"]["B"]["archive_org_tip_pack"]["item"] == ARCHIVE_ORG_ITEM
+        assert shelves["planes"]["B"]["archive_org_tip_pack"]["download_base"] == ARCHIVE_ORG_DOWNLOAD
         assert shelves["planes"]["B"]["archive_org_tip_pack"]["pack_sha256"] == CODEBERG_PACK
         assert shelves["planes"]["B"]["archive_org_tip_pack"]["hash_verify"] == "pass"
         assert shelves["planes"]["B"]["archive_org_tip_pack"]["status"] == "slot"
+        assert shelves["planes"]["B"]["archive_org_tip_pack"]["live_ready"] is False
         assert "archive.org + GitFlic" not in shelves["planes"]["B"]["note"]
         assert "GitFlic RU unverified" in shelves["planes"]["B"]["note"]
         assert shelves["planes"]["C"]["status"] == "slot"
@@ -122,13 +129,17 @@ def main() -> None:
         assert codeberg["hash_verify"] == "pass"
         archive = next(s for s in shelves["registry"]["shelves"] if s["id"] == "plane-b-archive-org-tip-pack")
         assert archive["url"] == ARCHIVE_ORG_URL
-        assert archive["item"] == "aziel-lockset-tip"
+        assert archive["identifier"] == ARCHIVE_ORG_IDENTIFIER
+        assert archive["item"] == ARCHIVE_ORG_ITEM
+        assert archive["download_base"] == ARCHIVE_ORG_DOWNLOAD
         assert archive["pack_sha256"] == CODEBERG_PACK
         assert archive["hash_verify"] == "pass"
         assert archive["status"] == "slot"
+        assert archive["live_ready"] is False
         assert archive["doi"] is None
         assert archive["refuse"] == "CNS-PLANE-B-ALL-TARGETS"
         assert archive.get("refuse") != "CNS-NO-WARC"
+        assert archive["status"] != "live"
         gitflic = next(s for s in shelves["registry"]["shelves"] if s["id"] == "plane-b-gitflic-ru-tip-pack")
         assert gitflic["url"] is None
         assert gitflic["status"] == "slot"
@@ -158,10 +169,15 @@ def main() -> None:
         assert cite["independent_live_count"] == 1
         assert cite["planes"]["B"]["codeberg_tip_pack"]["pack_sha256"] == CODEBERG_PACK
         assert cite["planes"]["B"]["archive_org_tip_pack"]["url"] == ARCHIVE_ORG_URL
+        assert cite["planes"]["B"]["archive_org_tip_pack"]["identifier"] == ARCHIVE_ORG_IDENTIFIER
         assert cite["planes"]["B"]["archive_org_tip_pack"]["hash_verify"] == "pass"
+        assert cite["planes"]["B"]["archive_org_tip_pack"]["status"] == "slot"
         assert "archive.org + GitFlic" not in cite["planes"]["B"]["note"]
         assert cite["archive_org_tip_pack"]["url"] == ARCHIVE_ORG_URL
+        assert cite["archive_org_tip_pack"]["identifier"] == ARCHIVE_ORG_IDENTIFIER
+        assert cite["archive_org_tip_pack"]["download_base"] == ARCHIVE_ORG_DOWNLOAD
         assert cite["archive_org_tip_pack"]["hash_verify"] == "pass"
+        assert cite["archive_org_tip_pack"]["status"] == "slot"
         assert cite["zenodo_tip_pack"]["refuse"] == "CNS-ZENODO-IP-BAN"
         assert cite["zenodo_tip_pack"]["doi"] is None
         assert cite["cap7_sites"]["hedidntjump"]["resolves_to_hub"] is False

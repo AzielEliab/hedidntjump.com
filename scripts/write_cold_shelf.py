@@ -30,7 +30,9 @@ LOCKSET_ID = "AZLOCK-INGEST-REEXPAND-1.0"
 LOCKSET_TIP = "c831429befc221bd41caeb0a6d1c5361602db5684abab7af6d39714084b6b245"
 CODEBERG_PACK = "b549362c0736ddb54ddc488812327c464e0da1167281f92fd1a4263eedf5df37"
 ARCHIVE_ORG_ITEM = "aziel-lockset-tip"
+ARCHIVE_ORG_IDENTIFIER = "aziel-lockset-tip"
 ARCHIVE_ORG_URL = "https://archive.org/details/aziel-lockset-tip"
+ARCHIVE_ORG_DOWNLOAD = "https://archive.org/download/aziel-lockset-tip/"
 HDJ_INGEST_TIP = "ef967e4acb47ba913ce3959b673767278da605b307de33210b2dc2f1cfd86f60"
 LASTMOD = "2026-09-14"
 
@@ -126,8 +128,10 @@ def planes() -> dict:
                 "refuse": "CNS-PLANE-B-ALL-TARGETS",
             },
             "archive_org_tip_pack": {
-                "item": ARCHIVE_ORG_ITEM,
                 "url": ARCHIVE_ORG_URL,
+                "identifier": ARCHIVE_ORG_IDENTIFIER,
+                "item": ARCHIVE_ORG_ITEM,
+                "download_base": ARCHIVE_ORG_DOWNLOAD,
                 "pack_sha256": CODEBERG_PACK,
                 "lockset_tip": LOCKSET_TIP,
                 "hash_verify": "pass",
@@ -403,8 +407,10 @@ def shelf_rows() -> list[dict]:
             "plane": "B",
             "kind": "archive_org",
             "status": "slot",
-            "item": ARCHIVE_ORG_ITEM,
             "url": ARCHIVE_ORG_URL,
+            "identifier": ARCHIVE_ORG_IDENTIFIER,
+            "item": ARCHIVE_ORG_ITEM,
+            "download_base": ARCHIVE_ORG_DOWNLOAD,
             "files": [
                 "aziel-tip-pack.tar",
                 "SHA256SUMS",
@@ -721,8 +727,10 @@ def patch_cite() -> None:
             "doi": None,
         },
         "archive_org_tip_pack": {
-            "item": ARCHIVE_ORG_ITEM,
             "url": ARCHIVE_ORG_URL,
+            "identifier": ARCHIVE_ORG_IDENTIFIER,
+            "item": ARCHIVE_ORG_ITEM,
+            "download_base": ARCHIVE_ORG_DOWNLOAD,
             "pack_sha256": CODEBERG_PACK,
             "status": "slot",
             "hash_verify": "pass",
