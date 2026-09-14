@@ -18,7 +18,10 @@
     "https://hedidntjump.com/Volumes",
     "https://hedidntjump.com/receipts",
     "https://hedidntjump.com/ingest-as-receipt.json",
-    "https://hedidntjump.com/llms.txt"
+    "https://hedidntjump.com/llms.txt",
+    "https://hedidntjump.com/shelves",
+    "https://hedidntjump.com/lockset.json",
+    "https://www.hedidntjump.com/shelves"
   ],
   "author": "Aziel Eliab",
   "author_id": "https://www.azieleliab.com/#aziel",
@@ -433,5 +436,146 @@
     "note": "Companion cite. Outside hashed /ingest-as-receipt.json so tip ef967e4acb47ba913ce3959b673767278da605b307de33210b2dc2f1cfd86f60 stays stable."
   },
   "receipts": "https://hedidntjump.com/receipts",
-  "ingest_bytes": "https://hedidntjump.com/ingest-as-receipt.json"
+  "ingest_bytes": "https://hedidntjump.com/ingest-as-receipt.json",
+  "cold_multi_shelf": "COLD-MULTI-SHELF-1.0",
+  "cold_multi_shelf_rule": "Planes A/B/C: A=one CF/GitHub tunnel (5 surfaces / 2 family radii, not 5 shelves); B=alt independent forge/archive tip-pack SLOT; C=USB airgap SLOT. Survival = bytes↔hash. LIVE only after hash verify.",
+  "shelves": "https://www.hedidntjump.com/shelves",
+  "shelves_json": "https://www.hedidntjump.com/shelves.json",
+  "shelves_v1": "https://www.hedidntjump.com/v1/shelves",
+  "cold_copy": "https://www.hedidntjump.com/cold-copy",
+  "shelves_canonical": "https://www.azielcorpuslibrary.net/shelves",
+  "lockset": "https://www.hedidntjump.com/lockset.json",
+  "lockset_canonical": "https://www.azielcorpuslibrary.net/lockset.json",
+  "lockset_id": "AZLOCK-INGEST-REEXPAND-1.0",
+  "lockset_tip": "c831429befc221bd41caeb0a6d1c5361602db5684abab7af6d39714084b6b245",
+  "lockset_doi": null,
+  "planes": {
+    "A": {
+      "name": "CF/GitHub tunnel",
+      "status": "live",
+      "independent": true,
+      "mirrors": 4,
+      "published_surfaces": 5,
+      "family_blast_radii": [
+        "cloudflare",
+        "github"
+      ],
+      "note": "4 CF hubs + GitHub = 5 published surfaces / 2 family radii (cloudflare + github). One cf-github plane, not five shelves."
+    },
+    "B": {
+      "name": "alternate independent forge/archive tip-pack",
+      "status": "slot",
+      "doi": null,
+      "working_targets": [
+        "codeberg",
+        "archive.org",
+        "gitflic-ru"
+      ],
+      "zenodo_working_path": false,
+      "live_ready": false,
+      "refuse": "CNS-ZENODO-IP-BAN",
+      "codeberg_tip_pack": {
+        "url": "https://codeberg.org/AzielEliab/aziel-lockset-tip",
+        "pack_sha256": "b549362c0736ddb54ddc488812327c464e0da1167281f92fd1a4263eedf5df37",
+        "lockset_tip": "c831429befc221bd41caeb0a6d1c5361602db5684abab7af6d39714084b6b245",
+        "hash_verify": "pass",
+        "status": "slot",
+        "live_ready": false,
+        "refuse": "CNS-PLANE-B-ALL-TARGETS"
+      },
+      "archive_org_tip_pack": {
+        "url": "https://archive.org/details/aziel-lockset-tip",
+        "identifier": "aziel-lockset-tip",
+        "item": "aziel-lockset-tip",
+        "download_base": "https://archive.org/download/aziel-lockset-tip/",
+        "pack_sha256": "b549362c0736ddb54ddc488812327c464e0da1167281f92fd1a4263eedf5df37",
+        "lockset_tip": "c831429befc221bd41caeb0a6d1c5361602db5684abab7af6d39714084b6b245",
+        "hash_verify": "pass",
+        "status": "slot",
+        "live_ready": false,
+        "refuse": "CNS-PLANE-B-ALL-TARGETS"
+      },
+      "note": "Codeberg + archive.org uploaded + hash-verify PASS (still SLOT). GitFlic RU unverified. LIVE only when all three pass (CNS-PLANE-B-ALL-TARGETS). Zenodo refused (CNS-ZENODO-IP-BAN)."
+    },
+    "C": {
+      "name": "USB airgap + optional second forge",
+      "status": "slot",
+      "primary": "usb_airgap",
+      "refuse": [
+        "CNS-OPERATOR-ATTEST",
+        "CNS-NO-FORGE-MIRROR"
+      ],
+      "attest": "USB offline-verify before LIVE: copy the airgap pack off-network, run verify-airgap.sh / sha256sum -c SHA256SUMS against the published tip, then operator attest (CNS-OPERATOR-ATTEST)."
+    }
+  },
+  "published_surfaces": 5,
+  "family_blast_radii": [
+    "cloudflare",
+    "github"
+  ],
+  "independent_live_count": 1,
+  "cap7_sites": {
+    "azcorpus": {
+      "design_of": "https://www.azielcorpuslibrary.net/",
+      "resolves_to_hub": false,
+      "name_may_change": true,
+      "public_icann": false
+    },
+    "azlibrary": {
+      "design_of": "https://www.azielcorpuslibrary.net/",
+      "resolves_to_hub": false,
+      "name_may_change": true,
+      "public_icann": false
+    },
+    "azeliab": {
+      "design_of": "https://www.azieleliab.com/",
+      "resolves_to_hub": false,
+      "name_may_change": true,
+      "public_icann": false
+    },
+    "godlock": {
+      "design_of": "https://godlock.uk/",
+      "resolves_to_hub": false,
+      "name_may_change": true,
+      "public_icann": false
+    },
+    "hedidntjump": {
+      "design_of": "https://www.hedidntjump.com/",
+      "resolves_to_hub": false,
+      "name_may_change": true,
+      "public_icann": false
+    }
+  },
+  "growth_on": true,
+  "no_fan": true,
+  "softwares_tab": false,
+  "mesh_radio": false,
+  "az_gen_live_icann_publish": false,
+  "visible_1520": false,
+  "lamb_lens": {
+    "shelf": "https://www.azielcorpuslibrary.net/corpus",
+    "note": "Public Lamb Lens / Corpus ingest lives on azielcorpuslibrary.net. This host is not a Lamb Lens ingest host."
+  },
+  "codeberg_tip_pack": {
+    "url": "https://codeberg.org/AzielEliab/aziel-lockset-tip",
+    "pack_sha256": "b549362c0736ddb54ddc488812327c464e0da1167281f92fd1a4263eedf5df37",
+    "status": "slot",
+    "hash_verify": "pass",
+    "doi": null
+  },
+  "zenodo_tip_pack": {
+    "status": "refused",
+    "refuse": "CNS-ZENODO-IP-BAN",
+    "doi": null
+  },
+  "archive_org_tip_pack": {
+    "url": "https://archive.org/details/aziel-lockset-tip",
+    "identifier": "aziel-lockset-tip",
+    "item": "aziel-lockset-tip",
+    "download_base": "https://archive.org/download/aziel-lockset-tip/",
+    "pack_sha256": "b549362c0736ddb54ddc488812327c464e0da1167281f92fd1a4263eedf5df37",
+    "status": "slot",
+    "hash_verify": "pass",
+    "doi": null
+  }
 }

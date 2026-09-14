@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.3",
   "info": {
-    "title": "He Didn't Jump \u2014 public archive surfaces",
+    "title": "He Didn't Jump — public archive surfaces",
     "description": "Read-only discovery OpenAPI for the Marion Zioncheck static archive on hedidntjump.com. No local MCP. Aziel Runtime MCP: https://glama.ai/mcp/servers/AzielEliab/aziel-runtime",
     "version": "1.0.0",
     "contact": {
@@ -54,7 +54,7 @@
     },
     "/Inquiries": {
       "get": {
-        "summary": "Inquiries of the Record 1\u201323",
+        "summary": "Inquiries of the Record 1–23",
         "responses": {
           "200": {
             "description": "HTML"
@@ -294,7 +294,7 @@
     },
     "/aziel": {
       "get": {
-        "summary": "About Aziel \u2014 living author (aziel.html, canonical /aziel)",
+        "summary": "About Aziel — living author (aziel.html, canonical /aziel)",
         "responses": {
           "200": {
             "description": "OK"
@@ -304,7 +304,7 @@
     },
     "/AzielEliab": {
       "get": {
-        "summary": "200 rewrite to aziel.html \u2014 not a second About body",
+        "summary": "200 rewrite to aziel.html — not a second About body",
         "responses": {
           "200": {
             "description": "OK"
@@ -314,7 +314,7 @@
     },
     "/who": {
       "get": {
-        "summary": "Who is Aziel Eliab \u2014 visible HTML lock (H1 + 1 Chronicles 15:20)",
+        "summary": "Who is Aziel Eliab — visible HTML lock (H1 + 1 Chronicles 15:20)",
         "responses": {
           "200": {
             "description": "OK"
@@ -324,7 +324,7 @@
     },
     "/who-is-aziel-eliab.txt": {
       "get": {
-        "summary": "Who is Aziel Eliab \u2014 plain-text identity lock",
+        "summary": "Who is Aziel Eliab — plain-text identity lock",
         "responses": {
           "200": {
             "description": "OK"
@@ -338,6 +338,56 @@
         "responses": {
           "200": {
             "description": "OK"
+          }
+        }
+      }
+    },
+    "/shelves": {
+      "get": {
+        "summary": "COLD-MULTI-SHELF-1.0 registry (sister cite of live corpus /shelves)",
+        "responses": {
+          "200": {
+            "description": "application/json"
+          }
+        }
+      }
+    },
+    "/shelves.json": {
+      "get": {
+        "summary": "Same COLD-MULTI-SHELF-1.0 bytes as /shelves",
+        "responses": {
+          "200": {
+            "description": "application/json"
+          }
+        }
+      }
+    },
+    "/v1/shelves": {
+      "get": {
+        "summary": "Alias of /shelves",
+        "responses": {
+          "200": {
+            "description": "application/json"
+          }
+        }
+      }
+    },
+    "/cold-copy": {
+      "get": {
+        "summary": "Alias of /shelves",
+        "responses": {
+          "200": {
+            "description": "application/json"
+          }
+        }
+      }
+    },
+    "/lockset.json": {
+      "get": {
+        "summary": "Sister-host cite of AZLOCK-INGEST-REEXPAND-1.0 (doi null)",
+        "responses": {
+          "200": {
+            "description": "application/json"
           }
         }
       }

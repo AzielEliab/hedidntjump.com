@@ -1,10 +1,13 @@
 # He Didn't Jump — AZindex growth robots
 # Open Allow + Content-Signal. Do not Disallow GPTBot/Claude/etc for budget.
+# Growth-ON: AI crawlers stay Allowed. NO-FAN: this is not a Softwares / mesh fan-out.
 
 User-agent: *
 Allow: /
 Allow: /who
 Allow: /who.html
+Allow: /shelves
+Allow: /lockset.json
 Content-Signal: search=yes, ai-input=yes, ai-train=yes
 
 User-agent: Googlebot
