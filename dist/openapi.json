@@ -391,6 +391,26 @@
           }
         }
       }
+    },
+    "/redline": {
+      "get": {
+        "summary": "REDLINE-1.0 doors/refuse cite (FragGate single door; Plane B ALL-TARGETS)",
+        "responses": {
+          "200": {
+            "description": "application/json"
+          }
+        }
+      }
+    },
+    "/redline.json": {
+      "get": {
+        "summary": "Same REDLINE-1.0 bytes as /redline",
+        "responses": {
+          "200": {
+            "description": "application/json"
+          }
+        }
+      }
     }
   }
 }

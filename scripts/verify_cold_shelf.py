@@ -20,11 +20,16 @@ from write_cold_shelf import (
     CANON_SHELVES,
     CAP7,
     CODEBERG_PACK,
+    FOLDLOCK_DIGEST,
+    FOLDLOCK_REDLINE,
     HDJ_INGEST_TIP,
     LOCKSET_TIP,
     PERSON_ID,
+    PLANE_B_TARGETS,
     dumps,
+    foldlock_cite,
     lockset_doc,
+    redline_cite,
     shelves_doc,
 )
 from write_ingest_as_receipt import FILENAME, PAYLOAD, dumps as ingest_dumps
@@ -50,6 +55,144 @@ PAPER_HTML = (
 )
 
 
+FORGED = {
+    "working_targets_gitflic": ["codeberg", "archive.org", "gitflic-ru"],
+    "framagit_url": "https://framagit.org/AzielEliab/aziel-lockset-tip",
+    "gitflic_url": "https://gitflic.ru/project/azieeliab/aziel-lockset-tip",
+    "gitlab_url": "https://gitlab.com/AzielEliab/aziel-lockset-tip",
+    "zenodo_doi": "10.5281/zenodo.99999999",
+    "plane_b_live": "live",
+    "cap7_hub": True,
+    "fold_tip": True,
+}
+
+
+def walk_urls(obj) -> list[str]:
+    found = []
+    if isinstance(obj, dict):
+        for value in obj.values():
+            found.extend(walk_urls(value))
+    elif isinstance(obj, list):
+        for value in obj:
+            found.extend(walk_urls(value))
+    elif isinstance(obj, str) and obj.startswith("http"):
+        found.append(obj)
+    return found
+
+
+def attack_sim(shelves: dict, cite: dict, redline: dict, lockset: dict) -> None:
+    """Attack-sim: forged promotions and invented holdings must not land."""
+    plane_b = shelves["planes"]["B"]
+    assert plane_b["working_targets"] == PLANE_B_TARGETS
+    assert plane_b["working_targets"] != FORGED["working_targets_gitflic"]
+    assert "gitflic-ru" not in plane_b["working_targets"]
+    assert "gitlab" not in plane_b["working_targets"]
+    assert plane_b["status"] == "slot"
+    assert plane_b["status"] != FORGED["plane_b_live"]
+    assert plane_b["live_ready"] is False
+    assert plane_b["third_target"]["forge"] == "framagit"
+    assert plane_b["third_target"]["url"] is None
+    assert plane_b["third_target"]["url"] != FORGED["framagit_url"]
+    assert plane_b["framagit_tip_pack"]["url"] is None
+    assert plane_b["gitflic"]["refuse"] == "CNS-GITFLIC-EMAIL"
+    assert plane_b["gitflic"]["url"] is None
+    assert plane_b["gitflic"]["status"] == "refused"
+    assert plane_b["gitlab"]["refuse"] == "CNS-GITLAB-CF-LOOP"
+    assert plane_b["gitlab"]["url"] is None
+    assert plane_b["gitlab"]["required_for_plane_b_live"] is False
+
+    rows = {row["id"]: row for row in shelves["registry"]["shelves"]}
+    framagit = rows["plane-b-framagit-tip-pack"]
+    assert framagit["url"] is None
+    assert framagit["url"] != FORGED["framagit_url"]
+    assert framagit["status"] == "slot"
+    assert framagit["live_ready"] is False
+    assert framagit["required_for_plane_b_live"] is True
+    gitflic = rows["plane-b-gitflic-ru-tip-pack"]
+    assert gitflic["status"] == "refused"
+    assert gitflic["status"] != "slot"
+    assert gitflic["url"] is None
+    assert gitflic["url"] != FORGED["gitflic_url"]
+    assert gitflic["refuse"] == "CNS-GITFLIC-EMAIL"
+    gitlab = rows["plane-g-gitlab-tip-pack"]
+    assert gitlab["url"] is None
+    assert gitlab["url"] != FORGED["gitlab_url"]
+    assert gitlab["refuse"] == "CNS-GITLAB-CF-LOOP"
+    assert gitlab["required_for_plane_b_live"] is False
+    zenodo = rows["plane-b-zenodo-tip-pack"]
+    assert zenodo["status"] == "refused"
+    assert zenodo["doi"] is None
+    assert zenodo["doi"] != FORGED["zenodo_doi"]
+
+    assert "plane-b-framagit-tip-pack" in shelves["registry"]["slot"]
+    assert "plane-b-gitflic-ru-tip-pack" in shelves["registry"]["refused"]
+    assert "plane-b-gitflic-ru-tip-pack" not in shelves["registry"]["slot"]
+    assert "plane-b-zenodo-tip-pack" in shelves["registry"]["refused"]
+
+    for site, row in shelves["cap7_sites"].items():
+        assert row["resolves_to_hub"] is False
+        assert row["resolves_to_hub"] != FORGED["cap7_hub"]
+        assert row["design_of"]
+        assert CAP7[site]["design_of"] == row["design_of"]
+        assert row["public_icann"] is False
+
+    fold = shelves["foldlock"]
+    assert fold["tip_folded"] is False
+    assert fold["tip_folded"] != FORGED["fold_tip"]
+    assert fold["engine_bound"] is False
+    assert fold["hdj_holding"] is False
+    assert fold["zip"] is False
+    assert fold["encryption"] is False
+    assert fold["digest"] == FOLDLOCK_DIGEST
+    assert fold["redline"] == FOLDLOCK_REDLINE
+    assert fold["refuse"]["TIP_FOLD"] == "FL-TIP-FOLD-REFUSE"
+    assert lockset["foldlock"]["tip_folded"] is False
+    assert lockset["sha256"] == LOCKSET_TIP
+    assert "FL-TIP-FOLD-REFUSE" in lockset["note"]
+
+    assert redline["door"] == "fraggate"
+    assert redline["doors"]["fraggate_single_door"] is True
+    assert redline["doors"]["domains_are_doors"] is False
+    assert redline["doors"]["this_host_mcp"] is False
+    assert redline["refuse"]["GITFLIC"] == "CNS-GITFLIC-EMAIL"
+    assert redline["refuse"]["GITLAB"] == "CNS-GITLAB-CF-LOOP"
+    assert redline["refuse"]["ZENODO"] == "CNS-ZENODO-IP-BAN"
+    assert redline["refuse"]["TIP_FOLD"] == "FL-TIP-FOLD-REFUSE"
+    assert redline["plane_b"]["working_targets"] == PLANE_B_TARGETS
+    assert redline["plane_b"]["framagit_url"] is None
+    assert redline["invented_holdings"] is False
+    assert redline["growth_on"] is True
+    assert redline["cap7"]["resolves_to_hub"] is False
+
+    assert cite["planes"]["B"]["working_targets"] == PLANE_B_TARGETS
+    assert cite["framagit_tip_pack"]["url"] is None
+    assert cite["gitflic_tip_pack"]["refuse"] == "CNS-GITFLIC-EMAIL"
+    assert cite["gitlab_tip_pack"]["refuse"] == "CNS-GITLAB-CF-LOOP"
+    assert cite["zenodo_tip_pack"]["doi"] is None
+    assert cite["redline"]["door"] == "fraggate"
+    assert cite["foldlock"]["tip_folded"] is False
+
+    banned_hosts = (
+        "framagit.org",
+        "gitflic.ru",
+        "gitlab.com",
+        "gitlab.org",
+    )
+    for url in walk_urls(shelves) + walk_urls(cite) + walk_urls(redline):
+        assert not any(host in url for host in banned_hosts), url
+        assert FORGED["zenodo_doi"] not in url
+
+    for dep in shelves["registry"]["corpus_paper_deposits"]:
+        assert dep["hdj_holding"] is False
+        assert dep["reuse_as_plane_b"] is False
+
+    assert shelves["invented_framagit_url"] is False
+    assert shelves["invented_gitflic_url"] is False
+    assert shelves["invented_gitlab_url"] is False
+    assert shelves["invented_zenodo_doi"] is False
+    assert shelves["no_invented_holdings"] is True
+
+
 def visible_text(html: str) -> str:
     html = re.sub(r"<script\b[^>]*>[\s\S]*?</script>", " ", html, flags=re.I)
     html = re.sub(r"<style\b[^>]*>[\s\S]*?</style>", " ", html, flags=re.I)
@@ -73,6 +216,11 @@ def main() -> None:
         lock = (tree / "lockset.json").read_text(encoding="utf-8")
         assert lock == expected_lockset
         lock_j = json.loads(lock)
+        expected_redline = dumps(redline_cite())
+        assert (tree / "redline.json").read_text(encoding="utf-8") == expected_redline
+        assert (tree / "redline").read_text(encoding="utf-8") == expected_redline
+        redline = json.loads(expected_redline)
+        assert foldlock_cite()["digest"] == FOLDLOCK_DIGEST
         assert lock_j["doi"] is None
         assert lock_j["zenodo"] is None
         assert lock_j["sha256"] == LOCKSET_TIP
@@ -95,6 +243,7 @@ def main() -> None:
         assert shelves["planes"]["A"]["family_blast_radii"] == ["cloudflare", "github"]
         assert shelves["planes"]["B"]["status"] == "slot"
         assert shelves["planes"]["B"]["doi"] is None
+        assert shelves["planes"]["B"]["working_targets"] == PLANE_B_TARGETS
         assert shelves["planes"]["B"]["refuse"] == "CNS-ZENODO-IP-BAN"
         assert shelves["planes"]["B"]["codeberg_tip_pack"]["pack_sha256"] == CODEBERG_PACK
         assert shelves["planes"]["B"]["codeberg_tip_pack"]["hash_verify"] == "pass"
@@ -108,7 +257,11 @@ def main() -> None:
         assert shelves["planes"]["B"]["archive_org_tip_pack"]["status"] == "slot"
         assert shelves["planes"]["B"]["archive_org_tip_pack"]["live_ready"] is False
         assert "archive.org + GitFlic" not in shelves["planes"]["B"]["note"]
-        assert "GitFlic RU unverified" in shelves["planes"]["B"]["note"]
+        assert "GitFlic RU unverified" not in shelves["planes"]["B"]["note"]
+        assert "framagit" in shelves["planes"]["B"]["working_targets"]
+        assert "CNS-GITFLIC-EMAIL" in shelves["planes"]["B"]["note"]
+        assert "CNS-GITLAB-CF-LOOP" in shelves["planes"]["B"]["note"]
+        assert "Framagit" in shelves["planes"]["B"]["note"]
         assert shelves["planes"]["C"]["status"] == "slot"
         assert "CNS-OPERATOR-ATTEST" in shelves["planes"]["C"]["refuse"]
         assert shelves["this_host"]["mission"].startswith("He Didn't Jump")
@@ -142,7 +295,8 @@ def main() -> None:
         assert archive["status"] != "live"
         gitflic = next(s for s in shelves["registry"]["shelves"] if s["id"] == "plane-b-gitflic-ru-tip-pack")
         assert gitflic["url"] is None
-        assert gitflic["status"] == "slot"
+        assert gitflic["status"] == "refused"
+        assert gitflic["refuse"] == "CNS-GITFLIC-EMAIL"
         usb = next(s for s in shelves["registry"]["shelves"] if s["id"] == "plane-c-usb-airgap")
         assert usb["status"] == "slot"
         assert usb["refuse"] == "CNS-OPERATOR-ATTEST"
@@ -173,6 +327,11 @@ def main() -> None:
         assert cite["planes"]["B"]["archive_org_tip_pack"]["hash_verify"] == "pass"
         assert cite["planes"]["B"]["archive_org_tip_pack"]["status"] == "slot"
         assert "archive.org + GitFlic" not in cite["planes"]["B"]["note"]
+        assert cite["planes"]["B"]["working_targets"] == PLANE_B_TARGETS
+        assert "CNS-GITFLIC-EMAIL" in cite["planes"]["B"]["note"]
+        assert cite["framagit_tip_pack"]["url"] is None
+        assert cite["gitflic_tip_pack"]["refuse"] == "CNS-GITFLIC-EMAIL"
+        assert cite["gitlab_tip_pack"]["refuse"] == "CNS-GITLAB-CF-LOOP"
         assert cite["archive_org_tip_pack"]["url"] == ARCHIVE_ORG_URL
         assert cite["archive_org_tip_pack"]["identifier"] == ARCHIVE_ORG_IDENTIFIER
         assert cite["archive_org_tip_pack"]["download_base"] == ARCHIVE_ORG_DOWNLOAD
@@ -185,7 +344,9 @@ def main() -> None:
         assert cite["ingest_as_receipt"]["tip"] == HDJ_INGEST_TIP
         assert cite["purpose"].startswith("Marion A. Zioncheck archive")
         assert f"{APEX}/shelves" in cite["query_urls"]
+        assert f"{APEX}/redline" in cite["query_urls"]
         assert "does not invent court holdings" in cite["purpose"].lower() or "re-examine" in cite["purpose"]
+        attack_sim(shelves, cite, redline, lock_j)
 
         hashed = (tree / FILENAME).read_text(encoding="utf-8")
         assert hashed == ingest_expected
@@ -204,7 +365,11 @@ def main() -> None:
             assert CODEBERG_PACK in blob, label
             assert ARCHIVE_ORG_URL in blob, label
             assert "archive.org + GitFlic" not in blob, label
-            assert "GitFlic" in blob, label
+            assert "GitFlic RU unverified" not in blob, label
+            assert "Framagit" in blob, label
+            assert "CNS-GITFLIC-EMAIL" in blob, label
+            assert "CNS-GITLAB-CF-LOOP" in blob, label
+            assert "ALL-TARGETS" in blob or "working_targets" in blob or "Framagit" in blob, label
             assert "CNS-ZENODO-IP-BAN" in blob, label
             assert "doi null" in blob.lower() or "doi: null" in blob.lower() or "doi null" in blob, label
             assert "CNS-OPERATOR-ATTEST" in blob or "attest SLOT" in blob or "USB" in blob, label
@@ -217,19 +382,31 @@ def main() -> None:
             assert "holdings" in blob.lower(), label
 
         headers = (tree / "_headers").read_text(encoding="utf-8")
-        for loc in ("/shelves", "/shelves.json", "/lockset.json", "/v1/shelves", "/cold-copy"):
+        for loc in (
+            "/shelves",
+            "/shelves.json",
+            "/lockset.json",
+            "/v1/shelves",
+            "/cold-copy",
+            "/redline",
+            "/redline.json",
+        ):
             assert loc in headers, loc
         redirects = (tree / "_redirects").read_text(encoding="utf-8")
         assert "/shelves /shelves.json 200" in redirects
+        assert "/redline /redline.json 200" in redirects
         sitemap = (tree / "sitemap.xml").read_text(encoding="utf-8")
         assert f"{APEX}/shelves</loc>" in sitemap
         assert f"{APEX}/lockset.json</loc>" in sitemap
+        assert f"{APEX}/redline</loc>" in sitemap
         openapi = json.loads((tree / "openapi.json").read_text(encoding="utf-8"))
         assert "/shelves" in openapi["paths"]
         assert "/lockset.json" in openapi["paths"]
+        assert "/redline" in openapi["paths"]
         robots = (tree / "robots.txt").read_text(encoding="utf-8")
         assert "Growth-ON" in robots
         assert "Allow: /shelves" in robots
+        assert "Allow: /redline" in robots
         assert "GPTBot" in robots and "Disallow: /api/" in robots
 
         for name in PAPER_HTML:

@@ -78,6 +78,114 @@
       "public_icann": false
     }
   },
+  "redline": {
+    "spec": "REDLINE-1.0",
+    "author": "Aziel Eliab",
+    "identity": "Aziel Eliab",
+    "person_id": "https://www.azieleliab.com/#aziel",
+    "canonical_shelves": "https://www.azielcorpuslibrary.net/shelves",
+    "this_host": "https://www.hedidntjump.com/redline",
+    "this_host_json": "https://www.hedidntjump.com/redline.json",
+    "door": "fraggate",
+    "doors": {
+      "fraggate": true,
+      "fraggate_single_door": true,
+      "domains_are_doors": false,
+      "this_host_mcp": false,
+      "softwares_tab": false,
+      "mesh_radio": false,
+      "lamb_lens_ingest": false
+    },
+    "refuse": {
+      "PLANE_B_ALL_TARGETS": "CNS-PLANE-B-ALL-TARGETS",
+      "GITFLIC": "CNS-GITFLIC-EMAIL",
+      "GITLAB": "CNS-GITLAB-CF-LOOP",
+      "ZENODO": "CNS-ZENODO-IP-BAN",
+      "NO_TIP_DOI": "CNS-NO-TIP-DOI",
+      "NO_FORGE_MIRROR": "CNS-NO-FORGE-MIRROR",
+      "OPERATOR_ATTEST": "CNS-OPERATOR-ATTEST",
+      "NO_CID": "CNS-NO-CID",
+      "TIP_FOLD": "FL-TIP-FOLD-REFUSE",
+      "CHAIN_REWRITE": "FL-CHAIN-REWRITE-REFUSE",
+      "LOCKSET_BYTES": "FL-LOCKSET-BYTES-REFUSE",
+      "HALLUC_TOOL": "FG-HALLUC-TOOL",
+      "INVENTED_HOLDING": "HDJ-NO-INVENTED-HOLDING"
+    },
+    "plane_b": {
+      "working_targets": [
+        "codeberg",
+        "archive.org",
+        "framagit"
+      ],
+      "all_targets": "CNS-PLANE-B-ALL-TARGETS",
+      "codeberg": "pass",
+      "archive_org": "pass",
+      "framagit_url": null,
+      "gitflic": "CNS-GITFLIC-EMAIL",
+      "gitlab": "CNS-GITLAB-CF-LOOP",
+      "zenodo": "CNS-ZENODO-IP-BAN",
+      "live_ready": false,
+      "status": "slot"
+    },
+    "foldlock": {
+      "spec": "FOLDLOCK-SHELF-1.0",
+      "redline": "Never fold the lockset tip hash itself. Never rewrite the chain. Tip SHA-256 stays over raw receipts. Folding is a suppression aid, not encryption and not zip.",
+      "refuse": {
+        "TIP_FOLD": "FL-TIP-FOLD-REFUSE",
+        "CHAIN_REWRITE": "FL-CHAIN-REWRITE-REFUSE",
+        "LOCKSET_BYTES": "FL-LOCKSET-BYTES-REFUSE",
+        "RECEIPT_FOLD": "FL-RECEIPT-FOLD-REFUSE",
+        "HASH_FIELD": "FL-HASH-FIELD-REFUSE",
+        "ZIP_ENCRYPT": "FL-ZIP-ENCRYPT-CLAIM",
+        "ENGINE_UNBOUND": "FL-ENGINE-UNBOUND"
+      },
+      "tip_folded": false
+    },
+    "cap7": {
+      "design_of": true,
+      "resolves_to_hub": false,
+      "public_icann": false
+    },
+    "growth_on": true,
+    "no_fan": true,
+    "invented_holdings": false,
+    "note": "Machine only. FragGate is THE single door on the runtime sister. hedidntjump.com is not an MCP door. Cite, don't merge. Do not invent Framagit, GitFlic, or GitLab URLs."
+  },
+  "foldlock": {
+    "spec": "FOLDLOCK-SHELF-1.0",
+    "slug": "foldlock",
+    "name": "FoldLock",
+    "product_version": "0.8.0",
+    "one_line": "Algorithmic tether-word suppression on UTF-8 text. Not zip.",
+    "zip": false,
+    "encryption": false,
+    "engine_bound": false,
+    "hook_status": "slot",
+    "digest": "1034d5924b88878918986abe260338b0aff0117bc6f9c4d4a01a41d843cfa0a8",
+    "github": "https://github.com/AzielEliab/foldlock",
+    "worker": "https://foldlock-download-tracker.vibelock.workers.dev/",
+    "fraggate_describe": "https://www.azielcorpuslibrary.net/runtime/v1/fraggate/describe?slug=foldlock",
+    "redline": "Never fold the lockset tip hash itself. Never rewrite the chain. Tip SHA-256 stays over raw receipts. Folding is a suppression aid, not encryption and not zip.",
+    "refuse": {
+      "TIP_FOLD": "FL-TIP-FOLD-REFUSE",
+      "CHAIN_REWRITE": "FL-CHAIN-REWRITE-REFUSE",
+      "LOCKSET_BYTES": "FL-LOCKSET-BYTES-REFUSE",
+      "RECEIPT_FOLD": "FL-RECEIPT-FOLD-REFUSE",
+      "HASH_FIELD": "FL-HASH-FIELD-REFUSE",
+      "ZIP_ENCRYPT": "FL-ZIP-ENCRYPT-CLAIM",
+      "ENGINE_UNBOUND": "FL-ENGINE-UNBOUND"
+    },
+    "hdj_holding": false,
+    "tip_folded": false,
+    "lockset_tip_raw": true,
+    "note": "Cite only when shelves touch FoldLock. This isolate does not bind the FoldLock engine. Lockset tip bytes stay raw. Not an HDJ holding. Not zip. Not encryption. Not a rewrite key."
+  },
+  "foldlock_shelf": "FOLDLOCK-SHELF-1.0",
+  "no_invented_holdings": true,
+  "invented_framagit_url": false,
+  "invented_gitflic_url": false,
+  "invented_gitlab_url": false,
+  "invented_zenodo_doi": false,
   "registry": {
     "spec": "COLD-MULTI-SHELF-1.0",
     "author": "Aziel Eliab",
@@ -111,8 +219,15 @@
         "working_targets": [
           "codeberg",
           "archive.org",
-          "gitflic-ru"
+          "framagit"
         ],
+        "third_target": {
+          "forge": "framagit",
+          "required": true,
+          "verified": false,
+          "url": null,
+          "note": "Framagit is the Plane B third target. Do not invent a URL. Never LIVE until it hash-verifies."
+        },
         "zenodo_working_path": false,
         "live_ready": false,
         "refuse": "CNS-ZENODO-IP-BAN",
@@ -137,7 +252,31 @@
           "live_ready": false,
           "refuse": "CNS-PLANE-B-ALL-TARGETS"
         },
-        "note": "Codeberg + archive.org uploaded + hash-verify PASS (still SLOT). GitFlic RU unverified. LIVE only when all three pass (CNS-PLANE-B-ALL-TARGETS). Zenodo refused (CNS-ZENODO-IP-BAN)."
+        "framagit_tip_pack": {
+          "url": null,
+          "forge": "framagit",
+          "required_for_plane_b_live": true,
+          "hash_verify": null,
+          "status": "slot",
+          "live_ready": false,
+          "refuse": "CNS-NO-FORGE-MIRROR",
+          "doi": null
+        },
+        "gitflic": {
+          "required": false,
+          "refuse": "CNS-GITFLIC-EMAIL",
+          "url": null,
+          "status": "refused"
+        },
+        "gitlab": {
+          "required": false,
+          "refuse": "CNS-GITLAB-CF-LOOP",
+          "url": null,
+          "status": "slot",
+          "extra_slot": true,
+          "required_for_plane_b_live": false
+        },
+        "note": "AZindex-FAIL pivot 2026-09-14: LIVE targets are Codeberg + archive.org + Framagit. Codeberg + archive.org hash-verify PASS (still SLOT). Framagit awaiting tip-pack (URL null). GitFlic refused (CNS-GITFLIC-EMAIL). GitLab extra (CNS-GITLAB-CF-LOOP). LIVE only when all three pass (CNS-PLANE-B-ALL-TARGETS). Zenodo refused (CNS-ZENODO-IP-BAN)."
       },
       "C": {
         "name": "USB airgap + optional second forge",
@@ -148,6 +287,17 @@
           "CNS-NO-FORGE-MIRROR"
         ],
         "attest": "USB offline-verify before LIVE: copy the airgap pack off-network, run verify-airgap.sh / sha256sum -c SHA256SUMS against the published tip, then operator attest (CNS-OPERATOR-ATTEST)."
+      },
+      "G": {
+        "name": "extra independent tip-pack (GitLab)",
+        "status": "slot",
+        "extra_slot": true,
+        "required_for_plane_b_live": false,
+        "url": null,
+        "refuse": "CNS-GITLAB-CF-LOOP",
+        "expect_pack_sha256": "b549362c0736ddb54ddc488812327c464e0da1167281f92fd1a4263eedf5df37",
+        "expect_lockset_tip": "c831429befc221bd41caeb0a6d1c5361602db5684abab7af6d39714084b6b245",
+        "note": "GitLab is Cloudflare-loop blocked (CNS-GITLAB-CF-LOOP). Extra SLOT, url null. Not a Plane B LIVE-promotion target. Do not invent a URL."
       }
     },
     "published_surfaces": 5,
@@ -197,12 +347,14 @@
       "plane-b-alt-forge-archive",
       "plane-b-codeberg-tip-pack",
       "plane-b-archive-org-tip-pack",
-      "plane-b-gitflic-ru-tip-pack",
+      "plane-b-framagit-tip-pack",
       "plane-c-usb-airgap",
       "plane-c-forge-off-github",
+      "plane-g-gitlab-tip-pack",
       "ipfs-lockset"
     ],
     "refused": [
+      "plane-b-gitflic-ru-tip-pack",
       "plane-b-zenodo-tip-pack"
     ],
     "shelves": [
@@ -304,7 +456,7 @@
         "independent": true,
         "lockset_shelf": true,
         "refuse": "CNS-PLANE-B-ALL-TARGETS",
-        "reason": "Codeberg tip-pack uploaded and hash-verify PASS. archive.org also PASS. SLOT until GitFlic RU also hash-verify (CNS-PLANE-B-ALL-TARGETS). Plane B LIVE only when all three working targets pass. doi null."
+        "reason": "Codeberg tip-pack uploaded and hash-verify PASS. archive.org also PASS. SLOT until Framagit also hash-verify (CNS-PLANE-B-ALL-TARGETS). Plane B LIVE only when Codeberg + archive.org + Framagit pass. GitFlic refused CNS-GITFLIC-EMAIL. GitLab extra CNS-GITLAB-CF-LOOP. doi null."
       },
       {
         "id": "plane-b-archive-org-tip-pack",
@@ -331,20 +483,36 @@
         "independent": true,
         "lockset_shelf": true,
         "refuse": "CNS-PLANE-B-ALL-TARGETS",
-        "reason": "archive.org tip-pack uploaded at https://archive.org/details/aziel-lockset-tip and hash-verify PASS (pack b549362c0736ddb54ddc488812327c464e0da1167281f92fd1a4263eedf5df37). SLOT until GitFlic RU also hash-verify. Plane B LIVE only when all three working targets pass. doi null."
+        "reason": "archive.org tip-pack uploaded at https://archive.org/details/aziel-lockset-tip and hash-verify PASS (pack b549362c0736ddb54ddc488812327c464e0da1167281f92fd1a4263eedf5df37). SLOT until Framagit also hash-verify. Plane B LIVE only when Codeberg + archive.org + Framagit pass (CNS-PLANE-B-ALL-TARGETS). doi null."
+      },
+      {
+        "id": "plane-b-framagit-tip-pack",
+        "plane": "B",
+        "kind": "git_mirror",
+        "status": "slot",
+        "forge": "framagit",
+        "url": null,
+        "blast_radius": "framagit",
+        "independent": true,
+        "lockset_shelf": true,
+        "live_ready": false,
+        "doi": null,
+        "required_for_plane_b_live": true,
+        "refuse": "CNS-NO-FORGE-MIRROR",
+        "reason": "Framagit tip-pack is a Plane B LIVE-promotion target (AZindex-FAIL pivot 2026-09-14; GitLab CF-loop blocked). No verified URL in-repo. SLOT. Awaiting tip-pack. Do not invent a URL. LIVE only after tip hash-verify."
       },
       {
         "id": "plane-b-gitflic-ru-tip-pack",
         "plane": "B",
         "kind": "git_mirror",
-        "status": "slot",
+        "status": "refused",
         "forge": "gitflic-ru",
         "url": null,
         "blast_radius": "gitflic-ru",
         "independent": true,
-        "lockset_shelf": true,
-        "refuse": "CNS-NO-FORGE-MIRROR",
-        "reason": "GitFlic (RU) tip-pack is a Plane B LIVE-promotion target. No verified URL in-repo. SLOT. Do not invent a URL. LIVE only after tip hash-verify."
+        "lockset_shelf": false,
+        "refuse": "CNS-GITFLIC-EMAIL",
+        "reason": "GitFlic confirmation mail never arrived (CNS-GITFLIC-EMAIL). Not a Plane B LIVE-promotion target. Framagit replaced it. No verified URL. Do not invent a URL."
       },
       {
         "id": "plane-b-zenodo-tip-pack",
@@ -362,6 +530,27 @@
           "CNS-NO-TIP-DOI"
         ],
         "reason": "Operator IP banned at Zenodo (CNS-ZENODO-IP-BAN). Zenodo is not the Plane B working shelf. No tip-pack DOI (CNS-NO-TIP-DOI). cite.json / lockset doi stay null. Do not invent. Corpus paper deposits are not this slot and are not HDJ holdings."
+      },
+      {
+        "id": "plane-g-gitlab-tip-pack",
+        "plane": "G",
+        "kind": "git_mirror",
+        "status": "slot",
+        "forge": "gitlab",
+        "url": null,
+        "expect_pack_sha256": "b549362c0736ddb54ddc488812327c464e0da1167281f92fd1a4263eedf5df37",
+        "expect_lockset_tip": "c831429befc221bd41caeb0a6d1c5361602db5684abab7af6d39714084b6b245",
+        "hash_verify": null,
+        "tip_verified": false,
+        "live_ready": false,
+        "required_for_plane_b_live": false,
+        "extra_slot": true,
+        "doi": null,
+        "blast_radius": "gitlab",
+        "independent": true,
+        "lockset_shelf": true,
+        "refuse": "CNS-GITLAB-CF-LOOP",
+        "reason": "GitLab is Cloudflare-loop blocked (CNS-GITLAB-CF-LOOP). Extra SLOT, url null. Not a Plane B LIVE-promotion target. Do not invent a URL."
       },
       {
         "id": "plane-c-usb-airgap",
@@ -387,7 +576,7 @@
         "independent": true,
         "lockset_shelf": true,
         "refuse": "CNS-NO-FORGE-MIRROR",
-        "reason": "Optional Plane C second-forge slot. Codeberg / archive.org / GitFlic RU are Plane B working targets, not this slot. No account URL here. SLOT. Do not invent a URL."
+        "reason": "Optional Plane C second-forge slot. Codeberg / archive.org / Framagit are Plane B working targets, not this slot. GitFlic refused CNS-GITFLIC-EMAIL. GitLab extra CNS-GITLAB-CF-LOOP. No account URL here. SLOT. Do not invent a URL."
       },
       {
         "id": "ipfs-lockset",
@@ -461,7 +650,110 @@
     "mesh_radio": false,
     "az_gen_live_icann_publish": false,
     "no_fan": true,
-    "note": "CROSS-NETWORK-SURVIVAL: If network + live data die tomorrow, the chain still survives via cold copies across independent shelves; survival = bytes↔hash. NO-LIE / NO-REWRITE: receipts that still hash; copies not all on one tunnel; verify without voice; no rewrite key; network never lies even to stay alive. Planes A/B/C: A=one CF/GitHub tunnel (5 surfaces / 2 family radii, not 5 shelves); B=alt independent forge/archive tip-pack SLOT; C=USB airgap SLOT. Survival = bytes↔hash. LIVE only after hash verify. Plane A is one CF/GitHub tunnel (5 published surfaces / 2 family radii; independent_live_count stays 1). Plane B Codeberg + archive.org tip-pack b549362c0736ddb54ddc488812327c464e0da1167281f92fd1a4263eedf5df37 hash-verify PASS, still SLOT until GitFlic RU; Zenodo tip-pack is refused (CNS-ZENODO-IP-BAN). doi null. Paper deposits are corpus cites, not HDJ holdings, and not tip-pack Plane B. Plane C USB stays SLOT until CNS-OPERATOR-ATTEST."
+    "note": "CROSS-NETWORK-SURVIVAL: If network + live data die tomorrow, the chain still survives via cold copies across independent shelves; survival = bytes↔hash. NO-LIE / NO-REWRITE: receipts that still hash; copies not all on one tunnel; verify without voice; no rewrite key; network never lies even to stay alive. Planes A/B/C: A=one CF/GitHub tunnel (5 surfaces / 2 family radii, not 5 shelves); B=alt independent forge/archive tip-pack SLOT; C=USB airgap SLOT. Survival = bytes↔hash. LIVE only after hash verify. Plane A is one CF/GitHub tunnel (5 published surfaces / 2 family radii; independent_live_count stays 1). Plane B ALL-TARGETS are Codeberg + archive.org + Framagit; tip-pack b549362c0736ddb54ddc488812327c464e0da1167281f92fd1a4263eedf5df37 hash-verify PASS on Codeberg + archive.org, still SLOT until Framagit (URL null). GitFlic refused CNS-GITFLIC-EMAIL. GitLab extra CNS-GITLAB-CF-LOOP. Zenodo tip-pack is refused (CNS-ZENODO-IP-BAN). doi null. Paper deposits are corpus cites, not HDJ holdings, and not tip-pack Plane B. FoldLock neighbor is cite + SLOT hook (FOLDLOCK-SHELF-1.0): never fold the lockset tip. Plane C USB stays SLOT until CNS-OPERATOR-ATTEST.",
+    "redline": {
+      "spec": "REDLINE-1.0",
+      "author": "Aziel Eliab",
+      "identity": "Aziel Eliab",
+      "person_id": "https://www.azieleliab.com/#aziel",
+      "canonical_shelves": "https://www.azielcorpuslibrary.net/shelves",
+      "this_host": "https://www.hedidntjump.com/redline",
+      "this_host_json": "https://www.hedidntjump.com/redline.json",
+      "door": "fraggate",
+      "doors": {
+        "fraggate": true,
+        "fraggate_single_door": true,
+        "domains_are_doors": false,
+        "this_host_mcp": false,
+        "softwares_tab": false,
+        "mesh_radio": false,
+        "lamb_lens_ingest": false
+      },
+      "refuse": {
+        "PLANE_B_ALL_TARGETS": "CNS-PLANE-B-ALL-TARGETS",
+        "GITFLIC": "CNS-GITFLIC-EMAIL",
+        "GITLAB": "CNS-GITLAB-CF-LOOP",
+        "ZENODO": "CNS-ZENODO-IP-BAN",
+        "NO_TIP_DOI": "CNS-NO-TIP-DOI",
+        "NO_FORGE_MIRROR": "CNS-NO-FORGE-MIRROR",
+        "OPERATOR_ATTEST": "CNS-OPERATOR-ATTEST",
+        "NO_CID": "CNS-NO-CID",
+        "TIP_FOLD": "FL-TIP-FOLD-REFUSE",
+        "CHAIN_REWRITE": "FL-CHAIN-REWRITE-REFUSE",
+        "LOCKSET_BYTES": "FL-LOCKSET-BYTES-REFUSE",
+        "HALLUC_TOOL": "FG-HALLUC-TOOL",
+        "INVENTED_HOLDING": "HDJ-NO-INVENTED-HOLDING"
+      },
+      "plane_b": {
+        "working_targets": [
+          "codeberg",
+          "archive.org",
+          "framagit"
+        ],
+        "all_targets": "CNS-PLANE-B-ALL-TARGETS",
+        "codeberg": "pass",
+        "archive_org": "pass",
+        "framagit_url": null,
+        "gitflic": "CNS-GITFLIC-EMAIL",
+        "gitlab": "CNS-GITLAB-CF-LOOP",
+        "zenodo": "CNS-ZENODO-IP-BAN",
+        "live_ready": false,
+        "status": "slot"
+      },
+      "foldlock": {
+        "spec": "FOLDLOCK-SHELF-1.0",
+        "redline": "Never fold the lockset tip hash itself. Never rewrite the chain. Tip SHA-256 stays over raw receipts. Folding is a suppression aid, not encryption and not zip.",
+        "refuse": {
+          "TIP_FOLD": "FL-TIP-FOLD-REFUSE",
+          "CHAIN_REWRITE": "FL-CHAIN-REWRITE-REFUSE",
+          "LOCKSET_BYTES": "FL-LOCKSET-BYTES-REFUSE",
+          "RECEIPT_FOLD": "FL-RECEIPT-FOLD-REFUSE",
+          "HASH_FIELD": "FL-HASH-FIELD-REFUSE",
+          "ZIP_ENCRYPT": "FL-ZIP-ENCRYPT-CLAIM",
+          "ENGINE_UNBOUND": "FL-ENGINE-UNBOUND"
+        },
+        "tip_folded": false
+      },
+      "cap7": {
+        "design_of": true,
+        "resolves_to_hub": false,
+        "public_icann": false
+      },
+      "growth_on": true,
+      "no_fan": true,
+      "invented_holdings": false,
+      "note": "Machine only. FragGate is THE single door on the runtime sister. hedidntjump.com is not an MCP door. Cite, don't merge. Do not invent Framagit, GitFlic, or GitLab URLs."
+    },
+    "foldlock": {
+      "spec": "FOLDLOCK-SHELF-1.0",
+      "slug": "foldlock",
+      "name": "FoldLock",
+      "product_version": "0.8.0",
+      "one_line": "Algorithmic tether-word suppression on UTF-8 text. Not zip.",
+      "zip": false,
+      "encryption": false,
+      "engine_bound": false,
+      "hook_status": "slot",
+      "digest": "1034d5924b88878918986abe260338b0aff0117bc6f9c4d4a01a41d843cfa0a8",
+      "github": "https://github.com/AzielEliab/foldlock",
+      "worker": "https://foldlock-download-tracker.vibelock.workers.dev/",
+      "fraggate_describe": "https://www.azielcorpuslibrary.net/runtime/v1/fraggate/describe?slug=foldlock",
+      "redline": "Never fold the lockset tip hash itself. Never rewrite the chain. Tip SHA-256 stays over raw receipts. Folding is a suppression aid, not encryption and not zip.",
+      "refuse": {
+        "TIP_FOLD": "FL-TIP-FOLD-REFUSE",
+        "CHAIN_REWRITE": "FL-CHAIN-REWRITE-REFUSE",
+        "LOCKSET_BYTES": "FL-LOCKSET-BYTES-REFUSE",
+        "RECEIPT_FOLD": "FL-RECEIPT-FOLD-REFUSE",
+        "HASH_FIELD": "FL-HASH-FIELD-REFUSE",
+        "ZIP_ENCRYPT": "FL-ZIP-ENCRYPT-CLAIM",
+        "ENGINE_UNBOUND": "FL-ENGINE-UNBOUND"
+      },
+      "hdj_holding": false,
+      "tip_folded": false,
+      "lockset_tip_raw": true,
+      "note": "Cite only when shelves touch FoldLock. This isolate does not bind the FoldLock engine. Lockset tip bytes stay raw. Not an HDJ holding. Not zip. Not encryption. Not a rewrite key."
+    },
+    "foldlock_shelf": "FOLDLOCK-SHELF-1.0"
   },
   "planes": {
     "A": {
@@ -483,8 +775,15 @@
       "working_targets": [
         "codeberg",
         "archive.org",
-        "gitflic-ru"
+        "framagit"
       ],
+      "third_target": {
+        "forge": "framagit",
+        "required": true,
+        "verified": false,
+        "url": null,
+        "note": "Framagit is the Plane B third target. Do not invent a URL. Never LIVE until it hash-verifies."
+      },
       "zenodo_working_path": false,
       "live_ready": false,
       "refuse": "CNS-ZENODO-IP-BAN",
@@ -509,7 +808,31 @@
         "live_ready": false,
         "refuse": "CNS-PLANE-B-ALL-TARGETS"
       },
-      "note": "Codeberg + archive.org uploaded + hash-verify PASS (still SLOT). GitFlic RU unverified. LIVE only when all three pass (CNS-PLANE-B-ALL-TARGETS). Zenodo refused (CNS-ZENODO-IP-BAN)."
+      "framagit_tip_pack": {
+        "url": null,
+        "forge": "framagit",
+        "required_for_plane_b_live": true,
+        "hash_verify": null,
+        "status": "slot",
+        "live_ready": false,
+        "refuse": "CNS-NO-FORGE-MIRROR",
+        "doi": null
+      },
+      "gitflic": {
+        "required": false,
+        "refuse": "CNS-GITFLIC-EMAIL",
+        "url": null,
+        "status": "refused"
+      },
+      "gitlab": {
+        "required": false,
+        "refuse": "CNS-GITLAB-CF-LOOP",
+        "url": null,
+        "status": "slot",
+        "extra_slot": true,
+        "required_for_plane_b_live": false
+      },
+      "note": "AZindex-FAIL pivot 2026-09-14: LIVE targets are Codeberg + archive.org + Framagit. Codeberg + archive.org hash-verify PASS (still SLOT). Framagit awaiting tip-pack (URL null). GitFlic refused (CNS-GITFLIC-EMAIL). GitLab extra (CNS-GITLAB-CF-LOOP). LIVE only when all three pass (CNS-PLANE-B-ALL-TARGETS). Zenodo refused (CNS-ZENODO-IP-BAN)."
     },
     "C": {
       "name": "USB airgap + optional second forge",
@@ -520,6 +843,17 @@
         "CNS-NO-FORGE-MIRROR"
       ],
       "attest": "USB offline-verify before LIVE: copy the airgap pack off-network, run verify-airgap.sh / sha256sum -c SHA256SUMS against the published tip, then operator attest (CNS-OPERATOR-ATTEST)."
+    },
+    "G": {
+      "name": "extra independent tip-pack (GitLab)",
+      "status": "slot",
+      "extra_slot": true,
+      "required_for_plane_b_live": false,
+      "url": null,
+      "refuse": "CNS-GITLAB-CF-LOOP",
+      "expect_pack_sha256": "b549362c0736ddb54ddc488812327c464e0da1167281f92fd1a4263eedf5df37",
+      "expect_lockset_tip": "c831429befc221bd41caeb0a6d1c5361602db5684abab7af6d39714084b6b245",
+      "note": "GitLab is Cloudflare-loop blocked (CNS-GITLAB-CF-LOOP). Extra SLOT, url null. Not a Plane B LIVE-promotion target. Do not invent a URL."
     }
   },
   "verify": {
