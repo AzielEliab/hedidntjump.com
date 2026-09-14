@@ -187,6 +187,7 @@ def write_redirects() -> None:
 /shelves /shelves.json 200
 /v1/shelves /shelves.json 200
 /cold-copy /shelves.json 200
+/redline /redline.json 200
 """
     for tree in TREES:
         (tree / "_redirects").write_text(body, encoding="utf-8")

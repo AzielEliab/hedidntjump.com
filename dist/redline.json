@@ -1,0 +1,73 @@
+{
+  "spec": "REDLINE-1.0",
+  "author": "Aziel Eliab",
+  "identity": "Aziel Eliab",
+  "person_id": "https://www.azieleliab.com/#aziel",
+  "canonical_shelves": "https://www.azielcorpuslibrary.net/shelves",
+  "this_host": "https://www.hedidntjump.com/redline",
+  "this_host_json": "https://www.hedidntjump.com/redline.json",
+  "door": "fraggate",
+  "doors": {
+    "fraggate": true,
+    "fraggate_single_door": true,
+    "domains_are_doors": false,
+    "this_host_mcp": false,
+    "softwares_tab": false,
+    "mesh_radio": false,
+    "lamb_lens_ingest": false
+  },
+  "refuse": {
+    "PLANE_B_ALL_TARGETS": "CNS-PLANE-B-ALL-TARGETS",
+    "GITFLIC": "CNS-GITFLIC-EMAIL",
+    "GITLAB": "CNS-GITLAB-CF-LOOP",
+    "ZENODO": "CNS-ZENODO-IP-BAN",
+    "NO_TIP_DOI": "CNS-NO-TIP-DOI",
+    "NO_FORGE_MIRROR": "CNS-NO-FORGE-MIRROR",
+    "OPERATOR_ATTEST": "CNS-OPERATOR-ATTEST",
+    "NO_CID": "CNS-NO-CID",
+    "TIP_FOLD": "FL-TIP-FOLD-REFUSE",
+    "CHAIN_REWRITE": "FL-CHAIN-REWRITE-REFUSE",
+    "LOCKSET_BYTES": "FL-LOCKSET-BYTES-REFUSE",
+    "HALLUC_TOOL": "FG-HALLUC-TOOL",
+    "INVENTED_HOLDING": "HDJ-NO-INVENTED-HOLDING"
+  },
+  "plane_b": {
+    "working_targets": [
+      "codeberg",
+      "archive.org",
+      "framagit"
+    ],
+    "all_targets": "CNS-PLANE-B-ALL-TARGETS",
+    "codeberg": "pass",
+    "archive_org": "pass",
+    "framagit_url": null,
+    "gitflic": "CNS-GITFLIC-EMAIL",
+    "gitlab": "CNS-GITLAB-CF-LOOP",
+    "zenodo": "CNS-ZENODO-IP-BAN",
+    "live_ready": false,
+    "status": "slot"
+  },
+  "foldlock": {
+    "spec": "FOLDLOCK-SHELF-1.0",
+    "redline": "Never fold the lockset tip hash itself. Never rewrite the chain. Tip SHA-256 stays over raw receipts. Folding is a suppression aid, not encryption and not zip.",
+    "refuse": {
+      "TIP_FOLD": "FL-TIP-FOLD-REFUSE",
+      "CHAIN_REWRITE": "FL-CHAIN-REWRITE-REFUSE",
+      "LOCKSET_BYTES": "FL-LOCKSET-BYTES-REFUSE",
+      "RECEIPT_FOLD": "FL-RECEIPT-FOLD-REFUSE",
+      "HASH_FIELD": "FL-HASH-FIELD-REFUSE",
+      "ZIP_ENCRYPT": "FL-ZIP-ENCRYPT-CLAIM",
+      "ENGINE_UNBOUND": "FL-ENGINE-UNBOUND"
+    },
+    "tip_folded": false
+  },
+  "cap7": {
+    "design_of": true,
+    "resolves_to_hub": false,
+    "public_icann": false
+  },
+  "growth_on": true,
+  "no_fan": true,
+  "invented_holdings": false,
+  "note": "Machine only. FragGate is THE single door on the runtime sister. hedidntjump.com is not an MCP door. Cite, don't merge. Do not invent Framagit, GitFlic, or GitLab URLs."
+}

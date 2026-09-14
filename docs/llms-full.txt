@@ -142,19 +142,21 @@ Companion cite (outside hashed /ingest-as-receipt.json; same tip). Receipts stil
 
 ## COLD-MULTI-SHELF-1.0
 
-Sister-host cite of live corpus /shelves (corpus#97). Canonical: https://www.azielcorpuslibrary.net/shelves
-This host: https://www.hedidntjump.com/shelves · https://hedidntjump.com/shelves · https://www.hedidntjump.com/lockset.json
+Sister-host cite of live corpus /shelves (AZindex-FAIL pivot 2026-09-14). Canonical: https://www.azielcorpuslibrary.net/shelves
+This host: https://www.hedidntjump.com/shelves · https://hedidntjump.com/shelves · https://www.hedidntjump.com/lockset.json · https://www.hedidntjump.com/redline
 Person @id: https://www.azieleliab.com/#aziel
 Lamb Lens (Corpus ingest, not this host): https://www.azielcorpuslibrary.net/corpus
 Growth-ON. NO-FAN (no Softwares tab, no mesh radio, no live ICANN Cap-7 publish).
 Machine surfaces only. No visible 1 Chronicles 15:20 lock.
+REDLINE: FragGate is THE single door on the runtime sister; this archive is not an MCP door.
 
 Planes A/B/C: A=one CF/GitHub tunnel (5 surfaces / 2 family radii, not 5 shelves); B=alt independent forge/archive tip-pack SLOT; C=USB airgap SLOT. Survival = bytes↔hash. LIVE only after hash verify.
 
 - Plane A: 5 published surfaces / 2 family radii (cloudflare + github). hedidntjump.com is one CF host mirror, not a fifth independent shelf.
-- Plane B: Codeberg + archive.org tip-pack `b549362c0736ddb54ddc488812327c464e0da1167281f92fd1a4263eedf5df37` hash-verify PASS (https://archive.org/details/aziel-lockset-tip), still SLOT (CNS-PLANE-B-ALL-TARGETS) until GitFlic RU. Zenodo refused CNS-ZENODO-IP-BAN (doi null). Do not invent a tip-pack DOI.
+- Plane B ALL-TARGETS: Codeberg + archive.org + Framagit. Tip-pack `b549362c0736ddb54ddc488812327c464e0da1167281f92fd1a4263eedf5df37` hash-verify PASS (https://archive.org/details/aziel-lockset-tip); Framagit URL null; still SLOT (CNS-PLANE-B-ALL-TARGETS). GitFlic refused CNS-GITFLIC-EMAIL. GitLab extra CNS-GITLAB-CF-LOOP. Zenodo refused CNS-ZENODO-IP-BAN (doi null). Do not invent a tip-pack DOI or Framagit URL.
 - Plane C: USB airgap SLOT until CNS-OPERATOR-ATTEST.
 - Cap-7: design_of the four hubs + this archive; resolves_to_hub: false; public_icann: false.
+- FoldLock (FOLDLOCK-SHELF-1.0): tip-safe cite only. Never fold the lockset tip (`FL-TIP-FOLD-REFUSE`). Not zip. Not an HDJ holding.
 - Lockset tip (corpus, cited): `c831429befc221bd41caeb0a6d1c5361602db5684abab7af6d39714084b6b245` — verify on https://www.azielcorpuslibrary.net/lockset.json. Not the HDJ ingest tip.
 - HDJ ingest tip (this host, unchanged): `ef967e4acb47ba913ce3959b673767278da605b307de33210b2dc2f1cfd86f60`
 - CROSS-NETWORK-SURVIVAL + NO-LIE / NO-REWRITE stay in force. Cite, don't merge. No invented holdings.

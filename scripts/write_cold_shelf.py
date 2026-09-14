@@ -1,11 +1,14 @@
 #!/usr/bin/env python3
 """Publish COLD-MULTI-SHELF-1.0 on HDJ machine surfaces (AZindex).
 
-Sister-host cite of live corpus /shelves (corpus#97). Canonical registry:
-https://www.azielcorpuslibrary.net/shelves
+Sister-host cite of live corpus /shelves (AZindex-FAIL pivot 2026-09-14).
+Canonical registry: https://www.azielcorpuslibrary.net/shelves
 
-Does not invent holdings, DOIs, GitFlic URLs, or CIDs.
+Does not invent holdings, DOIs, Framagit/GitFlic/GitLab URLs, or CIDs.
 Archive.org tip-pack is the published item https://archive.org/details/aziel-lockset-tip.
+Plane B ALL-TARGETS are Codeberg + archive.org + Framagit (Framagit URL null).
+GitFlic refused CNS-GITFLIC-EMAIL. GitLab extra/refused CNS-GITLAB-CF-LOOP.
+Zenodo refused CNS-ZENODO-IP-BAN. FoldLock cite is tip-safe only.
 Does not change hashed /ingest-as-receipt.json (tip stays
 ef967e4acb47ba913ce3959b673767278da605b307de33210b2dc2f1cfd86f60).
 Does not add visible 1 Chronicles 15:20 chrome.
@@ -91,6 +94,120 @@ CAP7 = {
     },
 }
 
+PLANE_B_TARGETS = ["codeberg", "archive.org", "framagit"]
+FOLDLOCK_DIGEST = "1034d5924b88878918986abe260338b0aff0117bc6f9c4d4a01a41d843cfa0a8"
+FOLDLOCK_REDLINE = (
+    "Never fold the lockset tip hash itself. Never rewrite the chain. "
+    "Tip SHA-256 stays over raw receipts. Folding is a suppression aid, "
+    "not encryption and not zip."
+)
+FOLDLOCK_REFUSE = {
+    "TIP_FOLD": "FL-TIP-FOLD-REFUSE",
+    "CHAIN_REWRITE": "FL-CHAIN-REWRITE-REFUSE",
+    "LOCKSET_BYTES": "FL-LOCKSET-BYTES-REFUSE",
+    "RECEIPT_FOLD": "FL-RECEIPT-FOLD-REFUSE",
+    "HASH_FIELD": "FL-HASH-FIELD-REFUSE",
+    "ZIP_ENCRYPT": "FL-ZIP-ENCRYPT-CLAIM",
+    "ENGINE_UNBOUND": "FL-ENGINE-UNBOUND",
+}
+REDLINE_REFUSE = {
+    "PLANE_B_ALL_TARGETS": "CNS-PLANE-B-ALL-TARGETS",
+    "GITFLIC": "CNS-GITFLIC-EMAIL",
+    "GITLAB": "CNS-GITLAB-CF-LOOP",
+    "ZENODO": "CNS-ZENODO-IP-BAN",
+    "NO_TIP_DOI": "CNS-NO-TIP-DOI",
+    "NO_FORGE_MIRROR": "CNS-NO-FORGE-MIRROR",
+    "OPERATOR_ATTEST": "CNS-OPERATOR-ATTEST",
+    "NO_CID": "CNS-NO-CID",
+    "TIP_FOLD": "FL-TIP-FOLD-REFUSE",
+    "CHAIN_REWRITE": "FL-CHAIN-REWRITE-REFUSE",
+    "LOCKSET_BYTES": "FL-LOCKSET-BYTES-REFUSE",
+    "HALLUC_TOOL": "FG-HALLUC-TOOL",
+    "INVENTED_HOLDING": "HDJ-NO-INVENTED-HOLDING",
+}
+
+
+def foldlock_cite() -> dict:
+    return {
+        "spec": "FOLDLOCK-SHELF-1.0",
+        "slug": "foldlock",
+        "name": "FoldLock",
+        "product_version": "0.8.0",
+        "one_line": "Algorithmic tether-word suppression on UTF-8 text. Not zip.",
+        "zip": False,
+        "encryption": False,
+        "engine_bound": False,
+        "hook_status": "slot",
+        "digest": FOLDLOCK_DIGEST,
+        "github": "https://github.com/AzielEliab/foldlock",
+        "worker": "https://foldlock-download-tracker.vibelock.workers.dev/",
+        "fraggate_describe": "https://www.azielcorpuslibrary.net/runtime/v1/fraggate/describe?slug=foldlock",
+        "redline": FOLDLOCK_REDLINE,
+        "refuse": dict(FOLDLOCK_REFUSE),
+        "hdj_holding": False,
+        "tip_folded": False,
+        "lockset_tip_raw": True,
+        "note": (
+            "Cite only when shelves touch FoldLock. This isolate does not bind "
+            "the FoldLock engine. Lockset tip bytes stay raw. Not an HDJ holding. "
+            "Not zip. Not encryption. Not a rewrite key."
+        ),
+    }
+
+
+def redline_cite() -> dict:
+    return {
+        "spec": "REDLINE-1.0",
+        "author": "Aziel Eliab",
+        "identity": "Aziel Eliab",
+        "person_id": PERSON_ID,
+        "canonical_shelves": CANON_SHELVES,
+        "this_host": f"{WWW}/redline",
+        "this_host_json": f"{WWW}/redline.json",
+        "door": "fraggate",
+        "doors": {
+            "fraggate": True,
+            "fraggate_single_door": True,
+            "domains_are_doors": False,
+            "this_host_mcp": False,
+            "softwares_tab": False,
+            "mesh_radio": False,
+            "lamb_lens_ingest": False,
+        },
+        "refuse": dict(REDLINE_REFUSE),
+        "plane_b": {
+            "working_targets": list(PLANE_B_TARGETS),
+            "all_targets": "CNS-PLANE-B-ALL-TARGETS",
+            "codeberg": "pass",
+            "archive_org": "pass",
+            "framagit_url": None,
+            "gitflic": "CNS-GITFLIC-EMAIL",
+            "gitlab": "CNS-GITLAB-CF-LOOP",
+            "zenodo": "CNS-ZENODO-IP-BAN",
+            "live_ready": False,
+            "status": "slot",
+        },
+        "foldlock": {
+            "spec": "FOLDLOCK-SHELF-1.0",
+            "redline": FOLDLOCK_REDLINE,
+            "refuse": dict(FOLDLOCK_REFUSE),
+            "tip_folded": False,
+        },
+        "cap7": {
+            "design_of": True,
+            "resolves_to_hub": False,
+            "public_icann": False,
+        },
+        "growth_on": True,
+        "no_fan": True,
+        "invented_holdings": False,
+        "note": (
+            "Machine only. FragGate is THE single door on the runtime sister. "
+            "hedidntjump.com is not an MCP door. Cite, don't merge. "
+            "Do not invent Framagit, GitFlic, or GitLab URLs."
+        ),
+    }
+
 
 def dumps(obj: object) -> str:
     return json.dumps(obj, indent=2, ensure_ascii=False) + "\n"
@@ -114,7 +231,17 @@ def planes() -> dict:
             "name": "alternate independent forge/archive tip-pack",
             "status": "slot",
             "doi": None,
-            "working_targets": ["codeberg", "archive.org", "gitflic-ru"],
+            "working_targets": list(PLANE_B_TARGETS),
+            "third_target": {
+                "forge": "framagit",
+                "required": True,
+                "verified": False,
+                "url": None,
+                "note": (
+                    "Framagit is the Plane B third target. Do not invent a URL. "
+                    "Never LIVE until it hash-verifies."
+                ),
+            },
             "zenodo_working_path": False,
             "live_ready": False,
             "refuse": "CNS-ZENODO-IP-BAN",
@@ -139,9 +266,35 @@ def planes() -> dict:
                 "live_ready": False,
                 "refuse": "CNS-PLANE-B-ALL-TARGETS",
             },
+            "framagit_tip_pack": {
+                "url": None,
+                "forge": "framagit",
+                "required_for_plane_b_live": True,
+                "hash_verify": None,
+                "status": "slot",
+                "live_ready": False,
+                "refuse": "CNS-NO-FORGE-MIRROR",
+                "doi": None,
+            },
+            "gitflic": {
+                "required": False,
+                "refuse": "CNS-GITFLIC-EMAIL",
+                "url": None,
+                "status": "refused",
+            },
+            "gitlab": {
+                "required": False,
+                "refuse": "CNS-GITLAB-CF-LOOP",
+                "url": None,
+                "status": "slot",
+                "extra_slot": True,
+                "required_for_plane_b_live": False,
+            },
             "note": (
-                "Codeberg + archive.org uploaded + hash-verify PASS (still SLOT). "
-                "GitFlic RU unverified. LIVE only when all three pass "
+                "AZindex-FAIL pivot 2026-09-14: LIVE targets are Codeberg + archive.org + "
+                "Framagit. Codeberg + archive.org hash-verify PASS (still SLOT). Framagit "
+                "awaiting tip-pack (URL null). GitFlic refused (CNS-GITFLIC-EMAIL). GitLab "
+                "extra (CNS-GITLAB-CF-LOOP). LIVE only when all three pass "
                 "(CNS-PLANE-B-ALL-TARGETS). Zenodo refused (CNS-ZENODO-IP-BAN)."
             ),
         },
@@ -154,6 +307,20 @@ def planes() -> dict:
                 "USB offline-verify before LIVE: copy the airgap pack off-network, "
                 "run verify-airgap.sh / sha256sum -c SHA256SUMS against the published tip, "
                 "then operator attest (CNS-OPERATOR-ATTEST)."
+            ),
+        },
+        "G": {
+            "name": "extra independent tip-pack (GitLab)",
+            "status": "slot",
+            "extra_slot": True,
+            "required_for_plane_b_live": False,
+            "url": None,
+            "refuse": "CNS-GITLAB-CF-LOOP",
+            "expect_pack_sha256": CODEBERG_PACK,
+            "expect_lockset_tip": LOCKSET_TIP,
+            "note": (
+                "GitLab is Cloudflare-loop blocked (CNS-GITLAB-CF-LOOP). Extra SLOT, "
+                "url null. Not a Plane B LIVE-promotion target. Do not invent a URL."
             ),
         },
     }
@@ -212,12 +379,16 @@ def registry() -> dict:
             "plane-b-alt-forge-archive",
             "plane-b-codeberg-tip-pack",
             "plane-b-archive-org-tip-pack",
-            "plane-b-gitflic-ru-tip-pack",
+            "plane-b-framagit-tip-pack",
             "plane-c-usb-airgap",
             "plane-c-forge-off-github",
+            "plane-g-gitlab-tip-pack",
             "ipfs-lockset",
         ],
-        "refused": ["plane-b-zenodo-tip-pack"],
+        "refused": [
+            "plane-b-gitflic-ru-tip-pack",
+            "plane-b-zenodo-tip-pack",
+        ],
         "shelves": shelf_rows(),
         "corpus_paper_deposits": [
             {
@@ -286,13 +457,19 @@ def registry() -> dict:
             "CROSS-NETWORK-SURVIVAL: " + CNS_RULE + " NO-LIE / NO-REWRITE: " + NOLIE_RULE + " "
             + COLD_RULE
             + " Plane A is one CF/GitHub tunnel (5 published surfaces / 2 family radii; "
-            "independent_live_count stays 1). Plane B Codeberg + archive.org tip-pack "
+            "independent_live_count stays 1). Plane B ALL-TARGETS are Codeberg + archive.org + "
+            "Framagit; tip-pack "
             + CODEBERG_PACK
-            + " hash-verify PASS, still SLOT until GitFlic RU; Zenodo tip-pack is refused "
-            "(CNS-ZENODO-IP-BAN). doi null. "
+            + " hash-verify PASS on Codeberg + archive.org, still SLOT until Framagit "
+            "(URL null). GitFlic refused CNS-GITFLIC-EMAIL. GitLab extra CNS-GITLAB-CF-LOOP. "
+            "Zenodo tip-pack is refused (CNS-ZENODO-IP-BAN). doi null. "
             "Paper deposits are corpus cites, not HDJ holdings, and not tip-pack Plane B. "
-            "Plane C USB stays SLOT until CNS-OPERATOR-ATTEST."
+            "FoldLock neighbor is cite + SLOT hook (FOLDLOCK-SHELF-1.0): never fold the "
+            "lockset tip. Plane C USB stays SLOT until CNS-OPERATOR-ATTEST."
         ),
+        "redline": redline_cite(),
+        "foldlock": foldlock_cite(),
+        "foldlock_shelf": "FOLDLOCK-SHELF-1.0",
     }
 
 
@@ -398,8 +575,9 @@ def shelf_rows() -> list[dict]:
             "refuse": "CNS-PLANE-B-ALL-TARGETS",
             "reason": (
                 "Codeberg tip-pack uploaded and hash-verify PASS. archive.org also PASS. "
-                "SLOT until GitFlic RU also hash-verify (CNS-PLANE-B-ALL-TARGETS). "
-                "Plane B LIVE only when all three working targets pass. doi null."
+                "SLOT until Framagit also hash-verify (CNS-PLANE-B-ALL-TARGETS). "
+                "Plane B LIVE only when Codeberg + archive.org + Framagit pass. "
+                "GitFlic refused CNS-GITFLIC-EMAIL. GitLab extra CNS-GITLAB-CF-LOOP. doi null."
             ),
         },
         {
@@ -432,24 +610,44 @@ def shelf_rows() -> list[dict]:
                 + ARCHIVE_ORG_URL
                 + " and hash-verify PASS (pack "
                 + CODEBERG_PACK
-                + "). SLOT until GitFlic RU also hash-verify. Plane B LIVE only when all "
-                "three working targets pass. doi null."
+                + "). SLOT until Framagit also hash-verify. Plane B LIVE only when "
+                "Codeberg + archive.org + Framagit pass (CNS-PLANE-B-ALL-TARGETS). doi null."
+            ),
+        },
+        {
+            "id": "plane-b-framagit-tip-pack",
+            "plane": "B",
+            "kind": "git_mirror",
+            "status": "slot",
+            "forge": "framagit",
+            "url": None,
+            "blast_radius": "framagit",
+            "independent": True,
+            "lockset_shelf": True,
+            "live_ready": False,
+            "doi": None,
+            "required_for_plane_b_live": True,
+            "refuse": "CNS-NO-FORGE-MIRROR",
+            "reason": (
+                "Framagit tip-pack is a Plane B LIVE-promotion target (AZindex-FAIL pivot "
+                "2026-09-14; GitLab CF-loop blocked). No verified URL in-repo. SLOT. "
+                "Awaiting tip-pack. Do not invent a URL. LIVE only after tip hash-verify."
             ),
         },
         {
             "id": "plane-b-gitflic-ru-tip-pack",
             "plane": "B",
             "kind": "git_mirror",
-            "status": "slot",
+            "status": "refused",
             "forge": "gitflic-ru",
             "url": None,
             "blast_radius": "gitflic-ru",
             "independent": True,
-            "lockset_shelf": True,
-            "refuse": "CNS-NO-FORGE-MIRROR",
+            "lockset_shelf": False,
+            "refuse": "CNS-GITFLIC-EMAIL",
             "reason": (
-                "GitFlic (RU) tip-pack is a Plane B LIVE-promotion target. No verified URL "
-                "in-repo. SLOT. Do not invent a URL. LIVE only after tip hash-verify."
+                "GitFlic confirmation mail never arrived (CNS-GITFLIC-EMAIL). Not a Plane B "
+                "LIVE-promotion target. Framagit replaced it. No verified URL. Do not invent a URL."
             ),
         },
         {
@@ -468,6 +666,30 @@ def shelf_rows() -> list[dict]:
                 "Operator IP banned at Zenodo (CNS-ZENODO-IP-BAN). Zenodo is not the Plane B "
                 "working shelf. No tip-pack DOI (CNS-NO-TIP-DOI). cite.json / lockset doi stay "
                 "null. Do not invent. Corpus paper deposits are not this slot and are not HDJ holdings."
+            ),
+        },
+        {
+            "id": "plane-g-gitlab-tip-pack",
+            "plane": "G",
+            "kind": "git_mirror",
+            "status": "slot",
+            "forge": "gitlab",
+            "url": None,
+            "expect_pack_sha256": CODEBERG_PACK,
+            "expect_lockset_tip": LOCKSET_TIP,
+            "hash_verify": None,
+            "tip_verified": False,
+            "live_ready": False,
+            "required_for_plane_b_live": False,
+            "extra_slot": True,
+            "doi": None,
+            "blast_radius": "gitlab",
+            "independent": True,
+            "lockset_shelf": True,
+            "refuse": "CNS-GITLAB-CF-LOOP",
+            "reason": (
+                "GitLab is Cloudflare-loop blocked (CNS-GITLAB-CF-LOOP). Extra SLOT, url null. "
+                "Not a Plane B LIVE-promotion target. Do not invent a URL."
             ),
         },
         {
@@ -502,8 +724,9 @@ def shelf_rows() -> list[dict]:
             "lockset_shelf": True,
             "refuse": "CNS-NO-FORGE-MIRROR",
             "reason": (
-                "Optional Plane C second-forge slot. Codeberg / archive.org / GitFlic RU are "
-                "Plane B working targets, not this slot. No account URL here. SLOT. Do not invent a URL."
+                "Optional Plane C second-forge slot. Codeberg / archive.org / Framagit are "
+                "Plane B working targets, not this slot. GitFlic refused CNS-GITFLIC-EMAIL. "
+                "GitLab extra CNS-GITLAB-CF-LOOP. No account URL here. SLOT. Do not invent a URL."
             ),
         },
         {
@@ -577,6 +800,14 @@ def shelves_doc() -> dict:
         "mesh_radio": False,
         "az_gen_live_icann_publish": False,
         "cap7_sites": CAP7,
+        "redline": redline_cite(),
+        "foldlock": foldlock_cite(),
+        "foldlock_shelf": "FOLDLOCK-SHELF-1.0",
+        "no_invented_holdings": True,
+        "invented_framagit_url": False,
+        "invented_gitflic_url": False,
+        "invented_gitlab_url": False,
+        "invented_zenodo_doi": False,
         "registry": registry(),
         "planes": planes(),
         "verify": {
@@ -618,10 +849,17 @@ def lockset_doc() -> dict:
         "receipts": "https://www.azielcorpuslibrary.net/receipts",
         "hdj_receipts": f"{APEX}/receipts",
         "hdj_ingest_tip": HDJ_INGEST_TIP,
+        "foldlock": {
+            "spec": "FOLDLOCK-SHELF-1.0",
+            "redline": FOLDLOCK_REDLINE,
+            "tip_folded": False,
+            "refuse": dict(FOLDLOCK_REFUSE),
+        },
         "note": (
             "Sister-host cite of the live corpus lockset tip. Do not treat these file bytes "
             "as the tip. Verify SHA-256 against canonical lockset.json on "
-            "azielcorpuslibrary.net. HDJ /ingest-as-receipt.json is a separate host tip."
+            "azielcorpuslibrary.net. HDJ /ingest-as-receipt.json is a separate host tip. "
+            "FoldLock must never fold this tip (FL-TIP-FOLD-REFUSE)."
         ),
         "indexes": [
             "https://www.azielcorpuslibrary.net/",
@@ -635,37 +873,41 @@ def lockset_doc() -> dict:
 
 LLMS_BLOCK = f"""## COLD-MULTI-SHELF-1.0
 
-Sister-host cite of live corpus /shelves (corpus#97). Canonical: {CANON_SHELVES}
-This host: {WWW}/shelves · {APEX}/shelves · {WWW}/lockset.json
+Sister-host cite of live corpus /shelves (AZindex-FAIL pivot 2026-09-14). Canonical: {CANON_SHELVES}
+This host: {WWW}/shelves · {APEX}/shelves · {WWW}/lockset.json · {WWW}/redline
 Person @id: {PERSON_ID}
 Lamb Lens (Corpus ingest, not this host): https://www.azielcorpuslibrary.net/corpus
 Growth-ON. NO-FAN (no Softwares tab, no mesh radio, no live ICANN Cap-7 publish).
 Machine surfaces only. No visible 1 Chronicles 15:20 lock.
+REDLINE: FragGate is THE single door on the runtime sister; this archive is not an MCP door.
 
 Planes A/B/C: A=one CF/GitHub tunnel (5 surfaces / 2 family radii, not 5 shelves); B=alt independent forge/archive tip-pack SLOT; C=USB airgap SLOT. Survival = bytes↔hash. LIVE only after hash verify.
 
 - Plane A: 5 published surfaces / 2 family radii (cloudflare + github). hedidntjump.com is one CF host mirror, not a fifth independent shelf.
-- Plane B: Codeberg + archive.org tip-pack `{CODEBERG_PACK}` hash-verify PASS ({ARCHIVE_ORG_URL}), still SLOT (CNS-PLANE-B-ALL-TARGETS) until GitFlic RU. Zenodo refused CNS-ZENODO-IP-BAN (doi null). Do not invent a tip-pack DOI.
+- Plane B ALL-TARGETS: Codeberg + archive.org + Framagit. Tip-pack `{CODEBERG_PACK}` hash-verify PASS ({ARCHIVE_ORG_URL}); Framagit URL null; still SLOT (CNS-PLANE-B-ALL-TARGETS). GitFlic refused CNS-GITFLIC-EMAIL. GitLab extra CNS-GITLAB-CF-LOOP. Zenodo refused CNS-ZENODO-IP-BAN (doi null). Do not invent a tip-pack DOI or Framagit URL.
 - Plane C: USB airgap SLOT until CNS-OPERATOR-ATTEST.
 - Cap-7: design_of the four hubs + this archive; resolves_to_hub: false; public_icann: false.
+- FoldLock (FOLDLOCK-SHELF-1.0): tip-safe cite only. Never fold the lockset tip (`FL-TIP-FOLD-REFUSE`). Not zip. Not an HDJ holding.
 - Lockset tip (corpus, cited): `{LOCKSET_TIP}` — verify on {CANON_LOCKSET}. Not the HDJ ingest tip.
 - HDJ ingest tip (this host, unchanged): `{HDJ_INGEST_TIP}`
 - CROSS-NETWORK-SURVIVAL + NO-LIE / NO-REWRITE stay in force. Cite, don't merge. No invented holdings.
 """
 
 AI_BLOCK = f"""
-COLD-MULTI-SHELF-1.0 (AZindex; sister cite of corpus#97 /shelves):
+COLD-MULTI-SHELF-1.0 (AZindex; sister cite of live corpus /shelves):
 - Canonical shelves: {CANON_SHELVES}
-- This host: {WWW}/shelves · {WWW}/lockset.json
+- This host: {WWW}/shelves · {WWW}/lockset.json · {WWW}/redline
 - Person @id: {PERSON_ID}
 - Lamb Lens: https://www.azielcorpuslibrary.net/corpus (Corpus ingest; HDJ is not a Lamb Lens ingest host)
 - Growth-ON. NO-FAN. Machine only. No visible 15:20.
+- REDLINE doors/refuse: FragGate single door; CNS-PLANE-B-ALL-TARGETS; CNS-GITFLIC-EMAIL; CNS-GITLAB-CF-LOOP; CNS-ZENODO-IP-BAN; FL-TIP-FOLD-REFUSE
 - Plane A: 5 surfaces / 2 family radii (cloudflare + github). This host is one CF mirror, not a fifth shelf.
-- Plane B: Codeberg + archive.org tip-pack {CODEBERG_PACK} PASS ({ARCHIVE_ORG_URL}); GitFlic unverified; still SLOT (CNS-PLANE-B-ALL-TARGETS); Zenodo CNS-ZENODO-IP-BAN doi null
+- Plane B ALL-TARGETS: Codeberg + archive.org + Framagit; tip-pack {CODEBERG_PACK} PASS ({ARCHIVE_ORG_URL}); Framagit URL null; GitFlic CNS-GITFLIC-EMAIL; GitLab CNS-GITLAB-CF-LOOP; still SLOT (CNS-PLANE-B-ALL-TARGETS); Zenodo CNS-ZENODO-IP-BAN doi null
 - Plane C: USB attest SLOT (CNS-OPERATOR-ATTEST)
 - Cap-7: design_of + resolves_to_hub:false (hedidntjump design_of {WWW}/)
+- FoldLock: tip-safe cite only; never fold {LOCKSET_TIP}
 - Lockset tip cited: {LOCKSET_TIP}
-- Do not invent holdings, DOIs, GitFlic URLs, or CIDs
+- Do not invent holdings, DOIs, Framagit/GitFlic/GitLab URLs, or CIDs
 """
 
 
@@ -688,6 +930,11 @@ def write_shelves() -> None:
         print("wrote", (v1 / "shelves").relative_to(ROOT))
         (tree / "lockset.json").write_text(lock, encoding="utf-8")
         print("wrote", (tree / "lockset.json").relative_to(ROOT))
+        redline = dumps(redline_cite())
+        (tree / "redline.json").write_text(redline, encoding="utf-8")
+        (tree / "redline").write_text(redline, encoding="utf-8")
+        print("wrote", (tree / "redline.json").relative_to(ROOT))
+        print("wrote", (tree / "redline").relative_to(ROOT))
 
 
 def patch_cite() -> None:
@@ -736,11 +983,34 @@ def patch_cite() -> None:
             "hash_verify": "pass",
             "doi": None,
         },
+        "framagit_tip_pack": {
+            "url": None,
+            "forge": "framagit",
+            "status": "slot",
+            "hash_verify": None,
+            "doi": None,
+            "refuse": "CNS-NO-FORGE-MIRROR",
+        },
+        "gitflic_tip_pack": {
+            "status": "refused",
+            "refuse": "CNS-GITFLIC-EMAIL",
+            "url": None,
+        },
+        "gitlab_tip_pack": {
+            "status": "slot",
+            "extra_slot": True,
+            "required_for_plane_b_live": False,
+            "refuse": "CNS-GITLAB-CF-LOOP",
+            "url": None,
+        },
         "zenodo_tip_pack": {
             "status": "refused",
             "refuse": "CNS-ZENODO-IP-BAN",
             "doi": None,
         },
+        "redline": redline_cite(),
+        "foldlock": foldlock_cite(),
+        "foldlock_shelf": "FOLDLOCK-SHELF-1.0",
     }
     for tree in TREES:
         path = tree / "cite.json"
@@ -750,7 +1020,13 @@ def patch_cite() -> None:
         data["person_id"] = PERSON_ID
         data["author_id"] = PERSON_ID
         q = list(data.get("query_urls") or [])
-        for u in (f"{APEX}/shelves", f"{APEX}/lockset.json", f"{WWW}/shelves"):
+        for u in (
+            f"{APEX}/shelves",
+            f"{APEX}/lockset.json",
+            f"{WWW}/shelves",
+            f"{APEX}/redline",
+            f"{WWW}/redline",
+        ):
             if u not in q:
                 q.append(u)
         data["query_urls"] = q
@@ -817,6 +1093,7 @@ def patch_llms() -> None:
                     "- https://www.hedidntjump.com/cite.json\n"
                     "- https://www.hedidntjump.com/shelves\n"
                     "- https://www.hedidntjump.com/lockset.json\n"
+                    "- https://www.hedidntjump.com/redline\n"
                 ),
                 1,
             )
@@ -845,12 +1122,29 @@ def patch_headers() -> None:
 /lockset.json
   Content-Type: application/json; charset=utf-8
   Cache-Control: public, max-age=3600
+
+/redline
+  Content-Type: application/json; charset=utf-8
+  Cache-Control: public, max-age=3600
+
+/redline.json
+  Content-Type: application/json; charset=utf-8
+  Cache-Control: public, max-age=3600
 """
     for tree in TREES:
         path = tree / "_headers"
         text = path.read_text(encoding="utf-8")
         if "/shelves.json" not in text:
             text = text.rstrip() + "\n" + block
+        elif "/redline.json" not in text:
+            text = text.rstrip() + (
+                "\n\n/redline\n"
+                "  Content-Type: application/json; charset=utf-8\n"
+                "  Cache-Control: public, max-age=3600\n\n"
+                "/redline.json\n"
+                "  Content-Type: application/json; charset=utf-8\n"
+                "  Cache-Control: public, max-age=3600\n"
+            )
         if "Content-Signal: search=yes, ai-input=yes, ai-train=yes" not in text:
             text = "Content-Signal: search=yes, ai-input=yes, ai-train=yes\n" + text
         path.write_text(text if text.endswith("\n") else text + "\n", encoding="utf-8")
@@ -864,12 +1158,19 @@ def patch_redirects() -> None:
         "/v1/shelves /shelves.json 200\n"
         "/cold-copy /shelves.json 200\n"
         "/lockset.json /lockset.json 200\n"
+        "/redline /redline.json 200\n"
     )
     for tree in TREES:
         path = tree / "_redirects"
         text = path.read_text(encoding="utf-8")
+        changed = False
         if "/shelves /shelves.json 200" not in text:
             text = text.rstrip() + "\n\n" + block
+            changed = True
+        elif "/redline /redline.json 200" not in text:
+            text = text.rstrip() + "\n/redline /redline.json 200\n"
+            changed = True
+        if changed:
             path.write_text(text if text.endswith("\n") else text + "\n", encoding="utf-8")
             print("redirects", path.relative_to(ROOT))
 
@@ -892,6 +1193,8 @@ def patch_sitemap() -> None:
         ("/lockset.json", "0.5"),
         ("/v1/shelves", "0.4"),
         ("/cold-copy", "0.4"),
+        ("/redline", "0.4"),
+        ("/redline.json", "0.4"),
     ]
     for tree in TREES:
         path = tree / "sitemap.xml"
@@ -914,6 +1217,8 @@ def patch_openapi() -> None:
         "/v1/shelves": "Alias of /shelves",
         "/cold-copy": "Alias of /shelves",
         "/lockset.json": "Sister-host cite of AZLOCK-INGEST-REEXPAND-1.0 (doi null)",
+        "/redline": "REDLINE-1.0 doors/refuse cite (FragGate single door; Plane B ALL-TARGETS)",
+        "/redline.json": "Same REDLINE-1.0 bytes as /redline",
     }
     for tree in TREES:
         path = tree / "openapi.json"
@@ -946,7 +1251,13 @@ def patch_robots() -> None:
         if "Allow: /shelves" not in text:
             text = text.replace(
                 "Allow: /who.html\n",
-                "Allow: /who.html\nAllow: /shelves\nAllow: /lockset.json\n",
+                "Allow: /who.html\nAllow: /shelves\nAllow: /lockset.json\nAllow: /redline\n",
+                1,
+            )
+        elif "Allow: /redline" not in text:
+            text = text.replace(
+                "Allow: /lockset.json\n",
+                "Allow: /lockset.json\nAllow: /redline\n",
                 1,
             )
         path.write_text(text if text.endswith("\n") else text + "\n", encoding="utf-8")
