@@ -96,6 +96,11 @@ DISCOVERY = [
     ("/llms-full.txt", "0.4"),
     ("/ai.txt", "0.5"),
     ("/cite.json", "0.6"),
+    ("/shelves", "0.6"),
+    ("/shelves.json", "0.5"),
+    ("/lockset.json", "0.5"),
+    ("/v1/shelves", "0.4"),
+    ("/cold-copy", "0.4"),
     ("/ingest-as-receipt.json", "0.5"),
     ("/openapi.json", "0.4"),
     ("/mcp.json", "0.3"),
@@ -177,6 +182,11 @@ def write_redirects() -> None:
 /Aziel /aziel.html 200
 /AboutAziel /aziel.html 200
 /AzielEliab /aziel.html 200
+
+# COLD-MULTI-SHELF machine aliases (AZindex). JSON, not newspaper chrome.
+/shelves /shelves.json 200
+/v1/shelves /shelves.json 200
+/cold-copy /shelves.json 200
 """
     for tree in TREES:
         (tree / "_redirects").write_text(body, encoding="utf-8")

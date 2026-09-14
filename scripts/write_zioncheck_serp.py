@@ -272,6 +272,11 @@ def write_sitemap() -> None:
         ("/llms-full.txt", "0.3"),
         ("/ai.txt", "0.3"),
         ("/cite.json", "0.5"),
+        ("/shelves", "0.5"),
+        ("/shelves.json", "0.4"),
+        ("/lockset.json", "0.4"),
+        ("/v1/shelves", "0.3"),
+        ("/cold-copy", "0.3"),
         ("/ingest-as-receipt.json", "0.5"),
         ("/openapi.json", "0.2"),
         ("/mcp.json", "0.2"),
@@ -691,6 +696,7 @@ This host is the Marion A. Zioncheck archive: U.S. Representative / Seattle cong
 - [{APEX}/llms.txt]({APEX}/llms.txt)
 - [{APEX}/who]({APEX}/who) — Who is Aziel Eliab (HTML lock)
 - [{APEX}/cite.json]({APEX}/cite.json)
+- [{APEX}/shelves]({APEX}/shelves) — COLD-MULTI-SHELF-1.0 (sister cite of https://www.azielcorpuslibrary.net/shelves)
 - [{APEX}/receipts]({APEX}/receipts) — ingest-as-receipt / re-expand (Aziel-page chrome, not paper-tabs Pg.11)
 - [{APEX}/ingest-as-receipt.json]({APEX}/ingest-as-receipt.json) — canonical ingest bytes (one tip)
 
@@ -745,6 +751,8 @@ def write_cite() -> None:
                 f"{APEX}/receipts",
                 f"{APEX}/ingest-as-receipt.json",
                 f"{APEX}/llms.txt",
+                f"{APEX}/shelves",
+                f"{APEX}/lockset.json",
             ],
         }
         for key, value in data.items():
