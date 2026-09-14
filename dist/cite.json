@@ -483,7 +483,17 @@
         "live_ready": false,
         "refuse": "CNS-PLANE-B-ALL-TARGETS"
       },
-      "note": "Codeberg uploaded + hash-verify PASS (still SLOT). archive.org + GitFlic RU unverified. LIVE only when all three pass (CNS-PLANE-B-ALL-TARGETS). Zenodo refused (CNS-ZENODO-IP-BAN)."
+      "archive_org_tip_pack": {
+        "item": "aziel-lockset-tip",
+        "url": "https://archive.org/details/aziel-lockset-tip",
+        "pack_sha256": "b549362c0736ddb54ddc488812327c464e0da1167281f92fd1a4263eedf5df37",
+        "lockset_tip": "c831429befc221bd41caeb0a6d1c5361602db5684abab7af6d39714084b6b245",
+        "hash_verify": "pass",
+        "status": "slot",
+        "live_ready": false,
+        "refuse": "CNS-PLANE-B-ALL-TARGETS"
+      },
+      "note": "Codeberg + archive.org uploaded + hash-verify PASS (still SLOT). GitFlic RU unverified. LIVE only when all three pass (CNS-PLANE-B-ALL-TARGETS). Zenodo refused (CNS-ZENODO-IP-BAN)."
     },
     "C": {
       "name": "USB airgap + optional second forge",
@@ -548,11 +558,20 @@
     "url": "https://codeberg.org/AzielEliab/aziel-lockset-tip",
     "pack_sha256": "b549362c0736ddb54ddc488812327c464e0da1167281f92fd1a4263eedf5df37",
     "status": "slot",
+    "hash_verify": "pass",
     "doi": null
   },
   "zenodo_tip_pack": {
     "status": "refused",
     "refuse": "CNS-ZENODO-IP-BAN",
+    "doi": null
+  },
+  "archive_org_tip_pack": {
+    "item": "aziel-lockset-tip",
+    "url": "https://archive.org/details/aziel-lockset-tip",
+    "pack_sha256": "b549362c0736ddb54ddc488812327c464e0da1167281f92fd1a4263eedf5df37",
+    "status": "slot",
+    "hash_verify": "pass",
     "doi": null
   }
 }

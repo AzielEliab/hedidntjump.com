@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """Publish COLD-MULTI-SHELF-1.0 on HDJ machine surfaces (AZindex).
 
-Sister-host cite of live corpus /shelves (corpus#96). Canonical registry:
+Sister-host cite of live corpus /shelves (corpus#97). Canonical registry:
 https://www.azielcorpuslibrary.net/shelves
 
-Does not invent holdings, DOIs, archive.org items, GitFlic URLs, or CIDs.
+Does not invent holdings, DOIs, GitFlic URLs, or CIDs.
+Archive.org tip-pack is the published item https://archive.org/details/aziel-lockset-tip.
 Does not change hashed /ingest-as-receipt.json (tip stays
 ef967e4acb47ba913ce3959b673767278da605b307de33210b2dc2f1cfd86f60).
 Does not add visible 1 Chronicles 15:20 chrome.
@@ -28,6 +29,8 @@ CANON_CITE = "https://www.azielcorpuslibrary.net/cite.json"
 LOCKSET_ID = "AZLOCK-INGEST-REEXPAND-1.0"
 LOCKSET_TIP = "c831429befc221bd41caeb0a6d1c5361602db5684abab7af6d39714084b6b245"
 CODEBERG_PACK = "b549362c0736ddb54ddc488812327c464e0da1167281f92fd1a4263eedf5df37"
+ARCHIVE_ORG_ITEM = "aziel-lockset-tip"
+ARCHIVE_ORG_URL = "https://archive.org/details/aziel-lockset-tip"
 HDJ_INGEST_TIP = "ef967e4acb47ba913ce3959b673767278da605b307de33210b2dc2f1cfd86f60"
 LASTMOD = "2026-09-14"
 
@@ -122,9 +125,19 @@ def planes() -> dict:
                 "live_ready": False,
                 "refuse": "CNS-PLANE-B-ALL-TARGETS",
             },
+            "archive_org_tip_pack": {
+                "item": ARCHIVE_ORG_ITEM,
+                "url": ARCHIVE_ORG_URL,
+                "pack_sha256": CODEBERG_PACK,
+                "lockset_tip": LOCKSET_TIP,
+                "hash_verify": "pass",
+                "status": "slot",
+                "live_ready": False,
+                "refuse": "CNS-PLANE-B-ALL-TARGETS",
+            },
             "note": (
-                "Codeberg uploaded + hash-verify PASS (still SLOT). "
-                "archive.org + GitFlic RU unverified. LIVE only when all three pass "
+                "Codeberg + archive.org uploaded + hash-verify PASS (still SLOT). "
+                "GitFlic RU unverified. LIVE only when all three pass "
                 "(CNS-PLANE-B-ALL-TARGETS). Zenodo refused (CNS-ZENODO-IP-BAN)."
             ),
         },
@@ -269,9 +282,10 @@ def registry() -> dict:
             "CROSS-NETWORK-SURVIVAL: " + CNS_RULE + " NO-LIE / NO-REWRITE: " + NOLIE_RULE + " "
             + COLD_RULE
             + " Plane A is one CF/GitHub tunnel (5 published surfaces / 2 family radii; "
-            "independent_live_count stays 1). Plane B Codeberg tip-pack "
+            "independent_live_count stays 1). Plane B Codeberg + archive.org tip-pack "
             + CODEBERG_PACK
-            + " is SLOT; Zenodo tip-pack is refused (CNS-ZENODO-IP-BAN). doi null. "
+            + " hash-verify PASS, still SLOT until GitFlic RU; Zenodo tip-pack is refused "
+            "(CNS-ZENODO-IP-BAN). doi null. "
             "Paper deposits are corpus cites, not HDJ holdings, and not tip-pack Plane B. "
             "Plane C USB stays SLOT until CNS-OPERATOR-ATTEST."
         ),
@@ -379,9 +393,9 @@ def shelf_rows() -> list[dict]:
             "lockset_shelf": True,
             "refuse": "CNS-PLANE-B-ALL-TARGETS",
             "reason": (
-                "Codeberg tip-pack uploaded and hash-verify PASS. SLOT until archive.org + "
-                "GitFlic RU also hash-verify. Plane B LIVE only when all three working "
-                "targets pass. doi null."
+                "Codeberg tip-pack uploaded and hash-verify PASS. archive.org also PASS. "
+                "SLOT until GitFlic RU also hash-verify (CNS-PLANE-B-ALL-TARGETS). "
+                "Plane B LIVE only when all three working targets pass. doi null."
             ),
         },
         {
@@ -389,15 +403,31 @@ def shelf_rows() -> list[dict]:
             "plane": "B",
             "kind": "archive_org",
             "status": "slot",
-            "url": None,
-            "item": None,
+            "item": ARCHIVE_ORG_ITEM,
+            "url": ARCHIVE_ORG_URL,
+            "files": [
+                "aziel-tip-pack.tar",
+                "SHA256SUMS",
+                "lockset.json",
+                "verify-airgap.sh",
+            ],
+            "pack_sha256": CODEBERG_PACK,
+            "lockset_tip": LOCKSET_TIP,
+            "hash_verify": "pass",
+            "tip_verified": True,
+            "live_ready": False,
+            "doi": None,
             "blast_radius": "archive-org",
             "independent": True,
             "lockset_shelf": True,
-            "refuse": "CNS-NO-WARC",
+            "refuse": "CNS-PLANE-B-ALL-TARGETS",
             "reason": (
-                "archive.org tip-pack is a Plane B LIVE-promotion target. No published item "
-                "in-repo. SLOT. Do not invent a URL. LIVE only after tip hash-verify."
+                "archive.org tip-pack uploaded at "
+                + ARCHIVE_ORG_URL
+                + " and hash-verify PASS (pack "
+                + CODEBERG_PACK
+                + "). SLOT until GitFlic RU also hash-verify. Plane B LIVE only when all "
+                "three working targets pass. doi null."
             ),
         },
         {
@@ -599,7 +629,7 @@ def lockset_doc() -> dict:
 
 LLMS_BLOCK = f"""## COLD-MULTI-SHELF-1.0
 
-Sister-host cite of live corpus /shelves (corpus#96). Canonical: {CANON_SHELVES}
+Sister-host cite of live corpus /shelves (corpus#97). Canonical: {CANON_SHELVES}
 This host: {WWW}/shelves · {APEX}/shelves · {WWW}/lockset.json
 Person @id: {PERSON_ID}
 Lamb Lens (Corpus ingest, not this host): https://www.azielcorpuslibrary.net/corpus
@@ -609,7 +639,7 @@ Machine surfaces only. No visible 1 Chronicles 15:20 lock.
 Planes A/B/C: A=one CF/GitHub tunnel (5 surfaces / 2 family radii, not 5 shelves); B=alt independent forge/archive tip-pack SLOT; C=USB airgap SLOT. Survival = bytes↔hash. LIVE only after hash verify.
 
 - Plane A: 5 published surfaces / 2 family radii (cloudflare + github). hedidntjump.com is one CF host mirror, not a fifth independent shelf.
-- Plane B: Codeberg tip-pack `{CODEBERG_PACK}` hash-verify PASS, still SLOT (CNS-PLANE-B-ALL-TARGETS). Zenodo refused CNS-ZENODO-IP-BAN (doi null). Do not invent a tip-pack DOI.
+- Plane B: Codeberg + archive.org tip-pack `{CODEBERG_PACK}` hash-verify PASS ({ARCHIVE_ORG_URL}), still SLOT (CNS-PLANE-B-ALL-TARGETS) until GitFlic RU. Zenodo refused CNS-ZENODO-IP-BAN (doi null). Do not invent a tip-pack DOI.
 - Plane C: USB airgap SLOT until CNS-OPERATOR-ATTEST.
 - Cap-7: design_of the four hubs + this archive; resolves_to_hub: false; public_icann: false.
 - Lockset tip (corpus, cited): `{LOCKSET_TIP}` — verify on {CANON_LOCKSET}. Not the HDJ ingest tip.
@@ -618,18 +648,18 @@ Planes A/B/C: A=one CF/GitHub tunnel (5 surfaces / 2 family radii, not 5 shelves
 """
 
 AI_BLOCK = f"""
-COLD-MULTI-SHELF-1.0 (AZindex; sister cite of corpus#96 /shelves):
+COLD-MULTI-SHELF-1.0 (AZindex; sister cite of corpus#97 /shelves):
 - Canonical shelves: {CANON_SHELVES}
 - This host: {WWW}/shelves · {WWW}/lockset.json
 - Person @id: {PERSON_ID}
 - Lamb Lens: https://www.azielcorpuslibrary.net/corpus (Corpus ingest; HDJ is not a Lamb Lens ingest host)
 - Growth-ON. NO-FAN. Machine only. No visible 15:20.
 - Plane A: 5 surfaces / 2 family radii (cloudflare + github). This host is one CF mirror, not a fifth shelf.
-- Plane B: Codeberg tip-pack {CODEBERG_PACK} SLOT; Zenodo CNS-ZENODO-IP-BAN doi null
+- Plane B: Codeberg + archive.org tip-pack {CODEBERG_PACK} PASS ({ARCHIVE_ORG_URL}); GitFlic unverified; still SLOT (CNS-PLANE-B-ALL-TARGETS); Zenodo CNS-ZENODO-IP-BAN doi null
 - Plane C: USB attest SLOT (CNS-OPERATOR-ATTEST)
 - Cap-7: design_of + resolves_to_hub:false (hedidntjump design_of {WWW}/)
 - Lockset tip cited: {LOCKSET_TIP}
-- Do not invent holdings, DOIs, archive.org items, GitFlic URLs, or CIDs
+- Do not invent holdings, DOIs, GitFlic URLs, or CIDs
 """
 
 
@@ -687,6 +717,15 @@ def patch_cite() -> None:
             "url": "https://codeberg.org/AzielEliab/aziel-lockset-tip",
             "pack_sha256": CODEBERG_PACK,
             "status": "slot",
+            "hash_verify": "pass",
+            "doi": None,
+        },
+        "archive_org_tip_pack": {
+            "item": ARCHIVE_ORG_ITEM,
+            "url": ARCHIVE_ORG_URL,
+            "pack_sha256": CODEBERG_PACK,
+            "status": "slot",
+            "hash_verify": "pass",
             "doi": None,
         },
         "zenodo_tip_pack": {

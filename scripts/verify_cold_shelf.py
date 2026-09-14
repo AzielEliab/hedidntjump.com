@@ -13,6 +13,7 @@ if str(ROOT / "scripts") not in sys.path:
     sys.path.insert(0, str(ROOT / "scripts"))
 
 from write_cold_shelf import (
+    ARCHIVE_ORG_URL,
     CANON_SHELVES,
     CAP7,
     CODEBERG_PACK,
@@ -93,7 +94,14 @@ def main() -> None:
         assert shelves["planes"]["B"]["doi"] is None
         assert shelves["planes"]["B"]["refuse"] == "CNS-ZENODO-IP-BAN"
         assert shelves["planes"]["B"]["codeberg_tip_pack"]["pack_sha256"] == CODEBERG_PACK
+        assert shelves["planes"]["B"]["codeberg_tip_pack"]["hash_verify"] == "pass"
         assert shelves["planes"]["B"]["codeberg_tip_pack"]["status"] == "slot"
+        assert shelves["planes"]["B"]["archive_org_tip_pack"]["url"] == ARCHIVE_ORG_URL
+        assert shelves["planes"]["B"]["archive_org_tip_pack"]["pack_sha256"] == CODEBERG_PACK
+        assert shelves["planes"]["B"]["archive_org_tip_pack"]["hash_verify"] == "pass"
+        assert shelves["planes"]["B"]["archive_org_tip_pack"]["status"] == "slot"
+        assert "archive.org + GitFlic" not in shelves["planes"]["B"]["note"]
+        assert "GitFlic RU unverified" in shelves["planes"]["B"]["note"]
         assert shelves["planes"]["C"]["status"] == "slot"
         assert "CNS-OPERATOR-ATTEST" in shelves["planes"]["C"]["refuse"]
         assert shelves["this_host"]["mission"].startswith("He Didn't Jump")
@@ -111,6 +119,19 @@ def main() -> None:
         codeberg = next(s for s in shelves["registry"]["shelves"] if s["id"] == "plane-b-codeberg-tip-pack")
         assert codeberg["pack_sha256"] == CODEBERG_PACK
         assert codeberg["status"] == "slot"
+        assert codeberg["hash_verify"] == "pass"
+        archive = next(s for s in shelves["registry"]["shelves"] if s["id"] == "plane-b-archive-org-tip-pack")
+        assert archive["url"] == ARCHIVE_ORG_URL
+        assert archive["item"] == "aziel-lockset-tip"
+        assert archive["pack_sha256"] == CODEBERG_PACK
+        assert archive["hash_verify"] == "pass"
+        assert archive["status"] == "slot"
+        assert archive["doi"] is None
+        assert archive["refuse"] == "CNS-PLANE-B-ALL-TARGETS"
+        assert archive.get("refuse") != "CNS-NO-WARC"
+        gitflic = next(s for s in shelves["registry"]["shelves"] if s["id"] == "plane-b-gitflic-ru-tip-pack")
+        assert gitflic["url"] is None
+        assert gitflic["status"] == "slot"
         usb = next(s for s in shelves["registry"]["shelves"] if s["id"] == "plane-c-usb-airgap")
         assert usb["status"] == "slot"
         assert usb["refuse"] == "CNS-OPERATOR-ATTEST"
@@ -136,6 +157,11 @@ def main() -> None:
         assert cite["family_blast_radii"] == ["cloudflare", "github"]
         assert cite["independent_live_count"] == 1
         assert cite["planes"]["B"]["codeberg_tip_pack"]["pack_sha256"] == CODEBERG_PACK
+        assert cite["planes"]["B"]["archive_org_tip_pack"]["url"] == ARCHIVE_ORG_URL
+        assert cite["planes"]["B"]["archive_org_tip_pack"]["hash_verify"] == "pass"
+        assert "archive.org + GitFlic" not in cite["planes"]["B"]["note"]
+        assert cite["archive_org_tip_pack"]["url"] == ARCHIVE_ORG_URL
+        assert cite["archive_org_tip_pack"]["hash_verify"] == "pass"
         assert cite["zenodo_tip_pack"]["refuse"] == "CNS-ZENODO-IP-BAN"
         assert cite["zenodo_tip_pack"]["doi"] is None
         assert cite["cap7_sites"]["hedidntjump"]["resolves_to_hub"] is False
@@ -160,6 +186,9 @@ def main() -> None:
             assert CANON_SHELVES in blob, label
             assert PERSON_ID in blob, label
             assert CODEBERG_PACK in blob, label
+            assert ARCHIVE_ORG_URL in blob, label
+            assert "archive.org + GitFlic" not in blob, label
+            assert "GitFlic" in blob, label
             assert "CNS-ZENODO-IP-BAN" in blob, label
             assert "doi null" in blob.lower() or "doi: null" in blob.lower() or "doi null" in blob, label
             assert "CNS-OPERATOR-ATTEST" in blob or "attest SLOT" in blob or "USB" in blob, label
