@@ -88,6 +88,7 @@ EDITION_PATHS = [
     ("/Copyrights", "copyrights.html", "0.4"),
     ("/copyrights", "copyrights.html", "0.3"),
     ("/copyrights.html", "copyrights.html", "0.3"),
+    ("/receipts", "receipts.html", "0.4"),
 ]
 
 DISCOVERY = [
@@ -95,6 +96,7 @@ DISCOVERY = [
     ("/llms-full.txt", "0.4"),
     ("/ai.txt", "0.5"),
     ("/cite.json", "0.6"),
+    ("/ingest-as-receipt.json", "0.5"),
     ("/openapi.json", "0.4"),
     ("/mcp.json", "0.3"),
     ("/.well-known/mcp.json", "0.3"),
