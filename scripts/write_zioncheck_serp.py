@@ -265,12 +265,14 @@ def write_sitemap() -> None:
         ("/AzielEliab", "0.4"),
         ("/AboutAziel", "0.4"),
         ("/Copyrights", "0.3"),
+        ("/receipts", "0.4"),
     ]
     discovery = [
         ("/llms.txt", "0.5"),
         ("/llms-full.txt", "0.3"),
         ("/ai.txt", "0.3"),
         ("/cite.json", "0.5"),
+        ("/ingest-as-receipt.json", "0.5"),
         ("/openapi.json", "0.2"),
         ("/mcp.json", "0.2"),
         ("/.well-known/mcp.json", "0.2"),
@@ -687,7 +689,10 @@ This host is the Marion A. Zioncheck archive: U.S. Representative / Seattle cong
 - [{APEX}/Inquiries]({APEX}/Inquiries) — 23 inquiries of the record
 - [{APEX}/Volumes]({APEX}/Volumes) — Volumes I–V
 - [{APEX}/llms.txt]({APEX}/llms.txt)
+- [{APEX}/who]({APEX}/who) — Who is Aziel Eliab (HTML lock)
 - [{APEX}/cite.json]({APEX}/cite.json)
+- [{APEX}/receipts]({APEX}/receipts) — ingest-as-receipt / re-expand (Aziel-page chrome, not paper-tabs Pg.11)
+- [{APEX}/ingest-as-receipt.json]({APEX}/ingest-as-receipt.json) — canonical ingest bytes (one tip)
 
 """
     for tree in TREES:
@@ -737,6 +742,9 @@ def write_cite() -> None:
                 f"{APEX}/Narrative",
                 f"{APEX}/Inquiries",
                 f"{APEX}/Volumes",
+                f"{APEX}/receipts",
+                f"{APEX}/ingest-as-receipt.json",
+                f"{APEX}/llms.txt",
             ],
         }
         for key, value in data.items():

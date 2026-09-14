@@ -123,3 +123,7 @@
 # Dynamic meters — do not CDN-cache
 /api/*
   Cache-Control: no-store
+
+/ingest-as-receipt.json
+  Content-Type: application/json; charset=utf-8
+  Cache-Control: public, max-age=3600
