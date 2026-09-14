@@ -13,6 +13,12 @@ if str(ROOT / "scripts") not in sys.path:
     sys.path.insert(0, str(ROOT / "scripts"))
 
 from write_cold_shelf import (
+    ARCHIVE_ORG_202609_DOWNLOAD,
+    ARCHIVE_ORG_202609_IDENTIFIER,
+    ARCHIVE_ORG_202609_ITEM,
+    ARCHIVE_ORG_202609_URL,
+    ARCHIVE_ORG_202609_ZIP,
+    ARCHIVE_ORG_202609_ZIP_ALT,
     ARCHIVE_ORG_DOWNLOAD,
     ARCHIVE_ORG_IDENTIFIER,
     ARCHIVE_ORG_ITEM,
@@ -94,6 +100,10 @@ def attack_sim(shelves: dict, cite: dict, redline: dict, lockset: dict) -> None:
     assert plane_b["third_target"]["url"] is None
     assert plane_b["third_target"]["url"] != FORGED["framagit_url"]
     assert plane_b["framagit_tip_pack"]["url"] is None
+    assert plane_b["archive_org_tip_pack_202609"]["independent"] is False
+    assert plane_b["archive_org_tip_pack_202609"]["status"] == "slot"
+    assert plane_b["archive_org_tip_pack_202609"]["live_ready"] is False
+    assert plane_b["working_targets"].count("archive.org") == 1
     assert plane_b["gitflic"]["refuse"] == "CNS-GITFLIC-EMAIL"
     assert plane_b["gitflic"]["url"] is None
     assert plane_b["gitflic"]["status"] == "refused"
@@ -102,6 +112,13 @@ def attack_sim(shelves: dict, cite: dict, redline: dict, lockset: dict) -> None:
     assert plane_b["gitlab"]["required_for_plane_b_live"] is False
 
     rows = {row["id"]: row for row in shelves["registry"]["shelves"]}
+    archive_202609 = rows["plane-b-archive-org-tip-pack-202609"]
+    assert archive_202609["url"] == ARCHIVE_ORG_202609_URL
+    assert archive_202609["independent"] is False
+    assert archive_202609["status"] == "slot"
+    assert archive_202609["live_ready"] is False
+    assert archive_202609["doi"] is None
+    assert archive_202609["pack_sha256"] == CODEBERG_PACK
     framagit = rows["plane-b-framagit-tip-pack"]
     assert framagit["url"] is None
     assert framagit["url"] != FORGED["framagit_url"]
@@ -256,6 +273,38 @@ def main() -> None:
         assert shelves["planes"]["B"]["archive_org_tip_pack"]["hash_verify"] == "pass"
         assert shelves["planes"]["B"]["archive_org_tip_pack"]["status"] == "slot"
         assert shelves["planes"]["B"]["archive_org_tip_pack"]["live_ready"] is False
+        sec = shelves["planes"]["B"]["archive_org_tip_pack"]["secondary_items"]
+        assert len(sec) == 1
+        assert sec[0]["id"] == "plane-b-archive-org-tip-pack-202609"
+        assert sec[0]["url"] == ARCHIVE_ORG_202609_URL
+        assert sec[0]["identifier"] == ARCHIVE_ORG_202609_IDENTIFIER
+        assert sec[0]["item"] == ARCHIVE_ORG_202609_ITEM
+        assert sec[0]["download_base"] == ARCHIVE_ORG_202609_DOWNLOAD
+        assert sec[0]["zip"] == ARCHIVE_ORG_202609_ZIP
+        assert sec[0]["zip_alt"] == ARCHIVE_ORG_202609_ZIP_ALT
+        assert sec[0]["wrap"] == "zip"
+        assert sec[0]["ia_flat_sha256"] is None
+        assert sec[0]["sha256sums_flat_check"] == "incomplete"
+        assert sec[0]["inner_pack"] == "aziel-tip-pack.tar"
+        assert sec[0]["pack_sha256"] == CODEBERG_PACK
+        assert sec[0]["hash_verify"] == "pass"
+        assert sec[0]["same_blast_radius"] == "archive-org"
+        assert sec[0]["independent_shelf"] is False
+        pack_202609 = shelves["planes"]["B"]["archive_org_tip_pack_202609"]
+        assert pack_202609["url"] == ARCHIVE_ORG_202609_URL
+        assert pack_202609["identifier"] == ARCHIVE_ORG_202609_IDENTIFIER
+        assert pack_202609["pack_sha256"] == CODEBERG_PACK
+        assert pack_202609["hash_verify"] == "pass"
+        assert pack_202609["status"] == "slot"
+        assert pack_202609["live_ready"] is False
+        assert pack_202609["independent"] is False
+        assert pack_202609["same_blast_radius"] == "archive-org"
+        assert pack_202609["same_pack_as"] == "plane-b-archive-org-tip-pack"
+        assert pack_202609["required_for_plane_b_live"] is False
+        assert pack_202609["doi"] is None
+        assert shelves["planes"]["B"]["working_targets"].count("archive.org") == 1
+        assert "aziel-lockset-tip_202609" in shelves["planes"]["B"]["note"]
+        assert "not a second independent shelf" in shelves["planes"]["B"]["note"]
         assert "archive.org + GitFlic" not in shelves["planes"]["B"]["note"]
         assert "GitFlic RU unverified" not in shelves["planes"]["B"]["note"]
         assert "framagit" in shelves["planes"]["B"]["working_targets"]
@@ -270,6 +319,10 @@ def main() -> None:
         assert shelves["this_host"]["lamb_lens"]["shelf"] == "https://www.azielcorpuslibrary.net/corpus"
         assert shelves["registry"]["independent_live_count"] == 1
         assert not shelves["registry"]["independent_requirement_met"]
+        assert "plane-b-archive-org-tip-pack-202609" in shelves["registry"]["slot"]
+        assert "plane-b-archive-org-tip-pack-202609" not in shelves["registry"]["live"]
+        assert ARCHIVE_ORG_202609_URL in shelves["registry"]["note"]
+        assert "Not two independent shelves" in shelves["registry"]["note"]
         for dep in shelves["registry"]["corpus_paper_deposits"]:
             assert dep["hdj_holding"] is False
             assert dep["reuse_as_plane_b"] is False
@@ -290,9 +343,36 @@ def main() -> None:
         assert archive["status"] == "slot"
         assert archive["live_ready"] is False
         assert archive["doi"] is None
+        assert archive["independent"] is True
         assert archive["refuse"] == "CNS-PLANE-B-ALL-TARGETS"
         assert archive.get("refuse") != "CNS-NO-WARC"
         assert archive["status"] != "live"
+        assert archive["secondary_items"][0]["url"] == ARCHIVE_ORG_202609_URL
+        assert archive["secondary_items"][0]["independent_shelf"] is False
+        archive_202609 = next(
+            s for s in shelves["registry"]["shelves"] if s["id"] == "plane-b-archive-org-tip-pack-202609"
+        )
+        assert archive_202609["url"] == ARCHIVE_ORG_202609_URL
+        assert archive_202609["identifier"] == ARCHIVE_ORG_202609_IDENTIFIER
+        assert archive_202609["item"] == ARCHIVE_ORG_202609_ITEM
+        assert archive_202609["download_base"] == ARCHIVE_ORG_202609_DOWNLOAD
+        assert archive_202609["zip"] == ARCHIVE_ORG_202609_ZIP
+        assert archive_202609["zip_alt"] == ARCHIVE_ORG_202609_ZIP_ALT
+        assert archive_202609["wrap"] == "zip"
+        assert archive_202609["ia_flat_sha256"] is None
+        assert archive_202609["sha256sums_flat_check"] == "incomplete"
+        assert archive_202609["inner_pack"] == "aziel-tip-pack.tar"
+        assert archive_202609["pack_sha256"] == CODEBERG_PACK
+        assert archive_202609["hash_verify"] == "pass"
+        assert archive_202609["status"] == "slot"
+        assert archive_202609["live_ready"] is False
+        assert archive_202609["independent"] is False
+        assert archive_202609["blast_radius"] == "archive-org"
+        assert archive_202609["same_pack_as"] == "plane-b-archive-org-tip-pack"
+        assert archive_202609["required_for_plane_b_live"] is False
+        assert archive_202609["doi"] is None
+        assert archive_202609["refuse"] == "CNS-PLANE-B-ALL-TARGETS"
+        assert archive_202609["status"] != "live"
         gitflic = next(s for s in shelves["registry"]["shelves"] if s["id"] == "plane-b-gitflic-ru-tip-pack")
         assert gitflic["url"] is None
         assert gitflic["status"] == "refused"
@@ -326,6 +406,13 @@ def main() -> None:
         assert cite["planes"]["B"]["archive_org_tip_pack"]["identifier"] == ARCHIVE_ORG_IDENTIFIER
         assert cite["planes"]["B"]["archive_org_tip_pack"]["hash_verify"] == "pass"
         assert cite["planes"]["B"]["archive_org_tip_pack"]["status"] == "slot"
+        assert cite["planes"]["B"]["archive_org_tip_pack"]["secondary_items"][0]["url"] == ARCHIVE_ORG_202609_URL
+        assert cite["planes"]["B"]["archive_org_tip_pack_202609"]["url"] == ARCHIVE_ORG_202609_URL
+        assert cite["planes"]["B"]["archive_org_tip_pack_202609"]["independent"] is False
+        assert cite["planes"]["B"]["archive_org_tip_pack_202609"]["hash_verify"] == "pass"
+        assert cite["planes"]["B"]["archive_org_tip_pack_202609"]["status"] == "slot"
+        assert cite["planes"]["B"]["working_targets"].count("archive.org") == 1
+        assert "aziel-lockset-tip_202609" in cite["planes"]["B"]["note"]
         assert "archive.org + GitFlic" not in cite["planes"]["B"]["note"]
         assert cite["planes"]["B"]["working_targets"] == PLANE_B_TARGETS
         assert "CNS-GITFLIC-EMAIL" in cite["planes"]["B"]["note"]
@@ -337,6 +424,15 @@ def main() -> None:
         assert cite["archive_org_tip_pack"]["download_base"] == ARCHIVE_ORG_DOWNLOAD
         assert cite["archive_org_tip_pack"]["hash_verify"] == "pass"
         assert cite["archive_org_tip_pack"]["status"] == "slot"
+        assert cite["archive_org_tip_pack"]["secondary_items"][0]["url"] == ARCHIVE_ORG_202609_URL
+        assert cite["archive_org_tip_pack_202609"]["url"] == ARCHIVE_ORG_202609_URL
+        assert cite["archive_org_tip_pack_202609"]["identifier"] == ARCHIVE_ORG_202609_IDENTIFIER
+        assert cite["archive_org_tip_pack_202609"]["pack_sha256"] == CODEBERG_PACK
+        assert cite["archive_org_tip_pack_202609"]["hash_verify"] == "pass"
+        assert cite["archive_org_tip_pack_202609"]["status"] == "slot"
+        assert cite["archive_org_tip_pack_202609"]["independent"] is False
+        assert cite["archive_org_tip_pack_202609"]["doi"] is None
+        assert cite["archive_org_tip_packs"] == [ARCHIVE_ORG_URL, ARCHIVE_ORG_202609_URL]
         assert cite["zenodo_tip_pack"]["refuse"] == "CNS-ZENODO-IP-BAN"
         assert cite["zenodo_tip_pack"]["doi"] is None
         assert cite["cap7_sites"]["hedidntjump"]["resolves_to_hub"] is False
@@ -364,6 +460,8 @@ def main() -> None:
             assert PERSON_ID in blob, label
             assert CODEBERG_PACK in blob, label
             assert ARCHIVE_ORG_URL in blob, label
+            assert ARCHIVE_ORG_202609_URL in blob, label
+            assert "same blast_radius" in blob, label
             assert "archive.org + GitFlic" not in blob, label
             assert "GitFlic RU unverified" not in blob, label
             assert "Framagit" in blob, label

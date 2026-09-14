@@ -502,7 +502,50 @@
         "hash_verify": "pass",
         "status": "slot",
         "live_ready": false,
-        "refuse": "CNS-PLANE-B-ALL-TARGETS"
+        "refuse": "CNS-PLANE-B-ALL-TARGETS",
+        "secondary_items": [
+          {
+            "id": "plane-b-archive-org-tip-pack-202609",
+            "url": "https://archive.org/details/aziel-lockset-tip_202609",
+            "identifier": "aziel-lockset-tip_202609",
+            "item": "aziel-lockset-tip_202609",
+            "download_base": "https://archive.org/download/aziel-lockset-tip_202609/",
+            "zip": "https://archive.org/download/aziel-lockset-tip_202609/aziel-lockset-tip.zip",
+            "zip_alt": "https://archive.org/download/aziel-lockset-tip_202609/aziel-lockset-tip%202.zip",
+            "wrap": "zip",
+            "ia_flat_sha256": null,
+            "sha256sums_flat_check": "incomplete",
+            "inner_pack": "aziel-tip-pack.tar",
+            "pack_sha256": "b549362c0736ddb54ddc488812327c464e0da1167281f92fd1a4263eedf5df37",
+            "lockset_tip": "c831429befc221bd41caeb0a6d1c5361602db5684abab7af6d39714084b6b245",
+            "hash_verify": "pass",
+            "same_blast_radius": "archive-org",
+            "independent_shelf": false
+          }
+        ]
+      },
+      "archive_org_tip_pack_202609": {
+        "url": "https://archive.org/details/aziel-lockset-tip_202609",
+        "identifier": "aziel-lockset-tip_202609",
+        "item": "aziel-lockset-tip_202609",
+        "download_base": "https://archive.org/download/aziel-lockset-tip_202609/",
+        "zip": "https://archive.org/download/aziel-lockset-tip_202609/aziel-lockset-tip.zip",
+        "zip_alt": "https://archive.org/download/aziel-lockset-tip_202609/aziel-lockset-tip%202.zip",
+        "wrap": "zip",
+        "ia_flat_sha256": null,
+        "sha256sums_flat_check": "incomplete",
+        "inner_pack": "aziel-tip-pack.tar",
+        "pack_sha256": "b549362c0736ddb54ddc488812327c464e0da1167281f92fd1a4263eedf5df37",
+        "lockset_tip": "c831429befc221bd41caeb0a6d1c5361602db5684abab7af6d39714084b6b245",
+        "hash_verify": "pass",
+        "status": "slot",
+        "live_ready": false,
+        "independent": false,
+        "same_blast_radius": "archive-org",
+        "same_pack_as": "plane-b-archive-org-tip-pack",
+        "required_for_plane_b_live": false,
+        "refuse": "CNS-PLANE-B-ALL-TARGETS",
+        "doi": null
       },
       "framagit_tip_pack": {
         "url": null,
@@ -528,7 +571,7 @@
         "extra_slot": true,
         "required_for_plane_b_live": false
       },
-      "note": "AZindex-FAIL pivot 2026-09-14: LIVE targets are Codeberg + archive.org + Framagit. Codeberg + archive.org hash-verify PASS (still SLOT). Framagit awaiting tip-pack (URL null). GitFlic refused (CNS-GITFLIC-EMAIL). GitLab extra (CNS-GITLAB-CF-LOOP). LIVE only when all three pass (CNS-PLANE-B-ALL-TARGETS). Zenodo refused (CNS-ZENODO-IP-BAN)."
+      "note": "AZindex-FAIL pivot 2026-09-14: LIVE targets are Codeberg + archive.org + Framagit. Codeberg + archive.org hash-verify PASS (still SLOT). archive.org has two items (aziel-lockset-tip + aziel-lockset-tip_202609), same blast_radius — not a second independent shelf. Zip wrap on the 202609 item: flat IA sha256 on the zip may be null; inner aziel-tip-pack.tar hash-verifies. Framagit awaiting tip-pack (URL null). GitFlic refused (CNS-GITFLIC-EMAIL). GitLab extra (CNS-GITLAB-CF-LOOP). LIVE only when all three pass (CNS-PLANE-B-ALL-TARGETS). Zenodo refused (CNS-ZENODO-IP-BAN)."
     },
     "C": {
       "name": "USB airgap + optional second forge",
@@ -620,7 +663,27 @@
     "pack_sha256": "b549362c0736ddb54ddc488812327c464e0da1167281f92fd1a4263eedf5df37",
     "status": "slot",
     "hash_verify": "pass",
-    "doi": null
+    "doi": null,
+    "secondary_items": [
+      {
+        "id": "plane-b-archive-org-tip-pack-202609",
+        "url": "https://archive.org/details/aziel-lockset-tip_202609",
+        "identifier": "aziel-lockset-tip_202609",
+        "item": "aziel-lockset-tip_202609",
+        "download_base": "https://archive.org/download/aziel-lockset-tip_202609/",
+        "zip": "https://archive.org/download/aziel-lockset-tip_202609/aziel-lockset-tip.zip",
+        "zip_alt": "https://archive.org/download/aziel-lockset-tip_202609/aziel-lockset-tip%202.zip",
+        "wrap": "zip",
+        "ia_flat_sha256": null,
+        "sha256sums_flat_check": "incomplete",
+        "inner_pack": "aziel-tip-pack.tar",
+        "pack_sha256": "b549362c0736ddb54ddc488812327c464e0da1167281f92fd1a4263eedf5df37",
+        "lockset_tip": "c831429befc221bd41caeb0a6d1c5361602db5684abab7af6d39714084b6b245",
+        "hash_verify": "pass",
+        "same_blast_radius": "archive-org",
+        "independent_shelf": false
+      }
+    ]
   },
   "framagit_tip_pack": {
     "url": null,
@@ -744,5 +807,32 @@
     "lockset_tip_raw": true,
     "note": "Cite only when shelves touch FoldLock. This isolate does not bind the FoldLock engine. Lockset tip bytes stay raw. Not an HDJ holding. Not zip. Not encryption. Not a rewrite key."
   },
-  "foldlock_shelf": "FOLDLOCK-SHELF-1.0"
+  "foldlock_shelf": "FOLDLOCK-SHELF-1.0",
+  "archive_org_tip_pack_202609": {
+    "url": "https://archive.org/details/aziel-lockset-tip_202609",
+    "identifier": "aziel-lockset-tip_202609",
+    "item": "aziel-lockset-tip_202609",
+    "download_base": "https://archive.org/download/aziel-lockset-tip_202609/",
+    "zip": "https://archive.org/download/aziel-lockset-tip_202609/aziel-lockset-tip.zip",
+    "zip_alt": "https://archive.org/download/aziel-lockset-tip_202609/aziel-lockset-tip%202.zip",
+    "wrap": "zip",
+    "ia_flat_sha256": null,
+    "sha256sums_flat_check": "incomplete",
+    "inner_pack": "aziel-tip-pack.tar",
+    "pack_sha256": "b549362c0736ddb54ddc488812327c464e0da1167281f92fd1a4263eedf5df37",
+    "lockset_tip": "c831429befc221bd41caeb0a6d1c5361602db5684abab7af6d39714084b6b245",
+    "hash_verify": "pass",
+    "status": "slot",
+    "live_ready": false,
+    "independent": false,
+    "same_blast_radius": "archive-org",
+    "same_pack_as": "plane-b-archive-org-tip-pack",
+    "required_for_plane_b_live": false,
+    "refuse": "CNS-PLANE-B-ALL-TARGETS",
+    "doi": null
+  },
+  "archive_org_tip_packs": [
+    "https://archive.org/details/aziel-lockset-tip",
+    "https://archive.org/details/aziel-lockset-tip_202609"
+  ]
 }
