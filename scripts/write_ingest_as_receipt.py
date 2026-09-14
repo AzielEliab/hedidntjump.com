@@ -3,6 +3,9 @@
 
 Writes the canonical byte file (no self-hash) into dist/ and docs/.
 SHA-256 of those bytes is the one tip many indexes cite.
+CROSS-NETWORK-SURVIVAL-1.0 and NO-LIE / NO-REWRITE stay OUTSIDE this
+hashed core so tip ef967e4acb47ba913ce3959b673767278da605b307de33210b2dc2f1cfd86f60
+stays stable.
 Does not add Receipts to global paper-tabs (no Pg. 11).
 Does not write a visible 1 Chronicles 15:20 lock.
 Author: Aziel Eliab only.

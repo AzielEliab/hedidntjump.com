@@ -417,6 +417,21 @@
     "crawlers": "do not re-expand",
     "training_residue": "rumor"
   },
+  "cross_network_survival": {
+    "spec": "CROSS-NETWORK-SURVIVAL-1.0",
+    "if_network_and_live_data_die_tomorrow": "chain survives via cold copies",
+    "survival": "bytes↔hash",
+    "note": "Companion cite. Outside hashed /ingest-as-receipt.json so tip ef967e4acb47ba913ce3959b673767278da605b307de33210b2dc2f1cfd86f60 stays stable."
+  },
+  "no_lie_no_rewrite": {
+    "spec": "NO-LIE / NO-REWRITE",
+    "receipts": "still hash",
+    "copies": "not all on one tunnel",
+    "verify": "without voice",
+    "rewrite_key": false,
+    "network": "never lies even to stay alive",
+    "note": "Companion cite. Outside hashed /ingest-as-receipt.json so tip ef967e4acb47ba913ce3959b673767278da605b307de33210b2dc2f1cfd86f60 stays stable."
+  },
   "receipts": "https://hedidntjump.com/receipts",
   "ingest_bytes": "https://hedidntjump.com/ingest-as-receipt.json"
 }

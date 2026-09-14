@@ -131,3 +131,11 @@ Verify: GET the JSON bytes. SHA-256 them. Compare this tip. Do not hash a pretty
 ## RE-EXPAND-FROM-ARCHIVE
 
 Bytes survive, not summaries. Re-expand = archive verify then local node. Crawlers do not re-expand. Training residue is rumor.
+
+## CROSS-NETWORK-SURVIVAL-1.0
+
+Companion cite (outside hashed /ingest-as-receipt.json; tip `ef967e4acb47ba913ce3959b673767278da605b307de33210b2dc2f1cfd86f60` stays stable). If network and live data die tomorrow, the chain survives via cold copies. Survival = bytes↔hash.
+
+## NO-LIE / NO-REWRITE
+
+Companion cite (outside hashed /ingest-as-receipt.json; same tip). Receipts still hash. Copies are not all on one tunnel. Verify without voice. No rewrite key. The network never lies even to stay alive.
