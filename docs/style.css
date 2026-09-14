@@ -965,6 +965,12 @@ input[type="checkbox"]{width:20px;height:20px;margin-top:2px;flex-shrink:0}
   overflow-wrap:anywhere;
   word-break:break-all;
 }
+body[data-stats-page="receipts"] .lead-columns code,
+body[data-stats-page="receipts"] .story-body code{
+  font:12px/1.4 ui-monospace,Menlo,Consolas,monospace;
+  overflow-wrap:anywhere;
+  word-break:break-all;
+}
 .receipt-file{margin:10px 0 0}
 .receipt-file a{min-height:44px;display:inline-flex;align-items:center}
 
