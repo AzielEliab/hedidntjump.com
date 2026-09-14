@@ -152,6 +152,26 @@
         }
       }
     },
+    "/receipts": {
+      "get": {
+        "summary": "Aziel-page-only receipts + CRAWLER/AI INGEST-AS-RECEIPT (not paper-tabs Pg.11)",
+        "responses": {
+          "200": {
+            "description": "HTML"
+          }
+        }
+      }
+    },
+    "/ingest-as-receipt.json": {
+      "get": {
+        "summary": "Canonical ingest-as-receipt bytes (SHA-256 tip). Author Aziel Eliab only.",
+        "responses": {
+          "200": {
+            "description": "application/json"
+          }
+        }
+      }
+    },
     "/llms.txt": {
       "get": {
         "summary": "LLM brief",
