@@ -26,7 +26,21 @@
   "receipts": "https://www.azielcorpuslibrary.net/receipts",
   "hdj_receipts": "https://hedidntjump.com/receipts",
   "hdj_ingest_tip": "ef967e4acb47ba913ce3959b673767278da605b307de33210b2dc2f1cfd86f60",
-  "note": "Sister-host cite of the live corpus lockset tip. Do not treat these file bytes as the tip. Verify SHA-256 against canonical lockset.json on azielcorpuslibrary.net. HDJ /ingest-as-receipt.json is a separate host tip.",
+  "foldlock": {
+    "spec": "FOLDLOCK-SHELF-1.0",
+    "redline": "Never fold the lockset tip hash itself. Never rewrite the chain. Tip SHA-256 stays over raw receipts. Folding is a suppression aid, not encryption and not zip.",
+    "tip_folded": false,
+    "refuse": {
+      "TIP_FOLD": "FL-TIP-FOLD-REFUSE",
+      "CHAIN_REWRITE": "FL-CHAIN-REWRITE-REFUSE",
+      "LOCKSET_BYTES": "FL-LOCKSET-BYTES-REFUSE",
+      "RECEIPT_FOLD": "FL-RECEIPT-FOLD-REFUSE",
+      "HASH_FIELD": "FL-HASH-FIELD-REFUSE",
+      "ZIP_ENCRYPT": "FL-ZIP-ENCRYPT-CLAIM",
+      "ENGINE_UNBOUND": "FL-ENGINE-UNBOUND"
+    }
+  },
+  "note": "Sister-host cite of the live corpus lockset tip. Do not treat these file bytes as the tip. Verify SHA-256 against canonical lockset.json on azielcorpuslibrary.net. HDJ /ingest-as-receipt.json is a separate host tip. FoldLock must never fold this tip (FL-TIP-FOLD-REFUSE).",
   "indexes": [
     "https://www.azielcorpuslibrary.net/",
     "https://www.azieleliab.com/",
