@@ -20,6 +20,7 @@ This host is the Marion A. Zioncheck archive: U.S. Representative / Seattle cong
 - [https://hedidntjump.com/who](https://hedidntjump.com/who) — Who is Aziel Eliab (HTML lock)
 - [https://hedidntjump.com/cite.json](https://hedidntjump.com/cite.json)
 - [https://hedidntjump.com/runtime-launch.json](https://hedidntjump.com/runtime-launch.json) — Softwares+runtime launch cite (not a Softwares clone)
+- [https://hedidntjump.com/survival](https://hedidntjump.com/survival) — BAN-SURVIVAL-1.0 hub pull of runtime /survival (short TTL)
 - [https://hedidntjump.com/shelves](https://hedidntjump.com/shelves) — COLD-MULTI-SHELF-1.0 (sister cite of https://www.azielcorpuslibrary.net/shelves)
 - [https://hedidntjump.com/receipts](https://hedidntjump.com/receipts) — ingest-as-receipt / re-expand (Aziel-page chrome, not paper-tabs Pg.11)
 - [https://hedidntjump.com/ingest-as-receipt.json](https://hedidntjump.com/ingest-as-receipt.json) — canonical ingest bytes (one tip)
@@ -238,3 +239,19 @@ Softwares (list; HDJ cites, does not host):
 - GodLock (product, not identity)
 - Whitestone (ephemeral pro se advisor; not a lawyer)
 - The ARK (local deniable vault); download+ https://ark-download-tracker.vibelock.workers.dev/download ; stats https://ark-download-tracker.vibelock.workers.dev/stats ; github https://github.com/AzielEliab/ark
+
+## BAN-SURVIVAL-1.0
+
+Hub pull of Aziel Runtime `GET /survival` (short TTL 60s). HDJ stays the Marion Zioncheck archive. Not a Softwares clone. Not a named live exec front.
+
+SoT: https://aziel-runtime.vibelock.workers.dev/v1/survival
+Mutual backup LIVE: cold shelves back up death-by-ban; live multi-front backs up shelf death. Keep both.
+Live doors (runtime SoT): workers-dev, library-runtime, author-runtime, godlock-runtime. This host is not in `live_doors`.
+Platforms: Windows / Mac / Linux / Android / iPhone all LIVE on the runtime Worker (browser + PWA + MCP). `native_app_store: false`.
+Calling name: Aziel Runtime (`aziel-runtime`). Identity Aziel Eliab only. Hubs pull `/survival` rather than hardcode a rotated name.
+Cap-7 / AZNet: cite + verify LIVE; hosted Cap-7 `/mcp` SLOT. `resolves_to_hub: false`. `public_icann: false`.
+MirageGrid Cap-7 Worker LIVE: https://miragegrid.vibelock.workers.dev (`/bridge`). Public pair azgrid + azbooth = LIVE Worker HTTPS. Remainder AZNet-side SLOT. HDJ design DNA site is `azshift` (SLOT; design_of https://hedidntjump.com/; resolves_to_hub false).
+Person @id: https://www.azieleliab.com/#aziel. Lamb Lens ingest: https://www.azielcorpuslibrary.net/corpus (not this host). NO-LIE / NO-REWRITE. No visible 1 Chronicles 15:20.
+Zioncheck stays the HDJ mission. Do not invent court holdings, FOIA letters, or case quotes.
+HDJ ingest tip unchanged: `ef967e4acb47ba913ce3959b673767278da605b307de33210b2dc2f1cfd86f60`
+This host: https://hedidntjump.com/survival · https://hedidntjump.com/survival.json · https://hedidntjump.com/v1/survival

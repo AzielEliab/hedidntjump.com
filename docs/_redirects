@@ -43,3 +43,7 @@ http://www.hedidntjump.com/* https://hedidntjump.com/:splat 301
 /lockset.json /lockset.json 200
 /redline /redline.json 200
 /runtime-launch.json /runtime-launch.json 200
+/survival /survival.json 200
+/v1/survival /survival.json 200
+/doors /survival.json 200
+/failover /survival.json 200
