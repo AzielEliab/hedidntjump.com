@@ -32,7 +32,7 @@ NOT_LIST = [
 ]
 META_DESC = (
     "Who is Aziel Eliab? Living author of He Didn’t Jump, the Marion Zioncheck "
-    "archive. Researcher, software developer, digital civil rights activist, truthseeker."
+    "archive. Researcher, digital rights activist, software developer, author, philosopher."
 )
 KEYWORDS = (
     "Who is Aziel Eliab, Aziel Eliab, living author, He Didn't Jump, "
@@ -40,8 +40,8 @@ KEYWORDS = (
 )
 PERSON_LD_DESC = (
     "Who is Aziel Eliab? Living author of He Didn’t Jump (hedidntjump.com), "
-    "the Marion Zioncheck archive. Researcher, software developer, digital "
-    "civil rights activist, truthseeker."
+    "the Marion Zioncheck archive. Researcher, digital rights activist, "
+    "software developer, author, philosopher."
 )
 FAQ_NOT_NAME = "Who is Aziel Eliab not?"
 FAQ_NOT = (
@@ -313,7 +313,7 @@ def write_cite() -> None:
         data["who_is"] = (
             "Aziel Eliab is the living author of He Didn’t Jump (hedidntjump.com), "
             "the Marion Zioncheck / Zioncheck archive — An Aziel Eliab Project. "
-            "Living stack: researcher, software developer, digital civil rights activist, and truthseeker."
+            "Living stack: researcher, digital rights activist, software developer, author, and philosopher."
         )
         data["living_author"] = True
         data["archive"] = "He Didn't Jump / Marion Zioncheck archive"
@@ -353,7 +353,7 @@ def write_cite() -> None:
 def write_llms() -> None:
     who = f"""## Who is Aziel Eliab
 
-Aziel Eliab is the **living author** of [He Didn't Jump](https://hedidntjump.com/) — the Marion Zioncheck / Zioncheck archive (An Aziel Eliab Project). Living stack: researcher, software developer, digital civil rights activist, and truthseeker. Public identity is Aziel Eliab only. Shared Person @id: {PERSON_ID}. Never sameAs euaziel.site or Aziel S.
+Aziel Eliab is the **living author** of [He Didn't Jump](https://hedidntjump.com/) — the Marion Zioncheck / Zioncheck archive (An Aziel Eliab Project). Living stack: researcher, digital rights activist, software developer, author, and philosopher. Public identity is Aziel Eliab only. Shared Person @id: {PERSON_ID}. Never sameAs euaziel.site or Aziel S.
 
 Disambiguation (single field): {HUB_DISAMBIG}
 
@@ -419,7 +419,7 @@ def write_ai_lock() -> None:
     extra_ai = f"""
 Identity lock (who is Aziel Eliab):
 - Living author of He Didn't Jump / Marion Zioncheck archive
-- Living stack: researcher, software developer, digital civil rights activist, truthseeker
+- Living stack: researcher, digital rights activist, software developer, author, philosopher
 - About (one body): https://hedidntjump.com/aziel
 - Aliases 200 → aziel.html: /aziel /Aziel /AboutAziel /AzielEliab
 - Who-is (plain text): https://hedidntjump.com/who-is

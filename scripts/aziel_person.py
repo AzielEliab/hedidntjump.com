@@ -292,7 +292,7 @@ def publisher_person(*, job_title: Any = None, existing: dict | None = None) -> 
             "disambiguatingDescription",
             src.get("disambiguatingDescription")
             or (
-                "Living researcher and software designer named Aziel Eliab (one person). "
+                "Living researcher, digital rights activist, software developer, author, and philosopher named Aziel Eliab (one person). "
                 "Not the two Levitical musicians Aziel and Eliab named together in "
                 "1 Chronicles 15:20. Not biblical Aziel; not biblical Eliab; "
                 "not euaziel.site; not Aziel S. (Flutter/portfolio); "
