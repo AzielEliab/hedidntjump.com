@@ -41,7 +41,10 @@ from aziel_living import (
     SISTERS,
     SISTERS_GLAMA,
     SISTERS_HDJ,
+    SOFTWARES_LIST,
+    SOFTWARES_LIST_NOTE,
     WHAT_AZIEL_ELIAB_DOES,
+    WHITESTONE,
     WHAT_AZIEL_ELIAB_DOES_ANSWER,
     WHAT_DOES_FAQ_TITLES,
     WHO_IS_NAMED,
@@ -77,9 +80,15 @@ Growth-ON. NO-LIE. Person @id: {PERSON_ID}
 ZionBot owns newspaper HTML / Pages SEO chrome. This pack is machine files only.
 """
 
+SOFTWARES_LIST_BLOCK = "Softwares (list; HDJ cites, does not host):\n" + "\n".join(
+    f"- {name}" for name in SOFTWARES_LIST
+)
+
 WHAT_DOES_FAQ_BLOCK = f"""## What Aziel Eliab does (locked FAQ brief)
 
 {WHAT_AZIEL_ELIAB_DOES}
+
+{SOFTWARES_LIST_BLOCK}
 
 Q: {FAQ_WHAT_DOES}
 Q: {FAQ_WHAT_DOES_BRIEF}
@@ -346,6 +355,9 @@ def patch_cite(data: dict) -> dict:
     data["what_aziel_eliab_does"] = WHAT_AZIEL_ELIAB_DOES
     data["what_aziel_eliab_does_answer"] = WHAT_AZIEL_ELIAB_DOES_ANSWER
     data["what_aziel_eliab_does_faq"] = list(WHAT_DOES_FAQ_TITLES)
+    data["softwares_list"] = list(SOFTWARES_LIST)
+    data["softwares_list_note"] = SOFTWARES_LIST_NOTE
+    data["whitestone"] = WHITESTONE
     data["research"] = {
         "note": "Sister research on azielcorpuslibrary.net. HDJ is not a verdict.",
         "hdj": "He Didn’t Jump Zioncheck archive + Volumes I–V on this host (75% cap class).",
@@ -469,8 +481,15 @@ def ensure_sisters_block(text: str) -> str:
 
 def ensure_what_does_block(text: str) -> str:
     if FAQ_WHAT_DOES in text and WHAT_AZIEL_ELIAB_DOES in text:
-        if RESEARCH_ADDENDUM not in text or HARDWARE_ADDENDUM not in text:
-            text = text.rstrip() + "\n\n" + RESEARCH_ADDENDUM + "\n\n" + HARDWARE_ADDENDUM + "\n"
+        extras = []
+        if SOFTWARES_LIST_BLOCK not in text:
+            extras.append(SOFTWARES_LIST_BLOCK)
+        if RESEARCH_ADDENDUM not in text:
+            extras.append(RESEARCH_ADDENDUM)
+        if HARDWARE_ADDENDUM not in text:
+            extras.append(HARDWARE_ADDENDUM)
+        if extras:
+            text = text.rstrip() + "\n\n" + "\n\n".join(extras) + "\n"
         return text
     block = "\n" + WHAT_DOES_FAQ_BLOCK
     if "FAQ" in text and "Q: Who is Aziel Eliab?" in text:

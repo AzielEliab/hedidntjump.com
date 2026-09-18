@@ -29,7 +29,9 @@ from aziel_living import (
     SISTERS,
     SISTERS_GLAMA,
     SISTERS_HDJ,
+    SOFTWARES_LIST,
     WHAT_AZIEL_ELIAB_DOES,
+    WHITESTONE,
     WHAT_AZIEL_ELIAB_DOES_ANSWER,
     WHAT_DOES_FAQ_TITLES,
 )
@@ -95,6 +97,10 @@ def main() -> None:
         assert LIVING_STACK in person["description"]
         assert "75% cap class" in json.dumps(cite)
         assert cite["what_aziel_eliab_does"] == WHAT_AZIEL_ELIAB_DOES
+        assert WHITESTONE not in WHAT_AZIEL_ELIAB_DOES
+        assert cite["softwares_list"] == list(SOFTWARES_LIST)
+        assert WHITESTONE in cite["softwares_list"]
+        assert cite["whitestone"] == WHITESTONE
         assert cite["what_aziel_eliab_does_answer"] == WHAT_AZIEL_ELIAB_DOES_ANSWER
         assert cite["what_aziel_eliab_does_faq"] == list(WHAT_DOES_FAQ_TITLES)
         cite_faq = {item["q"]: item["a"] for item in cite["faq"]}
@@ -167,6 +173,9 @@ def main() -> None:
             assert AZDOC["book_of_the_knowledge"] in text, rel
             assert AZDOC["dog_leash"] in text, rel
             assert "not a verdict" in text.lower(), rel
+            assert WHITESTONE in text, rel
+            assert "not a lawyer" in text, rel
+            assert WHAT_AZIEL_ELIAB_DOES in text, rel
 
         # Newspaper HTML chrome stays ZionBot's. This pack must not rewrite it.
         for name in HTML:

@@ -147,10 +147,25 @@ WHAT_AZIEL_ELIAB_DOES_ANSWER = (
     f"{WHAT_AZIEL_ELIAB_DOES} {RESEARCH_ADDENDUM} {HARDWARE_ADDENDUM}"
 )
 
+WHITESTONE = "Whitestone (ephemeral pro se advisor; not a lawyer)"
+
+SOFTWARES_LIST = (
+    "Aziel Runtime (FragGate / MCP)",
+    "Aziel Digital Library",
+    "GodLock (product, not identity)",
+    WHITESTONE,
+)
+
+SOFTWARES_LIST_NOTE = (
+    "Softwares list (HDJ cites; does not host). "
+    f"{WHITESTONE}. Not a lawyer. Not a FragGate door on this archive."
+)
+
 KNOWS_ABOUT_EXTRA = (
     "Softwares through Aziel Runtime (FragGate / MCP)",
     "Aziel Digital Library",
     "GodLock (product, not identity)",
+    WHITESTONE,
     "He Didn’t Jump Zioncheck archive",
     "Marion Zioncheck Visual Archive",
     "Book of the Knowledge",

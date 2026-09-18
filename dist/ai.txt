@@ -145,3 +145,9 @@ Publisher name lattice:
 - GitHub: https://github.com/azieltherevealerofthesealed-arch
 - Person @id: https://www.azieleliab.com/#aziel
 - Hubs: https://www.azieleliab.com/, https://www.azielcorpuslibrary.net/, https://godlock.uk/, https://www.hedidntjump.com/
+
+Softwares (list; HDJ cites, does not host):
+- Aziel Runtime (FragGate / MCP)
+- Aziel Digital Library
+- GodLock (product, not identity)
+- Whitestone (ephemeral pro se advisor; not a lawyer)

@@ -231,3 +231,9 @@ Live origin of this archive is Cloudflare Pages project `hedidntjump` (deploy ro
 Receipts chrome stays Aziel-page-only (AboutAziel). Do not add Receipts as paper-tabs Pg.11.
 Shelves honesty unchanged: Plane B Framagit SLOT (`CNS-NO-FORGE-MIRROR`, URL null); Codeberg + archive.org PASS still SLOT; Plane C SLOT. No LIVE invent.
 HDJ ingest tip unchanged: `ef967e4acb47ba913ce3959b673767278da605b307de33210b2dc2f1cfd86f60`
+
+Softwares (list; HDJ cites, does not host):
+- Aziel Runtime (FragGate / MCP)
+- Aziel Digital Library
+- GodLock (product, not identity)
+- Whitestone (ephemeral pro se advisor; not a lawyer)
