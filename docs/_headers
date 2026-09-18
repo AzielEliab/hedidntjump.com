@@ -168,3 +168,18 @@
 /.well-known/llms.txt
   Content-Type: text/plain; charset=utf-8
   Cache-Control: public, max-age=3600
+
+/survival
+  Content-Type: application/json; charset=utf-8
+  Cache-Control: public, max-age=60, stale-while-revalidate=300
+  CDN-Cache-Control: public, max-age=60, stale-while-revalidate=300
+
+/survival.json
+  Content-Type: application/json; charset=utf-8
+  Cache-Control: public, max-age=60, stale-while-revalidate=300
+  CDN-Cache-Control: public, max-age=60, stale-while-revalidate=300
+
+/v1/survival
+  Content-Type: application/json; charset=utf-8
+  Cache-Control: public, max-age=60, stale-while-revalidate=300
+  CDN-Cache-Control: public, max-age=60, stale-while-revalidate=300

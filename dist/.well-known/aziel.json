@@ -377,5 +377,19 @@
     "project": "hedidntjump",
     "preview": "https://hedidntjump.pages.dev",
     "deploy_root": "docs/"
+  },
+  "ban_survival": {
+    "spec": "BAN-SURVIVAL-1.0",
+    "sot": "https://aziel-runtime.vibelock.workers.dev/v1/survival",
+    "ttl_seconds": 60,
+    "mutual_backup": true,
+    "platforms_all_live": true,
+    "calling_name": "Aziel Runtime",
+    "cap7_resolves_to_hub": false,
+    "miragegrid_worker": "https://miragegrid.vibelock.workers.dev",
+    "this_host_is_live_door": false,
+    "mission": "Zioncheck archive",
+    "person_id": "https://www.azieleliab.com/#aziel",
+    "visible_1520": false
   }
 }

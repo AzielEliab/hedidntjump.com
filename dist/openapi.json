@@ -511,6 +511,36 @@
           }
         }
       }
+    },
+    "/survival": {
+      "get": {
+        "summary": "BAN-SURVIVAL-1.0 hub pull of runtime /survival (short TTL 60s; not a live exec door)",
+        "responses": {
+          "200": {
+            "description": "application/json"
+          }
+        }
+      }
+    },
+    "/survival.json": {
+      "get": {
+        "summary": "Same BAN-SURVIVAL-1.0 hub wrap as /survival (static snapshot)",
+        "responses": {
+          "200": {
+            "description": "application/json"
+          }
+        }
+      }
+    },
+    "/v1/survival": {
+      "get": {
+        "summary": "Alias of /survival",
+        "responses": {
+          "200": {
+            "description": "application/json"
+          }
+        }
+      }
     }
   }
 }

@@ -10,6 +10,8 @@ Allow: /shelves
 Allow: /lockset.json
 Allow: /redline
 Allow: /runtime-launch.json
+Allow: /survival
+Allow: /survival.json
 Allow: /cite.json
 Allow: /llms.txt
 Allow: /llms-full.txt
