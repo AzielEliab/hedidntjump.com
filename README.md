@@ -7,7 +7,7 @@ Domain owned by user: hedidntjump.com
 ## Task for Grok
 Upload this complete snapshot to the existing repository. Preserve the website's wording, the 21 entries in their present order, five Volume I-V links, the Aziel Eliab credit, the five original PDFs, and all reader images. Do not rewrite or regenerate content.
 
-The complete static site is in dist/. docs/ is an identical GitHub Pages copy (plus CNAME). Serve either as the web root. Links begin with / and therefore require root hosting, not a /repository-name/ subdirectory. The landing paper now carries 23 inquiries of the record.
+The complete static site is in dist/. docs/ is the Cloudflare Pages deploy root (project `hedidntjump`, plus CNAME). Live origin is that Pages project — not GitHub Pages alone. Preview: https://hedidntjump.pages.dev. Serve either tree as the web root. Links begin with / and therefore require root hosting, not a /repository-name/ subdirectory. The landing paper now carries 23 inquiries of the record.
 
 Live view and download pills call a Cloudflare Worker + KV stub:
 
@@ -23,8 +23,12 @@ Drop historic plates over the placeholders at `/assets/arctic-building.webp`, `/
 python3 -m http.server 8000 --directory dist
 Open http://localhost:8000
 
-## GitHub Pages sync
+## Cloudflare Pages sync (docs/ deploy root)
 scripts/sync_docs.sh
+
+GitHub Pages may still build from docs/; it is not the live origin alone. Custom domain DNS stays on Cloudflare Pages project `hedidntjump`.
+
+Sister cite (not a Softwares clone): Aziel Runtime 2.0.0-rc1 SoT LIVE main `6a3798a` / version_id `105fa1ee`. Prefer [Try on Glama](https://glama.ai/mcp/servers/AzielEliab/aziel-runtime). Machine field: `/runtime-launch.json`. Never fielded_100.
 
 ## Validate the handoff
 python3 verify_handoff.py
@@ -41,7 +45,7 @@ git add dist README.md verify_handoff.py FILE_MANIFEST.json
 git commit -m "Upload complete Marion Zioncheck website"
 git push origin main
 
-GitHub upload does not activate the custom domain. For a static host, serve dist/ with no compilation. Keep hedidntjump.com DNS and existing hosting changes separate from this source upload. The existing Sites deployment remains the current hosted version until the owner changes it.
+GitHub upload does not activate the custom domain. For a static host, serve dist/ or docs/ with no compilation. Live origin is Cloudflare Pages project `hedidntjump` (docs/). Keep hedidntjump.com DNS on that Pages project. GitHub Pages is secondary, not the live origin alone.
 
 ## Acceptance checks
 - Landing page opens with portrait, styling and favicon.

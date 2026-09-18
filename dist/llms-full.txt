@@ -161,3 +161,17 @@ Planes A/B/C: A=one CF/GitHub tunnel (5 surfaces / 2 family radii, not 5 shelves
 - HDJ ingest tip (this host, unchanged): `ef967e4acb47ba913ce3959b673767278da605b307de33210b2dc2f1cfd86f60`
 - CROSS-NETWORK-SURVIVAL + NO-LIE / NO-REWRITE stay in force. Cite, don't merge. No invented holdings.
 
+## SOFTWARES-RUNTIME-LAUNCH-1.0
+
+Sister-archive cite of Aziel Runtime launch readiness. Not a Softwares clone. HDJ stays the Marion Zioncheck archive.
+
+Runtime SoT LIVE: `https://github.com/AzielEliab/aziel-runtime` main `6a3798a` / version_id `105fa1ee` / `2.0.0-rc1`.
+Prefer [Try on Glama](https://glama.ai/mcp/servers/AzielEliab/aziel-runtime). Worker (secondary): https://aziel-runtime.vibelock.workers.dev/
+Human UI + MCP + mesh/VPN/radios + `/download` are launch-ready on aziel-runtime. This host cites; it does not host Softwares, MCP, mesh radios, or `/download`.
+Never fielded_100. Identity Aziel Eliab only. Person @id: https://www.azieleliab.com/#aziel. No visible 1 Chronicles 15:20.
+Lamb Lens ingest: https://www.azielcorpuslibrary.net/corpus (not this host). NO-LIE / NO-REWRITE stays in force.
+
+Live origin of this archive is Cloudflare Pages project `hedidntjump` (deploy root `docs/`). Preview https://hedidntjump.pages.dev. GitHub Pages is not the live origin alone.
+Receipts chrome stays Aziel-page-only (AboutAziel). Do not add Receipts as paper-tabs Pg.11.
+Shelves honesty unchanged: Plane B Framagit SLOT (`CNS-NO-FORGE-MIRROR`, URL null); Codeberg + archive.org PASS still SLOT; Plane C SLOT. No LIVE invent.
+HDJ ingest tip unchanged: `ef967e4acb47ba913ce3959b673767278da605b307de33210b2dc2f1cfd86f60`
