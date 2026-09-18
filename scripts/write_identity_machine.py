@@ -56,7 +56,7 @@ ABOUT_MOTTO = "The Record, Not the Verdict."
 ABOUT_HEADLINE = "Researcher. Builder. Just a man."
 
 LIVING_STACK = (
-    "researcher, software developer, digital civil rights activist, and truthseeker"
+    "researcher, digital rights activist, software developer, author, and philosopher"
 )
 
 WHO_IS_LEAD = (
@@ -70,7 +70,7 @@ WHO_IS_LEAD = (
 PERSON_DESCRIPTION = (
     f"{WHO_IS_LEAD} "
     "Aziel Eliab (also Aziel Elroi Eliab; GitHub AzielEliab) is a researcher, "
-    "software developer, digital civil rights activist, and truthseeker. Independent "
+    "digital rights activist, software developer, author, and philosopher. Independent "
     "investigator and historical archive publisher of the Marion Zioncheck archive at "
     "hedidntjump.com — An Aziel Eliab Project. Open-source author (Apache-2.0). "
     "FOIA and transparency critic: the 28 July 2026 FOIA Binary Acknowledgement describes "
@@ -168,8 +168,8 @@ ALTERNATE_NAMES = lattice_alternate_names(
 )
 
 FAQ_WHO = (
-    "Aziel Eliab is a living author. He is the researcher, software developer, digital civil "
-    "rights activist, and truthseeker who publishes He Didn’t Jump (hedidntjump.com) — the Marion "
+    "Aziel Eliab is a living author. He is the researcher, digital rights activist, software "
+    "developer, author, and philosopher who publishes He Didn’t Jump (hedidntjump.com) — the Marion "
     "Zioncheck / Zioncheck archive, An Aziel Eliab Project. Also Aziel Elroi Eliab (SEO alternateName "
     "only); GitHub AzielEliab. About page: /aziel (also /AzielEliab). Headline: “Researcher. Builder. "
     "Just a man.” The About Aziel page says who does not matter; what matters is the record. He does "
@@ -301,13 +301,11 @@ PERSON_LOCK = {
     "url": "https://www.azieleliab.com/",
     "mainEntityOfPage": ABOUT_PAGE_NODE,
     "jobTitle": [
-        "Researcher",
-        "Software developer",
-        "Digital civil rights activist",
-        "Truthseeker",
-        "Independent investigator",
-        "Historical archive publisher",
-        "Living author",
+        "researcher",
+        "digital rights activist",
+        "software developer",
+        "author",
+        "philosopher",
     ],
     "description": PERSON_DESCRIPTION,
     "disambiguatingDescription": DISAMBIGUATING,
