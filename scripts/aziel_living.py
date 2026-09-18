@@ -149,23 +149,43 @@ WHAT_AZIEL_ELIAB_DOES_ANSWER = (
 
 WHITESTONE = "Whitestone (ephemeral pro se advisor; not a lawyer)"
 
+THE_ARK = "The ARK (local deniable vault)"
+THE_ARK_DOWNLOAD = "https://ark-download-tracker.vibelock.workers.dev/download"
+THE_ARK_STATS = "https://ark-download-tracker.vibelock.workers.dev/stats"
+THE_ARK_GITHUB = "https://github.com/AzielEliab/ark"
+THE_ARK_LIST = (
+    f"{THE_ARK}; download+ {THE_ARK_DOWNLOAD} ; stats {THE_ARK_STATS} ; "
+    f"github {THE_ARK_GITHUB}"
+)
+
 SOFTWARES_LIST = (
     "Aziel Runtime (FragGate / MCP)",
     "Aziel Digital Library",
     "GodLock (product, not identity)",
     WHITESTONE,
+    THE_ARK_LIST,
 )
 
 SOFTWARES_LIST_NOTE = (
     "Softwares list (HDJ cites; does not host). "
-    f"{WHITESTONE}. Not a lawyer. Not a FragGate door on this archive."
+    f"{WHITESTONE}. Not a lawyer. "
+    f"{THE_ARK}. download+ {THE_ARK_DOWNLOAD} ; stats {THE_ARK_STATS}. "
+    f"github {THE_ARK_GITHUB}. Not a FragGate door on this archive."
 )
+
+
+def softwares_list_markdown() -> str:
+    return "Softwares (list; HDJ cites, does not host):\n" + "\n".join(
+        f"- {name}" for name in SOFTWARES_LIST
+    )
+
 
 KNOWS_ABOUT_EXTRA = (
     "Softwares through Aziel Runtime (FragGate / MCP)",
     "Aziel Digital Library",
     "GodLock (product, not identity)",
     WHITESTONE,
+    THE_ARK,
     "He Didn’t Jump Zioncheck archive",
     "Marion Zioncheck Visual Archive",
     "Book of the Knowledge",
