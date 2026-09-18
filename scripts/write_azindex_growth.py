@@ -594,6 +594,161 @@ def patch_serp_writer() -> None:
     print("writer", path.relative_to(ROOT))
 
 
+PAGE_HEADS = {
+    "index.html": f"{APEX}/",
+    "case.html": f"{APEX}/Case",
+    "press.html": f"{APEX}/Press",
+    "inquiries.html": f"{APEX}/Inquiries",
+    "inquires.html": f"{APEX}/Inquiries",
+    "rubye.html": f"{APEX}/Rubye",
+    "archives.html": f"{APEX}/Archives",
+    "foia.html": f"{APEX}/FOIA",
+    "volumes.html": f"{APEX}/Volumes",
+    "reader.html": f"{APEX}/reader",
+    "official-narrative.html": f"{APEX}/Narrative",
+    "aziel.html": f"{APEX}/aziel",
+    "copyrights.html": f"{APEX}/Copyrights",
+    "receipts.html": f"{APEX}/receipts",
+    "who.html": f"{APEX}/who",
+}
+
+AZIEL_ABOUT = {"aziel.html", "who.html"}
+NEED_WEBPAGE = {
+    "press.html",
+    "archives.html",
+    "inquiries.html",
+    "inquires.html",
+    "who.html",
+}
+
+STALE_JSONLD_URLS = (
+    (f"{APEX}/rubye.html", f"{APEX}/Rubye"),
+    (f"{APEX}/foia.html", f"{APEX}/FOIA"),
+    (f"{APEX}/copyrights.html", f"{APEX}/Copyrights"),
+    (f"{APEX}/official-narrative.html", f"{APEX}/Narrative"),
+    (f"{APEX}/reader.html", f"{APEX}/reader"),
+)
+
+
+def _attr(html: str, pattern: str) -> str | None:
+    m = re.search(pattern, html, flags=re.I)
+    return m.group(1) if m else None
+
+
+def _set_or_insert_meta(text: str, attr: str, name: str, value: str) -> str:
+    pattern = rf'<meta {attr}="{name}" content="[^"]*">'
+    repl = f'<meta {attr}="{name}" content="{value}">'
+    if re.search(pattern, text, flags=re.I):
+        return re.sub(pattern, repl, text, count=1, flags=re.I)
+    anchor = "</head>"
+    return text.replace(anchor, repl + "\n" + anchor, 1)
+
+
+def patch_sitewide_pages() -> None:
+    for tree in TREES:
+        for name, canonical in PAGE_HEADS.items():
+            path = tree / name
+            text = path.read_text(encoding="utf-8")
+            title = _attr(text, r"<title>([^<]*)</title>")
+            desc = _attr(text, r'<meta name="description" content="([^"]*)"')
+            assert title and desc, name
+
+            if 'rel="canonical"' in text:
+                text = re.sub(
+                    r'<link rel="canonical" href="[^"]*">',
+                    f'<link rel="canonical" href="{canonical}">',
+                    text,
+                    count=1,
+                )
+            text = _set_or_insert_meta(text, "property", "og:title", title)
+            text = _set_or_insert_meta(text, "property", "og:description", desc)
+            text = _set_or_insert_meta(text, "property", "og:url", canonical)
+            if 'property="og:type"' not in text:
+                text = _set_or_insert_meta(text, "property", "og:type", "article")
+            if 'property="og:site_name"' not in text:
+                text = _set_or_insert_meta(
+                    text, "property", "og:site_name", "He Didn't Jump — An Aziel Eliab Project"
+                )
+            text = _set_or_insert_meta(text, "name", "twitter:title", title)
+            text = _set_or_insert_meta(text, "name", "twitter:description", desc)
+            if 'name="twitter:card"' not in text:
+                text = _set_or_insert_meta(text, "name", "twitter:card", "summary_large_image")
+
+            if f'href="{APEX}/llms.txt"' not in text and 'href="/llms.txt"' not in text:
+                text = text.replace(
+                    f'<link rel="canonical" href="{canonical}">\n',
+                    (
+                        f'<link rel="canonical" href="{canonical}">\n'
+                        f'<link rel="alternate" type="text/plain" href="{APEX}/llms.txt" title="LLM instructions">\n'
+                    ),
+                    1,
+                )
+            if f'href="{APEX}/cite.json"' not in text and 'href="/cite.json"' not in text:
+                text = text.replace(
+                    f'<link rel="canonical" href="{canonical}">\n',
+                    (
+                        f'<link rel="canonical" href="{canonical}">\n'
+                        f'<link rel="alternate" type="application/json" href="{APEX}/cite.json" title="cite.json">\n'
+                    ),
+                    1,
+                )
+
+            if name in NEED_WEBPAGE and 'data-azindex="webpage"' not in text:
+                about = PERSON_ID if name in AZIEL_ABOUT else ZION_ID
+                block = (
+                    '<script type="application/ld+json" data-azindex="webpage">\n'
+                    + dumps(
+                        {
+                            "@context": "https://schema.org",
+                            "@type": "WebPage",
+                            "@id": f"{canonical.rstrip('/') }#webpage",
+                            "url": canonical,
+                            "name": title,
+                            "description": desc,
+                            "isPartOf": {"@id": f"{APEX}/#website"},
+                            "about": {"@id": about},
+                            "author": {"@id": PERSON_ID},
+                            "isAccessibleForFree": True,
+                            "inLanguage": "en",
+                        }
+                    )
+                    + "</script>\n"
+                )
+                text = text.replace("</head>", block + "</head>", 1)
+            if name not in AZIEL_ABOUT and ZION_ID not in text and 'data-azindex="marion"' not in text:
+                marion = (
+                    '<script type="application/ld+json" data-azindex="marion">\n'
+                    + dumps(
+                        {
+                            "@context": "https://schema.org",
+                            "@type": "Person",
+                            "@id": ZION_ID,
+                            "name": "Marion A. Zioncheck",
+                            "alternateName": MARION_AKA,
+                            "jobTitle": "U.S. Representative",
+                            "url": f"{APEX}/",
+                            "sameAs": MARION_SAME_AS,
+                        }
+                    )
+                    + "</script>\n"
+                )
+                text = text.replace("</head>", marion + "</head>", 1)
+
+            def _rewrite_jsonld(match: re.Match[str]) -> str:
+                body = match.group(0)
+                for old, new in STALE_JSONLD_URLS:
+                    body = body.replace(old, new)
+                return body
+
+            text = re.sub(
+                r'<script type="application/ld\+json"[^>]*>[\s\S]*?</script>',
+                _rewrite_jsonld,
+                text,
+            )
+            path.write_text(text, encoding="utf-8")
+            print("page-head", path.relative_to(ROOT))
+
+
 def main() -> None:
     patch_robots()
     patch_headers()
@@ -604,6 +759,7 @@ def main() -> None:
     patch_llms()
     patch_money_jsonld()
     patch_edition_og()
+    patch_sitewide_pages()
     patch_cold_shelf_writer()
     patch_serp_writer()
     print("AZindex GROWTH-ON written; ingest tip unchanged")

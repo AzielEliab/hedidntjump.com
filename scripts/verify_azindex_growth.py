@@ -179,6 +179,46 @@ def main() -> None:
         assert "inquires.html" not in press
         assert "inquires.html" not in archives
 
+        pages = {
+            "index.html": f"{APEX}/",
+            "case.html": f"{APEX}/Case",
+            "press.html": f"{APEX}/Press",
+            "inquiries.html": f"{APEX}/Inquiries",
+            "inquires.html": f"{APEX}/Inquiries",
+            "rubye.html": f"{APEX}/Rubye",
+            "archives.html": f"{APEX}/Archives",
+            "foia.html": f"{APEX}/FOIA",
+            "volumes.html": f"{APEX}/Volumes",
+            "reader.html": f"{APEX}/reader",
+            "official-narrative.html": f"{APEX}/Narrative",
+            "aziel.html": f"{APEX}/aziel",
+            "copyrights.html": f"{APEX}/Copyrights",
+            "receipts.html": f"{APEX}/receipts",
+            "who.html": f"{APEX}/who",
+        }
+        for name, canonical in pages.items():
+            html = (tree / name).read_text(encoding="utf-8")
+            title = re.search(r"<title>([^<]*)</title>", html).group(1)
+            desc = re.search(r'<meta name="description" content="([^"]*)"', html).group(1)
+            assert f'href="{canonical}"' in html
+            assert f'og:title" content="{title}"' in html
+            assert f'og:description" content="{desc}"' in html
+            assert f'og:url" content="{canonical}"' in html
+            assert f'twitter:title" content="{title}"' in html
+            assert f'twitter:description" content="{desc}"' in html
+            assert "application/ld+json" in html
+            if name in {
+                "press.html",
+                "archives.html",
+                "inquiries.html",
+                "inquires.html",
+                "who.html",
+            }:
+                assert 'data-azindex="webpage"' in html
+            if name not in {"aziel.html", "who.html"}:
+                assert ZION_ID in html or "marion-zioncheck" in html
+            assert PERSON_ID in html
+
         mcp = json.loads((tree / "mcp.json").read_text(encoding="utf-8"))
         assert "no local MCP" in mcp["mcpServers"]["aziel-runtime"]["note"]
 
