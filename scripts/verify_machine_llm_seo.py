@@ -11,15 +11,27 @@ if str(_SCRIPTS) not in sys.path:
     sys.path.insert(0, str(_SCRIPTS))
 
 from aziel_living import (
+    AZDOC,
     CAP_CLASS,
+    CORPUS,
+    FAQ_WHAT_DOES,
+    FAQ_WHAT_DOES_BRIEF,
+    FAQ_WHAT_SOFTWARE,
+    FAQ_WHO_DEVELOPER,
+    HARDWARE_ADDENDUM,
     HDJ_BLURB,
     JOB_TITLES,
+    KNOWS_ABOUT_EXTRA,
     LIVING_STACK,
     OLD_STACK_PHRASES,
     PERSON_ID,
+    RESEARCH_ADDENDUM,
     SISTERS,
     SISTERS_GLAMA,
     SISTERS_HDJ,
+    WHAT_AZIEL_ELIAB_DOES,
+    WHAT_AZIEL_ELIAB_DOES_ANSWER,
+    WHAT_DOES_FAQ_TITLES,
 )
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -82,6 +94,55 @@ def main() -> None:
         assert person["jobTitle"] == JOB_TITLES
         assert LIVING_STACK in person["description"]
         assert "75% cap class" in json.dumps(cite)
+        assert cite["what_aziel_eliab_does"] == WHAT_AZIEL_ELIAB_DOES
+        assert cite["what_aziel_eliab_does_answer"] == WHAT_AZIEL_ELIAB_DOES_ANSWER
+        assert cite["what_aziel_eliab_does_faq"] == list(WHAT_DOES_FAQ_TITLES)
+        cite_faq = {item["q"]: item["a"] for item in cite["faq"]}
+        for title in WHAT_DOES_FAQ_TITLES:
+            assert title in cite_faq, title
+            assert cite_faq[title] == WHAT_AZIEL_ELIAB_DOES_ANSWER
+            assert WHAT_AZIEL_ELIAB_DOES in cite_faq[title]
+        assert cite["research"]["doi"] is None
+        assert cite["hardware_designs"]["doi"] is None
+        assert cite["research"]["sister"] == CORPUS
+        assert cite["hardware_designs"]["corpus"] == CORPUS
+        assert cite["research"]["azdoc"]["book_of_the_knowledge"] == AZDOC["book_of_the_knowledge"]
+        assert cite["research"]["azdoc"]["libro_method"] == AZDOC["libro_method"]
+        assert cite["research"]["azdoc"]["ppin"] == AZDOC["ppin"]
+        assert cite["research"]["azdoc"]["lenses"] == AZDOC["lenses"]
+        assert cite["research"]["azdoc"]["abad_copper_scroll"] == AZDOC["abad_copper_scroll"]
+        assert cite["research"]["azdoc"]["blemmyes"] == AZDOC["blemmyes"]
+        assert cite["research"]["visual_archive"]["corpus_indexed"]["vol1"] == AZDOC["visual_vol1"]
+        assert cite["research"]["visual_archive"]["corpus_indexed"]["vol2"] == AZDOC["visual_vol2"]
+        assert cite["research"]["visual_archive"]["corpus_indexed"]["vol3"] == AZDOC["visual_vol3"]
+        assert cite["research"]["visual_archive"]["vol4_azdoc"] is None
+        assert cite["research"]["visual_archive"]["vol5_azdoc"] is None
+        assert cite["hardware_designs"]["azdoc"]["adaptive_ai_dog_leash"] == AZDOC["dog_leash"]
+        assert cite["hardware_designs"]["azdoc"]["taa1"] == AZDOC["taa1"]
+        assert "not a verdict" in cite["research"]["note"].lower()
+        assert "public engineering only" in cite["hardware_designs"]["note"].lower()
+        for extra in KNOWS_ABOUT_EXTRA:
+            assert extra in cite["knowsAbout"], extra
+            assert extra in person["knowsAbout"], extra
+        assert person.get("what_aziel_eliab_does") == WHAT_AZIEL_ELIAB_DOES
+        assert "GodLock (product, not identity)" in person["knowsAbout"]
+
+        identity = json.loads(blobs["identity.jsonld"])
+        graph = json.loads(blobs["graph.jsonld"])
+        well = json.loads(blobs[".well-known/aziel.json"])
+        faq_node = next(
+            n
+            for n in graph["@graph"]
+            if n.get("@type") == "FAQPage" and n.get("@id") == "https://www.hedidntjump.com/#faq"
+        )
+        faq_names = {q["name"] for q in faq_node["mainEntity"]}
+        for title in WHAT_DOES_FAQ_TITLES:
+            assert title in faq_names, title
+        well_knows = json.dumps(well.get("person", well).get("knowsAbout") or well.get("knowsAbout"))
+        ident_knows = json.dumps(identity.get("knowsAbout") or [])
+        for extra in ("Book of the Knowledge", "Libro Method", "PPIN", "public hardware designs"):
+            assert extra in ident_knows, extra
+            assert extra in well_knows, extra
 
         who = blobs["who-is"]
         who_txt = blobs["who-is-aziel-eliab.txt"]
@@ -93,6 +154,19 @@ def main() -> None:
             assert url in who, label
             assert url in blobs["llms.txt"], label
             assert url in blobs["ai.txt"], label
+        for rel in ("who-is", "who-is-aziel-eliab.txt", "llms.txt", "ai.txt", "llms-full.txt"):
+            text = blobs[rel]
+            assert WHAT_AZIEL_ELIAB_DOES in text, rel
+            assert FAQ_WHAT_DOES in text, rel
+            assert FAQ_WHAT_DOES_BRIEF in text, rel
+            assert FAQ_WHO_DEVELOPER in text, rel
+            assert FAQ_WHAT_SOFTWARE in text, rel
+            assert RESEARCH_ADDENDUM in text, rel
+            assert HARDWARE_ADDENDUM in text, rel
+            assert AZDOC["visual_vol1"] in text, rel
+            assert AZDOC["book_of_the_knowledge"] in text, rel
+            assert AZDOC["dog_leash"] in text, rel
+            assert "not a verdict" in text.lower(), rel
 
         # Newspaper HTML chrome stays ZionBot's. This pack must not rewrite it.
         for name in HTML:
