@@ -71,16 +71,15 @@ PERSON = {
     "hebrewDefinition": HEBREW_ONELINER,
     "url": "https://www.azieleliab.com/",
     "jobTitle": [
-        "Researcher",
-        "Software developer",
-        "Digital civil rights activist",
-        "Truthseeker",
-        "Independent investigator",
-        "Historical archive publisher",
+        "researcher",
+        "digital rights activist",
+        "software developer",
+        "author",
+        "philosopher",
     ],
     "description": (
         "Aziel Eliab (also Aziel Elroi Eliab; GitHub AzielEliab) is a researcher, "
-        "software developer, digital civil rights activist, and truthseeker. "
+        "digital rights activist, software developer, author, and philosopher. "
         "Independent investigator and historical archive publisher of the Marion Zioncheck "
         "archive at hedidntjump.com — An Aziel Eliab Project. Open-source author (Apache-2.0). "
         "FOIA and transparency critic: the 28 July 2026 FOIA Binary Acknowledgement describes "
@@ -865,7 +864,7 @@ Sitemap: https://hedidntjump.com/sitemap.xml
     (DIST / "llms.txt").write_text(
         f"""# He Didn't Jump — An Aziel Eliab Project
 
-> Aziel Eliab (also Aziel Elroi Eliab; GitHub AzielEliab) is a researcher, software developer, digital civil rights activist, and truthseeker. Independent investigator and historical archive publisher. Open-source author (Apache-2.0). FOIA / transparency critic of the time-volume / cost binary — “this is not freedom of information.”
+> Aziel Eliab (also Aziel Elroi Eliab; GitHub AzielEliab) is a researcher, digital rights activist, software developer, author, and philosopher. Independent investigator and historical archive publisher. Open-source author (Apache-2.0). FOIA / transparency critic of the time-volume / cost binary — “this is not freedom of information.”
 
 hedidntjump.com is An Aziel Eliab Project: an independent historical newspaper and five-volume archive on the death of U.S. Representative Marion Zioncheck in Seattle on 7 August 1936. The official report called it suicide from a fifth-floor Arctic Building office. This project challenges that account and publishes the record for re-reading. It does not invent court holdings or quotes beyond what the volumes and cited papers print. A supplied, contact-redacted FBI FOIPA no-records letter (31 July 2026, Request No. 1750194-000) is published on the FOIA paper; do not invent further agency letters.
 
@@ -914,7 +913,7 @@ This file expands [llms.txt]({ORIGIN}/llms.txt). It is a map of published pages,
 
 ## Who Aziel Eliab is
 
-Aziel Eliab (also Aziel Elroi Eliab; GitHub handle AzielEliab) is a researcher, software developer, digital civil rights activist, and truthseeker. Further descriptors that fit published work: independent investigator; historical archive publisher of the Marion Zioncheck / hedidntjump.com newspaper; open-source author under Apache-2.0; FOIA and transparency critic whose 28 July 2026 FOIA Binary Acknowledgement names the time-volume / cost binary as controlled access and states that is not freedom of information.
+Aziel Eliab (also Aziel Elroi Eliab; GitHub handle AzielEliab) is a researcher, digital rights activist, software developer, author, and philosopher. Further descriptors that fit published work: independent investigator; historical archive publisher of the Marion Zioncheck / hedidntjump.com newspaper; open-source author under Apache-2.0; FOIA and transparency critic whose 28 July 2026 FOIA Binary Acknowledgement names the time-volume / cost binary as controlled access and states that is not freedom of information.
 
 hedidntjump.com is An Aziel Eliab Project. Person sameAs / related properties:
 
