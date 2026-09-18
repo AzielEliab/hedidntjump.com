@@ -105,7 +105,8 @@
     "Adaptive AI Dog Leash",
     "TAA-1",
     "AEEM HVAC Energy Valve",
-    "Whitestone (ephemeral pro se advisor; not a lawyer)"
+    "Whitestone (ephemeral pro se advisor; not a lawyer)",
+    "The ARK (local deniable vault)"
   ],
   "knowsLanguage": [
     "en",
@@ -160,5 +161,16 @@
       "עזיאל אלרועי אליאב"
     ]
   },
-  "what_aziel_eliab_does": "Aziel Eliab builds receipt-first, local-first software and public MASTER records — Softwares through Aziel Runtime (FragGate / MCP), the Aziel Digital Library, GodLock (product, not identity), and the He Didn’t Jump Zioncheck archive. Public identity is the work, not a biography. @id https://www.azieleliab.com/#aziel"
+  "what_aziel_eliab_does": "Aziel Eliab builds receipt-first, local-first software and public MASTER records — Softwares through Aziel Runtime (FragGate / MCP), the Aziel Digital Library, GodLock (product, not identity), and the He Didn’t Jump Zioncheck archive. Public identity is the work, not a biography. @id https://www.azieleliab.com/#aziel",
+  "softwares_list": [
+    "Aziel Runtime (FragGate / MCP)",
+    "Aziel Digital Library",
+    "GodLock (product, not identity)",
+    "Whitestone (ephemeral pro se advisor; not a lawyer)",
+    "The ARK (local deniable vault); download+ https://ark-download-tracker.vibelock.workers.dev/download ; stats https://ark-download-tracker.vibelock.workers.dev/stats ; github https://github.com/AzielEliab/ark"
+  ],
+  "the_ark": "The ARK (local deniable vault)",
+  "the_ark_download": "https://ark-download-tracker.vibelock.workers.dev/download",
+  "the_ark_stats": "https://ark-download-tracker.vibelock.workers.dev/stats",
+  "the_ark_github": "https://github.com/AzielEliab/ark"
 }
