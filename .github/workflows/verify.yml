@@ -24,3 +24,5 @@ jobs:
         run: python3 scripts/verify_aziel_publisher_lattice.py
       - name: Zioncheck SERP
         run: python3 scripts/verify_zioncheck_serp.py
+      - name: AZindex GROWTH-ON
+        run: python3 scripts/verify_azindex_growth.py

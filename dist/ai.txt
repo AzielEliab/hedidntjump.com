@@ -25,6 +25,7 @@ Discovery on this host:
 - https://www.hedidntjump.com/shelves
 - https://www.hedidntjump.com/lockset.json
 - https://www.hedidntjump.com/openapi.json
+- https://hedidntjump.com/.well-known/llms.txt
 - https://www.hedidntjump.com/sitemap.xml
 - https://www.hedidntjump.com/robots.txt
 - https://hedidntjump.com/receipts
@@ -73,6 +74,7 @@ SOFTWARES-RUNTIME-LAUNCH-1.0 (sister cite; not a Softwares clone):
 - Human UI + MCP + mesh/VPN/radios + /download ready on aziel-runtime. HDJ cites; does not host.
 - Identity Aziel Eliab only. Person @id: https://www.azieleliab.com/#aziel. No visible 15:20.
 - Lamb Lens: https://www.azielcorpuslibrary.net/corpus (HDJ is not a Lamb Lens ingest host)
+- Lamb Lens order: Service → Clarity → Peace
 - NO-LIE / NO-REWRITE
 - Live origin: Cloudflare Pages project hedidntjump (docs/). Preview https://hedidntjump.pages.dev. Not GH Pages alone.
 - Receipts chrome: Aziel-page-only (not paper-tabs Pg.11)

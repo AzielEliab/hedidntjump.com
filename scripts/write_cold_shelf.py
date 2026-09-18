@@ -1090,6 +1090,7 @@ def patch_cite() -> None:
         "visible_1520": False,
         "lamb_lens": {
             "shelf": "https://www.azielcorpuslibrary.net/corpus",
+            "order": "Service → Clarity → Peace",
             "note": "Public Lamb Lens / Corpus ingest lives on azielcorpuslibrary.net. This host is not a Lamb Lens ingest host.",
         },
         "codeberg_tip_pack": {
