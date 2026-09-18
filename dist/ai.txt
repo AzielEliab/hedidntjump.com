@@ -81,6 +81,20 @@ SOFTWARES-RUNTIME-LAUNCH-1.0 (sister cite; not a Softwares clone):
 - Shelves: Plane B Framagit SLOT CNS-NO-FORGE-MIRROR; Codeberg+archive PASS still SLOT; Plane C SLOT; no LIVE invent
 - Ingest tip unchanged: `ef967e4acb47ba913ce3959b673767278da605b307de33210b2dc2f1cfd86f60`
 
+BAN-SURVIVAL-1.0 (hub pull; short TTL 60s; not a Softwares clone):
+- SoT: https://aziel-runtime.vibelock.workers.dev/v1/survival
+- Mutual backup LIVE. Live doors: workers-dev, library-runtime, author-runtime, godlock-runtime. HDJ is not a live exec door.
+- Platforms all LIVE (browser/PWA/MCP). native_app_store: false
+- Calling name: Aziel Runtime. Identity Aziel Eliab only. Pull /survival; do not hardcode a rotated name.
+- Cap-7: resolves_to_hub false. Cite+verify LIVE; hosted /mcp SLOT. public_icann false
+- MirageGrid Worker LIVE: https://miragegrid.vibelock.workers.dev — public pair azgrid+azbooth LIVE HTTPS; azshift (HDJ design) AZNet SLOT
+- Zioncheck stays the HDJ mission. Do not invent case facts.
+- Person @id: https://www.azieleliab.com/#aziel. No visible 15:20.
+- Lamb Lens: https://www.azielcorpuslibrary.net/corpus (HDJ is not a Lamb Lens ingest host)
+- NO-LIE / NO-REWRITE
+- This host: https://www.hedidntjump.com/survival · https://www.hedidntjump.com/survival.json
+- Ingest tip unchanged: `ef967e4acb47ba913ce3959b673767278da605b307de33210b2dc2f1cfd86f60`
+
 COLD-MULTI-SHELF-1.0 (AZindex; sister cite of live corpus /shelves):
 - Canonical shelves: https://www.azielcorpuslibrary.net/shelves
 - This host: https://www.hedidntjump.com/shelves · https://www.hedidntjump.com/lockset.json · https://www.hedidntjump.com/redline

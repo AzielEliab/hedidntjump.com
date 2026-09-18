@@ -12,6 +12,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: BAN-SURVIVAL hub pull
+        run: python3 scripts/verify_ban_survival.py
       - name: Runtime launch cite
         run: python3 scripts/verify_runtime_launch.py
       - name: Cold-shelf honesty
