@@ -25,7 +25,18 @@
     "https://hedidntjump.com/redline",
     "https://www.hedidntjump.com/redline",
     "https://hedidntjump.com/runtime-launch.json",
-    "https://www.hedidntjump.com/runtime-launch.json"
+    "https://www.hedidntjump.com/runtime-launch.json",
+    "https://hedidntjump.com/Press",
+    "https://hedidntjump.com/Rubye",
+    "https://hedidntjump.com/Archives",
+    "https://hedidntjump.com/FOIA",
+    "https://hedidntjump.com/reader",
+    "https://hedidntjump.com/aziel",
+    "https://hedidntjump.com/Copyrights",
+    "https://hedidntjump.com/who",
+    "https://hedidntjump.com/ai.txt",
+    "https://hedidntjump.com/cite.json",
+    "https://hedidntjump.com/openapi.json"
   ],
   "author": "Aziel Eliab",
   "author_id": "https://www.azieleliab.com/#aziel",
@@ -155,6 +166,14 @@
     {
       "id": "receipts",
       "href": "https://hedidntjump.com/receipts"
+    },
+    {
+      "id": "who",
+      "href": "https://hedidntjump.com/who"
+    },
+    {
+      "id": "reader",
+      "href": "https://hedidntjump.com/reader"
     }
   ],
   "ai_clients": [
@@ -230,7 +249,9 @@
     "description": "Marion A. Zioncheck (also Marion Zioncheck, Marion Anthony Zioncheck) was a U.S. Representative and Seattle congressman (1933–1936). Official reports said he died by suicide at the Arctic Building in Seattle on 7 August 1936. He Didn't Jump publishes newspapers and five volumes that re-examine that official account; it does not invent court holdings.",
     "sameAs": [
       "https://en.wikipedia.org/wiki/Marion_Zioncheck",
-      "https://history.house.gov/People/Listing/Z/ZIONCHECK,-Marion-Anthony-(Z000011)/"
+      "https://history.house.gov/People/Listing/Z/ZIONCHECK,-Marion-Anthony-(Z000011)/",
+      "https://www.historylink.org/File/5528",
+      "https://id.loc.gov/authorities/names/n87891358"
     ],
     "url": "https://hedidntjump.com/"
   },
@@ -643,7 +664,8 @@
   "visible_1520": false,
   "lamb_lens": {
     "shelf": "https://www.azielcorpuslibrary.net/corpus",
-    "note": "Public Lamb Lens / Corpus ingest lives on azielcorpuslibrary.net. This host is not a Lamb Lens ingest host."
+    "note": "Public Lamb Lens / Corpus ingest lives on azielcorpuslibrary.net. This host is not a Lamb Lens ingest host.",
+    "order": "Service → Clarity → Peace"
   },
   "codeberg_tip_pack": {
     "url": "https://codeberg.org/AzielEliab/aziel-lockset-tip",

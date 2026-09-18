@@ -59,19 +59,19 @@ Twenty-three inquiries of the record (titles only; answers live on the page and 
 
 Supplied plates on the main paper (cropped to the clipping or certificate, not WSU/catalog chrome): Marion’s death certificate in The Closed File; Frances’s certificate (Involutional Melancholia) with inquiry 22; bogeyman disguise; “‘Who’s Crazy?’ Will Be Topic For Zioncheck”; “Playboy Subdued After Battle”; “Last Picture of Congressman and Bride”; Hoover-era “Zioncheck Arrested” crop (Volume I, PDF p. 3); escort still on inquiry 01 (Aziel captions William Bishop, Capitol police; volumes do not print that name; LOC LCCN 2016878217); FBI FOIPA closing plate on inquiry 21 (full packet on the FOIA paper).
 
-## Official narrative (https://hedidntjump.com/official-narrative.html)
+## Official narrative (https://hedidntjump.com/Narrative)
 
 Labeled contemporary / official reported sequence only: Washington apartment press, Gallinger and Maryland observation, Romney’s return west, and the August 7 Arctic Building suicide account as Volume I–II clippings print it. Contrasts with the investigation on the main paper. No invented quotes.
 
-## Rubye paper (https://hedidntjump.com/rubye.html)
+## Rubye paper (https://hedidntjump.com/Rubye)
 
 Newspaper edition built from Volume II estate/will clippings and Volume V’s statement of later legal actions against Nadeau. Captions cite volume/page and open the reader. No holdings are added beyond the printed headlines and visible names (including Rubye Nix Zioncheck, Mrs. Ann Nadeau, Mrs. Frances Zioncheck, Miss Norma Zioncheck).
 
-## FOIA paper (https://hedidntjump.com/foia.html)
+## FOIA paper (https://hedidntjump.com/FOIA)
 
 William Nadeau only (the volumes do not use Eugene/Bert). Doorway / hat-and-coat discussion is Volume IV chapter material. Editorial cites Aziel’s 28 July 2026 FOIA Binary Acknowledgement: Mode 1 (clock and volume) and Mode 2 (fees); §8 Closing Acknowledgement — both pathways ration information; control is retained; that is not freedom of information. Supplied packet plates (unique beats only; one fee-waiver plate): request description; fee-waiver justification; deceased-subject fields; FBI FOIPA letter of 31 July 2026, Request No. 1750194-000, CRS search closed / no identifiable records on Marion Anthony Zioncheck (1930–1950). Requester identity and agency contact blocks are redacted. A no-records closing is not a production. Public ledger accepts Zioncheck FOIA denials only (attestation + content gate). Citation transcript: https://hedidntjump.com/assets/foia-binary-acknowledgement.pdf
 
-## Copyrights (https://hedidntjump.com/copyrights.html)
+## Copyrights (https://hedidntjump.com/Copyrights)
 
 United States-facing historical-research notice. Nonprofit research and comment; facts vs expression; ~90 years since 7 August 1936; 17 U.S.C. § 107 factors; no claim that every state vital record is copyright-free; Wikimedia / LOC remain under their terms; prefer correction over erasure; not legal advice. Aziel original text/code © Aziel Eliab / Apache-2.0, separate from third-party plates.
 
@@ -146,6 +146,7 @@ Sister-host cite of live corpus /shelves (AZindex-FAIL pivot 2026-09-14). Canoni
 This host: https://www.hedidntjump.com/shelves · https://hedidntjump.com/shelves · https://www.hedidntjump.com/lockset.json · https://www.hedidntjump.com/redline
 Person @id: https://www.azieleliab.com/#aziel
 Lamb Lens (Corpus ingest, not this host): https://www.azielcorpuslibrary.net/corpus
+Lamb Lens order: Service → Clarity → Peace. HDJ is not a Lamb Lens ingest host.
 Growth-ON. NO-FAN (no Softwares tab, no mesh radio, no live ICANN Cap-7 publish).
 Machine surfaces only. No visible 1 Chronicles 15:20 lock.
 REDLINE: FragGate is THE single door on the runtime sister; this archive is not an MCP door.
