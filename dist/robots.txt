@@ -9,6 +9,7 @@ Allow: /who.html
 Allow: /shelves
 Allow: /lockset.json
 Allow: /redline
+Allow: /runtime-launch.json
 Content-Signal: search=yes, ai-input=yes, ai-train=yes
 
 User-agent: Googlebot

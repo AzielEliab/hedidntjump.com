@@ -40,3 +40,4 @@ http://www.hedidntjump.com/* https://hedidntjump.com/:splat 301
 /cold-copy /shelves.json 200
 /lockset.json /lockset.json 200
 /redline /redline.json 200
+/runtime-launch.json /runtime-launch.json 200

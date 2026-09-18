@@ -346,5 +346,21 @@
     "well_known": "https://www.hedidntjump.com/.well-known/aziel.json"
   },
   "hebrewDefinition": "Aziel Elroi Eliab (עזיאל אל ראי אליאב / עזיאל אלרועי אליאב): Aziel = God is my strength (עזיאל); Elroi = God who sees (אל ראי / אלרועי); Eliab = God is father (אליאב).",
-  "github_revealer": "https://github.com/azieltherevealerofthesealed-arch"
+  "github_revealer": "https://github.com/azieltherevealerofthesealed-arch",
+  "runtime_launch": "https://www.hedidntjump.com/runtime-launch.json",
+  "runtime_sot": {
+    "status": "LIVE",
+    "version": "2.0.0-rc1",
+    "git_short": "6a3798a",
+    "version_id": "105fa1ee",
+    "glama": "https://glama.ai/mcp/servers/AzielEliab/aziel-runtime",
+    "worker": "https://aziel-runtime.vibelock.workers.dev/",
+    "": false
+  },
+  "live_origin": {
+    "kind": "cloudflare-pages",
+    "project": "hedidntjump",
+    "preview": "https://hedidntjump.pages.dev",
+    "deploy_root": "docs/"
+  }
 }

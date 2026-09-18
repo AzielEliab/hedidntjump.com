@@ -1,0 +1,26 @@
+name: verify
+
+on:
+  pull_request:
+  push:
+
+jobs:
+  azindex:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Runtime launch cite
+        run: python3 scripts/verify_runtime_launch.py
+      - name: Cold-shelf honesty
+        run: python3 scripts/verify_cold_shelf.py
+      - name: Ingest tip unchanged
+        run: python3 scripts/verify_ingest_as_receipt.py
+      - name: Identity machine
+        run: python3 scripts/verify_identity_machine.py
+      - name: Publisher lattice
+        run: python3 scripts/verify_aziel_publisher_lattice.py
+      - name: Zioncheck SERP
+        run: python3 scripts/verify_zioncheck_serp.py

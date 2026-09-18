@@ -21,6 +21,7 @@ Discovery on this host:
 - https://www.hedidntjump.com/llms-full.txt
 - https://www.hedidntjump.com/ai.txt
 - https://www.hedidntjump.com/cite.json
+- https://www.hedidntjump.com/runtime-launch.json
 - https://www.hedidntjump.com/shelves
 - https://www.hedidntjump.com/lockset.json
 - https://www.hedidntjump.com/openapi.json
@@ -59,6 +60,24 @@ NO-LIE / NO-REWRITE (same tip, not folded into hashed bytes):
 - Verify without voice
 - No rewrite key
 - The network never lies even to stay alive
+
+SOFTWARES-RUNTIME-LAUNCH-1.0 (sister cite; not a Softwares clone):
+- Runtime SoT LIVE: main 6a3798a / version_id 105fa1ee / 2.0.0-rc1
+- GitHub: https://github.com/AzielEliab/aziel-runtime
+- Prefer Try on Glama: https://glama.ai/mcp/servers/AzielEliab/aziel-runtime
+- Worker (secondary): https://aziel-runtime.vibelock.workers.dev/
+- Softwares catalog: https://aziel-runtime.vibelock.workers.dev/v1/software
+- Counted /download: https://aziel-runtime.vibelock.workers.dev/download (never )
+- MCP: https://aziel-runtime.vibelock.workers.dev/mcp
+- Mesh/VPN/radios cite: https://aziel-runtime.vibelock.workers.dev/v1/mesh (GET never enables radios beyond suite-presence)
+- Human UI + MCP + mesh/VPN/radios + /download ready on aziel-runtime. HDJ cites; does not host.
+- Identity Aziel Eliab only. Person @id: https://www.azieleliab.com/#aziel. No visible 15:20.
+- Lamb Lens: https://www.azielcorpuslibrary.net/corpus (HDJ is not a Lamb Lens ingest host)
+- NO-LIE / NO-REWRITE
+- Live origin: Cloudflare Pages project hedidntjump (docs/). Preview https://hedidntjump.pages.dev. Not GH Pages alone.
+- Receipts chrome: Aziel-page-only (not paper-tabs Pg.11)
+- Shelves: Plane B Framagit SLOT CNS-NO-FORGE-MIRROR; Codeberg+archive PASS still SLOT; Plane C SLOT; no LIVE invent
+- Ingest tip unchanged: `ef967e4acb47ba913ce3959b673767278da605b307de33210b2dc2f1cfd86f60`
 
 COLD-MULTI-SHELF-1.0 (AZindex; sister cite of live corpus /shelves):
 - Canonical shelves: https://www.azielcorpuslibrary.net/shelves
