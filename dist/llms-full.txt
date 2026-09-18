@@ -208,3 +208,4 @@ Softwares (list; HDJ cites, does not host):
 - Aziel Digital Library
 - GodLock (product, not identity)
 - Whitestone (ephemeral pro se advisor; not a lawyer)
+- The ARK (local deniable vault); download+ https://ark-download-tracker.vibelock.workers.dev/download ; stats https://ark-download-tracker.vibelock.workers.dev/stats ; github https://github.com/AzielEliab/ark

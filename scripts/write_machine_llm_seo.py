@@ -8,6 +8,7 @@ Does not rewrite newspaper HTML. ZionBot owns Pages SEO chrome.
 from __future__ import annotations
 
 import json
+import re
 import sys
 from pathlib import Path
 from typing import Any
@@ -43,8 +44,13 @@ from aziel_living import (
     SISTERS_HDJ,
     SOFTWARES_LIST,
     SOFTWARES_LIST_NOTE,
+    THE_ARK,
+    THE_ARK_DOWNLOAD,
+    THE_ARK_GITHUB,
+    THE_ARK_STATS,
     WHAT_AZIEL_ELIAB_DOES,
     WHITESTONE,
+    softwares_list_markdown,
     WHAT_AZIEL_ELIAB_DOES_ANSWER,
     WHAT_DOES_FAQ_TITLES,
     WHO_IS_NAMED,
@@ -80,9 +86,8 @@ Growth-ON. NO-LIE. Person @id: {PERSON_ID}
 ZionBot owns newspaper HTML / Pages SEO chrome. This pack is machine files only.
 """
 
-SOFTWARES_LIST_BLOCK = "Softwares (list; HDJ cites, does not host):\n" + "\n".join(
-    f"- {name}" for name in SOFTWARES_LIST
-)
+SOFTWARES_LIST_BLOCK = softwares_list_markdown()
+SOFTWARES_LIST_HEAD = "Softwares (list; HDJ cites, does not host):"
 
 WHAT_DOES_FAQ_BLOCK = f"""## What Aziel Eliab does (locked FAQ brief)
 
@@ -358,6 +363,10 @@ def patch_cite(data: dict) -> dict:
     data["softwares_list"] = list(SOFTWARES_LIST)
     data["softwares_list_note"] = SOFTWARES_LIST_NOTE
     data["whitestone"] = WHITESTONE
+    data["the_ark"] = THE_ARK
+    data["the_ark_download"] = THE_ARK_DOWNLOAD
+    data["the_ark_stats"] = THE_ARK_STATS
+    data["the_ark_github"] = THE_ARK_GITHUB
     data["research"] = {
         "note": "Sister research on azielcorpuslibrary.net. HDJ is not a verdict.",
         "hdj": "He Didn’t Jump Zioncheck archive + Volumes I–V on this host (75% cap class).",
@@ -451,6 +460,11 @@ def patch_person(data: dict) -> dict:
                 knows.append(item)
         data["knowsAbout"] = upsert_knows_about(knows)
         data["what_aziel_eliab_does"] = WHAT_AZIEL_ELIAB_DOES
+        data["softwares_list"] = list(SOFTWARES_LIST)
+        data["the_ark"] = THE_ARK
+        data["the_ark_download"] = THE_ARK_DOWNLOAD
+        data["the_ark_stats"] = THE_ARK_STATS
+        data["the_ark_github"] = THE_ARK_GITHUB
     return data
 
 
@@ -479,10 +493,19 @@ def ensure_sisters_block(text: str) -> str:
     return text.rstrip() + "\n" + block
 
 
+def upsert_softwares_list_block(text: str) -> str:
+    pattern = r"Softwares \(list; HDJ cites, does not host\):\n(?:- .+\n)+"
+    replacement = SOFTWARES_LIST_BLOCK.rstrip() + "\n"
+    if re.search(pattern, text):
+        return re.sub(pattern, replacement, text, count=1)
+    return text
+
+
 def ensure_what_does_block(text: str) -> str:
+    text = upsert_softwares_list_block(text)
     if FAQ_WHAT_DOES in text and WHAT_AZIEL_ELIAB_DOES in text:
         extras = []
-        if SOFTWARES_LIST_BLOCK not in text:
+        if SOFTWARES_LIST_HEAD not in text:
             extras.append(SOFTWARES_LIST_BLOCK)
         if RESEARCH_ADDENDUM not in text:
             extras.append(RESEARCH_ADDENDUM)

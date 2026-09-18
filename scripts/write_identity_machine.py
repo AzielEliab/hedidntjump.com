@@ -32,6 +32,7 @@ from aziel_living import (
     RESEARCH_ADDENDUM,
     WHAT_AZIEL_ELIAB_DOES,
     WHAT_AZIEL_ELIAB_DOES_ANSWER,
+    softwares_list_markdown,
 )
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -676,6 +677,8 @@ A: {WHAT_AZIEL_ELIAB_DOES_ANSWER}
 
 What Aziel Eliab does (locked Softwares brief)
 {WHAT_AZIEL_ELIAB_DOES}
+
+{softwares_list_markdown()}
 
 {RESEARCH_ADDENDUM}
 

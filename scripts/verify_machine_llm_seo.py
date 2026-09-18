@@ -30,6 +30,11 @@ from aziel_living import (
     SISTERS_GLAMA,
     SISTERS_HDJ,
     SOFTWARES_LIST,
+    THE_ARK,
+    THE_ARK_DOWNLOAD,
+    THE_ARK_GITHUB,
+    THE_ARK_LIST,
+    THE_ARK_STATS,
     WHAT_AZIEL_ELIAB_DOES,
     WHITESTONE,
     WHAT_AZIEL_ELIAB_DOES_ANSWER,
@@ -98,9 +103,20 @@ def main() -> None:
         assert "75% cap class" in json.dumps(cite)
         assert cite["what_aziel_eliab_does"] == WHAT_AZIEL_ELIAB_DOES
         assert WHITESTONE not in WHAT_AZIEL_ELIAB_DOES
+        assert THE_ARK not in WHAT_AZIEL_ELIAB_DOES
+        assert "The ARK" not in WHAT_AZIEL_ELIAB_DOES
         assert cite["softwares_list"] == list(SOFTWARES_LIST)
         assert WHITESTONE in cite["softwares_list"]
+        assert THE_ARK_LIST in cite["softwares_list"]
         assert cite["whitestone"] == WHITESTONE
+        assert cite["the_ark"] == THE_ARK
+        assert cite["the_ark_download"] == THE_ARK_DOWNLOAD
+        assert cite["the_ark_stats"] == THE_ARK_STATS
+        assert cite["the_ark_github"] == THE_ARK_GITHUB
+        assert THE_ARK_DOWNLOAD in cite["softwares_list_note"]
+        assert THE_ARK_STATS in cite["softwares_list_note"]
+        assert THE_ARK_GITHUB in cite["softwares_list_note"]
+        assert cite["softwares_clone"] is False
         assert cite["what_aziel_eliab_does_answer"] == WHAT_AZIEL_ELIAB_DOES_ANSWER
         assert cite["what_aziel_eliab_does_faq"] == list(WHAT_DOES_FAQ_TITLES)
         cite_faq = {item["q"]: item["a"] for item in cite["faq"]}
@@ -131,6 +147,12 @@ def main() -> None:
             assert extra in cite["knowsAbout"], extra
             assert extra in person["knowsAbout"], extra
         assert person.get("what_aziel_eliab_does") == WHAT_AZIEL_ELIAB_DOES
+        assert person.get("softwares_list") == list(SOFTWARES_LIST)
+        assert person.get("the_ark") == THE_ARK
+        assert person.get("the_ark_download") == THE_ARK_DOWNLOAD
+        assert person.get("the_ark_stats") == THE_ARK_STATS
+        assert person.get("the_ark_github") == THE_ARK_GITHUB
+        assert THE_ARK in person["knowsAbout"]
         assert "GodLock (product, not identity)" in person["knowsAbout"]
 
         identity = json.loads(blobs["identity.jsonld"])
@@ -146,7 +168,13 @@ def main() -> None:
             assert title in faq_names, title
         well_knows = json.dumps(well.get("person", well).get("knowsAbout") or well.get("knowsAbout"))
         ident_knows = json.dumps(identity.get("knowsAbout") or [])
-        for extra in ("Book of the Knowledge", "Libro Method", "PPIN", "public hardware designs"):
+        for extra in (
+            "Book of the Knowledge",
+            "Libro Method",
+            "PPIN",
+            "public hardware designs",
+            THE_ARK,
+        ):
             assert extra in ident_knows, extra
             assert extra in well_knows, extra
 
@@ -175,6 +203,12 @@ def main() -> None:
             assert "not a verdict" in text.lower(), rel
             assert WHITESTONE in text, rel
             assert "not a lawyer" in text, rel
+            assert THE_ARK in text, rel
+            assert THE_ARK_LIST in text, rel
+            assert THE_ARK_DOWNLOAD in text, rel
+            assert THE_ARK_STATS in text, rel
+            assert THE_ARK_GITHUB in text, rel
+            assert "download+" in text, rel
             assert WHAT_AZIEL_ELIAB_DOES in text, rel
 
         # Newspaper HTML chrome stays ZionBot's. This pack must not rewrite it.
