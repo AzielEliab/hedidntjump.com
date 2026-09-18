@@ -511,6 +511,26 @@
           }
         }
       }
+    },
+    "/inquires": {
+      "get": {
+        "summary": "Typo alias of /Inquiries (200 rewrite to inquiries.html)",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Aziel": {
+      "get": {
+        "summary": "200 rewrite to aziel.html — not a second About body",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   }
 }
