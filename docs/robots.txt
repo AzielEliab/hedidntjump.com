@@ -10,6 +10,16 @@ Allow: /shelves
 Allow: /lockset.json
 Allow: /redline
 Allow: /runtime-launch.json
+Allow: /cite.json
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /ai.txt
+Allow: /openapi.json
+Allow: /receipts
+Allow: /ingest-as-receipt.json
+Allow: /.well-known/llms.txt
+Disallow: /api/
+Disallow: /functions/
 Content-Signal: search=yes, ai-input=yes, ai-train=yes
 
 User-agent: Googlebot
@@ -75,9 +85,53 @@ Allow: /
 User-agent: cohere-ai
 Allow: /
 
-# Machine/admin endpoints only — public editions stay Allow.
-Disallow: /api/
-Disallow: /functions/
+User-agent: Google-CloudVertexBot
+Allow: /
+
+User-agent: GoogleOther
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: MistralAI-User
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+User-agent: archive.org_bot
+Allow: /
+
+User-agent: ia_archiver
+Allow: /
+
+User-agent: Yandex
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: ImagesiftBot
+Allow: /
+
+User-agent: Omgilibot
+Allow: /
+
+User-agent: DuckAssistBot
+Allow: /
+
+# Machine/admin endpoints (/api/, /functions/) are Disallow on User-agent: * only.
+# Do not Disallow GPTBot/Claude/Perplexity/Google-Extended for budget.
 
 Sitemap: https://www.hedidntjump.com/sitemap.xml
 Sitemap: https://hedidntjump.com/sitemap-index.xml
