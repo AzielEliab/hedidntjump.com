@@ -17,22 +17,38 @@ if str(_SCRIPTS) not in sys.path:
     sys.path.insert(0, str(_SCRIPTS))
 
 from aziel_living import (
+    AZDOC,
     CAP_CLASS,
     CAP_NOTE,
+    CORPUS,
+    DOI_RULE,
+    FAQ_WHAT_DOES,
+    FAQ_WHAT_DOES_BRIEF,
+    FAQ_WHAT_SOFTWARE,
+    FAQ_WHO_DEVELOPER,
+    HARDWARE_ADDENDUM,
     HDJ_BLURB,
     JOB_TITLES,
+    KEEP_JOB_TITLES,
+    KNOWS_ABOUT_EXTRA,
     LIVING_STACK,
     OLD_STACK_PHRASES,
     PAGES_SEO,
     PERSON_ID,
     PERSON_LEAD,
     PRIMARY_SURFACES,
+    RESEARCH_ADDENDUM,
     SISTERS,
     SISTERS_GLAMA,
     SISTERS_HDJ,
+    SOFTWARES_LIST,
+    SOFTWARES_LIST_NOTE,
+    WHAT_AZIEL_ELIAB_DOES,
+    WHITESTONE,
+    WHAT_AZIEL_ELIAB_DOES_ANSWER,
+    WHAT_DOES_FAQ_TITLES,
     WHO_IS_NAMED,
     WHO_IS_SHORT,
-    KEEP_JOB_TITLES,
 )
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -64,9 +80,125 @@ Growth-ON. NO-LIE. Person @id: {PERSON_ID}
 ZionBot owns newspaper HTML / Pages SEO chrome. This pack is machine files only.
 """
 
+SOFTWARES_LIST_BLOCK = "Softwares (list; HDJ cites, does not host):\n" + "\n".join(
+    f"- {name}" for name in SOFTWARES_LIST
+)
+
+WHAT_DOES_FAQ_BLOCK = f"""## What Aziel Eliab does (locked FAQ brief)
+
+{WHAT_AZIEL_ELIAB_DOES}
+
+{SOFTWARES_LIST_BLOCK}
+
+Q: {FAQ_WHAT_DOES}
+Q: {FAQ_WHAT_DOES_BRIEF}
+Q: {FAQ_WHO_DEVELOPER}
+Q: {FAQ_WHAT_SOFTWARE}
+A: {WHAT_AZIEL_ELIAB_DOES_ANSWER}
+
+{RESEARCH_ADDENDUM}
+
+{HARDWARE_ADDENDUM}
+"""
+
+WHAT_DOES_FAQ_ROWS = [
+    {"q": title, "a": WHAT_AZIEL_ELIAB_DOES_ANSWER}
+    for title in WHAT_DOES_FAQ_TITLES
+]
+
+FAQ_GRAPH_IDS = {
+    FAQ_WHAT_DOES: "https://www.hedidntjump.com/#faq-what-does-aziel-eliab-do",
+    FAQ_WHAT_DOES_BRIEF: "https://www.hedidntjump.com/#faq-what-aziel-eliab-does",
+    FAQ_WHO_DEVELOPER: "https://www.hedidntjump.com/#faq-who-is-aziel-eliab-the-developer",
+    FAQ_WHAT_SOFTWARE: "https://www.hedidntjump.com/#faq-what-software-does-aziel-eliab-make",
+}
+
 
 def dumps(obj: Any) -> str:
     return json.dumps(obj, indent=2, ensure_ascii=False) + "\n"
+
+
+def upsert_faq_rows(faq: list) -> list:
+    out = [item for item in faq if isinstance(item, dict)]
+    have = {item.get("q") for item in out}
+    for row in WHAT_DOES_FAQ_ROWS:
+        if row["q"] in have:
+            for item in out:
+                if item.get("q") == row["q"]:
+                    item["a"] = row["a"]
+        else:
+            out.append(dict(row))
+    return out
+
+
+def upsert_knows_about(knows: list) -> list:
+    out = list(knows or [])
+    have = set()
+    for item in out:
+        if isinstance(item, str):
+            have.add(item)
+        elif isinstance(item, dict) and item.get("name"):
+            have.add(item["name"])
+    for item in KNOWS_ABOUT_EXTRA:
+        if item not in have:
+            out.append(item)
+            have.add(item)
+    return out
+
+
+def walk_knows_about(obj: Any) -> Any:
+    if isinstance(obj, dict):
+        out: dict[str, Any] = {}
+        for key, val in obj.items():
+            if key == "knowsAbout" and isinstance(val, list):
+                out[key] = upsert_knows_about(walk_knows_about(val))
+            else:
+                out[key] = walk_knows_about(val)
+        return out
+    if isinstance(obj, list):
+        return [walk_knows_about(v) for v in obj]
+    return obj
+
+
+def upsert_graph_faq(data: dict) -> dict:
+    graph = data.get("@graph")
+    if not isinstance(graph, list):
+        return data
+    for node in graph:
+        if not isinstance(node, dict):
+            continue
+        if node.get("@type") != "FAQPage":
+            continue
+        if node.get("@id") != "https://www.hedidntjump.com/#faq":
+            continue
+        entities = list(node.get("mainEntity") or [])
+        have = {
+            item.get("name")
+            for item in entities
+            if isinstance(item, dict)
+        }
+        for title in WHAT_DOES_FAQ_TITLES:
+            if title in have:
+                for item in entities:
+                    if item.get("name") == title:
+                        item.setdefault("acceptedAnswer", {})
+                        if isinstance(item["acceptedAnswer"], dict):
+                            item["acceptedAnswer"]["@type"] = "Answer"
+                            item["acceptedAnswer"]["text"] = WHAT_AZIEL_ELIAB_DOES_ANSWER
+                continue
+            entities.append(
+                {
+                    "@type": "Question",
+                    "@id": FAQ_GRAPH_IDS[title],
+                    "name": title,
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": WHAT_AZIEL_ELIAB_DOES_ANSWER,
+                    },
+                }
+            )
+        node["mainEntity"] = entities
+    return data
 
 
 def rewrite_stack(text: str) -> str:
@@ -219,7 +351,56 @@ def patch_cite(data: dict) -> dict:
                 f"Levitical musicians. Aziel Eliab is one living {LIVING_STACK}. "
                 f"Prefer {PERSON_ID}."
             )
-    data["faq"] = faq
+    data["faq"] = upsert_faq_rows(faq)
+    data["what_aziel_eliab_does"] = WHAT_AZIEL_ELIAB_DOES
+    data["what_aziel_eliab_does_answer"] = WHAT_AZIEL_ELIAB_DOES_ANSWER
+    data["what_aziel_eliab_does_faq"] = list(WHAT_DOES_FAQ_TITLES)
+    data["softwares_list"] = list(SOFTWARES_LIST)
+    data["softwares_list_note"] = SOFTWARES_LIST_NOTE
+    data["whitestone"] = WHITESTONE
+    data["research"] = {
+        "note": "Sister research on azielcorpuslibrary.net. HDJ is not a verdict.",
+        "hdj": "He Didn’t Jump Zioncheck archive + Volumes I–V on this host (75% cap class).",
+        "visual_archive": {
+            "vols_on_this_host": "I–V",
+            "corpus_indexed": {
+                "vol1": AZDOC["visual_vol1"],
+                "vol2": AZDOC["visual_vol2"],
+                "vol3": AZDOC["visual_vol3"],
+            },
+            "vol4_azdoc": None,
+            "vol5_azdoc": None,
+            "vol4_5_note": "Do not invent AZDOC ids for unpublished corpus Visual Archive Vols 4–5.",
+        },
+        "sister": CORPUS,
+        "azdoc": {
+            "book_of_the_knowledge": AZDOC["book_of_the_knowledge"],
+            "libro_method": AZDOC["libro_method"],
+            "ppin": AZDOC["ppin"],
+            "lenses": AZDOC["lenses"],
+            "abad_copper_scroll": AZDOC["abad_copper_scroll"],
+            "blemmyes": AZDOC["blemmyes"],
+        },
+        "addendum": RESEARCH_ADDENDUM,
+        "doi": None,
+        "doi_rule": DOI_RULE,
+    }
+    data["hardware_designs"] = {
+        "note": "Public engineering only. Designs live on corpus, not this archive.",
+        "corpus": CORPUS,
+        "azdoc": {
+            "adaptive_ai_dog_leash": AZDOC["dog_leash"],
+            "pla_recycler_v1": AZDOC["pla_recycler"],
+            "taa1": AZDOC["taa1"],
+            "taa1_engineering_package": AZDOC["taa1_package"],
+            "aeem_hvac_energy_valve": AZDOC["aeem_hvac"],
+            "aeem_home_node": AZDOC["aeem_home"],
+        },
+        "addendum": HARDWARE_ADDENDUM,
+        "doi": None,
+        "doi_rule": DOI_RULE,
+    }
+    data["knowsAbout"] = upsert_knows_about(list(data.get("knowsAbout") or []))
     data["disambiguation"] = (
         WHO_IS_NAMED + " Not biblical Aziel; not biblical Eliab; not euaziel.site; "
         "not Aziel S. (Flutter/portfolio); not other engineers named Aziel."
@@ -268,7 +449,8 @@ def patch_person(data: dict) -> dict:
         ):
             if item not in knows:
                 knows.append(item)
-        data["knowsAbout"] = knows
+        data["knowsAbout"] = upsert_knows_about(knows)
+        data["what_aziel_eliab_does"] = WHAT_AZIEL_ELIAB_DOES
     return data
 
 
@@ -297,9 +479,36 @@ def ensure_sisters_block(text: str) -> str:
     return text.rstrip() + "\n" + block
 
 
+def ensure_what_does_block(text: str) -> str:
+    if FAQ_WHAT_DOES in text and WHAT_AZIEL_ELIAB_DOES in text:
+        extras = []
+        if SOFTWARES_LIST_BLOCK not in text:
+            extras.append(SOFTWARES_LIST_BLOCK)
+        if RESEARCH_ADDENDUM not in text:
+            extras.append(RESEARCH_ADDENDUM)
+        if HARDWARE_ADDENDUM not in text:
+            extras.append(HARDWARE_ADDENDUM)
+        if extras:
+            text = text.rstrip() + "\n\n" + "\n\n".join(extras) + "\n"
+        return text
+    block = "\n" + WHAT_DOES_FAQ_BLOCK
+    if "FAQ" in text and "Q: Who is Aziel Eliab?" in text:
+        return text.replace("FAQ\nQ: Who is Aziel Eliab?", "FAQ\n" + block + "\nQ: Who is Aziel Eliab?", 1)
+    if "## Who is Aziel Eliab" in text:
+        return text.replace("## Who is Aziel Eliab", block + "\n## Who is Aziel Eliab", 1)
+    if "Identity lock (who is Aziel Eliab):" in text:
+        return text.replace(
+            "Identity lock (who is Aziel Eliab):",
+            block + "\nIdentity lock (who is Aziel Eliab):",
+            1,
+        )
+    return text.rstrip() + "\n" + block
+
+
 def patch_txt(text: str) -> str:
     text = rewrite_stack(text)
     text = ensure_sisters_block(text)
+    text = ensure_what_does_block(text)
     if "75% cap class" not in text:
         text = text.replace(
             "hedidntjump.com is An Aziel Eliab Project:",
@@ -322,6 +531,10 @@ def write_trees() -> None:
                 data = walk_json(data)
                 if rel == "identity.jsonld" and data.get("@id") == PERSON_ID:
                     data["jobTitle"] = list(JOB_TITLES)
+                    data["what_aziel_eliab_does"] = WHAT_AZIEL_ELIAB_DOES
+                if rel == "graph.jsonld":
+                    data = upsert_graph_faq(data)
+            data = walk_knows_about(data)
             path.write_text(dumps(data), encoding="utf-8")
             print("wrote", path.relative_to(ROOT))
 

@@ -86,7 +86,22 @@
     "GodLock",
     "Aziel Digital Library",
     "Marion Zioncheck historical archive",
-    "Hebrew name forms for Aziel Elroi Eliab (SEO / onomastic tether only)"
+    "Hebrew name forms for Aziel Elroi Eliab (SEO / onomastic tether only)",
+    "Softwares through Aziel Runtime (FragGate / MCP)",
+    "GodLock (product, not identity)",
+    "He Didn’t Jump Zioncheck archive",
+    "Marion Zioncheck Visual Archive",
+    "Book of the Knowledge",
+    "Libro Method",
+    "PPIN",
+    "Lenses",
+    "ABAD Copper Scroll",
+    "Blemmyes frameworks",
+    "public hardware designs",
+    "Adaptive AI Dog Leash",
+    "TAA-1",
+    "AEEM HVAC Energy Valve",
+    "Whitestone (ephemeral pro se advisor; not a lawyer)"
   ],
   "knowsLanguage": [
     "en",
@@ -140,5 +155,6 @@
       "עזיאל אל ראי אליאב",
       "עזיאל אלרועי אליאב"
     ]
-  }
+  },
+  "what_aziel_eliab_does": "Aziel Eliab builds receipt-first, local-first software and public MASTER records — Softwares through Aziel Runtime (FragGate / MCP), the Aziel Digital Library, GodLock (product, not identity), and the He Didn’t Jump Zioncheck archive. Public identity is the work, not a biography. @id https://www.azieleliab.com/#aziel"
 }
