@@ -80,6 +80,8 @@ OPENAPI_PATHS = {
     "/sitemap-index.xml": "Cross-site sitemap index",
     "/volumes.json": "Volume metadata (facsimile page counts / titles)",
     "/ai.txt": "AI crawl aid",
+    "/inquires": "Typo alias of /Inquiries (200 rewrite to inquiries.html)",
+    "/Aziel": "200 rewrite to aziel.html — not a second About body",
 }
 
 AI_AGENTS = [
@@ -627,6 +629,7 @@ STALE_JSONLD_URLS = (
     (f"{APEX}/copyrights.html", f"{APEX}/Copyrights"),
     (f"{APEX}/official-narrative.html", f"{APEX}/Narrative"),
     (f"{APEX}/reader.html", f"{APEX}/reader"),
+    (f"{APEX}/aziel.html", f"{APEX}/aziel"),
 )
 
 
