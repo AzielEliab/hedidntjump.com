@@ -7,15 +7,25 @@ This host is the Marion A. Zioncheck archive: U.S. Representative / Seattle cong
 - [https://hedidntjump.com/](https://hedidntjump.com/) — money page (priority 1.0)
 - [https://hedidntjump.com/Case](https://hedidntjump.com/Case) — supporting Case edition
 - [https://hedidntjump.com/Narrative](https://hedidntjump.com/Narrative) — official-account contrast only
+- [https://hedidntjump.com/Press](https://hedidntjump.com/Press) — press tip + investigative source directory
 - [https://hedidntjump.com/Inquiries](https://hedidntjump.com/Inquiries) — 23 inquiries of the record
+- [https://hedidntjump.com/Rubye](https://hedidntjump.com/Rubye) — Rubye paper
+- [https://hedidntjump.com/Archives](https://hedidntjump.com/Archives) — archive / volume downloads
+- [https://hedidntjump.com/FOIA](https://hedidntjump.com/FOIA) — FOIA paper (supplied FBI FOIPA no-records only)
 - [https://hedidntjump.com/Volumes](https://hedidntjump.com/Volumes) — Volumes I–V
 - [https://hedidntjump.com/llms.txt](https://hedidntjump.com/llms.txt)
+- [https://hedidntjump.com/Copyrights](https://hedidntjump.com/Copyrights) — copyrights / historical-research notice
+- [https://hedidntjump.com/aziel](https://hedidntjump.com/aziel) — About Aziel (one body)
+- [https://hedidntjump.com/reader](https://hedidntjump.com/reader) — facsimile volume reader
 - [https://hedidntjump.com/who](https://hedidntjump.com/who) — Who is Aziel Eliab (HTML lock)
 - [https://hedidntjump.com/cite.json](https://hedidntjump.com/cite.json)
 - [https://hedidntjump.com/runtime-launch.json](https://hedidntjump.com/runtime-launch.json) — Softwares+runtime launch cite (not a Softwares clone)
 - [https://hedidntjump.com/shelves](https://hedidntjump.com/shelves) — COLD-MULTI-SHELF-1.0 (sister cite of https://www.azielcorpuslibrary.net/shelves)
 - [https://hedidntjump.com/receipts](https://hedidntjump.com/receipts) — ingest-as-receipt / re-expand (Aziel-page chrome, not paper-tabs Pg.11)
 - [https://hedidntjump.com/ingest-as-receipt.json](https://hedidntjump.com/ingest-as-receipt.json) — canonical ingest bytes (one tip)
+- [https://hedidntjump.com/openapi.json](https://hedidntjump.com/openapi.json) — read-only public surfaces
+- [https://hedidntjump.com/ai.txt](https://hedidntjump.com/ai.txt) — AI crawl aid
+- [https://hedidntjump.com/.well-known/llms.txt](https://hedidntjump.com/.well-known/llms.txt) — well-known rewrite to /llms.txt
 
 
 ## Marion A. Zioncheck FAQ (machine)
@@ -103,10 +113,10 @@ Related, not sameAs: [Donate](https://www.azieleliab.com/donate?v=png). Statute 
 ## Editions on this host
 
 - [Main paper](https://hedidntjump.com/): Broadsheet. Lead: “What happened at the Arctic Building?” Twenty-three inquiries, plates, two Arctic buildings, Aziel’s Research Volumes (I–V) in the masthead.
-- [Official narrative](https://hedidntjump.com/official-narrative.html): The contemporary reported sequence, from the Washington apartment press through Gallinger, the train west, and the official Arctic Building suicide account.
-- [Rubye paper](https://hedidntjump.com/rubye.html): Rubye Nix Zioncheck in the car; Volume II family-battle clippings; later legal actions against Nadeau as Volume V states them. About Aziel (not a Rubye alias): [https://hedidntjump.com/aziel](https://hedidntjump.com/aziel).
-- [FOIA paper](https://hedidntjump.com/foia.html): William Nadeau in Volumes IV–V; Aziel’s 28 July 2026 FOIA Binary Acknowledgement; supplied FBI FOIPA no-records packet (redacted); hash-chained ledger of Zioncheck FOIA denials only.
-- [Copyrights & historical research notice](https://hedidntjump.com/copyrights.html): Fair-use / source notice. Not legal advice.
+- [Official narrative](https://hedidntjump.com/Narrative): The contemporary reported sequence, from the Washington apartment press through Gallinger, the train west, and the official Arctic Building suicide account.
+- [Rubye paper](https://hedidntjump.com/Rubye): Rubye Nix Zioncheck in the car; Volume II family-battle clippings; later legal actions against Nadeau as Volume V states them. About Aziel (not a Rubye alias): [https://hedidntjump.com/aziel](https://hedidntjump.com/aziel).
+- [FOIA paper](https://hedidntjump.com/FOIA): William Nadeau in Volumes IV–V; Aziel’s 28 July 2026 FOIA Binary Acknowledgement; supplied FBI FOIPA no-records packet (redacted); hash-chained ledger of Zioncheck FOIA denials only.
+- [Copyrights & historical research notice](https://hedidntjump.com/Copyrights): Fair-use / source notice. Not legal advice.
 - [Volumes](https://hedidntjump.com/Volumes): Edition landing for five research volumes (purpose, View, Download). Reader: [ /reader](https://hedidntjump.com/reader) or [reader.html](https://hedidntjump.com/reader.html). Old `/Volumes?volume=N&page=P` links hand off to the reader.
 
 ## Record
@@ -163,6 +173,7 @@ Sister-host cite of live corpus /shelves (AZindex-FAIL pivot 2026-09-14). Canoni
 This host: https://www.hedidntjump.com/shelves · https://hedidntjump.com/shelves · https://www.hedidntjump.com/lockset.json · https://www.hedidntjump.com/redline
 Person @id: https://www.azieleliab.com/#aziel
 Lamb Lens (Corpus ingest, not this host): https://www.azielcorpuslibrary.net/corpus
+Lamb Lens order: Service → Clarity → Peace. HDJ is not a Lamb Lens ingest host.
 Growth-ON. NO-FAN (no Softwares tab, no mesh radio, no live ICANN Cap-7 publish).
 Machine surfaces only. No visible 1 Chronicles 15:20 lock.
 REDLINE: FragGate is THE single door on the runtime sister; this archive is not an MCP door.

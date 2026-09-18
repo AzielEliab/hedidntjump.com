@@ -421,6 +421,96 @@
           }
         }
       }
+    },
+    "/who-is": {
+      "get": {
+        "summary": "Who is Aziel Eliab — plain-text identity lock (alias of /who-is-aziel-eliab.txt)",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/graph.jsonld": {
+      "get": {
+        "summary": "Machine graph (Marion Person + FAQ + publisher lattice)",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/identity.jsonld": {
+      "get": {
+        "summary": "Identity JSON-LD (shared Person @id https://www.azieleliab.com/#aziel)",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/mcp.json": {
+      "get": {
+        "summary": "Honest MCP pointer — aziel-runtime on Glama; no local tools/list",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/.well-known/mcp.json": {
+      "get": {
+        "summary": "Same honest MCP pointer as /mcp.json",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/.well-known/aziel.json": {
+      "get": {
+        "summary": "Hub identity discovery card",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/.well-known/llms.txt": {
+      "get": {
+        "summary": "200 rewrite to /llms.txt (LLM crawler well-known)",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/sitemap-index.xml": {
+      "get": {
+        "summary": "Cross-site sitemap index",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/volumes.json": {
+      "get": {
+        "summary": "Volume metadata (facsimile page counts / titles)",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   }
 }
