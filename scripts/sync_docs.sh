@@ -1,7 +1,8 @@
 #!/bin/sh
 set -eu
 root="$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)"
-# Keep docs/CNAME. Copy the static site over the Pages root.
+# Keep docs/CNAME. Copy the static site over the Cloudflare Pages root
+# (project hedidntjump). GitHub Pages is not the live origin alone.
 cname=""
 if [ -f "$root/docs/CNAME" ]; then
   cname="$(cat "$root/docs/CNAME")"
