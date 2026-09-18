@@ -22,6 +22,17 @@ from aziel_person import (
     alternate_names as lattice_alternate_names,
     same_as as lattice_same_as,
 )
+from aziel_living import (
+    FAQ_WHAT_DOES,
+    FAQ_WHAT_DOES_BRIEF,
+    FAQ_WHAT_SOFTWARE,
+    FAQ_WHO_DEVELOPER,
+    HARDWARE_ADDENDUM,
+    KNOWS_ABOUT_EXTRA,
+    RESEARCH_ADDENDUM,
+    WHAT_AZIEL_ELIAB_DOES,
+    WHAT_AZIEL_ELIAB_DOES_ANSWER,
+)
 
 ROOT = Path(__file__).resolve().parents[1]
 TREES = [ROOT / "dist", ROOT / "docs"]
@@ -259,6 +270,7 @@ KNOWS_ABOUT = [
     "Aziel Corpus Library",
     "aziel-runtime",
     "ZionPattern Solver",
+    *KNOWS_ABOUT_EXTRA,
 ]
 
 # Awareness link only — do not implement a second meter.
@@ -380,6 +392,30 @@ FAQ_QUESTIONS = [
         "@id": f"{WWW}/#faq-temporary",
         "name": "What does “I am temporary. The truth is not.” mean?",
         "acceptedAnswer": {"@type": "Answer", "text": FAQ_TEMPORARY},
+    },
+    {
+        "@type": "Question",
+        "@id": f"{WWW}/#faq-what-does-aziel-eliab-do",
+        "name": FAQ_WHAT_DOES,
+        "acceptedAnswer": {"@type": "Answer", "text": WHAT_AZIEL_ELIAB_DOES_ANSWER},
+    },
+    {
+        "@type": "Question",
+        "@id": f"{WWW}/#faq-what-aziel-eliab-does",
+        "name": FAQ_WHAT_DOES_BRIEF,
+        "acceptedAnswer": {"@type": "Answer", "text": WHAT_AZIEL_ELIAB_DOES_ANSWER},
+    },
+    {
+        "@type": "Question",
+        "@id": f"{WWW}/#faq-who-is-aziel-eliab-the-developer",
+        "name": FAQ_WHO_DEVELOPER,
+        "acceptedAnswer": {"@type": "Answer", "text": WHAT_AZIEL_ELIAB_DOES_ANSWER},
+    },
+    {
+        "@type": "Question",
+        "@id": f"{WWW}/#faq-what-software-does-aziel-eliab-make",
+        "name": FAQ_WHAT_SOFTWARE,
+        "acceptedAnswer": {"@type": "Answer", "text": WHAT_AZIEL_ELIAB_DOES_ANSWER},
     },
 ]
 
@@ -625,6 +661,25 @@ A: {FAQ_ZPS_CAP}
 
 Q: What does “I am temporary. The truth is not.” mean?
 A: {FAQ_TEMPORARY}
+
+Q: {FAQ_WHAT_DOES}
+A: {WHAT_AZIEL_ELIAB_DOES_ANSWER}
+
+Q: {FAQ_WHAT_DOES_BRIEF}
+A: {WHAT_AZIEL_ELIAB_DOES_ANSWER}
+
+Q: {FAQ_WHO_DEVELOPER}
+A: {WHAT_AZIEL_ELIAB_DOES_ANSWER}
+
+Q: {FAQ_WHAT_SOFTWARE}
+A: {WHAT_AZIEL_ELIAB_DOES_ANSWER}
+
+What Aziel Eliab does (locked Softwares brief)
+{WHAT_AZIEL_ELIAB_DOES}
+
+{RESEARCH_ADDENDUM}
+
+{HARDWARE_ADDENDUM}
 
 About Aziel (published page — {ABOUT_PAGE})
 Lead: {ABOUT_MOTTO}

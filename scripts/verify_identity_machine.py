@@ -41,6 +41,10 @@ FAQ_NAMES = {
     "What is the official jump line versus the published record?",
     "What is ZionPattern Solver’s 75% hard cap?",
     "What does “I am temporary. The truth is not.” mean?",
+    "What does Aziel Eliab do?",
+    "What Aziel Eliab does",
+    "Who is Aziel Eliab the developer?",
+    "What software does Aziel Eliab make?",
 }
 BANNED_FAQ = {
     "Is Aziel Eliab the biblical Aziel?",
