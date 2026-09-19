@@ -25,9 +25,11 @@ from aziel_person import (
 from aziel_living import (
     FAQ_WHAT_DOES,
     FAQ_WHAT_DOES_BRIEF,
+    FAQ_WHAT_HDJ,
     FAQ_WHAT_SOFTWARE,
     FAQ_WHO_DEVELOPER,
     HARDWARE_ADDENDUM,
+    HDJ_MISSION,
     KNOWS_ABOUT_EXTRA,
     RESEARCH_ADDENDUM,
     SPECTRALLOCK_ADDENDUM,
@@ -46,14 +48,7 @@ WWW = "https://www.hedidntjump.com"
 ORG_ID = f"{ORIGIN}/#organization"
 WEBSITE_ID = f"{ORIGIN}/#website"
 
-MISSION = (
-    "He Didn’t Jump is An Aziel Eliab Project: an independent historical newspaper "
-    "and five-volume archive examining the death of U.S. Representative Marion Zioncheck "
-    "in Seattle on 7 August 1936. The official report called it suicide from a fifth-floor "
-    "Arctic Building office. This project challenges that 90-year official suicide narrative "
-    "and publishes the record for re-reading. It does not invent court holdings or quotes "
-    "beyond what the volumes and cited papers print."
-)
+MISSION = HDJ_MISSION.replace("He Didn't Jump", "He Didn’t Jump")
 
 ABOUT_PAGE = f"{ORIGIN}/aziel"
 ABOUT_PAGE_HTML = f"{WWW}/aziel.html"
@@ -193,16 +188,7 @@ FAQ_WHO = (
     "“I am temporary. The truth is not.”"
 )
 
-FAQ_WHAT = (
-    "He Didn’t Jump is an independent historical newspaper and five-volume archive "
-    "challenging the 7 August 1936 official Arctic Building suicide account of U.S. "
-    "Representative Marion Zioncheck. Motto: The Record, Not the Verdict. The About Aziel "
-    "page states it is not a shrine and not a theory blog — a public table for one closed "
-    "story that never quite closed. The official-narrative page restates that contemporary "
-    "public account without investigative rebuttal; the main paper and Volumes I–V publish "
-    "the archive that challenges it. The project does not invent court holdings, quotes, or "
-    "agency letters beyond what the volumes and cited papers already print."
-)
+FAQ_WHAT = FAQ_WHAT_HDJ.replace("He Didn't Jump", "He Didn’t Jump")
 
 FAQ_RECORD = (
     "The published About Aziel lead is “The Record, Not the Verdict.” Who does not matter; "
