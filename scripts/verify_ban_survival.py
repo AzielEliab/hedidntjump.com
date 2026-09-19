@@ -80,7 +80,8 @@ def check_wrap(payload: dict, label: str) -> None:
     assert payload["sot"] == SOT_URL, label
     assert payload["no_lie"].startswith("NO-LIE"), label
     assert payload["lamb_lens"]["shelf"] == LAMB_LENS, label
-    assert "not a Lamb Lens ingest host" in payload["lamb_lens"]["note"], label
+    assert "azielcorpuslibrary.net" in payload["lamb_lens"]["note"], label
+    assert "not a Lamb Lens ingest host" not in payload["lamb_lens"]["note"], label
     ids = list(payload["live_door_ids"])
     assert tuple(ids) == LIVE_DOOR_IDS, ids
     assert "hedidntjump" not in "".join(ids), label
@@ -168,7 +169,8 @@ def main() -> None:
             assert "NO-LIE" in blob, label
             assert "Lamb Lens" in blob, label
             assert "Zioncheck" in blob, label
-            assert "not a Softwares clone" in blob or "Not a Softwares clone" in blob, label
+            assert "Marion Zioncheck" in blob or "Zioncheck" in blob, label
+            assert "Not a Softwares clone" not in blob, label
             assert "azshift" in blob, label
             for forged in FORGED:
                 if forged in ("Pg. 11",):
@@ -182,7 +184,8 @@ def main() -> None:
         assert "/survival" in openapi["paths"]
         assert "/survival.json" in openapi["paths"]
         assert "/v1/survival" in openapi["paths"]
-        assert "not a live exec door" in openapi["paths"]["/survival"]["get"]["summary"]
+        assert "Zioncheck archive hub pull" in openapi["paths"]["/survival"]["get"]["summary"]
+        assert "not a live exec door" not in openapi["paths"]["/survival"]["get"]["summary"]
 
         headers = (tree / "_headers").read_text(encoding="utf-8")
         assert "/survival.json" in headers

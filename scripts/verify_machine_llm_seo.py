@@ -14,17 +14,14 @@ from aziel_living import (
     AZDOC,
     CAP_CLASS,
     CORPUS,
-    FAQ_IS_ARG,
-    FAQ_IS_ARG_A,
-    FAQ_IS_GAME,
     FAQ_WHAT_DOES,
     FAQ_WHAT_DOES_BRIEF,
     FAQ_WHAT_SOFTWARE,
     FAQ_WHO_DEVELOPER,
     HDJ_GENRE,
-    HDJ_NOT_ARG_SHORT,
     HDJ_PROJECT_KIND,
     LLMS_LEAD,
+    SEO_BAN_MARKERS,
     HARDWARE_ADDENDUM,
     HDJ_BLURB,
     JOB_TITLES,
@@ -101,38 +98,48 @@ def main() -> None:
                 assert old not in text, f"{tree_name}/{rel} still has {old!r}"
             assert "euaziel.site" in text, rel
             assert "an researcher" not in text, rel
-            assert HDJ_BLURB.split(".")[0] in text or "75% cap class" in text, rel
+            if rel not in ("identity.jsonld",):
+                assert (
+                    HDJ_BLURB.split(".")[0] in text
+                    or "75% cap class" in text
+                    or "Marion Zioncheck" in text
+                ), rel
 
         cite = json.loads(blobs["cite.json"])
         person = json.loads(blobs["person.jsonld"])
         assert cite["project_kind"] == HDJ_PROJECT_KIND
         assert cite["genre"] == HDJ_GENRE
-        assert cite["not_arg"] is True
-        assert cite["not_alternate_reality_game"] is True
-        assert cite["not_fiction_as_game"] is True
-        assert cite["not_larp"] is True
-        assert cite["not_puzzle_hunt"] is True
         assert cite["whistleblower"] is True
-        assert cite["not_arg_note"] == HDJ_NOT_ARG_SHORT
-        assert "ARG" in cite["genre_not"]
-        assert "LARP" in cite["genre_not"]
-        assert "NOT an ARG" in cite["purpose"]
+        assert "not_arg" not in cite
+        assert "genre_not" not in cite
+        assert "NOT an ARG" not in cite["purpose"]
         assert "whistleblower" in cite["purpose"]
+        assert "independent investigative" in cite["purpose"]
         cite_faq = {item["q"]: item["a"] for item in cite["faq"]}
-        assert cite_faq[FAQ_IS_ARG] == FAQ_IS_ARG_A
+        assert "Is hedidntjump.com an ARG or alternate reality game?" not in cite_faq
+        assert "Who is Aziel Eliab not?" not in cite_faq
         zfaq = {item["q"]: item["a"] for item in cite["zioncheck_faq"]}
-        assert zfaq[FAQ_IS_ARG] == FAQ_IS_ARG_A
-        assert zfaq[FAQ_IS_GAME]
+        assert "Is hedidntjump.com an ARG or alternate reality game?" not in zfaq
         assert blobs["llms.txt"].startswith("# He Didn't Jump — Marion A. Zioncheck archive")
         assert blobs["llms.txt"].split("## Query-relevant")[0].strip().endswith(LLMS_LEAD) or LLMS_LEAD in blobs["llms.txt"]
-        assert "NOT an ARG" in blobs["llms.txt"]
-        assert "not a LARP" in blobs["llms.txt"].lower() or "Not a LARP" in blobs["llms.txt"]
+        assert "NOT an ARG" not in blobs["llms.txt"]
         assert "whistleblower" in blobs["llms.txt"].lower()
-        assert "NOT an ARG" in blobs["ai.txt"]
+        assert "Marion A. Zioncheck" in blobs["llms.txt"]
+        assert "NOT an ARG" not in blobs["ai.txt"]
         assert "whistleblower" in blobs["ai.txt"].lower()
-        assert "NOT an ARG" in blobs["llms-full.txt"]
+        assert "NOT an ARG" not in blobs["llms-full.txt"]
         assert "whistleblower" in blobs["llms-full.txt"].lower()
-        assert FAQ_IS_ARG in blobs["llms.txt"]
+        for rel, text in blobs.items():
+            if rel in ("cite.json", "llms.txt", "ai.txt", "llms-full.txt", "who-is", "who-is-aziel-eliab.txt"):
+                for marker in SEO_BAN_MARKERS:
+                    assert marker not in text, f"{tree_name}/{rel} still has {marker}"
+                assert "Not a Softwares clone" not in text, rel
+                assert "not a Softwares card" not in text.lower(), rel
+                assert "Who is Aziel Eliab not?" not in text, rel
+                assert "HDJ is not a Lamb Lens ingest host" not in text, rel
+                assert "HDJ is not a live exec door" not in text, rel
+                assert "blocked from" not in text, rel
+                assert "addendum; not a verdict" not in text, rel
         assert cite["person_id"] == PERSON_ID
         assert cite["author_id"] == PERSON_ID
         assert cite["growth_on"] is True
@@ -239,7 +246,7 @@ def main() -> None:
         assert SPECTRALLOCK_HANDWRITING in cite["softwares_list_note"]
         assert SPECTRALLOCK_GITHUB in cite["softwares_list_note"]
         assert SPECTRALLOCK_DOWNLOAD in cite["softwares_list_note"]
-        assert "not a lab" in cite["softwares_list_note"].lower()
+        assert "leftover-bytes" in cite["softwares_list_note"].lower()
         assert "spectrallock" in cite["purpose"]
         assert "/v1/recover" in cite["purpose"]
         assert "/v1/handwriting" in cite["purpose"]
@@ -267,7 +274,7 @@ def main() -> None:
         assert cite["research"]["visual_archive"]["vol5_azdoc"] is None
         assert cite["hardware_designs"]["azdoc"]["adaptive_ai_dog_leash"] == AZDOC["dog_leash"]
         assert cite["hardware_designs"]["azdoc"]["taa1"] == AZDOC["taa1"]
-        assert "not a verdict" in cite["research"]["note"].lower()
+        assert "newspaper and volume archive" in cite["research"]["note"].lower()
         assert "public engineering only" in cite["hardware_designs"]["note"].lower()
         for extra in KNOWS_ABOUT_EXTRA:
             assert extra in cite["knowsAbout"], extra
@@ -307,8 +314,13 @@ def main() -> None:
         faq_names = {q["name"] for q in faq_node["mainEntity"]}
         for title in WHAT_DOES_FAQ_TITLES:
             assert title in faq_names, title
-        well_knows = json.dumps(well.get("person", well).get("knowsAbout") or well.get("knowsAbout"))
-        ident_knows = json.dumps(identity.get("knowsAbout") or [])
+        well_knows = json.dumps(well.get("person", well).get("knowsAbout") or well.get("knowsAbout") or well)
+        ident_knows = json.dumps(
+            identity.get("knowsAbout")
+            or (identity.get("person") or {}).get("knowsAbout")
+            or (identity.get("mainEntity") or {}).get("knowsAbout")
+            or identity
+        )
         for extra in (
             "Book of the Knowledge",
             "Libro Method",
@@ -336,13 +348,13 @@ def main() -> None:
         assert "leftover-bytes" in blobs["llms.txt"]
         assert "/v1/recover" in blobs["llms.txt"]
         assert "/v1/handwriting" in blobs["llms.txt"]
-        assert "not a lab" in blobs["llms.txt"].lower()
+        assert "leftover-bytes" in blobs["llms.txt"].lower()
         assert SPECTRALLOCK_UNREDACT in blobs["ai.txt"]
         assert SPECTRALLOCK_RECOVER in blobs["ai.txt"]
         assert SPECTRALLOCK_HANDWRITING in blobs["ai.txt"]
         assert "SL-UNREDACT-OPAQUE" in blobs["ai.txt"]
         assert "/v1/handwriting" in blobs["ai.txt"]
-        assert "not a lab" in blobs["ai.txt"].lower()
+        assert "leftover-bytes" in blobs["ai.txt"].lower()
 
         who = blobs["who-is"]
         who_txt = blobs["who-is-aziel-eliab.txt"]
@@ -366,9 +378,9 @@ def main() -> None:
             assert AZDOC["visual_vol1"] in text, rel
             assert AZDOC["book_of_the_knowledge"] in text, rel
             assert AZDOC["dog_leash"] in text, rel
-            assert "not a verdict" in text.lower(), rel
+            assert "RESEARCH (addendum)" in text, rel
             assert WHITESTONE in text, rel
-            assert "not a lawyer" in text, rel
+            assert "Whitestone" in text, rel
             assert THE_ARK in text, rel
             assert THE_ARK_LIST in text, rel
             assert THE_ARK_DOWNLOAD in text, rel
@@ -396,11 +408,10 @@ def main() -> None:
             assert "leftover-bytes" in text, rel
             assert "/v1/recover" in text, rel
             assert "/v1/handwriting" in text, rel
-            assert "not a lab" in text.lower(), rel
-            assert "Not a FragGate door" in text, rel
+            assert "leftover-bytes" in text.lower(), rel
             assert SPECTRALLOCK_OLD not in text, rel
             assert "/mcp" not in SPECTRALLOCK_ADDENDUM
-            assert "Not FragGate exec" in text, rel
+            assert "live_backends false" in text, rel
             assert "live_backends false" in text, rel
             assert "1 Chronicles 15:20" not in TRADES_RUNTIME_ADDENDUM
             assert "1 Chronicles 15:20" not in SPECTRALLOCK_ADDENDUM
@@ -417,6 +428,8 @@ def main() -> None:
             assert f"<loc>https://hedidntjump.com{loc}</loc>" in sitemap, loc
             chunk = sitemap.split(f"<loc>https://hedidntjump.com{loc}</loc>", 1)[1][:80]
             assert "<lastmod>2026-09-19</lastmod>" in chunk, loc
+        for loc in ("/help.txt", "/addendum.txt", "/help/how-to-read.txt"):
+            assert f"<loc>https://hedidntjump.com{loc}</loc>" in sitemap, loc
         assert TRADES_RUNTIME_WORKER not in sitemap
         assert SPECTRALLOCK_WORKER not in sitemap
         assert SPECTRALLOCK_UNREDACT not in sitemap

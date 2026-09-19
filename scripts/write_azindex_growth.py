@@ -66,11 +66,17 @@ QUERY_URLS = [
     f"{WWW}/redline",
     f"{APEX}/runtime-launch.json",
     f"{WWW}/runtime-launch.json",
+    f"{APEX}/help.txt",
+    f"{APEX}/addendum.txt",
+    f"{APEX}/help/how-to-read.txt",
 ]
 
 SITEMAP_EXTRAS = [
     ("/.well-known/llms.txt", "0.4"),
     ("/volumes.json", "0.3"),
+    ("/help.txt", "0.5"),
+    ("/addendum.txt", "0.4"),
+    ("/help/how-to-read.txt", "0.5"),
 ]
 
 OPENAPI_PATHS = {
@@ -85,6 +91,9 @@ OPENAPI_PATHS = {
     "/sitemap-index.xml": "Cross-site sitemap index",
     "/volumes.json": "Volume metadata (facsimile page counts / titles)",
     "/ai.txt": "AI crawl aid",
+    "/help.txt": "Human help — Zioncheck mission, newspapers, volumes, links",
+    "/addendum.txt": "Human addendum — volumes, FOIA, methodology, sister cites",
+    "/help/how-to-read.txt": "How to read the newspapers and five volumes",
 }
 
 AI_AGENTS = [
@@ -371,14 +380,17 @@ def patch_llms() -> None:
             f"[Copyrights & historical research notice]({APEX}/Copyrights)",
         )
         if "Service → Clarity → Peace" not in text:
-            text = text.replace(
+            for needle in (
+                "Lamb Lens (Corpus ingest): https://www.azielcorpuslibrary.net/corpus",
                 "Lamb Lens (Corpus ingest, not this host): https://www.azielcorpuslibrary.net/corpus",
-                (
-                    "Lamb Lens (Corpus ingest, not this host): https://www.azielcorpuslibrary.net/corpus\n"
-                    "Lamb Lens order: Service → Clarity → Peace. HDJ is not a Lamb Lens ingest host."
-                ),
-                1,
-            )
+            ):
+                if needle in text:
+                    text = text.replace(
+                        needle,
+                        needle + "\nLamb Lens order: Service → Clarity → Peace.",
+                        1,
+                    )
+                    break
         path.write_text(text if text.endswith("\n") else text + "\n", encoding="utf-8")
         print("llms", path.relative_to(ROOT))
 
@@ -389,14 +401,17 @@ def patch_llms() -> None:
         ft = ft.replace(f"{APEX}/foia.html", f"{APEX}/FOIA")
         ft = ft.replace(f"{APEX}/copyrights.html", f"{APEX}/Copyrights")
         if "Service → Clarity → Peace" not in ft:
-            ft = ft.replace(
+            for needle in (
+                "Lamb Lens (Corpus ingest): https://www.azielcorpuslibrary.net/corpus",
                 "Lamb Lens (Corpus ingest, not this host): https://www.azielcorpuslibrary.net/corpus",
-                (
-                    "Lamb Lens (Corpus ingest, not this host): https://www.azielcorpuslibrary.net/corpus\n"
-                    "Lamb Lens order: Service → Clarity → Peace. HDJ is not a Lamb Lens ingest host."
-                ),
-                1,
-            )
+            ):
+                if needle in ft:
+                    ft = ft.replace(
+                        needle,
+                        needle + "\nLamb Lens order: Service → Clarity → Peace.",
+                        1,
+                    )
+                    break
         full.write_text(ft if ft.endswith("\n") else ft + "\n", encoding="utf-8")
         print("llms-full", full.relative_to(ROOT))
 
@@ -409,14 +424,17 @@ def patch_llms() -> None:
                 1,
             )
         if "Service → Clarity → Peace" not in at:
-            at = at.replace(
-                "- Lamb Lens: https://www.azielcorpuslibrary.net/corpus (HDJ is not a Lamb Lens ingest host)",
-                (
-                    "- Lamb Lens: https://www.azielcorpuslibrary.net/corpus (HDJ is not a Lamb Lens ingest host)\n"
-                    "- Lamb Lens order: Service → Clarity → Peace"
-                ),
-                1,
-            )
+            for needle in (
+                "- Lamb Lens: https://www.azielcorpuslibrary.net/corpus (Corpus ingest)",
+                "- Lamb Lens: https://www.azielcorpuslibrary.net/corpus",
+            ):
+                if needle in at:
+                    at = at.replace(
+                        needle,
+                        needle + "\n- Lamb Lens order: Service → Clarity → Peace",
+                        1,
+                    )
+                    break
         ai.write_text(at if at.endswith("\n") else at + "\n", encoding="utf-8")
         print("ai", ai.relative_to(ROOT))
 
@@ -525,14 +543,14 @@ def patch_cold_shelf_writer() -> None:
     old = (
         '        "lamb_lens": {\n'
         '            "shelf": "https://www.azielcorpuslibrary.net/corpus",\n'
-        '            "note": "Public Lamb Lens / Corpus ingest lives on azielcorpuslibrary.net. This host is not a Lamb Lens ingest host.",\n'
+        '            "note": "Public Lamb Lens / Corpus ingest lives on azielcorpuslibrary.net.",\n'
         "        },"
     )
     new = (
         '        "lamb_lens": {\n'
         '            "shelf": "https://www.azielcorpuslibrary.net/corpus",\n'
         '            "order": "Service → Clarity → Peace",\n'
-        '            "note": "Public Lamb Lens / Corpus ingest lives on azielcorpuslibrary.net. This host is not a Lamb Lens ingest host.",\n'
+        '            "note": "Public Lamb Lens / Corpus ingest lives on azielcorpuslibrary.net.",\n'
         "        },"
     )
     if old in text and "Service → Clarity → Peace" not in text:

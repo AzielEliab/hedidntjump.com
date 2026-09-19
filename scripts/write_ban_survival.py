@@ -155,7 +155,7 @@ def hub_wrap(sot: dict[str, Any], cap7: dict[str, Any], *, pulled: bool) -> dict
         "spec": "BAN-SURVIVAL-1.0",
         "surface": "hedidntjump-hub-pull",
         "this_host": "hedidntjump.com",
-        "this_host_role": "Marion Zioncheck archive — sister cite, not a Softwares hub",
+        "this_host_role": "Marion Zioncheck archive — sister cite",
         "this_host_is_live_door": False,
         "this_host_runtime_front": False,
         "softwares_clone": False,
@@ -169,10 +169,7 @@ def hub_wrap(sot: dict[str, Any], cap7: dict[str, Any], *, pulled: bool) -> dict
         "growth_on": True,
         "lamb_lens": {
             "shelf": LAMB_LENS,
-            "note": (
-                "Public Lamb Lens / Corpus ingest lives on azielcorpuslibrary.net. "
-                "hedidntjump.com is not a Lamb Lens ingest host."
-            ),
+            "note": "Public Lamb Lens / Corpus ingest lives on azielcorpuslibrary.net.",
         },
         "no_lie": "NO-LIE / NO-REWRITE",
         "ttl_seconds": TTL_SECONDS,
@@ -243,7 +240,7 @@ def hub_wrap(sot: dict[str, Any], cap7: dict[str, Any], *, pulled: bool) -> dict
         "ingest_tip_unchanged": HDJ_INGEST_TIP,
         "note": (
             "Hub pull of runtime /survival (short TTL) plus MirageGrid Cap-7 Worker cite. "
-            "HDJ is not a named live exec front. FragGate stays the door on the runtime sister. "
+            "FragGate stays the door on the runtime sister. "
             "Zioncheck stays the HDJ mission. Do not invent case facts."
         ),
     }
@@ -270,7 +267,7 @@ def upsert_section(text: str, heading: str, block: str) -> str:
 
 LLMS_BLOCK = f"""## BAN-SURVIVAL-1.0
 
-Hub pull of Aziel Runtime `GET /survival` (short TTL {TTL_SECONDS}s). HDJ stays the Marion Zioncheck archive. Not a Softwares clone. Not a named live exec front.
+Hub pull of Aziel Runtime `GET /survival` (short TTL {TTL_SECONDS}s). HDJ stays the Marion Zioncheck archive.
 
 SoT: {SOT_URL}
 Mutual backup LIVE: cold shelves back up death-by-ban; live multi-front backs up shelf death. Keep both.
@@ -285,23 +282,23 @@ HDJ ingest tip unchanged: `{HDJ_INGEST_TIP}`
 This host: {APEX}/survival · {APEX}/survival.json · {APEX}/v1/survival
 """
 
-AI_BLOCK = f"""BAN-SURVIVAL-1.0 (hub pull; short TTL {TTL_SECONDS}s; not a Softwares clone):
+AI_BLOCK = f"""BAN-SURVIVAL-1.0 (hub pull; short TTL {TTL_SECONDS}s):
 - SoT: {SOT_URL}
-- Mutual backup LIVE. Live doors: workers-dev, library-runtime, author-runtime, godlock-runtime. HDJ is not a live exec door.
+- Mutual backup LIVE. Live doors: workers-dev, library-runtime, author-runtime, godlock-runtime. HDJ stays the Zioncheck archive.
 - Platforms all LIVE (browser/PWA/MCP). native_app_store: false
 - Calling name: Aziel Runtime. Identity Aziel Eliab only. Pull /survival; do not hardcode a rotated name.
 - Cap-7: resolves_to_hub false. Cite+verify LIVE; hosted /mcp SLOT. public_icann false
 - MirageGrid Worker LIVE: {MIRAGE_WORKER} — public pair azgrid+azbooth LIVE HTTPS; azshift (HDJ design) AZNet SLOT
 - Zioncheck stays the HDJ mission. Do not invent case facts.
 - Person @id: {PERSON_ID}. No visible 15:20.
-- Lamb Lens: {LAMB_LENS} (HDJ is not a Lamb Lens ingest host)
+- Lamb Lens: {LAMB_LENS}
 - NO-LIE / NO-REWRITE
 - This host: {WWW}/survival · {WWW}/survival.json
 - Ingest tip unchanged: `{HDJ_INGEST_TIP}`
 """
 
 WHO_BLOCK = f"""BAN-SURVIVAL-1.0 (machine; hub pull of runtime /survival, short TTL {TTL_SECONDS}s)
-This host remains the Marion Zioncheck / He Didn't Jump archive. Not a Softwares clone. Not a named live exec front.
+This host remains the Marion Zioncheck / He Didn't Jump archive.
 SoT: {SOT_URL}
 Mutual backup LIVE. Live doors: workers-dev · library-runtime · author-runtime · godlock-runtime.
 Platforms all LIVE (browser / PWA / MCP). native_app_store: false.
@@ -354,9 +351,9 @@ def patch_llms() -> None:
             text = upsert_section(text, "## BAN-SURVIVAL-1.0", LLMS_BLOCK)
             if name == "llms.txt" and f"{APEX}/survival" not in text.split("## Marion")[0]:
                 text = text.replace(
-                    f"- [{APEX}/runtime-launch.json]({APEX}/runtime-launch.json) — Softwares+runtime launch cite (not a Softwares clone)\n",
+                    f"- [{APEX}/runtime-launch.json]({APEX}/runtime-launch.json) — Softwares+runtime launch cite\n",
                     (
-                        f"- [{APEX}/runtime-launch.json]({APEX}/runtime-launch.json) — Softwares+runtime launch cite (not a Softwares clone)\n"
+                        f"- [{APEX}/runtime-launch.json]({APEX}/runtime-launch.json) — Softwares+runtime launch cite\n"
                         f"- [{APEX}/survival]({APEX}/survival) — BAN-SURVIVAL-1.0 hub pull of runtime /survival (short TTL)\n"
                     ),
                     1,
@@ -517,7 +514,7 @@ def patch_openapi() -> None:
             "get": {
                 "summary": (
                     "BAN-SURVIVAL-1.0 hub pull of runtime /survival "
-                    f"(short TTL {TTL_SECONDS}s; not a live exec door)"
+                    f"(short TTL {TTL_SECONDS}s; Zioncheck archive hub pull)"
                 ),
                 "responses": {"200": {"description": "application/json"}},
             }
@@ -565,13 +562,18 @@ def patch_readme() -> None:
         f"`GET {SOT_URL}` — mutual backup, live doors, platforms all LIVE, "
         "calling name Aziel Runtime, Cap-7 `resolves_to_hub: false`. "
         f"MirageGrid Cap-7 Worker LIVE `{MIRAGE_WORKER}`. "
-        "HDJ stays the Zioncheck archive; not a live exec door.\n"
+        "HDJ stays the Zioncheck archive.\n"
     )
-    marker = "Sister cite (not a Softwares clone):"
+    text = text.replace(
+        "HDJ stays the Zioncheck archive; not a live exec door.",
+        "HDJ stays the Zioncheck archive.",
+    )
+    text = text.replace("Sister cite (not a Softwares clone):", "Sister cite:")
+    marker = "Sister cite:"
     if "BAN-SURVIVAL-1.0 hub pull" not in text:
         text = text.replace(marker, line + "\n" + marker, 1)
-        path.write_text(text, encoding="utf-8")
-        print("readme", path.relative_to(ROOT))
+    path.write_text(text, encoding="utf-8")
+    print("readme", path.relative_to(ROOT))
 
 
 def main() -> None:

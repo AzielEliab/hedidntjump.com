@@ -1,0 +1,52 @@
+# He Didn't Jump — Help
+
+An Aziel Eliab Project. This host is an independent investigative / whistleblower newspaper archive on Marion A. Zioncheck. He Didn't Jump is An Aziel Eliab Project: newspapers and five volumes that re-examine the official suicide account of U.S. Rep. Marion A. Zioncheck (Arctic Building, Seattle, 7 August 1936). Positive genre: whistleblower / transparency / FOIA-critical historical investigation archive. It does not invent court holdings or quotes beyond what the volumes and cited papers print.
+
+Motto: The Record, Not the Verdict.
+Author: Aziel Eliab only. Person @id: https://www.azieleliab.com/#aziel
+
+## Mission
+
+He Didn't Jump is An Aziel Eliab Project: an independent investigative / whistleblower archive publishing newspapers and five volumes that re-examine the official suicide account of U.S. Rep. Marion A. Zioncheck / Marion Zioncheck (Arctic Building, Seattle, 7 August 1936). Positive genre: whistleblower / transparency / FOIA-critical historical investigation archive. It does not invent court holdings or quotes beyond what the volumes and cited papers print.
+
+Positive genre: whistleblower / transparency / FOIA-critical historical investigation archive
+
+## Newspapers
+
+- [https://hedidntjump.com/](https://hedidntjump.com/) — money page (Marion A. Zioncheck archive)
+- [https://hedidntjump.com/Case](https://hedidntjump.com/Case) — supporting Case edition
+- [https://hedidntjump.com/Press](https://hedidntjump.com/Press) — press tip + investigative source directory
+- [https://hedidntjump.com/Inquiries](https://hedidntjump.com/Inquiries) — 23 inquiries of the record
+- [https://hedidntjump.com/Rubye](https://hedidntjump.com/Rubye) — Rubye paper
+- [https://hedidntjump.com/Archives](https://hedidntjump.com/Archives) — archive / volume downloads
+- [https://hedidntjump.com/FOIA](https://hedidntjump.com/FOIA) — FOIA paper (supplied FBI FOIPA no-records)
+- [https://hedidntjump.com/Narrative](https://hedidntjump.com/Narrative) — official-account contrast
+- [https://hedidntjump.com/Copyrights](https://hedidntjump.com/Copyrights) — copyrights / historical-research notice
+- [https://hedidntjump.com/aziel](https://hedidntjump.com/aziel) — About Aziel (one body)
+
+## Volumes I–V
+
+Facsimile reader and original PDFs:
+
+- Volume I — [https://hedidntjump.com/reader?volume=1&page=1](https://hedidntjump.com/reader?volume=1&page=1) · PDF [https://hedidntjump.com/volumes/volume-1.pdf](https://hedidntjump.com/volumes/volume-1.pdf)
+- Volume II — [https://hedidntjump.com/reader?volume=2&page=1](https://hedidntjump.com/reader?volume=2&page=1) · PDF [https://hedidntjump.com/volumes/volume-2.pdf](https://hedidntjump.com/volumes/volume-2.pdf)
+- Volume III — [https://hedidntjump.com/reader?volume=3&page=1](https://hedidntjump.com/reader?volume=3&page=1) · PDF [https://hedidntjump.com/volumes/volume-3.pdf](https://hedidntjump.com/volumes/volume-3.pdf)
+- Volume IV — [https://hedidntjump.com/reader?volume=4&page=1](https://hedidntjump.com/reader?volume=4&page=1) · PDF [https://hedidntjump.com/volumes/volume-4.pdf](https://hedidntjump.com/volumes/volume-4.pdf)
+- Volume V — [https://hedidntjump.com/reader?volume=5&page=1](https://hedidntjump.com/reader?volume=5&page=1) · PDF [https://hedidntjump.com/volumes/volume-5.pdf](https://hedidntjump.com/volumes/volume-5.pdf)
+
+Volume desk: [https://hedidntjump.com/Volumes](https://hedidntjump.com/Volumes)
+Reader: [https://hedidntjump.com/reader](https://hedidntjump.com/reader)
+
+## How to read
+
+See [https://hedidntjump.com/help/how-to-read.txt](https://hedidntjump.com/help/how-to-read.txt)
+
+## Addendum
+
+See [https://hedidntjump.com/addendum.txt](https://hedidntjump.com/addendum.txt)
+
+## Machine surfaces (optional)
+
+- [https://hedidntjump.com/llms.txt](https://hedidntjump.com/llms.txt)
+- [https://hedidntjump.com/ai.txt](https://hedidntjump.com/ai.txt)
+- [https://hedidntjump.com/cite.json](https://hedidntjump.com/cite.json)

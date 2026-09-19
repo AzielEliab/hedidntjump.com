@@ -50,7 +50,7 @@ def launch_cite() -> dict:
         "identity": "Aziel Eliab",
         "person_id": PERSON_ID,
         "this_host": "hedidntjump.com",
-        "this_host_role": "Marion Zioncheck archive — sister cite, not a Softwares hub",
+        "this_host_role": "Marion Zioncheck archive — sister cite",
         "softwares_clone": False,
         "softwares_tab": False,
         "fielded_100": False,
@@ -58,7 +58,7 @@ def launch_cite() -> dict:
         "visible_1520": False,
         "lamb_lens": {
             "shelf": "https://www.azielcorpuslibrary.net/corpus",
-            "note": "Public Lamb Lens / Corpus ingest lives on azielcorpuslibrary.net. hedidntjump.com is not a Lamb Lens ingest host.",
+            "note": "Public Lamb Lens / Corpus ingest lives on azielcorpuslibrary.net.",
         },
         "no_lie": "NO-LIE / NO-REWRITE",
         "no_lie_rule": (
@@ -128,7 +128,7 @@ def launch_cite() -> dict:
 
 LLMS_BLOCK = f"""## SOFTWARES-RUNTIME-LAUNCH-1.0
 
-Sister-archive cite of Aziel Runtime launch readiness. Not a Softwares clone. HDJ stays the Marion Zioncheck archive.
+Sister-archive cite of Aziel Runtime launch readiness. HDJ stays the Marion Zioncheck archive.
 
 Runtime SoT LIVE: `{RUNTIME_GITHUB}` main `{GIT_SHORT}` / version_id `{VERSION_ID}` / `{VERSION}`.
 Prefer [Try on Glama]({RUNTIME_GLAMA}). Worker (secondary): {RUNTIME_WORKER}
@@ -142,7 +142,7 @@ Shelves honesty unchanged: Plane B Framagit SLOT (`CNS-NO-FORGE-MIRROR`, URL nul
 HDJ ingest tip unchanged: `{HDJ_INGEST_TIP}`
 """
 
-AI_BLOCK = f"""SOFTWARES-RUNTIME-LAUNCH-1.0 (sister cite; not a Softwares clone):
+AI_BLOCK = f"""SOFTWARES-RUNTIME-LAUNCH-1.0 (sister cite):
 - Runtime SoT LIVE: main {GIT_SHORT} / version_id {VERSION_ID} / {VERSION}
 - GitHub: {RUNTIME_GITHUB}
 - Prefer Try on Glama: {RUNTIME_GLAMA}
@@ -153,7 +153,7 @@ AI_BLOCK = f"""SOFTWARES-RUNTIME-LAUNCH-1.0 (sister cite; not a Softwares clone)
 - Mesh/VPN/radios cite: {RUNTIME_MESH} (GET never enables radios beyond suite-presence)
 - Human UI + MCP + mesh/VPN/radios + /download ready on aziel-runtime. HDJ cites; does not host.
 - Identity Aziel Eliab only. Person @id: {PERSON_ID}. No visible 15:20.
-- Lamb Lens: https://www.azielcorpuslibrary.net/corpus (HDJ is not a Lamb Lens ingest host)
+- Lamb Lens: https://www.azielcorpuslibrary.net/corpus
 - NO-LIE / NO-REWRITE
 - Live origin: Cloudflare Pages project {PAGES_PROJECT} (docs/). Preview {PAGES_PREVIEW}. Not GH Pages alone.
 - Receipts chrome: Aziel-page-only (not paper-tabs Pg.11)
@@ -247,7 +247,7 @@ def patch_llms() -> None:
                     f"- [{APEX}/cite.json]({APEX}/cite.json)\n",
                     (
                         f"- [{APEX}/cite.json]({APEX}/cite.json)\n"
-                        f"- [{APEX}/runtime-launch.json]({APEX}/runtime-launch.json) — Softwares+runtime launch cite (not a Softwares clone)\n"
+                        f"- [{APEX}/runtime-launch.json]({APEX}/runtime-launch.json) — Softwares+runtime launch cite\n"
                     ),
                     1,
                 )
@@ -384,7 +384,7 @@ def patch_openapi() -> None:
             "get": {
                 "summary": (
                     "Softwares+runtime launch cite (aziel-runtime 2.0.0-rc1 SoT; "
-                    "not a Softwares clone; never fielded_100)"
+                    "aziel-runtime 2.0.0-rc1 SoT; never fielded_100)"
                 ),
                 "responses": {"200": {"description": "application/json"}},
             }

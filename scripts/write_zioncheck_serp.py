@@ -48,7 +48,7 @@ KEYWORDS = (
 
 PUBLISHER_NOT = (
     "Publisher of this Marion Zioncheck archive. "
-    "Not biblical Aziel; not biblical Eliab; not euaziel.site; not Aziel S. (Flutter/portfolio); not other engineers named Aziel."
+    "Public identity is Aziel Eliab only."
 )
 
 # Authority links only — not endorsements.
@@ -303,6 +303,9 @@ def write_sitemap() -> None:
         ("/redline", "0.4"),
         ("/redline.json", "0.4"),
         ("/runtime-launch.json", "0.4"),
+        ("/help.txt", "0.5"),
+        ("/addendum.txt", "0.4"),
+        ("/help/how-to-read.txt", "0.5"),
     ]
     pdfs = [
         ("/volumes/volume-1.pdf", "0.6"),

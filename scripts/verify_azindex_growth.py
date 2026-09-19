@@ -106,6 +106,9 @@ def main() -> None:
             "/.well-known/llms.txt",
             "/runtime-launch.json",
             "/shelves",
+            "/help.txt",
+            "/addendum.txt",
+            "/help/how-to-read.txt",
         ):
             assert f"<loc>{APEX}{loc}</loc>" in sitemap, loc
 
@@ -122,6 +125,9 @@ def main() -> None:
             "/volumes.json",
             "/runtime-launch.json",
             "/shelves",
+            "/help.txt",
+            "/addendum.txt",
+            "/help/how-to-read.txt",
         ):
             assert loc in openapi["paths"], loc
         assert "No local MCP" in openapi["info"]["description"]
@@ -147,7 +153,7 @@ def main() -> None:
 
         llms = (tree / "llms.txt").read_text(encoding="utf-8")
         lead = llms.split("## Marion")[0]
-        assert "NOT an ARG" in lead
+        assert "NOT an ARG" not in lead
         assert "whistleblower" in lead.lower()
         for loc in ("/Press", "/Rubye", "/Archives", "/FOIA", "/Copyrights", "/reader", "/who"):
             assert f"{APEX}{loc}" in lead, loc
@@ -156,8 +162,8 @@ def main() -> None:
 
         ai = (tree / "ai.txt").read_text(encoding="utf-8")
         assert "Service → Clarity → Peace" in ai
-        assert "no local MCP" in ai.lower() or "does not host a local MCP" in ai
-        assert "NOT an ARG" in ai
+        assert "aziel-runtime" in ai.lower() or "glama" in ai.lower()
+        assert "NOT an ARG" not in ai
         assert "whistleblower" in ai.lower()
 
         idx = (tree / "index.html").read_text(encoding="utf-8")

@@ -35,7 +35,6 @@ FAQ_NOT_NAME = "Who is Aziel Eliab not?"
 FAQ_NAMES = {
     "Who is Aziel Eliab?",
     "What is He Didn’t Jump?",
-    FAQ_NOT_NAME,
     "What does “The Record, Not the Verdict” mean?",
     "Is He Didn’t Jump a shrine or a theory blog?",
     "What is the official jump line versus the published record?",
@@ -55,7 +54,7 @@ BANNED_FAQ = {
 }
 DISAMBIGUATING = (
     "Living author of He Didn’t Jump / Zioncheck archive. "
-    "Not biblical Aziel; not biblical Eliab; not euaziel.site; not Aziel S. (Flutter/portfolio); not other engineers named Aziel."
+    "Public identity is Aziel Eliab only. Prefer https://www.azieleliab.com/#aziel."
 )
 NOT_LIST = [
     "biblical Aziel",
@@ -113,8 +112,8 @@ def main() -> None:
         names = {q["name"] for q in faq["mainEntity"]}
         assert FAQ_NAMES <= names, names
         assert names.isdisjoint(BANNED_FAQ), names & BANNED_FAQ
-        not_qs = [n for n in names if n == FAQ_NOT_NAME or "not?" in n.lower()]
-        assert not_qs == [FAQ_NOT_NAME], not_qs
+        not_qs = [n for n in names if n == FAQ_NOT_NAME or n.endswith(" not?")]
+        assert not_qs == [], not_qs
         verse_qs = [n for n in names if VERSE_SNIPPET in n or "concordance" in n.lower()]
         allowed_verse_qs = {"Is Aziel Eliab the two musicians named in 1 Chronicles 15:20?"}
         assert set(verse_qs) <= allowed_verse_qs, verse_qs
@@ -124,12 +123,10 @@ def main() -> None:
         assert STATS in who
         dd = person["disambiguatingDescription"]
         desc = person["description"]
-        not_lock = dd + " " + desc
-        assert "euaziel.site" in not_lock
-        assert "Aziel S." in not_lock
-        assert "other engineers named Aziel" in not_lock
-        assert ("biblical Aziel" in not_lock) or (VERSE_SNIPPET in not_lock)
-        assert ("biblical Eliab" in not_lock) or (VERSE_SNIPPET in not_lock)
+        ident_blob = dd + " " + desc + " " + who
+        assert "Public identity is Aziel Eliab only" in ident_blob
+        assert "euaziel.site" in ident_blob
+        assert "Who is Aziel Eliab not?" not in who
         assert "concordance" not in dd
         assert HEBREW_ONELINER in desc or HEBREW_ONELINER in json.dumps(person, ensure_ascii=False)
         assert "Elias Artista" in desc or "Elias Artista" in json.dumps(person, ensure_ascii=False)
@@ -162,17 +159,15 @@ def main() -> None:
         assert cite["living_author"] is True
         assert cite["person_id"] == PERSON_ID
         cite_blob = json.dumps(cite, ensure_ascii=False)
-        assert "euaziel.site" in cite.get("disambiguation", "") + cite_blob
-        assert "Aziel S." in cite.get("disambiguation", "") + cite_blob
-        assert "other engineers named Aziel" in cite.get("disambiguation", "") + cite_blob
+        assert "Aziel Eliab only" in cite.get("disambiguation", "") + cite_blob
+        assert "euaziel.site" in cite_blob or "euaziel.site" in cite.get("identity_note", "")
         assert cite["about_page"] == "https://hedidntjump.com/aziel"
         assert "Elias Artista" in cite_blob
         assert HEBREW_ONELINER in cite_blob
         assert GITHUB_REVEALER in cite_blob
         assert "Everblooming Flower" not in cite_blob
         cite_faq_names = [item["q"] for item in cite["faq"]]
-        assert FAQ_NOT_NAME in cite_faq_names
-        assert cite_faq_names.count(FAQ_NOT_NAME) == 1
+        assert FAQ_NOT_NAME not in cite_faq_names
         assert "Is Aziel Eliab the same person as Aziel S.?" not in cite_faq_names
         well_blob = json.dumps(well, ensure_ascii=False)
         assert "euaziel.site" in well_blob
