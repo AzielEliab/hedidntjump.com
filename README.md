@@ -30,7 +30,7 @@ GitHub Pages may still build from docs/; it is not the live origin alone. Custom
 
 BAN-SURVIVAL-1.0 hub pull: `/survival` (short TTL) cites runtime `GET https://aziel-runtime.vibelock.workers.dev/v1/survival` — mutual backup, live doors, platforms all LIVE, calling name Aziel Runtime, Cap-7 `resolves_to_hub: false`. MirageGrid Cap-7 Worker LIVE `https://miragegrid.vibelock.workers.dev`. HDJ stays the Zioncheck archive; not a live exec door.
 
-Sister cite (not a Softwares clone): Aziel Runtime 2.0.0-rc1 SoT LIVE main `6a3798a` / version_id `105fa1ee`. Prefer [Try on Glama](https://glama.ai/mcp/servers/AzielEliab/aziel-runtime). Machine field: `/runtime-launch.json`. Never .
+Sister cite (not a Softwares clone): Aziel Runtime 2.0.0-rc1 SoT LIVE main `6a3798a` / version_id `105fa1ee`. Prefer [Try on Glama](https://glama.ai/mcp/servers/AzielEliab/aziel-runtime). Machine field: `/runtime-launch.json`. .
 
 ## Validate the handoff
 python3 verify_handoff.py

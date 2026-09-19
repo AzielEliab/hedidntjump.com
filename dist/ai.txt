@@ -91,7 +91,7 @@ SOFTWARES-RUNTIME-LAUNCH-1.0 (sister cite; not a Softwares clone):
 - Prefer Try on Glama: https://glama.ai/mcp/servers/AzielEliab/aziel-runtime
 - Worker (secondary): https://aziel-runtime.vibelock.workers.dev/
 - Softwares catalog: https://aziel-runtime.vibelock.workers.dev/v1/software
-- Counted /download: https://aziel-runtime.vibelock.workers.dev/download (never )
+- Counted /download: https://aziel-runtime.vibelock.workers.dev/download ()
 - MCP: https://aziel-runtime.vibelock.workers.dev/mcp
 - Mesh/VPN/radios cite: https://aziel-runtime.vibelock.workers.dev/v1/mesh (GET never enables radios beyond suite-presence)
 - Human UI + MCP + mesh/VPN/radios + /download ready on aziel-runtime. HDJ cites; does not host.

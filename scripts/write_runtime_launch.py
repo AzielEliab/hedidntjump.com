@@ -4,7 +4,7 @@
 HDJ stays a Zioncheck archive. This is a cross-link cite of aziel-runtime
 2.0.0-rc1 (main 6a3798a / version_id 105fa1ee), not a Softwares clone.
 
-Does not invent Plane B LIVE, Framagit URLs, , or a global
+Does not invent Plane B LIVE, Framagit URLs, claim_complete, or a global
 Receipts paper-tab. Does not change hashed /ingest-as-receipt.json.
 Does not add visible 1 Chronicles 15:20 chrome.
 Live origin is Cloudflare Pages project hedidntjump (docs/), not GH Pages alone.
@@ -53,8 +53,8 @@ def launch_cite() -> dict:
         "this_host_role": "Marion Zioncheck archive — sister cite, not a Softwares hub",
         "softwares_clone": False,
         "softwares_tab": False,
-        "": False,
-        "never_": True,
+        "claim_complete": False,
+        "never_claim_complete": True,
         "visible_1520": False,
         "lamb_lens": {
             "shelf": "https://www.azielcorpuslibrary.net/corpus",
@@ -133,7 +133,7 @@ Sister-archive cite of Aziel Runtime launch readiness. Not a Softwares clone. HD
 Runtime SoT LIVE: `{RUNTIME_GITHUB}` main `{GIT_SHORT}` / version_id `{VERSION_ID}` / `{VERSION}`.
 Prefer [Try on Glama]({RUNTIME_GLAMA}). Worker (secondary): {RUNTIME_WORKER}
 Human UI + MCP + mesh/VPN/radios + `/download` are launch-ready on aziel-runtime. This host cites; it does not host Softwares, MCP, mesh radios, or `/download`.
-Never . Identity Aziel Eliab only. Person @id: {PERSON_ID}. No visible 1 Chronicles 15:20.
+. Identity Aziel Eliab only. Person @id: {PERSON_ID}. No visible 1 Chronicles 15:20.
 Lamb Lens ingest: https://www.azielcorpuslibrary.net/corpus (not this host). NO-LIE / NO-REWRITE stays in force.
 
 Live origin of this archive is Cloudflare Pages project `{PAGES_PROJECT}` (deploy root `docs/`). Preview {PAGES_PREVIEW}. GitHub Pages is not the live origin alone.
@@ -148,7 +148,7 @@ AI_BLOCK = f"""SOFTWARES-RUNTIME-LAUNCH-1.0 (sister cite; not a Softwares clone)
 - Prefer Try on Glama: {RUNTIME_GLAMA}
 - Worker (secondary): {RUNTIME_WORKER}
 - Softwares catalog: {RUNTIME_SOFTWARE}
-- Counted /download: {RUNTIME_DOWNLOAD} (never )
+- Counted /download: {RUNTIME_DOWNLOAD} ()
 - MCP: {RUNTIME_MCP}
 - Mesh/VPN/radios cite: {RUNTIME_MESH} (GET never enables radios beyond suite-presence)
 - Human UI + MCP + mesh/VPN/radios + /download ready on aziel-runtime. HDJ cites; does not host.
@@ -196,8 +196,8 @@ def patch_cite() -> None:
             "worker": RUNTIME_WORKER,
             "glama": RUNTIME_GLAMA,
         },
-        "": False,
-        "never_": True,
+        "claim_complete": False,
+        "never_claim_complete": True,
         "softwares_clone": False,
         "live_origin": {
             "kind": "cloudflare-pages",
@@ -296,7 +296,7 @@ def patch_mcp() -> None:
     note = (
         "Static Zioncheck archive has no local MCP tools/list. "
         f"Aziel Runtime {VERSION} SoT LIVE main {GIT_SHORT} / version_id {VERSION_ID}. "
-        "Prefer Try on Glama. Never ."
+        "Prefer Try on Glama. ."
     )
     payload = {
         "mcpServers": {
@@ -307,7 +307,7 @@ def patch_mcp() -> None:
                 "version": VERSION,
                 "git_sha": GIT_SHA,
                 "version_id": VERSION_ID,
-                "": False,
+                "claim_complete": False,
                 "note": note,
             }
         }
@@ -384,7 +384,7 @@ def patch_openapi() -> None:
             "get": {
                 "summary": (
                     "Softwares+runtime launch cite (aziel-runtime 2.0.0-rc1 SoT; "
-                    "not a Softwares clone; never )"
+                    "not a Softwares clone; )"
                 ),
                 "responses": {"200": {"description": "application/json"}},
             }
@@ -423,7 +423,7 @@ def patch_well_known_aziel() -> None:
             "version_id": VERSION_ID,
             "glama": RUNTIME_GLAMA,
             "worker": RUNTIME_WORKER,
-            "": False,
+            "claim_complete": False,
         },
         "live_origin": {
             "kind": "cloudflare-pages",

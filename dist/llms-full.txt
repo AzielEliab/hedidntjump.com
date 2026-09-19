@@ -169,7 +169,7 @@ Sister-archive cite of Aziel Runtime launch readiness. Not a Softwares clone. HD
 Runtime SoT LIVE: `https://github.com/AzielEliab/aziel-runtime` main `6a3798a` / version_id `105fa1ee` / `2.0.0-rc1`.
 Prefer [Try on Glama](https://glama.ai/mcp/servers/AzielEliab/aziel-runtime). Worker (secondary): https://aziel-runtime.vibelock.workers.dev/
 Human UI + MCP + mesh/VPN/radios + `/download` are launch-ready on aziel-runtime. This host cites; it does not host Softwares, MCP, mesh radios, or `/download`.
-Never . Identity Aziel Eliab only. Person @id: https://www.azieleliab.com/#aziel. No visible 1 Chronicles 15:20.
+. Identity Aziel Eliab only. Person @id: https://www.azieleliab.com/#aziel. No visible 1 Chronicles 15:20.
 Lamb Lens ingest: https://www.azielcorpuslibrary.net/corpus (not this host). NO-LIE / NO-REWRITE stays in force.
 
 Live origin of this archive is Cloudflare Pages project `hedidntjump` (deploy root `docs/`). Preview https://hedidntjump.pages.dev. GitHub Pages is not the live origin alone.
