@@ -890,8 +890,8 @@
     "this_host_role": "Marion Zioncheck archive — sister cite",
     "softwares_clone": false,
     "softwares_tab": false,
-    "": false,
-    "never_": true,
+    "claim_complete": false,
+    "never_claim_complete": true,
     "visible_1520": false,
     "lamb_lens": {
       "shelf": "https://www.azielcorpuslibrary.net/corpus",
@@ -964,8 +964,8 @@
     "worker": "https://aziel-runtime.vibelock.workers.dev/",
     "glama": "https://glama.ai/mcp/servers/AzielEliab/aziel-runtime"
   },
-  "": false,
-  "never_": true,
+  "claim_complete": false,
+  "never_claim_complete": true,
   "softwares_clone": false,
   "live_origin": {
     "kind": "cloudflare-pages",

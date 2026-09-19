@@ -53,8 +53,8 @@ PAPER_HTML = (
 
 FORGED = (
     "https://framagit.org/AzielEliab/aziel-lockset-tip",
-    ": true",
-    '"": true',
+    "claim_complete: true",
+    '"claim_complete": true',
     "Pg. 11",
     "Pg.11",
 )
@@ -94,8 +94,8 @@ def main() -> None:
         assert launch["person_id"] == PERSON_ID
         assert launch["softwares_clone"] is False
         assert launch["softwares_tab"] is False
-        assert launch[""] is False
-        assert launch["never_"] is True
+        assert launch["claim_complete"] is False
+        assert launch["never_claim_complete"] is True
         assert launch["visible_1520"] is False
         assert launch["lamb_lens"]["shelf"] == "https://www.azielcorpuslibrary.net/corpus"
         assert "azielcorpuslibrary.net" in launch["lamb_lens"]["note"]
@@ -144,8 +144,8 @@ def main() -> None:
         assert cite["runtime_launch"]["runtime_sot"]["version_id"] == VERSION_ID
         assert cite["runtime_launch"]["runtime_sot"]["git_short"] == GIT_SHORT
         assert cite["runtime_sot"]["version_id"] == VERSION_ID
-        assert cite[""] is False
-        assert cite["never_"] is True
+        assert cite["claim_complete"] is False
+        assert cite["never_claim_complete"] is True
         assert cite["softwares_clone"] is False
         assert cite["live_origin"]["kind"] == "cloudflare-pages"
         assert cite["live_origin"]["project"] == PAGES_PROJECT
@@ -169,8 +169,8 @@ def main() -> None:
         assert planes["C"]["status"] == "slot"
 
         for path, value in walk_bools(cite):
-            if path.endswith("") or path.endswith("never_"):
-                if path.endswith("") and not path.endswith("never_"):
+            if path.endswith("claim_complete") or path.endswith("never_claim_complete"):
+                if path.endswith("claim_complete") and not path.endswith("never_claim_complete"):
                     assert value is False, f"{tree_name} cite {path} must be false"
 
         ingest = (tree / "ingest-as-receipt.json").read_bytes()
@@ -211,7 +211,7 @@ def main() -> None:
             assert server["version"] == VERSION, label
             assert server["git_sha"] == GIT_SHA, label
             assert server["version_id"] == VERSION_ID, label
-            assert server[""] is False, label
+            assert server["claim_complete"] is False, label
             assert server["glama"] == RUNTIME_GLAMA, label
             assert "no local MCP" in server["note"] or "Prefer Try on Glama" in server["description"]
 
@@ -231,7 +231,7 @@ def main() -> None:
 
         wk = json.loads((tree / ".well-known" / "aziel.json").read_text(encoding="utf-8"))
         assert wk["runtime_sot"]["version_id"] == VERSION_ID
-        assert wk["runtime_sot"][""] is False
+        assert wk["runtime_sot"]["claim_complete"] is False
         assert wk["live_origin"]["project"] == PAGES_PROJECT
 
         shelves = json.loads((tree / "shelves.json").read_text(encoding="utf-8"))
@@ -252,7 +252,7 @@ def main() -> None:
             if name != "who.html":
                 visible = visible_text(html)
                 assert "15:20" not in visible, f"{tree_name}/{name} gained visible 15:20"
-            assert "" not in html
+            assert "claim_complete" not in html
 
         aziel = (tree / "aziel.html").read_text(encoding="utf-8")
         assert 'href="/receipts"' in aziel

@@ -396,7 +396,7 @@
     "version_id": "105fa1ee",
     "glama": "https://glama.ai/mcp/servers/AzielEliab/aziel-runtime",
     "worker": "https://aziel-runtime.vibelock.workers.dev/",
-    "": false
+    "claim_complete": false
   },
   "live_origin": {
     "kind": "cloudflare-pages",
