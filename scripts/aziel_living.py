@@ -186,6 +186,39 @@ TRADES_RUNTIME_HONESTY = (
     "Not a production company OS claim."
 )
 
+# Sister Softwares cite-only. Leftover-bytes recover is product Worker, not a FragGate door op.
+SPECTRALLOCK = (
+    "SpectralLock (leftover-bytes recover; SL-UNREDACT-OPAQUE refuse)"
+)
+SPECTRALLOCK_WORKER = "https://spectrallock-download-tracker.vibelock.workers.dev"
+SPECTRALLOCK_UNREDACT = (
+    "https://spectrallock-download-tracker.vibelock.workers.dev/v1/unredact"
+)
+SPECTRALLOCK_GITHUB = "https://github.com/AzielEliab/spectrallock"
+SPECTRALLOCK_DOWNLOAD = (
+    "https://spectrallock-download-tracker.vibelock.workers.dev/download"
+)
+SPECTRALLOCK_LIST = (
+    f"{SPECTRALLOCK}; worker {SPECTRALLOCK_UNREDACT} ; "
+    f"github {SPECTRALLOCK_GITHUB} ; download {SPECTRALLOCK_DOWNLOAD}"
+)
+SPECTRALLOCK_ADDENDUM = (
+    "SISTER SOFTWARES (cite-only; not a Softwares takeover): SpectralLock leftover-bytes "
+    "recover reads present container bytes (object id / offset / stream). Opaque rewrite "
+    "with no leftover bytes refuses SL-UNREDACT-OPAQUE. Never invent letters. Heatmaps "
+    "are not transcripts. Not a FragGate door op (catalog LIVE_OPS stay health, modes, "
+    "targets, overlay, verify, doctor, skill). Aziel Eliab only. Worker "
+    f"{SPECTRALLOCK_UNREDACT} · GitHub {SPECTRALLOCK_GITHUB} · download "
+    f"{SPECTRALLOCK_DOWNLOAD}. HDJ cites; does not host. Not aziel-runtime wholesale. "
+    "Zioncheck stays the HDJ mission."
+)
+SPECTRALLOCK_HONESTY = (
+    "Leftover-bytes recover reads present container bytes only. Opaque clipped black / "
+    "flattened screenshot with no leftover bytes refuses SL-UNREDACT-OPAQUE. Never "
+    "OCR-from-black-box. Never invent letters. Heatmaps are not transcripts. Not a "
+    "FragGate door op."
+)
+
 SOFTWARES_LIST = (
     "Aziel Runtime (FragGate / MCP)",
     "Aziel Digital Library",
@@ -193,6 +226,7 @@ SOFTWARES_LIST = (
     WHITESTONE,
     THE_ARK_LIST,
     TRADES_RUNTIME_LIST,
+    SPECTRALLOCK_LIST,
 )
 
 SOFTWARES_LIST_NOTE = (
@@ -203,7 +237,11 @@ SOFTWARES_LIST_NOTE = (
     f"{TRADES_RUNTIME}. worker {TRADES_RUNTIME_WORKER} ; "
     f"github {TRADES_RUNTIME_GITHUB} ; download {TRADES_RUNTIME_DOWNLOAD} ; "
     f"openapi {TRADES_RUNTIME_OPENAPI} ; mcp {TRADES_RUNTIME_MCP}. "
-    "Not FragGate exec. live_backends false. Not a FragGate door on this archive."
+    "Not FragGate exec. live_backends false. "
+    f"{SPECTRALLOCK}. worker {SPECTRALLOCK_UNREDACT} ; "
+    f"github {SPECTRALLOCK_GITHUB} ; download {SPECTRALLOCK_DOWNLOAD}. "
+    "Leftover-bytes recover; SL-UNREDACT-OPAQUE refuse. Not a FragGate door op. "
+    "Not a FragGate door on this archive."
 )
 
 
@@ -220,6 +258,7 @@ KNOWS_ABOUT_EXTRA = (
     WHITESTONE,
     THE_ARK,
     TRADES_RUNTIME,
+    SPECTRALLOCK,
     "He Didn’t Jump Zioncheck archive",
     "Marion Zioncheck Visual Archive",
     "Book of the Knowledge",

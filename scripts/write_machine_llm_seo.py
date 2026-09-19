@@ -48,6 +48,13 @@ from aziel_living import (
     THE_ARK_DOWNLOAD,
     THE_ARK_GITHUB,
     THE_ARK_STATS,
+    SPECTRALLOCK,
+    SPECTRALLOCK_ADDENDUM,
+    SPECTRALLOCK_DOWNLOAD,
+    SPECTRALLOCK_GITHUB,
+    SPECTRALLOCK_HONESTY,
+    SPECTRALLOCK_UNREDACT,
+    SPECTRALLOCK_WORKER,
     TRADES_RUNTIME,
     TRADES_RUNTIME_ADDENDUM,
     TRADES_RUNTIME_DOWNLOAD,
@@ -90,6 +97,7 @@ SISTERS_BLOCK = f"""Sister surfaces (this host is HDJ; not a Softwares clone)
 - runtime: {SISTERS["runtime"]}
 - runtime (prefer Glama): {SISTERS_GLAMA}
 - trades-runtime (sister Softwares cite-only; not FragGate exec): {TRADES_RUNTIME_WORKER}
+- spectrallock (sister Softwares cite-only; leftover-bytes recover; SL-UNREDACT-OPAQUE refuse): {SPECTRALLOCK_UNREDACT}
 - this: {SISTERS_HDJ} — {HDJ_BLURB}
 Growth-ON. NO-LIE. Person @id: {PERSON_ID}
 ZionBot owns newspaper HTML / Pages SEO chrome. This pack is machine files only.
@@ -109,6 +117,19 @@ TRADES_RUNTIME_LLMS_BLOCK = f"""{TRADES_RUNTIME_LLMS_HEAD}
 HDJ cites; does not host. Not a Softwares takeover. Zioncheck stays the HDJ mission.
 """
 
+SPECTRALLOCK_LLMS_HEAD = "## SpectralLock sister cite (machine)"
+SPECTRALLOCK_LLMS_BLOCK = f"""{SPECTRALLOCK_LLMS_HEAD}
+
+{SPECTRALLOCK_ADDENDUM}
+
+- Worker unredact: {SPECTRALLOCK_UNREDACT}
+- GitHub: {SPECTRALLOCK_GITHUB}
+- Download: {SPECTRALLOCK_DOWNLOAD}
+- Worker: {SPECTRALLOCK_WORKER}
+
+Leftover-bytes recover reads present container bytes. Opaque rewrite with no leftover bytes refuses SL-UNREDACT-OPAQUE. HDJ cites; does not host. Not a FragGate door op. Zioncheck stays the HDJ mission.
+"""
+
 TRADES_RUNTIME_AI_HEAD = "TRADES-RUNTIME (sister Softwares/runtime cite-only"
 TRADES_RUNTIME_AI_BLOCK = f"""TRADES-RUNTIME (sister Softwares/runtime cite-only; not a Softwares takeover):
 - Local-first BYO trades runtime. Not FragGate exec. live_backends false. Aziel Eliab only.
@@ -117,6 +138,17 @@ TRADES_RUNTIME_AI_BLOCK = f"""TRADES-RUNTIME (sister Softwares/runtime cite-only
 - Download: {TRADES_RUNTIME_DOWNLOAD}
 - OpenAPI: {TRADES_RUNTIME_OPENAPI}
 - MCP: {TRADES_RUNTIME_MCP}
+- HDJ cites; does not host. Not aziel-runtime wholesale. Zioncheck stays the HDJ mission.
+- Growth-ON. NO-LIE. No visible 15:20.
+"""
+
+SPECTRALLOCK_AI_HEAD = "SPECTRALLOCK (sister Softwares cite-only"
+SPECTRALLOCK_AI_BLOCK = f"""SPECTRALLOCK (sister Softwares cite-only; leftover-bytes recover; SL-UNREDACT-OPAQUE refuse):
+- Leftover-bytes recover reads present container bytes. Opaque rewrite with no leftover bytes refuses SL-UNREDACT-OPAQUE. Never invent letters. Heatmaps are not transcripts. Not a FragGate door op. Aziel Eliab only.
+- Worker unredact: {SPECTRALLOCK_UNREDACT}
+- GitHub: {SPECTRALLOCK_GITHUB}
+- Download: {SPECTRALLOCK_DOWNLOAD}
+- Worker: {SPECTRALLOCK_WORKER}
 - HDJ cites; does not host. Not aziel-runtime wholesale. Zioncheck stays the HDJ mission.
 - Growth-ON. NO-LIE. No visible 15:20.
 """
@@ -144,6 +176,8 @@ A: {WHAT_AZIEL_ELIAB_DOES_ANSWER}
 {HARDWARE_ADDENDUM}
 
 {TRADES_RUNTIME_ADDENDUM}
+
+{SPECTRALLOCK_ADDENDUM}
 """
 
 WHAT_DOES_FAQ_ROWS = [
@@ -364,6 +398,7 @@ def patch_cite(data: dict) -> dict:
         "hdj": SISTERS_HDJ,
         "this": "hdj",
         "trades_runtime": TRADES_RUNTIME_WORKER,
+        "spectrallock": SPECTRALLOCK_UNREDACT,
     }
     data["pages_seo"] = PAGES_SEO
     data["growth_on"] = True
@@ -381,6 +416,11 @@ def patch_cite(data: dict) -> dict:
             "id": "trades-runtime",
             "label": "Trades-Runtime (sister Softwares cite)",
             "href": TRADES_RUNTIME_WORKER,
+        },
+        {
+            "id": "spectrallock",
+            "label": "SpectralLock (sister Softwares cite)",
+            "href": SPECTRALLOCK_UNREDACT,
         },
     ]
     for row in extra:
@@ -439,6 +479,44 @@ def patch_cite(data: dict) -> dict:
     data["trades_runtime_download"] = TRADES_RUNTIME_DOWNLOAD
     data["trades_runtime_openapi"] = TRADES_RUNTIME_OPENAPI
     data["trades_runtime_mcp"] = TRADES_RUNTIME_MCP
+    data["spectrallock"] = {
+        "name": "SpectralLock",
+        "product": "spectrallock",
+        "version": "0.3.0",
+        "author": "Aziel Eliab",
+        "identity": "Aziel Eliab",
+        "cite_only": True,
+        "fraggate_door_op": False,
+        "leftover_bytes_recovery": True,
+        "pigment_recovery": False,
+        "guessed_letters": False,
+        "heatmap_is_transcript": False,
+        "refuse_code": "SL-UNREDACT-OPAQUE",
+        "worker": SPECTRALLOCK_WORKER,
+        "unredact": SPECTRALLOCK_UNREDACT,
+        "github": SPECTRALLOCK_GITHUB,
+        "download": SPECTRALLOCK_DOWNLOAD,
+        "live_ops": [
+            "health",
+            "modes",
+            "targets",
+            "overlay",
+            "verify",
+            "doctor",
+            "skill",
+        ],
+        "honesty": SPECTRALLOCK_HONESTY,
+        "note": (
+            "HDJ cites; does not host. Sister Softwares cite-only. Leftover-bytes "
+            "recover reads present container bytes. Opaque rewrite with no leftover "
+            "bytes refuses SL-UNREDACT-OPAQUE. Not a FragGate door op. Zioncheck "
+            "stays the HDJ mission."
+        ),
+    }
+    data["spectrallock_worker"] = SPECTRALLOCK_WORKER
+    data["spectrallock_unredact"] = SPECTRALLOCK_UNREDACT
+    data["spectrallock_github"] = SPECTRALLOCK_GITHUB
+    data["spectrallock_download"] = SPECTRALLOCK_DOWNLOAD
     data["research"] = {
         "note": "Sister research on azielcorpuslibrary.net. HDJ is not a verdict.",
         "hdj": "He Didn’t Jump Zioncheck archive + Volumes I–V on this host (75% cap class).",
@@ -506,7 +584,8 @@ def patch_cite(data: dict) -> dict:
         "(1933–1936). Official reports said suicide at the Arctic Building on "
         "7 August 1936. This project re-examines that account from published "
         f"newspapers and volumes. {HDJ_BLURB} Sisters: ae, corpus, godlock, runtime. "
-        "Sister Softwares cite: trades-runtime (not a hub)."
+        "Sister Softwares cite: trades-runtime; spectrallock leftover-bytes recover "
+        "(not a hub)."
     )
     return data
 
@@ -544,6 +623,11 @@ def patch_person(data: dict) -> dict:
         data["trades_runtime_download"] = TRADES_RUNTIME_DOWNLOAD
         data["trades_runtime_openapi"] = TRADES_RUNTIME_OPENAPI
         data["trades_runtime_mcp"] = TRADES_RUNTIME_MCP
+        data["spectrallock"] = SPECTRALLOCK
+        data["spectrallock_worker"] = SPECTRALLOCK_WORKER
+        data["spectrallock_unredact"] = SPECTRALLOCK_UNREDACT
+        data["spectrallock_github"] = SPECTRALLOCK_GITHUB
+        data["spectrallock_download"] = SPECTRALLOCK_DOWNLOAD
     return data
 
 
@@ -592,6 +676,8 @@ def ensure_what_does_block(text: str) -> str:
             extras.append(HARDWARE_ADDENDUM)
         if TRADES_RUNTIME_ADDENDUM not in text:
             extras.append(TRADES_RUNTIME_ADDENDUM)
+        if SPECTRALLOCK_ADDENDUM not in text:
+            extras.append(SPECTRALLOCK_ADDENDUM)
         if extras:
             text = text.rstrip() + "\n\n" + "\n\n".join(extras) + "\n"
         return text
@@ -633,7 +719,7 @@ def ensure_trades_runtime_cite(text: str, *, ai: bool = False) -> str:
         block = TRADES_RUNTIME_AI_BLOCK
         if heading in text:
             return re.sub(
-                rf"{re.escape(heading)}[\s\S]*?(?=\n[A-Z][A-Z0-9 _/-]+ \(|\nIdentity lock|\nPublisher name|\n## |\Z)",
+                rf"{re.escape(heading)}[\s\S]*?(?=\nSPECTRALLOCK |\nSOFTWARES-RUNTIME-LAUNCH|\nBAN-SURVIVAL|\nCOLD-MULTI-SHELF|\n[A-Z][A-Z0-9 _/-]+ \(|\nIdentity lock|\nPublisher name|\n## |\Z)",
                 block.rstrip() + "\n\n",
                 text,
                 count=1,
@@ -651,6 +737,87 @@ def ensure_trades_runtime_cite(text: str, *, ai: bool = False) -> str:
         return re.sub(
             rf"{re.escape(heading)}\n[\s\S]*?(?=\n## |\Z)",
             block.rstrip() + "\n\n",
+            text,
+            count=1,
+        )
+    if "## HDJ sister cite (machine)" in text:
+        return text.replace(
+            "## HDJ sister cite (machine)",
+            block + "\n## HDJ sister cite (machine)",
+            1,
+        )
+    if "## Related properties (Person sameAs)" in text:
+        return text.replace(
+            "## Related properties (Person sameAs)",
+            block + "\n## Related properties (Person sameAs)",
+            1,
+        )
+    return text.rstrip() + "\n\n" + block
+
+
+def upsert_sisters_spectrallock_line(text: str) -> str:
+    line = (
+        f"- spectrallock (sister Softwares cite-only; leftover-bytes recover; "
+        f"SL-UNREDACT-OPAQUE refuse): {SPECTRALLOCK_UNREDACT}\n"
+    )
+    if "spectrallock (sister Softwares cite-only" in text:
+        return text
+    if "trades-runtime (sister Softwares cite-only" in text:
+        return re.sub(
+            r"(- trades-runtime \(sister Softwares cite-only[^\n]+\n)",
+            rf"\1{line}",
+            text,
+            count=1,
+        )
+    if "- runtime (prefer Glama):" in text:
+        return re.sub(
+            r"(- runtime \(prefer Glama\):[^\n]+\n)",
+            rf"\1{line}",
+            text,
+            count=1,
+        )
+    return text
+
+
+def ensure_spectrallock_cite(text: str, *, ai: bool = False) -> str:
+    text = upsert_sisters_spectrallock_line(text)
+    if ai:
+        heading = SPECTRALLOCK_AI_HEAD
+        block = SPECTRALLOCK_AI_BLOCK
+        if heading in text:
+            return re.sub(
+                rf"{re.escape(heading)}[\s\S]*?(?=\nTRADES-RUNTIME |\nSOFTWARES-RUNTIME-LAUNCH|\nBAN-SURVIVAL|\nCOLD-MULTI-SHELF|\n[A-Z][A-Z0-9 _/-]+ \(|\nIdentity lock|\nPublisher name|\n## |\Z)",
+                block.rstrip() + "\n\n",
+                text,
+                count=1,
+            )
+        if "TRADES-RUNTIME (sister Softwares/runtime cite-only" in text:
+            return re.sub(
+                r"(TRADES-RUNTIME \(sister Softwares/runtime cite-only[\s\S]*?\n)(?=\nSOFTWARES-RUNTIME-LAUNCH-1.0|\nBAN-SURVIVAL-1.0|\nCOLD-MULTI-SHELF-1.0|\n## |\Z)",
+                rf"\1\n{block.strip()}\n",
+                text,
+                count=1,
+            )
+        if "SOFTWARES-RUNTIME-LAUNCH-1.0" in text:
+            return text.replace(
+                "SOFTWARES-RUNTIME-LAUNCH-1.0",
+                block.strip() + "\n\nSOFTWARES-RUNTIME-LAUNCH-1.0",
+                1,
+            )
+        return text.rstrip() + "\n\n" + block
+    heading = SPECTRALLOCK_LLMS_HEAD
+    block = SPECTRALLOCK_LLMS_BLOCK
+    if heading in text:
+        return re.sub(
+            rf"{re.escape(heading)}\n[\s\S]*?(?=\n## |\Z)",
+            block.rstrip() + "\n\n",
+            text,
+            count=1,
+        )
+    if "## Trades-Runtime sister cite (machine)" in text:
+        return re.sub(
+            r"(## Trades-Runtime sister cite \(machine\)\n[\s\S]*?)(?=\n## )",
+            rf"\1{block}\n",
             text,
             count=1,
         )
@@ -693,6 +860,31 @@ def ensure_related_trades(text: str) -> str:
     return text
 
 
+def ensure_related_spectrallock(text: str) -> str:
+    cite = (
+        f"Sister Softwares cite: [SpectralLock]({SPECTRALLOCK_UNREDACT}) "
+        "(leftover-bytes recover; SL-UNREDACT-OPAQUE refuse; not FragGate door op)."
+    )
+    if "Sister Softwares cite: [SpectralLock]" in text:
+        return text
+    trades = "Sister Softwares cite: [Trades-Runtime]"
+    if trades in text:
+        return re.sub(
+            r"(Sister Softwares cite: \[Trades-Runtime\][^\n]*)",
+            rf"\1 {cite}",
+            text,
+            count=1,
+        )
+    if "Related, not sameAs:" in text:
+        return re.sub(
+            r"(Related, not sameAs:[^\n]+)",
+            rf"\1 {cite}",
+            text,
+            count=1,
+        )
+    return text
+
+
 def bump_sitemap_lastmod(text: str) -> str:
     for loc in SITEMAP_BUMP_LOCS:
         text = re.sub(
@@ -715,7 +907,9 @@ def patch_txt(text: str, *, ai: bool = False) -> str:
     text = ensure_sisters_block(text)
     text = ensure_what_does_block(text)
     text = ensure_trades_runtime_cite(text, ai=ai)
+    text = ensure_spectrallock_cite(text, ai=ai)
     text = ensure_related_trades(text)
+    text = ensure_related_spectrallock(text)
     if "75% cap class" not in text:
         text = text.replace(
             "hedidntjump.com is An Aziel Eliab Project:",
