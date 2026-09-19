@@ -48,6 +48,14 @@ from aziel_living import (
     THE_ARK_DOWNLOAD,
     THE_ARK_GITHUB,
     THE_ARK_STATS,
+    TRADES_RUNTIME,
+    TRADES_RUNTIME_ADDENDUM,
+    TRADES_RUNTIME_DOWNLOAD,
+    TRADES_RUNTIME_GITHUB,
+    TRADES_RUNTIME_HONESTY,
+    TRADES_RUNTIME_MCP,
+    TRADES_RUNTIME_OPENAPI,
+    TRADES_RUNTIME_WORKER,
     WHAT_AZIEL_ELIAB_DOES,
     WHITESTONE,
     softwares_list_markdown,
@@ -81,10 +89,40 @@ SISTERS_BLOCK = f"""Sister surfaces (this host is HDJ; not a Softwares clone)
 - godlock: {SISTERS["godlock"]}
 - runtime: {SISTERS["runtime"]}
 - runtime (prefer Glama): {SISTERS_GLAMA}
+- trades-runtime (sister Softwares cite-only; not FragGate exec): {TRADES_RUNTIME_WORKER}
 - this: {SISTERS_HDJ} — {HDJ_BLURB}
 Growth-ON. NO-LIE. Person @id: {PERSON_ID}
 ZionBot owns newspaper HTML / Pages SEO chrome. This pack is machine files only.
 """
+
+TRADES_RUNTIME_LLMS_HEAD = "## Trades-Runtime sister cite (machine)"
+TRADES_RUNTIME_LLMS_BLOCK = f"""{TRADES_RUNTIME_LLMS_HEAD}
+
+{TRADES_RUNTIME_ADDENDUM}
+
+- Worker: {TRADES_RUNTIME_WORKER}
+- GitHub: {TRADES_RUNTIME_GITHUB}
+- Download: {TRADES_RUNTIME_DOWNLOAD}
+- OpenAPI: {TRADES_RUNTIME_OPENAPI}
+- MCP: {TRADES_RUNTIME_MCP}
+
+HDJ cites; does not host. Not a Softwares takeover. Zioncheck stays the HDJ mission.
+"""
+
+TRADES_RUNTIME_AI_HEAD = "TRADES-RUNTIME (sister Softwares/runtime cite-only"
+TRADES_RUNTIME_AI_BLOCK = f"""TRADES-RUNTIME (sister Softwares/runtime cite-only; not a Softwares takeover):
+- Local-first BYO trades runtime. Not FragGate exec. live_backends false. Aziel Eliab only.
+- Worker: {TRADES_RUNTIME_WORKER}
+- GitHub: {TRADES_RUNTIME_GITHUB}
+- Download: {TRADES_RUNTIME_DOWNLOAD}
+- OpenAPI: {TRADES_RUNTIME_OPENAPI}
+- MCP: {TRADES_RUNTIME_MCP}
+- HDJ cites; does not host. Not aziel-runtime wholesale. Zioncheck stays the HDJ mission.
+- Growth-ON. NO-LIE. No visible 15:20.
+"""
+
+SITEMAP_LASTMOD = "2026-09-19"
+SITEMAP_BUMP_LOCS = ("/llms.txt", "/ai.txt", "/cite.json")
 
 SOFTWARES_LIST_BLOCK = softwares_list_markdown()
 SOFTWARES_LIST_HEAD = "Softwares (list; HDJ cites, does not host):"
@@ -104,6 +142,8 @@ A: {WHAT_AZIEL_ELIAB_DOES_ANSWER}
 {RESEARCH_ADDENDUM}
 
 {HARDWARE_ADDENDUM}
+
+{TRADES_RUNTIME_ADDENDUM}
 """
 
 WHAT_DOES_FAQ_ROWS = [
@@ -323,6 +363,7 @@ def patch_cite(data: dict) -> dict:
         "runtime_glama": SISTERS_GLAMA,
         "hdj": SISTERS_HDJ,
         "this": "hdj",
+        "trades_runtime": TRADES_RUNTIME_WORKER,
     }
     data["pages_seo"] = PAGES_SEO
     data["growth_on"] = True
@@ -336,6 +377,11 @@ def patch_cite(data: dict) -> dict:
     extra = [
         {"id": "ae", "label": "ae — official site", "href": SISTERS["ae"]},
         {"id": "corpus", "label": "corpus — Aziel Corpus Library", "href": SISTERS["corpus"]},
+        {
+            "id": "trades-runtime",
+            "label": "Trades-Runtime (sister Softwares cite)",
+            "href": TRADES_RUNTIME_WORKER,
+        },
     ]
     for row in extra:
         if row["id"] not in have:
@@ -367,6 +413,32 @@ def patch_cite(data: dict) -> dict:
     data["the_ark_download"] = THE_ARK_DOWNLOAD
     data["the_ark_stats"] = THE_ARK_STATS
     data["the_ark_github"] = THE_ARK_GITHUB
+    data["trades_runtime"] = {
+        "name": "Trades-Runtime",
+        "product": "trades-runtime",
+        "version": "0.3.3",
+        "author": "Aziel Eliab",
+        "identity": "Aziel Eliab",
+        "cite_only": True,
+        "fraggate_exec": False,
+        "live_backends": False,
+        "hosted_company_os": False,
+        "worker": TRADES_RUNTIME_WORKER,
+        "github": TRADES_RUNTIME_GITHUB,
+        "download": TRADES_RUNTIME_DOWNLOAD,
+        "openapi": TRADES_RUNTIME_OPENAPI,
+        "mcp": TRADES_RUNTIME_MCP,
+        "honesty": TRADES_RUNTIME_HONESTY,
+        "note": (
+            "HDJ cites; does not host. Sister Softwares/runtime cite-only. "
+            "Not a Softwares takeover. Not FragGate exec. Zioncheck stays the HDJ mission."
+        ),
+    }
+    data["trades_runtime_worker"] = TRADES_RUNTIME_WORKER
+    data["trades_runtime_github"] = TRADES_RUNTIME_GITHUB
+    data["trades_runtime_download"] = TRADES_RUNTIME_DOWNLOAD
+    data["trades_runtime_openapi"] = TRADES_RUNTIME_OPENAPI
+    data["trades_runtime_mcp"] = TRADES_RUNTIME_MCP
     data["research"] = {
         "note": "Sister research on azielcorpuslibrary.net. HDJ is not a verdict.",
         "hdj": "He Didn’t Jump Zioncheck archive + Volumes I–V on this host (75% cap class).",
@@ -433,7 +505,8 @@ def patch_cite(data: dict) -> dict:
         "Marion A. Zioncheck archive: U.S. Representative / Seattle congressman "
         "(1933–1936). Official reports said suicide at the Arctic Building on "
         "7 August 1936. This project re-examines that account from published "
-        f"newspapers and volumes. {HDJ_BLURB} Sisters: ae, corpus, godlock, runtime."
+        f"newspapers and volumes. {HDJ_BLURB} Sisters: ae, corpus, godlock, runtime. "
+        "Sister Softwares cite: trades-runtime (not a hub)."
     )
     return data
 
@@ -465,6 +538,12 @@ def patch_person(data: dict) -> dict:
         data["the_ark_download"] = THE_ARK_DOWNLOAD
         data["the_ark_stats"] = THE_ARK_STATS
         data["the_ark_github"] = THE_ARK_GITHUB
+        data["trades_runtime"] = TRADES_RUNTIME
+        data["trades_runtime_worker"] = TRADES_RUNTIME_WORKER
+        data["trades_runtime_github"] = TRADES_RUNTIME_GITHUB
+        data["trades_runtime_download"] = TRADES_RUNTIME_DOWNLOAD
+        data["trades_runtime_openapi"] = TRADES_RUNTIME_OPENAPI
+        data["trades_runtime_mcp"] = TRADES_RUNTIME_MCP
     return data
 
 
@@ -511,6 +590,8 @@ def ensure_what_does_block(text: str) -> str:
             extras.append(RESEARCH_ADDENDUM)
         if HARDWARE_ADDENDUM not in text:
             extras.append(HARDWARE_ADDENDUM)
+        if TRADES_RUNTIME_ADDENDUM not in text:
+            extras.append(TRADES_RUNTIME_ADDENDUM)
         if extras:
             text = text.rstrip() + "\n\n" + "\n\n".join(extras) + "\n"
         return text
@@ -528,10 +609,113 @@ def ensure_what_does_block(text: str) -> str:
     return text.rstrip() + "\n" + block
 
 
-def patch_txt(text: str) -> str:
+def upsert_sisters_trades_line(text: str) -> str:
+    line = (
+        f"- trades-runtime (sister Softwares cite-only; not FragGate exec): "
+        f"{TRADES_RUNTIME_WORKER}\n"
+    )
+    if "trades-runtime (sister Softwares cite-only" in text:
+        return text
+    if "- runtime (prefer Glama):" in text:
+        return re.sub(
+            r"(- runtime \(prefer Glama\):[^\n]+\n)",
+            rf"\1{line}",
+            text,
+            count=1,
+        )
+    return text
+
+
+def ensure_trades_runtime_cite(text: str, *, ai: bool = False) -> str:
+    text = upsert_sisters_trades_line(text)
+    if ai:
+        heading = TRADES_RUNTIME_AI_HEAD
+        block = TRADES_RUNTIME_AI_BLOCK
+        if heading in text:
+            return re.sub(
+                rf"{re.escape(heading)}[\s\S]*?(?=\n[A-Z][A-Z0-9 _/-]+ \(|\nIdentity lock|\nPublisher name|\n## |\Z)",
+                block.rstrip() + "\n\n",
+                text,
+                count=1,
+            )
+        if "SOFTWARES-RUNTIME-LAUNCH-1.0" in text:
+            return text.replace(
+                "SOFTWARES-RUNTIME-LAUNCH-1.0",
+                block.strip() + "\n\nSOFTWARES-RUNTIME-LAUNCH-1.0",
+                1,
+            )
+        return text.rstrip() + "\n\n" + block
+    heading = TRADES_RUNTIME_LLMS_HEAD
+    block = TRADES_RUNTIME_LLMS_BLOCK
+    if heading in text:
+        return re.sub(
+            rf"{re.escape(heading)}\n[\s\S]*?(?=\n## |\Z)",
+            block.rstrip() + "\n\n",
+            text,
+            count=1,
+        )
+    if "## HDJ sister cite (machine)" in text:
+        return text.replace(
+            "## HDJ sister cite (machine)",
+            block + "\n## HDJ sister cite (machine)",
+            1,
+        )
+    if "## Related properties (Person sameAs)" in text:
+        return text.replace(
+            "## Related properties (Person sameAs)",
+            block + "\n## Related properties (Person sameAs)",
+            1,
+        )
+    return text.rstrip() + "\n\n" + block
+
+
+def ensure_related_trades(text: str) -> str:
+    cite = (
+        f"Sister Softwares cite: [Trades-Runtime]({TRADES_RUNTIME_WORKER}) "
+        "(local-first BYO; not FragGate exec)."
+    )
+    if "Sister Softwares cite: [Trades-Runtime]" in text:
+        return text
+    old = (
+        "Related, not sameAs: [Donate](https://www.azieleliab.com/donate?v=png). "
+        "Statute only, not an Aziel property: [FOIA.gov](https://www.foia.gov/) "
+        "(5 U.S.C. § 552)."
+    )
+    if old in text:
+        return text.replace(old, old + " " + cite, 1)
+    if "Related, not sameAs:" in text:
+        return re.sub(
+            r"(Related, not sameAs:[^\n]+)",
+            rf"\1 {cite}",
+            text,
+            count=1,
+        )
+    return text
+
+
+def bump_sitemap_lastmod(text: str) -> str:
+    for loc in SITEMAP_BUMP_LOCS:
+        text = re.sub(
+            rf"(<loc>https://hedidntjump\.com{re.escape(loc)}</loc>\n    <lastmod>)[^<]+",
+            rf"\g<1>{SITEMAP_LASTMOD}",
+            text,
+            count=1,
+        )
+    text = re.sub(
+        r"(<loc>https://hedidntjump\.com/sitemap\.xml</loc>\n    <lastmod>)[^<]+",
+        rf"\g<1>{SITEMAP_LASTMOD}",
+        text,
+        count=1,
+    )
+    return text
+
+
+def patch_txt(text: str, *, ai: bool = False) -> str:
     text = rewrite_stack(text)
     text = ensure_sisters_block(text)
     text = ensure_what_does_block(text)
+    text = ensure_trades_runtime_cite(text, ai=ai)
+    text = ensure_related_trades(text)
     if "75% cap class" not in text:
         text = text.replace(
             "hedidntjump.com is An Aziel Eliab Project:",
@@ -563,8 +747,25 @@ def write_trees() -> None:
 
         for rel in MACHINE_TXT:
             path = tree / rel
-            path.write_text(patch_txt(path.read_text(encoding="utf-8")), encoding="utf-8")
+            path.write_text(
+                patch_txt(path.read_text(encoding="utf-8"), ai=rel == "ai.txt"),
+                encoding="utf-8",
+            )
             print("wrote", path.relative_to(ROOT))
+
+        sitemap = tree / "sitemap.xml"
+        sitemap.write_text(
+            bump_sitemap_lastmod(sitemap.read_text(encoding="utf-8")),
+            encoding="utf-8",
+        )
+        print("sitemap", sitemap.relative_to(ROOT))
+        index = tree / "sitemap-index.xml"
+        if index.exists():
+            index.write_text(
+                bump_sitemap_lastmod(index.read_text(encoding="utf-8")),
+                encoding="utf-8",
+            )
+            print("sitemap-index", index.relative_to(ROOT))
 
 
 if __name__ == "__main__":

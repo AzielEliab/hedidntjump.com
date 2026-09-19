@@ -21,7 +21,7 @@ hedidntjump.com is An Aziel Eliab Project. Person sameAs / related properties:
 - https://aziel-runtime.vibelock.workers.dev/ — engine-runtime catalog / OpenAPI / MCP
 - https://x.com/AzielEliab (also https://twitter.com/AzielEliab)
 
-Related, not sameAs: https://www.azieleliab.com/donate?v=png. FOIA.gov is the U.S. statute site only.
+Related, not sameAs: https://www.azieleliab.com/donate?v=png. FOIA.gov is the U.S. statute site only. Sister Softwares cite: [Trades-Runtime](https://trades-runtime.vibelock.workers.dev) (local-first BYO; not FragGate exec).
 
 ## What the site is
 
@@ -177,6 +177,18 @@ Receipts chrome stays Aziel-page-only (AboutAziel). Do not add Receipts as paper
 Shelves honesty unchanged: Plane B Framagit SLOT (`CNS-NO-FORGE-MIRROR`, URL null); Codeberg + archive.org PASS still SLOT; Plane C SLOT. No LIVE invent.
 HDJ ingest tip unchanged: `ef967e4acb47ba913ce3959b673767278da605b307de33210b2dc2f1cfd86f60`
 
+## Trades-Runtime sister cite (machine)
+
+SISTER SOFTWARES / RUNTIME (cite-only; not a Softwares takeover): Trades-Runtime is a local-first BYO trades runtime (HVAC, plumbing, electrical, sewer, cross-trades). People bring their own ServiceTitan and ProBooks. Not FragGate exec. live_backends false. Aziel Eliab only. Worker https://trades-runtime.vibelock.workers.dev · GitHub https://github.com/AzielEliab/trades-runtime · download https://trades-runtime.vibelock.workers.dev/download · OpenAPI https://trades-runtime.vibelock.workers.dev/openapi.json · MCP https://trades-runtime.vibelock.workers.dev/mcp. HDJ cites; does not host. Not aziel-runtime wholesale. Zioncheck stays the HDJ mission.
+
+- Worker: https://trades-runtime.vibelock.workers.dev
+- GitHub: https://github.com/AzielEliab/trades-runtime
+- Download: https://trades-runtime.vibelock.workers.dev/download
+- OpenAPI: https://trades-runtime.vibelock.workers.dev/openapi.json
+- MCP: https://trades-runtime.vibelock.workers.dev/mcp
+
+HDJ cites; does not host. Not a Softwares takeover. Zioncheck stays the HDJ mission.
+
 ## HDJ sister cite (machine)
 
 Sister surfaces (this host is HDJ; not a Softwares clone)
@@ -185,6 +197,7 @@ Sister surfaces (this host is HDJ; not a Softwares clone)
 - godlock: https://godlock.uk/
 - runtime: https://aziel-runtime.vibelock.workers.dev/
 - runtime (prefer Glama): https://glama.ai/mcp/servers/AzielEliab/aziel-runtime
+- trades-runtime (sister Softwares cite-only; not FragGate exec): https://trades-runtime.vibelock.workers.dev
 - this: https://www.hedidntjump.com/ — Zioncheck / He Didn't Jump archive sister (75% cap class). Not a Softwares clone.
 Growth-ON. NO-LIE. Person @id: https://www.azieleliab.com/#aziel
 ZionBot owns newspaper HTML / Pages SEO chrome. This pack is machine files only.
@@ -209,6 +222,7 @@ Softwares (list; HDJ cites, does not host):
 - GodLock (product, not identity)
 - Whitestone (ephemeral pro se advisor; not a lawyer)
 - The ARK (local deniable vault); download+ https://ark-download-tracker.vibelock.workers.dev/download ; stats https://ark-download-tracker.vibelock.workers.dev/stats ; github https://github.com/AzielEliab/ark
+- Trades-Runtime (local-first BYO trades runtime); worker https://trades-runtime.vibelock.workers.dev ; github https://github.com/AzielEliab/trades-runtime ; download https://trades-runtime.vibelock.workers.dev/download ; openapi https://trades-runtime.vibelock.workers.dev/openapi.json ; mcp https://trades-runtime.vibelock.workers.dev/mcp
 
 ## BAN-SURVIVAL-1.0
 
@@ -225,3 +239,5 @@ Person @id: https://www.azieleliab.com/#aziel. Lamb Lens ingest: https://www.azi
 Zioncheck stays the HDJ mission. Do not invent court holdings, FOIA letters, or case quotes.
 HDJ ingest tip unchanged: `ef967e4acb47ba913ce3959b673767278da605b307de33210b2dc2f1cfd86f60`
 This host: https://hedidntjump.com/survival · https://hedidntjump.com/survival.json · https://hedidntjump.com/v1/survival
+
+SISTER SOFTWARES / RUNTIME (cite-only; not a Softwares takeover): Trades-Runtime is a local-first BYO trades runtime (HVAC, plumbing, electrical, sewer, cross-trades). People bring their own ServiceTitan and ProBooks. Not FragGate exec. live_backends false. Aziel Eliab only. Worker https://trades-runtime.vibelock.workers.dev · GitHub https://github.com/AzielEliab/trades-runtime · download https://trades-runtime.vibelock.workers.dev/download · OpenAPI https://trades-runtime.vibelock.workers.dev/openapi.json · MCP https://trades-runtime.vibelock.workers.dev/mcp. HDJ cites; does not host. Not aziel-runtime wholesale. Zioncheck stays the HDJ mission.

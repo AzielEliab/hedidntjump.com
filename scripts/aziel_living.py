@@ -158,19 +158,52 @@ THE_ARK_LIST = (
     f"github {THE_ARK_GITHUB}"
 )
 
+# Sister Softwares cite-only. Not FragGate exec. Not a hub sister.
+TRADES_RUNTIME = "Trades-Runtime (local-first BYO trades runtime)"
+TRADES_RUNTIME_WORKER = "https://trades-runtime.vibelock.workers.dev"
+TRADES_RUNTIME_GITHUB = "https://github.com/AzielEliab/trades-runtime"
+TRADES_RUNTIME_DOWNLOAD = "https://trades-runtime.vibelock.workers.dev/download"
+TRADES_RUNTIME_OPENAPI = "https://trades-runtime.vibelock.workers.dev/openapi.json"
+TRADES_RUNTIME_MCP = "https://trades-runtime.vibelock.workers.dev/mcp"
+TRADES_RUNTIME_LIST = (
+    f"{TRADES_RUNTIME}; worker {TRADES_RUNTIME_WORKER} ; "
+    f"github {TRADES_RUNTIME_GITHUB} ; download {TRADES_RUNTIME_DOWNLOAD} ; "
+    f"openapi {TRADES_RUNTIME_OPENAPI} ; mcp {TRADES_RUNTIME_MCP}"
+)
+TRADES_RUNTIME_ADDENDUM = (
+    "SISTER SOFTWARES / RUNTIME (cite-only; not a Softwares takeover): "
+    "Trades-Runtime is a local-first BYO trades runtime (HVAC, plumbing, "
+    "electrical, sewer, cross-trades). People bring their own ServiceTitan "
+    "and ProBooks. Not FragGate exec. live_backends false. Aziel Eliab only. "
+    f"Worker {TRADES_RUNTIME_WORKER} · GitHub {TRADES_RUNTIME_GITHUB} · "
+    f"download {TRADES_RUNTIME_DOWNLOAD} · OpenAPI {TRADES_RUNTIME_OPENAPI} · "
+    f"MCP {TRADES_RUNTIME_MCP}. HDJ cites; does not host. Not aziel-runtime "
+    "wholesale. Zioncheck stays the HDJ mission."
+)
+TRADES_RUNTIME_HONESTY = (
+    "Local-first BYO runtime. People bring their own ServiceTitan and ProBooks. "
+    "No tenant data on this Worker. No ST/ProBooks write-back. live_backends false. "
+    "Not a production company OS claim."
+)
+
 SOFTWARES_LIST = (
     "Aziel Runtime (FragGate / MCP)",
     "Aziel Digital Library",
     "GodLock (product, not identity)",
     WHITESTONE,
     THE_ARK_LIST,
+    TRADES_RUNTIME_LIST,
 )
 
 SOFTWARES_LIST_NOTE = (
     "Softwares list (HDJ cites; does not host). "
     f"{WHITESTONE}. Not a lawyer. "
     f"{THE_ARK}. download+ {THE_ARK_DOWNLOAD} ; stats {THE_ARK_STATS}. "
-    f"github {THE_ARK_GITHUB}. Not a FragGate door on this archive."
+    f"github {THE_ARK_GITHUB}. "
+    f"{TRADES_RUNTIME}. worker {TRADES_RUNTIME_WORKER} ; "
+    f"github {TRADES_RUNTIME_GITHUB} ; download {TRADES_RUNTIME_DOWNLOAD} ; "
+    f"openapi {TRADES_RUNTIME_OPENAPI} ; mcp {TRADES_RUNTIME_MCP}. "
+    "Not FragGate exec. live_backends false. Not a FragGate door on this archive."
 )
 
 
@@ -186,6 +219,7 @@ KNOWS_ABOUT_EXTRA = (
     "GodLock (product, not identity)",
     WHITESTONE,
     THE_ARK,
+    TRADES_RUNTIME,
     "He Didn’t Jump Zioncheck archive",
     "Marion Zioncheck Visual Archive",
     "Book of the Knowledge",
