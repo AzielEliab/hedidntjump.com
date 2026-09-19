@@ -125,6 +125,19 @@ SISTER SOFTWARES / RUNTIME (cite-only; not a Softwares takeover): Trades-Runtime
 
 HDJ cites; does not host. Not a Softwares takeover. Zioncheck stays the HDJ mission.
 
+
+## SpectralLock sister cite (machine)
+
+SISTER SOFTWARES (cite-only; not a Softwares takeover): SpectralLock leftover-bytes recover reads present container bytes (object id / offset / stream). Opaque rewrite with no leftover bytes refuses SL-UNREDACT-OPAQUE. Never invent letters. Heatmaps are not transcripts. Not a FragGate door op (catalog LIVE_OPS stay health, modes, targets, overlay, verify, doctor, skill). Aziel Eliab only. Worker https://spectrallock-download-tracker.vibelock.workers.dev/v1/unredact · GitHub https://github.com/AzielEliab/spectrallock · download https://spectrallock-download-tracker.vibelock.workers.dev/download. HDJ cites; does not host. Not aziel-runtime wholesale. Zioncheck stays the HDJ mission.
+
+- Worker unredact: https://spectrallock-download-tracker.vibelock.workers.dev/v1/unredact
+- GitHub: https://github.com/AzielEliab/spectrallock
+- Download: https://spectrallock-download-tracker.vibelock.workers.dev/download
+- Worker: https://spectrallock-download-tracker.vibelock.workers.dev
+
+Leftover-bytes recover reads present container bytes. Opaque rewrite with no leftover bytes refuses SL-UNREDACT-OPAQUE. HDJ cites; does not host. Not a FragGate door op. Zioncheck stays the HDJ mission.
+
+
 ## HDJ sister cite (machine)
 
 Sister surfaces (this host is HDJ; not a Softwares clone)
@@ -134,6 +147,7 @@ Sister surfaces (this host is HDJ; not a Softwares clone)
 - runtime: https://aziel-runtime.vibelock.workers.dev/
 - runtime (prefer Glama): https://glama.ai/mcp/servers/AzielEliab/aziel-runtime
 - trades-runtime (sister Softwares cite-only; not FragGate exec): https://trades-runtime.vibelock.workers.dev
+- spectrallock (sister Softwares cite-only; leftover-bytes recover; SL-UNREDACT-OPAQUE refuse): https://spectrallock-download-tracker.vibelock.workers.dev/v1/unredact
 - this: https://www.hedidntjump.com/ — Zioncheck / He Didn't Jump archive sister (75% cap class). Not a Softwares clone.
 Growth-ON. NO-LIE. Person @id: https://www.azieleliab.com/#aziel
 ZionBot owns newspaper HTML / Pages SEO chrome. This pack is machine files only.
@@ -198,6 +212,7 @@ Softwares (list; HDJ cites, does not host):
 - Whitestone (ephemeral pro se advisor; not a lawyer)
 - The ARK (local deniable vault); download+ https://ark-download-tracker.vibelock.workers.dev/download ; stats https://ark-download-tracker.vibelock.workers.dev/stats ; github https://github.com/AzielEliab/ark
 - Trades-Runtime (local-first BYO trades runtime); worker https://trades-runtime.vibelock.workers.dev ; github https://github.com/AzielEliab/trades-runtime ; download https://trades-runtime.vibelock.workers.dev/download ; openapi https://trades-runtime.vibelock.workers.dev/openapi.json ; mcp https://trades-runtime.vibelock.workers.dev/mcp
+- SpectralLock (leftover-bytes recover; SL-UNREDACT-OPAQUE refuse); worker https://spectrallock-download-tracker.vibelock.workers.dev/v1/unredact ; github https://github.com/AzielEliab/spectrallock ; download https://spectrallock-download-tracker.vibelock.workers.dev/download
 
 BAN-SURVIVAL-1.0 (machine; hub pull of runtime /survival, short TTL 60s)
 This host remains the Marion Zioncheck / He Didn't Jump archive. Not a Softwares clone. Not a named live exec front.
@@ -211,3 +226,5 @@ Zioncheck stays the HDJ mission. Do not invent case facts.
 Pull: https://www.hedidntjump.com/survival · https://www.hedidntjump.com/survival.json · https://www.hedidntjump.com/v1/survival
 
 SISTER SOFTWARES / RUNTIME (cite-only; not a Softwares takeover): Trades-Runtime is a local-first BYO trades runtime (HVAC, plumbing, electrical, sewer, cross-trades). People bring their own ServiceTitan and ProBooks. Not FragGate exec. live_backends false. Aziel Eliab only. Worker https://trades-runtime.vibelock.workers.dev · GitHub https://github.com/AzielEliab/trades-runtime · download https://trades-runtime.vibelock.workers.dev/download · OpenAPI https://trades-runtime.vibelock.workers.dev/openapi.json · MCP https://trades-runtime.vibelock.workers.dev/mcp. HDJ cites; does not host. Not aziel-runtime wholesale. Zioncheck stays the HDJ mission.
+
+SISTER SOFTWARES (cite-only; not a Softwares takeover): SpectralLock leftover-bytes recover reads present container bytes (object id / offset / stream). Opaque rewrite with no leftover bytes refuses SL-UNREDACT-OPAQUE. Never invent letters. Heatmaps are not transcripts. Not a FragGate door op (catalog LIVE_OPS stay health, modes, targets, overlay, verify, doctor, skill). Aziel Eliab only. Worker https://spectrallock-download-tracker.vibelock.workers.dev/v1/unredact · GitHub https://github.com/AzielEliab/spectrallock · download https://spectrallock-download-tracker.vibelock.workers.dev/download. HDJ cites; does not host. Not aziel-runtime wholesale. Zioncheck stays the HDJ mission.

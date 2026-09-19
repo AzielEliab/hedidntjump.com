@@ -30,6 +30,13 @@ from aziel_living import (
     SISTERS_GLAMA,
     SISTERS_HDJ,
     SOFTWARES_LIST,
+    SPECTRALLOCK,
+    SPECTRALLOCK_ADDENDUM,
+    SPECTRALLOCK_DOWNLOAD,
+    SPECTRALLOCK_GITHUB,
+    SPECTRALLOCK_LIST,
+    SPECTRALLOCK_UNREDACT,
+    SPECTRALLOCK_WORKER,
     THE_ARK,
     THE_ARK_DOWNLOAD,
     THE_ARK_GITHUB,
@@ -115,10 +122,13 @@ def main() -> None:
         assert "The ARK" not in WHAT_AZIEL_ELIAB_DOES
         assert TRADES_RUNTIME not in WHAT_AZIEL_ELIAB_DOES
         assert "Trades-Runtime" not in WHAT_AZIEL_ELIAB_DOES
+        assert SPECTRALLOCK not in WHAT_AZIEL_ELIAB_DOES
+        assert "SpectralLock" not in WHAT_AZIEL_ELIAB_DOES
         assert cite["softwares_list"] == list(SOFTWARES_LIST)
         assert WHITESTONE in cite["softwares_list"]
         assert THE_ARK_LIST in cite["softwares_list"]
         assert TRADES_RUNTIME_LIST in cite["softwares_list"]
+        assert SPECTRALLOCK_LIST in cite["softwares_list"]
         assert cite["whitestone"] == WHITESTONE
         assert cite["the_ark"] == THE_ARK
         assert cite["the_ark_download"] == THE_ARK_DOWNLOAD
@@ -153,6 +163,32 @@ def main() -> None:
         assert TRADES_RUNTIME_OPENAPI in cite["softwares_list_note"]
         assert TRADES_RUNTIME_MCP in cite["softwares_list_note"]
         assert "trades-runtime" in cite["purpose"]
+        assert cite["sisters"]["spectrallock"] == SPECTRALLOCK_UNREDACT
+        assert cite["spectrallock_worker"] == SPECTRALLOCK_WORKER
+        assert cite["spectrallock_unredact"] == SPECTRALLOCK_UNREDACT
+        assert cite["spectrallock_github"] == SPECTRALLOCK_GITHUB
+        assert cite["spectrallock_download"] == SPECTRALLOCK_DOWNLOAD
+        assert cite["spectrallock"]["leftover_bytes_recovery"] is True
+        assert cite["spectrallock"]["pigment_recovery"] is False
+        assert cite["spectrallock"]["guessed_letters"] is False
+        assert cite["spectrallock"]["heatmap_is_transcript"] is False
+        assert cite["spectrallock"]["fraggate_door_op"] is False
+        assert cite["spectrallock"]["cite_only"] is True
+        assert cite["spectrallock"]["refuse_code"] == "SL-UNREDACT-OPAQUE"
+        assert cite["spectrallock"]["unredact"] == SPECTRALLOCK_UNREDACT
+        assert cite["spectrallock"]["worker"] == SPECTRALLOCK_WORKER
+        assert cite["spectrallock"]["github"] == SPECTRALLOCK_GITHUB
+        assert cite["spectrallock"]["download"] == SPECTRALLOCK_DOWNLOAD
+        assert any(
+            e.get("id") == "spectrallock" and e.get("href") == SPECTRALLOCK_UNREDACT
+            for e in cite["ecosystem"]
+            if isinstance(e, dict)
+        )
+        assert SPECTRALLOCK_UNREDACT in cite["softwares_list_note"]
+        assert SPECTRALLOCK_GITHUB in cite["softwares_list_note"]
+        assert SPECTRALLOCK_DOWNLOAD in cite["softwares_list_note"]
+        assert "SL-UNREDACT-OPAQUE" in cite["softwares_list_note"]
+        assert "spectrallock" in cite["purpose"]
         assert cite["what_aziel_eliab_does_answer"] == WHAT_AZIEL_ELIAB_DOES_ANSWER
         assert cite["what_aziel_eliab_does_faq"] == list(WHAT_DOES_FAQ_TITLES)
         cite_faq = {item["q"]: item["a"] for item in cite["faq"]}
@@ -194,8 +230,14 @@ def main() -> None:
         assert person.get("trades_runtime_download") == TRADES_RUNTIME_DOWNLOAD
         assert person.get("trades_runtime_openapi") == TRADES_RUNTIME_OPENAPI
         assert person.get("trades_runtime_mcp") == TRADES_RUNTIME_MCP
+        assert person.get("spectrallock") == SPECTRALLOCK
+        assert person.get("spectrallock_worker") == SPECTRALLOCK_WORKER
+        assert person.get("spectrallock_unredact") == SPECTRALLOCK_UNREDACT
+        assert person.get("spectrallock_github") == SPECTRALLOCK_GITHUB
+        assert person.get("spectrallock_download") == SPECTRALLOCK_DOWNLOAD
         assert THE_ARK in person["knowsAbout"]
         assert TRADES_RUNTIME in person["knowsAbout"]
+        assert SPECTRALLOCK in person["knowsAbout"]
         assert "GodLock (product, not identity)" in person["knowsAbout"]
 
         identity = json.loads(blobs["identity.jsonld"])
@@ -218,6 +260,7 @@ def main() -> None:
             "public hardware designs",
             THE_ARK,
             TRADES_RUNTIME,
+            SPECTRALLOCK,
         ):
             assert extra in ident_knows, extra
             assert extra in well_knows, extra
@@ -226,6 +269,15 @@ def main() -> None:
         assert "## Trades-Runtime sister cite (machine)" in blobs["llms-full.txt"]
         assert "TRADES-RUNTIME (sister Softwares/runtime cite-only" in blobs["ai.txt"]
         assert "Sister Softwares cite: [Trades-Runtime]" in blobs["llms.txt"]
+        assert "## SpectralLock sister cite (machine)" in blobs["llms.txt"]
+        assert "## SpectralLock sister cite (machine)" in blobs["llms-full.txt"]
+        assert "SPECTRALLOCK (sister Softwares cite-only" in blobs["ai.txt"]
+        assert "Sister Softwares cite: [SpectralLock]" in blobs["llms.txt"]
+        assert SPECTRALLOCK_UNREDACT in blobs["llms.txt"]
+        assert "SL-UNREDACT-OPAQUE" in blobs["llms.txt"]
+        assert "leftover-bytes recover" in blobs["llms.txt"]
+        assert SPECTRALLOCK_UNREDACT in blobs["ai.txt"]
+        assert "SL-UNREDACT-OPAQUE" in blobs["ai.txt"]
 
         who = blobs["who-is"]
         who_txt = blobs["who-is-aziel-eliab.txt"]
@@ -266,9 +318,20 @@ def main() -> None:
             assert TRADES_RUNTIME_DOWNLOAD in text, rel
             assert TRADES_RUNTIME_OPENAPI in text, rel
             assert TRADES_RUNTIME_MCP in text, rel
+            assert SPECTRALLOCK in text, rel
+            assert SPECTRALLOCK_LIST in text, rel
+            assert SPECTRALLOCK_ADDENDUM in text, rel
+            assert SPECTRALLOCK_UNREDACT in text, rel
+            assert SPECTRALLOCK_GITHUB in text, rel
+            assert SPECTRALLOCK_DOWNLOAD in text, rel
+            assert SPECTRALLOCK_WORKER in text, rel
+            assert "SL-UNREDACT-OPAQUE" in text, rel
+            assert "leftover-bytes recover" in text, rel
+            assert "Not a FragGate door op" in text, rel
             assert "Not FragGate exec" in text, rel
             assert "live_backends false" in text, rel
             assert "1 Chronicles 15:20" not in TRADES_RUNTIME_ADDENDUM
+            assert "1 Chronicles 15:20" not in SPECTRALLOCK_ADDENDUM
             assert WHAT_AZIEL_ELIAB_DOES in text, rel
 
         # Newspaper HTML chrome stays ZionBot's. This pack must not rewrite it.
@@ -283,9 +346,12 @@ def main() -> None:
             chunk = sitemap.split(f"<loc>https://hedidntjump.com{loc}</loc>", 1)[1][:80]
             assert "<lastmod>2026-09-19</lastmod>" in chunk, loc
         assert TRADES_RUNTIME_WORKER not in sitemap
+        assert SPECTRALLOCK_WORKER not in sitemap
+        assert SPECTRALLOCK_UNREDACT not in sitemap
         index = (tree / "sitemap-index.xml").read_text(encoding="utf-8")
         assert "<loc>https://hedidntjump.com/sitemap.xml</loc>" in index
         assert "trades-runtime.vibelock.workers.dev" not in index
+        assert "spectrallock-download-tracker.vibelock.workers.dev" not in index
 
         ingest = (tree / "ingest-as-receipt.json").read_bytes()
         import hashlib

@@ -7,7 +7,7 @@
     "Congressman Marion A. Zioncheck",
     "Congressman Zioncheck"
   ],
-  "purpose": "Marion A. Zioncheck archive: U.S. Representative / Seattle congressman (1933–1936). Official reports said suicide at the Arctic Building on 7 August 1936. This project re-examines that account from published newspapers and volumes. Zioncheck / He Didn't Jump archive sister (75% cap class). Not a Softwares clone. Sisters: ae, corpus, godlock, runtime. Sister Softwares cite: trades-runtime (not a hub).",
+  "purpose": "Marion A. Zioncheck archive: U.S. Representative / Seattle congressman (1933–1936). Official reports said suicide at the Arctic Building on 7 August 1936. This project re-examines that account from published newspapers and volumes. Zioncheck / He Didn't Jump archive sister (75% cap class). Not a Softwares clone. Sisters: ae, corpus, godlock, runtime. Sister Softwares cite: trades-runtime; spectrallock leftover-bytes recover (not a hub).",
   "canonical": "https://hedidntjump.com/",
   "case": "https://hedidntjump.com/Case",
   "query_urls": [
@@ -132,6 +132,11 @@
       "id": "trades-runtime",
       "label": "Trades-Runtime (sister Softwares cite)",
       "href": "https://trades-runtime.vibelock.workers.dev"
+    },
+    {
+      "id": "spectrallock",
+      "label": "SpectralLock (sister Softwares cite)",
+      "href": "https://spectrallock-download-tracker.vibelock.workers.dev/v1/unredact"
     }
   ],
   "editions": [
@@ -1009,7 +1014,8 @@
     "runtime_glama": "https://glama.ai/mcp/servers/AzielEliab/aziel-runtime",
     "hdj": "https://www.hedidntjump.com/",
     "this": "hdj",
-    "trades_runtime": "https://trades-runtime.vibelock.workers.dev"
+    "trades_runtime": "https://trades-runtime.vibelock.workers.dev",
+    "spectrallock": "https://spectrallock-download-tracker.vibelock.workers.dev/v1/unredact"
   },
   "pages_seo": {
     "owner": "ZionBot",
@@ -1086,7 +1092,8 @@
     "AEEM HVAC Energy Valve",
     "Whitestone (ephemeral pro se advisor; not a lawyer)",
     "The ARK (local deniable vault)",
-    "Trades-Runtime (local-first BYO trades runtime)"
+    "Trades-Runtime (local-first BYO trades runtime)",
+    "SpectralLock (leftover-bytes recover; SL-UNREDACT-OPAQUE refuse)"
   ],
   "softwares_list": [
     "Aziel Runtime (FragGate / MCP)",
@@ -1094,9 +1101,10 @@
     "GodLock (product, not identity)",
     "Whitestone (ephemeral pro se advisor; not a lawyer)",
     "The ARK (local deniable vault); download+ https://ark-download-tracker.vibelock.workers.dev/download ; stats https://ark-download-tracker.vibelock.workers.dev/stats ; github https://github.com/AzielEliab/ark",
-    "Trades-Runtime (local-first BYO trades runtime); worker https://trades-runtime.vibelock.workers.dev ; github https://github.com/AzielEliab/trades-runtime ; download https://trades-runtime.vibelock.workers.dev/download ; openapi https://trades-runtime.vibelock.workers.dev/openapi.json ; mcp https://trades-runtime.vibelock.workers.dev/mcp"
+    "Trades-Runtime (local-first BYO trades runtime); worker https://trades-runtime.vibelock.workers.dev ; github https://github.com/AzielEliab/trades-runtime ; download https://trades-runtime.vibelock.workers.dev/download ; openapi https://trades-runtime.vibelock.workers.dev/openapi.json ; mcp https://trades-runtime.vibelock.workers.dev/mcp",
+    "SpectralLock (leftover-bytes recover; SL-UNREDACT-OPAQUE refuse); worker https://spectrallock-download-tracker.vibelock.workers.dev/v1/unredact ; github https://github.com/AzielEliab/spectrallock ; download https://spectrallock-download-tracker.vibelock.workers.dev/download"
   ],
-  "softwares_list_note": "Softwares list (HDJ cites; does not host). Whitestone (ephemeral pro se advisor; not a lawyer). Not a lawyer. The ARK (local deniable vault). download+ https://ark-download-tracker.vibelock.workers.dev/download ; stats https://ark-download-tracker.vibelock.workers.dev/stats. github https://github.com/AzielEliab/ark. Trades-Runtime (local-first BYO trades runtime). worker https://trades-runtime.vibelock.workers.dev ; github https://github.com/AzielEliab/trades-runtime ; download https://trades-runtime.vibelock.workers.dev/download ; openapi https://trades-runtime.vibelock.workers.dev/openapi.json ; mcp https://trades-runtime.vibelock.workers.dev/mcp. Not FragGate exec. live_backends false. Not a FragGate door on this archive.",
+  "softwares_list_note": "Softwares list (HDJ cites; does not host). Whitestone (ephemeral pro se advisor; not a lawyer). Not a lawyer. The ARK (local deniable vault). download+ https://ark-download-tracker.vibelock.workers.dev/download ; stats https://ark-download-tracker.vibelock.workers.dev/stats. github https://github.com/AzielEliab/ark. Trades-Runtime (local-first BYO trades runtime). worker https://trades-runtime.vibelock.workers.dev ; github https://github.com/AzielEliab/trades-runtime ; download https://trades-runtime.vibelock.workers.dev/download ; openapi https://trades-runtime.vibelock.workers.dev/openapi.json ; mcp https://trades-runtime.vibelock.workers.dev/mcp. Not FragGate exec. live_backends false. SpectralLock (leftover-bytes recover; SL-UNREDACT-OPAQUE refuse). worker https://spectrallock-download-tracker.vibelock.workers.dev/v1/unredact ; github https://github.com/AzielEliab/spectrallock ; download https://spectrallock-download-tracker.vibelock.workers.dev/download. Leftover-bytes recover; SL-UNREDACT-OPAQUE refuse. Not a FragGate door op. Not a FragGate door on this archive.",
   "whitestone": "Whitestone (ephemeral pro se advisor; not a lawyer)",
   "the_ark": "The ARK (local deniable vault)",
   "the_ark_download": "https://ark-download-tracker.vibelock.workers.dev/download",
@@ -1247,5 +1255,38 @@
   "trades_runtime_github": "https://github.com/AzielEliab/trades-runtime",
   "trades_runtime_download": "https://trades-runtime.vibelock.workers.dev/download",
   "trades_runtime_openapi": "https://trades-runtime.vibelock.workers.dev/openapi.json",
-  "trades_runtime_mcp": "https://trades-runtime.vibelock.workers.dev/mcp"
+  "trades_runtime_mcp": "https://trades-runtime.vibelock.workers.dev/mcp",
+  "spectrallock": {
+    "name": "SpectralLock",
+    "product": "spectrallock",
+    "version": "0.3.0",
+    "author": "Aziel Eliab",
+    "identity": "Aziel Eliab",
+    "cite_only": true,
+    "fraggate_door_op": false,
+    "leftover_bytes_recovery": true,
+    "pigment_recovery": false,
+    "guessed_letters": false,
+    "heatmap_is_transcript": false,
+    "refuse_code": "SL-UNREDACT-OPAQUE",
+    "worker": "https://spectrallock-download-tracker.vibelock.workers.dev",
+    "unredact": "https://spectrallock-download-tracker.vibelock.workers.dev/v1/unredact",
+    "github": "https://github.com/AzielEliab/spectrallock",
+    "download": "https://spectrallock-download-tracker.vibelock.workers.dev/download",
+    "live_ops": [
+      "health",
+      "modes",
+      "targets",
+      "overlay",
+      "verify",
+      "doctor",
+      "skill"
+    ],
+    "honesty": "Leftover-bytes recover reads present container bytes only. Opaque clipped black / flattened screenshot with no leftover bytes refuses SL-UNREDACT-OPAQUE. Never OCR-from-black-box. Never invent letters. Heatmaps are not transcripts. Not a FragGate door op.",
+    "note": "HDJ cites; does not host. Sister Softwares cite-only. Leftover-bytes recover reads present container bytes. Opaque rewrite with no leftover bytes refuses SL-UNREDACT-OPAQUE. Not a FragGate door op. Zioncheck stays the HDJ mission."
+  },
+  "spectrallock_worker": "https://spectrallock-download-tracker.vibelock.workers.dev",
+  "spectrallock_unredact": "https://spectrallock-download-tracker.vibelock.workers.dev/v1/unredact",
+  "spectrallock_github": "https://github.com/AzielEliab/spectrallock",
+  "spectrallock_download": "https://spectrallock-download-tracker.vibelock.workers.dev/download"
 }
