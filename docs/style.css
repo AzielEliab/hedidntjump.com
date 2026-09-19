@@ -1177,7 +1177,8 @@ header.masthead[data-wireframe="drawn-v1"] .paper-folio .folio-stat span{
 
 
 
-/* Tab grid: 5 on row 1, 4 on row 2; names ~8px, Pg.# smaller (6/4) */
+/* Tab grid: 5+5. Desktop names 16px / Pg 12px (~2× the old 8/6).
+   Floor at 8/6 so "Copyrights (Pg. 10)" still fits one line at ~360px. */
 header.masthead[data-wireframe="drawn-v1"] nav.paper-tabs{
   display:flex !important;
   flex-direction:column !important;
@@ -1192,7 +1193,7 @@ header.masthead[data-wireframe="drawn-v1"] nav.paper-tabs{
 header.masthead[data-wireframe="drawn-v1"] nav.paper-tabs .tab-row{
   display:grid !important;
   width:100% !important;
-  column-gap:4px !important;
+  column-gap:2px !important;
   row-gap:0 !important;
   align-items:baseline !important;
 }
@@ -1206,19 +1207,19 @@ header.masthead[data-wireframe="drawn-v1"] nav.paper-tabs a{
   display:block !important;
   width:100% !important;
   max-width:100% !important;
-  font-size:8px !important; /* black underline — tab names */
+  font-size:clamp(8px, 2.22vw, 16px) !important; /* 8px @360, 16px @720+ */
   line-height:1.15 !important;
   text-align:center !important;
   text-decoration:none !important;
   min-height:0 !important;
-  padding:1px 0 !important;
+  padding:2px 0 !important;
   box-sizing:border-box !important;
   white-space:nowrap !important;
   overflow:hidden !important;
   text-overflow:ellipsis !important;
 }
 header.masthead[data-wireframe="drawn-v1"] nav.paper-tabs a .nav-pg{
-  font-size:4px !important; /* red underline — smaller Pg.# */
+  font-size:clamp(6px, 1.665vw, 12px) !important; /* 6px @360, 12px @720+ */
   font-weight:400 !important;
   opacity:.75 !important;
   margin-left:.1em !important;
@@ -1395,7 +1396,7 @@ header.masthead[data-wireframe="drawn-v1"] nav.paper-tabs .tab-row{
   line-height:1 !important;
 }
 header.masthead[data-wireframe="drawn-v1"] nav.paper-tabs a{
-  padding:0 !important;
+  padding:2px 0 !important;
   margin:0 !important;
   line-height:1.05 !important;
   min-height:0 !important;
