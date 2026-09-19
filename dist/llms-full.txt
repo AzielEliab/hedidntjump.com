@@ -21,7 +21,7 @@ hedidntjump.com is An Aziel Eliab Project. Person sameAs / related properties:
 - https://aziel-runtime.vibelock.workers.dev/ — engine-runtime catalog / OpenAPI / MCP
 - https://x.com/AzielEliab (also https://twitter.com/AzielEliab)
 
-Related, not sameAs: https://www.azieleliab.com/donate?v=png. FOIA.gov is the U.S. statute site only. Sister Softwares cite: [Trades-Runtime](https://trades-runtime.vibelock.workers.dev) (local-first BYO; not FragGate exec). Sister Softwares cite: [SpectralLock](https://spectrallock-download-tracker.vibelock.workers.dev) (leftover-bytes + /v1/recover + /v1/handwriting; NO-LIE; not FragGate door; not lab)..
+Related, not sameAs: https://www.azieleliab.com/donate?v=png. FOIA.gov is the U.S. statute site only. Sister Softwares cite: [Trades-Runtime](https://trades-runtime.vibelock.workers.dev) (local-first BYO; not FragGate exec). Sister Softwares cite: [SpectralLock](https://spectrallock-download-tracker.vibelock.workers.dev) (leftover-bytes + /v1/recover + /v1/handwriting; NO-LIE; not FragGate door; not lab).
 
 ## What the site is
 
