@@ -223,7 +223,7 @@
       "Whitestone (ephemeral pro se advisor; not a lawyer)",
       "The ARK (local deniable vault)",
       "Trades-Runtime (local-first BYO trades runtime)",
-      "SpectralLock (leftover-bytes recover; SL-UNREDACT-OPAQUE refuse)"
+      "SpectralLock (leftover-bytes + /v1/recover + /v1/handwriting; not lab)"
     ],
     "affiliation": {
       "@id": "https://hedidntjump.com/#organization"

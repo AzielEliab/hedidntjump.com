@@ -186,23 +186,51 @@ TRADES_RUNTIME_HONESTY = (
     "Not a production company OS claim."
 )
 
-# Sister Softwares cite-only. Leftover-bytes recover is product Worker, not a FragGate door op.
+# Sister Softwares cite-only. leftover-bytes + /v1/recover + /v1/handwriting
+# are product Worker paths (catalog_door false). Not a FragGate door. Not a lab.
 SPECTRALLOCK = (
+    "SpectralLock (leftover-bytes + /v1/recover + /v1/handwriting; not lab)"
+)
+SPECTRALLOCK_OLD = (
     "SpectralLock (leftover-bytes recover; SL-UNREDACT-OPAQUE refuse)"
 )
 SPECTRALLOCK_WORKER = "https://spectrallock-download-tracker.vibelock.workers.dev"
 SPECTRALLOCK_UNREDACT = (
     "https://spectrallock-download-tracker.vibelock.workers.dev/v1/unredact"
 )
+SPECTRALLOCK_RECOVER = (
+    "https://spectrallock-download-tracker.vibelock.workers.dev/v1/recover"
+)
+SPECTRALLOCK_HANDWRITING = (
+    "https://spectrallock-download-tracker.vibelock.workers.dev/v1/handwriting"
+)
 SPECTRALLOCK_GITHUB = "https://github.com/AzielEliab/spectrallock"
 SPECTRALLOCK_DOWNLOAD = (
     "https://spectrallock-download-tracker.vibelock.workers.dev/download"
 )
 SPECTRALLOCK_LIST = (
-    f"{SPECTRALLOCK}; worker {SPECTRALLOCK_UNREDACT} ; "
+    f"{SPECTRALLOCK}; leftover-bytes {SPECTRALLOCK_UNREDACT} ; "
+    f"/v1/recover {SPECTRALLOCK_RECOVER} ; "
+    f"/v1/handwriting {SPECTRALLOCK_HANDWRITING} ; "
     f"github {SPECTRALLOCK_GITHUB} ; download {SPECTRALLOCK_DOWNLOAD}"
 )
 SPECTRALLOCK_ADDENDUM = (
+    "SISTER SOFTWARES (cite-only; not a Softwares takeover): SpectralLock leftover-bytes "
+    "+ GET|POST /v1/recover + GET|POST /v1/handwriting. Leftover-bytes recover reads "
+    "present container bytes (object id / offset / stream). Opaque rewrite with no leftover "
+    "bytes refuses SL-UNREDACT-OPAQUE. Universal recover reads present bytes and documented "
+    "structure only — never infer covered letters from context. Handwriting is synthetic "
+    "pixel analysis of a user-supplied scan or photo; indicators are heuristics. Not a lab, "
+    "not ESDA, not chemical dating, not writer identity, not a court finding. Heatmaps are "
+    "not transcripts. Not a FragGate door (catalog LIVE_OPS stay health, modes, targets, "
+    "overlay, verify, doctor, skill; recover/handwriting catalog_door false). NO-LIE. "
+    "Aziel Eliab only. leftover-bytes "
+    f"{SPECTRALLOCK_UNREDACT} · /v1/recover {SPECTRALLOCK_RECOVER} · /v1/handwriting "
+    f"{SPECTRALLOCK_HANDWRITING} · GitHub {SPECTRALLOCK_GITHUB} · download "
+    f"{SPECTRALLOCK_DOWNLOAD}. HDJ cites; does not host. Not aziel-runtime wholesale. "
+    "Zioncheck stays the HDJ mission."
+)
+SPECTRALLOCK_ADDENDUM_OLD = (
     "SISTER SOFTWARES (cite-only; not a Softwares takeover): SpectralLock leftover-bytes "
     "recover reads present container bytes (object id / offset / stream). Opaque rewrite "
     "with no leftover bytes refuses SL-UNREDACT-OPAQUE. Never invent letters. Heatmaps "
@@ -213,10 +241,11 @@ SPECTRALLOCK_ADDENDUM = (
     "Zioncheck stays the HDJ mission."
 )
 SPECTRALLOCK_HONESTY = (
-    "Leftover-bytes recover reads present container bytes only. Opaque clipped black / "
-    "flattened screenshot with no leftover bytes refuses SL-UNREDACT-OPAQUE. Never "
-    "OCR-from-black-box. Never invent letters. Heatmaps are not transcripts. Not a "
-    "FragGate door op."
+    "Leftover-bytes + /v1/recover + /v1/handwriting. Present bytes and documented "
+    "structure only. Never infer covered letters from context. Handwriting never invents "
+    "marks. Not a lab. Not ESDA. Not chemical dating. Not writer identity. Not a court "
+    "finding. Heatmaps are not transcripts. Opaque rewrite with no leftover bytes refuses "
+    "SL-UNREDACT-OPAQUE. Not a FragGate door. NO-LIE."
 )
 
 SOFTWARES_LIST = (
@@ -238,9 +267,11 @@ SOFTWARES_LIST_NOTE = (
     f"github {TRADES_RUNTIME_GITHUB} ; download {TRADES_RUNTIME_DOWNLOAD} ; "
     f"openapi {TRADES_RUNTIME_OPENAPI} ; mcp {TRADES_RUNTIME_MCP}. "
     "Not FragGate exec. live_backends false. "
-    f"{SPECTRALLOCK}. worker {SPECTRALLOCK_UNREDACT} ; "
+    f"{SPECTRALLOCK}. leftover-bytes {SPECTRALLOCK_UNREDACT} ; "
+    f"/v1/recover {SPECTRALLOCK_RECOVER} ; "
+    f"/v1/handwriting {SPECTRALLOCK_HANDWRITING} ; "
     f"github {SPECTRALLOCK_GITHUB} ; download {SPECTRALLOCK_DOWNLOAD}. "
-    "Leftover-bytes recover; SL-UNREDACT-OPAQUE refuse. Not a FragGate door op. "
+    "NO-LIE. Not a FragGate door. Not a lab. "
     "Not a FragGate door on this archive."
 )
 
