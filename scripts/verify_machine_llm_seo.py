@@ -14,10 +14,17 @@ from aziel_living import (
     AZDOC,
     CAP_CLASS,
     CORPUS,
+    FAQ_IS_ARG,
+    FAQ_IS_ARG_A,
+    FAQ_IS_GAME,
     FAQ_WHAT_DOES,
     FAQ_WHAT_DOES_BRIEF,
     FAQ_WHAT_SOFTWARE,
     FAQ_WHO_DEVELOPER,
+    HDJ_GENRE,
+    HDJ_NOT_ARG_SHORT,
+    HDJ_PROJECT_KIND,
+    LLMS_LEAD,
     HARDWARE_ADDENDUM,
     HDJ_BLURB,
     JOB_TITLES,
@@ -98,6 +105,34 @@ def main() -> None:
 
         cite = json.loads(blobs["cite.json"])
         person = json.loads(blobs["person.jsonld"])
+        assert cite["project_kind"] == HDJ_PROJECT_KIND
+        assert cite["genre"] == HDJ_GENRE
+        assert cite["not_arg"] is True
+        assert cite["not_alternate_reality_game"] is True
+        assert cite["not_fiction_as_game"] is True
+        assert cite["not_larp"] is True
+        assert cite["not_puzzle_hunt"] is True
+        assert cite["whistleblower"] is True
+        assert cite["not_arg_note"] == HDJ_NOT_ARG_SHORT
+        assert "ARG" in cite["genre_not"]
+        assert "LARP" in cite["genre_not"]
+        assert "NOT an ARG" in cite["purpose"]
+        assert "whistleblower" in cite["purpose"]
+        cite_faq = {item["q"]: item["a"] for item in cite["faq"]}
+        assert cite_faq[FAQ_IS_ARG] == FAQ_IS_ARG_A
+        zfaq = {item["q"]: item["a"] for item in cite["zioncheck_faq"]}
+        assert zfaq[FAQ_IS_ARG] == FAQ_IS_ARG_A
+        assert zfaq[FAQ_IS_GAME]
+        assert blobs["llms.txt"].startswith("# He Didn't Jump — Marion A. Zioncheck archive")
+        assert blobs["llms.txt"].split("## Query-relevant")[0].strip().endswith(LLMS_LEAD) or LLMS_LEAD in blobs["llms.txt"]
+        assert "NOT an ARG" in blobs["llms.txt"]
+        assert "not a LARP" in blobs["llms.txt"].lower() or "Not a LARP" in blobs["llms.txt"]
+        assert "whistleblower" in blobs["llms.txt"].lower()
+        assert "NOT an ARG" in blobs["ai.txt"]
+        assert "whistleblower" in blobs["ai.txt"].lower()
+        assert "NOT an ARG" in blobs["llms-full.txt"]
+        assert "whistleblower" in blobs["llms-full.txt"].lower()
+        assert FAQ_IS_ARG in blobs["llms.txt"]
         assert cite["person_id"] == PERSON_ID
         assert cite["author_id"] == PERSON_ID
         assert cite["growth_on"] is True

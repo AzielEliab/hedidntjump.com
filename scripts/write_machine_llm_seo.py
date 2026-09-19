@@ -18,21 +18,40 @@ if str(_SCRIPTS) not in sys.path:
     sys.path.insert(0, str(_SCRIPTS))
 
 from aziel_living import (
+    AI_HOST_SENTENCE,
+    ARG_FAQ_ROWS,
     AZDOC,
     CAP_CLASS,
     CAP_NOTE,
     CORPUS,
     DOI_RULE,
+    FAQ_IS_ARG,
+    FAQ_IS_ARG_A,
+    FAQ_IS_GAME,
+    FAQ_IS_GAME_A,
     FAQ_WHAT_DOES,
     FAQ_WHAT_DOES_BRIEF,
+    FAQ_WHAT_HDJ,
     FAQ_WHAT_SOFTWARE,
     FAQ_WHO_DEVELOPER,
+    GENRE_LOCK_BLOCK,
+    GENRE_LOCK_HEAD,
     HARDWARE_ADDENDUM,
     HDJ_BLURB,
+    HDJ_GENRE,
+    HDJ_GENRE_NOT,
+    HDJ_MISSION,
+    HDJ_NOT_ARG_LIST,
+    HDJ_NOT_ARG_SHORT,
+    HDJ_POSITIVE_GENRE,
+    HDJ_PROJECT_KIND,
+    HDJ_PURPOSE,
     JOB_TITLES,
     KEEP_JOB_TITLES,
     KNOWS_ABOUT_EXTRA,
     LIVING_STACK,
+    LLMS_FULL_WHAT,
+    LLMS_LEAD,
     OLD_STACK_PHRASES,
     PAGES_SEO,
     PERSON_ID,
@@ -192,12 +211,15 @@ WHAT_DOES_FAQ_ROWS = [
     {"q": title, "a": WHAT_AZIEL_ELIAB_DOES_ANSWER}
     for title in WHAT_DOES_FAQ_TITLES
 ]
+ARG_FAQ_LIST = [dict(row) for row in ARG_FAQ_ROWS]
 
 FAQ_GRAPH_IDS = {
     FAQ_WHAT_DOES: "https://www.hedidntjump.com/#faq-what-does-aziel-eliab-do",
     FAQ_WHAT_DOES_BRIEF: "https://www.hedidntjump.com/#faq-what-aziel-eliab-does",
     FAQ_WHO_DEVELOPER: "https://www.hedidntjump.com/#faq-who-is-aziel-eliab-the-developer",
     FAQ_WHAT_SOFTWARE: "https://www.hedidntjump.com/#faq-what-software-does-aziel-eliab-make",
+    FAQ_IS_ARG: "https://www.hedidntjump.com/#faq-is-hedidntjump-an-arg",
+    FAQ_IS_GAME: "https://www.hedidntjump.com/#faq-is-hedidntjump-a-game",
 }
 
 
@@ -205,10 +227,10 @@ def dumps(obj: Any) -> str:
     return json.dumps(obj, indent=2, ensure_ascii=False) + "\n"
 
 
-def upsert_faq_rows(faq: list) -> list:
+def upsert_named_faq_rows(faq: list, rows: list) -> list:
     out = [item for item in faq if isinstance(item, dict)]
     have = {item.get("q") for item in out}
-    for row in WHAT_DOES_FAQ_ROWS:
+    for row in rows:
         if row["q"] in have:
             for item in out:
                 if item.get("q") == row["q"]:
@@ -216,6 +238,10 @@ def upsert_faq_rows(faq: list) -> list:
         else:
             out.append(dict(row))
     return out
+
+
+def upsert_faq_rows(faq: list) -> list:
+    return upsert_named_faq_rows(faq, WHAT_DOES_FAQ_ROWS + ARG_FAQ_LIST)
 
 
 def upsert_knows_about(knows: list) -> list:
@@ -273,14 +299,22 @@ def upsert_graph_faq(data: dict) -> dict:
             for item in entities
             if isinstance(item, dict)
         }
-        for title in WHAT_DOES_FAQ_TITLES:
+        extra_faq = list(WHAT_DOES_FAQ_TITLES) + [FAQ_IS_ARG, FAQ_IS_GAME]
+        answers = {
+            **{title: WHAT_AZIEL_ELIAB_DOES_ANSWER for title in WHAT_DOES_FAQ_TITLES},
+            FAQ_IS_ARG: FAQ_IS_ARG_A,
+            FAQ_IS_GAME: FAQ_IS_GAME_A,
+            "What is He Didn’t Jump?": FAQ_WHAT_HDJ,
+            "What is He Didn't Jump?": FAQ_WHAT_HDJ,
+        }
+        for title in extra_faq:
             if title in have:
                 for item in entities:
                     if item.get("name") == title:
                         item.setdefault("acceptedAnswer", {})
                         if isinstance(item["acceptedAnswer"], dict):
                             item["acceptedAnswer"]["@type"] = "Answer"
-                            item["acceptedAnswer"]["text"] = WHAT_AZIEL_ELIAB_DOES_ANSWER
+                            item["acceptedAnswer"]["text"] = answers[title]
                 continue
             entities.append(
                 {
@@ -289,12 +323,46 @@ def upsert_graph_faq(data: dict) -> dict:
                     "name": title,
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": WHAT_AZIEL_ELIAB_DOES_ANSWER,
+                        "text": answers[title],
                     },
                 }
             )
+        for item in entities:
+            name = item.get("name")
+            if name in answers and isinstance(item.get("acceptedAnswer"), dict):
+                item["acceptedAnswer"]["text"] = answers[name]
         node["mainEntity"] = entities
     return data
+
+
+def walk_mission(obj: Any) -> Any:
+    old_needles = (
+        "an independent historical newspaper and five-volume archive examining "
+        "the death of U.S. Representative Marion Zioncheck",
+        "an independent historical newspaper and five-volume archive challenging "
+        "the 7 August 1936 official Arctic Building suicide account",
+    )
+    if isinstance(obj, dict):
+        out: dict[str, Any] = {}
+        for key, val in obj.items():
+            if (
+                key == "mission"
+                and isinstance(val, str)
+                and "Aziel Eliab Project" in val
+                and "Marion" in val
+            ):
+                out[key] = HDJ_MISSION
+            elif isinstance(val, str) and any(n in val for n in old_needles):
+                if "challenging the 7 August 1936" in val:
+                    out[key] = FAQ_WHAT_HDJ
+                else:
+                    out[key] = HDJ_MISSION
+            else:
+                out[key] = walk_mission(val)
+        return out
+    if isinstance(obj, list):
+        return [walk_mission(v) for v in obj]
+    return obj
 
 
 def rewrite_stack(text: str) -> str:
@@ -612,12 +680,24 @@ def patch_cite(data: dict) -> dict:
         "Zioncheck / He Didn't Jump archive sister (75% cap class) — An Aziel Eliab Project"
     )
     data["purpose"] = (
-        "Marion A. Zioncheck archive: U.S. Representative / Seattle congressman "
-        "(1933–1936). Official reports said suicide at the Arctic Building on "
-        "7 August 1936. This project re-examines that account from published "
-        f"newspapers and volumes. {HDJ_BLURB} Sisters: ae, corpus, godlock, runtime. "
+        f"{HDJ_PURPOSE} {HDJ_BLURB} Sisters: ae, corpus, godlock, runtime. "
         "Sister Softwares cite: trades-runtime; spectrallock leftover-bytes + "
         "/v1/recover + /v1/handwriting (not a hub; not FragGate door; not lab)."
+    )
+    data["project_kind"] = HDJ_PROJECT_KIND
+    data["genre"] = HDJ_GENRE
+    data["genre_not"] = list(HDJ_GENRE_NOT)
+    data["not_arg"] = True
+    data["not_alternate_reality_game"] = True
+    data["not_fiction_as_game"] = True
+    data["not_larp"] = True
+    data["not_puzzle_hunt"] = True
+    data["whistleblower"] = True
+    data["not_arg_note"] = HDJ_NOT_ARG_SHORT
+    data["positive_genre"] = HDJ_POSITIVE_GENRE
+    data["mission"] = HDJ_MISSION
+    data["zioncheck_faq"] = upsert_named_faq_rows(
+        list(data.get("zioncheck_faq") or []), ARG_FAQ_LIST
     )
     return data
 
@@ -946,12 +1026,135 @@ def bump_sitemap_lastmod(text: str) -> str:
     return text
 
 
+def ensure_genre_lock(text: str, *, ai: bool = False) -> str:
+    text = text.replace(
+        "This host is a static historical newspaper / five-volume Marion Zioncheck archive (An Aziel Eliab Project). It is not a Softwares card and does not host a local MCP door. Agent MCP/OpenAPI for Aziel engines lives on aziel-runtime (prefer Glama).",
+        AI_HOST_SENTENCE,
+    )
+    text = text.replace(
+        "This host is a static historical newspaper / five-volume Marion Zioncheck archive (An Aziel Eliab Project).",
+        AI_HOST_SENTENCE,
+    )
+    text = text.replace(
+        AI_HOST_SENTENCE
+        + " It is not a Softwares card and does not host a local MCP door. "
+        "Agent MCP/OpenAPI for Aziel engines lives on aziel-runtime (prefer Glama).",
+        AI_HOST_SENTENCE,
+    )
+    old_llms_lead = (
+        "This host is the Marion A. Zioncheck archive: U.S. Representative / "
+        "Seattle congressman (1933–1936). Official reports said suicide from a "
+        "fifth-floor Arctic Building office in Seattle on 7 August 1936. He Didn't "
+        "Jump publishes newspapers and five volumes that re-examine that official "
+        "account. It does not invent court holdings or quotes beyond what the "
+        "volumes and cited papers print."
+    )
+    text = text.replace(old_llms_lead, LLMS_LEAD)
+    old_full = (
+        "He Didn't Jump (hedidntjump.com) is a static newspaper and archive about "
+        "Marion A. Zioncheck (1900–1936), U.S. Representative from Washington, "
+        "whose death in Seattle on 7 August 1936 was reported as suicide from a "
+        "fifth-floor office in the Arctic Building. The published volumes challenge "
+        "that account. Collection dated July 2026. Publisher: Aziel Eliab. Original "
+        "rights in collected photographs and clippings remain with their holders."
+    )
+    text = text.replace(old_full, LLMS_FULL_WHAT)
+    old_project = (
+        "hedidntjump.com is An Aziel Eliab Project: an independent historical "
+        "newspaper and five-volume archive on the death of U.S. Representative "
+        "Marion Zioncheck in Seattle on 7 August 1936. The official report called "
+        "it suicide from a fifth-floor Arctic Building office. This project "
+        "challenges that account and publishes the record for re-reading. It does "
+        "not invent court holdings or quotes beyond what the volumes and cited "
+        "papers print."
+    )
+    text = text.replace(
+        old_project,
+        "hedidntjump.com is An Aziel Eliab Project: an independent investigative / "
+        "whistleblower archive publishing newspapers and five volumes that "
+        "re-examine the official suicide account of U.S. Rep. Marion A. Zioncheck "
+        "(Arctic Building, Seattle, 7 August 1936). "
+        f"{HDJ_NOT_ARG_SHORT} {HDJ_NOT_ARG_LIST} Positive genre: {HDJ_POSITIVE_GENRE}. "
+        "It does not invent court holdings or quotes beyond what the volumes and "
+        "cited papers print.",
+    )
+    old_faq_what = (
+        "He Didn’t Jump is an independent historical newspaper and five-volume "
+        "archive challenging the 7 August 1936 official Arctic Building suicide "
+        "account of U.S. Representative Marion Zioncheck."
+    )
+    old_faq_what_ascii = old_faq_what.replace("Didn’t", "Didn't")
+    for needle in (old_faq_what, old_faq_what_ascii):
+        if needle in text:
+            text = text.replace(
+                needle,
+                "He Didn't Jump is a whistleblower / investigative archive project "
+                "— NOT an ARG or alternate reality game. It is an independent "
+                "investigative newspaper and five-volume archive challenging the "
+                "7 August 1936 official Arctic Building suicide account of U.S. "
+                "Representative Marion Zioncheck.",
+                1,
+            )
+    old_mission = (
+        "He Didn’t Jump is An Aziel Eliab Project: an independent historical "
+        "newspaper and five-volume archive examining the death of U.S. "
+        "Representative Marion Zioncheck in Seattle on 7 August 1936. The official "
+        "report called it suicide from a fifth-floor Arctic Building office. This "
+        "project challenges that 90-year official suicide narrative and publishes "
+        "the record for re-reading. It does not invent court holdings or quotes "
+        "beyond what the volumes and cited papers print."
+    )
+    old_mission_ascii = old_mission.replace("Didn’t", "Didn't")
+    text = text.replace(old_mission, HDJ_MISSION)
+    text = text.replace(old_mission_ascii, HDJ_MISSION)
+    if FAQ_IS_ARG not in text:
+        if "## Marion A. Zioncheck FAQ (machine)" in text:
+            text = text.replace(
+                "## Marion A. Zioncheck FAQ (machine)",
+                GENRE_LOCK_BLOCK + "\n## Marion A. Zioncheck FAQ (machine)",
+                1,
+            )
+        elif "## What the site is" in text:
+            text = text.replace(
+                "## What the site is",
+                GENRE_LOCK_BLOCK + "\n## What the site is",
+                1,
+            )
+        elif ai and "Discovery on this host:" in text:
+            text = text.replace(
+                "Discovery on this host:",
+                (
+                    f"Genre lock: {HDJ_NOT_ARG_SHORT} {HDJ_NOT_ARG_LIST}\n"
+                    f"Positive: {HDJ_POSITIVE_GENRE}\n\n"
+                    "Discovery on this host:"
+                ),
+                1,
+            )
+        elif "## Who is Aziel Eliab" in text:
+            text = text.replace(
+                "## Who is Aziel Eliab",
+                GENRE_LOCK_BLOCK + "\n## Who is Aziel Eliab",
+                1,
+            )
+        else:
+            text = text.rstrip() + "\n\n" + GENRE_LOCK_BLOCK
+    elif GENRE_LOCK_HEAD not in text and not ai:
+        if "## Marion A. Zioncheck FAQ (machine)" in text:
+            text = text.replace(
+                "## Marion A. Zioncheck FAQ (machine)",
+                GENRE_LOCK_BLOCK + "\n## Marion A. Zioncheck FAQ (machine)",
+                1,
+            )
+    return text
+
+
 def patch_txt(text: str, *, ai: bool = False) -> str:
     text = rewrite_stack(text)
     if SPECTRALLOCK_ADDENDUM_OLD in text:
         text = text.replace(SPECTRALLOCK_ADDENDUM_OLD, SPECTRALLOCK_ADDENDUM)
     if SPECTRALLOCK_OLD in text:
         text = text.replace(SPECTRALLOCK_OLD, SPECTRALLOCK)
+    text = ensure_genre_lock(text, ai=ai)
     text = ensure_sisters_block(text)
     text = ensure_what_does_block(text)
     text = ensure_trades_runtime_cite(text, ai=ai)
@@ -983,6 +1186,7 @@ def write_trees() -> None:
                     data["what_aziel_eliab_does"] = WHAT_AZIEL_ELIAB_DOES
                 if rel == "graph.jsonld":
                     data = upsert_graph_faq(data)
+            data = walk_mission(data)
             data = walk_knows_about(data)
             path.write_text(dumps(data), encoding="utf-8")
             print("wrote", path.relative_to(ROOT))
