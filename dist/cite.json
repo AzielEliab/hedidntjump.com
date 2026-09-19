@@ -7,7 +7,7 @@
     "Congressman Marion A. Zioncheck",
     "Congressman Zioncheck"
   ],
-  "purpose": "Marion A. Zioncheck archive: U.S. Representative / Seattle congressman (1933–1936). Official reports said suicide at the Arctic Building on 7 August 1936. This project re-examines that account from published newspapers and volumes. Zioncheck / He Didn't Jump archive sister (75% cap class). Not a Softwares clone. Sisters: ae, corpus, godlock, runtime.",
+  "purpose": "Marion A. Zioncheck archive: U.S. Representative / Seattle congressman (1933–1936). Official reports said suicide at the Arctic Building on 7 August 1936. This project re-examines that account from published newspapers and volumes. Zioncheck / He Didn't Jump archive sister (75% cap class). Not a Softwares clone. Sisters: ae, corpus, godlock, runtime. Sister Softwares cite: trades-runtime (not a hub).",
   "canonical": "https://hedidntjump.com/",
   "case": "https://hedidntjump.com/Case",
   "query_urls": [
@@ -127,6 +127,11 @@
       "id": "corpus",
       "label": "corpus — Aziel Corpus Library",
       "href": "https://www.azielcorpuslibrary.net/"
+    },
+    {
+      "id": "trades-runtime",
+      "label": "Trades-Runtime (sister Softwares cite)",
+      "href": "https://trades-runtime.vibelock.workers.dev"
     }
   ],
   "editions": [
@@ -1003,7 +1008,8 @@
     "runtime": "https://aziel-runtime.vibelock.workers.dev/",
     "runtime_glama": "https://glama.ai/mcp/servers/AzielEliab/aziel-runtime",
     "hdj": "https://www.hedidntjump.com/",
-    "this": "hdj"
+    "this": "hdj",
+    "trades_runtime": "https://trades-runtime.vibelock.workers.dev"
   },
   "pages_seo": {
     "owner": "ZionBot",
@@ -1079,16 +1085,18 @@
     "TAA-1",
     "AEEM HVAC Energy Valve",
     "Whitestone (ephemeral pro se advisor; not a lawyer)",
-    "The ARK (local deniable vault)"
+    "The ARK (local deniable vault)",
+    "Trades-Runtime (local-first BYO trades runtime)"
   ],
   "softwares_list": [
     "Aziel Runtime (FragGate / MCP)",
     "Aziel Digital Library",
     "GodLock (product, not identity)",
     "Whitestone (ephemeral pro se advisor; not a lawyer)",
-    "The ARK (local deniable vault); download+ https://ark-download-tracker.vibelock.workers.dev/download ; stats https://ark-download-tracker.vibelock.workers.dev/stats ; github https://github.com/AzielEliab/ark"
+    "The ARK (local deniable vault); download+ https://ark-download-tracker.vibelock.workers.dev/download ; stats https://ark-download-tracker.vibelock.workers.dev/stats ; github https://github.com/AzielEliab/ark",
+    "Trades-Runtime (local-first BYO trades runtime); worker https://trades-runtime.vibelock.workers.dev ; github https://github.com/AzielEliab/trades-runtime ; download https://trades-runtime.vibelock.workers.dev/download ; openapi https://trades-runtime.vibelock.workers.dev/openapi.json ; mcp https://trades-runtime.vibelock.workers.dev/mcp"
   ],
-  "softwares_list_note": "Softwares list (HDJ cites; does not host). Whitestone (ephemeral pro se advisor; not a lawyer). Not a lawyer. The ARK (local deniable vault). download+ https://ark-download-tracker.vibelock.workers.dev/download ; stats https://ark-download-tracker.vibelock.workers.dev/stats. github https://github.com/AzielEliab/ark. Not a FragGate door on this archive.",
+  "softwares_list_note": "Softwares list (HDJ cites; does not host). Whitestone (ephemeral pro se advisor; not a lawyer). Not a lawyer. The ARK (local deniable vault). download+ https://ark-download-tracker.vibelock.workers.dev/download ; stats https://ark-download-tracker.vibelock.workers.dev/stats. github https://github.com/AzielEliab/ark. Trades-Runtime (local-first BYO trades runtime). worker https://trades-runtime.vibelock.workers.dev ; github https://github.com/AzielEliab/trades-runtime ; download https://trades-runtime.vibelock.workers.dev/download ; openapi https://trades-runtime.vibelock.workers.dev/openapi.json ; mcp https://trades-runtime.vibelock.workers.dev/mcp. Not FragGate exec. live_backends false. Not a FragGate door on this archive.",
   "whitestone": "Whitestone (ephemeral pro se advisor; not a lawyer)",
   "the_ark": "The ARK (local deniable vault)",
   "the_ark_download": "https://ark-download-tracker.vibelock.workers.dev/download",
@@ -1216,5 +1224,28 @@
     },
     "ingest_tip_unchanged": "ef967e4acb47ba913ce3959b673767278da605b307de33210b2dc2f1cfd86f60",
     "note": "Hub pull of runtime /survival (short TTL) plus MirageGrid Cap-7 Worker cite. HDJ is not a named live exec front. FragGate stays the door on the runtime sister. Zioncheck stays the HDJ mission. Do not invent case facts."
-  }
+  },
+  "trades_runtime": {
+    "name": "Trades-Runtime",
+    "product": "trades-runtime",
+    "version": "0.3.3",
+    "author": "Aziel Eliab",
+    "identity": "Aziel Eliab",
+    "cite_only": true,
+    "fraggate_exec": false,
+    "live_backends": false,
+    "hosted_company_os": false,
+    "worker": "https://trades-runtime.vibelock.workers.dev",
+    "github": "https://github.com/AzielEliab/trades-runtime",
+    "download": "https://trades-runtime.vibelock.workers.dev/download",
+    "openapi": "https://trades-runtime.vibelock.workers.dev/openapi.json",
+    "mcp": "https://trades-runtime.vibelock.workers.dev/mcp",
+    "honesty": "Local-first BYO runtime. People bring their own ServiceTitan and ProBooks. No tenant data on this Worker. No ST/ProBooks write-back. live_backends false. Not a production company OS claim.",
+    "note": "HDJ cites; does not host. Sister Softwares/runtime cite-only. Not a Softwares takeover. Not FragGate exec. Zioncheck stays the HDJ mission."
+  },
+  "trades_runtime_worker": "https://trades-runtime.vibelock.workers.dev",
+  "trades_runtime_github": "https://github.com/AzielEliab/trades-runtime",
+  "trades_runtime_download": "https://trades-runtime.vibelock.workers.dev/download",
+  "trades_runtime_openapi": "https://trades-runtime.vibelock.workers.dev/openapi.json",
+  "trades_runtime_mcp": "https://trades-runtime.vibelock.workers.dev/mcp"
 }
