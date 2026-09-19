@@ -724,13 +724,13 @@
     },
     {
       "path": "dist/aziel.html",
-      "bytes": 27142,
-      "sha256": "90225f8b16bd6795011751aac18c9e3a6f7e34535b80bc166521f1e2b1e3ab53"
+      "bytes": 27144,
+      "sha256": "b9917b27cdebcdc5a46cd28dc4132c03b3aead4b35dc94bd33ded1078fd1a303"
     },
     {
       "path": "dist/copyrights.html",
-      "bytes": 31189,
-      "sha256": "d476151814ee3dc598734f78251e156ff34a3921d88be0f2dd08c3207b0683f5"
+      "bytes": 31991,
+      "sha256": "eca7cc2105e8f713176a929c203fc3a4e237634a390d29d48d762361666be90a"
     },
     {
       "path": "dist/favicon.svg",
@@ -739,8 +739,8 @@
     },
     {
       "path": "dist/foia.html",
-      "bytes": 45388,
-      "sha256": "317945e4daf0bd8f55d31dd5eb15d4969e9006bf6d23ccd70bddbfdcddc07ee3"
+      "bytes": 46175,
+      "sha256": "d765b4d424567732846b07a71d91a2ca47115467aab83b8835099bb74c97d58e"
     },
     {
       "path": "dist/foia.js",
@@ -749,8 +749,8 @@
     },
     {
       "path": "dist/index.html",
-      "bytes": 32274,
-      "sha256": "c37e6fcf958d8409b1eb236304232139b3967d66306b1490fe861f06fa706717"
+      "bytes": 32570,
+      "sha256": "153239957ddf07169a939672a8490e327a59bddaa9e2ce0d9a504fa04c854687"
     },
     {
       "path": "dist/llms-full.txt",
@@ -764,13 +764,13 @@
     },
     {
       "path": "dist/official-narrative.html",
-      "bytes": 30008,
-      "sha256": "0fde952f584c5f61478bc9d29139d331406ff65d3c54efd4046a297c3b06099f"
+      "bytes": 30656,
+      "sha256": "4ea790e752b8240e8634caf88b11639af669f4a2a8b65f69a7a74901fc9d83f4"
     },
     {
       "path": "dist/reader.html",
-      "bytes": 22825,
-      "sha256": "29cda09dae0cc1809d0d00894d4cae87a28ff957776d89cf3fd03b043664c7d7"
+      "bytes": 23647,
+      "sha256": "ca55ca7bd664c1ad9eb67470db3229ce9f75e6b34720e075564165369327190a"
     },
     {
       "path": "dist/reader.js",
@@ -784,8 +784,8 @@
     },
     {
       "path": "dist/rubye.html",
-      "bytes": 31103,
-      "sha256": "0f7e09d3e15e30dd1d01b9adb26ffc2b5cf4e189f7f177003fe5136a93c41f17"
+      "bytes": 31890,
+      "sha256": "43d5e3bc766d96c846b1af2afddab269c636d313284372878357a15bed3d27aa"
     },
     {
       "path": "dist/sitemap.xml",
@@ -799,8 +799,8 @@
     },
     {
       "path": "dist/style.css",
-      "bytes": 56466,
-      "sha256": "a60ba41fc4021f26588ff06b4be66dec844ad2f196aeff7ff405c81838c1f3d5"
+      "bytes": 57085,
+      "sha256": "ac4e8c4572ea9e5cfa9f6004b4cd8dd8d9c50904cc928870302ca9bfbbaed5b5"
     },
     {
       "path": "dist/volumes.json",
