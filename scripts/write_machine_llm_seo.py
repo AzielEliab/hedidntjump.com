@@ -906,7 +906,7 @@ def ensure_related_spectrallock(text: str) -> str:
     )
     if "Sister Softwares cite: [SpectralLock]" in text:
         return re.sub(
-            r"Sister Softwares cite: \[SpectralLock\]\([^)]+\) \([^)]+\)",
+            r"Sister Softwares cite: \[SpectralLock\]\([^)]+\) \([^)]+\)\.+",
             cite,
             text,
             count=1,
