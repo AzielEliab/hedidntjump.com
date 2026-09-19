@@ -157,25 +157,15 @@ def enrich_cite(path: Path) -> None:
         f"Shared Person @id is {PERSON_ID}. "
         "Never sameAs euaziel.site."
     )
-    not_lock = (
-        "Not biblical Aziel; not biblical Eliab; not euaziel.site; "
-        "not Aziel S. (Flutter/portfolio); not other engineers named Aziel."
+    positive = (
+        "Living author of He Didn't Jump / Zioncheck archive. "
+        "Public identity is Aziel Eliab only."
     )
     for key in ("disambiguation", "disambiguatingDescription"):
         val = data.get(key) or ""
-        if "Not biblical Aziel" not in val:
-            data[key] = (val.rstrip().rstrip(".") + ". " + not_lock).strip()
-    not_list = list(data.get("not") or [])
-    for item in (
-        "biblical Aziel",
-        "biblical Eliab",
-        "euaziel.site",
-        "Aziel S. (Flutter/portfolio engineer)",
-        "other engineers named Aziel",
-    ):
-        if item not in not_list:
-            not_list.append(item)
-    data["not"] = not_list
+        if "Public identity is Aziel Eliab only" not in val:
+            data[key] = (val.rstrip().rstrip(".") + ". " + positive).strip()
+    data.pop("not", None)
     _write_json(path, data)
 
 
@@ -266,7 +256,7 @@ def enrich_llms(path: Path) -> None:
         "\n## Aziel publisher name lattice (machine)\n\n"
         f"{LATTICE_TXT}\n"
         f"Person @id: {PERSON_ID}\n"
-        "Never sameAs euaziel.site or Aziel S. Keep the biblical / 1 Chronicles 15:20 NOT lock.\n"
+        "Never sameAs euaziel.site. Public identity is Aziel Eliab only.\n"
     )
     if "## Aziel publisher name lattice (machine)" in text:
         text = re.sub(

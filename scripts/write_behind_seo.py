@@ -21,15 +21,9 @@ PERSON_ID = "https://www.azieleliab.com/#aziel"
 # Keep in lockstep with write_identity_machine.DISAMBIGUATING — one short field only.
 HUB_DISAMBIG = (
     "Living author of He Didn’t Jump / Zioncheck archive. "
-    "Not biblical Aziel; not biblical Eliab; not euaziel.site; not Aziel S. (Flutter/portfolio); not other engineers named Aziel."
+    "Public identity is Aziel Eliab only. Prefer https://www.azieleliab.com/#aziel."
 )
-NOT_LIST = [
-    "biblical Aziel",
-    "biblical Eliab",
-    "euaziel.site",
-    "Aziel S. (Flutter/portfolio engineer)",
-    "other engineers named Aziel",
-]
+NOT_LIST = []
 META_DESC = (
     "Who is Aziel Eliab? Living author of He Didn’t Jump, the Marion Zioncheck "
     "archive. Researcher, digital rights activist, software developer, author, philosopher."
@@ -45,9 +39,8 @@ PERSON_LD_DESC = (
 )
 FAQ_NOT_NAME = "Who is Aziel Eliab not?"
 FAQ_NOT = (
-    "Not biblical Aziel. Not biblical Eliab. Not euaziel.site. "
-    "Not Aziel S. (Flutter/portfolio engineer). Not other engineers named Aziel. "
-    "Use Person @id https://www.azieleliab.com/#aziel."
+    "Aziel Eliab is the living author of He Didn’t Jump. "
+    "Public identity is Aziel Eliab only. Use Person @id https://www.azieleliab.com/#aziel."
 )
 
 # Pretty path, html file, priority. /AzielEliab rewrites to aziel.html — no second body.
@@ -319,7 +312,7 @@ def write_cite() -> None:
         data["archive"] = "He Didn't Jump / Marion Zioncheck archive"
         data["disambiguation"] = HUB_DISAMBIG
         data["disambiguatingDescription"] = HUB_DISAMBIG
-        data["not"] = NOT_LIST
+        data.pop("not", None)
         data.pop("concordance_note", None)
         data["about_page"] = f"{ORIGIN}/aziel"
         data["about_aliases"] = [
@@ -341,7 +334,6 @@ def write_cite() -> None:
         data["person_jsonld"] = f"{WWW}/person.jsonld"
         data["faq"] = [
             {"q": "Who is Aziel Eliab?", "a": data["who_is"]},
-            {"q": FAQ_NOT_NAME, "a": FAQ_NOT},
         ]
         for ed in data.get("editions", []):
             if ed.get("id") in {"about-aziel", "azieleliab"}:

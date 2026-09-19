@@ -21,6 +21,7 @@ from aziel_living import (
     AI_HOST_SENTENCE,
     ARG_FAQ_ROWS,
     AZDOC,
+    DROP_FAQ_TITLES,
     CAP_CLASS,
     CAP_NOTE,
     CORPUS,
@@ -37,6 +38,7 @@ from aziel_living import (
     GENRE_LOCK_BLOCK,
     GENRE_LOCK_HEAD,
     HARDWARE_ADDENDUM,
+    HELP_PATHS,
     HDJ_BLURB,
     HDJ_GENRE,
     HDJ_GENRE_NOT,
@@ -93,6 +95,9 @@ from aziel_living import (
     WHAT_DOES_FAQ_TITLES,
     WHO_IS_NAMED,
     WHO_IS_SHORT,
+    drop_faq_titles,
+    scrub_cite_ban_narratives,
+    scrub_seo_negation,
 )
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -113,14 +118,14 @@ MACHINE_TXT = (
     "who-is-aziel-eliab.txt",
 )
 
-SISTERS_BLOCK = f"""Sister surfaces (this host is HDJ; not a Softwares clone)
+SISTERS_BLOCK = f"""Sister surfaces (this host is HDJ — {HDJ_BLURB})
 - ae: {SISTERS["ae"]}
 - corpus: {SISTERS["corpus"]}
 - godlock: {SISTERS["godlock"]}
 - runtime: {SISTERS["runtime"]}
 - runtime (prefer Glama): {SISTERS_GLAMA}
-- trades-runtime (sister Softwares cite-only; not FragGate exec): {TRADES_RUNTIME_WORKER}
-- spectrallock (sister Softwares cite-only; leftover-bytes + /v1/recover + /v1/handwriting; not FragGate door; not lab): {SPECTRALLOCK_WORKER}
+- trades-runtime (sister Softwares cite-only): {TRADES_RUNTIME_WORKER}
+- spectrallock (sister Softwares cite-only; leftover-bytes + /v1/recover + /v1/handwriting): {SPECTRALLOCK_WORKER}
 - this: {SISTERS_HDJ} — {HDJ_BLURB}
 Growth-ON. NO-LIE. Person @id: {PERSON_ID}
 ZionBot owns newspaper HTML / Pages SEO chrome. This pack is machine files only.
@@ -137,7 +142,7 @@ TRADES_RUNTIME_LLMS_BLOCK = f"""{TRADES_RUNTIME_LLMS_HEAD}
 - OpenAPI: {TRADES_RUNTIME_OPENAPI}
 - MCP: {TRADES_RUNTIME_MCP}
 
-HDJ cites; does not host. Not a Softwares takeover. Zioncheck stays the HDJ mission.
+HDJ cites; does not host. Zioncheck stays the HDJ mission.
 """
 
 SPECTRALLOCK_LLMS_HEAD = "## SpectralLock sister cite (machine)"
@@ -152,31 +157,31 @@ SPECTRALLOCK_LLMS_BLOCK = f"""{SPECTRALLOCK_LLMS_HEAD}
 - Download: {SPECTRALLOCK_DOWNLOAD}
 - Worker: {SPECTRALLOCK_WORKER}
 
-NO-LIE. leftover-bytes + /v1/recover + /v1/handwriting. Not a FragGate door. Not a lab. HDJ cites; does not host. Zioncheck stays the HDJ mission.
+NO-LIE. leftover-bytes + /v1/recover + /v1/handwriting. HDJ cites; does not host. Zioncheck stays the HDJ mission.
 """
 
 TRADES_RUNTIME_AI_HEAD = "TRADES-RUNTIME (sister Softwares/runtime cite-only"
-TRADES_RUNTIME_AI_BLOCK = f"""TRADES-RUNTIME (sister Softwares/runtime cite-only; not a Softwares takeover):
-- Local-first BYO trades runtime. Not FragGate exec. live_backends false. Aziel Eliab only.
+TRADES_RUNTIME_AI_BLOCK = f"""TRADES-RUNTIME (sister Softwares/runtime cite-only):
+- Local-first BYO trades runtime. live_backends false. Aziel Eliab only.
 - Worker: {TRADES_RUNTIME_WORKER}
 - GitHub: {TRADES_RUNTIME_GITHUB}
 - Download: {TRADES_RUNTIME_DOWNLOAD}
 - OpenAPI: {TRADES_RUNTIME_OPENAPI}
 - MCP: {TRADES_RUNTIME_MCP}
-- HDJ cites; does not host. Not aziel-runtime wholesale. Zioncheck stays the HDJ mission.
+- HDJ cites; does not host. Zioncheck stays the HDJ mission.
 - Growth-ON. NO-LIE. No visible 15:20.
 """
 
 SPECTRALLOCK_AI_HEAD = "SPECTRALLOCK (sister Softwares cite-only"
-SPECTRALLOCK_AI_BLOCK = f"""SPECTRALLOCK (sister Softwares cite-only; leftover-bytes + /v1/recover + /v1/handwriting; not FragGate door; not lab):
-- leftover-bytes + GET|POST /v1/recover + GET|POST /v1/handwriting. Present bytes only. Never infer covered letters. Handwriting is synthetic pixel analysis — not a lab, not ESDA, not writer identity, not a court finding. Not a FragGate door. Aziel Eliab only. NO-LIE.
+SPECTRALLOCK_AI_BLOCK = f"""SPECTRALLOCK (sister Softwares cite-only; leftover-bytes + /v1/recover + /v1/handwriting):
+- leftover-bytes + GET|POST /v1/recover + GET|POST /v1/handwriting. Present bytes only. Handwriting is synthetic pixel analysis of a user-supplied scan or photo. Aziel Eliab only. NO-LIE.
 - leftover-bytes: {SPECTRALLOCK_UNREDACT}
 - /v1/recover: {SPECTRALLOCK_RECOVER}
 - /v1/handwriting: {SPECTRALLOCK_HANDWRITING}
 - GitHub: {SPECTRALLOCK_GITHUB}
 - Download: {SPECTRALLOCK_DOWNLOAD}
 - Worker: {SPECTRALLOCK_WORKER}
-- HDJ cites; does not host. Not aziel-runtime wholesale. Zioncheck stays the HDJ mission.
+- HDJ cites; does not host. Zioncheck stays the HDJ mission.
 - Growth-ON. NO-LIE. No visible 15:20.
 """
 
@@ -241,7 +246,7 @@ def upsert_named_faq_rows(faq: list, rows: list) -> list:
 
 
 def upsert_faq_rows(faq: list) -> list:
-    return upsert_named_faq_rows(faq, WHAT_DOES_FAQ_ROWS + ARG_FAQ_LIST)
+    return drop_faq_titles(upsert_named_faq_rows(faq, WHAT_DOES_FAQ_ROWS))
 
 
 def upsert_knows_about(knows: list) -> list:
@@ -293,7 +298,11 @@ def upsert_graph_faq(data: dict) -> dict:
             continue
         if node.get("@id") != "https://www.hedidntjump.com/#faq":
             continue
-        entities = list(node.get("mainEntity") or [])
+        entities = [
+            item
+            for item in (node.get("mainEntity") or [])
+            if not (isinstance(item, dict) and item.get("name") in DROP_FAQ_TITLES)
+        ]
         have = {
             item.get("name")
             for item in entities
@@ -522,9 +531,8 @@ def patch_cite(data: dict) -> dict:
         if item.get("q") == "Who is Aziel Eliab?":
             item["a"] = (
                 f"{PERSON_LEAD} {PRIMARY_SURFACES} "
-                "He is one living person. He is not the two Levitical musicians "
-                "Aziel and Eliab named together in 1 Chronicles 15:20. "
-                "The public identity is the work, not a biography."
+                "He is one living person. Public identity is Aziel Eliab only. "
+                "The public identity is the work."
             )
         if item.get("q") == "Is Aziel Eliab the two musicians named in 1 Chronicles 15:20?":
             item["a"] = (
@@ -561,7 +569,7 @@ def patch_cite(data: dict) -> dict:
         "honesty": TRADES_RUNTIME_HONESTY,
         "note": (
             "HDJ cites; does not host. Sister Softwares/runtime cite-only. "
-            "Not a Softwares takeover. Not FragGate exec. Zioncheck stays the HDJ mission."
+            "Zioncheck stays the HDJ mission."
         ),
     }
     data["trades_runtime_worker"] = TRADES_RUNTIME_WORKER
@@ -607,8 +615,8 @@ def patch_cite(data: dict) -> dict:
         "honesty": SPECTRALLOCK_HONESTY,
         "note": (
             "HDJ cites; does not host. Sister Softwares cite-only. leftover-bytes + "
-            "/v1/recover + /v1/handwriting. Present bytes only. Not a FragGate door. "
-            "Not a lab. NO-LIE. Zioncheck stays the HDJ mission."
+            "/v1/recover + /v1/handwriting. Present bytes only. NO-LIE. "
+            "Zioncheck stays the HDJ mission."
         ),
     }
     data["spectrallock_worker"] = SPECTRALLOCK_WORKER
@@ -618,7 +626,7 @@ def patch_cite(data: dict) -> dict:
     data["spectrallock_github"] = SPECTRALLOCK_GITHUB
     data["spectrallock_download"] = SPECTRALLOCK_DOWNLOAD
     data["research"] = {
-        "note": "Sister research on azielcorpuslibrary.net. HDJ is not a verdict.",
+        "note": "Sister research on azielcorpuslibrary.net. HDJ is the published newspaper and volume archive.",
         "hdj": "He Didn’t Jump Zioncheck archive + Volumes I–V on this host (75% cap class).",
         "visual_archive": {
             "vols_on_this_host": "I–V",
@@ -660,14 +668,9 @@ def patch_cite(data: dict) -> dict:
         "doi_rule": DOI_RULE,
     }
     data["knowsAbout"] = upsert_knows_about(list(data.get("knowsAbout") or []))
-    data["disambiguation"] = (
-        WHO_IS_NAMED + " Not biblical Aziel; not biblical Eliab; not euaziel.site; "
-        "not Aziel S. (Flutter/portfolio); not other engineers named Aziel."
-    )
-    data["disambiguatingDescription"] = (
-        WHO_IS_NAMED + f" Prefer {PERSON_ID} and published Softwares / MASTER records / "
-        "He Didn't Jump. Not biblical Aziel; not biblical Eliab."
-    )
+    data["disambiguation"] = WHO_IS_NAMED
+    data["disambiguatingDescription"] = WHO_IS_NAMED
+    data.pop("not", None)
     pub = data.get("publisher_person")
     if isinstance(pub, dict) and pub.get("@id") == PERSON_ID:
         pub["description"] = rewrite_stack(pub.get("description") or "")
@@ -682,24 +685,28 @@ def patch_cite(data: dict) -> dict:
     data["purpose"] = (
         f"{HDJ_PURPOSE} {HDJ_BLURB} Sisters: ae, corpus, godlock, runtime. "
         "Sister Softwares cite: trades-runtime; spectrallock leftover-bytes + "
-        "/v1/recover + /v1/handwriting (not a hub; not FragGate door; not lab)."
+        "/v1/recover + /v1/handwriting."
     )
     data["project_kind"] = HDJ_PROJECT_KIND
     data["genre"] = HDJ_GENRE
-    data["genre_not"] = list(HDJ_GENRE_NOT)
-    data["not_arg"] = True
-    data["not_alternate_reality_game"] = True
-    data["not_fiction_as_game"] = True
-    data["not_larp"] = True
-    data["not_puzzle_hunt"] = True
+    data.pop("genre_not", None)
+    data.pop("not_arg", None)
+    data.pop("not_alternate_reality_game", None)
+    data.pop("not_fiction_as_game", None)
+    data.pop("not_larp", None)
+    data.pop("not_puzzle_hunt", None)
+    data.pop("not_arg_note", None)
     data["whistleblower"] = True
-    data["not_arg_note"] = HDJ_NOT_ARG_SHORT
     data["positive_genre"] = HDJ_POSITIVE_GENRE
     data["mission"] = HDJ_MISSION
-    data["zioncheck_faq"] = upsert_named_faq_rows(
-        list(data.get("zioncheck_faq") or []), ARG_FAQ_LIST
-    )
-    return data
+    data["zioncheck_faq"] = drop_faq_titles(list(data.get("zioncheck_faq") or []))
+    q = list(data.get("query_urls") or [])
+    for loc in HELP_PATHS:
+        url = f"https://hedidntjump.com{loc}"
+        if url not in q:
+            q.append(url)
+    data["query_urls"] = q
+    return scrub_cite_ban_narratives(data)
 
 
 def patch_person(data: dict) -> dict:
@@ -746,6 +753,10 @@ def patch_person(data: dict) -> dict:
 
 
 def ensure_sisters_block(text: str) -> str:
+    text = text.replace(
+        "Sister surfaces (this host is HDJ; not a Softwares clone)",
+        f"Sister surfaces (this host is HDJ — {HDJ_BLURB})",
+    )
     if "Sister surfaces (this host is HDJ" in text:
         return text
     block = "\n## HDJ sister cite (machine)\n\n" + SISTERS_BLOCK
@@ -811,7 +822,7 @@ def ensure_what_does_block(text: str) -> str:
 
 def upsert_sisters_trades_line(text: str) -> str:
     line = (
-        f"- trades-runtime (sister Softwares cite-only; not FragGate exec): "
+        f"- trades-runtime (sister Softwares cite-only): "
         f"{TRADES_RUNTIME_WORKER}\n"
     )
     if "trades-runtime (sister Softwares cite-only" in text:
@@ -872,7 +883,7 @@ def ensure_trades_runtime_cite(text: str, *, ai: bool = False) -> str:
 def upsert_sisters_spectrallock_line(text: str) -> str:
     line = (
         f"- spectrallock (sister Softwares cite-only; leftover-bytes + /v1/recover + "
-        f"/v1/handwriting; not FragGate door; not lab): {SPECTRALLOCK_WORKER}\n"
+        f"/v1/handwriting): {SPECTRALLOCK_WORKER}\n"
     )
     if "spectrallock (sister Softwares cite-only" in text:
         return re.sub(
@@ -958,7 +969,7 @@ def ensure_spectrallock_cite(text: str, *, ai: bool = False) -> str:
 def ensure_related_trades(text: str) -> str:
     cite = (
         f"Sister Softwares cite: [Trades-Runtime]({TRADES_RUNTIME_WORKER}) "
-        "(local-first BYO; not FragGate exec)."
+        "(local-first BYO)."
     )
     if "Sister Softwares cite: [Trades-Runtime]" in text:
         return text
@@ -982,7 +993,7 @@ def ensure_related_trades(text: str) -> str:
 def ensure_related_spectrallock(text: str) -> str:
     cite = (
         f"Sister Softwares cite: [SpectralLock]({SPECTRALLOCK_WORKER}) "
-        "(leftover-bytes + /v1/recover + /v1/handwriting; NO-LIE; not FragGate door; not lab)."
+        "(leftover-bytes + /v1/recover + /v1/handwriting; NO-LIE)."
     )
     if "Sister Softwares cite: [SpectralLock]" in text:
         return re.sub(
@@ -1035,12 +1046,14 @@ def ensure_genre_lock(text: str, *, ai: bool = False) -> str:
         "This host is a static historical newspaper / five-volume Marion Zioncheck archive (An Aziel Eliab Project).",
         AI_HOST_SENTENCE,
     )
-    text = text.replace(
-        AI_HOST_SENTENCE
-        + " It is not a Softwares card and does not host a local MCP door. "
-        "Agent MCP/OpenAPI for Aziel engines lives on aziel-runtime (prefer Glama).",
-        AI_HOST_SENTENCE,
-    )
+    text = text.replace("## Genre lock (machine)", GENRE_LOCK_HEAD)
+    if GENRE_LOCK_HEAD in text:
+        text = re.sub(
+            rf"{re.escape(GENRE_LOCK_HEAD)}\n[\s\S]*?(?=\n## |\Z)",
+            GENRE_LOCK_BLOCK.rstrip() + "\n\n",
+            text,
+            count=1,
+        )
     old_llms_lead = (
         "This host is the Marion A. Zioncheck archive: U.S. Representative / "
         "Seattle congressman (1933–1936). Official reports said suicide from a "
@@ -1050,6 +1063,14 @@ def ensure_genre_lock(text: str, *, ai: bool = False) -> str:
         "volumes and cited papers print."
     )
     text = text.replace(old_llms_lead, LLMS_LEAD)
+    # Replace any previous ARG-fronted lead with the positive definition.
+    if "Query-relevant URLs" in text and LLMS_LEAD not in text.split("## Query-relevant")[0]:
+        text = re.sub(
+            r"(# He Didn't Jump — Marion A\. Zioncheck archive\n\n)[\s\S]*?(?=\n## Query-relevant)",
+            rf"\1{LLMS_LEAD}\n\n",
+            text,
+            count=1,
+        )
     old_full = (
         "He Didn't Jump (hedidntjump.com) is a static newspaper and archive about "
         "Marion A. Zioncheck (1900–1936), U.S. Representative from Washington, "
@@ -1073,8 +1094,7 @@ def ensure_genre_lock(text: str, *, ai: bool = False) -> str:
         "hedidntjump.com is An Aziel Eliab Project: an independent investigative / "
         "whistleblower archive publishing newspapers and five volumes that "
         "re-examine the official suicide account of U.S. Rep. Marion A. Zioncheck "
-        "(Arctic Building, Seattle, 7 August 1936). "
-        f"{HDJ_NOT_ARG_SHORT} {HDJ_NOT_ARG_LIST} Positive genre: {HDJ_POSITIVE_GENRE}. "
+        f"(Arctic Building, Seattle, 7 August 1936). Positive genre: {HDJ_POSITIVE_GENRE}. "
         "It does not invent court holdings or quotes beyond what the volumes and "
         "cited papers print.",
     )
@@ -1088,11 +1108,10 @@ def ensure_genre_lock(text: str, *, ai: bool = False) -> str:
         if needle in text:
             text = text.replace(
                 needle,
-                "He Didn't Jump is a whistleblower / investigative archive project "
-                "— NOT an ARG or alternate reality game. It is an independent "
-                "investigative newspaper and five-volume archive challenging the "
-                "7 August 1936 official Arctic Building suicide account of U.S. "
-                "Representative Marion Zioncheck.",
+                "He Didn't Jump is a whistleblower / investigative archive project: "
+                "an independent investigative newspaper and five-volume archive "
+                "challenging the 7 August 1936 official Arctic Building suicide "
+                "account of U.S. Representative Marion Zioncheck.",
                 1,
             )
     old_mission = (
@@ -1107,7 +1126,7 @@ def ensure_genre_lock(text: str, *, ai: bool = False) -> str:
     old_mission_ascii = old_mission.replace("Didn’t", "Didn't")
     text = text.replace(old_mission, HDJ_MISSION)
     text = text.replace(old_mission_ascii, HDJ_MISSION)
-    if FAQ_IS_ARG not in text:
+    if GENRE_LOCK_HEAD not in text:
         if "## Marion A. Zioncheck FAQ (machine)" in text:
             text = text.replace(
                 "## Marion A. Zioncheck FAQ (machine)",
@@ -1124,7 +1143,7 @@ def ensure_genre_lock(text: str, *, ai: bool = False) -> str:
             text = text.replace(
                 "Discovery on this host:",
                 (
-                    f"Genre lock: {HDJ_NOT_ARG_SHORT} {HDJ_NOT_ARG_LIST}\n"
+                    f"{AI_HOST_SENTENCE}\n"
                     f"Positive: {HDJ_POSITIVE_GENRE}\n\n"
                     "Discovery on this host:"
                 ),
@@ -1138,13 +1157,6 @@ def ensure_genre_lock(text: str, *, ai: bool = False) -> str:
             )
         else:
             text = text.rstrip() + "\n\n" + GENRE_LOCK_BLOCK
-    elif GENRE_LOCK_HEAD not in text and not ai:
-        if "## Marion A. Zioncheck FAQ (machine)" in text:
-            text = text.replace(
-                "## Marion A. Zioncheck FAQ (machine)",
-                GENRE_LOCK_BLOCK + "\n## Marion A. Zioncheck FAQ (machine)",
-                1,
-            )
     return text
 
 
@@ -1167,6 +1179,7 @@ def patch_txt(text: str, *, ai: bool = False) -> str:
             f"hedidntjump.com is {HDJ_BLURB} An Aziel Eliab Project:",
             1,
         )
+    text = scrub_seo_negation(text)
     return text if text.endswith("\n") else text + "\n"
 
 

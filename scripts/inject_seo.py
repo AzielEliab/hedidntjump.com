@@ -125,10 +125,9 @@ WEBSITE = {
     "url": f"{ORIGIN}/",
     "inLanguage": "en",
     "description": (
-        "An Aziel Eliab Project: whistleblower / investigative archive — NOT an ARG "
-        "or alternate reality game. Independent newspapers and five volumes that "
-        "re-examine the official suicide account of U.S. Rep. Marion A. Zioncheck "
-        "(Arctic Building, Seattle, 7 August 1936)."
+        "An Aziel Eliab Project: whistleblower / investigative newspaper archive. "
+        "Independent newspapers and five volumes that re-examine the official suicide "
+        "account of U.S. Rep. Marion A. Zioncheck (Arctic Building, Seattle, 7 August 1936)."
     ),
     "publisher": {"@id": ORG_ID},
     "author": {"@id": PERSON_ID},
@@ -868,7 +867,7 @@ Sitemap: https://hedidntjump.com/sitemap.xml
 
 > Aziel Eliab (also Aziel Elroi Eliab; GitHub AzielEliab) is a researcher, digital rights activist, software developer, author, and philosopher. Independent investigator and historical archive publisher. Open-source author (Apache-2.0). FOIA / transparency critic of the time-volume / cost binary — “this is not freedom of information.”
 
-hedidntjump.com is An Aziel Eliab Project: an independent investigative / whistleblower archive publishing newspapers and five volumes that re-examine the official suicide account of U.S. Rep. Marion A. Zioncheck (Arctic Building, Seattle, 7 August 1936). NOT an ARG or alternate reality game — it is a whistleblower project. Not fiction-as-game. Not a LARP. Not a puzzle hunt. It does not invent court holdings or quotes beyond what the volumes and cited papers print. A supplied, contact-redacted FBI FOIPA no-records letter (31 July 2026, Request No. 1750194-000) is published on the FOIA paper; do not invent further agency letters.
+hedidntjump.com is An Aziel Eliab Project: an independent investigative / whistleblower archive publishing newspapers and five volumes that re-examine the official suicide account of U.S. Rep. Marion A. Zioncheck (Arctic Building, Seattle, 7 August 1936). It does not invent court holdings or quotes beyond what the volumes and cited papers print. A supplied, contact-redacted FBI FOIPA no-records letter (31 July 2026, Request No. 1750194-000) is published on the FOIA paper; do not invent further agency letters.
 
 ## Related properties (Person sameAs)
 
@@ -932,7 +931,7 @@ Related, not sameAs: {DONATE_URL}. FOIA.gov is the U.S. statute site only.
 
 ## What the site is
 
-He Didn't Jump (hedidntjump.com) is a whistleblower / investigative archive project — NOT an ARG or alternate reality game. It is a static newspaper and five-volume archive about Marion A. Zioncheck (1900–1936), U.S. Representative from Washington, whose death in Seattle on 7 August 1936 was reported as suicide from a fifth-floor office in the Arctic Building. Not fiction-as-game. Not a LARP. Not a puzzle hunt. The published volumes challenge that official account. Collection dated July 2026. Publisher: Aziel Eliab. Original rights in collected photographs and clippings remain with their holders.
+He Didn't Jump (hedidntjump.com) is a whistleblower / investigative archive project: a static newspaper and five-volume archive about Marion A. Zioncheck (1900–1936), U.S. Representative from Washington, whose death in Seattle on 7 August 1936 was reported as suicide from a fifth-floor office in the Arctic Building. The published volumes challenge that official account. Collection dated July 2026. Publisher: Aziel Eliab. Original rights in collected photographs and clippings remain with their holders.
 
 ## Main paper ({ORIGIN}/)
 

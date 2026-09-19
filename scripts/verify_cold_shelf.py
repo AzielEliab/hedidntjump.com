@@ -183,8 +183,8 @@ def attack_sim(shelves: dict, cite: dict, redline: dict, lockset: dict) -> None:
 
     assert cite["planes"]["B"]["working_targets"] == PLANE_B_TARGETS
     assert cite["framagit_tip_pack"]["url"] is None
-    assert cite["gitflic_tip_pack"]["refuse"] == "CNS-GITFLIC-EMAIL"
-    assert cite["gitlab_tip_pack"]["refuse"] == "CNS-GITLAB-CF-LOOP"
+    assert "refuse" not in cite.get("gitflic_tip_pack", {})
+    assert "refuse" not in cite.get("gitlab_tip_pack", {})
     assert cite["zenodo_tip_pack"]["doi"] is None
     assert cite["redline"]["door"] == "fraggate"
     assert cite["foldlock"]["tip_folded"] is False
@@ -415,10 +415,11 @@ def main() -> None:
         assert "aziel-lockset-tip_202609" in cite["planes"]["B"]["note"]
         assert "archive.org + GitFlic" not in cite["planes"]["B"]["note"]
         assert cite["planes"]["B"]["working_targets"] == PLANE_B_TARGETS
-        assert "CNS-GITFLIC-EMAIL" in cite["planes"]["B"]["note"]
+        assert "aziel-lockset-tip" in cite["planes"]["B"]["note"]
+        assert "CNS-GITFLIC-EMAIL" not in cite["planes"]["B"]["note"]
         assert cite["framagit_tip_pack"]["url"] is None
-        assert cite["gitflic_tip_pack"]["refuse"] == "CNS-GITFLIC-EMAIL"
-        assert cite["gitlab_tip_pack"]["refuse"] == "CNS-GITLAB-CF-LOOP"
+        assert "refuse" not in cite.get("gitflic_tip_pack", {})
+        assert "refuse" not in cite.get("gitlab_tip_pack", {})
         assert cite["archive_org_tip_pack"]["url"] == ARCHIVE_ORG_URL
         assert cite["archive_org_tip_pack"]["identifier"] == ARCHIVE_ORG_IDENTIFIER
         assert cite["archive_org_tip_pack"]["download_base"] == ARCHIVE_ORG_DOWNLOAD
@@ -433,7 +434,7 @@ def main() -> None:
         assert cite["archive_org_tip_pack_202609"]["independent"] is False
         assert cite["archive_org_tip_pack_202609"]["doi"] is None
         assert cite["archive_org_tip_packs"] == [ARCHIVE_ORG_URL, ARCHIVE_ORG_202609_URL]
-        assert cite["zenodo_tip_pack"]["refuse"] == "CNS-ZENODO-IP-BAN"
+        assert "refuse" not in cite.get("zenodo_tip_pack", {})
         assert cite["zenodo_tip_pack"]["doi"] is None
         assert cite["cap7_sites"]["hedidntjump"]["resolves_to_hub"] is False
         assert cite["lamb_lens"]["shelf"] == "https://www.azielcorpuslibrary.net/corpus"
@@ -465,10 +466,10 @@ def main() -> None:
             assert "archive.org + GitFlic" not in blob, label
             assert "GitFlic RU unverified" not in blob, label
             assert "Framagit" in blob, label
-            assert "CNS-GITFLIC-EMAIL" in blob, label
-            assert "CNS-GITLAB-CF-LOOP" in blob, label
+            assert "CNS-GITFLIC-EMAIL" not in blob, label
+            assert "CNS-GITLAB-CF-LOOP" not in blob, label
             assert "ALL-TARGETS" in blob or "working_targets" in blob or "Framagit" in blob, label
-            assert "CNS-ZENODO-IP-BAN" in blob, label
+            assert "CNS-ZENODO-IP-BAN" not in blob, label
             assert "doi null" in blob.lower() or "doi: null" in blob.lower() or "doi null" in blob, label
             assert "CNS-OPERATOR-ATTEST" in blob or "attest SLOT" in blob or "USB" in blob, label
             assert "5 surfaces" in blob or "5 published surfaces" in blob, label

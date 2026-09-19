@@ -68,29 +68,28 @@ def main() -> None:
             "Eliab = God is father (אליאב)."
         )
         assert hebrew in json.dumps(pub, ensure_ascii=False)
-        assert "Not biblical Aziel; not biblical Eliab" in idx
-        assert "not euaziel.site" in idx
-        assert "not Aziel S. (Flutter/portfolio)" in idx
-        assert "not other engineers named Aziel" in idx
+        assert "Publisher of this Marion Zioncheck archive" in idx
+        assert "Aziel Eliab only" in idx
+        assert "euaziel.site" in idx
         assert sitemap.count("<priority>1.0</priority>") == 1
         assert f"<loc>{APEX}/</loc>" in sitemap
         assert f"<loc>{APEX}/Case</loc>" in sitemap
         assert "https://www.hedidntjump.com/* https://hedidntjump.com/:splat 301" in redirects
         assert "https://hedidntjump.com/* https://www.hedidntjump.com/:splat 301" not in redirects
         assert llms.startswith("# He Didn't Jump — Marion A. Zioncheck archive")
-        assert "NOT an ARG" in llms
+        assert "NOT an ARG" not in llms
         assert "whistleblower" in llms.lower()
-        assert "not a LARP" in llms.lower() or "Not a LARP" in llms
+        assert "Marion A. Zioncheck" in llms
         # Machine surfaces (cite / llms / graph) — no HTML required for Marion FAQ
         cite = json.loads((ROOT / tree / "cite.json").read_text(encoding="utf-8"))
         assert cite["marion_person_id"] == f"{APEX}/#marion-zioncheck"
         assert cite["marion_person"]["name"] == "Marion A. Zioncheck"
         assert len(cite["zioncheck_faq"]) >= 5
         assert any(q["q"] == "Who was Marion A. Zioncheck?" for q in cite["zioncheck_faq"])
-        assert any("ARG" in q["q"] for q in cite["zioncheck_faq"])
-        assert "NOT an ARG" in cite["purpose"]
+        assert all("ARG" not in q["q"] for q in cite["zioncheck_faq"])
+        assert "NOT an ARG" not in cite["purpose"]
         assert "whistleblower" in cite["purpose"]
-        assert "Not biblical Aziel; not biblical Eliab" in cite["disambiguatingDescription"]
+        assert "Aziel Eliab only" in cite.get("disambiguatingDescription", "") + json.dumps(cite)
         graph_doc = json.loads((ROOT / tree / "graph.jsonld").read_text(encoding="utf-8"))
         assert graph_doc["@graph"][0]["@id"] == f"{APEX}/#marion-zioncheck"
         assert any(n.get("@id") == "https://www.hedidntjump.com/#zioncheck-faq" for n in graph_doc["@graph"])

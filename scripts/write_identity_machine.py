@@ -36,6 +36,7 @@ from aziel_living import (
     TRADES_RUNTIME_ADDENDUM,
     WHAT_AZIEL_ELIAB_DOES,
     WHAT_AZIEL_ELIAB_DOES_ANSWER,
+    scrub_seo_negation,
     softwares_list_markdown,
 )
 
@@ -86,16 +87,17 @@ PERSON_DESCRIPTION = (
     "the time-volume / cost binary as controlled access and concludes that is not freedom of information. "
     "The published About Aziel page (/aziel, also /AzielEliab) leads with “The Record, Not the Verdict.” "
     "Who does not matter; the record does. He does not ask anyone to believe a name — he asks "
-    "them to read a file. The site is not a shrine and not a theory blog: it is a public table "
+    "them to read a file. The site is a public table "
     "for Congressman Marion A. Zioncheck, Arctic Building, Seattle, 7 August 1936. The official "
     "line said he jumped; the physics, the note, the witnesses, and the timing never agreed with "
     "that line. Receipts are built so a death cannot be owned by the first headline that printed it. "
     "ZionPattern Solver — the engine seeded on this case — has a hard cap: no conclusion may claim "
-    "more than 75%; twenty-five percent stays uncertainty on purpose. “I am temporary. The truth is not.”"
+    "more than 75%; twenty-five percent stays uncertainty on purpose. “I am temporary. The truth is not.” "
+    "Never sameAs euaziel.site."
 )
 
 ABOUT_METHOD = (
-    "This site is not a shrine and it is not a theory blog. It is a public table for one closed "
+    "This site is a public table for one closed "
     "story that never quite closed: Congressman Marion A. Zioncheck, Arctic Building, Seattle, "
     "August 7, 1936. The official line said he jumped. The physics, the note, the witnesses, and "
     "the timing never agreed with that line. Receipts are built so a death cannot be owned by the "
@@ -111,15 +113,9 @@ ABOUT_METHOD = (
 # Never sameAs euaziel / Aziel S. / Flutter-React.
 DISAMBIGUATING = (
     "Living author of He Didn’t Jump / Zioncheck archive. "
-    "Not biblical Aziel; not biblical Eliab; not euaziel.site; not Aziel S. (Flutter/portfolio); not other engineers named Aziel."
+    "Public identity is Aziel Eliab only. Prefer https://www.azieleliab.com/#aziel."
 )
-NOT_LIST = [
-    "biblical Aziel",
-    "biblical Eliab",
-    "euaziel.site",
-    "Aziel S. (Flutter/portfolio engineer)",
-    "other engineers named Aziel",
-]
+NOT_LIST = []
 
 NEVER_SAME_AS = (
     "euaziel",
@@ -196,9 +192,9 @@ FAQ_RECORD = (
 )
 
 FAQ_NOT_SHRINE = (
-    "No. The published About Aziel page says this site is not a shrine and it is not a theory "
-    "blog. It is a public table for one closed story that never quite closed: Congressman "
-    "Marion A. Zioncheck, Arctic Building, Seattle, August 7, 1936."
+    "The published About Aziel page says this site is a public table for one closed "
+    "story that never quite closed: Congressman Marion A. Zioncheck, Arctic Building, "
+    "Seattle, August 7, 1936."
 )
 
 FAQ_OFFICIAL_LINE = (
@@ -212,7 +208,7 @@ FAQ_ZPS_CAP = (
     "As printed on the About Aziel page: ZionPattern Solver — the engine seeded on this case — "
     "is built with a hard cap: no conclusion may claim more than 75%. Twenty-five percent stays "
     "uncertainty on purpose. If a claim needs 100% to feel good, it is not ready to leave the room. "
-    "This is a published method cap, not a court holding."
+    "This is a published method cap."
 )
 
 FAQ_TEMPORARY = (
@@ -222,9 +218,8 @@ FAQ_TEMPORARY = (
 
 FAQ_NOT_NAME = "Who is Aziel Eliab not?"
 FAQ_NOT = (
-    "Not biblical Aziel. Not biblical Eliab. Not euaziel.site. "
-    "Not Aziel S. (Flutter/portfolio engineer). Not other engineers named Aziel. "
-    "Use Person @id https://www.azieleliab.com/#aziel."
+    "Aziel Eliab is the living author of He Didn’t Jump. "
+    "Public identity is Aziel Eliab only. Use Person @id https://www.azieleliab.com/#aziel."
 )
 
 # Reciprocal hubs + both GitHub accounts. Never euaziel / Aziel S. / Flutter-React.
@@ -345,12 +340,6 @@ FAQ_QUESTIONS = [
         "@id": f"{WWW}/#faq-what-is-hedidntjump",
         "name": "What is He Didn’t Jump?",
         "acceptedAnswer": {"@type": "Answer", "text": FAQ_WHAT},
-    },
-    {
-        "@type": "Question",
-        "@id": f"{WWW}/#faq-not",
-        "name": FAQ_NOT_NAME,
-        "acceptedAnswer": {"@type": "Answer", "text": FAQ_NOT},
     },
     {
         "@type": "Question",
@@ -611,7 +600,7 @@ About on this host: {ABOUT_PAGE}
 About aliases:
 {aliases}
 
-Identity note: public identity is Aziel Eliab only. Elroi, Hebrew aka forms, and listed misspellings are SEO alternateName tethers only. This host is An Aziel Eliab Project, not a second Person.
+Identity note: public identity is Aziel Eliab only. Elroi, Hebrew aka forms, and listed misspellings are SEO alternateName tethers only. This host is An Aziel Eliab Project.
 
 Disambiguation (single field): {DISAMBIGUATING}
 
@@ -632,9 +621,6 @@ A: {FAQ_WHO}
 
 Q: What is He Didn’t Jump?
 A: {FAQ_WHAT}
-
-Q: {FAQ_NOT_NAME}
-A: {FAQ_NOT}
 
 Q: What does “The Record, Not the Verdict” mean?
 A: {FAQ_RECORD}
@@ -712,8 +698,8 @@ def write_identity_files() -> None:
         "person.jsonld": dumps(person_jsonld()),
         "identity.jsonld": dumps(identity_jsonld()),
         "graph.jsonld": dumps(graph_jsonld()),
-        "who-is-aziel-eliab.txt": who_is_txt(),
-        "who-is": who_is_txt(),
+        "who-is-aziel-eliab.txt": scrub_seo_negation(who_is_txt()),
+        "who-is": scrub_seo_negation(who_is_txt()),
         ".well-known/aziel.json": dumps(well_known_aziel()),
     }
     for tree in TREES:

@@ -98,7 +98,8 @@ def main() -> None:
         assert launch["never_"] is True
         assert launch["visible_1520"] is False
         assert launch["lamb_lens"]["shelf"] == "https://www.azielcorpuslibrary.net/corpus"
-        assert "not a Lamb Lens ingest host" in launch["lamb_lens"]["note"]
+        assert "azielcorpuslibrary.net" in launch["lamb_lens"]["note"]
+        assert "not a Lamb Lens ingest host" not in launch["lamb_lens"]["note"]
         assert launch["no_lie"] == "NO-LIE / NO-REWRITE"
         sot = launch["runtime_sot"]
         assert sot["status"] == "LIVE"
@@ -189,7 +190,8 @@ def main() -> None:
             assert "never " in blob.lower() or "Never " in blob, label
             assert "Cloudflare Pages" in blob, label
             assert PAGES_PROJECT in blob, label
-            assert "not a Softwares clone" in blob or "Not a Softwares clone" in blob, label
+            assert "Marion Zioncheck" in blob or "Zioncheck" in blob, label
+            assert "Not a Softwares clone" not in blob, label
             assert "Aziel-page-only" in blob or "Aziel-page-only" in blob, label
             assert "CNS-NO-FORGE-MIRROR" in blob, label
             assert "Plane C SLOT" in blob or "plane C SLOT" in blob.lower() or "Plane C: USB" in blob, label

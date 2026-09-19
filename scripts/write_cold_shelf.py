@@ -28,7 +28,7 @@ _SCRIPTS = Path(__file__).resolve().parent
 if str(_SCRIPTS) not in sys.path:
     sys.path.insert(0, str(_SCRIPTS))
 
-from aziel_living import HDJ_MISSION
+from aziel_living import HDJ_MISSION, scrub_cite_ban_narratives
 
 ROOT = Path(__file__).resolve().parents[1]
 TREES = [ROOT / "dist", ROOT / "docs"]
@@ -908,10 +908,7 @@ def shelves_doc() -> dict:
             "mission": MISSION,
             "lamb_lens": {
                 "shelf": "https://www.azielcorpuslibrary.net/corpus",
-                "note": (
-                    "Public Lamb Lens / Corpus ingest lives on azielcorpuslibrary.net. "
-                    "hedidntjump.com is not a Lamb Lens ingest host."
-                ),
+                "note": "Public Lamb Lens / Corpus ingest lives on azielcorpuslibrary.net.",
             },
             "holdings": (
                 "No invented court holdings. HDJ publishes newspapers and five volumes "
@@ -1002,15 +999,16 @@ LLMS_BLOCK = f"""## COLD-MULTI-SHELF-1.0
 Sister-host cite of live corpus /shelves (AZindex-FAIL pivot 2026-09-14). Canonical: {CANON_SHELVES}
 This host: {WWW}/shelves · {APEX}/shelves · {WWW}/lockset.json · {WWW}/redline
 Person @id: {PERSON_ID}
-Lamb Lens (Corpus ingest, not this host): https://www.azielcorpuslibrary.net/corpus
-Growth-ON. NO-FAN (no Softwares tab, no mesh radio, no live ICANN Cap-7 publish).
+Lamb Lens (Corpus ingest): https://www.azielcorpuslibrary.net/corpus
+Lamb Lens order: Service → Clarity → Peace.
+Growth-ON. NO-FAN.
 Machine surfaces only. No visible 1 Chronicles 15:20 lock.
-REDLINE: FragGate is THE single door on the runtime sister; this archive is not an MCP door.
+REDLINE: FragGate is THE single door on the runtime sister.
 
 Planes A/B/C: A=one CF/GitHub tunnel (5 surfaces / 2 family radii, not 5 shelves); B=alt independent forge/archive tip-pack SLOT; C=USB airgap SLOT. Survival = bytes↔hash. LIVE only after hash verify.
 
 - Plane A: 5 published surfaces / 2 family radii (cloudflare + github). hedidntjump.com is one CF host mirror, not a fifth independent shelf.
-- Plane B ALL-TARGETS: Codeberg + archive.org + Framagit. Tip-pack `{CODEBERG_PACK}` hash-verify PASS on {ARCHIVE_ORG_URL} and {ARCHIVE_ORG_202609_URL} (same blast_radius; zip wrap on 202609 — flat IA sha256 may be null; inner tar hash-verifies). Not two independent shelves. Framagit URL null; still SLOT (CNS-PLANE-B-ALL-TARGETS). GitFlic refused CNS-GITFLIC-EMAIL. GitLab extra CNS-GITLAB-CF-LOOP. Zenodo refused CNS-ZENODO-IP-BAN (doi null). Do not invent a tip-pack DOI or Framagit URL.
+- Plane B ALL-TARGETS: Codeberg + archive.org + Framagit. Tip-pack `{CODEBERG_PACK}` hash-verify PASS on {ARCHIVE_ORG_URL} and {ARCHIVE_ORG_202609_URL} (same blast_radius; zip wrap on 202609 — flat IA sha256 may be null; inner tar hash-verifies). Framagit URL null; still SLOT. doi null. Do not invent a tip-pack DOI or Framagit URL.
 - Plane C: USB airgap SLOT until CNS-OPERATOR-ATTEST.
 - Cap-7: design_of the four hubs + this archive; resolves_to_hub: false; public_icann: false.
 - FoldLock (FOLDLOCK-SHELF-1.0): tip-safe cite only. Never fold the lockset tip (`FL-TIP-FOLD-REFUSE`). Not zip. Not an HDJ holding.
@@ -1024,11 +1022,12 @@ COLD-MULTI-SHELF-1.0 (AZindex; sister cite of live corpus /shelves):
 - Canonical shelves: {CANON_SHELVES}
 - This host: {WWW}/shelves · {WWW}/lockset.json · {WWW}/redline
 - Person @id: {PERSON_ID}
-- Lamb Lens: https://www.azielcorpuslibrary.net/corpus (Corpus ingest; HDJ is not a Lamb Lens ingest host)
+- Lamb Lens: https://www.azielcorpuslibrary.net/corpus (Corpus ingest)
+- Lamb Lens order: Service → Clarity → Peace
 - Growth-ON. NO-FAN. Machine only. No visible 15:20.
-- REDLINE doors/refuse: FragGate single door; CNS-PLANE-B-ALL-TARGETS; CNS-GITFLIC-EMAIL; CNS-GITLAB-CF-LOOP; CNS-ZENODO-IP-BAN; FL-TIP-FOLD-REFUSE
-- Plane A: 5 surfaces / 2 family radii (cloudflare + github). This host is one CF mirror, not a fifth shelf.
-- Plane B ALL-TARGETS: Codeberg + archive.org + Framagit; tip-pack {CODEBERG_PACK} PASS ({ARCHIVE_ORG_URL} + {ARCHIVE_ORG_202609_URL}, same blast_radius; zip wrap on 202609 — flat IA sha256 may be null; inner tar hash-verifies); Framagit URL null; GitFlic CNS-GITFLIC-EMAIL; GitLab CNS-GITLAB-CF-LOOP; still SLOT (CNS-PLANE-B-ALL-TARGETS); Zenodo CNS-ZENODO-IP-BAN doi null
+- REDLINE: FragGate is THE single door on the runtime sister
+- Plane A: 5 surfaces / 2 family radii (cloudflare + github). This host is one CF mirror.
+- Plane B ALL-TARGETS: Codeberg + archive.org + Framagit; tip-pack {CODEBERG_PACK} PASS ({ARCHIVE_ORG_URL} + {ARCHIVE_ORG_202609_URL}, same blast_radius; zip wrap on 202609 — flat IA sha256 may be null; inner tar hash-verifies); Framagit URL null; still SLOT; doi null
 - Plane C: USB attest SLOT (CNS-OPERATOR-ATTEST)
 - Cap-7: design_of + resolves_to_hub:false (hedidntjump design_of {WWW}/)
 - FoldLock: tip-safe cite only; never fold {LOCKSET_TIP}
@@ -1091,7 +1090,7 @@ def patch_cite() -> None:
         "lamb_lens": {
             "shelf": "https://www.azielcorpuslibrary.net/corpus",
             "order": "Service → Clarity → Peace",
-            "note": "Public Lamb Lens / Corpus ingest lives on azielcorpuslibrary.net. This host is not a Lamb Lens ingest host.",
+            "note": "Public Lamb Lens / Corpus ingest lives on azielcorpuslibrary.net.",
         },
         "codeberg_tip_pack": {
             "url": "https://codeberg.org/AzielEliab/aziel-lockset-tip",
@@ -1152,6 +1151,21 @@ def patch_cite() -> None:
         data["doi"] = None
         data["person_id"] = PERSON_ID
         data["author_id"] = PERSON_ID
+        seo_note = (
+            "Plane B working targets: Codeberg + archive.org + Framagit. "
+            "Codeberg + archive.org hash-verify PASS (still SLOT). archive.org has two items "
+            f"(aziel-lockset-tip + aziel-lockset-tip_202609), same blast_radius. "
+            "Framagit awaiting tip-pack (URL null). doi null."
+        )
+        if isinstance(data.get("planes"), dict) and isinstance(data["planes"].get("B"), dict):
+            data["planes"]["B"]["note"] = seo_note
+        for key in ("gitflic_tip_pack", "gitlab_tip_pack", "zenodo_tip_pack"):
+            row = data.get(key)
+            if isinstance(row, dict):
+                row.pop("refuse", None)
+                row["doi"] = None if "doi" in row or key == "zenodo_tip_pack" else row.get("doi")
+                row["url"] = row.get("url")
+                row["status"] = row.get("status") or "slot"
         q = list(data.get("query_urls") or [])
         for u in (
             f"{APEX}/shelves",
@@ -1163,6 +1177,7 @@ def patch_cite() -> None:
             if u not in q:
                 q.append(u)
         data["query_urls"] = q
+        data = scrub_cite_ban_narratives(data)
         path.write_text(dumps(data), encoding="utf-8")
         print("cite", path.relative_to(ROOT))
 
@@ -1368,10 +1383,14 @@ def patch_openapi() -> None:
 
 
 def patch_robots() -> None:
-    note = "# Growth-ON: AI crawlers stay Allowed. NO-FAN: this is not a Softwares / mesh fan-out.\n"
+    note = "# Growth-ON: AI crawlers stay Allowed.\n"
     for tree in TREES:
         path = tree / "robots.txt"
         text = path.read_text(encoding="utf-8")
+        text = text.replace(
+            "# Growth-ON: AI crawlers stay Allowed. NO-FAN: this is not a Softwares / mesh fan-out.\n",
+            "# Growth-ON: AI crawlers stay Allowed.\n",
+        )
         if "Growth-ON" not in text:
             text = text.replace(
                 "# Open Allow + Content-Signal. Do not Disallow GPTBot/Claude/etc for budget.\n",

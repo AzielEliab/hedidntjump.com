@@ -1,0 +1,48 @@
+# How to read He Didn't Jump
+
+An Aziel Eliab Project. Independent investigative / whistleblower newspaper archive on Marion A. Zioncheck.
+
+## Start here
+
+1. Open the money page: https://hedidntjump.com/
+2. Read the Case edition: https://hedidntjump.com/Case
+3. Walk the 23 inquiries: https://hedidntjump.com/Inquiries
+4. Open Volumes I–V in the facsimile reader: https://hedidntjump.com/reader
+5. Use the official-account contrast only as contrast: https://hedidntjump.com/Narrative
+
+Motto: The Record, Not the Verdict.
+The published volumes re-examine the official suicide account of U.S. Rep. Marion A. Zioncheck (Arctic Building, Seattle, 7 August 1936). The project does not invent court holdings, quotes, or agency letters beyond what the volumes and cited papers already print.
+
+## Newspapers
+
+Each paper is a newspaper edition on this host:
+
+- Landing / money page — https://hedidntjump.com/
+- Case — https://hedidntjump.com/Case
+- Press — https://hedidntjump.com/Press
+- Inquiries — https://hedidntjump.com/Inquiries
+- Rubye — https://hedidntjump.com/Rubye
+- Archives — https://hedidntjump.com/Archives
+- FOIA — https://hedidntjump.com/FOIA
+- Copyrights — https://hedidntjump.com/Copyrights
+
+## Volumes
+
+Reader URLs:
+
+- Volume I — https://hedidntjump.com/reader?volume=1&page=1
+- Volume II — https://hedidntjump.com/reader?volume=2&page=1
+- Volume III — https://hedidntjump.com/reader?volume=3&page=1
+- Volume IV — https://hedidntjump.com/reader?volume=4&page=1
+- Volume V — https://hedidntjump.com/reader?volume=5&page=1
+
+PDFs:
+
+- https://hedidntjump.com/volumes/volume-1.pdf
+- https://hedidntjump.com/volumes/volume-2.pdf
+- https://hedidntjump.com/volumes/volume-3.pdf
+- https://hedidntjump.com/volumes/volume-4.pdf
+- https://hedidntjump.com/volumes/volume-5.pdf
+
+Help: https://hedidntjump.com/help.txt
+Addendum: https://hedidntjump.com/addendum.txt

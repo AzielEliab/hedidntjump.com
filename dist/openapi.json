@@ -414,7 +414,7 @@
     },
     "/runtime-launch.json": {
       "get": {
-        "summary": "Softwares+runtime launch cite (aziel-runtime 2.0.0-rc1 SoT; not a Softwares clone; never )",
+        "summary": "Softwares+runtime launch cite (aziel-runtime 2.0.0-rc1 SoT; aziel-runtime 2.0.0-rc1 SoT; never )",
         "responses": {
           "200": {
             "description": "application/json"
@@ -514,7 +514,7 @@
     },
     "/survival": {
       "get": {
-        "summary": "BAN-SURVIVAL-1.0 hub pull of runtime /survival (short TTL 60s; not a live exec door)",
+        "summary": "BAN-SURVIVAL-1.0 hub pull of runtime /survival (short TTL 60s; Zioncheck archive hub pull)",
         "responses": {
           "200": {
             "description": "application/json"
@@ -538,6 +538,36 @@
         "responses": {
           "200": {
             "description": "application/json"
+          }
+        }
+      }
+    },
+    "/help.txt": {
+      "get": {
+        "summary": "Human help — Zioncheck mission, newspapers, volumes, links",
+        "responses": {
+          "200": {
+            "description": "text/plain"
+          }
+        }
+      }
+    },
+    "/addendum.txt": {
+      "get": {
+        "summary": "Human addendum — volumes, FOIA, methodology, sister cites",
+        "responses": {
+          "200": {
+            "description": "text/plain"
+          }
+        }
+      }
+    },
+    "/help/how-to-read.txt": {
+      "get": {
+        "summary": "How to read the newspapers and five volumes",
+        "responses": {
+          "200": {
+            "description": "text/plain"
           }
         }
       }
