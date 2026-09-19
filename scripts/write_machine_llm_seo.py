@@ -50,9 +50,13 @@ from aziel_living import (
     THE_ARK_STATS,
     SPECTRALLOCK,
     SPECTRALLOCK_ADDENDUM,
+    SPECTRALLOCK_ADDENDUM_OLD,
     SPECTRALLOCK_DOWNLOAD,
     SPECTRALLOCK_GITHUB,
+    SPECTRALLOCK_HANDWRITING,
     SPECTRALLOCK_HONESTY,
+    SPECTRALLOCK_OLD,
+    SPECTRALLOCK_RECOVER,
     SPECTRALLOCK_UNREDACT,
     SPECTRALLOCK_WORKER,
     TRADES_RUNTIME,
@@ -97,7 +101,7 @@ SISTERS_BLOCK = f"""Sister surfaces (this host is HDJ; not a Softwares clone)
 - runtime: {SISTERS["runtime"]}
 - runtime (prefer Glama): {SISTERS_GLAMA}
 - trades-runtime (sister Softwares cite-only; not FragGate exec): {TRADES_RUNTIME_WORKER}
-- spectrallock (sister Softwares cite-only; leftover-bytes recover; SL-UNREDACT-OPAQUE refuse): {SPECTRALLOCK_UNREDACT}
+- spectrallock (sister Softwares cite-only; leftover-bytes + /v1/recover + /v1/handwriting; not FragGate door; not lab): {SPECTRALLOCK_WORKER}
 - this: {SISTERS_HDJ} — {HDJ_BLURB}
 Growth-ON. NO-LIE. Person @id: {PERSON_ID}
 ZionBot owns newspaper HTML / Pages SEO chrome. This pack is machine files only.
@@ -122,12 +126,14 @@ SPECTRALLOCK_LLMS_BLOCK = f"""{SPECTRALLOCK_LLMS_HEAD}
 
 {SPECTRALLOCK_ADDENDUM}
 
-- Worker unredact: {SPECTRALLOCK_UNREDACT}
+- leftover-bytes: {SPECTRALLOCK_UNREDACT}
+- /v1/recover: {SPECTRALLOCK_RECOVER}
+- /v1/handwriting: {SPECTRALLOCK_HANDWRITING}
 - GitHub: {SPECTRALLOCK_GITHUB}
 - Download: {SPECTRALLOCK_DOWNLOAD}
 - Worker: {SPECTRALLOCK_WORKER}
 
-Leftover-bytes recover reads present container bytes. Opaque rewrite with no leftover bytes refuses SL-UNREDACT-OPAQUE. HDJ cites; does not host. Not a FragGate door op. Zioncheck stays the HDJ mission.
+NO-LIE. leftover-bytes + /v1/recover + /v1/handwriting. Not a FragGate door. Not a lab. HDJ cites; does not host. Zioncheck stays the HDJ mission.
 """
 
 TRADES_RUNTIME_AI_HEAD = "TRADES-RUNTIME (sister Softwares/runtime cite-only"
@@ -143,9 +149,11 @@ TRADES_RUNTIME_AI_BLOCK = f"""TRADES-RUNTIME (sister Softwares/runtime cite-only
 """
 
 SPECTRALLOCK_AI_HEAD = "SPECTRALLOCK (sister Softwares cite-only"
-SPECTRALLOCK_AI_BLOCK = f"""SPECTRALLOCK (sister Softwares cite-only; leftover-bytes recover; SL-UNREDACT-OPAQUE refuse):
-- Leftover-bytes recover reads present container bytes. Opaque rewrite with no leftover bytes refuses SL-UNREDACT-OPAQUE. Never invent letters. Heatmaps are not transcripts. Not a FragGate door op. Aziel Eliab only.
-- Worker unredact: {SPECTRALLOCK_UNREDACT}
+SPECTRALLOCK_AI_BLOCK = f"""SPECTRALLOCK (sister Softwares cite-only; leftover-bytes + /v1/recover + /v1/handwriting; not FragGate door; not lab):
+- leftover-bytes + GET|POST /v1/recover + GET|POST /v1/handwriting. Present bytes only. Never infer covered letters. Handwriting is synthetic pixel analysis — not a lab, not ESDA, not writer identity, not a court finding. Not a FragGate door. Aziel Eliab only. NO-LIE.
+- leftover-bytes: {SPECTRALLOCK_UNREDACT}
+- /v1/recover: {SPECTRALLOCK_RECOVER}
+- /v1/handwriting: {SPECTRALLOCK_HANDWRITING}
 - GitHub: {SPECTRALLOCK_GITHUB}
 - Download: {SPECTRALLOCK_DOWNLOAD}
 - Worker: {SPECTRALLOCK_WORKER}
@@ -211,7 +219,16 @@ def upsert_faq_rows(faq: list) -> list:
 
 
 def upsert_knows_about(knows: list) -> list:
-    out = list(knows or [])
+    out = []
+    for item in knows or []:
+        if item == SPECTRALLOCK_OLD:
+            out.append(SPECTRALLOCK)
+        elif isinstance(item, dict) and item.get("name") == SPECTRALLOCK_OLD:
+            row = dict(item)
+            row["name"] = SPECTRALLOCK
+            out.append(row)
+        else:
+            out.append(item)
     have = set()
     for item in out:
         if isinstance(item, str):
@@ -398,7 +415,7 @@ def patch_cite(data: dict) -> dict:
         "hdj": SISTERS_HDJ,
         "this": "hdj",
         "trades_runtime": TRADES_RUNTIME_WORKER,
-        "spectrallock": SPECTRALLOCK_UNREDACT,
+        "spectrallock": SPECTRALLOCK_WORKER,
     }
     data["pages_seo"] = PAGES_SEO
     data["growth_on"] = True
@@ -420,12 +437,17 @@ def patch_cite(data: dict) -> dict:
         {
             "id": "spectrallock",
             "label": "SpectralLock (sister Softwares cite)",
-            "href": SPECTRALLOCK_UNREDACT,
+            "href": SPECTRALLOCK_WORKER,
         },
     ]
     for row in extra:
         if row["id"] not in have:
             eco.append(row)
+        elif row["id"] == "spectrallock":
+            for item in eco:
+                if isinstance(item, dict) and item.get("id") == "spectrallock":
+                    item["href"] = SPECTRALLOCK_WORKER
+                    item["label"] = "SpectralLock (sister Softwares cite)"
     data["ecosystem"] = eco
     faq = list(data.get("faq") or [])
     for item in faq:
@@ -486,14 +508,23 @@ def patch_cite(data: dict) -> dict:
         "author": "Aziel Eliab",
         "identity": "Aziel Eliab",
         "cite_only": True,
+        "fraggate_door": False,
         "fraggate_door_op": False,
+        "catalog_door": False,
+        "lab": False,
+        "forensic_certification": False,
+        "esda": False,
+        "writer_identification_as_fact": False,
         "leftover_bytes_recovery": True,
         "pigment_recovery": False,
         "guessed_letters": False,
         "heatmap_is_transcript": False,
+        "no_lie": True,
         "refuse_code": "SL-UNREDACT-OPAQUE",
         "worker": SPECTRALLOCK_WORKER,
         "unredact": SPECTRALLOCK_UNREDACT,
+        "recover": SPECTRALLOCK_RECOVER,
+        "handwriting": SPECTRALLOCK_HANDWRITING,
         "github": SPECTRALLOCK_GITHUB,
         "download": SPECTRALLOCK_DOWNLOAD,
         "live_ops": [
@@ -507,14 +538,15 @@ def patch_cite(data: dict) -> dict:
         ],
         "honesty": SPECTRALLOCK_HONESTY,
         "note": (
-            "HDJ cites; does not host. Sister Softwares cite-only. Leftover-bytes "
-            "recover reads present container bytes. Opaque rewrite with no leftover "
-            "bytes refuses SL-UNREDACT-OPAQUE. Not a FragGate door op. Zioncheck "
-            "stays the HDJ mission."
+            "HDJ cites; does not host. Sister Softwares cite-only. leftover-bytes + "
+            "/v1/recover + /v1/handwriting. Present bytes only. Not a FragGate door. "
+            "Not a lab. NO-LIE. Zioncheck stays the HDJ mission."
         ),
     }
     data["spectrallock_worker"] = SPECTRALLOCK_WORKER
     data["spectrallock_unredact"] = SPECTRALLOCK_UNREDACT
+    data["spectrallock_recover"] = SPECTRALLOCK_RECOVER
+    data["spectrallock_handwriting"] = SPECTRALLOCK_HANDWRITING
     data["spectrallock_github"] = SPECTRALLOCK_GITHUB
     data["spectrallock_download"] = SPECTRALLOCK_DOWNLOAD
     data["research"] = {
@@ -584,8 +616,8 @@ def patch_cite(data: dict) -> dict:
         "(1933–1936). Official reports said suicide at the Arctic Building on "
         "7 August 1936. This project re-examines that account from published "
         f"newspapers and volumes. {HDJ_BLURB} Sisters: ae, corpus, godlock, runtime. "
-        "Sister Softwares cite: trades-runtime; spectrallock leftover-bytes recover "
-        "(not a hub)."
+        "Sister Softwares cite: trades-runtime; spectrallock leftover-bytes + "
+        "/v1/recover + /v1/handwriting (not a hub; not FragGate door; not lab)."
     )
     return data
 
@@ -626,6 +658,8 @@ def patch_person(data: dict) -> dict:
         data["spectrallock"] = SPECTRALLOCK
         data["spectrallock_worker"] = SPECTRALLOCK_WORKER
         data["spectrallock_unredact"] = SPECTRALLOCK_UNREDACT
+        data["spectrallock_recover"] = SPECTRALLOCK_RECOVER
+        data["spectrallock_handwriting"] = SPECTRALLOCK_HANDWRITING
         data["spectrallock_github"] = SPECTRALLOCK_GITHUB
         data["spectrallock_download"] = SPECTRALLOCK_DOWNLOAD
     return data
@@ -757,11 +791,16 @@ def ensure_trades_runtime_cite(text: str, *, ai: bool = False) -> str:
 
 def upsert_sisters_spectrallock_line(text: str) -> str:
     line = (
-        f"- spectrallock (sister Softwares cite-only; leftover-bytes recover; "
-        f"SL-UNREDACT-OPAQUE refuse): {SPECTRALLOCK_UNREDACT}\n"
+        f"- spectrallock (sister Softwares cite-only; leftover-bytes + /v1/recover + "
+        f"/v1/handwriting; not FragGate door; not lab): {SPECTRALLOCK_WORKER}\n"
     )
     if "spectrallock (sister Softwares cite-only" in text:
-        return text
+        return re.sub(
+            r"- spectrallock \(sister Softwares cite-only[^\n]+\n",
+            line,
+            text,
+            count=1,
+        )
     if "trades-runtime (sister Softwares cite-only" in text:
         return re.sub(
             r"(- trades-runtime \(sister Softwares cite-only[^\n]+\n)",
@@ -862,11 +901,16 @@ def ensure_related_trades(text: str) -> str:
 
 def ensure_related_spectrallock(text: str) -> str:
     cite = (
-        f"Sister Softwares cite: [SpectralLock]({SPECTRALLOCK_UNREDACT}) "
-        "(leftover-bytes recover; SL-UNREDACT-OPAQUE refuse; not FragGate door op)."
+        f"Sister Softwares cite: [SpectralLock]({SPECTRALLOCK_WORKER}) "
+        "(leftover-bytes + /v1/recover + /v1/handwriting; NO-LIE; not FragGate door; not lab)."
     )
     if "Sister Softwares cite: [SpectralLock]" in text:
-        return text
+        return re.sub(
+            r"Sister Softwares cite: \[SpectralLock\]\([^)]+\) \([^)]+\)",
+            cite,
+            text,
+            count=1,
+        )
     trades = "Sister Softwares cite: [Trades-Runtime]"
     if trades in text:
         return re.sub(
@@ -904,6 +948,10 @@ def bump_sitemap_lastmod(text: str) -> str:
 
 def patch_txt(text: str, *, ai: bool = False) -> str:
     text = rewrite_stack(text)
+    if SPECTRALLOCK_ADDENDUM_OLD in text:
+        text = text.replace(SPECTRALLOCK_ADDENDUM_OLD, SPECTRALLOCK_ADDENDUM)
+    if SPECTRALLOCK_OLD in text:
+        text = text.replace(SPECTRALLOCK_OLD, SPECTRALLOCK)
     text = ensure_sisters_block(text)
     text = ensure_what_does_block(text)
     text = ensure_trades_runtime_cite(text, ai=ai)

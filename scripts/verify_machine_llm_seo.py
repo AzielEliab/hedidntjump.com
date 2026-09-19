@@ -34,7 +34,10 @@ from aziel_living import (
     SPECTRALLOCK_ADDENDUM,
     SPECTRALLOCK_DOWNLOAD,
     SPECTRALLOCK_GITHUB,
+    SPECTRALLOCK_HANDWRITING,
     SPECTRALLOCK_LIST,
+    SPECTRALLOCK_OLD,
+    SPECTRALLOCK_RECOVER,
     SPECTRALLOCK_UNREDACT,
     SPECTRALLOCK_WORKER,
     THE_ARK,
@@ -124,6 +127,7 @@ def main() -> None:
         assert "Trades-Runtime" not in WHAT_AZIEL_ELIAB_DOES
         assert SPECTRALLOCK not in WHAT_AZIEL_ELIAB_DOES
         assert "SpectralLock" not in WHAT_AZIEL_ELIAB_DOES
+        assert SPECTRALLOCK_OLD not in WHAT_AZIEL_ELIAB_DOES
         assert cite["softwares_list"] == list(SOFTWARES_LIST)
         assert WHITESTONE in cite["softwares_list"]
         assert THE_ARK_LIST in cite["softwares_list"]
@@ -163,32 +167,47 @@ def main() -> None:
         assert TRADES_RUNTIME_OPENAPI in cite["softwares_list_note"]
         assert TRADES_RUNTIME_MCP in cite["softwares_list_note"]
         assert "trades-runtime" in cite["purpose"]
-        assert cite["sisters"]["spectrallock"] == SPECTRALLOCK_UNREDACT
+        assert cite["sisters"]["spectrallock"] == SPECTRALLOCK_WORKER
         assert cite["spectrallock_worker"] == SPECTRALLOCK_WORKER
         assert cite["spectrallock_unredact"] == SPECTRALLOCK_UNREDACT
+        assert cite["spectrallock_recover"] == SPECTRALLOCK_RECOVER
+        assert cite["spectrallock_handwriting"] == SPECTRALLOCK_HANDWRITING
         assert cite["spectrallock_github"] == SPECTRALLOCK_GITHUB
         assert cite["spectrallock_download"] == SPECTRALLOCK_DOWNLOAD
         assert cite["spectrallock"]["leftover_bytes_recovery"] is True
         assert cite["spectrallock"]["pigment_recovery"] is False
         assert cite["spectrallock"]["guessed_letters"] is False
         assert cite["spectrallock"]["heatmap_is_transcript"] is False
+        assert cite["spectrallock"]["fraggate_door"] is False
         assert cite["spectrallock"]["fraggate_door_op"] is False
+        assert cite["spectrallock"]["catalog_door"] is False
+        assert cite["spectrallock"]["lab"] is False
+        assert cite["spectrallock"]["forensic_certification"] is False
+        assert cite["spectrallock"]["esda"] is False
+        assert cite["spectrallock"]["writer_identification_as_fact"] is False
+        assert cite["spectrallock"]["no_lie"] is True
         assert cite["spectrallock"]["cite_only"] is True
         assert cite["spectrallock"]["refuse_code"] == "SL-UNREDACT-OPAQUE"
         assert cite["spectrallock"]["unredact"] == SPECTRALLOCK_UNREDACT
+        assert cite["spectrallock"]["recover"] == SPECTRALLOCK_RECOVER
+        assert cite["spectrallock"]["handwriting"] == SPECTRALLOCK_HANDWRITING
         assert cite["spectrallock"]["worker"] == SPECTRALLOCK_WORKER
         assert cite["spectrallock"]["github"] == SPECTRALLOCK_GITHUB
         assert cite["spectrallock"]["download"] == SPECTRALLOCK_DOWNLOAD
         assert any(
-            e.get("id") == "spectrallock" and e.get("href") == SPECTRALLOCK_UNREDACT
+            e.get("id") == "spectrallock" and e.get("href") == SPECTRALLOCK_WORKER
             for e in cite["ecosystem"]
             if isinstance(e, dict)
         )
         assert SPECTRALLOCK_UNREDACT in cite["softwares_list_note"]
+        assert SPECTRALLOCK_RECOVER in cite["softwares_list_note"]
+        assert SPECTRALLOCK_HANDWRITING in cite["softwares_list_note"]
         assert SPECTRALLOCK_GITHUB in cite["softwares_list_note"]
         assert SPECTRALLOCK_DOWNLOAD in cite["softwares_list_note"]
-        assert "SL-UNREDACT-OPAQUE" in cite["softwares_list_note"]
+        assert "not a lab" in cite["softwares_list_note"].lower()
         assert "spectrallock" in cite["purpose"]
+        assert "/v1/recover" in cite["purpose"]
+        assert "/v1/handwriting" in cite["purpose"]
         assert cite["what_aziel_eliab_does_answer"] == WHAT_AZIEL_ELIAB_DOES_ANSWER
         assert cite["what_aziel_eliab_does_faq"] == list(WHAT_DOES_FAQ_TITLES)
         cite_faq = {item["q"]: item["a"] for item in cite["faq"]}
@@ -233,6 +252,8 @@ def main() -> None:
         assert person.get("spectrallock") == SPECTRALLOCK
         assert person.get("spectrallock_worker") == SPECTRALLOCK_WORKER
         assert person.get("spectrallock_unredact") == SPECTRALLOCK_UNREDACT
+        assert person.get("spectrallock_recover") == SPECTRALLOCK_RECOVER
+        assert person.get("spectrallock_handwriting") == SPECTRALLOCK_HANDWRITING
         assert person.get("spectrallock_github") == SPECTRALLOCK_GITHUB
         assert person.get("spectrallock_download") == SPECTRALLOCK_DOWNLOAD
         assert THE_ARK in person["knowsAbout"]
@@ -274,10 +295,19 @@ def main() -> None:
         assert "SPECTRALLOCK (sister Softwares cite-only" in blobs["ai.txt"]
         assert "Sister Softwares cite: [SpectralLock]" in blobs["llms.txt"]
         assert SPECTRALLOCK_UNREDACT in blobs["llms.txt"]
+        assert SPECTRALLOCK_RECOVER in blobs["llms.txt"]
+        assert SPECTRALLOCK_HANDWRITING in blobs["llms.txt"]
         assert "SL-UNREDACT-OPAQUE" in blobs["llms.txt"]
-        assert "leftover-bytes recover" in blobs["llms.txt"]
+        assert "leftover-bytes" in blobs["llms.txt"]
+        assert "/v1/recover" in blobs["llms.txt"]
+        assert "/v1/handwriting" in blobs["llms.txt"]
+        assert "not a lab" in blobs["llms.txt"].lower()
         assert SPECTRALLOCK_UNREDACT in blobs["ai.txt"]
+        assert SPECTRALLOCK_RECOVER in blobs["ai.txt"]
+        assert SPECTRALLOCK_HANDWRITING in blobs["ai.txt"]
         assert "SL-UNREDACT-OPAQUE" in blobs["ai.txt"]
+        assert "/v1/handwriting" in blobs["ai.txt"]
+        assert "not a lab" in blobs["ai.txt"].lower()
 
         who = blobs["who-is"]
         who_txt = blobs["who-is-aziel-eliab.txt"]
@@ -322,12 +352,19 @@ def main() -> None:
             assert SPECTRALLOCK_LIST in text, rel
             assert SPECTRALLOCK_ADDENDUM in text, rel
             assert SPECTRALLOCK_UNREDACT in text, rel
+            assert SPECTRALLOCK_RECOVER in text, rel
+            assert SPECTRALLOCK_HANDWRITING in text, rel
             assert SPECTRALLOCK_GITHUB in text, rel
             assert SPECTRALLOCK_DOWNLOAD in text, rel
             assert SPECTRALLOCK_WORKER in text, rel
             assert "SL-UNREDACT-OPAQUE" in text, rel
-            assert "leftover-bytes recover" in text, rel
-            assert "Not a FragGate door op" in text, rel
+            assert "leftover-bytes" in text, rel
+            assert "/v1/recover" in text, rel
+            assert "/v1/handwriting" in text, rel
+            assert "not a lab" in text.lower(), rel
+            assert "Not a FragGate door" in text, rel
+            assert SPECTRALLOCK_OLD not in text, rel
+            assert "/mcp" not in SPECTRALLOCK_ADDENDUM
             assert "Not FragGate exec" in text, rel
             assert "live_backends false" in text, rel
             assert "1 Chronicles 15:20" not in TRADES_RUNTIME_ADDENDUM
@@ -348,6 +385,8 @@ def main() -> None:
         assert TRADES_RUNTIME_WORKER not in sitemap
         assert SPECTRALLOCK_WORKER not in sitemap
         assert SPECTRALLOCK_UNREDACT not in sitemap
+        assert SPECTRALLOCK_RECOVER not in sitemap
+        assert SPECTRALLOCK_HANDWRITING not in sitemap
         index = (tree / "sitemap-index.xml").read_text(encoding="utf-8")
         assert "<loc>https://hedidntjump.com/sitemap.xml</loc>" in index
         assert "trades-runtime.vibelock.workers.dev" not in index

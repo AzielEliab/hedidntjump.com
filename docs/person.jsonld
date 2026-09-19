@@ -108,7 +108,7 @@
     "Whitestone (ephemeral pro se advisor; not a lawyer)",
     "The ARK (local deniable vault)",
     "Trades-Runtime (local-first BYO trades runtime)",
-    "SpectralLock (leftover-bytes recover; SL-UNREDACT-OPAQUE refuse)"
+    "SpectralLock (leftover-bytes + /v1/recover + /v1/handwriting; not lab)"
   ],
   "knowsLanguage": [
     "en",
@@ -171,7 +171,7 @@
     "Whitestone (ephemeral pro se advisor; not a lawyer)",
     "The ARK (local deniable vault); download+ https://ark-download-tracker.vibelock.workers.dev/download ; stats https://ark-download-tracker.vibelock.workers.dev/stats ; github https://github.com/AzielEliab/ark",
     "Trades-Runtime (local-first BYO trades runtime); worker https://trades-runtime.vibelock.workers.dev ; github https://github.com/AzielEliab/trades-runtime ; download https://trades-runtime.vibelock.workers.dev/download ; openapi https://trades-runtime.vibelock.workers.dev/openapi.json ; mcp https://trades-runtime.vibelock.workers.dev/mcp",
-    "SpectralLock (leftover-bytes recover; SL-UNREDACT-OPAQUE refuse); worker https://spectrallock-download-tracker.vibelock.workers.dev/v1/unredact ; github https://github.com/AzielEliab/spectrallock ; download https://spectrallock-download-tracker.vibelock.workers.dev/download"
+    "SpectralLock (leftover-bytes + /v1/recover + /v1/handwriting; not lab); leftover-bytes https://spectrallock-download-tracker.vibelock.workers.dev/v1/unredact ; /v1/recover https://spectrallock-download-tracker.vibelock.workers.dev/v1/recover ; /v1/handwriting https://spectrallock-download-tracker.vibelock.workers.dev/v1/handwriting ; github https://github.com/AzielEliab/spectrallock ; download https://spectrallock-download-tracker.vibelock.workers.dev/download"
   ],
   "the_ark": "The ARK (local deniable vault)",
   "the_ark_download": "https://ark-download-tracker.vibelock.workers.dev/download",
@@ -183,9 +183,11 @@
   "trades_runtime_download": "https://trades-runtime.vibelock.workers.dev/download",
   "trades_runtime_openapi": "https://trades-runtime.vibelock.workers.dev/openapi.json",
   "trades_runtime_mcp": "https://trades-runtime.vibelock.workers.dev/mcp",
-  "spectrallock": "SpectralLock (leftover-bytes recover; SL-UNREDACT-OPAQUE refuse)",
+  "spectrallock": "SpectralLock (leftover-bytes + /v1/recover + /v1/handwriting; not lab)",
   "spectrallock_worker": "https://spectrallock-download-tracker.vibelock.workers.dev",
   "spectrallock_unredact": "https://spectrallock-download-tracker.vibelock.workers.dev/v1/unredact",
   "spectrallock_github": "https://github.com/AzielEliab/spectrallock",
-  "spectrallock_download": "https://spectrallock-download-tracker.vibelock.workers.dev/download"
+  "spectrallock_download": "https://spectrallock-download-tracker.vibelock.workers.dev/download",
+  "spectrallock_recover": "https://spectrallock-download-tracker.vibelock.workers.dev/v1/recover",
+  "spectrallock_handwriting": "https://spectrallock-download-tracker.vibelock.workers.dev/v1/handwriting"
 }
