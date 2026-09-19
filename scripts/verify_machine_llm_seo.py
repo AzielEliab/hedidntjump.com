@@ -22,6 +22,7 @@ from aziel_living import (
     HDJ_PROJECT_KIND,
     LLMS_LEAD,
     SEO_BAN_MARKERS,
+    SEO_SCOREBOARD_BANS,
     HARDWARE_ADDENDUM,
     HDJ_BLURB,
     JOB_TITLES,
@@ -133,6 +134,8 @@ def main() -> None:
             if rel in ("cite.json", "llms.txt", "ai.txt", "llms-full.txt", "who-is", "who-is-aziel-eliab.txt"):
                 for marker in SEO_BAN_MARKERS:
                     assert marker not in text, f"{tree_name}/{rel} still has {marker}"
+                for marker in SEO_SCOREBOARD_BANS:
+                    assert marker not in text.lower(), f"{tree_name}/{rel} still has {marker}"
                 assert "Not a Softwares clone" not in text, rel
                 assert "not a Softwares card" not in text.lower(), rel
                 assert "Who is Aziel Eliab not?" not in text, rel

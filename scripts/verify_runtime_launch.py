@@ -94,8 +94,8 @@ def main() -> None:
         assert launch["person_id"] == PERSON_ID
         assert launch["softwares_clone"] is False
         assert launch["softwares_tab"] is False
-        assert launch[""] is False
-        assert launch["never_"] is True
+        assert "" not in launch
+        assert "never_" not in launch
         assert launch["visible_1520"] is False
         assert launch["lamb_lens"]["shelf"] == "https://www.azielcorpuslibrary.net/corpus"
         assert "azielcorpuslibrary.net" in launch["lamb_lens"]["note"]
@@ -144,8 +144,10 @@ def main() -> None:
         assert cite["runtime_launch"]["runtime_sot"]["version_id"] == VERSION_ID
         assert cite["runtime_launch"]["runtime_sot"]["git_short"] == GIT_SHORT
         assert cite["runtime_sot"]["version_id"] == VERSION_ID
-        assert cite[""] is False
-        assert cite["never_"] is True
+        assert "" not in cite
+        assert "never_" not in cite
+        assert "" not in cite.get("runtime_launch", {})
+        assert "never_" not in cite.get("runtime_launch", {})
         assert cite["softwares_clone"] is False
         assert cite["live_origin"]["kind"] == "cloudflare-pages"
         assert cite["live_origin"]["project"] == PAGES_PROJECT
@@ -169,9 +171,8 @@ def main() -> None:
         assert planes["C"]["status"] == "slot"
 
         for path, value in walk_bools(cite):
-            if path.endswith("") or path.endswith("never_"):
-                if path.endswith("") and not path.endswith("never_"):
-                    assert value is False, f"{tree_name} cite {path} must be false"
+            assert "" not in path, f"{tree_name} cite still has scoreboard key {path}"
+            assert "never_" not in path, f"{tree_name} cite still has scoreboard key {path}"
 
         ingest = (tree / "ingest-as-receipt.json").read_bytes()
         assert hashlib.sha256(ingest).hexdigest() == HDJ_INGEST_TIP, f"{tree_name} ingest tip drifted"
@@ -187,7 +188,12 @@ def main() -> None:
             assert RUNTIME_GLAMA in blob, label
             assert RUNTIME_GITHUB in blob, label
             assert "Try on Glama" in blob or RUNTIME_GLAMA in blob, label
-            assert "never " in blob.lower() or "Never " in blob, label
+            assert "" not in blob.lower()
+            assert "" not in blob.lower()
+            assert "" not in blob.lower()
+            assert "survival" not in blob.lower()
+            assert "durable" not in blob.lower()
+            assert "" not in blob.lower()
             assert "Cloudflare Pages" in blob, label
             assert PAGES_PROJECT in blob, label
             assert "Marion Zioncheck" in blob or "Zioncheck" in blob, label
@@ -211,7 +217,8 @@ def main() -> None:
             assert server["version"] == VERSION, label
             assert server["git_sha"] == GIT_SHA, label
             assert server["version_id"] == VERSION_ID, label
-            assert server[""] is False, label
+            assert "" not in server, label
+            assert "Never " not in server.get("note", ""), label
             assert server["glama"] == RUNTIME_GLAMA, label
             assert "no local MCP" in server["note"] or "Prefer Try on Glama" in server["description"]
 
@@ -231,7 +238,8 @@ def main() -> None:
 
         wk = json.loads((tree / ".well-known" / "aziel.json").read_text(encoding="utf-8"))
         assert wk["runtime_sot"]["version_id"] == VERSION_ID
-        assert wk["runtime_sot"][""] is False
+        assert "" not in wk["runtime_sot"]
+        assert "" not in json.dumps(wk["runtime_sot"])
         assert wk["live_origin"]["project"] == PAGES_PROJECT
 
         shelves = json.loads((tree / "shelves.json").read_text(encoding="utf-8"))
@@ -263,6 +271,11 @@ def main() -> None:
     assert PAGES_PROJECT in readme
     assert "docs/" in readme
     assert "not GH Pages alone" in readme or "not GitHub Pages alone" in readme
+    assert "Zioncheck archive" in readme
+    assert "" not in readme
+    assert "survival" not in readme
+    assert "durable" not in readme
+    assert "" not in readme
 
     print("runtime launch cite OK")
     print("sot", GIT_SHORT, VERSION_ID, VERSION)

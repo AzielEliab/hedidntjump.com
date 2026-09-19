@@ -175,6 +175,21 @@ SEO_BAN_MARKERS = (
     "GitFlic refused",
 )
 
+# Tip SEO must not carry survival / fielded-score scoreboard slogans.
+SEO_SCOREBOARD_BANS = (
+    "",
+    "",
+    "durable",
+    "hard to kill",
+    "survival",
+    "unkillable",
+    "",
+    "",
+    "never ",
+    "",
+    "fielded 100",
+)
+
 LAMB_LENS_URL = "https://www.azielcorpuslibrary.net/corpus"
 LAMB_LENS_ORDER = "Service → Clarity → Peace"
 LAMB_LENS_NOTE = (
@@ -566,6 +581,12 @@ def scrub_seo_negation(text: str) -> str:
         ("HDJ is not a live exec door.", HDJ_ARCHIVE_ROLE),
         (" HDJ is not a live exec door", ""),
         ("HDJ is not a named live exec front. ", ""),
+        ("Never . ", ""),
+        ("Never .", ""),
+        (" never ", ""),
+        (" (never )", ""),
+        ("; never ", ""),
+        (". Never ", ""),
         ("Sister cite (not a Softwares clone):", "Sister cite:"),
         ("Sister surfaces (this host is HDJ; not a Softwares clone)", f"Sister surfaces (this host is HDJ — {HDJ_BLURB})"),
         ("NO-FAN: this is not a Softwares / mesh fan-out.", "NO-FAN."),

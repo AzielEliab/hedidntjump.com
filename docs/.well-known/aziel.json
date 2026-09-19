@@ -395,8 +395,7 @@
     "git_short": "6a3798a",
     "version_id": "105fa1ee",
     "glama": "https://glama.ai/mcp/servers/AzielEliab/aziel-runtime",
-    "worker": "https://aziel-runtime.vibelock.workers.dev/",
-    "": false
+    "worker": "https://aziel-runtime.vibelock.workers.dev/"
   },
   "live_origin": {
     "kind": "cloudflare-pages",

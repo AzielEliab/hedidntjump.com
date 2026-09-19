@@ -40,6 +40,13 @@ BANNED = (
     "HDJ is not a live exec door",
     "HDJ is not a named live exec front",
     "this is not a Softwares / mesh fan-out",
+    "",
+    "durable",
+    "survival",
+    "",
+    "",
+    "never ",
+    "",
 )
 
 
@@ -50,6 +57,10 @@ def main() -> None:
         "not a Softwares clone",
         "blocked from",
         "CNS-ZENODO-IP-BAN",
+        "",
+        "survival",
+        "durable",
+        "",
     ):
         assert marker not in readme, f"README still has {marker}"
     assert "Zioncheck archive" in readme
@@ -70,6 +81,14 @@ def main() -> None:
             assert "whistleblower" in blob.lower() or "investigative" in blob.lower(), label
             assert "NOT an ARG" not in blob, label
             assert "blocked from" not in blob, label
+            for marker in (
+                "",
+                "durable",
+                "survival",
+                "",
+                "",
+            ):
+                assert marker not in blob.lower(), f"{label} still has {marker}"
         assert PERSON_ID in help_txt
         assert "The Record, Not the Verdict" in help_txt
         assert LLMS_LEAD.split(".")[0] in help_txt or "newspapers and five volumes" in help_txt

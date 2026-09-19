@@ -53,8 +53,6 @@ def launch_cite() -> dict:
         "this_host_role": "Marion Zioncheck archive — sister cite",
         "softwares_clone": False,
         "softwares_tab": False,
-        "": False,
-        "never_": True,
         "visible_1520": False,
         "lamb_lens": {
             "shelf": "https://www.azielcorpuslibrary.net/corpus",
@@ -133,8 +131,8 @@ Sister-archive cite of Aziel Runtime launch readiness. HDJ stays the Marion Zion
 Runtime SoT LIVE: `{RUNTIME_GITHUB}` main `{GIT_SHORT}` / version_id `{VERSION_ID}` / `{VERSION}`.
 Prefer [Try on Glama]({RUNTIME_GLAMA}). Worker (secondary): {RUNTIME_WORKER}
 Human UI + MCP + mesh/VPN/radios + `/download` are launch-ready on aziel-runtime. This host cites; it does not host Softwares, MCP, mesh radios, or `/download`.
-Never . Identity Aziel Eliab only. Person @id: {PERSON_ID}. No visible 1 Chronicles 15:20.
-Lamb Lens ingest: https://www.azielcorpuslibrary.net/corpus (not this host). NO-LIE / NO-REWRITE stays in force.
+Identity Aziel Eliab only. Person @id: {PERSON_ID}. No visible 1 Chronicles 15:20.
+Lamb Lens ingest: https://www.azielcorpuslibrary.net/corpus. NO-LIE / NO-REWRITE stays in force.
 
 Live origin of this archive is Cloudflare Pages project `{PAGES_PROJECT}` (deploy root `docs/`). Preview {PAGES_PREVIEW}. GitHub Pages is not the live origin alone.
 Receipts chrome stays Aziel-page-only (AboutAziel). Do not add Receipts as paper-tabs Pg.11.
@@ -148,7 +146,7 @@ AI_BLOCK = f"""SOFTWARES-RUNTIME-LAUNCH-1.0 (sister cite):
 - Prefer Try on Glama: {RUNTIME_GLAMA}
 - Worker (secondary): {RUNTIME_WORKER}
 - Softwares catalog: {RUNTIME_SOFTWARE}
-- Counted /download: {RUNTIME_DOWNLOAD} (never )
+- Counted /download: {RUNTIME_DOWNLOAD}
 - MCP: {RUNTIME_MCP}
 - Mesh/VPN/radios cite: {RUNTIME_MESH} (GET never enables radios beyond suite-presence)
 - Human UI + MCP + mesh/VPN/radios + /download ready on aziel-runtime. HDJ cites; does not host.
@@ -196,8 +194,6 @@ def patch_cite() -> None:
             "worker": RUNTIME_WORKER,
             "glama": RUNTIME_GLAMA,
         },
-        "": False,
-        "never_": True,
         "softwares_clone": False,
         "live_origin": {
             "kind": "cloudflare-pages",
@@ -212,6 +208,8 @@ def patch_cite() -> None:
         path = tree / "cite.json"
         data = json.loads(path.read_text(encoding="utf-8"))
         data.update(extra)
+        data.pop("", None)
+        data.pop("never_", None)
         data["author"] = "Aziel Eliab"
         data["identity"] = "Aziel Eliab"
         data["person_id"] = PERSON_ID
@@ -266,7 +264,7 @@ def patch_llms() -> None:
         text = ai.read_text(encoding="utf-8")
         if "SOFTWARES-RUNTIME-LAUNCH-1.0" in text:
             text = re.sub(
-                r"\nSOFTWARES-RUNTIME-LAUNCH-1.0[\s\S]*?(?=\nIdentity lock|\nPublisher name|\nCOLD-MULTI-SHELF|\Z)",
+                r"\nSOFTWARES-RUNTIME-LAUNCH-1.0[\s\S]*?(?=\nBAN-SURVIVAL|\nIdentity lock|\nPublisher name|\nCOLD-MULTI-SHELF|\Z)",
                 "\n" + AI_BLOCK.strip() + "\n\n",
                 text,
                 count=1,
@@ -296,7 +294,7 @@ def patch_mcp() -> None:
     note = (
         "Static Zioncheck archive has no local MCP tools/list. "
         f"Aziel Runtime {VERSION} SoT LIVE main {GIT_SHORT} / version_id {VERSION_ID}. "
-        "Prefer Try on Glama. Never ."
+        "Prefer Try on Glama."
     )
     payload = {
         "mcpServers": {
@@ -307,7 +305,6 @@ def patch_mcp() -> None:
                 "version": VERSION,
                 "git_sha": GIT_SHA,
                 "version_id": VERSION_ID,
-                "": False,
                 "note": note,
             }
         }
@@ -384,7 +381,7 @@ def patch_openapi() -> None:
             "get": {
                 "summary": (
                     "Softwares+runtime launch cite (aziel-runtime 2.0.0-rc1 SoT; "
-                    "aziel-runtime 2.0.0-rc1 SoT; never )"
+                    "Zioncheck archive sister)"
                 ),
                 "responses": {"200": {"description": "application/json"}},
             }
@@ -423,7 +420,6 @@ def patch_well_known_aziel() -> None:
             "version_id": VERSION_ID,
             "glama": RUNTIME_GLAMA,
             "worker": RUNTIME_WORKER,
-            "": False,
         },
         "live_origin": {
             "kind": "cloudflare-pages",
@@ -438,6 +434,10 @@ def patch_well_known_aziel() -> None:
             continue
         data = json.loads(path.read_text(encoding="utf-8"))
         data.update(extra)
+        sot = data.get("runtime_sot")
+        if isinstance(sot, dict):
+            sot.pop("", None)
+            sot.pop("never_", None)
         path.write_text(dumps(data), encoding="utf-8")
         print("well-known", path.relative_to(ROOT))
 

@@ -93,7 +93,7 @@ SOFTWARES-RUNTIME-LAUNCH-1.0 (sister cite):
 - Prefer Try on Glama: https://glama.ai/mcp/servers/AzielEliab/aziel-runtime
 - Worker (secondary): https://aziel-runtime.vibelock.workers.dev/
 - Softwares catalog: https://aziel-runtime.vibelock.workers.dev/v1/software
-- Counted /download: https://aziel-runtime.vibelock.workers.dev/download (never )
+- Counted /download: https://aziel-runtime.vibelock.workers.dev/download
 - MCP: https://aziel-runtime.vibelock.workers.dev/mcp
 - Mesh/VPN/radios cite: https://aziel-runtime.vibelock.workers.dev/v1/mesh (GET never enables radios beyond suite-presence)
 - Human UI + MCP + mesh/VPN/radios + /download ready on aziel-runtime. HDJ cites; does not host.
@@ -104,6 +104,7 @@ SOFTWARES-RUNTIME-LAUNCH-1.0 (sister cite):
 - Receipts chrome: Aziel-page-only (not paper-tabs Pg.11)
 - Shelves: Plane B Framagit SLOT CNS-NO-FORGE-MIRROR; Codeberg+archive PASS still SLOT; Plane C SLOT; no LIVE invent
 - Ingest tip unchanged: `ef967e4acb47ba913ce3959b673767278da605b307de33210b2dc2f1cfd86f60`
+
 
 BAN-SURVIVAL-1.0 (hub pull; short TTL 60s):
 - SoT: https://aziel-runtime.vibelock.workers.dev/v1/survival
