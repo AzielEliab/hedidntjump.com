@@ -35,6 +35,14 @@ from aziel_living import (
     THE_ARK_GITHUB,
     THE_ARK_LIST,
     THE_ARK_STATS,
+    TRADES_RUNTIME,
+    TRADES_RUNTIME_ADDENDUM,
+    TRADES_RUNTIME_DOWNLOAD,
+    TRADES_RUNTIME_GITHUB,
+    TRADES_RUNTIME_LIST,
+    TRADES_RUNTIME_MCP,
+    TRADES_RUNTIME_OPENAPI,
+    TRADES_RUNTIME_WORKER,
     WHAT_AZIEL_ELIAB_DOES,
     WHITESTONE,
     WHAT_AZIEL_ELIAB_DOES_ANSWER,
@@ -105,9 +113,12 @@ def main() -> None:
         assert WHITESTONE not in WHAT_AZIEL_ELIAB_DOES
         assert THE_ARK not in WHAT_AZIEL_ELIAB_DOES
         assert "The ARK" not in WHAT_AZIEL_ELIAB_DOES
+        assert TRADES_RUNTIME not in WHAT_AZIEL_ELIAB_DOES
+        assert "Trades-Runtime" not in WHAT_AZIEL_ELIAB_DOES
         assert cite["softwares_list"] == list(SOFTWARES_LIST)
         assert WHITESTONE in cite["softwares_list"]
         assert THE_ARK_LIST in cite["softwares_list"]
+        assert TRADES_RUNTIME_LIST in cite["softwares_list"]
         assert cite["whitestone"] == WHITESTONE
         assert cite["the_ark"] == THE_ARK
         assert cite["the_ark_download"] == THE_ARK_DOWNLOAD
@@ -117,6 +128,31 @@ def main() -> None:
         assert THE_ARK_STATS in cite["softwares_list_note"]
         assert THE_ARK_GITHUB in cite["softwares_list_note"]
         assert cite["softwares_clone"] is False
+        assert cite["sisters"]["trades_runtime"] == TRADES_RUNTIME_WORKER
+        assert cite["trades_runtime_worker"] == TRADES_RUNTIME_WORKER
+        assert cite["trades_runtime_github"] == TRADES_RUNTIME_GITHUB
+        assert cite["trades_runtime_download"] == TRADES_RUNTIME_DOWNLOAD
+        assert cite["trades_runtime_openapi"] == TRADES_RUNTIME_OPENAPI
+        assert cite["trades_runtime_mcp"] == TRADES_RUNTIME_MCP
+        assert cite["trades_runtime"]["live_backends"] is False
+        assert cite["trades_runtime"]["fraggate_exec"] is False
+        assert cite["trades_runtime"]["cite_only"] is True
+        assert cite["trades_runtime"]["worker"] == TRADES_RUNTIME_WORKER
+        assert cite["trades_runtime"]["github"] == TRADES_RUNTIME_GITHUB
+        assert cite["trades_runtime"]["download"] == TRADES_RUNTIME_DOWNLOAD
+        assert cite["trades_runtime"]["openapi"] == TRADES_RUNTIME_OPENAPI
+        assert cite["trades_runtime"]["mcp"] == TRADES_RUNTIME_MCP
+        assert any(
+            e.get("id") == "trades-runtime" and e.get("href") == TRADES_RUNTIME_WORKER
+            for e in cite["ecosystem"]
+            if isinstance(e, dict)
+        )
+        assert TRADES_RUNTIME_WORKER in cite["softwares_list_note"]
+        assert TRADES_RUNTIME_GITHUB in cite["softwares_list_note"]
+        assert TRADES_RUNTIME_DOWNLOAD in cite["softwares_list_note"]
+        assert TRADES_RUNTIME_OPENAPI in cite["softwares_list_note"]
+        assert TRADES_RUNTIME_MCP in cite["softwares_list_note"]
+        assert "trades-runtime" in cite["purpose"]
         assert cite["what_aziel_eliab_does_answer"] == WHAT_AZIEL_ELIAB_DOES_ANSWER
         assert cite["what_aziel_eliab_does_faq"] == list(WHAT_DOES_FAQ_TITLES)
         cite_faq = {item["q"]: item["a"] for item in cite["faq"]}
@@ -152,7 +188,14 @@ def main() -> None:
         assert person.get("the_ark_download") == THE_ARK_DOWNLOAD
         assert person.get("the_ark_stats") == THE_ARK_STATS
         assert person.get("the_ark_github") == THE_ARK_GITHUB
+        assert person.get("trades_runtime") == TRADES_RUNTIME
+        assert person.get("trades_runtime_worker") == TRADES_RUNTIME_WORKER
+        assert person.get("trades_runtime_github") == TRADES_RUNTIME_GITHUB
+        assert person.get("trades_runtime_download") == TRADES_RUNTIME_DOWNLOAD
+        assert person.get("trades_runtime_openapi") == TRADES_RUNTIME_OPENAPI
+        assert person.get("trades_runtime_mcp") == TRADES_RUNTIME_MCP
         assert THE_ARK in person["knowsAbout"]
+        assert TRADES_RUNTIME in person["knowsAbout"]
         assert "GodLock (product, not identity)" in person["knowsAbout"]
 
         identity = json.loads(blobs["identity.jsonld"])
@@ -174,9 +217,15 @@ def main() -> None:
             "PPIN",
             "public hardware designs",
             THE_ARK,
+            TRADES_RUNTIME,
         ):
             assert extra in ident_knows, extra
             assert extra in well_knows, extra
+
+        assert "## Trades-Runtime sister cite (machine)" in blobs["llms.txt"]
+        assert "## Trades-Runtime sister cite (machine)" in blobs["llms-full.txt"]
+        assert "TRADES-RUNTIME (sister Softwares/runtime cite-only" in blobs["ai.txt"]
+        assert "Sister Softwares cite: [Trades-Runtime]" in blobs["llms.txt"]
 
         who = blobs["who-is"]
         who_txt = blobs["who-is-aziel-eliab.txt"]
@@ -209,6 +258,17 @@ def main() -> None:
             assert THE_ARK_STATS in text, rel
             assert THE_ARK_GITHUB in text, rel
             assert "download+" in text, rel
+            assert TRADES_RUNTIME in text, rel
+            assert TRADES_RUNTIME_LIST in text, rel
+            assert TRADES_RUNTIME_ADDENDUM in text, rel
+            assert TRADES_RUNTIME_WORKER in text, rel
+            assert TRADES_RUNTIME_GITHUB in text, rel
+            assert TRADES_RUNTIME_DOWNLOAD in text, rel
+            assert TRADES_RUNTIME_OPENAPI in text, rel
+            assert TRADES_RUNTIME_MCP in text, rel
+            assert "Not FragGate exec" in text, rel
+            assert "live_backends false" in text, rel
+            assert "1 Chronicles 15:20" not in TRADES_RUNTIME_ADDENDUM
             assert WHAT_AZIEL_ELIAB_DOES in text, rel
 
         # Newspaper HTML chrome stays ZionBot's. This pack must not rewrite it.
@@ -216,6 +276,16 @@ def main() -> None:
             html = (tree / name).read_text(encoding="utf-8")
             assert PERSON_ID in html
             assert "Everblooming Flower" not in html
+
+        sitemap = (tree / "sitemap.xml").read_text(encoding="utf-8")
+        for loc in ("/llms.txt", "/ai.txt", "/cite.json"):
+            assert f"<loc>https://hedidntjump.com{loc}</loc>" in sitemap, loc
+            chunk = sitemap.split(f"<loc>https://hedidntjump.com{loc}</loc>", 1)[1][:80]
+            assert "<lastmod>2026-09-19</lastmod>" in chunk, loc
+        assert TRADES_RUNTIME_WORKER not in sitemap
+        index = (tree / "sitemap-index.xml").read_text(encoding="utf-8")
+        assert "<loc>https://hedidntjump.com/sitemap.xml</loc>" in index
+        assert "trades-runtime.vibelock.workers.dev" not in index
 
         ingest = (tree / "ingest-as-receipt.json").read_bytes()
         import hashlib

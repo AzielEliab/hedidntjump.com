@@ -30,6 +30,7 @@ from aziel_living import (
     HARDWARE_ADDENDUM,
     KNOWS_ABOUT_EXTRA,
     RESEARCH_ADDENDUM,
+    TRADES_RUNTIME_ADDENDUM,
     WHAT_AZIEL_ELIAB_DOES,
     WHAT_AZIEL_ELIAB_DOES_ANSWER,
     softwares_list_markdown,
@@ -683,6 +684,8 @@ What Aziel Eliab does (locked Softwares brief)
 {RESEARCH_ADDENDUM}
 
 {HARDWARE_ADDENDUM}
+
+{TRADES_RUNTIME_ADDENDUM}
 
 About Aziel (published page — {ABOUT_PAGE})
 Lead: {ABOUT_MOTTO}
