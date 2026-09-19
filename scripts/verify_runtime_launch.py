@@ -169,9 +169,9 @@ def main() -> None:
         assert planes["C"]["status"] == "slot"
 
         for path, value in walk_bools(cite):
-            if path.endswith("") or path.endswith("never_"):
-                if path.endswith("") and not path.endswith("never_"):
-                    assert value is False, f"{tree_name} cite {path} must be false"
+            # Empty JSON key is the #42-scrubbed fielded_100 lock (must stay false).
+            if path == "" or path.endswith("."):
+                assert value is False, f"{tree_name} cite {path or '\"\"'} must be false"
 
         ingest = (tree / "ingest-as-receipt.json").read_bytes()
         assert hashlib.sha256(ingest).hexdigest() == HDJ_INGEST_TIP, f"{tree_name} ingest tip drifted"
@@ -252,7 +252,7 @@ def main() -> None:
             if name != "who.html":
                 visible = visible_text(html)
                 assert "15:20" not in visible, f"{tree_name}/{name} gained visible 15:20"
-            assert "" not in html
+            assert "fielded_100" not in html
 
         aziel = (tree / "aziel.html").read_text(encoding="utf-8")
         assert 'href="/receipts"' in aziel

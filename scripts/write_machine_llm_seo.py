@@ -705,6 +705,12 @@ def patch_cite(data: dict) -> dict:
         url = f"https://hedidntjump.com{loc}"
         if url not in q:
             q.append(url)
+    review = "https://hedidntjump.com/llms-full.txt"
+    if review not in q:
+        if "https://hedidntjump.com/llms.txt" in q:
+            q.insert(q.index("https://hedidntjump.com/llms.txt") + 1, review)
+        else:
+            q.append(review)
     data["query_urls"] = q
     return scrub_cite_ban_narratives(data)
 
@@ -1225,6 +1231,11 @@ def write_trees() -> None:
                 encoding="utf-8",
             )
             print("sitemap-index", index.relative_to(ROOT))
+
+    # Keep the extracted project-review body after identity/genre patches.
+    from write_llms_full_review import write_trees as write_review
+
+    write_review()
 
 
 if __name__ == "__main__":

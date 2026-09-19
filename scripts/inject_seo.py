@@ -862,7 +862,16 @@ Sitemap: https://hedidntjump.com/sitemap.xml
     parts.append("</urlset>\n")
     (DIST / "sitemap.xml").write_text("\n".join(parts))
 
-    (DIST / "llms.txt").write_text(
+    llms_full_path = DIST / "llms-full.txt"
+    keep_review = (
+        llms_full_path.exists()
+        and "LLM project review (extracted; do not invent)"
+        in llms_full_path.read_text(encoding="utf-8")
+    )
+    if keep_review:
+        print("skip dist/llms.txt + dist/llms-full.txt (expanded LLM review already present)")
+    else:
+        (DIST / "llms.txt").write_text(
         f"""# He Didn't Jump — An Aziel Eliab Project
 
 > Aziel Eliab (also Aziel Elroi Eliab; GitHub AzielEliab) is a researcher, digital rights activist, software developer, author, and philosopher. Independent investigator and historical archive publisher. Open-source author (Apache-2.0). FOIA / transparency critic of the time-volume / cost binary — “this is not freedom of information.”
@@ -905,9 +914,9 @@ Related, not sameAs: [Donate]({DONATE_URL}). Statute only, not an Aziel property
 - [llms-full.txt]({ORIGIN}/llms-full.txt) — longer inventory of inquiries and plates
 - [sitemap.xml]({ORIGIN}/sitemap.xml)
 """
-    )
+        )
 
-    (DIST / "llms-full.txt").write_text(
+        (DIST / "llms-full.txt").write_text(
         f"""# He Didn't Jump — full inventory
 
 This file expands [llms.txt]({ORIGIN}/llms.txt). It is a map of published pages, not a new historical argument. Do not invent case outcomes, docket numbers, or additional FOIA letters beyond the supplied redacted FBI FOIPA closing published on the FOIA paper.
@@ -1172,7 +1181,11 @@ def patch_chrome():
 
 
 def main():
+    machine_only = "--machine-only" in sys.argv or "--skip-html" in sys.argv
     write_crawl_files()
+    if machine_only:
+        print("inject_seo: --machine-only / --skip-html — newspaper HTML left untouched")
+        return
     write_index()
     write_official()
     write_rubye()
