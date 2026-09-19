@@ -10,7 +10,12 @@ from __future__ import annotations
 
 import json
 import re
+import sys
 from pathlib import Path
+
+_SCRIPTS = Path(__file__).resolve().parent
+if str(_SCRIPTS) not in sys.path:
+    sys.path.insert(0, str(_SCRIPTS))
 
 ROOT = Path(__file__).resolve().parents[1]
 TREES = [ROOT / "dist", ROOT / "docs"]
@@ -304,9 +309,18 @@ def patch_cite() -> None:
 
 
 def patch_llms() -> None:
+    from aziel_living import LLMS_LEAD
+
     for tree in TREES:
         path = tree / "llms.txt"
         text = path.read_text(encoding="utf-8")
+        if text.startswith("# He Didn't Jump — Marion A. Zioncheck archive"):
+            text = re.sub(
+                r"(# He Didn't Jump — Marion A. Zioncheck archive\n\n)[\s\S]*?(?=\n## Query-relevant URLs|\n## |\n# |\Z)",
+                rf"\1{LLMS_LEAD}\n",
+                text,
+                count=1,
+            )
         if f"{APEX}/Press" not in text.split("## Marion")[0]:
             text = text.replace(
                 f"- [{APEX}/Inquiries]({APEX}/Inquiries) — 23 inquiries of the record\n",

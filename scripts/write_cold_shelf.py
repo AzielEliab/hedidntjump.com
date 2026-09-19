@@ -21,7 +21,14 @@ from __future__ import annotations
 
 import json
 import re
+import sys
 from pathlib import Path
+
+_SCRIPTS = Path(__file__).resolve().parent
+if str(_SCRIPTS) not in sys.path:
+    sys.path.insert(0, str(_SCRIPTS))
+
+from aziel_living import HDJ_MISSION
 
 ROOT = Path(__file__).resolve().parents[1]
 TREES = [ROOT / "dist", ROOT / "docs"]
@@ -64,14 +71,7 @@ NOLIE_RULE = (
     "receipts that still hash; copies not all on one tunnel; verify without voice; "
     "no rewrite key; network never lies even to stay alive."
 )
-MISSION = (
-    "He Didn't Jump is An Aziel Eliab Project: an independent historical newspaper "
-    "and five-volume archive examining the death of U.S. Representative Marion Zioncheck "
-    "in Seattle on 7 August 1936. The official report called it suicide from a fifth-floor "
-    "Arctic Building office. This project challenges that official suicide narrative and "
-    "publishes the record for re-reading. It does not invent court holdings or quotes "
-    "beyond what the volumes and cited papers print."
-)
+MISSION = HDJ_MISSION
 
 CAP7 = {
     "azcorpus": {

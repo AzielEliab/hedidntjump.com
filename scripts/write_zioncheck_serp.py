@@ -16,6 +16,15 @@ _SCRIPTS = Path(__file__).resolve().parent
 if str(_SCRIPTS) not in sys.path:
     sys.path.insert(0, str(_SCRIPTS))
 
+from aziel_living import (
+    ARG_FAQ_ROWS,
+    HDJ_GENRE,
+    HDJ_PURPOSE,
+    LLMS_LEAD,
+    MONEY_DESCRIPTION,
+)
+from aziel_person import publisher_person as aziel_publisher_person
+
 ROOT = Path(__file__).resolve().parents[1]
 TREES = [ROOT / "dist", ROOT / "docs"]
 # ZionBot inventory: money page + canonical are apex. www is an alias.
@@ -29,18 +38,13 @@ LASTMOD = "2026-09-13"
 
 TITLE = "Marion A. Zioncheck — Seattle Congressman (1933–1936) Archive | He Didn't Jump"
 CASE_TITLE = "The Case — Marion A. Zioncheck, Seattle congressman | He Didn't Jump"
-DESCRIPTION = (
-    "Marion A. Zioncheck, U.S. Representative and Seattle congressman. "
-    "Official reports said suicide at the Arctic Building on 7 August 1936. "
-    "This archive re-examines that account through newspapers and five volumes."
-)
+DESCRIPTION = MONEY_DESCRIPTION
 H1 = "Marion A. Zioncheck, Seattle congressman"
 KEYWORDS = (
     "Marion A. Zioncheck, Marion Zioncheck, Congressman Marion A. Zioncheck, "
     "congressman Zioncheck, Seattle congressman suicide, Arctic Building, "
     "7 August 1936, He Didn't Jump"
 )
-from aziel_person import publisher_person as aziel_publisher_person
 
 PUBLISHER_NOT = (
     "Publisher of this Marion Zioncheck archive. "
@@ -142,6 +146,7 @@ def website() -> dict:
         "url": f"{APEX}/",
         "inLanguage": "en",
         "description": DESCRIPTION,
+        "genre": HDJ_GENRE,
         "about": {"@id": ZION_ID},
         "publisher": {"@id": ORG_ID},
         "author": {"@id": PERSON_ID},
@@ -172,6 +177,7 @@ def money_graph(*, page_url: str, page_name: str, page_id: str) -> dict:
         "name": page_name,
         "headline": TITLE,
         "description": DESCRIPTION,
+        "genre": HDJ_GENRE,
         "isPartOf": {"@id": SITE_ID},
         "about": {"@id": ZION_ID},
         "mainEntity": {"@id": ZION_ID},
@@ -600,6 +606,7 @@ def zioncheck_faq_pairs():
             "not invent court holdings or quotes beyond what those volumes and cited "
             "papers print.",
         ),
+        *[(row["q"], row["a"]) for row in ARG_FAQ_ROWS],
     ]
 
 
@@ -689,50 +696,33 @@ def write_machine_surfaces() -> None:
 
 
 def write_llms() -> None:
-    lead = f"""# He Didn't Jump — Marion A. Zioncheck archive
-
-This host is the Marion A. Zioncheck archive: U.S. Representative / Seattle congressman (1933–1936). Official reports said suicide from a fifth-floor Arctic Building office in Seattle on 7 August 1936. He Didn't Jump publishes newspapers and five volumes that re-examine that official account. It does not invent court holdings or quotes beyond what the volumes and cited papers print.
-
-## Query-relevant URLs
-
-- [{APEX}/]({APEX}/) — money page (priority 1.0)
-- [{APEX}/Case]({APEX}/Case) — supporting Case edition
-- [{APEX}/Narrative]({APEX}/Narrative) — official-account contrast only
-- [{APEX}/Inquiries]({APEX}/Inquiries) — 23 inquiries of the record
-- [{APEX}/Volumes]({APEX}/Volumes) — Volumes I–V
-- [{APEX}/llms.txt]({APEX}/llms.txt)
-- [{APEX}/who]({APEX}/who) — Who is Aziel Eliab (HTML lock)
-- [{APEX}/cite.json]({APEX}/cite.json)
-- [{APEX}/shelves]({APEX}/shelves) — COLD-MULTI-SHELF-1.0 (sister cite of https://www.azielcorpuslibrary.net/shelves)
-- [{APEX}/receipts]({APEX}/receipts) — ingest-as-receipt / re-expand (Aziel-page chrome, not paper-tabs Pg.11)
-- [{APEX}/ingest-as-receipt.json]({APEX}/ingest-as-receipt.json) — canonical ingest bytes (one tip)
-
-"""
     for tree in TREES:
         path = tree / "llms.txt"
         text = path.read_text(encoding="utf-8")
         if text.startswith("# He Didn't Jump — Marion A. Zioncheck archive"):
             text = re.sub(
-                r"^# He Didn't Jump — Marion A. Zioncheck archive[\s\S]*?(?=\n# |\n## Who is Aziel Eliab|\Z)",
-                lead.rstrip() + "\n\n",
+                r"(# He Didn't Jump — Marion A. Zioncheck archive\n\n)[\s\S]*?(?=\n## Query-relevant URLs|\n## |\n# |\Z)",
+                rf"\1{LLMS_LEAD}\n",
                 text,
                 count=1,
             )
-        elif text.startswith("# He Didn't Jump"):
-            text = lead + text
-        else:
-            text = lead + text
-        path.write_text(text, encoding="utf-8")
+        elif "This host is the Marion A. Zioncheck archive:" in text:
+            text = text.replace(
+                "This host is the Marion A. Zioncheck archive: U.S. Representative / "
+                "Seattle congressman (1933–1936). Official reports said suicide from a "
+                "fifth-floor Arctic Building office in Seattle on 7 August 1936. He Didn't "
+                "Jump publishes newspapers and five volumes that re-examine that official "
+                "account. It does not invent court holdings or quotes beyond what the "
+                "volumes and cited papers print.",
+                LLMS_LEAD,
+                1,
+            )
+        path.write_text(text if text.endswith("\n") else text + "\n", encoding="utf-8")
         print("llms", path.relative_to(ROOT))
 
 
 def write_cite() -> None:
-    purpose = (
-        "Marion A. Zioncheck archive: U.S. Representative / Seattle congressman "
-        "(1933–1936). Official reports said suicide at the Arctic Building on "
-        "7 August 1936. This project re-examines that account from published newspapers "
-        "and volumes."
-    )
+    purpose = HDJ_PURPOSE
     for tree in TREES:
         path = tree / "cite.json"
         data = json.loads(path.read_text(encoding="utf-8"))
