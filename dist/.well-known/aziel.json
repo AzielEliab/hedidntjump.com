@@ -222,7 +222,8 @@
       "AEEM HVAC Energy Valve",
       "Whitestone (ephemeral pro se advisor; not a lawyer)",
       "The ARK (local deniable vault)",
-      "Trades-Runtime (local-first BYO trades runtime)"
+      "Trades-Runtime (local-first BYO trades runtime)",
+      "SpectralLock (leftover-bytes recover; SL-UNREDACT-OPAQUE refuse)"
     ],
     "affiliation": {
       "@id": "https://hedidntjump.com/#organization"
