@@ -221,7 +221,7 @@ def main() -> None:
                 visible = visible_text(html)
                 assert "15:20" not in visible, f"{tree_name}/{name} gained visible 15:20"
             assert "Crazytown" not in html
-            assert "" not in html
+            assert "fielded_100" not in html
 
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
     assert "BAN-SURVIVAL-1.0" in readme

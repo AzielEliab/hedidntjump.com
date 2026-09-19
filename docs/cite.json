@@ -27,6 +27,7 @@
     "https://hedidntjump.com/receipts",
     "https://hedidntjump.com/ingest-as-receipt.json",
     "https://hedidntjump.com/llms.txt",
+    "https://hedidntjump.com/llms-full.txt",
     "https://hedidntjump.com/ai.txt",
     "https://hedidntjump.com/cite.json",
     "https://hedidntjump.com/openapi.json",
@@ -1291,5 +1292,740 @@
     "addendum": "https://hedidntjump.com/addendum.txt",
     "how_to_read": "https://hedidntjump.com/help/how-to-read.txt",
     "mission": "Zioncheck archive"
+  },
+  "llm_review": {
+    "surface": "https://hedidntjump.com/llms-full.txt",
+    "map": "https://hedidntjump.com/llms.txt",
+    "note": "Whole-project subsurface review extracted from published HTML and /Volumes cards. Do not invent.",
+    "inquiries_count": 23,
+    "volumes_count": 5,
+    "genre": "whistleblower / investigative archive project",
+    "positive_genre": "whistleblower / transparency / FOIA-critical historical investigation archive"
+  },
+  "inquiries_of_the_record": [
+    {
+      "n": 1,
+      "id": "q01",
+      "url": "https://hedidntjump.com/Inquiries#q01",
+      "question": "Why was Marion sent from Washington, D.C. to Seattle, Washington?",
+      "substance": [
+        "The contemporary account reproduced in Volume II describes Kenneth Romney, the House sergeant-at-arms, arranging safe conduct back to Seattle after Marion’s escape from the Maryland institution. It says Capitol police intervened to prevent another arrest, and that Marion ultimately traveled west by train after an airline refused him passage in Chicago. The report connects the return with his mother in Seattle and Romney’s assistance during his difficulties.",
+        "The plate is Aziel’s identification of William Bishop, Capitol police, in the escort still. The volumes do not name Bishop. The Library of Congress record remains LCCN 2016878217; Wikimedia’s file is the untitled Commons upload of that scan."
+      ],
+      "plates": [
+        "William Bishop, Capitol police Aziel’s caption on a Library of Congress still (LCCN 2016878217). Volume II names Romney and Capitol police; it does not print Bishop’s name."
+      ],
+      "sources": [
+        {
+          "label": "Volume II · PDF p. 5",
+          "href": "https://hedidntjump.com/reader?volume=2&page=5 (PDF https://hedidntjump.com/volumes/volume-2.pdf#page=5)"
+        }
+      ]
+    },
+    {
+      "n": 2,
+      "id": "q02",
+      "url": "https://hedidntjump.com/Inquiries#q02",
+      "question": "Why do archive records conflict with the official narrative online today?",
+      "substance": [
+        "The archive preserves the details that the investigation compares: differing descriptions of the last movements, the photographed note, the room arrangement, and the two Arctic locations. Volume IV places those details alongside the account of a sudden fifth-floor jump. Reading the records together brings the wording, physical setting, and sequence of events into the same frame."
+      ],
+      "plates": [],
+      "sources": [
+        {
+          "label": "The official narrative, as the papers printed it",
+          "href": "https://hedidntjump.com/Narrative"
+        },
+        {
+          "label": "Volume I · PDF p. 18",
+          "href": "https://hedidntjump.com/reader?volume=1&page=18 (PDF https://hedidntjump.com/volumes/volume-1.pdf#page=18)"
+        },
+        {
+          "label": "Volume II · PDF p. 13",
+          "href": "https://hedidntjump.com/reader?volume=2&page=13 (PDF https://hedidntjump.com/volumes/volume-2.pdf#page=13)"
+        },
+        {
+          "label": "Volume IV · PDF pp. 5–13",
+          "href": "https://hedidntjump.com/reader?volume=4&page=5 (PDF https://hedidntjump.com/volumes/volume-4.pdf#page=5)"
+        }
+      ]
+    },
+    {
+      "n": 3,
+      "id": "q03",
+      "url": "https://hedidntjump.com/Inquiries#q03",
+      "question": "Why was Marion trying to stay in the media and spotlight?",
+      "substance": [
+        "The August 8 report in Volume II says Marion re-entered the congressional race to show the public he was neither crazy nor foolish. That explanation makes public appearances part of his response to the image attached to him. The archive also preserves headlines centered on his behavior, while Volume V discusses his planned political speech and conflict with powerful institutions."
+      ],
+      "plates": [],
+      "sources": [
+        {
+          "label": "Volume II · PDF p. 4",
+          "href": "https://hedidntjump.com/reader?volume=2&page=4 (PDF https://hedidntjump.com/volumes/volume-2.pdf#page=4)"
+        },
+        {
+          "label": "Volume V · PDF pp. 9–11",
+          "href": "https://hedidntjump.com/reader?volume=5&page=9 (PDF https://hedidntjump.com/volumes/volume-5.pdf#page=9)"
+        }
+      ]
+    },
+    {
+      "n": 4,
+      "id": "q04",
+      "url": "https://hedidntjump.com/Inquiries#q04",
+      "question": "What can photographs establish?",
+      "substance": [
+        "Photographs document visible objects and their positions at the time of exposure. Volume IV examines Nadeau’s position in the doorway and the placement of Marion’s hat and coat on the floor. It compares that arrangement with the account of Nadeau reaching for the hat as Marion moved toward the window."
+      ],
+      "plates": [],
+      "sources": [
+        {
+          "label": "Volume IV · PDF p. 11",
+          "href": "https://hedidntjump.com/reader?volume=4&page=11 (PDF https://hedidntjump.com/volumes/volume-4.pdf#page=11)"
+        }
+      ]
+    },
+    {
+      "n": 5,
+      "id": "q05",
+      "url": "https://hedidntjump.com/Inquiries#q05",
+      "question": "Why does Nadeau’s account not match the setup of Zioncheck’s office — and why did his account change?",
+      "substance": [
+        "Volume IV records William Nadeau’s official-narrative claims: he stood “one foot away”; Zioncheck “ran around the desk,” “brushed past” him, and “dove headfirst” through the open window in one fluid motion. The same volume measures that sequence against a small, cluttered fifth-floor office — a usable run of 4–6.5 meters, a sash opening of 27–33 inches, and a minimum 2.7–3.8 seconds — and calls the proximity claim physically impossible.",
+        "Chapter 8 then sets those statements beside the official death-scene photograph: Nadeau calm in the doorway; hat and coat already arranged on the floor — contradicting the story that he was “reaching for the hat” when Zioncheck jumped. Volume I’s writing account, that Nadeau found Marion writing shortly before the reported jump, belongs in the same frame. The volumes present contradictory statements and a staged-looking plate. They do not print a later signed retraction. Volume II prints the empty office — desk, window, bookcase — under a caption that the farewell message was written there and the desk shown as the congressman left it. Volume IV discusses a WSU doorway plate the supplied PDFs do not reproduce as a standalone image."
+      ],
+      "plates": [
+        "The office, as the press printed it Desk shown as the congressman left it — Volume II, PDF p. 3 · Open in the reader"
+      ],
+      "sources": [
+        {
+          "label": "Office plate · Volume II, PDF p. 3",
+          "href": "https://hedidntjump.com/reader?volume=2&page=3 (PDF https://hedidntjump.com/volumes/volume-2.pdf#page=3)"
+        },
+        {
+          "label": "Nadeau’s claims · Volume IV, PDF p. 5",
+          "href": "https://hedidntjump.com/reader?volume=4&page=5 (PDF https://hedidntjump.com/volumes/volume-4.pdf#page=5)"
+        },
+        {
+          "label": "Staged-photograph chapter · Volume IV, PDF p. 11",
+          "href": "https://hedidntjump.com/reader?volume=4&page=11 (PDF https://hedidntjump.com/volumes/volume-4.pdf#page=11)"
+        },
+        {
+          "label": "Writing account · Volume I, PDF p. 18",
+          "href": "https://hedidntjump.com/reader?volume=1&page=18 (PDF https://hedidntjump.com/volumes/volume-1.pdf#page=18)"
+        }
+      ]
+    },
+    {
+      "n": 6,
+      "id": "q06",
+      "url": "https://hedidntjump.com/Inquiries#q06",
+      "question": "Where are records to his “Who’s Crazy Now” speech?",
+      "substance": [
+        "The supplied plate is a contemporary announcement headed “‘Who’s Crazy?’ Will Be Topic For Zioncheck.” As printed, Congressman Marion A. Zioncheck will speak at 8 o’clock Monday night in the Civic Auditorium; Rev. Fred W. Shorter, chairman of the People’s Forum, is named as sponsor. The same paragraph says it will be the Seattle congressman’s first appearance at a public meeting since his return after the escape from a Maryland hospital. Volume II’s race-return clippings supply the surrounding public context. The collection still does not include a full transcript under the title “Who’s Crazy Now.”"
+      ],
+      "plates": [
+        "Speech announcement Supplied clipping · “‘Who’s Crazy?’ Will Be Topic For Zioncheck” · cropped from a WSU Libraries sheetshot · not a volume-page facsimile"
+      ],
+      "sources": [
+        {
+          "label": "Volume II · PDF p. 4",
+          "href": "https://hedidntjump.com/reader?volume=2&page=4 (PDF https://hedidntjump.com/volumes/volume-2.pdf#page=4)"
+        }
+      ]
+    },
+    {
+      "n": 7,
+      "id": "q07",
+      "url": "https://hedidntjump.com/Inquiries#q07",
+      "question": "Why did Marion dress up for a speech — then decide to “jump”?",
+      "substance": [
+        "Volume V describes Marion’s commitment to speaking at the postal workers’ dinner that evening. The investigation places that planned appearance beside the reported sudden jump: he had an audience, an engagement, and a purpose for the evening. The chapter discusses the speech preparations as part of the sequence leading to the Arctic Building."
+      ],
+      "plates": [],
+      "sources": [
+        {
+          "label": "Volume V · PDF p. 9",
+          "href": "https://hedidntjump.com/reader?volume=5&page=9 (PDF https://hedidntjump.com/volumes/volume-5.pdf#page=9)"
+        }
+      ]
+    },
+    {
+      "n": 8,
+      "id": "q08",
+      "url": "https://hedidntjump.com/Inquiries#q08",
+      "question": "Why did his wife never give a statement as the most prolific witness?",
+      "substance": [
+        "The contemporary report in Volume II places Rubye in the car just feet from where Marion’s body landed, then describes her collapse and removal to a hospital. Its account of her experience is narrated by the report rather than presented as a detailed first-person statement from her. Volume V makes her proximity, subsequent actions, and relationship with the Nadeaus central to its discussion of the human evidence."
+      ],
+      "plates": [],
+      "sources": [
+        {
+          "label": "Volume II · PDF p. 4",
+          "href": "https://hedidntjump.com/reader?volume=2&page=4 (PDF https://hedidntjump.com/volumes/volume-2.pdf#page=4)"
+        },
+        {
+          "label": "Volume V · PDF p. 8",
+          "href": "https://hedidntjump.com/reader?volume=5&page=8 (PDF https://hedidntjump.com/volumes/volume-5.pdf#page=8)"
+        }
+      ]
+    },
+    {
+      "n": 9,
+      "id": "q09",
+      "url": "https://hedidntjump.com/Inquiries#q09",
+      "question": "Why did Rubye hide testimony in her art for a later generation to find?",
+      "substance": [
+        "Volume V states that Rubye fled, changed her name, and “encoded the truth in her artistic work.” Chapter 10, headed Rubye Nix Wilson artistic testimony, transcribes four high-priority works, including “I could not remain silent forever,” “I was with him when it happened. It wasn’t what we were told,” and “THERE IS MORE.” The volume reads those plates as direct statements of presence and of the falsity of the official account, and it recommends multispectral analysis of matching works. It does not print a contemporaneous statement from Rubye that she hid testimony for a later generation; that framing is the open inquiry. The facsimiles sit on the Rubye paper and in Volumes I and V."
+      ],
+      "plates": [],
+      "sources": [
+        {
+          "label": "Artistic testimony · Volume V, PDF p. 13",
+          "href": "https://hedidntjump.com/reader?volume=5&page=13 (PDF https://hedidntjump.com/volumes/volume-5.pdf#page=13)"
+        },
+        {
+          "label": "Flight and encoded work · Volume V, PDF p. 8",
+          "href": "https://hedidntjump.com/reader?volume=5&page=8 (PDF https://hedidntjump.com/volumes/volume-5.pdf#page=8)"
+        },
+        {
+          "label": "Rubye paper · the art plates",
+          "href": "https://hedidntjump.com/rubye.html#plates"
+        }
+      ]
+    },
+    {
+      "n": 10,
+      "id": "q10",
+      "url": "https://hedidntjump.com/Inquiries#q10",
+      "question": "Why did Rubye relentlessly sue the Nadeaus after? Was it spite, or was she silenced too?",
+      "substance": [
+        "Volume II preserves the family-battle clippings: “Kin Fight Over Zioncheck Will,” naming Mrs. Ann Nadeau and Mrs. Rubye Nix Zioncheck; “Zioncheck Daughters Fight Over Estate”; “Nurse Defends Zioncheck Will”; and “Zioncheck’s Widow Must Yield Stocks.” Those plates put Rubye and the Nadeaus as opposing names in probate and estate columns. Volume V states that she later engaged in repeated legal actions against Nadeau over property and estate matters, and that she expressed intense hatred of the Nadeaus — language the volume treats as consistent with someone who knew the truth and refused to play along. The same chapter records a Hollywood offer or payoff tied to the Nadeau orbit, which it says she intentionally flopped.",
+        "The volumes print the lawsuits and that reading. They do not settle whether the suits were spite, a silenced witness’s only remaining instrument, or both. That tension is the open inquiry. The facsimiles are gathered on the Rubye paper ."
+      ],
+      "plates": [],
+      "sources": [
+        {
+          "label": "Kin fight the will · Volume II, PDF p. 19",
+          "href": "https://hedidntjump.com/reader?volume=2&page=19 (PDF https://hedidntjump.com/volumes/volume-2.pdf#page=19)"
+        },
+        {
+          "label": "Nurse defends the will · Volume II, PDF p. 16",
+          "href": "https://hedidntjump.com/reader?volume=2&page=16 (PDF https://hedidntjump.com/volumes/volume-2.pdf#page=16)"
+        },
+        {
+          "label": "Widow must yield stocks · Volume II, PDF p. 17",
+          "href": "https://hedidntjump.com/reader?volume=2&page=17 (PDF https://hedidntjump.com/volumes/volume-2.pdf#page=17)"
+        },
+        {
+          "label": "Later actions against Nadeau · Volume V, PDF p. 8",
+          "href": "https://hedidntjump.com/reader?volume=5&page=8 (PDF https://hedidntjump.com/volumes/volume-5.pdf#page=8)"
+        },
+        {
+          "label": "Rubye paper · the lawsuit plates",
+          "href": "https://hedidntjump.com/rubye.html#lawsuits"
+        }
+      ]
+    },
+    {
+      "n": 11,
+      "id": "q11",
+      "url": "https://hedidntjump.com/Inquiries#q11",
+      "question": "Why are the injuries inconsistent with a five-story fall?",
+      "substance": [
+        "Volume IV argues that the described injury distribution fits ground-level restraint and blunt-force trauma more closely than the reported head-first fall. Its comparison focuses on cranial trauma, the neck, the limbs, and the broader pattern of injuries it expects from a fall of that height. This is the injury-pattern argument developed in the physics volume."
+      ],
+      "plates": [
+        "Marion A. Zioncheck — Certificate of Death Washington State Board of Health · Aug. 7, 1936 · sidewalk in front of the Arctic Building · not Frances Zioncheck’s certificate"
+      ],
+      "sources": [
+        {
+          "label": "Volume IV · PDF p. 10",
+          "href": "https://hedidntjump.com/reader?volume=4&page=10 (PDF https://hedidntjump.com/volumes/volume-4.pdf#page=10)"
+        }
+      ]
+    },
+    {
+      "n": 12,
+      "id": "q12",
+      "url": "https://hedidntjump.com/Inquiries#q12",
+      "question": "Why were so few witnesses named — and why was one of them the person who broke the story?",
+      "substance": [
+        "Volume V places Sol Krems in two roles: a named witness at the scene and the newspaper figure it credits with the first story. It contrasts that named role with references to scores of unnamed witnesses. The chapter follows the overlap between the sidewalk account and the narrative that reached readers the next morning."
+      ],
+      "plates": [],
+      "sources": [
+        {
+          "label": "Volume V · PDF p. 6",
+          "href": "https://hedidntjump.com/reader?volume=5&page=6 (PDF https://hedidntjump.com/volumes/volume-5.pdf#page=6)"
+        }
+      ]
+    },
+    {
+      "n": 13,
+      "id": "q13",
+      "url": "https://hedidntjump.com/Inquiries#q13",
+      "question": "Why was the janitor unnamed — and why would he have walked away during the event?",
+      "substance": [
+        "Volume IV’s phantom-janitor chapter states that the official narrative relies on a janitor who allegedly unlocked the office door after the reported jump, and that no janitor matching that role appears in contemporary records with a verifiable name — no Arctic Building employment list, police report, or witness statement supplies a consistent one. The volume treats the locked-door detail as a device that lets the named participants avoid explaining access. Volume V repeats the finding: there was no real janitor matching the described role. The volumes do not record a named man leaving the scene mid-event. Why such a figure would walk away remains open because the archive never identifies him."
+      ],
+      "plates": [],
+      "sources": [
+        {
+          "label": "The phantom janitor · Volume IV, PDF p. 12",
+          "href": "https://hedidntjump.com/reader?volume=4&page=12 (PDF https://hedidntjump.com/volumes/volume-4.pdf#page=12)"
+        },
+        {
+          "label": "Named participants · Volume V, PDF p. 12",
+          "href": "https://hedidntjump.com/reader?volume=5&page=12 (PDF https://hedidntjump.com/volumes/volume-5.pdf#page=12)"
+        }
+      ]
+    },
+    {
+      "n": 14,
+      "id": "q14",
+      "url": "https://hedidntjump.com/Inquiries#q14",
+      "question": "How and why did the record get meshed between the old Arctic building at 501 3rd Avenue and the new Arctic building at 3rd Avenue and Cherry Street?",
+      "substance": [
+        "Volume IV identifies two distinct locations: the old Arctic Club / Morrison Hotel at 501 3rd Avenue, associated with Vic’s Alaskan Cigar Store, and the newer Arctic Building at 3rd Avenue and Cherry Street, where Marion’s fifth-floor office was located. The volume argues that merging those locations moved the final conversation into the death-scene building and compressed the sequence into a spontaneous-jump narrative."
+      ],
+      "plates": [],
+      "sources": [
+        {
+          "label": "Building locations and analysis · Volume IV, PDF p. 13",
+          "href": "https://hedidntjump.com/reader?volume=4&page=13 (PDF https://hedidntjump.com/volumes/volume-4.pdf#page=13)"
+        }
+      ]
+    },
+    {
+      "n": 15,
+      "id": "q15",
+      "url": "https://hedidntjump.com/Inquiries#q15",
+      "question": "Where are his dinner-party speech papers?",
+      "substance": [
+        "Volume V describes Marion returning to the Arctic Building with part of a speech or letter missing and identifies House stationery in its account of that writing. The dinner speech papers concern what he intended to say to the postal workers’ audience. Their content and disposition are central to the chapter’s account of his preparations that evening."
+      ],
+      "plates": [],
+      "sources": [
+        {
+          "label": "Volume V · PDF p. 9",
+          "href": "https://hedidntjump.com/reader?volume=5&page=9 (PDF https://hedidntjump.com/volumes/volume-5.pdf#page=9)"
+        }
+      ]
+    },
+    {
+      "n": 16,
+      "id": "q16",
+      "url": "https://hedidntjump.com/Inquiries#q16",
+      "question": "Why does his “suicide note” read like part of a speech — and why was it folded if he had just written it?",
+      "substance": [
+        "Volume II reproduces the handwritten note on House of Representatives stationery, with visible horizontal and vertical creases. Its text concerns an unfair economic system and the chance to survive and live. That political language connects this entry to the dinner speech discussed in Volume V. The photographed paper and its creases also belong beside the account in Volume I that Nadeau found Marion writing shortly before the reported jump."
+      ],
+      "plates": [],
+      "sources": [
+        {
+          "label": "Photographed note · Volume II, PDF p. 13",
+          "href": "https://hedidntjump.com/reader?volume=2&page=13 (PDF https://hedidntjump.com/volumes/volume-2.pdf#page=13)"
+        },
+        {
+          "label": "Writing account · Volume I, PDF p. 18",
+          "href": "https://hedidntjump.com/reader?volume=1&page=18 (PDF https://hedidntjump.com/volumes/volume-1.pdf#page=18)"
+        },
+        {
+          "label": "Speech discussion · Volume V, PDF p. 9",
+          "href": "https://hedidntjump.com/reader?volume=5&page=9 (PDF https://hedidntjump.com/volumes/volume-5.pdf#page=9)"
+        }
+      ]
+    },
+    {
+      "n": 17,
+      "id": "q17",
+      "url": "https://hedidntjump.com/Inquiries#q17",
+      "question": "Why was cousin “Vic” in the area to witness at all if he worked in another building — and why do minimal records of Vic or his cigar shop exist today?",
+      "substance": [
+        "The volumes place Vic’s workplace — the Alaskan Cigar Store — in the old Arctic Club / Morrison Hotel at 501 3rd Avenue, and Marion’s fifth-floor office in the newer Arctic Building at 3rd Avenue and Cherry Street. Volume V identifies him as Victor Anthony / Antoni Zajaczek, Marion’s maternal cousin, and describes him leaving the cigar store late on August 7, 1936, and encountering the events around Marion’s body. Read with Volume IV’s two-building chapter, that account makes his route part of the evening’s sequence, and treats the press-and-police merge of the two addresses as isolating an unplanned witness.",
+        "The record raises a tighter set of questions from that split. If Vic’s shop was the old Arctic and Marion’s office was the new one, why is Vic in the death-building sequence at all — close enough that Volume V can treat him as the unplanned witness who, in its account, saw the body being positioned, knew Nadeau, was threatened, and stayed silent? A man who worked at 501 3rd Avenue would have known the two addresses were not the same. The inquiry asks why any later telling would put him in a position to speak to what happened in Marion’s office, and whether a meshed two-building story misstates what he could have seen. Volume V does not print a Vic statement fabricating Marion’s words. It prints silence after a threat, then an archival void.",
+        "One open possibility the two-building chapters leave on the table, not as a finding: that Marion called his cousin there for protection, and that Vic failed. The volumes do not print that call, and they do not print a verdict that Vic failed anyone. They place a cousin from the other Arctic on the scene and then erase his paper trail. Why he was there, and what he did or did not do, remains the inquiry.",
+        "The same Volume V chapter then lists a complete archival void after that date: no marriage record, death certificate, obituary, census entry, business record, or further newspaper or directory mention. Volume IV’s recommendations ask for Seattle city directories of 1935–1938 at 501 3rd Avenue and King County business-license records of 1935–1937 to identify who took over the Alaskan Cigar Store lease after August 1936. The volumes record the absence. They do not supply a later paper trail for Vic or the shop."
+      ],
+      "plates": [],
+      "sources": [
+        {
+          "label": "Two Arctic locations · Volume IV, PDF p. 13",
+          "href": "https://hedidntjump.com/reader?volume=4&page=13 (PDF https://hedidntjump.com/volumes/volume-4.pdf#page=13)"
+        },
+        {
+          "label": "Vic’s erasure · Volume V, PDF p. 5",
+          "href": "https://hedidntjump.com/reader?volume=5&page=5 (PDF https://hedidntjump.com/volumes/volume-5.pdf#page=5)"
+        },
+        {
+          "label": "Directory and license requests · Volume IV, PDF p. 15",
+          "href": "https://hedidntjump.com/reader?volume=4&page=15 (PDF https://hedidntjump.com/volumes/volume-4.pdf#page=15)"
+        }
+      ]
+    },
+    {
+      "n": 18,
+      "id": "q18",
+      "url": "https://hedidntjump.com/Inquiries#q18",
+      "question": "Does Marion’s work and background — from Naval Intelligence to fighting the Alaskan Highway Bill and being backed to establish a third political party — play a role?",
+      "substance": [
+        "Volume V brings the naval-intelligence background it describes, third-party plans, federal-surveillance interests, and Alaska Highway legislation into its account of political motive. It presents those subjects alongside Marion’s intended dinner speech and the removal of his remarks from the Congressional Record. The volume’s explanation treats his political work and institutional conflicts as central to the case."
+      ],
+      "plates": [],
+      "sources": [
+        {
+          "label": "Volume V · PDF pp. 9–11",
+          "href": "https://hedidntjump.com/reader?volume=5&page=9 (PDF https://hedidntjump.com/volumes/volume-5.pdf#page=9)"
+        }
+      ]
+    },
+    {
+      "n": 19,
+      "id": "q19",
+      "url": "https://hedidntjump.com/Inquiries#q19",
+      "question": "Is it a coincidence that Illinois statesman John Bolton died suspiciously less than one month before?",
+      "substance": [
+        "Volume III includes a biographical account of Illinois legislator John M. Bolton’s killing in Chicago on July 9, 1936, following a car chase. That date is 29 days before Marion’s death on August 7. The reproduced material describes contemporary reporting about organized crime, political interests, and competing explanations for Bolton’s killing. The archive places this episode alongside the Zioncheck research as a comparison from the same period."
+      ],
+      "plates": [],
+      "sources": [
+        {
+          "label": "Bolton material · Volume III, PDF pp. 3–4",
+          "href": "https://hedidntjump.com/reader?volume=3&page=3 (PDF https://hedidntjump.com/volumes/volume-3.pdf#page=3)"
+        }
+      ]
+    },
+    {
+      "n": 20,
+      "id": "q20",
+      "url": "https://hedidntjump.com/Inquiries#q20",
+      "question": "Why are most of Nadeau’s records missing? Was he naval intelligence too?",
+      "substance": [
+        "Volume V states that both Macfarlan and Nadeau have almost no records — language it treats as consistent with intelligence ties in a Seattle Navy-intelligence era — and, in the named-participants chapter, that Nadeau’s “intelligence ties (explains lack of records).” The same volume documents Marion’s naval-intelligence background separately. The supplied PDFs do not contain Nadeau service papers, a naval-intelligence file, or a FOIA production on Nadeau. The gap is what the volumes record; they do not prove a naval-intelligence posting. Volume IV’s FOIA recommendations target surveillance files on Zioncheck, not a named Nadeau dossier."
+      ],
+      "plates": [],
+      "sources": [
+        {
+          "label": "Macfarlan and Nadeau records · Volume V, PDF p. 7",
+          "href": "https://hedidntjump.com/reader?volume=5&page=7 (PDF https://hedidntjump.com/volumes/volume-5.pdf#page=7)"
+        },
+        {
+          "label": "Named participants · Volume V, PDF p. 12",
+          "href": "https://hedidntjump.com/reader?volume=5&page=12 (PDF https://hedidntjump.com/volumes/volume-5.pdf#page=12)"
+        },
+        {
+          "label": "Federal-records requests · Volume IV, PDF p. 15",
+          "href": "https://hedidntjump.com/reader?volume=4&page=15 (PDF https://hedidntjump.com/volumes/volume-4.pdf#page=15)"
+        }
+      ]
+    },
+    {
+      "n": 21,
+      "id": "q21",
+      "url": "https://hedidntjump.com/Inquiries#q21",
+      "question": "Why are FOIA requests on Marion denied to this day?",
+      "substance": [
+        "The federal-records discussion in Volume IV calls for FOIA and archival requests concerning surveillance or monitoring of Marion during 1935–1936, tied to his institutional conflicts and interest in federal operations. Volume V also calls for access to federal surveillance files. A supplied FBI FOIPA letter dated 31 July 2026 — Request No. 1750194-000 as printed on the plate — closes a Central Records System search: the Bureau states it was unable to identify records on Marion Anthony Zioncheck for the stated 1930–1950 window, and that the request is being closed. Requester identity and agency contact blocks are blacked out on the plate. A no-records closing is not a production of the files the volumes ask for."
+      ],
+      "plates": [
+        "FBI FOIPA closing Supplied letter · 31 July 2026 · Request No. 1750194-000 · CRS search closed · requester identity and agency contacts redacted · Full packet on the FOIA paper"
+      ],
+      "sources": [
+        {
+          "label": "The request packet · FOIA paper",
+          "href": "https://hedidntjump.com/foia.html#packet"
+        },
+        {
+          "label": "Federal-records requests · Volume IV, PDF p. 15",
+          "href": "https://hedidntjump.com/reader?volume=4&page=15 (PDF https://hedidntjump.com/volumes/volume-4.pdf#page=15)"
+        },
+        {
+          "label": "Federal-files recommendation · Volume V, PDF p. 14",
+          "href": "https://hedidntjump.com/reader?volume=5&page=14 (PDF https://hedidntjump.com/volumes/volume-5.pdf#page=14)"
+        }
+      ]
+    },
+    {
+      "n": 22,
+      "id": "q22",
+      "url": "https://hedidntjump.com/Inquiries#q22",
+      "question": "Why was Marion’s mother never informed of his death — and is this why she died of Involutional Melancholia?",
+      "substance": [
+        "The supplied Marion certificate lists the informant as Mrs. Wm. Nadeau, not Frances. Volume II later names Mrs. Frances Zioncheck in the estate columns as the late congressman’s mother. Volume III preserves her own death certificate; the principal cause as written is Involutional Melancholia, with contributory exhaustion / myocarditis as that plate records them. The volumes do not print a telegram, hospital notice, or other instrument showing that she was told of the August 7, 1936 death, and they do not print a statement that she was never told. Whether she was informed, and whether that silence belongs beside the cause as written, remains an open inquiry."
+      ],
+      "plates": [],
+      "sources": [
+        {
+          "label": "Marion’s certificate · Volume III, PDF p. 6",
+          "href": "https://hedidntjump.com/reader?volume=3&page=6 (PDF https://hedidntjump.com/volumes/volume-3.pdf#page=6)"
+        },
+        {
+          "label": "Frances’s certificate · Volume III, PDF p. 5",
+          "href": "https://hedidntjump.com/reader?volume=3&page=5 (PDF https://hedidntjump.com/volumes/volume-3.pdf#page=5)"
+        },
+        {
+          "label": "Estate columns naming Frances · Volume II, PDF p. 15",
+          "href": "https://hedidntjump.com/reader?volume=2&page=15 (PDF https://hedidntjump.com/volumes/volume-2.pdf#page=15)"
+        }
+      ]
+    },
+    {
+      "n": 23,
+      "id": "q23",
+      "url": "https://hedidntjump.com/Inquiries#q23",
+      "question": "Was Marion Zioncheck a threat to the establishment that couldn’t be silenced?",
+      "substance": [
+        "Volume V’s prelude chapter rejects the unstable-playboy reading. It calls him a threat to powerful interests who was preparing to expose sensitive operations, and it sets that claim beside third-party plans, G-Men / federal-surveillance interest, a naval-intelligence background, and the Alaska Highway legislation (H.R. 6538). The institutional-sanitization chapter then records House votes in mid-April 1935 (272–0) and February 1936 (~274–0) that expunged his remarks from the Congressional Record, and treats those expungements as a pattern of hostility before the death. Volume I’s opening press sheet — the crop on this page — places J. Edgar Hoover in the contemporary columns beside a “playboy legislator” arrest report; the supplied “Playboy Subdued After Battle” plate is the apartment-row photograph that circulated with that framing. Volume II’s death-day headlines continue it. The bogeyman composite shows him trying on a disguise as the “bogeyman of Washington politics.” The volumes argue he was treated as a threat and silenced before the dinner speech. They do not print an order from every institution named on these plates."
+      ],
+      "plates": [],
+      "sources": [
+        {
+          "label": "Prelude and motive · Volume V, PDF pp. 9–10",
+          "href": "https://hedidntjump.com/reader?volume=5&page=9 (PDF https://hedidntjump.com/volumes/volume-5.pdf#page=9)"
+        },
+        {
+          "label": "Record expungements · Volume V, PDF p. 11",
+          "href": "https://hedidntjump.com/reader?volume=5&page=11 (PDF https://hedidntjump.com/volumes/volume-5.pdf#page=11)"
+        },
+        {
+          "label": "Hoover-era press sheet · Volume I, PDF p. 3",
+          "href": "https://hedidntjump.com/reader?volume=1&page=3 (PDF https://hedidntjump.com/volumes/volume-1.pdf#page=3)"
+        },
+        {
+          "label": "Playboy headline · Volume II, PDF p. 4",
+          "href": "https://hedidntjump.com/reader?volume=2&page=4 (PDF https://hedidntjump.com/volumes/volume-2.pdf#page=4)"
+        }
+      ]
+    }
+  ],
+  "research_volumes": [
+    {
+      "n": 1,
+      "roman": "I",
+      "id": "volume-1",
+      "title": "Primary Documents & Forensic Analysis",
+      "purpose": "This first book gathers the primary documents and forensic plates of the collection — clippings, photographs, and document images against which the later volumes are checked. It preserves the material examined in the investigation; it does not close the case.",
+      "folio": "20 PDF pages · 20.8 MB",
+      "pages": 20,
+      "bytes": 20766161,
+      "canonical": "https://hedidntjump.com/Volumes#volume-1",
+      "reader": "https://hedidntjump.com/reader?volume=1&page=1",
+      "pdf": "https://hedidntjump.com/volumes/volume-1.pdf",
+      "webp_pattern": "https://hedidntjump.com/assets/v1/{page}.webp",
+      "azdoc": "AZDOC-18DBE35A32DD",
+      "text_layer": "none-extractable",
+      "full_text": null,
+      "full_text_note": "Repo PDF is a binary facsimile (20766161 bytes; 20 PDF pages · 20.8 MB). No faithful running text layer is extractable from the PDF bytes in this repository without inventing OCR. Full facsimile at https://hedidntjump.com/volumes/volume-1.pdf . In-site reader: https://hedidntjump.com/reader?volume=1&page=1 . Static page images: https://hedidntjump.com/assets/v1/{page}.webp for pages 1–20.",
+      "section_outline": [
+        "PDF p. 18 — Volume I · PDF p. 18 (from Inquiry 02; https://hedidntjump.com/reader?volume=1&page=18)",
+        "PDF p. 18 — Writing account · Volume I, PDF p. 18 (from Inquiry 05; https://hedidntjump.com/reader?volume=1&page=18)",
+        "PDF p. 3 — Hoover-era press sheet · Volume I, PDF p. 3 (from Inquiry 23; https://hedidntjump.com/reader?volume=1&page=3)"
+      ]
+    },
+    {
+      "n": 2,
+      "roman": "II",
+      "id": "volume-2",
+      "title": "News Coverage & Family Battles",
+      "purpose": "Contemporary newspaper columns record how the death was told to the public in 1936, and how the family later fought over the will and the estate. The plates keep those headlines and the disputes that followed.",
+      "folio": "20 PDF pages · 18.4 MB",
+      "pages": 20,
+      "bytes": 18361431,
+      "canonical": "https://hedidntjump.com/Volumes#volume-2",
+      "reader": "https://hedidntjump.com/reader?volume=2&page=1",
+      "pdf": "https://hedidntjump.com/volumes/volume-2.pdf",
+      "webp_pattern": "https://hedidntjump.com/assets/v2/{page}.webp",
+      "azdoc": "AZDOC-A0223FC27A15",
+      "text_layer": "none-extractable",
+      "full_text": null,
+      "full_text_note": "Repo PDF is a binary facsimile (18361431 bytes; 20 PDF pages · 18.4 MB). No faithful running text layer is extractable from the PDF bytes in this repository without inventing OCR. Full facsimile at https://hedidntjump.com/volumes/volume-2.pdf . In-site reader: https://hedidntjump.com/reader?volume=2&page=1 . Static page images: https://hedidntjump.com/assets/v2/{page}.webp for pages 1–20.",
+      "section_outline": [
+        "PDF p. 5 — Volume II · PDF p. 5 (from Inquiry 01; https://hedidntjump.com/reader?volume=2&page=5)",
+        "PDF p. 13 — Volume II · PDF p. 13 (from Inquiry 02; https://hedidntjump.com/reader?volume=2&page=13)",
+        "PDF p. 4 — Volume II · PDF p. 4 (from Inquiry 03; https://hedidntjump.com/reader?volume=2&page=4)",
+        "PDF p. 3 — Office plate · Volume II, PDF p. 3 (from Inquiry 05; https://hedidntjump.com/reader?volume=2&page=3)",
+        "PDF p. 19 — Kin fight the will · Volume II, PDF p. 19 (from Inquiry 10; https://hedidntjump.com/reader?volume=2&page=19)",
+        "PDF p. 16 — Nurse defends the will · Volume II, PDF p. 16 (from Inquiry 10; https://hedidntjump.com/reader?volume=2&page=16)",
+        "PDF p. 17 — Widow must yield stocks · Volume II, PDF p. 17 (from Inquiry 10; https://hedidntjump.com/reader?volume=2&page=17)",
+        "PDF p. 13 — Photographed note · Volume II, PDF p. 13 (from Inquiry 16; https://hedidntjump.com/reader?volume=2&page=13)",
+        "PDF p. 15 — Estate columns naming Frances · Volume II, PDF p. 15 (from Inquiry 22; https://hedidntjump.com/reader?volume=2&page=15)",
+        "PDF p. 4 — Playboy headline · Volume II, PDF p. 4 (from Inquiry 23; https://hedidntjump.com/reader?volume=2&page=4)"
+      ]
+    },
+    {
+      "n": 3,
+      "roman": "III",
+      "id": "volume-3",
+      "title": "Personal Photographs & Research Materials",
+      "purpose": "Personal photographs, funeral-related material, and research notes widen the record beyond the day of the death. The plates here are the private and documentary remainder of the collection.",
+      "folio": "21 PDF pages · 16.9 MB",
+      "pages": 21,
+      "bytes": 16869320,
+      "canonical": "https://hedidntjump.com/Volumes#volume-3",
+      "reader": "https://hedidntjump.com/reader?volume=3&page=1",
+      "pdf": "https://hedidntjump.com/volumes/volume-3.pdf",
+      "webp_pattern": "https://hedidntjump.com/assets/v3/{page}.webp",
+      "azdoc": "AZDOC-9673443C40F7",
+      "text_layer": "none-extractable",
+      "full_text": null,
+      "full_text_note": "Repo PDF is a binary facsimile (16869320 bytes; 21 PDF pages · 16.9 MB). No faithful running text layer is extractable from the PDF bytes in this repository without inventing OCR. Full facsimile at https://hedidntjump.com/volumes/volume-3.pdf . In-site reader: https://hedidntjump.com/reader?volume=3&page=1 . Static page images: https://hedidntjump.com/assets/v3/{page}.webp for pages 1–21.",
+      "section_outline": [
+        "PDF p. 3 — Bolton material · Volume III, PDF pp. 3–4 (from Inquiry 19; https://hedidntjump.com/reader?volume=3&page=3)",
+        "PDF p. 6 — Marion’s certificate · Volume III, PDF p. 6 (from Inquiry 22; https://hedidntjump.com/reader?volume=3&page=6)",
+        "PDF p. 5 — Frances’s certificate · Volume III, PDF p. 5 (from Inquiry 22; https://hedidntjump.com/reader?volume=3&page=5)"
+      ]
+    },
+    {
+      "n": 4,
+      "roman": "IV",
+      "id": "volume-4",
+      "title": "The Physics Case",
+      "purpose": "This volume tests the reported office sequence — window clearance, timing, and witness proximity — against the plates. It is the collection’s argument from space and time, not a courtroom finding.",
+      "folio": "15 PDF pages · 0.03 MB",
+      "pages": 15,
+      "bytes": 30137,
+      "canonical": "https://hedidntjump.com/Volumes#volume-4",
+      "reader": "https://hedidntjump.com/reader?volume=4&page=1",
+      "pdf": "https://hedidntjump.com/volumes/volume-4.pdf",
+      "webp_pattern": "https://hedidntjump.com/assets/v4/{page}.webp",
+      "azdoc": null,
+      "text_layer": "none-extractable",
+      "full_text": null,
+      "full_text_note": "Repo PDF is a binary facsimile (30137 bytes; 15 PDF pages · 0.03 MB). No faithful running text layer is extractable from the PDF bytes in this repository without inventing OCR. Full facsimile at https://hedidntjump.com/volumes/volume-4.pdf . In-site reader: https://hedidntjump.com/reader?volume=4&page=1 . Static page images: https://hedidntjump.com/assets/v4/{page}.webp for pages 1–15.",
+      "section_outline": [
+        "PDF p. 5 — Volume IV · PDF pp. 5–13 (from Inquiry 02; https://hedidntjump.com/reader?volume=4&page=5)",
+        "PDF p. 11 — Volume IV · PDF p. 11 (from Inquiry 04; https://hedidntjump.com/reader?volume=4&page=11)",
+        "PDF p. 5 — Nadeau’s claims · Volume IV, PDF p. 5 (from Inquiry 05; https://hedidntjump.com/reader?volume=4&page=5)",
+        "PDF p. 11 — Staged-photograph chapter · Volume IV, PDF p. 11 (from Inquiry 05; https://hedidntjump.com/reader?volume=4&page=11)",
+        "PDF p. 10 — Volume IV · PDF p. 10 (from Inquiry 11; https://hedidntjump.com/reader?volume=4&page=10)",
+        "PDF p. 12 — The phantom janitor · Volume IV, PDF p. 12 (from Inquiry 13; https://hedidntjump.com/reader?volume=4&page=12)",
+        "PDF p. 13 — Building locations and analysis · Volume IV, PDF p. 13 (from Inquiry 14; https://hedidntjump.com/reader?volume=4&page=13)",
+        "PDF p. 13 — Two Arctic locations · Volume IV, PDF p. 13 (from Inquiry 17; https://hedidntjump.com/reader?volume=4&page=13)",
+        "PDF p. 15 — Directory and license requests · Volume IV, PDF p. 15 (from Inquiry 17; https://hedidntjump.com/reader?volume=4&page=15)",
+        "PDF p. 15 — Federal-records requests · Volume IV, PDF p. 15 (from Inquiry 20; https://hedidntjump.com/reader?volume=4&page=15)"
+      ]
+    },
+    {
+      "n": 5,
+      "roman": "V",
+      "id": "volume-5",
+      "title": "The Human & Institutional Evidence",
+      "purpose": "The closing book examines witness accounts, institutional conflict, and the human evidence surrounding the death. It sets those names and proposed motives beside the earlier volumes.",
+      "folio": "14 PDF pages · 0.02 MB",
+      "pages": 14,
+      "bytes": 27749,
+      "canonical": "https://hedidntjump.com/Volumes#volume-5",
+      "reader": "https://hedidntjump.com/reader?volume=5&page=1",
+      "pdf": "https://hedidntjump.com/volumes/volume-5.pdf",
+      "webp_pattern": "https://hedidntjump.com/assets/v5/{page}.webp",
+      "azdoc": null,
+      "text_layer": "none-extractable",
+      "full_text": null,
+      "full_text_note": "Repo PDF is a binary facsimile (27749 bytes; 14 PDF pages · 0.02 MB). No faithful running text layer is extractable from the PDF bytes in this repository without inventing OCR. Full facsimile at https://hedidntjump.com/volumes/volume-5.pdf . In-site reader: https://hedidntjump.com/reader?volume=5&page=1 . Static page images: https://hedidntjump.com/assets/v5/{page}.webp for pages 1–14.",
+      "section_outline": [
+        "PDF p. 9 — Volume V · PDF pp. 9–11 (from Inquiry 03; https://hedidntjump.com/reader?volume=5&page=9)",
+        "PDF p. 9 — Volume V · PDF p. 9 (from Inquiry 07; https://hedidntjump.com/reader?volume=5&page=9)",
+        "PDF p. 8 — Volume V · PDF p. 8 (from Inquiry 08; https://hedidntjump.com/reader?volume=5&page=8)",
+        "PDF p. 13 — Artistic testimony · Volume V, PDF p. 13 (from Inquiry 09; https://hedidntjump.com/reader?volume=5&page=13)",
+        "PDF p. 8 — Flight and encoded work · Volume V, PDF p. 8 (from Inquiry 09; https://hedidntjump.com/reader?volume=5&page=8)",
+        "PDF p. 8 — Later actions against Nadeau · Volume V, PDF p. 8 (from Inquiry 10; https://hedidntjump.com/reader?volume=5&page=8)",
+        "PDF p. 6 — Volume V · PDF p. 6 (from Inquiry 12; https://hedidntjump.com/reader?volume=5&page=6)",
+        "PDF p. 12 — Named participants · Volume V, PDF p. 12 (from Inquiry 13; https://hedidntjump.com/reader?volume=5&page=12)",
+        "PDF p. 9 — Speech discussion · Volume V, PDF p. 9 (from Inquiry 16; https://hedidntjump.com/reader?volume=5&page=9)",
+        "PDF p. 5 — Vic’s erasure · Volume V, PDF p. 5 (from Inquiry 17; https://hedidntjump.com/reader?volume=5&page=5)",
+        "PDF p. 7 — Macfarlan and Nadeau records · Volume V, PDF p. 7 (from Inquiry 20; https://hedidntjump.com/reader?volume=5&page=7)",
+        "PDF p. 14 — Federal-files recommendation · Volume V, PDF p. 14 (from Inquiry 21; https://hedidntjump.com/reader?volume=5&page=14)",
+        "PDF p. 9 — Prelude and motive · Volume V, PDF pp. 9–10 (from Inquiry 23; https://hedidntjump.com/reader?volume=5&page=9)",
+        "PDF p. 11 — Record expungements · Volume V, PDF p. 11 (from Inquiry 23; https://hedidntjump.com/reader?volume=5&page=11)"
+      ]
+    }
+  ],
+  "tab_substance": {
+    "home": {
+      "title": "Homepage money-page framing",
+      "url": "https://hedidntjump.com/",
+      "source_file": "index.html",
+      "substance": "Marion A. Zioncheck, Seattle congressman\nThe death of Marion Zioncheck. The record deserves another reading.\nMarion and Rubye\nMarion Zioncheck was a U.S. congressman from Washington. His death in Seattle on August 7, 1936 was reported as suicide following a fall from his fifth-floor office.\nThis project challenges that account. Its collected analyses question the reported movements inside the office, the interpretation of photographs, witness accounts, and the surrounding institutional history.\nFive volumes bring together photographs, newspaper reports, personal records, and an argument for re-examining what happened in Seattle on August 7, 1936.\nInquiries of the Record\nTwenty-three questions on Pg. 3 · Inquiries of the Record . Jump to a boxed inquiry.\n01 Why was Marion sent from Washington, D.C. to Seattle, Washington?\n02 Why do archive records conflict with the official narrative online today?\n03 Why was Marion trying to stay in the media and spotlight?\n04 What can photographs establish?\n05 Why does Nadeau’s account not match the setup of Zioncheck’s office — and why did his account change?\n06 Where are records to his “Who’s Crazy Now” speech?\n07 Why did Marion dress up for a speech — then decide to “jump”?\n08 Why did his wife never give a statement as the most prolific witness?\n09 Why did Rubye hide testimony in her art for a later generation to find?\n10 Why did Rubye relentlessly sue the Nadeaus after? Was it spite, or was she silenced too?\n11 Why are the injuries inconsistent with a five-story fall?\n12 Why were so few witnesses named — and why was one of them the person who broke the story?\n13 Why was the janitor unnamed — and why would he have walked away during the event?\n14 How and why did the record get meshed between the old Arctic building at 501 3rd Avenue and the new Arctic building at 3rd Avenue and Cherry Street?\n15 Where are his dinner-party speech papers?\n16 Why does his “suicide note” read like part of a speech — and why was it folded if he had just written it?\n17 Why was cousin “Vic” in the area to witness at all if he worked in another building — and why do minimal records of Vic or his cigar shop exist today?\n18 Does Marion’s work and background — from Naval Intelligence to fighting the Alaskan Highway Bill and being backed to establish a third political party — play a role?\n19 Is it a coincidence that Illinois statesman John Bolton died suspiciously less than one month before?\n20 Why are most of Nadeau’s records missing? Was he naval intelligence too?\n21 Why are FOIA requests on Marion denied to this day?\n22 Why was Marion’s mother never informed of his death — and is this why she died of Involutional Melancholia?\n23 Was Marion Zioncheck a threat to the establishment that couldn’t be silenced?\nView Volumes 1–5"
+    },
+    "case": {
+      "title": "Case",
+      "url": "https://hedidntjump.com/Case",
+      "source_file": "case.html",
+      "substance": "Marion A. Zioncheck, Seattle congressman\nThe death of Marion Zioncheck. The record deserves another reading.\nMarion and Rubye Marion A. Zioncheck with Rubye Louise Nix · full frame, uncropped\nMarion Zioncheck was a U.S. congressman from Washington. His death in Seattle on August 7, 1936 was reported as suicide following a fall from his fifth-floor office.\nThis project challenges that account. Its collected analyses question the reported movements inside the office, the interpretation of photographs, witness accounts, and the surrounding institutional history.\nFive volumes bring together photographs, newspaper reports, personal records, and an argument for re-examining what happened in Seattle on August 7, 1936.\nInquiries of the Record\nTwenty-three questions on Pg. 3 · Inquiries of the Record . Jump to a boxed inquiry.\n01 Why was Marion sent from Washington, D.C. to Seattle, Washington?\n02 Why do archive records conflict with the official narrative online today?\n03 Why was Marion trying to stay in the media and spotlight?\n04 What can photographs establish?\n05 Why does Nadeau’s account not match the setup of Zioncheck’s office — and why did his account change?\n06 Where are records to his “Who’s Crazy Now” speech?\n07 Why did Marion dress up for a speech — then decide to “jump”?\n08 Why did his wife never give a statement as the most prolific witness?\n09 Why did Rubye hide testimony in her art for a later generation to find?\n10 Why did Rubye relentlessly sue the Nadeaus after? Was it spite, or was she silenced too?\n11 Why are the injuries inconsistent with a five-story fall?\n12 Why were so few witnesses named — and why was one of them the person who broke the story?\n13 Why was the janitor unnamed — and why would he have walked away during the event?\n14 How and why did the record get meshed between the old Arctic building at 501 3rd Avenue and the new Arctic building at 3rd Avenue and Cherry Street?\n15 Where are his dinner-party speech papers?\n16 Why does his “suicide note” read like part of a speech — and why was it folded if he had just written it?\n17 Why was cousin “Vic” in the area to witness at all if he worked in another building — and why do minimal records of Vic or his cigar shop exist today?\n18 Does Marion’s work and background — from Naval Intelligence to fighting the Alaskan Highway Bill and being backed to establish a third political party — play a role?\n19 Is it a coincidence that Illinois statesman John Bolton died suspiciously less than one month before?\n20 Why are most of Nadeau’s records missing? Was he naval intelligence too?\n21 Why are FOIA requests on Marion denied to this day?\n22 Why was Marion’s mother never informed of his death — and is this why she died of Involutional Melancholia?\n23 Was Marion Zioncheck a threat to the establishment that couldn’t be silenced?\nMarion’s Truth Will Be Heard Project"
+    },
+    "press": {
+      "title": "Press",
+      "url": "https://hedidntjump.com/Press",
+      "source_file": "press.html",
+      "substance": "Press · Investigative tip lines\nAsk a newsroom to look\nBelow are public tip and newsroom addresses for outlets that investigate. Copy hedidntjump.com into the message. Addresses were taken from each outlet’s public tip or contact page; they can change — check the linked site before you send.\nSeattle Times — newstips@seattletimes.com / investigations@seattletimes.com\nInvestigateWest — tips@investigatewest.org / investigatewest@proton.me\nKUOW — newsroom@kuow.org / tips@kuow.org\nCrosscut — editor@crosscut.com\nHistoryLink — admin@historylink.org\nThe Oregonian / OregonLive — newsroom@oregonian.com\nThe Spokesman-Review — news@spokesman.com\nBellingham Herald — newsroom@bellinghamherald.com\nKING 5 — newstips@king5.com\nKIRO 7 — newstips@kiro7.com\nReveal (Center for Investigative Reporting) — tips@revealnews.org / cirtips@protonmail.com\nMother Jones — scoop@motherjones.com / cirtips@protonmail.com\nICIJ — investigations@icij.org / contact@icij.org\nThe Intercept — tips@theintercept.com\nFRONTLINE (PBS) — frontlinetips@wgbh.org / frontline@pbs.org\nMuckRock — news@muckrock.com / info@muckrock.com\nReuters — tips@reuters.com\nBloomberg News — tips2@bloomberg.net\nFinancial Times — newstips@ft.com\nTexas Tribune — tips@texastribune.org\nChalkbeat — tips@chalkbeat.org / national@chalkbeat.org\nThe War Horse — tips@thewarhorse.org / thewarhorsenews@proton.me\nDocumented — tips@documented.net\nThe Marshall Project — pitches@themarshallproject.org\nType Investigations — queries@typemediacenter.org\nBolts — info@boltsmag.org / pitches@boltsmag.org\nWashington Post — lockbox@washpost.com / metro@washpost.com\nChicago Tribune — tips@chicagotribune.com\nChicago Sun-Times — tips@suntimes.com\nForbes — tips@forbes.com\nUSA Today — newstips@usatoday.com\nSeattle Times I-Team (Proton) — seattletimestips@protonmail.com\nNBC News — tips@nbcuni.com\nChalkbeat Chicago bureau — chicago.tips@chalkbeat.org\nChalkbeat New York bureau — ny.tips@chalkbeat.org\nChalkbeat Colorado bureau — co.tips@chalkbeat.org\nChalkbeat Detroit bureau — detroit.tips@chalkbeat.org\nChalkbeat Philadelphia bureau — philly.tips@chalkbeat.org\nChalkbeat Indiana bureau — in.tips@chalkbeat.org\nChalkbeat Newark bureau — newark.tips@chalkbeat.org\nOrdinary email is not a secure channel. Many of these newsrooms also publish Signal, Proton, or SecureDrop options on the linked tip page.\nPress · X\nTag investigators on X\nThirty accounts that investigate or amplify public-records and accountability work. Handles checked live on x.com before listing. Tag them with hedidntjump.com — do not invent handles.\nJason Leopold — @JasonLeopold\nProPublica — @ProPublica\nReveal — @reveal\nICIJ — @ICIJorg\nThe Intercept — @theintercept\nMuckRock — @muckrock\nSeattle Times — @SeattleTimes\nSeattle Times Watchdog — @STWatchdog\nMother Jones — @motherjones\nFRONTLINE — @frontlinepbs\nBellingcat — @bellingcat\nKen Klippenstein — @kenklippenstein\nRadley Balko — @radleybalko\nRyan Grim — @ryangrim\nGlenn Greenwald — @ggreenwald\nJameel Jaffer — @JameelJaffer\nTexas Tribune — @texastribune\nThe Marshall Project — @MarshallProj\nChalkbeat — @chalkbeat\nReuters — @Reuters\nWashington Post — @washingtonpost\nThe New York Times — @nytimes\nHistoryLink — @HistoryLink\nKUOW — @KUOW\nCrosscut — @Crosscut\nGIJN — @GIJN\nOCCRP — @OCCRP\nDocumented — @DocumentedNY\nThe War Horse — @thewarhorse\nBolts — @boltsmag\nPress · Instagram\nShare with investigative Instagrams\nThirty Instagram accounts whose profile titles matched the newsroom or investigative outlet. Share hedidntjump.com in a DM or story — do not invent handles.\nProPublica — @propublica\nMother Jones — @motherjonesmag\nICIJ — @icijorg\nReveal — @revealnews\nBellingcat — @bellingcatofficial\nMuckRock — @muckrocknews\nThe Intercept — @theintercept\nFRONTLINE — @frontlinepbs\nSeattle Times — @seattletimes\nThe Marshall Project — @marshallproj\nGIJN — @gijnorg\nKUOW — @kuow\nKING 5 — @king5seattle\nThe New York Times — @nytimes\nWashington Post — @washingtonpost\nReuters — @reuters\nDemocracy Now! — @democracynow\nPrison Policy Initiative — @prisonpolicy\nPBS News — @newshour\nFreedom of the Press Foundation — @freedomofthepressfoundation\nMore Perfect Union — @perfectunion\nPOLITICO — @politico\nThe Guardian US — @guardian_us\nZeteo — @zeteo\nSlate — @slate\nAssociated Press — @apnews\nNPR — @npr\nWall Street Journal — @wsj\nThe Atlantic — @theatlantic\nSemafor — @semafor"
+    },
+    "inquiries": {
+      "title": "Inquiries",
+      "url": "https://hedidntjump.com/Inquiries",
+      "source_file": "inquiries.html",
+      "substance": "Inquiries of the Record\nTwenty-three questions. Jump to a boxed inquiry, or read them in order below.\n01 Why was Marion sent from Washington, D.C. to Seattle, Washington?\n02 Why do archive records conflict with the official narrative online today?\n03 Why was Marion trying to stay in the media and spotlight?\n04 What can photographs establish?\n05 Why does Nadeau’s account not match the setup of Zioncheck’s office — and why did his account change?\n06 Where are records to his “Who’s Crazy Now” speech?\n07 Why did Marion dress up for a speech — then decide to “jump”?\n08 Why did his wife never give a statement as the most prolific witness?\n09 Why did Rubye hide testimony in her art for a later generation to find?\n10 Why did Rubye relentlessly sue the Nadeaus after? Was it spite, or was she silenced too?\n11 Why are the injuries inconsistent with a five-story fall?\n12 Why were so few witnesses named — and why was one of them the person who broke the story?\n13 Why was the janitor unnamed — and why would he have walked away during the event?\n14 How and why did the record get meshed between the old Arctic building at 501 3rd Avenue and the new Arctic building at 3rd Avenue and Cherry Street?\n15 Where are his dinner-party speech papers?\n16 Why does his “suicide note” read like part of a speech — and why was it folded if he had just written it?\n17 Why was cousin “Vic” in the area to witness at all if he worked in another building — and why do minimal records of Vic or his cigar shop exist today?\n18 Does Marion’s work and background — from Naval Intelligence to fighting the Alaskan Highway Bill and being backed to establish a third political party — play a role?\n19 Is it a coincidence that Illinois statesman John Bolton died suspiciously less than one month before?\n20 Why are most of Nadeau’s records missing? Was he naval intelligence too?\n21 Why are FOIA requests on Marion denied to this day?\n22 Why was Marion’s mother never informed of his death — and is this why she died of Involutional Melancholia?\n23 Was Marion Zioncheck a threat to the establishment that couldn’t be silenced?\nPhoto feature · The two Arctic buildings\nTwo addresses. One meshed record.\nVolume IV identifies two distinct locations and argues that merging them compressed the evening’s sequence.\nOld Arctic Club / Morrison Hotel 501 3rd Ave · Vic’s Alaskan Cigar Store · postcard c. 1942\nNew Arctic Building 3rd Ave & Cherry St · Zioncheck’s 5th-floor office · ca. 1917\nVolume IV: press and police meshed these two distinct buildings. Vic was in the old building; Marion’s office was in the new.\nInquiry of the Record · No. 14\nHow and why did the record get meshed between the old Arctic building at 501 3rd Avenue and the new Arctic building at 3rd Avenue and Cherry Street?\nVolume IV identifies two distinct locations: the old Arctic Club / Morrison Hotel at 501 3rd Avenue, associated with Vic’s Alaskan Cigar Store, and the newer Arctic Building at 3rd Avenue and Cherry Street, where Marion’s fifth-floor office was located. The volume argues that merging those locations moved the final conversation into the death-scene building and compressed the sequence into a spontaneous-jump narrative.\nBuilding locations and analysis · Volume IV, PDF p. 13 ↗\nInquiry of the Record · No. 17\nWhy was cousin “Vic” in the area to witness at all if he worked in another building — and why do minimal records of Vic or his cigar shop exist today?\nThe volumes place Vic’s workplace — the Alaskan Cigar Store — in the old Arctic Club / Morrison Hotel at 501 3rd Avenue, and Marion’s fifth-floor office in the newer Arctic Building at 3rd Avenue and Cherry Street. Volume V identifies him as Victor Anthony / Antoni Zajaczek, Marion’s maternal cousin, and describes him leaving the cigar store late on August 7, 1936, and encountering the events around Marion’s body. Read with Volume IV’s two-building chapter, that account makes his route part of the evening’s sequence, and treats the press-and-police merge of the two addresses as isolating an unplanned witness.\nThe record raises a tighter set of questions from that split. If Vic’s shop was the old Arctic and Marion’s office was the new one, why is Vic in the death-building sequence at all — close enough that Volume V can treat him as the unplanned witness who, in its account, saw the body being positioned, knew Nadeau, was threatened, and stayed silent? A man who worked at 501 3rd Avenue would have known the two addresses were not the same. The inquiry asks why any later telling would put him in a position to speak to what happened in Marion’s office, and whether a meshed two-building story misstates what he could have seen. Volume V does not print a Vic statement fabricating Marion’s words. It prints silence after a threat, then an archival void.\nOne open possibility the two-building chapters leave on the table, not as a finding: that Marion called his cousin there for protection, and that Vic failed. The volumes do not print that call, and they do not print a verdict that Vic failed anyone. They place a cousin from the other Arctic on the scene and then erase his paper trail. Why he was there, and what he did or did not do, remains the inquiry.\nThe same Volume V chapter then lists a complete archival void after that date: no marriage record, death certificate, obituary, census entry, business record, or further newspaper or directory mention. Volume IV’s recommendations ask for Seattle city directories of 1935–1938 at 501 3rd Avenue and King County business-license records of 1935–1937 to identify who took over the Alaskan Cigar Store lease after August 1936. The volumes record the absence. They do not supply a later paper trail for Vic or the shop.\nTwo Arctic locations · Volume IV, PDF p. 13 ↗ Vic’s erasure · Volume V, PDF p. 5 ↗ Directory and license requests · Volume IV, PDF p. 15 ↗\nInquiry of the Record · No. 01\nWhy was Marion sent from Washington, D.C. to Seattle, Washington?\nWilliam Bishop, Capitol police Aziel’s caption on a Library of Congress still (LCCN 2016878217). Volume II names Romney and Capitol police; it does not print Bishop’s name.\nThe contemporary account reproduced in Volume II describes Kenneth Romney, the House sergeant-at-arms, arranging safe conduct back to Seattle after Marion’s escape from the Maryland institution. It says Capitol police intervened to prevent another arrest, and that Marion ultimately traveled west by train after an airline refused him passage in Chicago. The report connects the return with his mother in Seattle and Romney’s assistance during his difficulties.\nThe plate is Aziel’s identification of William Bishop, Capitol police, in the escort still. The volumes do not name Bishop. The Library of Congress record remains LCCN 2016878217; Wikimedia’s file is the untitled Commons upload of that scan.\nVolume II · PDF p. 5 ↗\nInquiry of the Record · No. 02\nWhy do archive records conflict with the official narrative online today?\nThe archive preserves the details that the investigation compares: differing descriptions of the last movements, the photographed note, the room arrangement, and the two Arctic locations. Volume IV places those details alongside the account of a sudden fifth-floor jump. Reading the records together brings the wording, physical setting, and sequence of events into the same frame.\nThe official narrative, as the papers printed it ↗ Volume I · PDF p. 18 ↗ Volume II · PDF p. 13 ↗ Volume IV · PDF pp. 5–13 ↗\nInquiry of the Record · No. 03\nWhy was Marion trying to stay in the media and spotlight?\nThe August 8 report in Volume II says Marion re-entered the congressional race to show the public he was neither crazy nor foolish. That explanation makes public appearances part of his response to the image attached to him. The archive also preserves headlines centered on his behavior, while Volume V discusses his planned political speech and conflict with powerful institutions.\nVolume II · PDF p. 4 ↗ Volume V · PDF pp. 9–11 ↗\nInquiry of the Record · No. 04\nWhat can photographs establish?\nPhotographs document visible objects and their positions at the time of exposure. Volume IV examines Nadeau’s position in the doorway and the placement of Marion’s hat and coat on the floor. It compares that arrangement with the account of Nadeau reaching for the hat as Marion moved toward the window.\nVolume IV · PDF p. 11 ↗\nInquiry of the Record · No. 05\nWhy does Nadeau’s account not match the setup of Zioncheck’s office — and why did his account change?\nThe office, as the press printed it Desk shown as the congressman left it — Volume II, PDF p. 3 · Open in the reader\nVolume IV records William Nadeau’s official-narrative claims: he stood “one foot away”; Zioncheck “ran around the desk,” “brushed past” him, and “dove headfirst” through the open window in one fluid motion. The same volume measures that sequence against a small, cluttered fifth-floor office — a usable run of 4–6.5 meters, a sash opening of 27–33 inches, and a minimum 2.7–3.8 seconds — and calls the proximity claim physically impossible.\nChapter 8 then sets those statements beside the official death-scene photograph: Nadeau calm in the doorway; hat and coat already arranged on the floor — contradicting the story that he was “reaching for the hat” when Zioncheck jumped. Volume I’s writing account, that Nadeau found Marion writing shortly before the reported jump, belongs in the same frame. The volumes present contradictory statements and a staged-looking plate. They do not print a later signed retraction. Volume II prints the empty office — desk, window, bookcase — under a caption that the farewell message was written there and the desk shown as the congressman left it. Volume IV discusses a WSU doorway plate the supplied PDFs do not reproduce as a standalone image.\nOffice plate · Volume II, PDF p. 3 ↗ Nadeau’s claims · Volume IV, PDF p. 5 ↗ Staged-photograph chapter · Volume IV, PDF p. 11 ↗ Writing account · Volume I, PDF p. 18 ↗\nInquiry of the Record · No. 06\nWhere are records to his “Who’s Crazy Now” speech?\nSpeech announcement Supplied clipping · “‘Who’s Crazy?’ Will Be Topic For Zioncheck” · cropped from a WSU Libraries sheetshot · not a volume-page facsimile\nThe supplied plate is a contemporary announcement headed “‘Who’s Crazy?’ Will Be Topic For Zioncheck.” As printed, Congressman Marion A. Zioncheck will speak at 8 o’clock Monday night in the Civic Auditorium; Rev. Fred W. Shorter, chairman of the People’s Forum, is named as sponsor. The same paragraph says it will be the Seattle congressman’s first appearance at a public meeting since his return after the escape from a Maryland hospital. Volume II’s race-return clippings supply the surrounding public context. The collection still does not include a full transcript under the title “Who’s Crazy Now.”\nVolume II · PDF p. 4 ↗\nInquiry of the Record · No. 07\nWhy did Marion dress up for a speech — then decide to “jump”?\nVolume V describes Marion’s commitment to speaking at the postal workers’ dinner that evening. The investigation places that planned appearance beside the reported sudden jump: he had an audience, an engagement, and a purpose for the evening. The chapter discusses the speech preparations as part of the sequence leading to the Arctic Building.\nVolume V · PDF p. 9 ↗\nInquiry of the Record · No. 08\nWhy did his wife never give a statement as the most prolific witness?\nThe contemporary report in Volume II places Rubye in the car just feet from where Marion’s body landed, then describes her collapse and removal to a hospital. Its account of her experience is narrated by the report rather than presented as a detailed first-person statement from her. Volume V makes her proximity, subsequent actions, and relationship with the Nadeaus central to its discussion of the human evidence.\nVolume II · PDF p. 4 ↗ Volume V · PDF p. 8 ↗\nInquiry of the Record · No. 09\nWhy did Rubye hide testimony in her art for a later generation to find?\nVolume V states that Rubye fled, changed her name, and “encoded the truth in her artistic work.” Chapter 10, headed Rubye Nix Wilson artistic testimony, transcribes four high-priority works, including “I could not remain silent forever,” “I was with him when it happened. It wasn’t what we were told,” and “THERE IS MORE.” The volume reads those plates as direct statements of presence and of the falsity of the official account, and it recommends multispectral analysis of matching works. It does not print a contemporaneous statement from Rubye that she hid testimony for a later generation; that framing is the open inquiry. The facsimiles sit on the Rubye paper and in Volumes I and V.\nArtistic testimony · Volume V, PDF p. 13 ↗ Flight and encoded work · Volume V, PDF p. 8 ↗ Rubye paper · the art plates ↗\nInquiry of the Record · No. 10\nWhy did Rubye relentlessly sue the Nadeaus after? Was it spite, or was she silenced too?\nVolume II preserves the family-battle clippings: “Kin Fight Over Zioncheck Will,” naming Mrs. Ann Nadeau and Mrs. Rubye Nix Zioncheck; “Zioncheck Daughters Fight Over Estate”; “Nurse Defends Zioncheck Will”; and “Zioncheck’s Widow Must Yield Stocks.” Those plates put Rubye and the Nadeaus as opposing names in probate and estate columns. Volume V states that she later engaged in repeated legal actions against Nadeau over property and estate matters, and that she expressed intense hatred of the Nadeaus — language the volume treats as consistent with someone who knew the truth and refused to play along. The same chapter records a Hollywood offer or payoff tied to the Nadeau orbit, which it says she intentionally flopped.\nThe volumes print the lawsuits and that reading. They do not settle whether the suits were spite, a silenced witness’s only remaining instrument, or both. That tension is the open inquiry. The facsimiles are gathered on the Rubye paper .\nKin fight the will · Volume II, PDF p. 19 ↗ Nurse defends the will · Volume II, PDF p. 16 ↗ Widow must yield stocks · Volume II, PDF p. 17 ↗ Later actions against Nadeau · Volume V, PDF p. 8 ↗ Rubye paper · the lawsuit plates ↗\nInquiry of the Record · No. 11\nWhy are the injuries inconsistent with a five-story fall?\nMarion A. Zioncheck — Certificate of Death Washington State Board of Health · Aug. 7, 1936 · sidewalk in front of the Arctic Building · not Frances Zioncheck’s certificate\nVolume IV argues that the described injury distribution fits ground-level restraint and blunt-force trauma more closely than the reported head-first fall. Its comparison focuses on cranial trauma, the neck, the limbs, and the broader pattern of injuries it expects from a fall of that height. This is the injury-pattern argument developed in the physics volume.\nVolume IV · PDF p. 10 ↗\nInquiry of the Record · No. 12\nWhy were so few witnesses named — and why was one of them the person who broke the story?\nVolume V places Sol Krems in two roles: a named witness at the scene and the newspaper figure it credits with the first story. It contrasts that named role with references to scores of unnamed witnesses. The chapter follows the overlap between the sidewalk account and the narrative that reached readers the next morning.\nVolume V · PDF p. 6 ↗\nInquiry of the Record · No. 13\nWhy was the janitor unnamed — and why would he have walked away during the event?\nVolume IV’s phantom-janitor chapter states that the official narrative relies on a janitor who allegedly unlocked the office door after the reported jump, and that no janitor matching that role appears in contemporary records with a verifiable name — no Arctic Building employment list, police report, or witness statement supplies a consistent one. The volume treats the locked-door detail as a device that lets the named participants avoid explaining access. Volume V repeats the finding: there was no real janitor matching the described role. The volumes do not record a named man leaving the scene mid-event. Why such a figure would walk away remains open because the archive never identifies him.\nThe phantom janitor · Volume IV, PDF p. 12 ↗ Named participants · Volume V, PDF p. 12 ↗\nInquiry of the Record · No. 15\nWhere are his dinner-party speech papers?\nVolume V describes Marion returning to the Arctic Building with part of a speech or letter missing and identifies House stationery in its account of that writing. The dinner speech papers concern what he intended to say to the postal workers’ audience. Their content and disposition are central to the chapter’s account of his preparations that evening.\nVolume V · PDF p. 9 ↗\nInquiry of the Record · No. 16\nWhy does his “suicide note” read like part of a speech — and why was it folded if he had just written it?\nVolume II reproduces the handwritten note on House of Representatives stationery, with visible horizontal and vertical creases. Its text concerns an unfair economic system and the chance to survive and live. That political language connects this entry to the dinner speech discussed in Volume V. The photographed paper and its creases also belong beside the account in Volume I that Nadeau found Marion writing shortly before the reported jump.\nPhotographed note · Volume II, PDF p. 13 ↗ Writing account · Volume I, PDF p. 18 ↗ Speech discussion · Volume V, PDF p. 9 ↗\nInquiry of the Record · No. 18\nDoes Marion’s work and background — from Naval Intelligence to fighting the Alaskan Highway Bill and being backed to establish a third political party — play a role?\nVolume V brings the naval-intelligence background it describes, third-party plans, federal-surveillance interests, and Alaska Highway legislation into its account of political motive. It presents those subjects alongside Marion’s intended dinner speech and the removal of his remarks from the Congressional Record. The volume’s explanation treats his political work and institutional conflicts as central to the case.\nVolume V · PDF pp. 9–11 ↗\nInquiry of the Record · No. 19\nIs it a coincidence that Illinois statesman John Bolton died suspiciously less than one month before?\nVolume III includes a biographical account of Illinois legislator John M. Bolton’s killing in Chicago on July 9, 1936, following a car chase. That date is 29 days before Marion’s death on August 7. The reproduced material describes contemporary reporting about organized crime, political interests, and competing explanations for Bolton’s killing. The archive places this episode alongside the Zioncheck research as a comparison from the same period.\nBolton material · Volume III, PDF pp. 3–4 ↗\nInquiry of the Record · No. 20\nWhy are most of Nadeau’s records missing? Was he naval intelligence too?\nVolume V states that both Macfarlan and Nadeau have almost no records — language it treats as consistent with intelligence ties in a Seattle Navy-intelligence era — and, in the named-participants chapter, that Nadeau’s “intelligence ties (explains lack of records).” The same volume documents Marion’s naval-intelligence background separately. The supplied PDFs do not contain Nadeau service papers, a naval-intelligence file, or a FOIA production on Nadeau. The gap is what the volumes record; they do not prove a naval-intelligence posting. Volume IV’s FOIA recommendations target surveillance files on Zioncheck, not a named Nadeau dossier.\nMacfarlan and Nadeau records · Volume V, PDF p. 7 ↗ Named participants · Volume V, PDF p. 12 ↗ Federal-records requests · Volume IV, PDF p. 15 ↗\nInquiry of the Record · No. 21\nWhy are FOIA requests on Marion denied to this day?\nFBI FOIPA closing Supplied letter · 31 July 2026 · Request No. 1750194-000 · CRS search closed · requester identity and agency contacts redacted · Full packet on the FOIA paper\nThe federal-records discussion in Volume IV calls for FOIA and archival requests concerning surveillance or monitoring of Marion during 1935–1936, tied to his institutional conflicts and interest in federal operations. Volume V also calls for access to federal surveillance files. A supplied FBI FOIPA letter dated 31 July 2026 — Request No. 1750194-000 as printed on the plate — closes a Central Records System search: the Bureau states it was unable to identify records on Marion Anthony Zioncheck for the stated 1930–1950 window, and that the request is being closed. Requester identity and agency contact blocks are blacked out on the plate. A no-records closing is not a production of the files the volumes ask for.\nThe request packet · FOIA paper ↗ Federal-records requests · Volume IV, PDF p. 15 ↗ Federal-files recommendation · Volume V, PDF p. 14 ↗\nInquiry of the Record · No. 22\nWhy was Marion’s mother never informed of his death — and is this why she died of Involutional Melancholia?\nThe supplied Marion certificate lists the informant as Mrs. Wm. Nadeau, not Frances. Volume II later names Mrs. Frances Zioncheck in the estate columns as the late congressman’s mother. Volume III preserves her own death certificate; the principal cause as written is Involutional Melancholia, with contributory exhaustion / myocarditis as that plate records them. The volumes do not print a telegram, hospital notice, or other instrument showing that she was told of the August 7, 1936 death, and they do not print a statement that she was never told. Whether she was informed, and whether that silence belongs beside the cause as written, remains an open inquiry.\nMarion’s certificate · Volume III, PDF p. 6 ↗ Frances’s certificate · Volume III, PDF p. 5 ↗ Estate columns naming Frances · Volume II, PDF p. 15 ↗\nInquiry of the Record · No. 23\nWas Marion Zioncheck a threat to the establishment that couldn’t be silenced?\nVolume V’s prelude chapter rejects the unstable-playboy reading. It calls him a threat to powerful interests who was preparing to expose sensitive operations, and it sets that claim beside third-party plans, G-Men / federal-surveillance interest, a naval-intelligence background, and the Alaska Highway legislation (H.R. 6538). The institutional-sanitization chapter then records House votes in mid-April 1935 (272–0) and February 1936 (~274–0) that expunged his remarks from the Congressional Record, and treats those expungements as a pattern of hostility before the death. Volume I’s opening press sheet — the crop on this page — places J. Edgar Hoover in the contemporary columns beside a “playboy legislator” arrest report; the supplied “Playboy Subdued After Battle” plate is the apartment-row photograph that circulated with that framing. Volume II’s death-day headlines continue it. The bogeyman composite shows him trying on a disguise as the “bogeyman of Washington politics.” The volumes argue he was treated as a threat and silenced before the dinner speech. They do not print an order from every institution named on these plates.\nPrelude and motive · Volume V, PDF pp. 9–10 ↗ Record expungements · Volume V, PDF p. 11 ↗ Hoover-era press sheet · Volume I, PDF p. 3 ↗ Playboy headline · Volume II, PDF p. 4 ↗"
+    },
+    "rubye": {
+      "title": "Rubye",
+      "url": "https://hedidntjump.com/Rubye",
+      "source_file": "rubye.html",
+      "substance": "The Aziel project paper · Wife, witness, later litigant\nRubye in the record, and in court against Nadeau\nThe contemporary report places her in the car. Volume V places later lawsuits on the same name.\nLast picture of congressman and bride Supplied clipping · Marion with Rubye Louise Nix · not a volume-page facsimile\nThe contemporary report in Volume II places Rubye in the car just feet from where Marion’s body landed, then describes her collapse and removal to a hospital. Its account of her experience is narrated by the report rather than presented as a detailed first-person statement from her.\nVolume V makes her proximity, subsequent actions, and relationship with the Nadeaus central to its discussion of the human evidence. It states that she later engaged in repeated legal actions against Nadeau over property and estate matters — the same Nadeau Volume IV places in the doorway of the death-scene photograph.\nThis paper does not add case captions, docket numbers, or court holdings that the volumes do not print. It sets the archive’s own sentences in newspaper columns and points at the reader pages.\nVolume II · PDF p. 4 ↗\nVolume V · PDF p. 8 ↗\nVolume V · Chapter 5\nLater actions against Nadeau\nAs printed in the human-evidence volume. No additional holdings are invented here.\nVolume V · Chapter 5\nLater actions against Nadeau, as the volume states them\n5. Rubye’s Hollywood payoff and later legal actions Volume V, Chapter 5 as preserved — PDF p. 8 Open in the reader ↗\nVolume V states that Rubye Nix Zioncheck (later Rubye Nix Wilson) received a significant payoff or offer from Hollywood interests tied to the Nadeau family orbit; that she intentionally flopped the opportunity; and that she later expressed intense hatred of the Nadeaus — language the volume treats as consistent with someone who knew the truth and refused to play along.\nIts key facts, as printed: she was close enough to witness key elements of the staging and what happened to Vic; she fled the country, changed her name, and encoded the truth in her artistic work; she received a Hollywood offer or payoff tied to the Nadeau orbit; she deliberately tanked the opportunity; she later engaged in repeated legal actions against Nadeau over property and estate matters ; she expressed intense hatred of the Nadeaus.\nVolume IV’s doorway chapter already notes the same later lawsuits when it identifies Nadeau as Rubye’s brother-in-law and places him at the center of the moment the official suicide narrative was established.\nNadeau chapter · Volume IV, PDF p. 11 ↗\nVolume V · Chapter 10\nPlates the volume reads as testimony\nWork B, as catalogued in Volume V Volume I, PDF p. 7 · Volume V, PDF p. 13 · Open in the reader\nVolume V lists four high-priority works. Work B, in its transcription: “I was with him when it happened. It wasn’t what we were told.” Signed “R.” The volume calls this the most direct statement of presence and of the falsity of the official account.\nWork A Volume I, PDF p. 10 · Open in the reader\nWork C Volume I, PDF p. 8 · Open in the reader\nArtistic testimony chapter · Volume V, PDF p. 13 ↗"
+    },
+    "archives": {
+      "title": "Archives",
+      "url": "https://hedidntjump.com/Archives",
+      "source_file": "archives.html",
+      "substance": "The record is here to be read.\nLook closely.\nAsk what the evidence supports.\nDownload all volumes ↓\nVolume I ↗ Primary documents & forensic analysis Collected clippings, photographs, and document images preserve the material examined in the investigation. Download PDF ↓\nVolume II ↗ News coverage & family battles Contemporary reporting records the public narrative and the family’s legal and estate disputes. Download PDF ↓\nVolume III ↗ Personal photographs & research materials Personal images, funeral-related material, and research notes trace the wider historical record. Download PDF ↓\nVolume IV ↗ The physics case The analysis challenges the reported office sequence through window clearance, timing, and witness proximity. Download PDF ↓\nVolume V ↗ The human evidence The analysis examines witness accounts, institutional conflict, and proposed motives behind the death. Download PDF ↓\nMarion A. Zioncheck Gravestone, black and white · Evergreen-Washelli · flat marker · 1900–1936"
+    },
+    "foia": {
+      "title": "FOIA",
+      "url": "https://hedidntjump.com/FOIA",
+      "source_file": "foia.html",
+      "substance": "Editorial · Citing Aziel, 28 July 2026\nThis is not freedom of information\nA time-volume door. A cost door. Both leave the file on the institution’s side of the desk.\nAziel’s paper of 28 July 2026, Acknowledgement of Structural Failure in FOIA Practice , records the Freedom of Information Act as a statutory right that operational practice converts into controlled disclosure.\nThe paper’s subtitle names the mechanism: the time-volume / cost binary as controlled access . Two pathways, one retained file.\nMode 1 — the clock and the volume. Process the request under severe time and volume constraints and the agency denies or releases the absolute minimum that exemption language will cover. The statutory twenty working days in 5 U.S.C. § 552 , with “unusual circumstances” and a further ten days, become a control surface. Volume is converted into a defense.\nMode 2 — the fee. Allow the request to expand and the agency shifts search, review, and duplication cost onto the requester until the request is financially prohibitive. The public-interest waiver exists in the text. It is not the default in the room.\nEither outcome, the paper states, leaves the information under institutional control. Neither outcome constitutes freedom of information. The binary is not a rhetorical device. It is the practical operating surface of the statute as implemented.\nThe original author PDF was not present in this environment. A site citation transcript of the supplied page-1 arguments and the author’s summary is filed at /assets/foia-binary-acknowledgement.pdf . The statute as published by the government remains at foia.gov .\nSection 8 · Closing Acknowledgement\nBoth pathways ration information. Control is retained. That is not freedom of information.\nAziel’s closing acknowledgement — section 8 of the 28 July 2026 paper — does not treat Mode 1 and Mode 2 as opposite remedies. They are complementary instruments of the same architecture. A denial issued under clock and volume pressure, and a fee estimate that makes production impossible, are two receipts for the same withheld record.\nThe acknowledgement is structural, not personal. It does not require a named villain at a desk. It requires only that the statute as implemented keep the default on the institution’s side of the door.\nThe papers\nFOIA Binary citation PDF\nCopyrights & historical research notice\nFile a request at FOIA.gov\nLived instance · Zioncheck\nWhy are FOIA requests on Marion denied to this day?\nVolume IV and Volume V call for FOIA and archival requests on surveillance or monitoring of Marion in 1935–1936. A supplied FBI FOIPA letter dated 31 July 2026 — Request No. 1750194-000 as printed — closes a Central Records System search: no identifiable records on Marion Anthony Zioncheck for the stated 1930–1950 window. Requester identity and agency contact blocks are redacted on the plates. A no-records closing is not a production of the files those volumes ask for.\nThe supplied packet on this paper ↗ Volume IV · PDF p. 15 ↗ Volume V · PDF p. 14 ↗\nMarion’s Truth Will Be Heard Project\nThe Nadeau file · From the volumes\nWilliam Nadeau in the doorway\nThe archive names William Nadeau, Rubye’s brother-in-law, as the primary eyewitness of the official office account. Captions below cite the volume pages. No names are added that the volumes do not use.\nVolume IV · Chapter 8\nContradictory statements and the staged photograph\n8. William Nadeau’s contradictory statements & staged photograph Volume IV, Chapter 8 as preserved — PDF p. 11 Open in the reader ↗\nVolume IV states that William Nadeau provided the primary eyewitness account for the official narrative and that his statements contain multiple irreconcilable physical contradictions. It records his claims that he was standing only “one foot away,” that Zioncheck “ran around the desk,” “brushed past” him, and “dove headfirst” through the open window, and that Zioncheck went through the window in one fluid motion without waiting to see if it was open.\nThe same chapter examines the official death-scene photograph (WSU Libraries Digital Collections). Volume IV’s key observations: Nadeau stands in the doorway looking directly at the camera, his expression notably calm and composed, with no visible distress, shock, or grief; Zioncheck’s hat and coat are already laid out on the floor in a dramatic arrangement, contradicting accounts that Nadeau was “reaching for the hat” when Zioncheck suddenly jumped; the photo has the appearance of being taken after the fact for press purposes; and Nadeau was Rubye Nix Zioncheck’s brother-in-law.\nVolume IV concludes that the image suggests the scene was managed for public consumption rather than documented in the immediate aftermath of a traumatic event.\nRead Chapter 8 · Volume IV, PDF p. 11 ↗\nVolume IV · Chapters 2–6\nOne foot away, 2.7 to 3.8 seconds\nArctic Building, press plate As preserved in Volume I, PDF p. 17 · Open in the reader\nVolume IV places Nadeau’s proximity claim against a calculated movement timeline. The minimum realistic time it assigns to the described sequence — initiation, run with direction change, posture transition, and launch — is 2.7–3.8+ seconds in a cluttered fifth-floor office. In that interval, the volume argues, even moderate reaction time places a person in immediate physical-contact range well before Zioncheck could reach the window and execute the required posture drop through a 27–33 inch sash opening.\nChapter 6 repeats the cornerstone claim: Nadeau said he was standing only one foot away and “missed him by a foot.” Volume IV calls that claim irreconcilable with the documented constraints.\nOfficial narrative vs. physical reality · Volume IV, PDF p. 5 ↗\nThe 1-foot proximity contradiction · Volume IV, PDF p. 8 ↗\nVolume V · Vic and the sequence\nNadeau in Vic’s account\n2. The unplanned witness: Vic’s complete archival erasure Volume V as preserved — PDF p. 5 Open in the reader ↗\nVolume V identifies Vic (Victor Anthony / Antoni Zajaczek, maternal cousin) as the unplanned witness who, in its account, saw the body being positioned while leaving the Alaskan Cigar Store late on August 7, 1936. The chapter states that he knew William Nadeau personally, was threatened on the spot, and stayed silent. It then lists a complete archival void after that date: no marriage record, death certificate, obituary, census entry, business records, or further newspaper or directory mentions.\nThe same volume’s named-participants chapter describes William Nadeau as brother-in-law: helped move the body, silenced Rubye, sold the false narrative, with an account that Volume IV treats as physically contradictory.\nThe two-building discussion remains on the main paper: Vic’s workplace in the old Arctic Club / Morrison Hotel; Marion’s office in the newer Arctic Building.\nTwo Arctic buildings, on the main paper ↗\nHat, coat, and the writing account\nWhat the floor was said to hold\nPhotographed note Volume II, PDF p. 13 · Open in the reader\nVolume IV compares the photographed placement of Marion’s hat and coat on the floor with the account of Nadeau reaching for the hat as Marion moved toward the window. Volume I is cited on the main paper for the writing account: Nadeau found Marion writing shortly before the reported jump.\nThose plates belong beside one another. They are not replaced here with a doorway photograph the supplied volumes do not reproduce as a standalone image. The WSU death-scene photograph is discussed in Volume IV; the facsimile above is the volume’s own chapter page.\nWriting account · Volume I, PDF p. 18 ↗\nThe supplied packet · Unique beats only\nWhat was asked. What was closed.\nFour plates, four beats: the request description, one fee-waiver justification, the deceased-subject fields, then the FBI letter. Overlapping waiver screenshots are not published. Requester identity and agency contact blocks are blacked out. This is not freedom of information.\n1 · Request description\nRecords sought, names, 1930–1950\nAdditional Information Supplied eFOIA request text · name variants and investigative / death-record scope · cropped to the request body\nThe supplied request asks for records pertaining to Marion Anthony Zioncheck, also known as Marjan Antoni Zajaczek, born 5 December 1900 (or 1901), U.S. Representative from Washington, died 7 August 1936. It lists the name variants and asks especially for investigative files, surveillance or monitoring records, correspondence, reports on his work in Congress (especially 1935–1937), and records concerning the death. The timeframe on the plate is 1930–1950.\n2 · Fee waiver\nHistorical research, one plate\nProof of Affiliation for Fee Waiver One plate only · non-commercial historical research · sitting member of Congress, 1933–1936\nThe waiver plate is published once. It states a non-commercial historical-research request and a public-interest claim: the records concern a sitting member of Congress from 1933 until the death on 7 August 1936, and federal interest or investigative activity related to him. Duplicate waiver screenshots from the same packet are not shown.\n3 · Subject fields\nMarion (Marjan) Zioncheck (Zajaczek)\nDeceased Individual Supplied subject fields · Marion / Marjan · Zioncheck / Zajaczek · email-app chrome removed\nThe deceased-subject fields on the same request name Marion (Marjan) and Zioncheck (Zajaczek). They are a separate beat from the waiver text. The phone toolbar that covered the middle-name row is not part of the plate.\n4 · FBI letter\nCRS search closed\n31 July 2026 · Request No. 1750194-000 Supplied FBI FOIPA letter · subject ZIONCHECK, MARION ANTHONY · 1930–1950 · contacts redacted\nAppeal options · signature Same letter, continuation · OGIS / OIP contact blocks redacted · Christina Driver, Acting Section Chief\nThe letterhead is the U.S. Department of Justice, Federal Bureau of Investigation, Washington, D.C. Dated 31 July 2026. Subject as printed: ZIONCHECK, MARION ANTHONY, on or after 1930 to 1950. Request No. 1750194-000 as the plate shows it. The Bureau states that a main-entity search of the Central Records System found no records it could identify as responsive, and that the request is being closed. Glomar language on third-party records and the usual addendum pointers remain on the plate. Requester name, mailing address, telephone numbers, and agency email / street-contact blocks are blacked out.\nThe continuation keeps the appeal path — dispute resolution, OGIS as ombudsman, an administrative appeal under 28 C.F.R. § 16.8(a) — without publishing those offices’ street addresses, phones, or mailboxes. The signature block is Christina Driver, Acting Section Chief, Record/Information Dissemination Section. That is a present-day no-records closing. It is not a release of the surveillance files Volume IV and Volume V still ask for. Control stayed on the institution’s side of the desk. That is not freedom of information.\nInquiry 21 on the main paper ↗\nPublic record · Hash-chained receipts\nIndexed Zioncheck FOIA denials\nRunning count: 0 . Only files that pass the Zioncheck-FOIA-denial gate are chained. Unrelated uploads are rejected with reasons and never stored on the public ledger.\nSubmit a Denied FOIA regarding Zioncheck only\nPDF or a readable scan. Maximum 8 MB. The Worker requires readable FOIA language, Marion Zioncheck language, and denial / withhold / exemption language. Memes, vacation photos, and other agencies’ letters are refused.\nChoose PDF or image I attest this file is a Denied FOIA regarding Marion Zioncheck and nothing else. Upload to the public ledger\nNo denials have been accepted into the chain yet."
+    },
+    "volumes": {
+      "title": "Volumes",
+      "url": "https://hedidntjump.com/Volumes",
+      "source_file": "volumes.html",
+      "substance": "THE VOLUMES · PG. 7\nFive Research Volumes\nThe archive is bound in five books. View the facsimile pages in this paper, or take the original PDFs. Collection dated July 2026.\nVolume I\nPrimary Documents & Forensic Analysis\nThis first book gathers the primary documents and forensic plates of the collection — clippings, photographs, and document images against which the later volumes are checked. It preserves the material examined in the investigation; it does not close the case.\n20 PDF pages · 20.8 MB\nView Download\nVolume II\nNews Coverage & Family Battles\nContemporary newspaper columns record how the death was told to the public in 1936, and how the family later fought over the will and the estate. The plates keep those headlines and the disputes that followed.\n20 PDF pages · 18.4 MB\nView Download\nVolume III\nPersonal Photographs & Research Materials\nPersonal photographs, funeral-related material, and research notes widen the record beyond the day of the death. The plates here are the private and documentary remainder of the collection.\n21 PDF pages · 16.9 MB\nView Download\nVolume IV\nThe Physics Case\nThis volume tests the reported office sequence — window clearance, timing, and witness proximity — against the plates. It is the collection’s argument from space and time, not a courtroom finding.\n15 PDF pages · 0.03 MB\nView Download\nVolume V\nThe Human & Institutional Evidence\nThe closing book examines witness accounts, institutional conflict, and the human evidence surrounding the death. It sets those names and proposed motives beside the earlier volumes.\n14 PDF pages · 0.02 MB\nView Download"
+    },
+    "narrative": {
+      "title": "Narrative",
+      "url": "https://hedidntjump.com/Narrative",
+      "source_file": "official-narrative.html",
+      "substance": "THE NARRATIVE\nThe Official Narrative\nIn Congress, Marion A. Zioncheck was remembered chiefly as a fierce backer of Franklin D. Roosevelt’s New Deal. That legislative work, according to the familiar public story, was repeatedly eclipsed by personal spectacles the press catalogued — fountain dancing, a car driven onto the White House grounds, and other episodes that critics and headlines used to define him. Under that pressure, the same account says, he grew depressed and announced he would not run again in 1936.\nInterior Secretary Harold L. Ickes later wrote that on April 30, 1936, Zioncheck asked him to perform a wedding with fiancée Rubye Louise Nix; Ickes declined. The couple married in Annapolis, Maryland, and honeymooned in San Juan, Puerto Rico. On August 1, friend and ally Warren Magnuson — taking Zioncheck’s retirement talk at face value — filed to seek the House seat. Wire services, the same public story continues, treated Zioncheck’s behavior as national comedy.\nOn May 30, 1936, after a party quarrel, Rubye left him. On June 1 he searched Washington for her, was arrested on a lunacy warrant, and was held in Gallinger Municipal Hospital’s psychopathic ward; Rubye returned to him there. Physicians blamed overwork and a frantic pace. Moved to a private hospital in Towson, Maryland, he escaped, returned to Washington, and claimed congressional immunity.\nOn August 7, 1936, the official and contemporary press account holds that Zioncheck died by jumping from a fifth-floor window of his Arctic Building office at Third Avenue and Cherry Street in Seattle. He struck the sidewalk in front of a car occupied by his wife. A note found with him, as printed in that account, said his only hope had been to improve an unfair economic system that held no promise of a decent chance to survive, let alone live. Another widely reprinted farewell version spoke of finished work and distant goals. University of Washington and Boeing, the same memorial story records, closed for part of a day; he was buried at Evergreen Washelli Memorial Park in Seattle. Rubye later became known as an artist whose work appeared in major venues including the Museum of Modern Art and the Kennedy Center.\nSource framing: public encyclopedia and contemporary press account of August 1936, restated here without investigative rebuttal.\nMarion and Rubye Last picture of congressman and bride · supplied clipping\nCongress Playboy Leaps to His Death Volume II · contemporary lead\nPlayboy of Congress Subdued Volume II · apartment / arrest coverage\nGallinger Hospital Zioncheck at Gallinger · Washington, D.C.\nReturn to Seattle Volume II · escort / return coverage\nToo much work or too much play? Volume II · lifestyle framing\nThe office desk Volume II · Arctic Building office plate\nThe office room Volume II · fifth-floor room plate\nSuicide Friday Volume II · August death coverage"
+    },
+    "aziel": {
+      "title": "About Aziel",
+      "url": "https://hedidntjump.com/aziel",
+      "source_file": "aziel.html",
+      "substance": "Seattle, Washington 9/12/2026 Aziel Eliab Receipts\nResearcher. Builder. Just a man.\nWho? Does not matter. What matters is the record.\nI do not ask you to believe a name. I ask you to read a file.\nThis site is not a shrine and it is not a theory blog. It is a public table for one closed story that never quite closed: Congressman Marion A. Zioncheck, Arctic Building, Seattle, August 7, 1936.\nThe official line said he jumped. The physics, the note, the witnesses, and the timing never agreed with that line.\nI build receipts so a death cannot be owned by the first headline that printed it. A story that cannot be corrected is just a private religion. So the work stays public, hashed, timed, and open to burial by better evidence. Later packets can kill earlier ones. That is the method.\nI am not always right. That is not a confession. It is the floor the work stands on.\nZionPattern Solver — the engine seeded on this case — is built with a hard cap: no conclusion may claim more than 75%. Twenty-five percent stays uncertainty on purpose. If a claim needs 100% to feel good, it is not ready to leave the room.\nI did not ask for this seat. The file was already sitting there undone. Names get stripped. Offices get cleaned. Widows get a story they did not write. Someone has to leave a record that is not someone else’s sermon.\nCarry the torch: I don’t own the flame. I keep it lit long enough for the next hands to find it. If the packets are local, timed, and hashed, the work can outlive me. That is the point.\nI am here for the record, not the applause. If not me, then who holds the file when the official version hardens into marble.\nI am temporary. The truth is not.\n— Aziel Eliab\nMarion’s Truth Will Be Heard Project"
+    },
+    "copyrights": {
+      "title": "Copyrights",
+      "url": "https://hedidntjump.com/Copyrights",
+      "source_file": "copyrights.html",
+      "substance": "United States Historical-research notice 17 U.S.C. § 107 By Aziel Eliab\nCopyrights & historical research notice\nThe record is published to be read, not erased\nIndependent historical research on events of 7 August 1936. Original wording and code on this host are Aziel’s. Third-party plates stay with their holders.\nhedidntjump.com is An Aziel Eliab Project: a nonprofit, non-commercial historical newspaper and five-volume archive on the death of U.S. Representative Marion Zioncheck in Seattle on 7 August 1936 — about ninety years. It is a public archive table for examining the record. It is not a commercial product, not a shrine, and not an entertainment scrape-farm. It is not a claim of absolute immunity from copyright.\nFacts, dates, and events are not copyrightable under U.S. law. The offices, votes, vital-record entries, and printed headlines the volumes preserve can be stated. Expression — the wording of a clipping, the composition of a photograph, the layout of a certificate — belongs to whoever still holds it, unless a limitation, a license, or the public domain says otherwise.\nThe primary subjects and the named contemporary actors in that 1936 record are deceased. No living person’s private life is the target of this archive. As this historical record is presented here, right-of-publicity and privacy claims aimed at those long-dead figures are treated as inapplicable. That is the archive’s framing. It is not a statute invented for this page.\nThis page is a notice of how the edition is framed. It is not legal advice and not a warranty to any reader, platform, or rights holder.\nThe papers\nMain Zioncheck paper\nOfficial narrative\nRubye paper\nFOIA paper\nVolume reader\nTwo stacks of rights\nAziel’s text is not the plates.\nOriginal prose, page architecture, and site code on this host are © Aziel Eliab and are offered under Apache-2.0 where that license is published for the repository. Collected photographs, clippings, certificates, and agency letters remain with their respective holders or under the terms of the library that supplied them.\nMarion’s Truth Will Be Heard Project\nUnited States · 17 U.S.C. § 107\nFair use, as the statute lists the factors\nThe edition relies on the fair-use limitation for criticism, comment, news reporting, teaching, and scholarship. No factor is treated as a complete defense by itself.\nPurpose and character\nResearch, comment, and a public record\nPlates are published to identify what the volumes and the supplied files actually show, to caption them to a reader page when the facsimile matches, and to ask the boxed inquiries. That is a transformative, nonprofit purpose: the clipping is not posted as a substitute for the morning paper that first sold it.\nNature of the work\nFactual news and official paper\nMost plates are news photographs, headlines, vital records, or agency correspondence. Factual and published works weigh differently from unpublished fiction. The archive does not claim that every government stamp erases copyright in a reporter’s prose or a studio portrait.\nAmount and substantiality\nThe beat, not the whole book\nCrops are cut to the document or the clipping. Phone chrome, catalog toolbars, and empty margins are removed. A plate is a page or a photograph the inquiry needs — not a dump of an entire newspaper issue or an unredacted private file.\nMarket effect\nNo substitute for the holders’ market\nThis host does not sell the plates, license them as stock, or replace a library’s paid scan desk. Wikimedia and Library of Congress stills remain under the terms those institutions publish. A takedown or correction request is read as a scholarly errata problem first: prefer a better caption, a tighter crop, or a replacement file over silence.\nVital records, agency paper, and libraries\nWhat this notice does not claim\nPublicness of a fact is not the same as a blank copyright. State vital records, federal letters, and library scans each have their own rules.\nCertificates and FOIA paper\nGovernment paper, still captioned\nDeath certificates and the supplied FBI FOIPA letter are published as historical evidence. U.S. government works prepared by an officer or employee as part of that person’s official duties are not eligible for copyright under 17 U.S.C. § 105. State death certificates on this edition are public vital records as preserved for historical research — not a claim that every state form is copyright-free. That federal rule is not stretched here into a claim that every stamped form or every library photograph is in the public domain. Captions say when a plate is a supplied scan rather than a volume-page facsimile.\nWikimedia · Library of Congress\nTheir terms still govern their files\nMaterials sourced from Wikimedia Commons, the Library of Congress, and other credited archives remain subject to their stated licenses, rights statements, or catalog terms. This site credits those sources and uses the files in a transformative historical-research context. It does not re-license them. LOC edge numbers on a still are left on the crop when they are part of the archival object.\nCorrection over erasure\nHow to ask for a change\nThis is good-faith scholarly use. A rights holder with a verifiable claim should write Aziel Eliab through azieleliab.com . The preference on this edition is correction over erasure: name the plate, name the defect, keep the historical question on the page. A better caption, a tighter crop, or a replacement file comes before silence.\nRepository license\nApache-2.0 for Aziel’s original stack\nThe public repository at github.com/AzielEliab/hedidntjump.com carries Apache-2.0 for Aziel’s original HTML, CSS, scripts, and editorial wording. That license does not grant a new copyright in other people’s photographs, clippings, or certificates bundled as research plates. Collection dated July 2026."
+    },
+    "receipts": {
+      "title": "Receipts / ingest (machine)",
+      "url": "https://hedidntjump.com/receipts",
+      "source_file": "receipts.html",
+      "substance": "United States CRAWLER/AI INGEST-AS-RECEIPT CROSS-NETWORK-SURVIVAL-1.0 NO-LIE / NO-REWRITE By Aziel Eliab only\nReceipts · CRAWLER/AI INGEST-AS-RECEIPT\nIngest as receipt. Re-expand from archive.\nFirst-screen SHA-256 of bytes + stable IDs + canonical URLs. Training is lossy — hash + cite, don’t merge.\nTip. ef967e4acb47ba913ce3959b673767278da605b307de33210b2dc2f1cfd86f60 — SHA-256 of the served bytes at /ingest-as-receipt.json . Many indexes, one tip.\nIDs. Person https://www.azieleliab.com/#aziel . Marion https://hedidntjump.com/#marion-zioncheck . Receipts https://hedidntjump.com/receipts .\nCanonical URLs. https://hedidntjump.com/ · /receipts · /cite.json · /llms.txt · /ingest-as-receipt.json .\nVerify. GET /ingest-as-receipt.json . SHA-256 the response bytes. Compare this tip. Public path: /receipts#verify .\nRE-EXPAND-FROM-ARCHIVE. Bytes survive, not summaries. Re-expand = archive verify then local node. Crawlers do not re-expand. Training residue is rumor.\nCROSS-NETWORK-SURVIVAL-1.0. If network and live data die tomorrow, the chain survives via cold copies. Survival = bytes↔hash.\nNO-LIE / NO-REWRITE. Receipts still hash. Copies are not all on one tunnel. Verify without voice. No rewrite key. The network never lies even to stay alive.\nThe four fields\nWhat a public receipt holds\nACT-RECEIPT-1.0 publishes exactly these four things.\nHash\nentry_hash\nSHA-256 of the canonical payload, including the previous hash. The first tip uses a zero previous hash.\nRequest\nOne sentence of the act\nWhat was asked: publish a tab, stamp a chain, or record a significant archive act.\nOutput\nOne sentence given\nWhat the surface returned. A sentence, not a dump of the page or a private log.\nMetadata\nEvent only\nSurface, path, method, status, tool, spec. Never a person, mailbox, or location.\nSeed tip · AZACT-HDJ-0001\nThis tab’s opening receipt\nPublished with the Receipts paper so /receipts is a real page, not the homepage.\nhedidntjump.com · GET /receipts\nPublish a public Receipts tab on hedidntjump.com.\nHash. c91e2b9190fcb93c3c2a2628de79f3b7aca33bd147f53ca66c63bc17c7dcbeae\nRequest. Publish a public Receipts tab on hedidntjump.com.\nOutput. The archive now lists four-field public action receipts: hash, request, output, metadata.\nMetadata. surface hedidntjump.com · path /receipts · method GET · status 200 · tool static-pages · spec ACT-RECEIPT-1.0\nhedidntjump.com · GET /ingest-as-receipt.json\nEncode CRAWLER/AI INGEST-AS-RECEIPT and RE-EXPAND-FROM-ARCHIVE.\nHash. ef967e4acb47ba913ce3959b673767278da605b307de33210b2dc2f1cfd86f60\nRequest. Encode CRAWLER/AI INGEST-AS-RECEIPT and RE-EXPAND-FROM-ARCHIVE on hedidntjump.com.\nOutput. First-screen SHA-256 of bytes + stable IDs + canonical URLs; public verify path; many indexes one tip; training lossy → hash + cite, don’t merge. Bytes survive, not summaries. Re-expand = archive verify then local node. Crawlers do not re-expand. Training residue is rumor.\nMetadata. surface hedidntjump.com · path /ingest-as-receipt.json · method GET · status 200 · tool static-pages · spec CRAWLER/AI INGEST-AS-RECEIPT · companion RE-EXPAND-FROM-ARCHIVE · previous AZACT-HDJ-0001\nCross-lattice\nSister Receipts tabs\nOther Aziel Eliab surfaces keep their own ACT-RECEIPT-1.0 tips.\nAziel Corpus Library\nazielcorpuslibrary.net/receipts\nGodLock\ngodlock.uk/receipts\nAziel Eliab\nazieleliab.com/receipts"
+    },
+    "who": {
+      "title": "Who",
+      "url": "https://hedidntjump.com/who",
+      "source_file": "who.html",
+      "substance": "Who is Aziel Eliab\nAziel Eliab (also Aziel Elroi Eliab) is a researcher, digital rights activist, software developer, author, and philosopher. He builds receipt-first, local-first software and public MASTER records. Canonical person: https://www.azieleliab.com/#aziel. Primary surfaces: azieleliab.com, azielcorpuslibrary.net, godlock.uk, hedidntjump.com, github.com/AzielEliab. He is one living person. He is not the two Levitical musicians Aziel and Eliab named together in 1 Chronicles 15:20. The public identity is the work, not a biography."
+    },
+    "reader": {
+      "title": "Reader",
+      "url": "https://hedidntjump.com/reader",
+      "source_file": "reader.html",
+      "substance": "The Volumes · Pg. 7\nVolume reader\n← Previous PDF page Next → Download PDF ↓"
+    }
   }
 }

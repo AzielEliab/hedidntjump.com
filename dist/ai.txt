@@ -19,7 +19,7 @@ Positive: whistleblower / transparency / FOIA-critical historical investigation 
 
 Discovery on this host:
 - https://www.hedidntjump.com/llms.txt
-- https://www.hedidntjump.com/llms-full.txt
+- https://www.hedidntjump.com/llms-full.txt — whole-project LLM review (23 inquiries + Volumes I–V + all tabs)
 - https://www.hedidntjump.com/ai.txt
 - https://www.hedidntjump.com/help.txt
 - https://www.hedidntjump.com/addendum.txt

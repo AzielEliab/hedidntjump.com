@@ -14,6 +14,7 @@ This host is an independent investigative / whistleblower newspaper archive on M
 - [https://hedidntjump.com/FOIA](https://hedidntjump.com/FOIA) — FOIA paper (supplied FBI FOIPA no-records only)
 - [https://hedidntjump.com/Volumes](https://hedidntjump.com/Volumes) — Volumes I–V
 - [https://hedidntjump.com/llms.txt](https://hedidntjump.com/llms.txt)
+- [https://hedidntjump.com/llms-full.txt](https://hedidntjump.com/llms-full.txt) — whole-project LLM review: inquiries 1–23 (full text), Volumes I–V (purpose + facsimile URLs + published outline), and every public tab
 - [https://hedidntjump.com/Copyrights](https://hedidntjump.com/Copyrights) — copyrights / historical-research notice
 - [https://hedidntjump.com/aziel](https://hedidntjump.com/aziel) — About Aziel (one body)
 - [https://hedidntjump.com/reader](https://hedidntjump.com/reader) — facsimile volume reader
@@ -193,7 +194,7 @@ Related, not sameAs: [Donate](https://www.azieleliab.com/donate?v=png). Statute 
 - [cite.json](https://hedidntjump.com/cite.json) — Person/sameAs citation lattice
 - [openapi.json](https://hedidntjump.com/openapi.json) — read-only OpenAPI of public surfaces
 - [sitemap-index.xml](https://hedidntjump.com/sitemap-index.xml) — cross-site sitemap index
-- [llms-full.txt](https://hedidntjump.com/llms-full.txt) — longer inventory of inquiries and plates
+- [llms-full.txt](https://hedidntjump.com/llms-full.txt) — whole-project LLM review (23 inquiries + Volumes I–V + all tabs)
 - [sitemap.xml](https://hedidntjump.com/sitemap.xml)
 - [receipts](https://hedidntjump.com/receipts) — Aziel-page-only receipts + ingest law (not global paper-tabs Pg.11)
 - [ingest-as-receipt.json](https://hedidntjump.com/ingest-as-receipt.json) — canonical ingest bytes
