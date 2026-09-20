@@ -44,6 +44,9 @@ from aziel_living import (
     SISTERS,
     SISTERS_GLAMA,
     SISTERS_HDJ,
+    AZIEL_RUNTIME_ONE_LINE,
+    SOFTWARES_CATALOG,
+    SOFTWARES_COUNT,
     SOFTWARES_LIST,
     SOFTWARES_SSOT_SOFTWARE,
     SOFTWARES_SSOT_VERSION,
@@ -58,6 +61,7 @@ from aziel_living import (
     SPECTRALLOCK_UNREDACT,
     SPECTRALLOCK_WORKER,
     THE_ARK,
+    THE_ARK_ADDENDUM,
     THE_ARK_DOWNLOAD,
     THE_ARK_GITHUB,
     THE_ARK_LIST,
@@ -214,12 +218,24 @@ def main() -> None:
         assert "PeaceLock" not in WHAT_AZIEL_ELIAB_DOES
         assert SPECTRALLOCK_OLD not in WHAT_AZIEL_ELIAB_DOES
         assert cite["softwares_list"] == list(SOFTWARES_LIST)
+        assert len(cite["softwares_list"]) == SOFTWARES_COUNT
+        assert cite["softwares_count"] == SOFTWARES_COUNT
+        assert cite["softwares_designed_purpose"] is True
+        assert cite["aziel_runtime_one_line"] == AZIEL_RUNTIME_ONE_LINE
         assert WHITESTONE in cite["softwares_list"]
-        assert THE_ARK_LIST in cite["softwares_list"]
-        assert TRADES_RUNTIME_LIST in cite["softwares_list"]
-        assert SPECTRALLOCK_LIST in cite["softwares_list"]
-        assert PEACELOCK_LIST in cite["softwares_list"]
+        assert THE_ARK in cite["softwares_list"]
+        assert THE_ARK_LIST not in cite["softwares_list"]
+        assert TRADES_RUNTIME_LIST not in cite["softwares_list"]
+        assert SPECTRALLOCK in cite["softwares_list"]
+        assert PEACELOCK in cite["softwares_list"]
+        for name, one_line in SOFTWARES_CATALOG:
+            assert f"{name} — {one_line}" in cite["softwares_list"], name
+            assert "THIS IS NOT" not in one_line
+            assert "never invent" not in one_line.lower()
+            assert "fielded_100" not in one_line
         assert cite["softwares_ssot"]["version"] == SOFTWARES_SSOT_VERSION
+        assert cite["softwares_ssot"]["designed_purpose"] is True
+        assert cite["softwares_ssot"]["count"] == SOFTWARES_COUNT
         assert cite["softwares_ssot"]["software"] == SOFTWARES_SSOT_SOFTWARE
         assert cite["softwares_ssot_version"] == SOFTWARES_SSOT_VERSION
         assert "version" not in cite["trades_runtime"]
@@ -264,7 +280,8 @@ def main() -> None:
         assert TRADES_RUNTIME_MCP in cite["softwares_list_note"]
         assert "trades-runtime" in cite["purpose"]
         assert "peacelock" in cite["purpose"]
-        assert "local-only runtime" in cite["purpose"]
+        assert "designed-purpose" in cite["purpose"]
+        assert "42/42" in cite["purpose"]
         assert SOFTWARES_SSOT_VERSION in cite["purpose"]
         assert cite["sisters"]["peacelock"] == PEACELOCK_GITHUB
         assert cite["peacelock_github"] == PEACELOCK_GITHUB
@@ -385,7 +402,10 @@ def main() -> None:
         assert TRADES_RUNTIME in person["knowsAbout"]
         assert SPECTRALLOCK in person["knowsAbout"]
         assert PEACELOCK in person["knowsAbout"]
-        assert "GodLock (product, not identity)" in person["knowsAbout"]
+        assert any(
+            isinstance(item, str) and item.startswith("GodLock — ")
+            for item in person["knowsAbout"]
+        )
 
         identity = json.loads(blobs["identity.jsonld"])
         graph = json.loads(blobs["graph.jsonld"])
@@ -400,12 +420,16 @@ def main() -> None:
             assert title in faq_names, title
         for title in WHY_FAQ_TITLES:
             assert title in faq_names, title
-        well_knows = json.dumps(well.get("person", well).get("knowsAbout") or well.get("knowsAbout") or well)
+        well_knows = json.dumps(
+            well.get("person", well).get("knowsAbout") or well.get("knowsAbout") or well,
+            ensure_ascii=False,
+        )
         ident_knows = json.dumps(
             identity.get("knowsAbout")
             or (identity.get("person") or {}).get("knowsAbout")
             or (identity.get("mainEntity") or {}).get("knowsAbout")
-            or identity
+            or identity,
+            ensure_ascii=False,
         )
         for extra in (
             "Book of the Knowledge",
@@ -428,14 +452,13 @@ def main() -> None:
         assert "## SpectralLock sister cite (machine)" in blobs["llms-full.txt"]
         assert "SPECTRALLOCK (sister Softwares cite-only" in blobs["ai.txt"]
         assert "Sister Softwares cite: [SpectralLock]" in blobs["llms.txt"]
-        assert "## PeaceLock public git + local-only runtime (machine)" in blobs["llms.txt"]
-        assert "## PeaceLock public git + local-only runtime (machine)" in blobs["llms-full.txt"]
-        assert "PEACELOCK (public git + local-only runtime" in blobs["ai.txt"]
-        assert "PeaceLock public git + local-only runtime:" in blobs["llms.txt"]
+        assert "## PeaceLock designed-purpose (machine)" in blobs["llms.txt"]
+        assert "## PeaceLock designed-purpose (machine)" in blobs["llms-full.txt"]
+        assert "PEACELOCK (designed-purpose" in blobs["ai.txt"]
+        assert "PeaceLock designed-purpose:" in blobs["llms.txt"]
         assert SPECTRALLOCK_UNREDACT in blobs["llms.txt"]
         assert SPECTRALLOCK_RECOVER in blobs["llms.txt"]
         assert SPECTRALLOCK_HANDWRITING in blobs["llms.txt"]
-        assert "SL-UNREDACT-OPAQUE" in blobs["llms.txt"]
         assert "leftover-bytes" in blobs["llms.txt"]
         assert "/v1/recover" in blobs["llms.txt"]
         assert "/v1/handwriting" in blobs["llms.txt"]
@@ -443,7 +466,6 @@ def main() -> None:
         assert SPECTRALLOCK_UNREDACT in blobs["ai.txt"]
         assert SPECTRALLOCK_RECOVER in blobs["ai.txt"]
         assert SPECTRALLOCK_HANDWRITING in blobs["ai.txt"]
-        assert "SL-UNREDACT-OPAQUE" in blobs["ai.txt"]
         assert "/v1/handwriting" in blobs["ai.txt"]
         assert "leftover-bytes" in blobs["ai.txt"].lower()
 
@@ -483,13 +505,13 @@ def main() -> None:
             assert WHITESTONE in text, rel
             assert "Whitestone" in text, rel
             assert THE_ARK in text, rel
+            assert THE_ARK_ADDENDUM in text, rel
             assert THE_ARK_LIST in text, rel
             assert THE_ARK_DOWNLOAD in text, rel
             assert THE_ARK_STATS in text, rel
             assert THE_ARK_GITHUB in text, rel
             assert "download+" in text, rel
             assert TRADES_RUNTIME in text, rel
-            assert TRADES_RUNTIME_LIST in text, rel
             assert TRADES_RUNTIME_ADDENDUM in text, rel
             assert TRADES_RUNTIME_WORKER in text, rel
             assert TRADES_RUNTIME_GITHUB in text, rel
@@ -497,7 +519,6 @@ def main() -> None:
             assert TRADES_RUNTIME_OPENAPI in text, rel
             assert TRADES_RUNTIME_MCP in text, rel
             assert SPECTRALLOCK in text, rel
-            assert SPECTRALLOCK_LIST in text, rel
             assert SPECTRALLOCK_ADDENDUM in text, rel
             assert SPECTRALLOCK_UNREDACT in text, rel
             assert SPECTRALLOCK_RECOVER in text, rel
@@ -506,14 +527,19 @@ def main() -> None:
             assert SPECTRALLOCK_DOWNLOAD in text, rel
             assert SPECTRALLOCK_WORKER in text, rel
             assert PEACELOCK in text, rel
-            assert PEACELOCK_LIST in text, rel
             assert PEACELOCK_ADDENDUM in text, rel
             assert PEACELOCK_GITHUB in text, rel
-            assert "public git + local-only runtime" in text, rel
+            assert "Record chosen silence or chosen inaction as a hash-chained receipt." in text, rel
             assert SOFTWARES_SSOT_VERSION in text, rel
             assert SOFTWARES_SSOT_SOFTWARE in text, rel
             assert "peacelock-download-tracker" not in text, rel
-            assert "SL-UNREDACT-OPAQUE" in text, rel
+            assert "fielded_100" not in text, rel
+            assert "THIS IS NOT" not in text, rel
+            assert "Never ." not in text, rel
+            assert (
+                text.count("Aziel Runtime (suite; HDJ cites, does not host):") == 1
+            ), rel
+            assert AZIEL_RUNTIME_ONE_LINE in text, rel
             assert "leftover-bytes" in text, rel
             assert "/v1/recover" in text, rel
             assert "/v1/handwriting" in text, rel

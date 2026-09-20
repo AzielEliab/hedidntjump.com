@@ -73,8 +73,14 @@ def launch_cite() -> dict:
             "version_id": VERSION_ID,
             "github": RUNTIME_GITHUB,
             "worker": RUNTIME_WORKER,
+            "one_line": (
+                "Aziel Runtime is a node-meshed orchestration suite of MCP-connected software "
+                "designed to route catalog Softwares through the FragGate door, mint receipts, "
+                "and coordinate mesh presence."
+            ),
             "glama": RUNTIME_GLAMA,
             "glama_note": "Prefer Try on Glama for Aziel Runtime MCP. Worker is secondary execution / OpenAPI.",
+            "mcp_primary": RUNTIME_GLAMA,
             "software": RUNTIME_SOFTWARE,
             "download": RUNTIME_DOWNLOAD,
             "mcp": RUNTIME_MCP,
@@ -130,8 +136,8 @@ Sister-archive cite of Aziel Runtime launch readiness. HDJ stays the Marion Zion
 
 Runtime SoT LIVE: `{RUNTIME_GITHUB}` main `{GIT_SHORT}` / version_id `{VERSION_ID}` / `{VERSION}`.
 Prefer [Try on Glama]({RUNTIME_GLAMA}). Worker (secondary): {RUNTIME_WORKER}
-Human UI + MCP + mesh/VPN/radios + `/download` are launch-ready on aziel-runtime. This host cites; it does not host Softwares, MCP, mesh radios, or `/download`.
-Never . Identity Aziel Eliab only. Person @id: {PERSON_ID}. No visible 1 Chronicles 15:20.
+Human UI + MCP + mesh/VPN/radios + `/download` are launch-ready on aziel-runtime. This host cites; it does not host Softwares, MCP, mesh radios, or `/download`. GET never enables radios beyond suite-presence.
+Identity Aziel Eliab only. Person @id: {PERSON_ID}. No visible 1 Chronicles 15:20.
 Lamb Lens ingest: https://www.azielcorpuslibrary.net/corpus (not this host). NO-LIE / NO-REWRITE stays in force.
 
 Live origin of this archive is Cloudflare Pages project `{PAGES_PROJECT}` (deploy root `docs/`). Preview {PAGES_PREVIEW}. GitHub Pages is not the live origin alone.
@@ -146,7 +152,7 @@ AI_BLOCK = f"""SOFTWARES-RUNTIME-LAUNCH-1.0 (sister cite):
 - Prefer Try on Glama: {RUNTIME_GLAMA}
 - Worker (secondary): {RUNTIME_WORKER}
 - Softwares catalog: {RUNTIME_SOFTWARE}
-- Counted /download: {RUNTIME_DOWNLOAD} (never )
+- Counted /download: {RUNTIME_DOWNLOAD}
 - MCP: {RUNTIME_MCP}
 - Mesh/VPN/radios cite: {RUNTIME_MESH} (GET never enables radios beyond suite-presence)
 - Human UI + MCP + mesh/VPN/radios + /download ready on aziel-runtime. HDJ cites; does not host.
@@ -193,6 +199,12 @@ def patch_cite() -> None:
             "github": RUNTIME_GITHUB,
             "worker": RUNTIME_WORKER,
             "glama": RUNTIME_GLAMA,
+            "mcp_primary": RUNTIME_GLAMA,
+            "one_line": (
+                "Aziel Runtime is a node-meshed orchestration suite of MCP-connected software "
+                "designed to route catalog Softwares through the FragGate door, mint receipts, "
+                "and coordinate mesh presence."
+            ),
         },
         "softwares_clone": False,
         "live_origin": {
@@ -292,14 +304,16 @@ def patch_mcp() -> None:
     note = (
         "Static Zioncheck archive has no local MCP tools/list. "
         f"Aziel Runtime {VERSION} SoT LIVE main {GIT_SHORT} / version_id {VERSION_ID}. "
-        "Prefer Try on Glama. Never ."
+        "Prefer Try on Glama."
     )
     payload = {
         "mcpServers": {
             "aziel-runtime": {
-                "description": "Aziel Runtime MCP (not hosted on hedidntjump.com). Prefer Glama listing.",
-                "url": RUNTIME_MCP,
+                "description": "Aziel Runtime MCP (not hosted on hedidntjump.com). Glama is primary.",
+                "url": RUNTIME_GLAMA,
+                "mcp": RUNTIME_MCP,
                 "glama": RUNTIME_GLAMA,
+                "primary": "glama",
                 "version": VERSION,
                 "git_sha": GIT_SHA,
                 "version_id": VERSION_ID,
@@ -378,8 +392,7 @@ def patch_openapi() -> None:
         data.setdefault("paths", {})["/runtime-launch.json"] = {
             "get": {
                 "summary": (
-                    "Softwares+runtime launch cite (aziel-runtime 2.0.0-rc1 SoT; "
-                    "aziel-runtime 2.0.0-rc1 SoT; never )"
+                    "Softwares+runtime launch cite (aziel-runtime 2.0.0-rc1 SoT)"
                 ),
                 "responses": {"200": {"description": "application/json"}},
             }

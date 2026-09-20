@@ -414,7 +414,7 @@
     },
     "/runtime-launch.json": {
       "get": {
-        "summary": "Softwares+runtime launch cite (aziel-runtime 2.0.0-rc1 SoT; aziel-runtime 2.0.0-rc1 SoT; never )",
+        "summary": "Softwares+runtime launch cite (aziel-runtime 2.0.0-rc1 SoT)",
         "responses": {
           "200": {
             "description": "application/json"
