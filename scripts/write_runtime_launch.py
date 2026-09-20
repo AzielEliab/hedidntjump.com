@@ -53,8 +53,6 @@ def launch_cite() -> dict:
         "this_host_role": "Marion Zioncheck archive — sister cite",
         "softwares_clone": False,
         "softwares_tab": False,
-        "": False,
-        "never_": True,
         "visible_1520": False,
         "lamb_lens": {
             "shelf": "https://www.azielcorpuslibrary.net/corpus",
@@ -196,8 +194,6 @@ def patch_cite() -> None:
             "worker": RUNTIME_WORKER,
             "glama": RUNTIME_GLAMA,
         },
-        "": False,
-        "never_": True,
         "softwares_clone": False,
         "live_origin": {
             "kind": "cloudflare-pages",
@@ -307,7 +303,6 @@ def patch_mcp() -> None:
                 "version": VERSION,
                 "git_sha": GIT_SHA,
                 "version_id": VERSION_ID,
-                "": False,
                 "note": note,
             }
         }
@@ -423,7 +418,6 @@ def patch_well_known_aziel() -> None:
             "version_id": VERSION_ID,
             "glama": RUNTIME_GLAMA,
             "worker": RUNTIME_WORKER,
-            "": False,
         },
         "live_origin": {
             "kind": "cloudflare-pages",

@@ -94,8 +94,6 @@ def main() -> None:
         assert launch["person_id"] == PERSON_ID
         assert launch["softwares_clone"] is False
         assert launch["softwares_tab"] is False
-        assert launch[""] is False
-        assert launch["never_"] is True
         assert launch["visible_1520"] is False
         assert launch["lamb_lens"]["shelf"] == "https://www.azielcorpuslibrary.net/corpus"
         assert "azielcorpuslibrary.net" in launch["lamb_lens"]["note"]
@@ -144,8 +142,6 @@ def main() -> None:
         assert cite["runtime_launch"]["runtime_sot"]["version_id"] == VERSION_ID
         assert cite["runtime_launch"]["runtime_sot"]["git_short"] == GIT_SHORT
         assert cite["runtime_sot"]["version_id"] == VERSION_ID
-        assert cite[""] is False
-        assert cite["never_"] is True
         assert cite["softwares_clone"] is False
         assert cite["live_origin"]["kind"] == "cloudflare-pages"
         assert cite["live_origin"]["project"] == PAGES_PROJECT
@@ -169,7 +165,6 @@ def main() -> None:
         assert planes["C"]["status"] == "slot"
 
         for path, value in walk_bools(cite):
-            # Empty JSON key is the #42-scrubbed fielded_100 lock (must stay false).
             if path == "" or path.endswith("."):
                 assert value is False, f"{tree_name} cite {path or '\"\"'} must be false"
 
@@ -211,7 +206,6 @@ def main() -> None:
             assert server["version"] == VERSION, label
             assert server["git_sha"] == GIT_SHA, label
             assert server["version_id"] == VERSION_ID, label
-            assert server[""] is False, label
             assert server["glama"] == RUNTIME_GLAMA, label
             assert "no local MCP" in server["note"] or "Prefer Try on Glama" in server["description"]
 
@@ -231,7 +225,6 @@ def main() -> None:
 
         wk = json.loads((tree / ".well-known" / "aziel.json").read_text(encoding="utf-8"))
         assert wk["runtime_sot"]["version_id"] == VERSION_ID
-        assert wk["runtime_sot"][""] is False
         assert wk["live_origin"]["project"] == PAGES_PROJECT
 
         shelves = json.loads((tree / "shelves.json").read_text(encoding="utf-8"))
@@ -253,6 +246,8 @@ def main() -> None:
                 visible = visible_text(html)
                 assert "15:20" not in visible, f"{tree_name}/{name} gained visible 15:20"
             assert "fielded_100" not in html
+            assert '""' not in json.dumps(cite)  # no empty cite keys
+            assert "never_" not in cite
 
         aziel = (tree / "aziel.html").read_text(encoding="utf-8")
         assert 'href="/receipts"' in aziel
