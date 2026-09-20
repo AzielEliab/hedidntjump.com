@@ -44,6 +44,9 @@ FAQ_NAMES = {
     "What Aziel Eliab does",
     "Who is Aziel Eliab the developer?",
     "What software does Aziel Eliab make?",
+    "Why Aziel Eliab?",
+    "Why does Aziel Eliab publish?",
+    "Why He Didn't Jump?",
 }
 BANNED_FAQ = {
     "Is Aziel Eliab the biblical Aziel?",
@@ -108,6 +111,13 @@ def main() -> None:
         for url in (GITHUB_PRIMARY, GITHUB_REVEALER, *HUBS):
             assert url in person["sameAs"], url
             assert url in who
+        assert "https://x.com/AzielEliab" in person["sameAs"]
+        assert "https://glama.ai/mcp/servers/AzielEliab/aziel-runtime" in person["sameAs"]
+        assert "https://x.com/AzielEliab" in who
+        assert "@AzielEliab" in who
+        assert "Why Aziel Eliab?" in who
+        assert "Why does Aziel Eliab publish?" in who
+        assert "Why He Didn't Jump?" in who
         faq = next(n for n in graph["@graph"] if n.get("@type") == "FAQPage")
         names = {q["name"] for q in faq["mainEntity"]}
         assert FAQ_NAMES <= names, names
@@ -153,6 +163,8 @@ def main() -> None:
         assert "An Aziel Eliab Project" in who
         assert person["givenName"] == "Aziel"
         assert person["familyName"] == "Eliab"
+        assert person.get("why_aziel_eliab") or "Why Aziel Eliab?" in who
+        assert well.get("x") == "https://x.com/AzielEliab" or "https://x.com/AzielEliab" in json.dumps(well)
         assert_no_forbidden_same_as(person["sameAs"])
         assert_no_forbidden_same_as(well["sameAs"])
         cite = load(f"{tree}/cite.json")

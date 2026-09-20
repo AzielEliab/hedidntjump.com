@@ -14,10 +14,17 @@ from aziel_living import (
     AZDOC,
     CAP_CLASS,
     CORPUS,
+    CROSS_TETHER_SAME_AS,
+    CROSS_TETHER_STATS,
     FAQ_WHAT_DOES,
     FAQ_WHAT_DOES_BRIEF,
     FAQ_WHAT_SOFTWARE,
+    FAQ_WHO,
     FAQ_WHO_DEVELOPER,
+    FAQ_WHY,
+    FAQ_WHY_HDJ,
+    FAQ_WHY_PUBLISH,
+    GITHUB_PRIMARY,
     HDJ_GENRE,
     HDJ_PROJECT_KIND,
     LLMS_LEAD,
@@ -28,12 +35,18 @@ from aziel_living import (
     KNOWS_ABOUT_EXTRA,
     LIVING_STACK,
     OLD_STACK_PHRASES,
+    PEACELOCK,
+    PEACELOCK_ADDENDUM,
+    PEACELOCK_GITHUB,
+    PEACELOCK_LIST,
     PERSON_ID,
     RESEARCH_ADDENDUM,
     SISTERS,
     SISTERS_GLAMA,
     SISTERS_HDJ,
     SOFTWARES_LIST,
+    SOFTWARES_SSOT_SOFTWARE,
+    SOFTWARES_SSOT_VERSION,
     SPECTRALLOCK,
     SPECTRALLOCK_ADDENDUM,
     SPECTRALLOCK_DOWNLOAD,
@@ -61,6 +74,10 @@ from aziel_living import (
     WHITESTONE,
     WHAT_AZIEL_ELIAB_DOES_ANSWER,
     WHAT_DOES_FAQ_TITLES,
+    WHY_AZIEL_ELIAB,
+    WHY_FAQ_TITLES,
+    X_HANDLE,
+    X_URL,
 )
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -154,6 +171,30 @@ def main() -> None:
         assert cite["sisters"]["runtime"] == SISTERS["runtime"]
         assert cite["sisters"]["runtime_glama"] == SISTERS_GLAMA
         assert cite["sisters"]["hdj"] == SISTERS_HDJ
+        assert cite["sisters"]["github"] == GITHUB_PRIMARY
+        assert cite["sisters"]["x"] == X_URL
+        assert cite["sisters"]["x_handle"] == X_HANDLE
+        assert cite["github"] == GITHUB_PRIMARY
+        assert cite["x"] == X_URL
+        assert cite["x_handle"] == X_HANDLE
+        assert cite["try_on_glama"] == SISTERS_GLAMA
+        assert cite["why_aziel_eliab"] == WHY_AZIEL_ELIAB
+        assert cite["why_aziel_eliab_faq"] == list(WHY_FAQ_TITLES)
+        assert cite["cross_tether"]["github"] == GITHUB_PRIMARY
+        assert cite["cross_tether"]["x"] == X_URL
+        assert cite["cross_tether"]["x_handle"] == X_HANDLE
+        assert cite["cross_tether"]["try_on_glama"] == SISTERS_GLAMA
+        assert cite["cross_tether"]["ae"] == SISTERS["ae"]
+        assert cite["cross_tether"]["corpus"] == SISTERS["corpus"]
+        assert cite["cross_tether"]["godlock"] == SISTERS["godlock"]
+        assert cite["cross_tether"]["runtime"] == SISTERS["runtime"]
+        assert cite["cross_tether"]["hdj"] == SISTERS_HDJ
+        assert cite["cross_tether"]["growth_on"] is True
+        assert "paper-tabs" in cite["cross_tether"]["receipts_chrome"].lower()
+        for url in CROSS_TETHER_SAME_AS:
+            assert url in cite["cross_tether"]["sameAs"], url
+        for label, url in CROSS_TETHER_STATS.items():
+            assert cite["cross_tether"]["stats"][label] == url, label
         assert cite["pages_seo"]["owner"] == "ZionBot"
         assert cite["pages_seo"]["this_pack"] == "machine files only"
         assert cite["no_lie"].startswith("NO-LIE")
@@ -169,12 +210,24 @@ def main() -> None:
         assert "Trades-Runtime" not in WHAT_AZIEL_ELIAB_DOES
         assert SPECTRALLOCK not in WHAT_AZIEL_ELIAB_DOES
         assert "SpectralLock" not in WHAT_AZIEL_ELIAB_DOES
+        assert PEACELOCK not in WHAT_AZIEL_ELIAB_DOES
+        assert "PeaceLock" not in WHAT_AZIEL_ELIAB_DOES
         assert SPECTRALLOCK_OLD not in WHAT_AZIEL_ELIAB_DOES
         assert cite["softwares_list"] == list(SOFTWARES_LIST)
         assert WHITESTONE in cite["softwares_list"]
         assert THE_ARK_LIST in cite["softwares_list"]
         assert TRADES_RUNTIME_LIST in cite["softwares_list"]
         assert SPECTRALLOCK_LIST in cite["softwares_list"]
+        assert PEACELOCK_LIST in cite["softwares_list"]
+        assert cite["softwares_ssot"]["version"] == SOFTWARES_SSOT_VERSION
+        assert cite["softwares_ssot"]["software"] == SOFTWARES_SSOT_SOFTWARE
+        assert cite["softwares_ssot_version"] == SOFTWARES_SSOT_VERSION
+        assert "version" not in cite["trades_runtime"]
+        assert "version" not in cite["spectrallock"]
+        assert "version" not in cite["peacelock"]
+        assert cite["trades_runtime"]["ssot_version"] == SOFTWARES_SSOT_VERSION
+        assert cite["spectrallock"]["ssot_version"] == SOFTWARES_SSOT_VERSION
+        assert cite["peacelock"]["ssot_version"] == SOFTWARES_SSOT_VERSION
         assert cite["whitestone"] == WHITESTONE
         assert cite["the_ark"] == THE_ARK
         assert cite["the_ark_download"] == THE_ARK_DOWNLOAD
@@ -193,6 +246,7 @@ def main() -> None:
         assert cite["trades_runtime"]["live_backends"] is False
         assert cite["trades_runtime"]["fraggate_exec"] is False
         assert cite["trades_runtime"]["cite_only"] is True
+        assert cite["trades_runtime"]["public_softwares_cite"] is True
         assert cite["trades_runtime"]["worker"] == TRADES_RUNTIME_WORKER
         assert cite["trades_runtime"]["github"] == TRADES_RUNTIME_GITHUB
         assert cite["trades_runtime"]["download"] == TRADES_RUNTIME_DOWNLOAD
@@ -209,6 +263,28 @@ def main() -> None:
         assert TRADES_RUNTIME_OPENAPI in cite["softwares_list_note"]
         assert TRADES_RUNTIME_MCP in cite["softwares_list_note"]
         assert "trades-runtime" in cite["purpose"]
+        assert "peacelock" in cite["purpose"]
+        assert "local-only runtime" in cite["purpose"]
+        assert SOFTWARES_SSOT_VERSION in cite["purpose"]
+        assert cite["sisters"]["peacelock"] == PEACELOCK_GITHUB
+        assert cite["peacelock_github"] == PEACELOCK_GITHUB
+        assert cite["peacelock"]["public_git"] is True
+        assert cite["peacelock"]["local_only_runtime"] is True
+        assert cite["peacelock"]["cite_only"] is True
+        assert cite["peacelock"]["fraggate_exec"] is False
+        assert cite["peacelock"]["hosted_runtime"] is False
+        assert cite["peacelock"]["github"] == PEACELOCK_GITHUB
+        assert "worker" not in cite["peacelock"]
+        assert "download" not in cite["peacelock"]
+        assert any(
+            e.get("id") == "peacelock" and e.get("href") == PEACELOCK_GITHUB
+            for e in cite["ecosystem"]
+            if isinstance(e, dict)
+        )
+        assert PEACELOCK_GITHUB in cite["softwares_list_note"]
+        assert SOFTWARES_SSOT_VERSION in cite["softwares_list_note"]
+        assert SOFTWARES_SSOT_SOFTWARE in cite["softwares_list_note"]
+        assert "public Softwares/cite" in cite["softwares_list_note"]
         assert cite["sisters"]["spectrallock"] == SPECTRALLOCK_WORKER
         assert cite["spectrallock_worker"] == SPECTRALLOCK_WORKER
         assert cite["spectrallock_unredact"] == SPECTRALLOCK_UNREDACT
@@ -257,6 +333,9 @@ def main() -> None:
             assert title in cite_faq, title
             assert cite_faq[title] == WHAT_AZIEL_ELIAB_DOES_ANSWER
             assert WHAT_AZIEL_ELIAB_DOES in cite_faq[title]
+        for title in WHY_FAQ_TITLES:
+            assert title in cite_faq, title
+            assert cite_faq[title] == WHY_AZIEL_ELIAB
         assert cite["research"]["doi"] is None
         assert cite["hardware_designs"]["doi"] is None
         assert cite["research"]["sister"] == CORPUS
@@ -280,6 +359,7 @@ def main() -> None:
             assert extra in cite["knowsAbout"], extra
             assert extra in person["knowsAbout"], extra
         assert person.get("what_aziel_eliab_does") == WHAT_AZIEL_ELIAB_DOES
+        assert person.get("why_aziel_eliab") == WHY_AZIEL_ELIAB
         assert person.get("softwares_list") == list(SOFTWARES_LIST)
         assert person.get("the_ark") == THE_ARK
         assert person.get("the_ark_download") == THE_ARK_DOWNLOAD
@@ -298,9 +378,13 @@ def main() -> None:
         assert person.get("spectrallock_handwriting") == SPECTRALLOCK_HANDWRITING
         assert person.get("spectrallock_github") == SPECTRALLOCK_GITHUB
         assert person.get("spectrallock_download") == SPECTRALLOCK_DOWNLOAD
+        assert person.get("peacelock") == PEACELOCK
+        assert person.get("peacelock_github") == PEACELOCK_GITHUB
+        assert person.get("softwares_ssot_version") == SOFTWARES_SSOT_VERSION
         assert THE_ARK in person["knowsAbout"]
         assert TRADES_RUNTIME in person["knowsAbout"]
         assert SPECTRALLOCK in person["knowsAbout"]
+        assert PEACELOCK in person["knowsAbout"]
         assert "GodLock (product, not identity)" in person["knowsAbout"]
 
         identity = json.loads(blobs["identity.jsonld"])
@@ -313,6 +397,8 @@ def main() -> None:
         )
         faq_names = {q["name"] for q in faq_node["mainEntity"]}
         for title in WHAT_DOES_FAQ_TITLES:
+            assert title in faq_names, title
+        for title in WHY_FAQ_TITLES:
             assert title in faq_names, title
         well_knows = json.dumps(well.get("person", well).get("knowsAbout") or well.get("knowsAbout") or well)
         ident_knows = json.dumps(
@@ -329,6 +415,7 @@ def main() -> None:
             THE_ARK,
             TRADES_RUNTIME,
             SPECTRALLOCK,
+            PEACELOCK,
         ):
             assert extra in ident_knows, extra
             assert extra in well_knows, extra
@@ -341,6 +428,10 @@ def main() -> None:
         assert "## SpectralLock sister cite (machine)" in blobs["llms-full.txt"]
         assert "SPECTRALLOCK (sister Softwares cite-only" in blobs["ai.txt"]
         assert "Sister Softwares cite: [SpectralLock]" in blobs["llms.txt"]
+        assert "## PeaceLock public git + local-only runtime (machine)" in blobs["llms.txt"]
+        assert "## PeaceLock public git + local-only runtime (machine)" in blobs["llms-full.txt"]
+        assert "PEACELOCK (public git + local-only runtime" in blobs["ai.txt"]
+        assert "PeaceLock public git + local-only runtime:" in blobs["llms.txt"]
         assert SPECTRALLOCK_UNREDACT in blobs["llms.txt"]
         assert SPECTRALLOCK_RECOVER in blobs["llms.txt"]
         assert SPECTRALLOCK_HANDWRITING in blobs["llms.txt"]
@@ -373,6 +464,16 @@ def main() -> None:
             assert FAQ_WHAT_DOES_BRIEF in text, rel
             assert FAQ_WHO_DEVELOPER in text, rel
             assert FAQ_WHAT_SOFTWARE in text, rel
+            assert FAQ_WHO in text, rel
+            assert FAQ_WHY in text, rel
+            assert FAQ_WHY_PUBLISH in text, rel
+            assert FAQ_WHY_HDJ in text, rel
+            assert WHY_AZIEL_ELIAB in text, rel
+            assert GITHUB_PRIMARY in text, rel
+            assert X_URL in text, rel
+            assert X_HANDLE in text, rel
+            assert SISTERS_GLAMA in text, rel
+            assert "Try on Glama" in text or SISTERS_GLAMA in text, rel
             assert RESEARCH_ADDENDUM in text, rel
             assert HARDWARE_ADDENDUM in text, rel
             assert AZDOC["visual_vol1"] in text, rel
@@ -404,6 +505,14 @@ def main() -> None:
             assert SPECTRALLOCK_GITHUB in text, rel
             assert SPECTRALLOCK_DOWNLOAD in text, rel
             assert SPECTRALLOCK_WORKER in text, rel
+            assert PEACELOCK in text, rel
+            assert PEACELOCK_LIST in text, rel
+            assert PEACELOCK_ADDENDUM in text, rel
+            assert PEACELOCK_GITHUB in text, rel
+            assert "public git + local-only runtime" in text, rel
+            assert SOFTWARES_SSOT_VERSION in text, rel
+            assert SOFTWARES_SSOT_SOFTWARE in text, rel
+            assert "peacelock-download-tracker" not in text, rel
             assert "SL-UNREDACT-OPAQUE" in text, rel
             assert "leftover-bytes" in text, rel
             assert "/v1/recover" in text, rel
@@ -418,16 +527,24 @@ def main() -> None:
             assert WHAT_AZIEL_ELIAB_DOES in text, rel
 
         # Newspaper HTML chrome stays ZionBot's. This pack must not rewrite it.
+        import re
+
         for name in HTML:
             html = (tree / name).read_text(encoding="utf-8")
             assert PERSON_ID in html
             assert "Everblooming Flower" not in html
+            nav = re.search(r'<nav class="paper-tabs"[\s\S]*?</nav>', html)
+            if nav:
+                assert "Receipts" not in nav.group(0), f"{tree_name}/{name} paper-tabs gained Receipts"
+        aziel = (tree / "aziel.html").read_text(encoding="utf-8")
+        assert 'href="/receipts"' in aziel
+        assert "@AzielEliab" in aziel
 
         sitemap = (tree / "sitemap.xml").read_text(encoding="utf-8")
         for loc in ("/llms.txt", "/ai.txt", "/cite.json"):
             assert f"<loc>https://hedidntjump.com{loc}</loc>" in sitemap, loc
             chunk = sitemap.split(f"<loc>https://hedidntjump.com{loc}</loc>", 1)[1][:80]
-            assert "<lastmod>2026-09-19</lastmod>" in chunk, loc
+            assert "<lastmod>2026-09-20</lastmod>" in chunk, loc
         for loc in ("/help.txt", "/addendum.txt", "/help/how-to-read.txt"):
             assert f"<loc>https://hedidntjump.com{loc}</loc>" in sitemap, loc
         assert TRADES_RUNTIME_WORKER not in sitemap
@@ -435,10 +552,13 @@ def main() -> None:
         assert SPECTRALLOCK_UNREDACT not in sitemap
         assert SPECTRALLOCK_RECOVER not in sitemap
         assert SPECTRALLOCK_HANDWRITING not in sitemap
+        assert PEACELOCK_GITHUB not in sitemap
+        assert "peacelock-download-tracker" not in sitemap
         index = (tree / "sitemap-index.xml").read_text(encoding="utf-8")
         assert "<loc>https://hedidntjump.com/sitemap.xml</loc>" in index
         assert "trades-runtime.vibelock.workers.dev" not in index
         assert "spectrallock-download-tracker.vibelock.workers.dev" not in index
+        assert "peacelock-download-tracker" not in index
 
         ingest = (tree / "ingest-as-receipt.json").read_bytes()
         import hashlib

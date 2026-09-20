@@ -46,7 +46,9 @@ PRIMARY_SURFACES = (
     "godlock (https://godlock.uk/), "
     "hedidntjump.com — Zioncheck / He Didn't Jump archive sister (75% cap class), "
     "runtime (https://aziel-runtime.vibelock.workers.dev/ ; "
-    "prefer https://glama.ai/mcp/servers/AzielEliab/aziel-runtime)."
+    "prefer https://glama.ai/mcp/servers/AzielEliab/aziel-runtime), "
+    "GitHub AzielEliab (https://github.com/AzielEliab), "
+    "X @AzielEliab (https://x.com/AzielEliab)."
 )
 
 HDJ_BLURB = (
@@ -200,6 +202,39 @@ SISTERS = {
 
 SISTERS_GLAMA = "https://glama.ai/mcp/servers/AzielEliab/aziel-runtime"
 SISTERS_HDJ = "https://www.hedidntjump.com/"
+GITHUB_PRIMARY = "https://github.com/AzielEliab"
+X_HANDLE = "@AzielEliab"
+X_URL = "https://x.com/AzielEliab"
+X_TWITTER = "https://twitter.com/AzielEliab"
+
+# Reciprocal machine sameAs / site-coverage lock (HDJ cites; does not host).
+CROSS_TETHER_SAME_AS = (
+    SISTERS["ae"],
+    SISTERS["corpus"],
+    SISTERS["godlock"],
+    SISTERS["runtime"],
+    SISTERS_GLAMA,
+    SISTERS_HDJ,
+    GITHUB_PRIMARY,
+    X_URL,
+)
+
+CROSS_TETHER_STATS = {
+    "ae": "https://www.azieleliab.com/v1/stats",
+    "corpus": "https://www.azielcorpuslibrary.net/stats",
+    "hdj": "https://www.hedidntjump.com/api/stats",
+}
+
+SITE_COVERAGE = (
+    f"- ae: {SISTERS['ae']}\n"
+    f"- corpus: {SISTERS['corpus']}\n"
+    f"- godlock: {SISTERS['godlock']}\n"
+    f"- runtime: {SISTERS['runtime']}\n"
+    f"- runtime (prefer Glama / Try on Glama): {SISTERS_GLAMA}\n"
+    f"- GitHub AzielEliab: {GITHUB_PRIMARY}\n"
+    f"- X {X_HANDLE}: {X_URL}\n"
+    f"- this: {SISTERS_HDJ}"
+)
 
 CAP_CLASS = "75"
 CAP_NOTE = (
@@ -233,6 +268,27 @@ WHAT_DOES_FAQ_TITLES = (
     FAQ_WHAT_DOES_BRIEF,
     FAQ_WHO_DEVELOPER,
     FAQ_WHAT_SOFTWARE,
+)
+
+# Who / what / why lock. Positive About copy — no verse HTML.
+FAQ_WHO = "Who is Aziel Eliab?"
+FAQ_WHY = "Why Aziel Eliab?"
+FAQ_WHY_PUBLISH = "Why does Aziel Eliab publish?"
+FAQ_WHY_HDJ = "Why He Didn't Jump?"
+WHY_FAQ_TITLES = (
+    FAQ_WHY,
+    FAQ_WHY_PUBLISH,
+    FAQ_WHY_HDJ,
+)
+
+WHY_AZIEL_ELIAB = (
+    "Aziel Eliab publishes so the record can outlive the first headline. "
+    "He Didn't Jump is An Aziel Eliab Project: a public table for Congressman "
+    "Marion A. Zioncheck (Arctic Building, Seattle, 7 August 1936). Newspapers "
+    "and five volumes re-examine the official suicide account. Receipts stay "
+    "public, hashed, timed, and open to burial by better evidence. Public "
+    "identity is the work, not a biography. “I am temporary. The truth is not.” "
+    f"@id {PERSON_ID}"
 )
 
 CORPUS = "https://www.azielcorpuslibrary.net/"
@@ -317,8 +373,36 @@ TRADES_RUNTIME_ADDENDUM = (
     "Zioncheck stays the HDJ mission."
 )
 TRADES_RUNTIME_HONESTY = (
-    "Local-first BYO runtime. People bring their own ServiceTitan and ProBooks. "
-    "No tenant data on this Worker. No ST/ProBooks write-back. live_backends false."
+    "Public Softwares/cite. Local-first BYO runtime. People bring their own "
+    "ServiceTitan and ProBooks. No tenant data on this Worker. No ST/ProBooks "
+    "write-back. live_backends false. HDJ cites; does not host."
+)
+
+# Coordinator lock: PeaceLock is public git + local-only runtime.
+# HDJ cites the GitHub repo. Do not invent a hosted Worker / FragGate exec.
+PEACELOCK = "PeaceLock (public git + local-only runtime)"
+PEACELOCK_GITHUB = "https://github.com/AzielEliab/peacelock"
+PEACELOCK_SPEC = "PL-WP-0.1"
+PEACELOCK_LIST = f"{PEACELOCK}; github {PEACELOCK_GITHUB}"
+PEACELOCK_ADDENDUM = (
+    "SISTER SOFTWARES (public git + local-only runtime): "
+    "PeaceLock records chosen silence or chosen inaction as a hash-chained "
+    f"receipt ({PEACELOCK_SPEC}). Public git {PEACELOCK_GITHUB}. "
+    "Local-only runtime on aziel-runtime. HDJ cites; does not host. "
+    "Zioncheck stays the HDJ mission."
+)
+PEACELOCK_HONESTY = (
+    "Public git + local-only runtime. HDJ cites the public repository. "
+    "Runtime stays local-only. HDJ does not host PeaceLock."
+)
+
+# One Softwares SSoT version — GET /v1/software catalog, not per-product forks.
+SOFTWARES_SSOT_VERSION = "2.0.0-rc1"
+SOFTWARES_SSOT_SOFTWARE = "https://aziel-runtime.vibelock.workers.dev/v1/software"
+SOFTWARES_SSOT_NOTE = (
+    "One Softwares SSoT version. HDJ cites GET /v1/software "
+    f"{SOFTWARES_SSOT_VERSION}. Product lists inherit that catalog version. "
+    "HDJ does not host a Softwares fork."
 )
 
 # Sister Softwares cite-only. leftover-bytes + /v1/recover + /v1/handwriting
@@ -385,14 +469,17 @@ SOFTWARES_LIST = (
     THE_ARK_LIST,
     TRADES_RUNTIME_LIST,
     SPECTRALLOCK_LIST,
+    PEACELOCK_LIST,
 )
 
 SOFTWARES_LIST_NOTE = (
     "Softwares list (HDJ cites; does not host). "
+    f"Softwares SSoT version {SOFTWARES_SSOT_VERSION} "
+    f"({SOFTWARES_SSOT_SOFTWARE}). "
     f"{WHITESTONE}. "
     f"{THE_ARK}. download+ {THE_ARK_DOWNLOAD} ; stats {THE_ARK_STATS}. "
     f"github {THE_ARK_GITHUB}. "
-    f"{TRADES_RUNTIME}. worker {TRADES_RUNTIME_WORKER} ; "
+    f"{TRADES_RUNTIME}. public Softwares/cite. worker {TRADES_RUNTIME_WORKER} ; "
     f"github {TRADES_RUNTIME_GITHUB} ; download {TRADES_RUNTIME_DOWNLOAD} ; "
     f"openapi {TRADES_RUNTIME_OPENAPI} ; mcp {TRADES_RUNTIME_MCP}. "
     "live_backends false. "
@@ -400,6 +487,7 @@ SOFTWARES_LIST_NOTE = (
     f"/v1/recover {SPECTRALLOCK_RECOVER} ; "
     f"/v1/handwriting {SPECTRALLOCK_HANDWRITING} ; "
     f"github {SPECTRALLOCK_GITHUB} ; download {SPECTRALLOCK_DOWNLOAD}. "
+    f"{PEACELOCK}. github {PEACELOCK_GITHUB}. "
     "NO-LIE."
 )
 
@@ -407,6 +495,39 @@ SOFTWARES_LIST_NOTE = (
 def softwares_list_markdown() -> str:
     return "Softwares (list; HDJ cites, does not host):\n" + "\n".join(
         f"- {name}" for name in SOFTWARES_LIST
+    )
+
+
+def cross_tether_markdown() -> str:
+    """Reciprocal sister / GitHub / Glama / X lock for machine txt."""
+    stats = "\n".join(f"- {label}: {url}" for label, url in CROSS_TETHER_STATS.items())
+    return (
+        "Cross-tether (machine)\n"
+        f"Sister surfaces (this host is HDJ — {HDJ_BLURB})\n"
+        f"{SITE_COVERAGE}\n"
+        f"Try on Glama: {SISTERS_GLAMA}\n"
+        f"GitHub AzielEliab: {GITHUB_PRIMARY}\n"
+        f"X {X_HANDLE}: {X_URL}\n"
+        "Sister stats\n"
+        f"{stats}\n"
+        f"Growth-ON. NO-LIE. Person @id: {PERSON_ID}\n"
+        "Identity Aziel Eliab only. Receipts chrome stays Aziel-page-only "
+        "(not paper-tabs).\n"
+    )
+
+
+def who_what_why_markdown() -> str:
+    return (
+        "## Who / what / why Aziel Eliab (machine)\n\n"
+        f"Q: {FAQ_WHO}\n"
+        f"A: {WHO_IS_SHORT} {PRIMARY_SURFACES} Public identity is the work. "
+        f"Prefer {PERSON_ID}.\n\n"
+        f"Q: {FAQ_WHAT_DOES}\n"
+        f"A: {WHAT_AZIEL_ELIAB_DOES}\n\n"
+        f"Q: {FAQ_WHY}\n"
+        f"Q: {FAQ_WHY_PUBLISH}\n"
+        f"Q: {FAQ_WHY_HDJ}\n"
+        f"A: {WHY_AZIEL_ELIAB}\n"
     )
 
 
@@ -418,6 +539,7 @@ KNOWS_ABOUT_EXTRA = (
     THE_ARK,
     TRADES_RUNTIME,
     SPECTRALLOCK,
+    PEACELOCK,
     "He Didn’t Jump Zioncheck archive",
     "Marion Zioncheck Visual Archive",
     "Book of the Knowledge",
@@ -430,6 +552,9 @@ KNOWS_ABOUT_EXTRA = (
     "Adaptive AI Dog Leash",
     "TAA-1",
     "AEEM HVAC Energy Valve",
+    "Who is Aziel Eliab",
+    "What Aziel Eliab does",
+    "Why Aziel Eliab",
 )
 
 # Phrases that must leave machine files (except leftover HTML chrome we do not touch).
