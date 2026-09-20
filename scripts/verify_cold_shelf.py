@@ -137,14 +137,19 @@ def attack_sim(shelves: dict, cite: dict, redline: dict, lockset: dict) -> None:
     assert gitlab["refuse"] == "CNS-GITLAB-CF-LOOP"
     assert gitlab["required_for_plane_b_live"] is False
     zenodo = rows["plane-b-zenodo-tip-pack"]
-    assert zenodo["status"] == "refused"
+    assert zenodo["status"] == "slot"
+    assert zenodo["zenodo_live"] is False
     assert zenodo["doi"] is None
     assert zenodo["doi"] != FORGED["zenodo_doi"]
+    assert "CNS-ZENODO-NOT-LIVE" in zenodo["refuse"]
+    assert "Operator IP banned" not in zenodo.get("reason", "")
+    assert "CNS-ZENODO-IP-BAN" not in zenodo.get("reason", "")
 
     assert "plane-b-framagit-tip-pack" in shelves["registry"]["slot"]
     assert "plane-b-gitflic-ru-tip-pack" in shelves["registry"]["refused"]
     assert "plane-b-gitflic-ru-tip-pack" not in shelves["registry"]["slot"]
-    assert "plane-b-zenodo-tip-pack" in shelves["registry"]["refused"]
+    assert "plane-b-zenodo-tip-pack" in shelves["registry"]["slot"]
+    assert "plane-b-zenodo-tip-pack" not in shelves["registry"]["refused"]
 
     for site, row in shelves["cap7_sites"].items():
         assert row["resolves_to_hub"] is False
@@ -173,7 +178,7 @@ def attack_sim(shelves: dict, cite: dict, redline: dict, lockset: dict) -> None:
     assert redline["doors"]["this_host_mcp"] is False
     assert redline["refuse"]["GITFLIC"] == "CNS-GITFLIC-EMAIL"
     assert redline["refuse"]["GITLAB"] == "CNS-GITLAB-CF-LOOP"
-    assert redline["refuse"]["ZENODO"] == "CNS-ZENODO-IP-BAN"
+    assert redline["refuse"]["ZENODO"] == "CNS-ZENODO-NOT-LIVE"
     assert redline["refuse"]["TIP_FOLD"] == "FL-TIP-FOLD-REFUSE"
     assert redline["plane_b"]["working_targets"] == PLANE_B_TARGETS
     assert redline["plane_b"]["framagit_url"] is None
@@ -249,7 +254,7 @@ def main() -> None:
         assert shelves["canonical"] == CANON_SHELVES
         assert shelves["person_id"] == PERSON_ID
         assert shelves["doi"] is None
-        assert shelves["zenodo_status"] == "CNS-ZENODO-IP-BAN"
+        assert shelves["zenodo_status"] == "CNS-ZENODO-NOT-LIVE"
         assert shelves["visible_1520"] is False
         assert shelves["growth_on"] is True
         assert shelves["no_fan"] is True
@@ -261,7 +266,8 @@ def main() -> None:
         assert shelves["planes"]["B"]["status"] == "slot"
         assert shelves["planes"]["B"]["doi"] is None
         assert shelves["planes"]["B"]["working_targets"] == PLANE_B_TARGETS
-        assert shelves["planes"]["B"]["refuse"] == "CNS-ZENODO-IP-BAN"
+        assert shelves["planes"]["B"]["refuse"] == "CNS-PLANE-B-ALL-TARGETS"
+        assert shelves["planes"]["B"]["zenodo_live"] is False
         assert shelves["planes"]["B"]["codeberg_tip_pack"]["pack_sha256"] == CODEBERG_PACK
         assert shelves["planes"]["B"]["codeberg_tip_pack"]["hash_verify"] == "pass"
         assert shelves["planes"]["B"]["codeberg_tip_pack"]["status"] == "slot"
@@ -327,8 +333,12 @@ def main() -> None:
             assert dep["hdj_holding"] is False
             assert dep["reuse_as_plane_b"] is False
         zenodo = next(s for s in shelves["registry"]["shelves"] if s["id"] == "plane-b-zenodo-tip-pack")
-        assert zenodo["status"] == "refused"
+        assert zenodo["status"] == "slot"
+        assert zenodo["zenodo_live"] is False
         assert zenodo["doi"] is None
+        assert "CNS-ZENODO-NOT-LIVE" in zenodo["refuse"]
+        assert "Operator IP banned" not in zenodo.get("reason", "")
+        assert "CNS-ZENODO-IP-BAN" not in json.dumps(shelves)
         codeberg = next(s for s in shelves["registry"]["shelves"] if s["id"] == "plane-b-codeberg-tip-pack")
         assert codeberg["pack_sha256"] == CODEBERG_PACK
         assert codeberg["status"] == "slot"
