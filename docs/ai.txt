@@ -104,7 +104,7 @@ SOFTWARES-RUNTIME-LAUNCH-1.0 (sister cite):
 - Prefer Try on Glama: https://glama.ai/mcp/servers/AzielEliab/aziel-runtime
 - Worker (secondary): https://aziel-runtime.vibelock.workers.dev/
 - Softwares catalog: https://aziel-runtime.vibelock.workers.dev/v1/software
-- Counted /download: https://aziel-runtime.vibelock.workers.dev/download (never )
+- Counted /download: https://aziel-runtime.vibelock.workers.dev/download
 - MCP: https://aziel-runtime.vibelock.workers.dev/mcp
 - Mesh/VPN/radios cite: https://aziel-runtime.vibelock.workers.dev/v1/mesh (GET never enables radios beyond suite-presence)
 - Human UI + MCP + mesh/VPN/radios + /download ready on aziel-runtime. HDJ cites; does not host.
@@ -173,8 +173,6 @@ ZionBot owns newspaper HTML / Pages SEO chrome. This pack is machine files only.
 
 Aziel Eliab builds receipt-first, local-first software and public MASTER records — Softwares through Aziel Runtime (FragGate / MCP), the Aziel Digital Library, GodLock, and the He Didn’t Jump Zioncheck archive. Public identity is the work, not a biography. @id https://www.azieleliab.com/#aziel
 
-Aziel Runtime (suite; HDJ cites, does not host): Aziel Runtime is a node-meshed orchestration suite of MCP-connected software designed to route catalog Softwares through the FragGate door, mint receipts, and coordinate mesh presence. Prefer Try on Glama https://glama.ai/mcp/servers/AzielEliab/aziel-runtime.
-Aziel Runtime (suite; HDJ cites, does not host): Aziel Runtime is a node-meshed orchestration suite of MCP-connected software designed to route catalog Softwares through the FragGate door, mint receipts, and coordinate mesh presence. Prefer Try on Glama https://glama.ai/mcp/servers/AzielEliab/aziel-runtime.
 Aziel Runtime (suite; HDJ cites, does not host): Aziel Runtime is a node-meshed orchestration suite of MCP-connected software designed to route catalog Softwares through the FragGate door, mint receipts, and coordinate mesh presence. Prefer Try on Glama https://glama.ai/mcp/servers/AzielEliab/aziel-runtime.
 Softwares (list; HDJ cites, does not host):
 - 4DMap — Inspect the same event on time, change, graph, and place axes at once.

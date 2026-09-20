@@ -118,6 +118,7 @@ from aziel_living import (
     X_URL,
     cross_tether_markdown,
     softwares_list_markdown,
+    softwares_suite_line,
     who_what_why_markdown,
     WHAT_AZIEL_ELIAB_DOES_ANSWER,
     WHAT_DOES_FAQ_TITLES,
@@ -946,11 +947,19 @@ def ensure_sisters_block(text: str) -> str:
 
 
 def upsert_softwares_list_block(text: str) -> str:
-    pattern = r"Softwares \(list; HDJ cites, does not host\):\n(?:- .+\n)+"
-    replacement = SOFTWARES_LIST_BLOCK.rstrip() + "\n"
-    if re.search(pattern, text):
-        return re.sub(pattern, replacement, text, count=1)
-    return text
+    suite = softwares_suite_line()
+    suite_re = r"Aziel Runtime \(suite; HDJ cites, does not host\):[^\n]*\n+"
+    list_re = r"Softwares \(list; HDJ cites, does not host\):\n(?:- .+\n)+"
+    block = (
+        f"{suite}\n"
+        "Softwares (list; HDJ cites, does not host):\n"
+        + "\n".join(f"- {name}" for name in SOFTWARES_LIST)
+        + "\n"
+    )
+    if re.search(list_re, text):
+        text = re.sub(suite_re, "", text)
+        return re.sub(list_re, block, text, count=1)
+    return re.sub(rf"(?:{suite_re})+", suite + "\n", text, count=1)
 
 
 def ensure_what_does_block(text: str) -> str:

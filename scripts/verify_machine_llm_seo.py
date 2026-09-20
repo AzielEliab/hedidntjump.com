@@ -535,6 +535,11 @@ def main() -> None:
             assert "peacelock-download-tracker" not in text, rel
             assert "fielded_100" not in text, rel
             assert "THIS IS NOT" not in text, rel
+            assert "Never ." not in text, rel
+            assert (
+                text.count("Aziel Runtime (suite; HDJ cites, does not host):") == 1
+            ), rel
+            assert AZIEL_RUNTIME_ONE_LINE in text, rel
             assert "leftover-bytes" in text, rel
             assert "/v1/recover" in text, rel
             assert "/v1/handwriting" in text, rel

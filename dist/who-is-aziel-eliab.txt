@@ -113,7 +113,6 @@ What Aziel Eliab does (locked Softwares brief)
 Aziel Eliab builds receipt-first, local-first software and public MASTER records — Softwares through Aziel Runtime (FragGate / MCP), the Aziel Digital Library, GodLock, and the He Didn’t Jump Zioncheck archive. Public identity is the work, not a biography. @id https://www.azieleliab.com/#aziel
 
 Aziel Runtime (suite; HDJ cites, does not host): Aziel Runtime is a node-meshed orchestration suite of MCP-connected software designed to route catalog Softwares through the FragGate door, mint receipts, and coordinate mesh presence. Prefer Try on Glama https://glama.ai/mcp/servers/AzielEliab/aziel-runtime.
-Aziel Runtime (suite; HDJ cites, does not host): Aziel Runtime is a node-meshed orchestration suite of MCP-connected software designed to route catalog Softwares through the FragGate door, mint receipts, and coordinate mesh presence. Prefer Try on Glama https://glama.ai/mcp/servers/AzielEliab/aziel-runtime.
 Softwares (list; HDJ cites, does not host):
 - 4DMap — Inspect the same event on time, change, graph, and place axes at once.
 - AZ-CLCE — Score how consistently three written layers agree with each other.

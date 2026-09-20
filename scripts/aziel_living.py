@@ -609,13 +609,16 @@ SOFTWARES_LIST_NOTE = (
 )
 
 
-def softwares_list_markdown() -> str:
-    suite = (
+def softwares_suite_line() -> str:
+    return (
         "Aziel Runtime (suite; HDJ cites, does not host): "
         f"{AZIEL_RUNTIME_ONE_LINE} Prefer Try on Glama {SISTERS_GLAMA}."
     )
+
+
+def softwares_list_markdown() -> str:
     return (
-        f"{suite}\n"
+        f"{softwares_suite_line()}\n"
         "Softwares (list; HDJ cites, does not host):\n"
         + "\n".join(f"- {name}" for name in SOFTWARES_LIST)
     )

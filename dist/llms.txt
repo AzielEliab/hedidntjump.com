@@ -272,8 +272,8 @@ Sister-archive cite of Aziel Runtime launch readiness. HDJ stays the Marion Zion
 
 Runtime SoT LIVE: `https://github.com/AzielEliab/aziel-runtime` main `6a3798a` / version_id `105fa1ee` / `2.0.0-rc1`.
 Prefer [Try on Glama](https://glama.ai/mcp/servers/AzielEliab/aziel-runtime). Worker (secondary): https://aziel-runtime.vibelock.workers.dev/
-Human UI + MCP + mesh/VPN/radios + `/download` are launch-ready on aziel-runtime. This host cites; it does not host Softwares, MCP, mesh radios, or `/download`.
-Never . Identity Aziel Eliab only. Person @id: https://www.azieleliab.com/#aziel. No visible 1 Chronicles 15:20.
+Human UI + MCP + mesh/VPN/radios + `/download` are launch-ready on aziel-runtime. This host cites; it does not host Softwares, MCP, mesh radios, or `/download`. GET never enables radios beyond suite-presence.
+Identity Aziel Eliab only. Person @id: https://www.azieleliab.com/#aziel. No visible 1 Chronicles 15:20.
 Lamb Lens ingest: https://www.azielcorpuslibrary.net/corpus (not this host). NO-LIE / NO-REWRITE stays in force.
 
 Live origin of this archive is Cloudflare Pages project `hedidntjump` (deploy root `docs/`). Preview https://hedidntjump.pages.dev. GitHub Pages is not the live origin alone.
@@ -312,8 +312,6 @@ Q: Why does Aziel Eliab publish?
 Q: Why He Didn't Jump?
 A: Aziel Eliab publishes so the record can outlive the first headline. He Didn't Jump is An Aziel Eliab Project: a public table for Congressman Marion A. Zioncheck (Arctic Building, Seattle, 7 August 1936). Newspapers and five volumes re-examine the official suicide account. Receipts stay public, hashed, timed, and open to burial by better evidence. Public identity is the work, not a biography. “I am temporary. The truth is not.” @id https://www.azieleliab.com/#aziel
 
-Aziel Runtime (suite; HDJ cites, does not host): Aziel Runtime is a node-meshed orchestration suite of MCP-connected software designed to route catalog Softwares through the FragGate door, mint receipts, and coordinate mesh presence. Prefer Try on Glama https://glama.ai/mcp/servers/AzielEliab/aziel-runtime.
-Aziel Runtime (suite; HDJ cites, does not host): Aziel Runtime is a node-meshed orchestration suite of MCP-connected software designed to route catalog Softwares through the FragGate door, mint receipts, and coordinate mesh presence. Prefer Try on Glama https://glama.ai/mcp/servers/AzielEliab/aziel-runtime.
 Aziel Runtime (suite; HDJ cites, does not host): Aziel Runtime is a node-meshed orchestration suite of MCP-connected software designed to route catalog Softwares through the FragGate door, mint receipts, and coordinate mesh presence. Prefer Try on Glama https://glama.ai/mcp/servers/AzielEliab/aziel-runtime.
 Softwares (list; HDJ cites, does not host):
 - 4DMap — Inspect the same event on time, change, graph, and place axes at once.
