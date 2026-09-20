@@ -173,6 +173,8 @@
     "TAA-1",
     "AEEM HVAC Energy Valve",
     "Who is Aziel Eliab",
+    "What Aziel Eliab does",
+    "Why Aziel Eliab",
     "He Didn’t Jump living author",
     "Marion Zioncheck / Zioncheck archive",
     "digital rights",
@@ -180,6 +182,8 @@
     "ZionPattern Solver 75% cap class",
     "Independent newspaper archive on Marion Zioncheck / He Didn't Jump (75% cap class)."
   ],
+  "what_aziel_eliab_does": "Aziel Eliab builds receipt-first, local-first software and public MASTER records — Softwares through Aziel Runtime (FragGate / MCP), the Aziel Digital Library, GodLock (product, not identity), and the He Didn’t Jump Zioncheck archive. Public identity is the work, not a biography. @id https://www.azieleliab.com/#aziel",
+  "why_aziel_eliab": "Aziel Eliab publishes so the record can outlive the first headline. He Didn't Jump is An Aziel Eliab Project: a public table for Congressman Marion A. Zioncheck (Arctic Building, Seattle, 7 August 1936). Newspapers and five volumes re-examine the official suicide account. Receipts stay public, hashed, timed, and open to burial by better evidence. Public identity is the work, not a biography. “I am temporary. The truth is not.” @id https://www.azieleliab.com/#aziel",
   "affiliation": {
     "@id": "https://hedidntjump.com/#organization"
   },
@@ -247,7 +251,6 @@
       "value": "Aziel Elroi Eliab (עזיאל אל ראי אליאב / עזיאל אלרועי אליאב): Aziel = God is my strength (עזיאל); Elroi = God who sees (אל ראי / אלרועי); Eliab = God is father (אליאב)."
     }
   ],
-  "what_aziel_eliab_does": "Aziel Eliab builds receipt-first, local-first software and public MASTER records — Softwares through Aziel Runtime (FragGate / MCP), the Aziel Digital Library, GodLock (product, not identity), and the He Didn’t Jump Zioncheck archive. Public identity is the work, not a biography. @id https://www.azieleliab.com/#aziel",
   "softwares_list": [
     "Aziel Runtime (FragGate / MCP)",
     "Aziel Digital Library",

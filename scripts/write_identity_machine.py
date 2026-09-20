@@ -28,14 +28,21 @@ from aziel_living import (
     FAQ_WHAT_HDJ,
     FAQ_WHAT_SOFTWARE,
     FAQ_WHO_DEVELOPER,
+    FAQ_WHY,
+    FAQ_WHY_HDJ,
+    FAQ_WHY_PUBLISH,
     HARDWARE_ADDENDUM,
     HDJ_MISSION,
     KNOWS_ABOUT_EXTRA,
     RESEARCH_ADDENDUM,
+    SISTERS_GLAMA,
     SPECTRALLOCK_ADDENDUM,
     TRADES_RUNTIME_ADDENDUM,
     WHAT_AZIEL_ELIAB_DOES,
     WHAT_AZIEL_ELIAB_DOES_ANSWER,
+    WHY_AZIEL_ELIAB,
+    X_HANDLE,
+    X_URL,
     scrub_seo_negation,
     softwares_list_markdown,
 )
@@ -307,11 +314,12 @@ PERSON_LOCK = {
     "disambiguatingDescription": DISAMBIGUATING,
     "hebrewDefinition": HEBREW_ONELINER,
     "sameAs": SAME_AS,
-    "knowsAbout": KNOWS_ABOUT + [
-        "Who is Aziel Eliab",
-        "He Didn’t Jump living author",
-        "Marion Zioncheck / Zioncheck archive",
-    ],
+        "knowsAbout": KNOWS_ABOUT + [
+            "He Didn’t Jump living author",
+            "Marion Zioncheck / Zioncheck archive",
+        ],
+        "what_aziel_eliab_does": WHAT_AZIEL_ELIAB_DOES,
+        "why_aziel_eliab": WHY_AZIEL_ELIAB,
     "affiliation": {"@id": ORG_ID},
     "subjectOf": [
         {
@@ -395,6 +403,24 @@ FAQ_QUESTIONS = [
         "name": FAQ_WHAT_SOFTWARE,
         "acceptedAnswer": {"@type": "Answer", "text": WHAT_AZIEL_ELIAB_DOES_ANSWER},
     },
+    {
+        "@type": "Question",
+        "@id": f"{WWW}/#faq-why-aziel-eliab",
+        "name": FAQ_WHY,
+        "acceptedAnswer": {"@type": "Answer", "text": WHY_AZIEL_ELIAB},
+    },
+    {
+        "@type": "Question",
+        "@id": f"{WWW}/#faq-why-does-aziel-eliab-publish",
+        "name": FAQ_WHY_PUBLISH,
+        "acceptedAnswer": {"@type": "Answer", "text": WHY_AZIEL_ELIAB},
+    },
+    {
+        "@type": "Question",
+        "@id": f"{WWW}/#faq-why-he-didnt-jump",
+        "name": FAQ_WHY_HDJ,
+        "acceptedAnswer": {"@type": "Answer", "text": WHY_AZIEL_ELIAB},
+    },
 ]
 
 FAQ_PAGE = {
@@ -446,6 +472,8 @@ def identity_jsonld() -> dict:
         "aboutMethod": ABOUT_METHOD,
         "significantLink": ABOUT_PAGE,
         "stats": STATS,
+        "what_aziel_eliab_does": WHAT_AZIEL_ELIAB_DOES,
+        "why_aziel_eliab": WHY_AZIEL_ELIAB,
     }
 
 
@@ -559,6 +587,10 @@ def well_known_aziel() -> dict:
         "library": "https://www.azielcorpuslibrary.net/",
         "godlock": "https://godlock.uk/",
         "github": "https://github.com/AzielEliab",
+        "x": X_URL,
+        "x_handle": X_HANDLE,
+        "try_on_glama": SISTERS_GLAMA,
+        "why_aziel_eliab": WHY_AZIEL_ELIAB,
         "runtime": "https://aziel-runtime.vibelock.workers.dev/",
         "surfaces": {
             "person_jsonld": f"{WWW}/person.jsonld",
@@ -595,6 +627,9 @@ Hebrew: {HEBREW_ONELINER}
 GitHub: AzielEliab
 GitHub: {GITHUB_PRIMARY}
 GitHub: {GITHUB_REVEALER}
+X: {X_HANDLE}
+X: {X_URL}
+Try on Glama: {SISTERS_GLAMA}
 Official site: https://www.azieleliab.com/
 About on this host: {ABOUT_PAGE}
 About aliases:
@@ -649,6 +684,11 @@ A: {WHAT_AZIEL_ELIAB_DOES_ANSWER}
 Q: {FAQ_WHAT_SOFTWARE}
 A: {WHAT_AZIEL_ELIAB_DOES_ANSWER}
 
+Q: {FAQ_WHY}
+Q: {FAQ_WHY_PUBLISH}
+Q: {FAQ_WHY_HDJ}
+A: {WHY_AZIEL_ELIAB}
+
 What Aziel Eliab does (locked Softwares brief)
 {WHAT_AZIEL_ELIAB_DOES}
 
@@ -689,6 +729,15 @@ Independent archive (main paper + five volumes):
 """
 
 
+KEEP_WELL_KNOWN = (
+    "github_revealer",
+    "runtime_launch",
+    "runtime_sot",
+    "live_origin",
+    "ban_survival",
+)
+
+
 def write_identity_files() -> None:
     same_blob = " ".join(SAME_AS).lower()
     for banned in NEVER_SAME_AS:
@@ -704,9 +753,55 @@ def write_identity_files() -> None:
     }
     for tree in TREES:
         (tree / ".well-known").mkdir(parents=True, exist_ok=True)
+        well_path = tree / ".well-known" / "aziel.json"
+        existing_well = {}
+        if well_path.exists():
+            try:
+                existing_well = json.loads(well_path.read_text(encoding="utf-8"))
+            except json.JSONDecodeError:
+                existing_well = {}
+        graph_path = tree / "graph.jsonld"
+        existing_graph = {}
+        if graph_path.exists():
+            try:
+                existing_graph = json.loads(graph_path.read_text(encoding="utf-8"))
+            except json.JSONDecodeError:
+                existing_graph = {}
         for rel, body in payloads.items():
             path = tree / rel
             path.parent.mkdir(parents=True, exist_ok=True)
+            if rel == ".well-known/aziel.json" and existing_well:
+                data = json.loads(body)
+                for key in KEEP_WELL_KNOWN:
+                    if key in existing_well and key not in data:
+                        data[key] = existing_well[key]
+                body = dumps(data)
+            if rel == "graph.jsonld" and isinstance(existing_graph.get("@graph"), list):
+                fresh = json.loads(body)
+                old_graph = existing_graph["@graph"]
+                new_faq = next(
+                    (n for n in fresh.get("@graph", []) if n.get("@type") == "FAQPage"),
+                    None,
+                )
+                if new_faq:
+                    for node in old_graph:
+                        if isinstance(node, dict) and node.get("@type") == "FAQPage":
+                            have = {
+                                item.get("name")
+                                for item in (node.get("mainEntity") or [])
+                                if isinstance(item, dict)
+                            }
+                            extras = [
+                                item
+                                for item in (new_faq.get("mainEntity") or [])
+                                if isinstance(item, dict) and item.get("name") not in have
+                            ]
+                            if extras:
+                                node["mainEntity"] = list(node.get("mainEntity") or []) + extras
+                            break
+                    else:
+                        old_graph.append(new_faq)
+                body = dumps({**existing_graph, "@graph": old_graph})
             path.write_text(body, encoding="utf-8")
             print("wrote", path.relative_to(ROOT))
 

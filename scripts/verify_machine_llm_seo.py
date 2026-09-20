@@ -14,10 +14,17 @@ from aziel_living import (
     AZDOC,
     CAP_CLASS,
     CORPUS,
+    CROSS_TETHER_SAME_AS,
+    CROSS_TETHER_STATS,
     FAQ_WHAT_DOES,
     FAQ_WHAT_DOES_BRIEF,
     FAQ_WHAT_SOFTWARE,
+    FAQ_WHO,
     FAQ_WHO_DEVELOPER,
+    FAQ_WHY,
+    FAQ_WHY_HDJ,
+    FAQ_WHY_PUBLISH,
+    GITHUB_PRIMARY,
     HDJ_GENRE,
     HDJ_PROJECT_KIND,
     LLMS_LEAD,
@@ -61,6 +68,10 @@ from aziel_living import (
     WHITESTONE,
     WHAT_AZIEL_ELIAB_DOES_ANSWER,
     WHAT_DOES_FAQ_TITLES,
+    WHY_AZIEL_ELIAB,
+    WHY_FAQ_TITLES,
+    X_HANDLE,
+    X_URL,
 )
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -154,6 +165,30 @@ def main() -> None:
         assert cite["sisters"]["runtime"] == SISTERS["runtime"]
         assert cite["sisters"]["runtime_glama"] == SISTERS_GLAMA
         assert cite["sisters"]["hdj"] == SISTERS_HDJ
+        assert cite["sisters"]["github"] == GITHUB_PRIMARY
+        assert cite["sisters"]["x"] == X_URL
+        assert cite["sisters"]["x_handle"] == X_HANDLE
+        assert cite["github"] == GITHUB_PRIMARY
+        assert cite["x"] == X_URL
+        assert cite["x_handle"] == X_HANDLE
+        assert cite["try_on_glama"] == SISTERS_GLAMA
+        assert cite["why_aziel_eliab"] == WHY_AZIEL_ELIAB
+        assert cite["why_aziel_eliab_faq"] == list(WHY_FAQ_TITLES)
+        assert cite["cross_tether"]["github"] == GITHUB_PRIMARY
+        assert cite["cross_tether"]["x"] == X_URL
+        assert cite["cross_tether"]["x_handle"] == X_HANDLE
+        assert cite["cross_tether"]["try_on_glama"] == SISTERS_GLAMA
+        assert cite["cross_tether"]["ae"] == SISTERS["ae"]
+        assert cite["cross_tether"]["corpus"] == SISTERS["corpus"]
+        assert cite["cross_tether"]["godlock"] == SISTERS["godlock"]
+        assert cite["cross_tether"]["runtime"] == SISTERS["runtime"]
+        assert cite["cross_tether"]["hdj"] == SISTERS_HDJ
+        assert cite["cross_tether"]["growth_on"] is True
+        assert "paper-tabs" in cite["cross_tether"]["receipts_chrome"].lower()
+        for url in CROSS_TETHER_SAME_AS:
+            assert url in cite["cross_tether"]["sameAs"], url
+        for label, url in CROSS_TETHER_STATS.items():
+            assert cite["cross_tether"]["stats"][label] == url, label
         assert cite["pages_seo"]["owner"] == "ZionBot"
         assert cite["pages_seo"]["this_pack"] == "machine files only"
         assert cite["no_lie"].startswith("NO-LIE")
@@ -257,6 +292,9 @@ def main() -> None:
             assert title in cite_faq, title
             assert cite_faq[title] == WHAT_AZIEL_ELIAB_DOES_ANSWER
             assert WHAT_AZIEL_ELIAB_DOES in cite_faq[title]
+        for title in WHY_FAQ_TITLES:
+            assert title in cite_faq, title
+            assert cite_faq[title] == WHY_AZIEL_ELIAB
         assert cite["research"]["doi"] is None
         assert cite["hardware_designs"]["doi"] is None
         assert cite["research"]["sister"] == CORPUS
@@ -280,6 +318,7 @@ def main() -> None:
             assert extra in cite["knowsAbout"], extra
             assert extra in person["knowsAbout"], extra
         assert person.get("what_aziel_eliab_does") == WHAT_AZIEL_ELIAB_DOES
+        assert person.get("why_aziel_eliab") == WHY_AZIEL_ELIAB
         assert person.get("softwares_list") == list(SOFTWARES_LIST)
         assert person.get("the_ark") == THE_ARK
         assert person.get("the_ark_download") == THE_ARK_DOWNLOAD
@@ -313,6 +352,8 @@ def main() -> None:
         )
         faq_names = {q["name"] for q in faq_node["mainEntity"]}
         for title in WHAT_DOES_FAQ_TITLES:
+            assert title in faq_names, title
+        for title in WHY_FAQ_TITLES:
             assert title in faq_names, title
         well_knows = json.dumps(well.get("person", well).get("knowsAbout") or well.get("knowsAbout") or well)
         ident_knows = json.dumps(
@@ -373,6 +414,16 @@ def main() -> None:
             assert FAQ_WHAT_DOES_BRIEF in text, rel
             assert FAQ_WHO_DEVELOPER in text, rel
             assert FAQ_WHAT_SOFTWARE in text, rel
+            assert FAQ_WHO in text, rel
+            assert FAQ_WHY in text, rel
+            assert FAQ_WHY_PUBLISH in text, rel
+            assert FAQ_WHY_HDJ in text, rel
+            assert WHY_AZIEL_ELIAB in text, rel
+            assert GITHUB_PRIMARY in text, rel
+            assert X_URL in text, rel
+            assert X_HANDLE in text, rel
+            assert SISTERS_GLAMA in text, rel
+            assert "Try on Glama" in text or SISTERS_GLAMA in text, rel
             assert RESEARCH_ADDENDUM in text, rel
             assert HARDWARE_ADDENDUM in text, rel
             assert AZDOC["visual_vol1"] in text, rel
@@ -418,16 +469,24 @@ def main() -> None:
             assert WHAT_AZIEL_ELIAB_DOES in text, rel
 
         # Newspaper HTML chrome stays ZionBot's. This pack must not rewrite it.
+        import re
+
         for name in HTML:
             html = (tree / name).read_text(encoding="utf-8")
             assert PERSON_ID in html
             assert "Everblooming Flower" not in html
+            nav = re.search(r'<nav class="paper-tabs"[\s\S]*?</nav>', html)
+            if nav:
+                assert "Receipts" not in nav.group(0), f"{tree_name}/{name} paper-tabs gained Receipts"
+        aziel = (tree / "aziel.html").read_text(encoding="utf-8")
+        assert 'href="/receipts"' in aziel
+        assert "@AzielEliab" in aziel
 
         sitemap = (tree / "sitemap.xml").read_text(encoding="utf-8")
         for loc in ("/llms.txt", "/ai.txt", "/cite.json"):
             assert f"<loc>https://hedidntjump.com{loc}</loc>" in sitemap, loc
             chunk = sitemap.split(f"<loc>https://hedidntjump.com{loc}</loc>", 1)[1][:80]
-            assert "<lastmod>2026-09-19</lastmod>" in chunk, loc
+            assert "<lastmod>2026-09-20</lastmod>" in chunk, loc
         for loc in ("/help.txt", "/addendum.txt", "/help/how-to-read.txt"):
             assert f"<loc>https://hedidntjump.com{loc}</loc>" in sitemap, loc
         assert TRADES_RUNTIME_WORKER not in sitemap

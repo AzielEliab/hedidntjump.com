@@ -102,6 +102,9 @@ def main() -> None:
             assert HEBREW_ONELINER in blob
             assert GITHUB_PRIMARY in blob
             assert GITHUB_REVEALER in blob
+            assert "https://x.com/AzielEliab" in blob
+            assert "@AzielEliab" in blob
+            assert "https://glama.ai/mcp/servers/AzielEliab/aziel-runtime" in blob
             assert "Everblooming Flower" not in blob
             assert "euaziel.site" in blob or "Never sameAs euaziel" in blob
 

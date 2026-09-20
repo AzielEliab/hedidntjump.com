@@ -25,6 +25,8 @@ from aziel_living import (
     CAP_CLASS,
     CAP_NOTE,
     CORPUS,
+    CROSS_TETHER_SAME_AS,
+    CROSS_TETHER_STATS,
     DOI_RULE,
     FAQ_IS_ARG,
     FAQ_IS_ARG_A,
@@ -34,9 +36,14 @@ from aziel_living import (
     FAQ_WHAT_DOES_BRIEF,
     FAQ_WHAT_HDJ,
     FAQ_WHAT_SOFTWARE,
+    FAQ_WHO,
     FAQ_WHO_DEVELOPER,
+    FAQ_WHY,
+    FAQ_WHY_HDJ,
+    FAQ_WHY_PUBLISH,
     GENRE_LOCK_BLOCK,
     GENRE_LOCK_HEAD,
+    GITHUB_PRIMARY,
     HARDWARE_ADDENDUM,
     HELP_PATHS,
     HDJ_BLURB,
@@ -63,6 +70,7 @@ from aziel_living import (
     SISTERS,
     SISTERS_GLAMA,
     SISTERS_HDJ,
+    SITE_COVERAGE,
     SOFTWARES_LIST,
     SOFTWARES_LIST_NOTE,
     THE_ARK,
@@ -90,7 +98,13 @@ from aziel_living import (
     TRADES_RUNTIME_WORKER,
     WHAT_AZIEL_ELIAB_DOES,
     WHITESTONE,
+    WHY_AZIEL_ELIAB,
+    WHY_FAQ_TITLES,
+    X_HANDLE,
+    X_URL,
+    cross_tether_markdown,
     softwares_list_markdown,
+    who_what_why_markdown,
     WHAT_AZIEL_ELIAB_DOES_ANSWER,
     WHAT_DOES_FAQ_TITLES,
     WHO_IS_NAMED,
@@ -119,15 +133,15 @@ MACHINE_TXT = (
 )
 
 SISTERS_BLOCK = f"""Sister surfaces (this host is HDJ — {HDJ_BLURB})
-- ae: {SISTERS["ae"]}
-- corpus: {SISTERS["corpus"]}
-- godlock: {SISTERS["godlock"]}
-- runtime: {SISTERS["runtime"]}
-- runtime (prefer Glama): {SISTERS_GLAMA}
+{SITE_COVERAGE} — {HDJ_BLURB}
 - trades-runtime (sister Softwares cite-only): {TRADES_RUNTIME_WORKER}
 - spectrallock (sister Softwares cite-only; leftover-bytes + /v1/recover + /v1/handwriting): {SPECTRALLOCK_WORKER}
-- this: {SISTERS_HDJ} — {HDJ_BLURB}
+Try on Glama: {SISTERS_GLAMA}
+GitHub AzielEliab: {GITHUB_PRIMARY}
+X {X_HANDLE}: {X_URL}
+Sister stats: ae {CROSS_TETHER_STATS["ae"]} · corpus {CROSS_TETHER_STATS["corpus"]} · hdj {CROSS_TETHER_STATS["hdj"]}
 Growth-ON. NO-LIE. Person @id: {PERSON_ID}
+Identity Aziel Eliab only. Receipts chrome stays Aziel-page-only (not paper-tabs).
 ZionBot owns newspaper HTML / Pages SEO chrome. This pack is machine files only.
 """
 
@@ -185,7 +199,7 @@ SPECTRALLOCK_AI_BLOCK = f"""SPECTRALLOCK (sister Softwares cite-only; leftover-b
 - Growth-ON. NO-LIE. No visible 15:20.
 """
 
-SITEMAP_LASTMOD = "2026-09-19"
+SITEMAP_LASTMOD = "2026-09-20"
 SITEMAP_BUMP_LOCS = ("/llms.txt", "/ai.txt", "/cite.json")
 
 SOFTWARES_LIST_BLOCK = softwares_list_markdown()
@@ -203,6 +217,16 @@ Q: {FAQ_WHO_DEVELOPER}
 Q: {FAQ_WHAT_SOFTWARE}
 A: {WHAT_AZIEL_ELIAB_DOES_ANSWER}
 
+## Who / what / why Aziel Eliab (machine)
+
+Q: {FAQ_WHO}
+A: {WHO_IS_SHORT} {PRIMARY_SURFACES} Public identity is the work. Prefer {PERSON_ID}.
+
+Q: {FAQ_WHY}
+Q: {FAQ_WHY_PUBLISH}
+Q: {FAQ_WHY_HDJ}
+A: {WHY_AZIEL_ELIAB}
+
 {RESEARCH_ADDENDUM}
 
 {HARDWARE_ADDENDUM}
@@ -216,6 +240,7 @@ WHAT_DOES_FAQ_ROWS = [
     {"q": title, "a": WHAT_AZIEL_ELIAB_DOES_ANSWER}
     for title in WHAT_DOES_FAQ_TITLES
 ]
+WHY_FAQ_ROWS = [{"q": title, "a": WHY_AZIEL_ELIAB} for title in WHY_FAQ_TITLES]
 ARG_FAQ_LIST = [dict(row) for row in ARG_FAQ_ROWS]
 
 FAQ_GRAPH_IDS = {
@@ -223,6 +248,9 @@ FAQ_GRAPH_IDS = {
     FAQ_WHAT_DOES_BRIEF: "https://www.hedidntjump.com/#faq-what-aziel-eliab-does",
     FAQ_WHO_DEVELOPER: "https://www.hedidntjump.com/#faq-who-is-aziel-eliab-the-developer",
     FAQ_WHAT_SOFTWARE: "https://www.hedidntjump.com/#faq-what-software-does-aziel-eliab-make",
+    FAQ_WHY: "https://www.hedidntjump.com/#faq-why-aziel-eliab",
+    FAQ_WHY_PUBLISH: "https://www.hedidntjump.com/#faq-why-does-aziel-eliab-publish",
+    FAQ_WHY_HDJ: "https://www.hedidntjump.com/#faq-why-he-didnt-jump",
     FAQ_IS_ARG: "https://www.hedidntjump.com/#faq-is-hedidntjump-an-arg",
     FAQ_IS_GAME: "https://www.hedidntjump.com/#faq-is-hedidntjump-a-game",
 }
@@ -246,7 +274,9 @@ def upsert_named_faq_rows(faq: list, rows: list) -> list:
 
 
 def upsert_faq_rows(faq: list) -> list:
-    return drop_faq_titles(upsert_named_faq_rows(faq, WHAT_DOES_FAQ_ROWS))
+    return drop_faq_titles(
+        upsert_named_faq_rows(upsert_named_faq_rows(faq, WHAT_DOES_FAQ_ROWS), WHY_FAQ_ROWS)
+    )
 
 
 def upsert_knows_about(knows: list) -> list:
@@ -308,9 +338,10 @@ def upsert_graph_faq(data: dict) -> dict:
             for item in entities
             if isinstance(item, dict)
         }
-        extra_faq = list(WHAT_DOES_FAQ_TITLES) + [FAQ_IS_ARG, FAQ_IS_GAME]
+        extra_faq = list(WHAT_DOES_FAQ_TITLES) + list(WHY_FAQ_TITLES) + [FAQ_IS_ARG, FAQ_IS_GAME]
         answers = {
             **{title: WHAT_AZIEL_ELIAB_DOES_ANSWER for title in WHAT_DOES_FAQ_TITLES},
+            **{title: WHY_AZIEL_ELIAB for title in WHY_FAQ_TITLES},
             FAQ_IS_ARG: FAQ_IS_ARG_A,
             FAQ_IS_GAME: FAQ_IS_GAME_A,
             "What is He Didn’t Jump?": FAQ_WHAT_HDJ,
@@ -419,7 +450,7 @@ def rewrite_stack(text: str) -> str:
         ),
         (
             "Primary surfaces: azieleliab.com, azielcorpuslibrary.net, godlock.uk, hedidntjump.com, github.com/AzielEliab.",
-            PRIMARY_SURFACES + " GitHub: github.com/AzielEliab.",
+            PRIMARY_SURFACES,
         ),
         ("is an researcher", "is a researcher"),
         ("is an researcher,", "is a researcher,"),
@@ -493,7 +524,30 @@ def patch_cite(data: dict) -> dict:
         "this": "hdj",
         "trades_runtime": TRADES_RUNTIME_WORKER,
         "spectrallock": SPECTRALLOCK_WORKER,
+        "github": GITHUB_PRIMARY,
+        "x": X_URL,
+        "x_handle": X_HANDLE,
     }
+    data["cross_tether"] = {
+        "ae": SISTERS["ae"],
+        "corpus": SISTERS["corpus"],
+        "godlock": SISTERS["godlock"],
+        "runtime": SISTERS["runtime"],
+        "runtime_glama": SISTERS_GLAMA,
+        "try_on_glama": SISTERS_GLAMA,
+        "github": GITHUB_PRIMARY,
+        "x": X_URL,
+        "x_handle": X_HANDLE,
+        "hdj": SISTERS_HDJ,
+        "sameAs": list(CROSS_TETHER_SAME_AS),
+        "stats": dict(CROSS_TETHER_STATS),
+        "growth_on": True,
+        "receipts_chrome": "Aziel-page-only. Not global paper-tabs.",
+    }
+    data["github"] = GITHUB_PRIMARY
+    data["x"] = X_URL
+    data["x_handle"] = X_HANDLE
+    data["try_on_glama"] = SISTERS_GLAMA
     data["pages_seo"] = PAGES_SEO
     data["growth_on"] = True
     data["softwares_clone"] = False
@@ -544,6 +598,8 @@ def patch_cite(data: dict) -> dict:
     data["what_aziel_eliab_does"] = WHAT_AZIEL_ELIAB_DOES
     data["what_aziel_eliab_does_answer"] = WHAT_AZIEL_ELIAB_DOES_ANSWER
     data["what_aziel_eliab_does_faq"] = list(WHAT_DOES_FAQ_TITLES)
+    data["why_aziel_eliab"] = WHY_AZIEL_ELIAB
+    data["why_aziel_eliab_faq"] = list(WHY_FAQ_TITLES)
     data["softwares_list"] = list(SOFTWARES_LIST)
     data["softwares_list_note"] = SOFTWARES_LIST_NOTE
     data["whitestone"] = WHITESTONE
@@ -737,6 +793,7 @@ def patch_person(data: dict) -> dict:
                 knows.append(item)
         data["knowsAbout"] = upsert_knows_about(knows)
         data["what_aziel_eliab_does"] = WHAT_AZIEL_ELIAB_DOES
+        data["why_aziel_eliab"] = WHY_AZIEL_ELIAB
         data["softwares_list"] = list(SOFTWARES_LIST)
         data["the_ark"] = THE_ARK
         data["the_ark_download"] = THE_ARK_DOWNLOAD
@@ -801,6 +858,8 @@ def ensure_what_does_block(text: str) -> str:
         extras = []
         if SOFTWARES_LIST_HEAD not in text:
             extras.append(SOFTWARES_LIST_BLOCK)
+        if FAQ_WHY not in text or WHY_AZIEL_ELIAB not in text:
+            extras.append(who_what_why_markdown())
         if RESEARCH_ADDENDUM not in text:
             extras.append(RESEARCH_ADDENDUM)
         if HARDWARE_ADDENDUM not in text:
@@ -996,6 +1055,47 @@ def ensure_related_trades(text: str) -> str:
     return text
 
 
+def ensure_related_cross_tether(text: str) -> str:
+    cite = (
+        f"GitHub AzielEliab: [{GITHUB_PRIMARY}]({GITHUB_PRIMARY}). "
+        f"Try on Glama: [{SISTERS_GLAMA}]({SISTERS_GLAMA}). "
+        f"X {X_HANDLE}: [{X_URL}]({X_URL})."
+    )
+    if "GitHub AzielEliab:" in text and "Try on Glama:" in text and X_HANDLE in text:
+        return text
+    if "Related, not sameAs:" in text:
+        return re.sub(
+            r"(Related, not sameAs:[^\n]+)",
+            rf"\1 {cite}",
+            text,
+            count=1,
+        )
+    if "## Related properties (Person sameAs)" in text:
+        return text.replace(
+            "## Related properties (Person sameAs)",
+            "## Related properties (Person sameAs)\n\n" + cite + "\n",
+            1,
+        )
+    return text.rstrip() + "\n\n" + cite + "\n"
+
+
+def ensure_ai_cross_tether(text: str) -> str:
+    extra = (
+        f"GitHub AzielEliab: {GITHUB_PRIMARY}\n"
+        f"X {X_HANDLE}: {X_URL}\n"
+    )
+    head = text.split("Discovery on this host", 1)[0]
+    if f"X {X_HANDLE}:" not in head:
+        needle = f"Try on Glama: {SISTERS_GLAMA}\n"
+        if needle in text:
+            text = text.replace(needle, needle + extra, 1)
+        else:
+            text = extra + text
+    if "Cross-tether (machine)" not in text:
+        text = text.rstrip() + "\n\n" + cross_tether_markdown()
+    return text
+
+
 def ensure_related_spectrallock(text: str) -> str:
     cite = (
         f"Sister Softwares cite: [SpectralLock]({SPECTRALLOCK_WORKER}) "
@@ -1055,7 +1155,7 @@ def ensure_genre_lock(text: str, *, ai: bool = False) -> str:
     text = text.replace("## Genre lock (machine)", GENRE_LOCK_HEAD)
     if GENRE_LOCK_HEAD in text:
         text = re.sub(
-            rf"{re.escape(GENRE_LOCK_HEAD)}\n[\s\S]*?(?=\n## |\Z)",
+            rf"{re.escape(GENRE_LOCK_HEAD)}\n[\s\S]*?(?=\n## |\nBAN-SURVIVAL|\nCOLD-MULTI-SHELF|\nCross-tether|\nSOFTWARES-RUNTIME|\nIdentity lock|\Z)",
             GENRE_LOCK_BLOCK.rstrip() + "\n\n",
             text,
             count=1,
@@ -1179,6 +1279,9 @@ def patch_txt(text: str, *, ai: bool = False) -> str:
     text = ensure_spectrallock_cite(text, ai=ai)
     text = ensure_related_trades(text)
     text = ensure_related_spectrallock(text)
+    text = ensure_related_cross_tether(text)
+    if ai:
+        text = ensure_ai_cross_tether(text)
     if "75% cap class" not in text:
         text = text.replace(
             "hedidntjump.com is An Aziel Eliab Project:",
@@ -1200,9 +1303,16 @@ def write_trees() -> None:
                 data = patch_person(data)
             else:
                 data = walk_json(data)
-                if rel == "identity.jsonld" and data.get("@id") == PERSON_ID:
-                    data["jobTitle"] = list(JOB_TITLES)
-                    data["what_aziel_eliab_does"] = WHAT_AZIEL_ELIAB_DOES
+                if rel == "identity.jsonld":
+                    data["why_aziel_eliab"] = WHY_AZIEL_ELIAB
+                    if data.get("@id") == PERSON_ID:
+                        data["jobTitle"] = list(JOB_TITLES)
+                        data["what_aziel_eliab_does"] = WHAT_AZIEL_ELIAB_DOES
+                    for key in ("person", "mainEntity"):
+                        node = data.get(key)
+                        if isinstance(node, dict) and node.get("@id") == PERSON_ID:
+                            node["what_aziel_eliab_does"] = WHAT_AZIEL_ELIAB_DOES
+                            node["why_aziel_eliab"] = WHY_AZIEL_ELIAB
                 if rel == "graph.jsonld":
                     data = upsert_graph_faq(data)
             data = walk_mission(data)

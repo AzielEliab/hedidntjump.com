@@ -7,7 +7,6 @@
       "version": "2.0.0-rc1",
       "git_sha": "6a3798af3a94bfba3ed2e7aaadeed8777ea32bb4",
       "version_id": "105fa1ee",
-      "": false,
       "note": "Static Zioncheck archive has no local MCP tools/list. Aziel Runtime 2.0.0-rc1 SoT LIVE main 6a3798a / version_id 105fa1ee. Prefer Try on Glama. Never ."
     }
   }

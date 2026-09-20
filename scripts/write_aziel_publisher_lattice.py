@@ -188,6 +188,12 @@ Hub sameAs
 - https://www.azielcorpuslibrary.net/
 - https://godlock.uk/
 - {WWW}/
+
+X sameAs
+- https://x.com/AzielEliab
+
+Glama / Try on Glama
+- https://glama.ai/mcp/servers/AzielEliab/aziel-runtime
 """
 
 
@@ -309,6 +315,8 @@ def enrich_ai(path: Path) -> None:
         f"- Hebrew: {HEBREW_ONELINER}\n"
         f"- GitHub: {GITHUB_PRIMARY}\n"
         f"- GitHub: {GITHUB_REVEALER}\n"
+        f"- X @AzielEliab: https://x.com/AzielEliab\n"
+        f"- Try on Glama: https://glama.ai/mcp/servers/AzielEliab/aziel-runtime\n"
         f"- Person @id: {PERSON_ID}\n"
         f"- Hubs: {', '.join(HUB_SAME_AS)}\n"
     )

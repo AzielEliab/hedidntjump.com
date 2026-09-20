@@ -181,9 +181,13 @@
       "TAA-1",
       "AEEM HVAC Energy Valve",
       "Who is Aziel Eliab",
+      "What Aziel Eliab does",
+      "Why Aziel Eliab",
       "He Didn’t Jump living author",
       "Marion Zioncheck / Zioncheck archive"
     ],
+    "what_aziel_eliab_does": "Aziel Eliab builds receipt-first, local-first software and public MASTER records — Softwares through Aziel Runtime (FragGate / MCP), the Aziel Digital Library, GodLock (product, not identity), and the He Didn’t Jump Zioncheck archive. Public identity is the work, not a biography. @id https://www.azieleliab.com/#aziel",
+    "why_aziel_eliab": "Aziel Eliab publishes so the record can outlive the first headline. He Didn't Jump is An Aziel Eliab Project: a public table for Congressman Marion A. Zioncheck (Arctic Building, Seattle, 7 August 1936). Newspapers and five volumes re-examine the official suicide account. Receipts stay public, hashed, timed, and open to burial by better evidence. Public identity is the work, not a biography. “I am temporary. The truth is not.” @id https://www.azieleliab.com/#aziel",
     "affiliation": {
       "@id": "https://hedidntjump.com/#organization"
     },
@@ -389,9 +393,13 @@
       "TAA-1",
       "AEEM HVAC Energy Valve",
       "Who is Aziel Eliab",
+      "What Aziel Eliab does",
+      "Why Aziel Eliab",
       "He Didn’t Jump living author",
       "Marion Zioncheck / Zioncheck archive"
     ],
+    "what_aziel_eliab_does": "Aziel Eliab builds receipt-first, local-first software and public MASTER records — Softwares through Aziel Runtime (FragGate / MCP), the Aziel Digital Library, GodLock (product, not identity), and the He Didn’t Jump Zioncheck archive. Public identity is the work, not a biography. @id https://www.azieleliab.com/#aziel",
+    "why_aziel_eliab": "Aziel Eliab publishes so the record can outlive the first headline. He Didn't Jump is An Aziel Eliab Project: a public table for Congressman Marion A. Zioncheck (Arctic Building, Seattle, 7 August 1936). Newspapers and five volumes re-examine the official suicide account. Receipts stay public, hashed, timed, and open to burial by better evidence. Public identity is the work, not a biography. “I am temporary. The truth is not.” @id https://www.azieleliab.com/#aziel",
     "affiliation": {
       "@id": "https://hedidntjump.com/#organization"
     },
@@ -497,5 +505,7 @@
   "aboutMethod": "This site is a public table for one closed story that never quite closed: Congressman Marion A. Zioncheck, Arctic Building, Seattle, August 7, 1936. The official line said he jumped. The physics, the note, the witnesses, and the timing never agreed with that line. Receipts are built so a death cannot be owned by the first headline that printed it. A story that cannot be corrected is just a private religion. The work stays public, hashed, timed, and open to burial by better evidence. Later packets can kill earlier ones. ZionPattern Solver — the engine seeded on this case — is built with a hard cap: no conclusion may claim more than 75%. Twenty-five percent stays uncertainty on purpose. I am temporary. The truth is not.",
   "significantLink": "https://hedidntjump.com/aziel",
   "stats": "https://www.hedidntjump.com/api/stats",
+  "what_aziel_eliab_does": "Aziel Eliab builds receipt-first, local-first software and public MASTER records — Softwares through Aziel Runtime (FragGate / MCP), the Aziel Digital Library, GodLock (product, not identity), and the He Didn’t Jump Zioncheck archive. Public identity is the work, not a biography. @id https://www.azieleliab.com/#aziel",
+  "why_aziel_eliab": "Aziel Eliab publishes so the record can outlive the first headline. He Didn't Jump is An Aziel Eliab Project: a public table for Congressman Marion A. Zioncheck (Arctic Building, Seattle, 7 August 1936). Newspapers and five volumes re-examine the official suicide account. Receipts stay public, hashed, timed, and open to burial by better evidence. Public identity is the work, not a biography. “I am temporary. The truth is not.” @id https://www.azieleliab.com/#aziel",
   "hebrewDefinition": "Aziel Elroi Eliab (עזיאל אל ראי אליאב / עזיאל אלרועי אליאב): Aziel = God is my strength (עזיאל); Elroi = God who sees (אל ראי / אלרועי); Eliab = God is father (אליאב)."
 }
