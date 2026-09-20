@@ -134,8 +134,7 @@ EXTRA_SAME_AS = [
     "https://aziel-runtime.vibelock.workers.dev/",
     "https://glama.ai/mcp/servers/AzielEliab/aziel-runtime",
     "https://x.com/AzielEliab",
-    "https://x.com/AzielElroiEliab",
-    "https://x.com/azieleliab",
+    "https://x.com/AzielEliab",
     "https://twitter.com/AzielEliab",
 ]
 
