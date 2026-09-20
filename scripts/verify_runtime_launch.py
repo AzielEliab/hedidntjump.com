@@ -246,7 +246,9 @@ def main() -> None:
                 visible = visible_text(html)
                 assert "15:20" not in visible, f"{tree_name}/{name} gained visible 15:20"
             assert "fielded_100" not in html
-            assert '""' not in json.dumps(cite)  # no empty cite keys
+            # Empty values (Plane B gitflic/gitlab/zenodo SLOT) dump as `: ""`.
+            # Empty keys dump as `"":`.
+            assert '"":' not in json.dumps(cite)  # no empty cite keys
             assert "never_" not in cite
 
         aziel = (tree / "aziel.html").read_text(encoding="utf-8")
