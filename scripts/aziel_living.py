@@ -249,11 +249,18 @@ PAGES_SEO = {
     "softwares_clone": False,
 }
 
-# Locked Softwares brief. Do not fork, rename, or paraphrase this sentence.
-WHAT_AZIEL_ELIAB_DOES = (
+# Softwares suite brief. Catalog products use Worker GET /v1/software one_lines.
+WHAT_AZIEL_ELIAB_DOES_OLD = (
     "Aziel Eliab builds receipt-first, local-first software and public MASTER records "
     "— Softwares through Aziel Runtime (FragGate / MCP), the Aziel Digital Library, "
     "GodLock (product, not identity), and the He Didn’t Jump Zioncheck archive. "
+    "Public identity is the work, not a biography. "
+    f"@id {PERSON_ID}"
+)
+WHAT_AZIEL_ELIAB_DOES = (
+    "Aziel Eliab builds receipt-first, local-first software and public MASTER records "
+    "— Softwares through Aziel Runtime (FragGate / MCP), the Aziel Digital Library, "
+    "GodLock, and the He Didn’t Jump Zioncheck archive. "
     "Public identity is the work, not a biography. "
     f"@id {PERSON_ID}"
 )
@@ -339,9 +346,137 @@ WHAT_AZIEL_ELIAB_DOES_ANSWER = (
     f"{WHAT_AZIEL_ELIAB_DOES} {RESEARCH_ADDENDUM} {HARDWARE_ADDENDUM}"
 )
 
-WHITESTONE = "Whitestone (ephemeral pro se advisor; not a lawyer)"
+# Worker GET /v1/software designed-purpose one_lines (42/42). HDJ cites; does not host.
+# Do not add THIS-IS-NOT / never-invent / verified-status / AI-coaching sentences here.
+AZIEL_RUNTIME_ONE_LINE = (
+    "Aziel Runtime is a node-meshed orchestration suite of MCP-connected software "
+    "designed to route catalog Softwares through the FragGate door, mint receipts, "
+    "and coordinate mesh presence."
+)
+AZIEL_RUNTIME_LINE = AZIEL_RUNTIME_ONE_LINE
 
-THE_ARK = "The ARK (local deniable vault)"
+SOFTWARES_CATALOG = (
+    ("4DMap", "Inspect the same event on time, change, graph, and place axes at once."),
+    ("AZ-CLCE", "Score how consistently three written layers agree with each other."),
+    ("AZ-OS", "Read ethics status and open a prefab isolate session folder."),
+    ("AZAI", "Run a local OpenAI-compatible stack or a hosted Lamb ethics check."),
+    ("AZBot", "Route a request onto the matching catalog product and operation."),
+    ("AZBrowser", "Browse and search with citations for ethical research."),
+    ("AZChat", "Open short-lived rooms and an agent bus with spendable handles."),
+    ("AZCoherence", "Review whether a primary score and an alternate hold together."),
+    ("AZHub", "Place and tether modules in a blank spatial container."),
+    (
+        "Aziel Digital Library",
+        "Search the public library and download azcorpus + azlibrary designs.",
+    ),
+    (
+        "AzielTether",
+        "Keep downloaded Aziel software in sync when the central Worker is up or down.",
+    ),
+    (
+        "AZInterface",
+        "Advance pre-locked page cycles in a custodial operating environment.",
+    ),
+    (
+        "AZMail",
+        "Classify mail text, keep a local mailbox, and optionally use an anonymous ring.",
+    ),
+    ("AZNet", "Check hash continuity on a silent side-net."),
+    (
+        "AZVPN",
+        "Open an HTTPS or WebSocket VPN session on the public concentrator.",
+    ),
+    (
+        "ForgeReceipts",
+        "Mint, check hashes, and import or export receipts you keep on the client.",
+    ),
+    ("Glossa Filter", "Render one intent across the bundled peer phrasings."),
+    ("MirageGrid", "Assign a short-lived session node and cite mesh-name metadata."),
+    ("MMConsensus", "Tally consensus from opinions you already posted."),
+    ("Post-King Chess", "Play continuity chess where the aim is to remain."),
+    (
+        "StaticClock",
+        "Record a forward-only gear-click timeline and read companion advice.",
+    ),
+    ("The ARK", "Keep a local deniable vault; one phrase opens one vault."),
+    (
+        "ToolBench",
+        "Run synthetic door cases to see how FragGate classifies them.",
+    ),
+    (
+        "Whitestone",
+        "Advise on short Criminal, Civil, and Divorce questions with historical as-of and Case Mode (suppression axes, TrajectoryLock-lite, export, confidence labeled up to 75%). Session-only web app plus optional zip. https://whitestone.vibelock.workers.dev/",
+    ),
+    (
+        "ZionPattern Solver",
+        "Score answers against nine ontology nodes, with scores labeled up to 75%.",
+    ),
+    (
+        "ZKAttest",
+        "Attest a statement with a hash commitment that keeps the witness private.",
+    ),
+    (
+        "DecisionGATE",
+        "Run a proposal through five sequential gates and get PASS, REVISE, or BLOCK.",
+    ),
+    (
+        "ChronoLock",
+        "Check whether a place sits in the 08:30–10:30 local advisory window.",
+    ),
+    (
+        "CodeLock",
+        "View source as Canonical or Rosetta HTML while keeping the same meaning.",
+    ),
+    ("EmbryoLock", "Cite an offline vault that prefers destruction over recovery."),
+    ("EmployeeLock", "Hash a proposed accountability log row on the client."),
+    (
+        "FoldLock",
+        "Fold UTF-8 text by suppressing tether words, then check the restore.",
+    ),
+    ("GodLock", "Score text for offline hardening and receive an ephemeral receipt."),
+    (
+        "M.I.A.Lock",
+        "Map missing-person events and rank Doe notices as compatibility leads.",
+    ),
+    (
+        "PeaceLock",
+        "Record chosen silence or chosen inaction as a hash-chained receipt.",
+    ),
+    (
+        "ShadowLock",
+        "Observe a job list you already have, then discard the observation.",
+    ),
+    (
+        "SpectralLock",
+        "Preview a small overlay on an image and recover leftover container bytes.",
+    ),
+    (
+        "TemporalLock",
+        "Build and check hashes on a receipt timeline you keep on the client.",
+    ),
+    ("TrajectoryLock", "Test whether observations fit a declared geometric line."),
+    (
+        "VeilLock",
+        "Follow local camera and screen steps for apps on your own device.",
+    ),
+    (
+        "VibeLock",
+        "Score speech audio you already have for physical consistency risk.",
+    ),
+    ("WhistleLock", "Hash a local drop and keep a dead-man copy on the client."),
+)
+
+SOFTWARES_COUNT = 42
+SOFTWARES_BY_NAME = {name: one_line for name, one_line in SOFTWARES_CATALOG}
+SOFTWARES_LIST = tuple(f"{name} — {one_line}" for name, one_line in SOFTWARES_CATALOG)
+assert len(SOFTWARES_LIST) == SOFTWARES_COUNT
+assert len(SOFTWARES_BY_NAME) == SOFTWARES_COUNT
+
+WHITESTONE_ONE_LINE = SOFTWARES_BY_NAME["Whitestone"]
+WHITESTONE = f"Whitestone — {WHITESTONE_ONE_LINE}"
+
+THE_ARK_ONE_LINE = SOFTWARES_BY_NAME["The ARK"]
+THE_ARK = f"The ARK — {THE_ARK_ONE_LINE}"
 THE_ARK_DOWNLOAD = "https://ark-download-tracker.vibelock.workers.dev/download"
 THE_ARK_STATS = "https://ark-download-tracker.vibelock.workers.dev/stats"
 THE_ARK_GITHUB = "https://github.com/AzielEliab/ark"
@@ -349,9 +484,19 @@ THE_ARK_LIST = (
     f"{THE_ARK}; download+ {THE_ARK_DOWNLOAD} ; stats {THE_ARK_STATS} ; "
     f"github {THE_ARK_GITHUB}"
 )
+THE_ARK_ADDENDUM = (
+    "PRODUCT LINKS (cite-only): "
+    f"{THE_ARK_LIST}. HDJ cites; does not host. "
+    "Zioncheck stays the HDJ mission."
+)
 
-# Sister Softwares cite-only. leftover-bytes / recover / handwriting URLs stay.
-TRADES_RUNTIME = "Trades-Runtime (local-first BYO trades runtime)"
+# Sister Softwares cite-only (not one of the 42 catalog cards).
+TRADES_RUNTIME_ONE_LINE = (
+    "Shadow-first local BYO runtime for HVAC/plumbing/electrical/sewer/cross-trades. "
+    "BYO ServiceTitan+ProBooks. Human authority. live_backends false. "
+    "https://trades-runtime.vibelock.workers.dev/"
+)
+TRADES_RUNTIME = f"Trades-Runtime — {TRADES_RUNTIME_ONE_LINE}"
 TRADES_RUNTIME_WORKER = "https://trades-runtime.vibelock.workers.dev"
 TRADES_RUNTIME_GITHUB = "https://github.com/AzielEliab/trades-runtime"
 TRADES_RUNTIME_DOWNLOAD = "https://trades-runtime.vibelock.workers.dev/download"
@@ -364,36 +509,30 @@ TRADES_RUNTIME_LIST = (
 )
 TRADES_RUNTIME_ADDENDUM = (
     "SISTER SOFTWARES / RUNTIME (cite-only): "
-    "Trades-Runtime is a local-first BYO trades runtime (HVAC, plumbing, "
-    "electrical, sewer, cross-trades). People bring their own ServiceTitan "
-    "and ProBooks. live_backends false. Aziel Eliab only. "
+    f"{TRADES_RUNTIME} Aziel Eliab only. "
     f"Worker {TRADES_RUNTIME_WORKER} · GitHub {TRADES_RUNTIME_GITHUB} · "
     f"download {TRADES_RUNTIME_DOWNLOAD} · OpenAPI {TRADES_RUNTIME_OPENAPI} · "
     f"MCP {TRADES_RUNTIME_MCP}. HDJ cites; does not host. "
     "Zioncheck stays the HDJ mission."
 )
 TRADES_RUNTIME_HONESTY = (
-    "Public Softwares/cite. Local-first BYO runtime. People bring their own "
-    "ServiceTitan and ProBooks. No tenant data on this Worker. No ST/ProBooks "
-    "write-back. live_backends false. HDJ cites; does not host."
+    "Public Softwares/cite. "
+    f"{TRADES_RUNTIME_ONE_LINE} "
+    "HDJ cites; does not host."
 )
 
-# Coordinator lock: PeaceLock is public git + local-only runtime.
-# HDJ cites the GitHub repo. Do not invent a hosted Worker / FragGate exec.
-PEACELOCK = "PeaceLock (public git + local-only runtime)"
+PEACELOCK_ONE_LINE = SOFTWARES_BY_NAME["PeaceLock"]
+PEACELOCK = f"PeaceLock — {PEACELOCK_ONE_LINE}"
 PEACELOCK_GITHUB = "https://github.com/AzielEliab/peacelock"
 PEACELOCK_SPEC = "PL-WP-0.1"
 PEACELOCK_LIST = f"{PEACELOCK}; github {PEACELOCK_GITHUB}"
 PEACELOCK_ADDENDUM = (
-    "SISTER SOFTWARES (public git + local-only runtime): "
-    "PeaceLock records chosen silence or chosen inaction as a hash-chained "
-    f"receipt ({PEACELOCK_SPEC}). Public git {PEACELOCK_GITHUB}. "
-    "Local-only runtime on aziel-runtime. HDJ cites; does not host. "
-    "Zioncheck stays the HDJ mission."
+    "SISTER SOFTWARES (cite-only): "
+    f"{PEACELOCK} ({PEACELOCK_SPEC}). Public git {PEACELOCK_GITHUB}. "
+    "HDJ cites; does not host. Zioncheck stays the HDJ mission."
 )
 PEACELOCK_HONESTY = (
-    "Public git + local-only runtime. HDJ cites the public repository. "
-    "Runtime stays local-only. HDJ does not host PeaceLock."
+    f"{PEACELOCK_ONE_LINE} HDJ cites the public repository {PEACELOCK_GITHUB}."
 )
 
 # One Softwares SSoT version — GET /v1/software catalog, not per-product forks.
@@ -401,15 +540,13 @@ SOFTWARES_SSOT_VERSION = "2.0.0-rc1"
 SOFTWARES_SSOT_SOFTWARE = "https://aziel-runtime.vibelock.workers.dev/v1/software"
 SOFTWARES_SSOT_NOTE = (
     "One Softwares SSoT version. HDJ cites GET /v1/software "
-    f"{SOFTWARES_SSOT_VERSION}. Product lists inherit that catalog version. "
-    "HDJ does not host a Softwares fork."
+    f"{SOFTWARES_SSOT_VERSION} designed-purpose one_lines (42/42). "
+    "Product lists inherit that catalog version. "
+    "HDJ does not host a Softwares fork. Prefer Try on Glama."
 )
 
-# Sister Softwares cite-only. leftover-bytes + /v1/recover + /v1/handwriting
-# stay as positive product URLs.
-SPECTRALLOCK = (
-    "SpectralLock (leftover-bytes + /v1/recover + /v1/handwriting)"
-)
+SPECTRALLOCK_ONE_LINE = SOFTWARES_BY_NAME["SpectralLock"]
+SPECTRALLOCK = f"SpectralLock — {SPECTRALLOCK_ONE_LINE}"
 SPECTRALLOCK_OLD = (
     "SpectralLock (leftover-bytes recover; SL-UNREDACT-OPAQUE refuse)"
 )
@@ -434,13 +571,9 @@ SPECTRALLOCK_LIST = (
     f"github {SPECTRALLOCK_GITHUB} ; download {SPECTRALLOCK_DOWNLOAD}"
 )
 SPECTRALLOCK_ADDENDUM = (
-    "SISTER SOFTWARES (cite-only): SpectralLock leftover-bytes "
-    "+ GET|POST /v1/recover + GET|POST /v1/handwriting. Leftover-bytes recover reads "
-    "present container bytes (object id / offset / stream). Opaque rewrite with no leftover "
-    "bytes refuses SL-UNREDACT-OPAQUE. Universal recover reads present bytes and documented "
-    "structure only. Handwriting is synthetic pixel analysis of a user-supplied scan or photo; "
-    "indicators are heuristics. NO-LIE. Aziel Eliab only. leftover-bytes "
-    f"{SPECTRALLOCK_UNREDACT} · /v1/recover {SPECTRALLOCK_RECOVER} · /v1/handwriting "
+    "SISTER SOFTWARES (cite-only): "
+    f"{SPECTRALLOCK} leftover-bytes {SPECTRALLOCK_UNREDACT} · "
+    f"/v1/recover {SPECTRALLOCK_RECOVER} · /v1/handwriting "
     f"{SPECTRALLOCK_HANDWRITING} · GitHub {SPECTRALLOCK_GITHUB} · download "
     f"{SPECTRALLOCK_DOWNLOAD}. HDJ cites; does not host. "
     "Zioncheck stays the HDJ mission."
@@ -455,46 +588,36 @@ SPECTRALLOCK_ADDENDUM_OLD = (
     f"{SPECTRALLOCK_DOWNLOAD}. HDJ cites; does not host. Not aziel-runtime wholesale. "
     "Zioncheck stays the HDJ mission."
 )
-SPECTRALLOCK_HONESTY = (
-    "Leftover-bytes + /v1/recover + /v1/handwriting. Present bytes and documented "
-    "structure only. Handwriting is synthetic pixel analysis of a user-supplied scan "
-    "or photo. Opaque rewrite with no leftover bytes refuses SL-UNREDACT-OPAQUE. NO-LIE."
-)
-
-SOFTWARES_LIST = (
-    "Aziel Runtime (FragGate / MCP)",
-    "Aziel Digital Library",
-    "GodLock (product, not identity)",
-    WHITESTONE,
-    THE_ARK_LIST,
-    TRADES_RUNTIME_LIST,
-    SPECTRALLOCK_LIST,
-    PEACELOCK_LIST,
-)
+SPECTRALLOCK_HONESTY = SPECTRALLOCK_ONE_LINE
 
 SOFTWARES_LIST_NOTE = (
-    "Softwares list (HDJ cites; does not host). "
+    "Softwares list 42/42 designed-purpose (HDJ cites; does not host). "
     f"Softwares SSoT version {SOFTWARES_SSOT_VERSION} "
     f"({SOFTWARES_SSOT_SOFTWARE}). "
+    f"{AZIEL_RUNTIME_ONE_LINE} Prefer Try on Glama {SISTERS_GLAMA}. "
     f"{WHITESTONE}. "
     f"{THE_ARK}. download+ {THE_ARK_DOWNLOAD} ; stats {THE_ARK_STATS}. "
     f"github {THE_ARK_GITHUB}. "
     f"{TRADES_RUNTIME}. public Softwares/cite. worker {TRADES_RUNTIME_WORKER} ; "
     f"github {TRADES_RUNTIME_GITHUB} ; download {TRADES_RUNTIME_DOWNLOAD} ; "
     f"openapi {TRADES_RUNTIME_OPENAPI} ; mcp {TRADES_RUNTIME_MCP}. "
-    "live_backends false. "
     f"{SPECTRALLOCK}. leftover-bytes {SPECTRALLOCK_UNREDACT} ; "
     f"/v1/recover {SPECTRALLOCK_RECOVER} ; "
     f"/v1/handwriting {SPECTRALLOCK_HANDWRITING} ; "
     f"github {SPECTRALLOCK_GITHUB} ; download {SPECTRALLOCK_DOWNLOAD}. "
-    f"{PEACELOCK}. github {PEACELOCK_GITHUB}. "
-    "NO-LIE."
+    f"{PEACELOCK}. github {PEACELOCK_GITHUB}."
 )
 
 
 def softwares_list_markdown() -> str:
-    return "Softwares (list; HDJ cites, does not host):\n" + "\n".join(
-        f"- {name}" for name in SOFTWARES_LIST
+    suite = (
+        "Aziel Runtime (suite; HDJ cites, does not host): "
+        f"{AZIEL_RUNTIME_ONE_LINE} Prefer Try on Glama {SISTERS_GLAMA}."
+    )
+    return (
+        f"{suite}\n"
+        "Softwares (list; HDJ cites, does not host):\n"
+        + "\n".join(f"- {name}" for name in SOFTWARES_LIST)
     )
 
 
@@ -531,10 +654,24 @@ def who_what_why_markdown() -> str:
     )
 
 
+SOFTWARES_KNOWS_REPLACE = {
+    "GodLock (product, not identity)": f"GodLock — {SOFTWARES_BY_NAME['GodLock']}",
+    "Whitestone (ephemeral pro se advisor; not a lawyer)": WHITESTONE,
+    "The ARK (local deniable vault)": THE_ARK,
+    "Trades-Runtime (local-first BYO trades runtime)": TRADES_RUNTIME,
+    "SpectralLock (leftover-bytes + /v1/recover + /v1/handwriting)": SPECTRALLOCK,
+    "SpectralLock (leftover-bytes + /v1/recover + /v1/handwriting; not lab)": SPECTRALLOCK,
+    "PeaceLock (public git + local-only runtime)": PEACELOCK,
+    "Softwares through Aziel Runtime (FragGate / MCP)": AZIEL_RUNTIME_ONE_LINE,
+    "Aziel Digital Library": (
+        f"Aziel Digital Library — {SOFTWARES_BY_NAME['Aziel Digital Library']}"
+    ),
+}
+
 KNOWS_ABOUT_EXTRA = (
-    "Softwares through Aziel Runtime (FragGate / MCP)",
-    "Aziel Digital Library",
-    "GodLock (product, not identity)",
+    AZIEL_RUNTIME_ONE_LINE,
+    f"Aziel Digital Library — {SOFTWARES_BY_NAME['Aziel Digital Library']}",
+    f"GodLock — {SOFTWARES_BY_NAME['GodLock']}",
     WHITESTONE,
     THE_ARK,
     TRADES_RUNTIME,

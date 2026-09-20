@@ -108,6 +108,8 @@ def main() -> None:
         assert sot["github"] == RUNTIME_GITHUB
         assert sot["worker"] == RUNTIME_WORKER
         assert sot["glama"] == RUNTIME_GLAMA
+        assert sot["mcp_primary"] == RUNTIME_GLAMA
+        assert "designed to route catalog Softwares" in sot["one_line"]
         assert sot["software"] == RUNTIME_SOFTWARE
         assert sot["download"] == RUNTIME_DOWNLOAD
         assert sot["mesh"] == RUNTIME_MESH
@@ -207,7 +209,9 @@ def main() -> None:
             assert server["git_sha"] == GIT_SHA, label
             assert server["version_id"] == VERSION_ID, label
             assert server["glama"] == RUNTIME_GLAMA, label
-            assert "no local MCP" in server["note"] or "Prefer Try on Glama" in server["description"]
+            assert server["url"] == RUNTIME_GLAMA, label
+            assert server.get("primary") == "glama", label
+            assert "no local MCP" in server["note"] or "Glama" in server["description"]
 
         openapi = json.loads((tree / "openapi.json").read_text(encoding="utf-8"))
         assert "/runtime-launch.json" in openapi["paths"]

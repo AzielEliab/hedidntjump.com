@@ -73,8 +73,14 @@ def launch_cite() -> dict:
             "version_id": VERSION_ID,
             "github": RUNTIME_GITHUB,
             "worker": RUNTIME_WORKER,
+            "one_line": (
+                "Aziel Runtime is a node-meshed orchestration suite of MCP-connected software "
+                "designed to route catalog Softwares through the FragGate door, mint receipts, "
+                "and coordinate mesh presence."
+            ),
             "glama": RUNTIME_GLAMA,
             "glama_note": "Prefer Try on Glama for Aziel Runtime MCP. Worker is secondary execution / OpenAPI.",
+            "mcp_primary": RUNTIME_GLAMA,
             "software": RUNTIME_SOFTWARE,
             "download": RUNTIME_DOWNLOAD,
             "mcp": RUNTIME_MCP,
@@ -193,6 +199,12 @@ def patch_cite() -> None:
             "github": RUNTIME_GITHUB,
             "worker": RUNTIME_WORKER,
             "glama": RUNTIME_GLAMA,
+            "mcp_primary": RUNTIME_GLAMA,
+            "one_line": (
+                "Aziel Runtime is a node-meshed orchestration suite of MCP-connected software "
+                "designed to route catalog Softwares through the FragGate door, mint receipts, "
+                "and coordinate mesh presence."
+            ),
         },
         "softwares_clone": False,
         "live_origin": {
@@ -297,9 +309,11 @@ def patch_mcp() -> None:
     payload = {
         "mcpServers": {
             "aziel-runtime": {
-                "description": "Aziel Runtime MCP (not hosted on hedidntjump.com). Prefer Glama listing.",
-                "url": RUNTIME_MCP,
+                "description": "Aziel Runtime MCP (not hosted on hedidntjump.com). Glama is primary.",
+                "url": RUNTIME_GLAMA,
+                "mcp": RUNTIME_MCP,
                 "glama": RUNTIME_GLAMA,
+                "primary": "glama",
                 "version": VERSION,
                 "git_sha": GIT_SHA,
                 "version_id": VERSION_ID,

@@ -76,12 +76,17 @@ from aziel_living import (
     SISTERS_GLAMA,
     SISTERS_HDJ,
     SITE_COVERAGE,
+    AZIEL_RUNTIME_ONE_LINE,
+    SOFTWARES_CATALOG,
+    SOFTWARES_COUNT,
+    SOFTWARES_KNOWS_REPLACE,
     SOFTWARES_LIST,
     SOFTWARES_LIST_NOTE,
     SOFTWARES_SSOT_NOTE,
     SOFTWARES_SSOT_SOFTWARE,
     SOFTWARES_SSOT_VERSION,
     THE_ARK,
+    THE_ARK_ADDENDUM,
     THE_ARK_DOWNLOAD,
     THE_ARK_GITHUB,
     THE_ARK_STATS,
@@ -105,6 +110,7 @@ from aziel_living import (
     TRADES_RUNTIME_OPENAPI,
     TRADES_RUNTIME_WORKER,
     WHAT_AZIEL_ELIAB_DOES,
+    WHAT_AZIEL_ELIAB_DOES_OLD,
     WHITESTONE,
     WHY_AZIEL_ELIAB,
     WHY_FAQ_TITLES,
@@ -144,7 +150,7 @@ SISTERS_BLOCK = f"""Sister surfaces (this host is HDJ — {HDJ_BLURB})
 {SITE_COVERAGE} — {HDJ_BLURB}
 - trades-runtime (sister Softwares cite-only): {TRADES_RUNTIME_WORKER}
 - spectrallock (sister Softwares cite-only; leftover-bytes + /v1/recover + /v1/handwriting): {SPECTRALLOCK_WORKER}
-- peacelock (public git + local-only runtime): {PEACELOCK_GITHUB}
+- peacelock (designed-purpose): {PEACELOCK_GITHUB}
 Softwares SSoT version: {SOFTWARES_SSOT_VERSION} ({SOFTWARES_SSOT_SOFTWARE})
 Try on Glama: {SISTERS_GLAMA}
 GitHub AzielEliab: {GITHUB_PRIMARY}
@@ -200,8 +206,8 @@ TRADES_RUNTIME_AI_BLOCK = f"""TRADES-RUNTIME (sister Softwares/runtime cite-only
 """
 
 SPECTRALLOCK_AI_HEAD = "SPECTRALLOCK (sister Softwares cite-only"
-SPECTRALLOCK_AI_BLOCK = f"""SPECTRALLOCK (sister Softwares cite-only; leftover-bytes + /v1/recover + /v1/handwriting):
-- leftover-bytes + GET|POST /v1/recover + GET|POST /v1/handwriting. Present bytes only. Handwriting is synthetic pixel analysis of a user-supplied scan or photo. Aziel Eliab only. NO-LIE.
+SPECTRALLOCK_AI_BLOCK = f"""SPECTRALLOCK (sister Softwares cite-only):
+- {SPECTRALLOCK}
 - leftover-bytes: {SPECTRALLOCK_UNREDACT}
 - /v1/recover: {SPECTRALLOCK_RECOVER}
 - /v1/handwriting: {SPECTRALLOCK_HANDWRITING}
@@ -213,7 +219,7 @@ SPECTRALLOCK_AI_BLOCK = f"""SPECTRALLOCK (sister Softwares cite-only; leftover-b
 - Growth-ON. NO-LIE. No visible 15:20.
 """
 
-PEACELOCK_LLMS_HEAD = "## PeaceLock public git + local-only runtime (machine)"
+PEACELOCK_LLMS_HEAD = "## PeaceLock designed-purpose (machine)"
 PEACELOCK_LLMS_BLOCK = f"""{PEACELOCK_LLMS_HEAD}
 
 {PEACELOCK_ADDENDUM}
@@ -222,14 +228,13 @@ PEACELOCK_LLMS_BLOCK = f"""{PEACELOCK_LLMS_HEAD}
 - Spec: {PEACELOCK_SPEC}
 - Softwares SSoT version: {SOFTWARES_SSOT_VERSION} ({SOFTWARES_SSOT_SOFTWARE})
 
-Public git + local-only runtime. HDJ cites; does not host. Zioncheck stays the HDJ mission.
+{PEACELOCK} HDJ cites; does not host. Zioncheck stays the HDJ mission.
 """
 
-PEACELOCK_AI_HEAD = "PEACELOCK (public git + local-only runtime"
-PEACELOCK_AI_BLOCK = f"""PEACELOCK (public git + local-only runtime):
-- Chosen silence / chosen inaction as a hash-chained receipt ({PEACELOCK_SPEC}). Aziel Eliab only.
+PEACELOCK_AI_HEAD = "PEACELOCK (designed-purpose"
+PEACELOCK_AI_BLOCK = f"""PEACELOCK (designed-purpose):
+- {PEACELOCK} ({PEACELOCK_SPEC}). Aziel Eliab only.
 - GitHub: {PEACELOCK_GITHUB}
-- Local-only runtime on aziel-runtime.
 - Softwares SSoT version: {SOFTWARES_SSOT_VERSION} ({SOFTWARES_SSOT_SOFTWARE})
 - HDJ cites; does not host. Zioncheck stays the HDJ mission.
 - Growth-ON. NO-LIE. No visible 15:20.
@@ -266,6 +271,8 @@ A: {WHY_AZIEL_ELIAB}
 {RESEARCH_ADDENDUM}
 
 {HARDWARE_ADDENDUM}
+
+{THE_ARK_ADDENDUM}
 
 {TRADES_RUNTIME_ADDENDUM}
 
@@ -327,6 +334,12 @@ def upsert_knows_about(knows: list) -> list:
         elif isinstance(item, dict) and item.get("name") == SPECTRALLOCK_OLD:
             row = dict(item)
             row["name"] = SPECTRALLOCK
+            out.append(row)
+        elif isinstance(item, str) and item in SOFTWARES_KNOWS_REPLACE:
+            out.append(SOFTWARES_KNOWS_REPLACE[item])
+        elif isinstance(item, dict) and item.get("name") in SOFTWARES_KNOWS_REPLACE:
+            row = dict(item)
+            row["name"] = SOFTWARES_KNOWS_REPLACE[item["name"]]
             out.append(row)
         else:
             out.append(item)
@@ -494,6 +507,8 @@ def rewrite_stack(text: str) -> str:
         ),
         ("is an researcher", "is a researcher"),
         ("is an researcher,", "is a researcher,"),
+        (WHAT_AZIEL_ELIAB_DOES_OLD, WHAT_AZIEL_ELIAB_DOES),
+        ("GodLock (product, not identity)", "GodLock"),
     )
     for old, new in replacements:
         out = out.replace(old, new)
@@ -613,7 +628,7 @@ def patch_cite(data: dict) -> dict:
         },
         {
             "id": "peacelock",
-            "label": "PeaceLock (public git + local-only runtime)",
+            "label": PEACELOCK,
             "href": PEACELOCK_GITHUB,
         },
     ]
@@ -648,10 +663,18 @@ def patch_cite(data: dict) -> dict:
     data["why_aziel_eliab_faq"] = list(WHY_FAQ_TITLES)
     data["softwares_list"] = list(SOFTWARES_LIST)
     data["softwares_list_note"] = SOFTWARES_LIST_NOTE
+    data["softwares_count"] = SOFTWARES_COUNT
+    data["softwares_designed_purpose"] = True
+    data["aziel_runtime_one_line"] = AZIEL_RUNTIME_ONE_LINE
+    data["softwares_catalog"] = [
+        {"name": name, "one_line": one_line} for name, one_line in SOFTWARES_CATALOG
+    ]
     data["softwares_ssot"] = {
         "version": SOFTWARES_SSOT_VERSION,
         "software": SOFTWARES_SSOT_SOFTWARE,
         "note": SOFTWARES_SSOT_NOTE,
+        "designed_purpose": True,
+        "count": SOFTWARES_COUNT,
     }
     data["softwares_ssot_version"] = SOFTWARES_SSOT_VERSION
     data["whitestone"] = WHITESTONE
@@ -748,8 +771,9 @@ def patch_cite(data: dict) -> dict:
         "github": PEACELOCK_GITHUB,
         "ssot_version": SOFTWARES_SSOT_VERSION,
         "honesty": PEACELOCK_HONESTY,
+        "one_line": PEACELOCK.split(" — ", 1)[-1] if " — " in PEACELOCK else PEACELOCK,
         "note": (
-            "HDJ cites public git + local-only runtime. Does not host. "
+            f"{PEACELOCK} HDJ cites; does not host. "
             "Zioncheck stays the HDJ mission."
         ),
     }
@@ -814,8 +838,8 @@ def patch_cite(data: dict) -> dict:
     data["purpose"] = (
         f"{HDJ_PURPOSE} {HDJ_BLURB} Sisters: ae, corpus, godlock, runtime. "
         "Sister Softwares cite: trades-runtime; spectrallock leftover-bytes + "
-        "/v1/recover + /v1/handwriting; peacelock public git + local-only runtime. "
-        f"Softwares SSoT version {SOFTWARES_SSOT_VERSION}."
+        "/v1/recover + /v1/handwriting; peacelock designed-purpose. "
+        f"Softwares 42/42 designed-purpose. Softwares SSoT version {SOFTWARES_SSOT_VERSION}."
     )
     data["project_kind"] = HDJ_PROJECT_KIND
     data["genre"] = HDJ_GENRE
@@ -941,6 +965,8 @@ def ensure_what_does_block(text: str) -> str:
             extras.append(RESEARCH_ADDENDUM)
         if HARDWARE_ADDENDUM not in text:
             extras.append(HARDWARE_ADDENDUM)
+        if THE_ARK_ADDENDUM not in text:
+            extras.append(THE_ARK_ADDENDUM)
         if TRADES_RUNTIME_ADDENDUM not in text:
             extras.append(TRADES_RUNTIME_ADDENDUM)
         if SPECTRALLOCK_ADDENDUM not in text:
@@ -1182,11 +1208,11 @@ def ensure_ai_cross_tether(text: str) -> str:
 
 def upsert_sisters_peacelock_line(text: str) -> str:
     line = (
-        f"- peacelock (public git + local-only runtime): {PEACELOCK_GITHUB}\n"
+        f"- peacelock (designed-purpose): {PEACELOCK_GITHUB}\n"
     )
-    if "peacelock (public git + local-only runtime" in text:
+    if "peacelock (designed-purpose" in text or "peacelock (public git + local-only runtime" in text:
         return re.sub(
-            r"- peacelock \(public git \+ local-only runtime[^\n]+\n",
+            r"- peacelock \((?:designed-purpose|public git \+ local-only runtime)[^\n]+\n",
             line,
             text,
             count=1,
@@ -1209,6 +1235,11 @@ def upsert_sisters_peacelock_line(text: str) -> str:
 
 
 def ensure_peacelock_cite(text: str, *, ai: bool = False) -> str:
+    text = re.sub(
+        r"\n## PeaceLock public git \+ local-only runtime \(machine\)\n[\s\S]*?(?=\n## |\Z)",
+        "\n",
+        text,
+    )
     text = upsert_sisters_peacelock_line(text)
     if ai:
         heading = PEACELOCK_AI_HEAD
@@ -1268,11 +1299,11 @@ def ensure_peacelock_cite(text: str, *, ai: bool = False) -> str:
 
 def ensure_related_peacelock(text: str) -> str:
     cite = (
-        f"PeaceLock public git + local-only runtime: [{PEACELOCK}]({PEACELOCK_GITHUB})."
+        f"PeaceLock designed-purpose: [{PEACELOCK}]({PEACELOCK_GITHUB})."
     )
-    if "PeaceLock public git + local-only runtime:" in text:
+    if "PeaceLock designed-purpose:" in text or "PeaceLock public git + local-only runtime:" in text:
         return re.sub(
-            r"PeaceLock public git \+ local-only runtime: \[[^\]]+\]\([^)]+\)\.+",
+            r"PeaceLock (?:designed-purpose|public git \+ local-only runtime): \[[^\]]+\]\([^)]+\)\.+",
             cite,
             text,
             count=1,
@@ -1467,6 +1498,8 @@ def ensure_genre_lock(text: str, *, ai: bool = False) -> str:
 
 def patch_txt(text: str, *, ai: bool = False) -> str:
     text = rewrite_stack(text)
+    if WHAT_AZIEL_ELIAB_DOES_OLD in text:
+        text = text.replace(WHAT_AZIEL_ELIAB_DOES_OLD, WHAT_AZIEL_ELIAB_DOES)
     if SPECTRALLOCK_ADDENDUM_OLD in text:
         text = text.replace(SPECTRALLOCK_ADDENDUM_OLD, SPECTRALLOCK_ADDENDUM)
     if SPECTRALLOCK_OLD in text:

@@ -1,9 +1,11 @@
 {
   "mcpServers": {
     "aziel-runtime": {
-      "description": "Aziel Runtime MCP (not hosted on hedidntjump.com). Prefer Glama listing.",
-      "url": "https://aziel-runtime.vibelock.workers.dev/mcp",
+      "description": "Aziel Runtime MCP (not hosted on hedidntjump.com). Glama is primary.",
+      "url": "https://glama.ai/mcp/servers/AzielEliab/aziel-runtime",
+      "mcp": "https://aziel-runtime.vibelock.workers.dev/mcp",
       "glama": "https://glama.ai/mcp/servers/AzielEliab/aziel-runtime",
+      "primary": "glama",
       "version": "2.0.0-rc1",
       "git_sha": "6a3798af3a94bfba3ed2e7aaadeed8777ea32bb4",
       "version_id": "105fa1ee",
