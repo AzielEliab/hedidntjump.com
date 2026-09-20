@@ -247,6 +247,7 @@ Planes A/B/C: A=one CF/GitHub tunnel (5 surfaces / 2 family radii, not 5 shelves
 - HDJ ingest tip (this host, unchanged): `ef967e4acb47ba913ce3959b673767278da605b307de33210b2dc2f1cfd86f60`
 - CROSS-NETWORK-SURVIVAL + NO-LIE / NO-REWRITE stay in force. Cite, don't merge. No invented holdings.
 
+
 ## SOFTWARES-RUNTIME-LAUNCH-1.0
 
 Sister-archive cite of Aziel Runtime launch readiness. HDJ stays the Marion Zioncheck archive.

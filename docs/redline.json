@@ -20,7 +20,7 @@
     "PLANE_B_ALL_TARGETS": "CNS-PLANE-B-ALL-TARGETS",
     "GITFLIC": "CNS-GITFLIC-EMAIL",
     "GITLAB": "CNS-GITLAB-CF-LOOP",
-    "ZENODO": "CNS-ZENODO-IP-BAN",
+    "ZENODO": "CNS-ZENODO-NOT-LIVE",
     "NO_TIP_DOI": "CNS-NO-TIP-DOI",
     "NO_FORGE_MIRROR": "CNS-NO-FORGE-MIRROR",
     "OPERATOR_ATTEST": "CNS-OPERATOR-ATTEST",
@@ -43,7 +43,7 @@
     "framagit_url": null,
     "gitflic": "CNS-GITFLIC-EMAIL",
     "gitlab": "CNS-GITLAB-CF-LOOP",
-    "zenodo": "CNS-ZENODO-IP-BAN",
+    "zenodo": "CNS-ZENODO-NOT-LIVE",
     "live_ready": false,
     "status": "slot"
   },

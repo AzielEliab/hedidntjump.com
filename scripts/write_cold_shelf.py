@@ -10,7 +10,7 @@ Archive.org tip-pack items: https://archive.org/details/aziel-lockset-tip
 same blast_radius archive-org — not a second independent shelf).
 Plane B ALL-TARGETS are Codeberg + archive.org + Framagit (Framagit URL null).
 GitFlic refused CNS-GITFLIC-EMAIL. GitLab extra/refused CNS-GITLAB-CF-LOOP.
-Zenodo refused CNS-ZENODO-IP-BAN. FoldLock cite is tip-safe only.
+Zenodo tip-pack stays SLOT (zenodo_live:false; doi null; CNS-ZENODO-NOT-LIVE). FoldLock cite is tip-safe only.
 Does not change hashed /ingest-as-receipt.json (tip stays
 ef967e4acb47ba913ce3959b673767278da605b307de33210b2dc2f1cfd86f60).
 Does not add visible 1 Chronicles 15:20 chrome.
@@ -126,7 +126,7 @@ REDLINE_REFUSE = {
     "PLANE_B_ALL_TARGETS": "CNS-PLANE-B-ALL-TARGETS",
     "GITFLIC": "CNS-GITFLIC-EMAIL",
     "GITLAB": "CNS-GITLAB-CF-LOOP",
-    "ZENODO": "CNS-ZENODO-IP-BAN",
+    "ZENODO": "CNS-ZENODO-NOT-LIVE",
     "NO_TIP_DOI": "CNS-NO-TIP-DOI",
     "NO_FORGE_MIRROR": "CNS-NO-FORGE-MIRROR",
     "OPERATOR_ATTEST": "CNS-OPERATOR-ATTEST",
@@ -195,7 +195,7 @@ def redline_cite() -> dict:
             "framagit_url": None,
             "gitflic": "CNS-GITFLIC-EMAIL",
             "gitlab": "CNS-GITLAB-CF-LOOP",
-            "zenodo": "CNS-ZENODO-IP-BAN",
+            "zenodo": "CNS-ZENODO-NOT-LIVE",
             "live_ready": False,
             "status": "slot",
         },
@@ -305,7 +305,8 @@ def planes() -> dict:
             },
             "zenodo_working_path": False,
             "live_ready": False,
-            "refuse": "CNS-ZENODO-IP-BAN",
+            "refuse": "CNS-PLANE-B-ALL-TARGETS",
+            "zenodo_live": False,
             "codeberg_tip_pack": {
                 "url": "https://codeberg.org/AzielEliab/aziel-lockset-tip",
                 "pack_sha256": CODEBERG_PACK,
@@ -361,7 +362,7 @@ def planes() -> dict:
                 "flat IA sha256 on the zip may be null; inner aziel-tip-pack.tar hash-verifies. "
                 "Framagit awaiting tip-pack (URL null). GitFlic refused (CNS-GITFLIC-EMAIL). "
                 "GitLab extra (CNS-GITLAB-CF-LOOP). LIVE only when all three pass "
-                "(CNS-PLANE-B-ALL-TARGETS). Zenodo refused (CNS-ZENODO-IP-BAN)."
+                "(CNS-PLANE-B-ALL-TARGETS). Zenodo tip-pack stays SLOT (zenodo_live:false; doi null; CNS-ZENODO-NOT-LIVE)."
             ),
         },
         "C": {
@@ -447,6 +448,7 @@ def registry() -> dict:
             "plane-b-archive-org-tip-pack",
             "plane-b-archive-org-tip-pack-202609",
             "plane-b-framagit-tip-pack",
+            "plane-b-zenodo-tip-pack",
             "plane-c-usb-airgap",
             "plane-c-forge-off-github",
             "plane-g-gitlab-tip-pack",
@@ -454,7 +456,6 @@ def registry() -> dict:
         ],
         "refused": [
             "plane-b-gitflic-ru-tip-pack",
-            "plane-b-zenodo-tip-pack",
         ],
         "shelves": shelf_rows(),
         "corpus_paper_deposits": [
@@ -534,7 +535,7 @@ def registry() -> dict:
             + " (same blast_radius; zip wrap on 202609 — flat IA sha256 may be null; "
             "inner tar hash-verifies). Not two independent shelves. still SLOT until Framagit "
             "(URL null). GitFlic refused CNS-GITFLIC-EMAIL. GitLab extra CNS-GITLAB-CF-LOOP. "
-            "Zenodo tip-pack is refused (CNS-ZENODO-IP-BAN). doi null. "
+            "Zenodo tip-pack stays SLOT (zenodo_live:false; doi null; CNS-ZENODO-NOT-LIVE). "
             "Paper deposits are corpus cites, not HDJ holdings, and not tip-pack Plane B. "
             "FoldLock neighbor is cite + SLOT hook (FOLDLOCK-SHELF-1.0): never fold the "
             "lockset tip. Plane C USB stays SLOT until CNS-OPERATOR-ATTEST."
@@ -780,17 +781,19 @@ def shelf_rows() -> list[dict]:
             "id": "plane-b-zenodo-tip-pack",
             "plane": "B",
             "kind": "zenodo_doi",
-            "status": "refused",
+            "status": "slot",
+            "zenodo_live": False,
             "doi": None,
             "url": None,
             "blast_radius": "zenodo-cern",
             "independent": True,
             "lockset_shelf": False,
             "lockset_doi": False,
-            "refuse": ["CNS-ZENODO-IP-BAN", "CNS-NO-TIP-DOI"],
+            "refuse": ["CNS-ZENODO-NOT-LIVE", "CNS-NO-TIP-DOI"],
             "reason": (
-                "Operator IP banned at Zenodo (CNS-ZENODO-IP-BAN). Zenodo is not the Plane B "
-                "working shelf. No tip-pack DOI (CNS-NO-TIP-DOI). cite.json / lockset doi stay "
+                "Plane B alternate forge/archive tip-pack — Zenodo deposit not LIVE "
+                "(zenodo_live:false; doi null; CNS-ZENODO-NOT-LIVE / CNS-NO-TIP-DOI). "
+                "Working path is Codeberg + archive.org + Framagit. cite.json / lockset doi stay "
                 "null. Do not invent. Corpus paper deposits are not this slot and are not HDJ holdings."
             ),
         },
@@ -890,7 +893,7 @@ def shelves_doc() -> dict:
         "lockset_id": LOCKSET_ID,
         "lockset_tip": LOCKSET_TIP,
         "doi": None,
-        "zenodo_status": "CNS-ZENODO-IP-BAN",
+        "zenodo_status": "CNS-ZENODO-NOT-LIVE",
         "canonical": CANON_SHELVES,
         "canonical_lockset": CANON_LOCKSET,
         "canonical_cite": CANON_CITE,
@@ -1136,8 +1139,9 @@ def patch_cite() -> None:
             "url": None,
         },
         "zenodo_tip_pack": {
-            "status": "refused",
-            "refuse": "CNS-ZENODO-IP-BAN",
+            "status": "slot",
+            "zenodo_live": False,
+            "refuse": "CNS-ZENODO-NOT-LIVE",
             "doi": None,
         },
         "redline": redline_cite(),
