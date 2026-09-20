@@ -1116,7 +1116,7 @@ def patch_chrome():
     for name in ("index.html", "official-narrative.html", "rubye.html", "foia.html", "reader.html", "copyrights.html"):
         path = DIST / name
         text = path.read_text()
-        text = text.replace('href="https://x.com/azieleliab"', 'href="https://x.com/AzielEliab"')
+        text = text.replace('href="https://x.com/AzielEliab"', 'href="https://x.com/AzielEliab"')
         if "azielcorpuslibrary.net/runtime" not in text:
             text = text.replace(STRIP_CORPUS, STRIP_CORPUS_NEW)
         if FOOTER_OLD in text:
