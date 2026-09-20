@@ -94,6 +94,8 @@ OPENAPI_PATHS = {
     "/help.txt": "Human help — Zioncheck mission, newspapers, volumes, links",
     "/addendum.txt": "Human addendum — volumes, FOIA, methodology, sister cites",
     "/help/how-to-read.txt": "How to read the newspapers and five volumes",
+    "/inquires": "Typo alias of /Inquiries (200 rewrite to inquiries.html)",
+    "/Aziel": "200 rewrite to aziel.html — not a second About body",
 }
 
 AI_AGENTS = [
@@ -659,6 +661,7 @@ STALE_JSONLD_URLS = (
     (f"{APEX}/copyrights.html", f"{APEX}/Copyrights"),
     (f"{APEX}/official-narrative.html", f"{APEX}/Narrative"),
     (f"{APEX}/reader.html", f"{APEX}/reader"),
+    (f"{APEX}/aziel.html", f"{APEX}/aziel"),
 )
 
 

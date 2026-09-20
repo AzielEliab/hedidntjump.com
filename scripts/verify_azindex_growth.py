@@ -128,6 +128,11 @@ def main() -> None:
             "/help.txt",
             "/addendum.txt",
             "/help/how-to-read.txt",
+            "/AboutAziel",
+            "/aziel",
+            "/AzielEliab",
+            "/inquires",
+            "/Aziel",
         ):
             assert loc in openapi["paths"], loc
         assert "No local MCP" in openapi["info"]["description"]
@@ -228,6 +233,16 @@ def main() -> None:
             if name not in {"aziel.html", "who.html"}:
                 assert ZION_ID in html or "marion-zioncheck" in html
             assert PERSON_ID in html
+            for block in re.findall(
+                r'<script type="application/ld\+json"[^>]*>[\s\S]*?</script>',
+                html,
+                flags=re.I,
+            ):
+                stale = re.search(
+                    r"https://hedidntjump\.com/[A-Za-z0-9-]+\.html",
+                    block,
+                )
+                assert not stale, f"{name} JSON-LD still uses {stale.group(0)}"
 
         mcp = json.loads((tree / "mcp.json").read_text(encoding="utf-8"))
         assert "no local MCP" in mcp["mcpServers"]["aziel-runtime"]["note"]
