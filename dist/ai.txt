@@ -75,6 +75,7 @@ TRADES-RUNTIME (sister Softwares/runtime cite-only):
 - Download: https://trades-runtime.vibelock.workers.dev/download
 - OpenAPI: https://trades-runtime.vibelock.workers.dev/openapi.json
 - MCP: https://trades-runtime.vibelock.workers.dev/mcp
+- Softwares SSoT version: 2.0.0-rc1 (https://aziel-runtime.vibelock.workers.dev/v1/software)
 - HDJ cites; does not host. Zioncheck stays the HDJ mission.
 - Growth-ON. NO-LIE. No visible 15:20.
 
@@ -86,6 +87,7 @@ SPECTRALLOCK (sister Softwares cite-only; leftover-bytes + /v1/recover + /v1/han
 - GitHub: https://github.com/AzielEliab/spectrallock
 - Download: https://spectrallock-download-tracker.vibelock.workers.dev/download
 - Worker: https://spectrallock-download-tracker.vibelock.workers.dev
+- Softwares SSoT version: 2.0.0-rc1 (https://aziel-runtime.vibelock.workers.dev/v1/software)
 - HDJ cites; does not host. Zioncheck stays the HDJ mission.
 - Growth-ON. NO-LIE. No visible 15:20.
 
@@ -150,6 +152,7 @@ Sister surfaces (this host is HDJ — Independent newspaper archive on Marion Zi
 - this: https://www.hedidntjump.com/ — Independent newspaper archive on Marion Zioncheck / He Didn't Jump (75% cap class).
 - trades-runtime (sister Softwares cite-only): https://trades-runtime.vibelock.workers.dev
 - spectrallock (sister Softwares cite-only; leftover-bytes + /v1/recover + /v1/handwriting): https://spectrallock-download-tracker.vibelock.workers.dev
+- peacelock (public git + local-only runtime): https://github.com/AzielEliab/peacelock
 Try on Glama: https://glama.ai/mcp/servers/AzielEliab/aziel-runtime
 GitHub AzielEliab: https://github.com/AzielEliab
 X @AzielEliab: https://x.com/AzielEliab
@@ -170,6 +173,7 @@ Softwares (list; HDJ cites, does not host):
 - The ARK (local deniable vault); download+ https://ark-download-tracker.vibelock.workers.dev/download ; stats https://ark-download-tracker.vibelock.workers.dev/stats ; github https://github.com/AzielEliab/ark
 - Trades-Runtime (local-first BYO trades runtime); worker https://trades-runtime.vibelock.workers.dev ; github https://github.com/AzielEliab/trades-runtime ; download https://trades-runtime.vibelock.workers.dev/download ; openapi https://trades-runtime.vibelock.workers.dev/openapi.json ; mcp https://trades-runtime.vibelock.workers.dev/mcp
 - SpectralLock (leftover-bytes + /v1/recover + /v1/handwriting); leftover-bytes https://spectrallock-download-tracker.vibelock.workers.dev/v1/unredact ; /v1/recover https://spectrallock-download-tracker.vibelock.workers.dev/v1/recover ; /v1/handwriting https://spectrallock-download-tracker.vibelock.workers.dev/v1/handwriting ; github https://github.com/AzielEliab/spectrallock ; download https://spectrallock-download-tracker.vibelock.workers.dev/download
+- PeaceLock (public git + local-only runtime); github https://github.com/AzielEliab/peacelock
 
 Q: What does Aziel Eliab do?
 Q: What Aziel Eliab does
@@ -236,3 +240,13 @@ Sister stats
 - hdj: https://www.hedidntjump.com/api/stats
 Growth-ON. NO-LIE. Person @id: https://www.azieleliab.com/#aziel
 Identity Aziel Eliab only. Receipts chrome stays Aziel-page-only (not paper-tabs).
+
+PEACELOCK (public git + local-only runtime):
+- Chosen silence / chosen inaction as a hash-chained receipt (PL-WP-0.1). Aziel Eliab only.
+- GitHub: https://github.com/AzielEliab/peacelock
+- Local-only runtime on aziel-runtime.
+- Softwares SSoT version: 2.0.0-rc1 (https://aziel-runtime.vibelock.workers.dev/v1/software)
+- HDJ cites; does not host. Zioncheck stays the HDJ mission.
+- Growth-ON. NO-LIE. No visible 15:20.
+
+SISTER SOFTWARES (public git + local-only runtime): PeaceLock records chosen silence or chosen inaction as a hash-chained receipt (PL-WP-0.1). Public git https://github.com/AzielEliab/peacelock. Local-only runtime on aziel-runtime. HDJ cites; does not host. Zioncheck stays the HDJ mission.

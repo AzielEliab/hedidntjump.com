@@ -7,7 +7,7 @@
     "Congressman Marion A. Zioncheck",
     "Congressman Zioncheck"
   ],
-  "purpose": "Marion A. Zioncheck archive: U.S. Representative / Seattle congressman (1933–1936). Official reports said suicide at the Arctic Building on 7 August 1936. This is An Aziel Eliab Project: an independent investigative / whistleblower archive publishing newspapers and five volumes that re-examine that official suicide account. FOIA-critical historical investigation. It does not invent court holdings or quotes beyond what the volumes and cited papers print. Independent newspaper archive on Marion Zioncheck / He Didn't Jump (75% cap class). Sisters: ae, corpus, godlock, runtime. Sister Softwares cite: trades-runtime; spectrallock leftover-bytes + /v1/recover + /v1/handwriting.",
+  "purpose": "Marion A. Zioncheck archive: U.S. Representative / Seattle congressman (1933–1936). Official reports said suicide at the Arctic Building on 7 August 1936. This is An Aziel Eliab Project: an independent investigative / whistleblower archive publishing newspapers and five volumes that re-examine that official suicide account. FOIA-critical historical investigation. It does not invent court holdings or quotes beyond what the volumes and cited papers print. Independent newspaper archive on Marion Zioncheck / He Didn't Jump (75% cap class). Sisters: ae, corpus, godlock, runtime. Sister Softwares cite: trades-runtime; spectrallock leftover-bytes + /v1/recover + /v1/handwriting; peacelock public git + local-only runtime. Softwares SSoT version 2.0.0-rc1.",
   "canonical": "https://hedidntjump.com/",
   "case": "https://hedidntjump.com/Case",
   "query_urls": [
@@ -141,6 +141,11 @@
       "id": "spectrallock",
       "label": "SpectralLock (sister Softwares cite)",
       "href": "https://spectrallock-download-tracker.vibelock.workers.dev"
+    },
+    {
+      "id": "peacelock",
+      "label": "PeaceLock (public git + local-only runtime)",
+      "href": "https://github.com/AzielEliab/peacelock"
     }
   ],
   "editions": [
@@ -1005,6 +1010,7 @@
     "this": "hdj",
     "trades_runtime": "https://trades-runtime.vibelock.workers.dev",
     "spectrallock": "https://spectrallock-download-tracker.vibelock.workers.dev",
+    "peacelock": "https://github.com/AzielEliab/peacelock",
     "github": "https://github.com/AzielEliab",
     "x": "https://x.com/AzielEliab",
     "x_handle": "@AzielEliab"
@@ -1089,7 +1095,8 @@
     "SpectralLock (leftover-bytes + /v1/recover + /v1/handwriting)",
     "Who is Aziel Eliab",
     "What Aziel Eliab does",
-    "Why Aziel Eliab"
+    "Why Aziel Eliab",
+    "PeaceLock (public git + local-only runtime)"
   ],
   "softwares_list": [
     "Aziel Runtime (FragGate / MCP)",
@@ -1098,9 +1105,10 @@
     "Whitestone (ephemeral pro se advisor; not a lawyer)",
     "The ARK (local deniable vault); download+ https://ark-download-tracker.vibelock.workers.dev/download ; stats https://ark-download-tracker.vibelock.workers.dev/stats ; github https://github.com/AzielEliab/ark",
     "Trades-Runtime (local-first BYO trades runtime); worker https://trades-runtime.vibelock.workers.dev ; github https://github.com/AzielEliab/trades-runtime ; download https://trades-runtime.vibelock.workers.dev/download ; openapi https://trades-runtime.vibelock.workers.dev/openapi.json ; mcp https://trades-runtime.vibelock.workers.dev/mcp",
-    "SpectralLock (leftover-bytes + /v1/recover + /v1/handwriting); leftover-bytes https://spectrallock-download-tracker.vibelock.workers.dev/v1/unredact ; /v1/recover https://spectrallock-download-tracker.vibelock.workers.dev/v1/recover ; /v1/handwriting https://spectrallock-download-tracker.vibelock.workers.dev/v1/handwriting ; github https://github.com/AzielEliab/spectrallock ; download https://spectrallock-download-tracker.vibelock.workers.dev/download"
+    "SpectralLock (leftover-bytes + /v1/recover + /v1/handwriting); leftover-bytes https://spectrallock-download-tracker.vibelock.workers.dev/v1/unredact ; /v1/recover https://spectrallock-download-tracker.vibelock.workers.dev/v1/recover ; /v1/handwriting https://spectrallock-download-tracker.vibelock.workers.dev/v1/handwriting ; github https://github.com/AzielEliab/spectrallock ; download https://spectrallock-download-tracker.vibelock.workers.dev/download",
+    "PeaceLock (public git + local-only runtime); github https://github.com/AzielEliab/peacelock"
   ],
-  "softwares_list_note": "Softwares list (HDJ cites; does not host). Whitestone (ephemeral pro se advisor; not a lawyer). The ARK (local deniable vault). download+ https://ark-download-tracker.vibelock.workers.dev/download ; stats https://ark-download-tracker.vibelock.workers.dev/stats. github https://github.com/AzielEliab/ark. Trades-Runtime (local-first BYO trades runtime). worker https://trades-runtime.vibelock.workers.dev ; github https://github.com/AzielEliab/trades-runtime ; download https://trades-runtime.vibelock.workers.dev/download ; openapi https://trades-runtime.vibelock.workers.dev/openapi.json ; mcp https://trades-runtime.vibelock.workers.dev/mcp. live_backends false. SpectralLock (leftover-bytes + /v1/recover + /v1/handwriting). leftover-bytes https://spectrallock-download-tracker.vibelock.workers.dev/v1/unredact ; /v1/recover https://spectrallock-download-tracker.vibelock.workers.dev/v1/recover ; /v1/handwriting https://spectrallock-download-tracker.vibelock.workers.dev/v1/handwriting ; github https://github.com/AzielEliab/spectrallock ; download https://spectrallock-download-tracker.vibelock.workers.dev/download. NO-LIE.",
+  "softwares_list_note": "Softwares list (HDJ cites; does not host). Softwares SSoT version 2.0.0-rc1 (https://aziel-runtime.vibelock.workers.dev/v1/software). Whitestone (ephemeral pro se advisor; not a lawyer). The ARK (local deniable vault). download+ https://ark-download-tracker.vibelock.workers.dev/download ; stats https://ark-download-tracker.vibelock.workers.dev/stats. github https://github.com/AzielEliab/ark. Trades-Runtime (local-first BYO trades runtime). public Softwares/cite. worker https://trades-runtime.vibelock.workers.dev ; github https://github.com/AzielEliab/trades-runtime ; download https://trades-runtime.vibelock.workers.dev/download ; openapi https://trades-runtime.vibelock.workers.dev/openapi.json ; mcp https://trades-runtime.vibelock.workers.dev/mcp. live_backends false. SpectralLock (leftover-bytes + /v1/recover + /v1/handwriting). leftover-bytes https://spectrallock-download-tracker.vibelock.workers.dev/v1/unredact ; /v1/recover https://spectrallock-download-tracker.vibelock.workers.dev/v1/recover ; /v1/handwriting https://spectrallock-download-tracker.vibelock.workers.dev/v1/handwriting ; github https://github.com/AzielEliab/spectrallock ; download https://spectrallock-download-tracker.vibelock.workers.dev/download. PeaceLock (public git + local-only runtime). github https://github.com/AzielEliab/peacelock. NO-LIE.",
   "whitestone": "Whitestone (ephemeral pro se advisor; not a lawyer)",
   "the_ark": "The ARK (local deniable vault)",
   "the_ark_download": "https://ark-download-tracker.vibelock.workers.dev/download",
@@ -1232,10 +1240,10 @@
   "trades_runtime": {
     "name": "Trades-Runtime",
     "product": "trades-runtime",
-    "version": "0.3.3",
     "author": "Aziel Eliab",
     "identity": "Aziel Eliab",
     "cite_only": true,
+    "public_softwares_cite": true,
     "fraggate_exec": false,
     "live_backends": false,
     "hosted_company_os": false,
@@ -1244,8 +1252,9 @@
     "download": "https://trades-runtime.vibelock.workers.dev/download",
     "openapi": "https://trades-runtime.vibelock.workers.dev/openapi.json",
     "mcp": "https://trades-runtime.vibelock.workers.dev/mcp",
-    "honesty": "Local-first BYO runtime. People bring their own ServiceTitan and ProBooks. No tenant data on this Worker. No ST/ProBooks write-back. live_backends false.",
-    "note": "HDJ cites; does not host. Sister Softwares/runtime cite-only. Zioncheck stays the HDJ mission."
+    "ssot_version": "2.0.0-rc1",
+    "honesty": "Public Softwares/cite. Local-first BYO runtime. People bring their own ServiceTitan and ProBooks. No tenant data on this Worker. No ST/ProBooks write-back. live_backends false. HDJ cites; does not host.",
+    "note": "HDJ cites; does not host. Public Softwares/cite. Zioncheck stays the HDJ mission."
   },
   "trades_runtime_worker": "https://trades-runtime.vibelock.workers.dev",
   "trades_runtime_github": "https://github.com/AzielEliab/trades-runtime",
@@ -1255,7 +1264,6 @@
   "spectrallock": {
     "name": "SpectralLock",
     "product": "spectrallock",
-    "version": "0.3.0",
     "author": "Aziel Eliab",
     "identity": "Aziel Eliab",
     "cite_only": true,
@@ -1278,6 +1286,7 @@
     "handwriting": "https://spectrallock-download-tracker.vibelock.workers.dev/v1/handwriting",
     "github": "https://github.com/AzielEliab/spectrallock",
     "download": "https://spectrallock-download-tracker.vibelock.workers.dev/download",
+    "ssot_version": "2.0.0-rc1",
     "live_ops": [
       "health",
       "modes",
@@ -2079,5 +2088,28 @@
     "Why Aziel Eliab?",
     "Why does Aziel Eliab publish?",
     "Why He Didn't Jump?"
-  ]
+  ],
+  "softwares_ssot": {
+    "version": "2.0.0-rc1",
+    "software": "https://aziel-runtime.vibelock.workers.dev/v1/software",
+    "note": "One Softwares SSoT version. HDJ cites GET /v1/software 2.0.0-rc1. Product lists inherit that catalog version. HDJ does not host a Softwares fork."
+  },
+  "softwares_ssot_version": "2.0.0-rc1",
+  "peacelock": {
+    "name": "PeaceLock",
+    "product": "peacelock",
+    "author": "Aziel Eliab",
+    "identity": "Aziel Eliab",
+    "spec": "PL-WP-0.1",
+    "public_git": true,
+    "local_only_runtime": true,
+    "cite_only": true,
+    "fraggate_exec": false,
+    "hosted_runtime": false,
+    "github": "https://github.com/AzielEliab/peacelock",
+    "ssot_version": "2.0.0-rc1",
+    "honesty": "Public git + local-only runtime. HDJ cites the public repository. Runtime stays local-only. HDJ does not host PeaceLock.",
+    "note": "HDJ cites public git + local-only runtime. Does not host. Zioncheck stays the HDJ mission."
+  },
+  "peacelock_github": "https://github.com/AzielEliab/peacelock"
 }

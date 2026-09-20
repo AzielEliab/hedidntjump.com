@@ -35,12 +35,18 @@ from aziel_living import (
     KNOWS_ABOUT_EXTRA,
     LIVING_STACK,
     OLD_STACK_PHRASES,
+    PEACELOCK,
+    PEACELOCK_ADDENDUM,
+    PEACELOCK_GITHUB,
+    PEACELOCK_LIST,
     PERSON_ID,
     RESEARCH_ADDENDUM,
     SISTERS,
     SISTERS_GLAMA,
     SISTERS_HDJ,
     SOFTWARES_LIST,
+    SOFTWARES_SSOT_SOFTWARE,
+    SOFTWARES_SSOT_VERSION,
     SPECTRALLOCK,
     SPECTRALLOCK_ADDENDUM,
     SPECTRALLOCK_DOWNLOAD,
@@ -204,12 +210,24 @@ def main() -> None:
         assert "Trades-Runtime" not in WHAT_AZIEL_ELIAB_DOES
         assert SPECTRALLOCK not in WHAT_AZIEL_ELIAB_DOES
         assert "SpectralLock" not in WHAT_AZIEL_ELIAB_DOES
+        assert PEACELOCK not in WHAT_AZIEL_ELIAB_DOES
+        assert "PeaceLock" not in WHAT_AZIEL_ELIAB_DOES
         assert SPECTRALLOCK_OLD not in WHAT_AZIEL_ELIAB_DOES
         assert cite["softwares_list"] == list(SOFTWARES_LIST)
         assert WHITESTONE in cite["softwares_list"]
         assert THE_ARK_LIST in cite["softwares_list"]
         assert TRADES_RUNTIME_LIST in cite["softwares_list"]
         assert SPECTRALLOCK_LIST in cite["softwares_list"]
+        assert PEACELOCK_LIST in cite["softwares_list"]
+        assert cite["softwares_ssot"]["version"] == SOFTWARES_SSOT_VERSION
+        assert cite["softwares_ssot"]["software"] == SOFTWARES_SSOT_SOFTWARE
+        assert cite["softwares_ssot_version"] == SOFTWARES_SSOT_VERSION
+        assert "version" not in cite["trades_runtime"]
+        assert "version" not in cite["spectrallock"]
+        assert "version" not in cite["peacelock"]
+        assert cite["trades_runtime"]["ssot_version"] == SOFTWARES_SSOT_VERSION
+        assert cite["spectrallock"]["ssot_version"] == SOFTWARES_SSOT_VERSION
+        assert cite["peacelock"]["ssot_version"] == SOFTWARES_SSOT_VERSION
         assert cite["whitestone"] == WHITESTONE
         assert cite["the_ark"] == THE_ARK
         assert cite["the_ark_download"] == THE_ARK_DOWNLOAD
@@ -228,6 +246,7 @@ def main() -> None:
         assert cite["trades_runtime"]["live_backends"] is False
         assert cite["trades_runtime"]["fraggate_exec"] is False
         assert cite["trades_runtime"]["cite_only"] is True
+        assert cite["trades_runtime"]["public_softwares_cite"] is True
         assert cite["trades_runtime"]["worker"] == TRADES_RUNTIME_WORKER
         assert cite["trades_runtime"]["github"] == TRADES_RUNTIME_GITHUB
         assert cite["trades_runtime"]["download"] == TRADES_RUNTIME_DOWNLOAD
@@ -244,6 +263,28 @@ def main() -> None:
         assert TRADES_RUNTIME_OPENAPI in cite["softwares_list_note"]
         assert TRADES_RUNTIME_MCP in cite["softwares_list_note"]
         assert "trades-runtime" in cite["purpose"]
+        assert "peacelock" in cite["purpose"]
+        assert "local-only runtime" in cite["purpose"]
+        assert SOFTWARES_SSOT_VERSION in cite["purpose"]
+        assert cite["sisters"]["peacelock"] == PEACELOCK_GITHUB
+        assert cite["peacelock_github"] == PEACELOCK_GITHUB
+        assert cite["peacelock"]["public_git"] is True
+        assert cite["peacelock"]["local_only_runtime"] is True
+        assert cite["peacelock"]["cite_only"] is True
+        assert cite["peacelock"]["fraggate_exec"] is False
+        assert cite["peacelock"]["hosted_runtime"] is False
+        assert cite["peacelock"]["github"] == PEACELOCK_GITHUB
+        assert "worker" not in cite["peacelock"]
+        assert "download" not in cite["peacelock"]
+        assert any(
+            e.get("id") == "peacelock" and e.get("href") == PEACELOCK_GITHUB
+            for e in cite["ecosystem"]
+            if isinstance(e, dict)
+        )
+        assert PEACELOCK_GITHUB in cite["softwares_list_note"]
+        assert SOFTWARES_SSOT_VERSION in cite["softwares_list_note"]
+        assert SOFTWARES_SSOT_SOFTWARE in cite["softwares_list_note"]
+        assert "public Softwares/cite" in cite["softwares_list_note"]
         assert cite["sisters"]["spectrallock"] == SPECTRALLOCK_WORKER
         assert cite["spectrallock_worker"] == SPECTRALLOCK_WORKER
         assert cite["spectrallock_unredact"] == SPECTRALLOCK_UNREDACT
@@ -337,9 +378,13 @@ def main() -> None:
         assert person.get("spectrallock_handwriting") == SPECTRALLOCK_HANDWRITING
         assert person.get("spectrallock_github") == SPECTRALLOCK_GITHUB
         assert person.get("spectrallock_download") == SPECTRALLOCK_DOWNLOAD
+        assert person.get("peacelock") == PEACELOCK
+        assert person.get("peacelock_github") == PEACELOCK_GITHUB
+        assert person.get("softwares_ssot_version") == SOFTWARES_SSOT_VERSION
         assert THE_ARK in person["knowsAbout"]
         assert TRADES_RUNTIME in person["knowsAbout"]
         assert SPECTRALLOCK in person["knowsAbout"]
+        assert PEACELOCK in person["knowsAbout"]
         assert "GodLock (product, not identity)" in person["knowsAbout"]
 
         identity = json.loads(blobs["identity.jsonld"])
@@ -370,6 +415,7 @@ def main() -> None:
             THE_ARK,
             TRADES_RUNTIME,
             SPECTRALLOCK,
+            PEACELOCK,
         ):
             assert extra in ident_knows, extra
             assert extra in well_knows, extra
@@ -382,6 +428,10 @@ def main() -> None:
         assert "## SpectralLock sister cite (machine)" in blobs["llms-full.txt"]
         assert "SPECTRALLOCK (sister Softwares cite-only" in blobs["ai.txt"]
         assert "Sister Softwares cite: [SpectralLock]" in blobs["llms.txt"]
+        assert "## PeaceLock public git + local-only runtime (machine)" in blobs["llms.txt"]
+        assert "## PeaceLock public git + local-only runtime (machine)" in blobs["llms-full.txt"]
+        assert "PEACELOCK (public git + local-only runtime" in blobs["ai.txt"]
+        assert "PeaceLock public git + local-only runtime:" in blobs["llms.txt"]
         assert SPECTRALLOCK_UNREDACT in blobs["llms.txt"]
         assert SPECTRALLOCK_RECOVER in blobs["llms.txt"]
         assert SPECTRALLOCK_HANDWRITING in blobs["llms.txt"]
@@ -455,6 +505,14 @@ def main() -> None:
             assert SPECTRALLOCK_GITHUB in text, rel
             assert SPECTRALLOCK_DOWNLOAD in text, rel
             assert SPECTRALLOCK_WORKER in text, rel
+            assert PEACELOCK in text, rel
+            assert PEACELOCK_LIST in text, rel
+            assert PEACELOCK_ADDENDUM in text, rel
+            assert PEACELOCK_GITHUB in text, rel
+            assert "public git + local-only runtime" in text, rel
+            assert SOFTWARES_SSOT_VERSION in text, rel
+            assert SOFTWARES_SSOT_SOFTWARE in text, rel
+            assert "peacelock-download-tracker" not in text, rel
             assert "SL-UNREDACT-OPAQUE" in text, rel
             assert "leftover-bytes" in text, rel
             assert "/v1/recover" in text, rel
@@ -494,10 +552,13 @@ def main() -> None:
         assert SPECTRALLOCK_UNREDACT not in sitemap
         assert SPECTRALLOCK_RECOVER not in sitemap
         assert SPECTRALLOCK_HANDWRITING not in sitemap
+        assert PEACELOCK_GITHUB not in sitemap
+        assert "peacelock-download-tracker" not in sitemap
         index = (tree / "sitemap-index.xml").read_text(encoding="utf-8")
         assert "<loc>https://hedidntjump.com/sitemap.xml</loc>" in index
         assert "trades-runtime.vibelock.workers.dev" not in index
         assert "spectrallock-download-tracker.vibelock.workers.dev" not in index
+        assert "peacelock-download-tracker" not in index
 
         ingest = (tree / "ingest-as-receipt.json").read_bytes()
         import hashlib

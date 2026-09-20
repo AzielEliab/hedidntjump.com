@@ -373,8 +373,36 @@ TRADES_RUNTIME_ADDENDUM = (
     "Zioncheck stays the HDJ mission."
 )
 TRADES_RUNTIME_HONESTY = (
-    "Local-first BYO runtime. People bring their own ServiceTitan and ProBooks. "
-    "No tenant data on this Worker. No ST/ProBooks write-back. live_backends false."
+    "Public Softwares/cite. Local-first BYO runtime. People bring their own "
+    "ServiceTitan and ProBooks. No tenant data on this Worker. No ST/ProBooks "
+    "write-back. live_backends false. HDJ cites; does not host."
+)
+
+# Coordinator lock: PeaceLock is public git + local-only runtime.
+# HDJ cites the GitHub repo. Do not invent a hosted Worker / FragGate exec.
+PEACELOCK = "PeaceLock (public git + local-only runtime)"
+PEACELOCK_GITHUB = "https://github.com/AzielEliab/peacelock"
+PEACELOCK_SPEC = "PL-WP-0.1"
+PEACELOCK_LIST = f"{PEACELOCK}; github {PEACELOCK_GITHUB}"
+PEACELOCK_ADDENDUM = (
+    "SISTER SOFTWARES (public git + local-only runtime): "
+    "PeaceLock records chosen silence or chosen inaction as a hash-chained "
+    f"receipt ({PEACELOCK_SPEC}). Public git {PEACELOCK_GITHUB}. "
+    "Local-only runtime on aziel-runtime. HDJ cites; does not host. "
+    "Zioncheck stays the HDJ mission."
+)
+PEACELOCK_HONESTY = (
+    "Public git + local-only runtime. HDJ cites the public repository. "
+    "Runtime stays local-only. HDJ does not host PeaceLock."
+)
+
+# One Softwares SSoT version — GET /v1/software catalog, not per-product forks.
+SOFTWARES_SSOT_VERSION = "2.0.0-rc1"
+SOFTWARES_SSOT_SOFTWARE = "https://aziel-runtime.vibelock.workers.dev/v1/software"
+SOFTWARES_SSOT_NOTE = (
+    "One Softwares SSoT version. HDJ cites GET /v1/software "
+    f"{SOFTWARES_SSOT_VERSION}. Product lists inherit that catalog version. "
+    "HDJ does not host a Softwares fork."
 )
 
 # Sister Softwares cite-only. leftover-bytes + /v1/recover + /v1/handwriting
@@ -441,14 +469,17 @@ SOFTWARES_LIST = (
     THE_ARK_LIST,
     TRADES_RUNTIME_LIST,
     SPECTRALLOCK_LIST,
+    PEACELOCK_LIST,
 )
 
 SOFTWARES_LIST_NOTE = (
     "Softwares list (HDJ cites; does not host). "
+    f"Softwares SSoT version {SOFTWARES_SSOT_VERSION} "
+    f"({SOFTWARES_SSOT_SOFTWARE}). "
     f"{WHITESTONE}. "
     f"{THE_ARK}. download+ {THE_ARK_DOWNLOAD} ; stats {THE_ARK_STATS}. "
     f"github {THE_ARK_GITHUB}. "
-    f"{TRADES_RUNTIME}. worker {TRADES_RUNTIME_WORKER} ; "
+    f"{TRADES_RUNTIME}. public Softwares/cite. worker {TRADES_RUNTIME_WORKER} ; "
     f"github {TRADES_RUNTIME_GITHUB} ; download {TRADES_RUNTIME_DOWNLOAD} ; "
     f"openapi {TRADES_RUNTIME_OPENAPI} ; mcp {TRADES_RUNTIME_MCP}. "
     "live_backends false. "
@@ -456,6 +487,7 @@ SOFTWARES_LIST_NOTE = (
     f"/v1/recover {SPECTRALLOCK_RECOVER} ; "
     f"/v1/handwriting {SPECTRALLOCK_HANDWRITING} ; "
     f"github {SPECTRALLOCK_GITHUB} ; download {SPECTRALLOCK_DOWNLOAD}. "
+    f"{PEACELOCK}. github {PEACELOCK_GITHUB}. "
     "NO-LIE."
 )
 
@@ -507,6 +539,7 @@ KNOWS_ABOUT_EXTRA = (
     THE_ARK,
     TRADES_RUNTIME,
     SPECTRALLOCK,
+    PEACELOCK,
     "He Didn’t Jump Zioncheck archive",
     "Marion Zioncheck Visual Archive",
     "Book of the Knowledge",

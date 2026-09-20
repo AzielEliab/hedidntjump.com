@@ -36,6 +36,7 @@ from aziel_living import (
     KNOWS_ABOUT_EXTRA,
     RESEARCH_ADDENDUM,
     SISTERS_GLAMA,
+    PEACELOCK_ADDENDUM,
     SPECTRALLOCK_ADDENDUM,
     TRADES_RUNTIME_ADDENDUM,
     WHAT_AZIEL_ELIAB_DOES,
@@ -701,6 +702,8 @@ What Aziel Eliab does (locked Softwares brief)
 {TRADES_RUNTIME_ADDENDUM}
 
 {SPECTRALLOCK_ADDENDUM}
+
+{PEACELOCK_ADDENDUM}
 
 About Aziel (published page — {ABOUT_PAGE})
 Lead: {ABOUT_MOTTO}
