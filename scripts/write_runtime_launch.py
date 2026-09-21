@@ -122,6 +122,20 @@ def launch_cite() -> dict:
             "plane_c": "SLOT",
             "no_live_invent": True,
         },
+        "live_nodes": {
+            "sot": RUNTIME_MESH,
+            "plane": "human-mesh-users-uses",
+            "counts": "human mesh users + cited human uses",
+            "software_nodes_excluded": True,
+            "instance_nodes_excluded": True,
+            "invent_users": False,
+            "runtime_pr": "https://github.com/AzielEliab/aziel-runtime/pull/151",
+            "hub": f"{APEX}/mesh",
+            "note": (
+                "Public Live Nodes cite GET /v1/mesh live_nodes + live_nodes_note. "
+                "Softwares stay on software_nodes and do not feed this pill."
+            ),
+        },
         "ingest_tip_unchanged": HDJ_INGEST_TIP,
         "note": (
             "Announce/sync only. Cite aziel-runtime / Try on Glama. "
@@ -137,6 +151,7 @@ Sister-archive cite of Aziel Runtime launch readiness. HDJ stays the Marion Zion
 Runtime SoT LIVE: `{RUNTIME_GITHUB}` main `{GIT_SHORT}` / version_id `{VERSION_ID}` / `{VERSION}`.
 Prefer [Try on Glama]({RUNTIME_GLAMA}). Worker (secondary): {RUNTIME_WORKER}
 Human UI + MCP + mesh/VPN/radios + `/download` are launch-ready on aziel-runtime. This host cites; it does not host Softwares, MCP, mesh radios, or `/download`. GET never enables radios beyond suite-presence.
+Live Nodes cite `{RUNTIME_MESH}`: human mesh users + cited human uses. Softwares (`software_nodes`) never feed that pill.
 Identity Aziel Eliab only. Person @id: {PERSON_ID}. No visible 1 Chronicles 15:20.
 Lamb Lens ingest: https://www.azielcorpuslibrary.net/corpus (not this host). NO-LIE / NO-REWRITE stays in force.
 
@@ -155,6 +170,7 @@ AI_BLOCK = f"""SOFTWARES-RUNTIME-LAUNCH-1.0 (sister cite):
 - Counted /download: {RUNTIME_DOWNLOAD}
 - MCP: {RUNTIME_MCP}
 - Mesh/VPN/radios cite: {RUNTIME_MESH} (GET never enables radios beyond suite-presence)
+- Live Nodes = human mesh users + cited human uses. Softwares ≠ Live Nodes.
 - Human UI + MCP + mesh/VPN/radios + /download ready on aziel-runtime. HDJ cites; does not host.
 - Identity Aziel Eliab only. Person @id: {PERSON_ID}. No visible 15:20.
 - Lamb Lens: https://www.azielcorpuslibrary.net/corpus
@@ -274,7 +290,7 @@ def patch_llms() -> None:
         text = ai.read_text(encoding="utf-8")
         if "SOFTWARES-RUNTIME-LAUNCH-1.0" in text:
             text = re.sub(
-                r"\nSOFTWARES-RUNTIME-LAUNCH-1.0[\s\S]*?(?=\nIdentity lock|\nPublisher name|\nCOLD-MULTI-SHELF|\Z)",
+                r"\nSOFTWARES-RUNTIME-LAUNCH-1.0[\s\S]*?(?=\nLIVE-NODES|\nBAN-SURVIVAL|\nIdentity lock|\nPublisher name|\nCOLD-MULTI-SHELF|\Z)",
                 "\n" + AI_BLOCK.strip() + "\n\n",
                 text,
                 count=1,

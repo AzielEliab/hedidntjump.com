@@ -420,5 +420,17 @@
     "mission": "Zioncheck archive",
     "person_id": "https://www.azieleliab.com/#aziel",
     "visible_1520": false
+  },
+  "live_nodes": {
+    "spec": "LIVE-NODES-HUB-CITE-1.0",
+    "sot": "https://aziel-runtime.vibelock.workers.dev/v1/mesh",
+    "ttl_seconds": 60,
+    "plane": "human-mesh-users-uses",
+    "software_nodes_excluded": true,
+    "invent_users": false,
+    "this_host_is_live_door": false,
+    "mission": "Zioncheck archive",
+    "person_id": "https://www.azieleliab.com/#aziel",
+    "visible_1520": false
   }
 }

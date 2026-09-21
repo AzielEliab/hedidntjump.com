@@ -960,6 +960,7 @@ Sister-archive cite of Aziel Runtime launch readiness. HDJ stays the Marion Zion
 Runtime SoT LIVE: `https://github.com/AzielEliab/aziel-runtime` main `6a3798a` / version_id `105fa1ee` / `2.0.0-rc1`.
 Prefer [Try on Glama](https://glama.ai/mcp/servers/AzielEliab/aziel-runtime). Worker (secondary): https://aziel-runtime.vibelock.workers.dev/
 Human UI + MCP + mesh/VPN/radios + `/download` are launch-ready on aziel-runtime. This host cites; it does not host Softwares, MCP, mesh radios, or `/download`. GET never enables radios beyond suite-presence.
+Live Nodes cite `https://aziel-runtime.vibelock.workers.dev/v1/mesh`: human mesh users + cited human uses. Softwares (`software_nodes`) never feed that pill.
 Identity Aziel Eliab only. Person @id: https://www.azieleliab.com/#aziel. No visible 1 Chronicles 15:20.
 Lamb Lens ingest: https://www.azielcorpuslibrary.net/corpus (not this host). NO-LIE / NO-REWRITE stays in force.
 
@@ -1079,6 +1080,22 @@ Softwares (list; HDJ cites, does not host):
 - VeilLock — Follow local camera and screen steps for apps on your own device.
 - VibeLock — Score speech audio you already have for physical consistency risk.
 - WhistleLock — Hash a local drop and keep a dead-man copy on the client.
+
+## LIVE-NODES-HUB-CITE-1.0
+
+Hub pull of Aziel Runtime `GET /v1/mesh` (short TTL 60s). HDJ stays the Marion Zioncheck archive.
+
+SoT: https://aziel-runtime.vibelock.workers.dev/v1/mesh
+Runtime lock: https://github.com/AzielEliab/aziel-runtime/pull/151
+Public **Live Nodes** (`live_nodes` / `rollup.mesh`) = **human mesh users** (join/heartbeat/presence with human bearers) + cited **human uses** (`USES` / `human_uses`).
+`software_nodes` is the Softwares `{slug}-worker` roster. Softwares ≠ Live Nodes. Downloaded instances stay `instance_nodes`. Isolated humans stay on `isolated_nodes`.
+Uses are interaction counters, not unique people. Incomplete or unbound telemetry is `0` + `complete=false`. Live Nodes does not invent users.
+Read `live_nodes` + `live_nodes_note`. Do not display `software_nodes` as Live Nodes.
+Person @id: https://www.azieleliab.com/#aziel. Lamb Lens ingest: https://www.azielcorpuslibrary.net/corpus. NO-LIE / NO-REWRITE. No visible 1 Chronicles 15:20.
+Zioncheck stays the HDJ mission.
+HDJ ingest tip unchanged: `ef967e4acb47ba913ce3959b673767278da605b307de33210b2dc2f1cfd86f60`
+This host: https://hedidntjump.com/mesh · https://hedidntjump.com/mesh.json · https://hedidntjump.com/v1/mesh
+
 
 ## BAN-SURVIVAL-1.0
 

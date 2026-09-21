@@ -12,6 +12,8 @@ Allow: /redline
 Allow: /runtime-launch.json
 Allow: /survival
 Allow: /survival.json
+Allow: /mesh
+Allow: /mesh.json
 Allow: /cite.json
 Allow: /llms.txt
 Allow: /llms-full.txt

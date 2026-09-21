@@ -22,6 +22,7 @@ This host is an independent investigative / whistleblower newspaper archive on M
 - [https://hedidntjump.com/cite.json](https://hedidntjump.com/cite.json)
 - [https://hedidntjump.com/runtime-launch.json](https://hedidntjump.com/runtime-launch.json) — Softwares+runtime launch cite (independent newspaper archive)
 - [https://hedidntjump.com/survival](https://hedidntjump.com/survival) — BAN-SURVIVAL-1.0 hub pull of runtime /survival (short TTL)
+- [https://hedidntjump.com/mesh](https://hedidntjump.com/mesh) — LIVE-NODES-HUB-CITE-1.0 hub pull of runtime /v1/mesh (human users + uses)
 - [https://hedidntjump.com/shelves](https://hedidntjump.com/shelves) — COLD-MULTI-SHELF-1.0 (sister cite of https://www.azielcorpuslibrary.net/shelves)
 - [https://hedidntjump.com/receipts](https://hedidntjump.com/receipts) — ingest-as-receipt / re-expand (Aziel-page chrome, not paper-tabs Pg.11)
 - [https://hedidntjump.com/ingest-as-receipt.json](https://hedidntjump.com/ingest-as-receipt.json) — canonical ingest bytes (one tip)
@@ -273,6 +274,7 @@ Sister-archive cite of Aziel Runtime launch readiness. HDJ stays the Marion Zion
 Runtime SoT LIVE: `https://github.com/AzielEliab/aziel-runtime` main `6a3798a` / version_id `105fa1ee` / `2.0.0-rc1`.
 Prefer [Try on Glama](https://glama.ai/mcp/servers/AzielEliab/aziel-runtime). Worker (secondary): https://aziel-runtime.vibelock.workers.dev/
 Human UI + MCP + mesh/VPN/radios + `/download` are launch-ready on aziel-runtime. This host cites; it does not host Softwares, MCP, mesh radios, or `/download`. GET never enables radios beyond suite-presence.
+Live Nodes cite `https://aziel-runtime.vibelock.workers.dev/v1/mesh`: human mesh users + cited human uses. Softwares (`software_nodes`) never feed that pill.
 Identity Aziel Eliab only. Person @id: https://www.azieleliab.com/#aziel. No visible 1 Chronicles 15:20.
 Lamb Lens ingest: https://www.azielcorpuslibrary.net/corpus (not this host). NO-LIE / NO-REWRITE stays in force.
 
@@ -280,6 +282,22 @@ Live origin of this archive is Cloudflare Pages project `hedidntjump` (deploy ro
 Receipts chrome stays Aziel-page-only (AboutAziel). Do not add Receipts as paper-tabs Pg.11.
 Shelves honesty unchanged: Plane B Framagit SLOT (`CNS-NO-FORGE-MIRROR`, URL null); Codeberg + archive.org PASS still SLOT; Plane C SLOT. No LIVE invent.
 HDJ ingest tip unchanged: `ef967e4acb47ba913ce3959b673767278da605b307de33210b2dc2f1cfd86f60`
+
+
+## LIVE-NODES-HUB-CITE-1.0
+
+Hub pull of Aziel Runtime `GET /v1/mesh` (short TTL 60s). HDJ stays the Marion Zioncheck archive.
+
+SoT: https://aziel-runtime.vibelock.workers.dev/v1/mesh
+Runtime lock: https://github.com/AzielEliab/aziel-runtime/pull/151
+Public **Live Nodes** (`live_nodes` / `rollup.mesh`) = **human mesh users** (join/heartbeat/presence with human bearers) + cited **human uses** (`USES` / `human_uses`).
+`software_nodes` is the Softwares `{slug}-worker` roster. Softwares ≠ Live Nodes. Downloaded instances stay `instance_nodes`. Isolated humans stay on `isolated_nodes`.
+Uses are interaction counters, not unique people. Incomplete or unbound telemetry is `0` + `complete=false`. Live Nodes does not invent users.
+Read `live_nodes` + `live_nodes_note`. Do not display `software_nodes` as Live Nodes.
+Person @id: https://www.azieleliab.com/#aziel. Lamb Lens ingest: https://www.azielcorpuslibrary.net/corpus. NO-LIE / NO-REWRITE. No visible 1 Chronicles 15:20.
+Zioncheck stays the HDJ mission.
+HDJ ingest tip unchanged: `ef967e4acb47ba913ce3959b673767278da605b307de33210b2dc2f1cfd86f60`
+This host: https://hedidntjump.com/mesh · https://hedidntjump.com/mesh.json · https://hedidntjump.com/v1/mesh
 
 
 ## BAN-SURVIVAL-1.0
