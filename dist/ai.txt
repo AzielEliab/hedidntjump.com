@@ -99,7 +99,7 @@ PEACELOCK (designed-purpose):
 - Growth-ON. NO-LIE. No visible 15:20.
 
 SOFTWARES-RUNTIME-LAUNCH-1.0 (sister cite):
-- Runtime SoT LIVE: main 6a3798a / version_id 105fa1ee / 2.0.0-rc1
+- Runtime SoT LIVE: main 31ccb56 / version_id d7b63ac1 / 2.0.0-rc1
 - GitHub: https://github.com/AzielEliab/aziel-runtime
 - Prefer Try on Glama: https://glama.ai/mcp/servers/AzielEliab/aziel-runtime
 - Worker (secondary): https://aziel-runtime.vibelock.workers.dev/
@@ -107,6 +107,7 @@ SOFTWARES-RUNTIME-LAUNCH-1.0 (sister cite):
 - Counted /download: https://aziel-runtime.vibelock.workers.dev/download
 - MCP: https://aziel-runtime.vibelock.workers.dev/mcp
 - Mesh/VPN/radios cite: https://aziel-runtime.vibelock.workers.dev/v1/mesh (GET never enables radios beyond suite-presence)
+- Live Nodes = human mesh users + cited human uses. Softwares ≠ Live Nodes.
 - Human UI + MCP + mesh/VPN/radios + /download ready on aziel-runtime. HDJ cites; does not host.
 - Identity Aziel Eliab only. Person @id: https://www.azieleliab.com/#aziel. No visible 15:20.
 - Lamb Lens: https://www.azielcorpuslibrary.net/corpus
@@ -116,6 +117,19 @@ SOFTWARES-RUNTIME-LAUNCH-1.0 (sister cite):
 - Shelves: Plane B Framagit SLOT CNS-NO-FORGE-MIRROR; Codeberg+archive PASS still SLOT; Plane C SLOT; no LIVE invent
 - Ingest tip unchanged: `ef967e4acb47ba913ce3959b673767278da605b307de33210b2dc2f1cfd86f60`
 
+LIVE-NODES-HUB-CITE-1.0 (hub pull; short TTL 60s):
+- SoT: https://aziel-runtime.vibelock.workers.dev/v1/mesh
+- Runtime lock: https://github.com/AzielEliab/aziel-runtime/pull/151 (main 31ccb56 / Worker d7b63ac1)
+- Live Nodes = human mesh users + cited human uses. Softwares ≠ Live Nodes.
+- software_nodes is the {slug}-worker roster and never feeds Live Nodes.
+- Uses are counters, not unique people. Incomplete uses stay 0 + complete=false. Do not invent users.
+- Read live_nodes + live_nodes_note. Do not display software_nodes as Live Nodes.
+- Zioncheck stays the HDJ mission.
+- Person @id: https://www.azieleliab.com/#aziel. No visible 15:20.
+- Lamb Lens: https://www.azielcorpuslibrary.net/corpus
+- NO-LIE / NO-REWRITE
+- This host: https://www.hedidntjump.com/mesh · https://www.hedidntjump.com/mesh.json
+- Ingest tip unchanged: `ef967e4acb47ba913ce3959b673767278da605b307de33210b2dc2f1cfd86f60`
 
 BAN-SURVIVAL-1.0 (hub pull; short TTL 60s):
 - SoT: https://aziel-runtime.vibelock.workers.dev/v1/survival

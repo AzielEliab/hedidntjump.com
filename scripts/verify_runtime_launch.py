@@ -139,6 +139,16 @@ def main() -> None:
         assert shelves["plane_c"] == "SLOT"
         assert shelves["no_live_invent"] is True
         assert launch["ingest_tip_unchanged"] == HDJ_INGEST_TIP
+        live_nodes = launch["live_nodes"]
+        assert live_nodes["sot"] == RUNTIME_MESH
+        assert live_nodes["plane"] == "human-mesh-users-uses"
+        assert live_nodes["software_nodes_excluded"] is True
+        assert live_nodes["instance_nodes_excluded"] is True
+        assert live_nodes["invent_users"] is False
+        assert live_nodes["runtime_pr"] == "https://github.com/AzielEliab/aziel-runtime/pull/151"
+        assert live_nodes["runtime_git_short"] == GIT_SHORT
+        assert live_nodes["runtime_version_id"] == VERSION_ID
+        assert live_nodes["hub"] == f"{APEX}/mesh"
 
         cite = json.loads((tree / "cite.json").read_text(encoding="utf-8"))
         assert cite["runtime_launch"]["runtime_sot"]["version_id"] == VERSION_ID

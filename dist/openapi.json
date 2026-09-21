@@ -591,6 +591,36 @@
           }
         }
       }
+    },
+    "/mesh": {
+      "get": {
+        "summary": "LIVE-NODES-HUB-CITE-1.0 hub pull of runtime /v1/mesh (short TTL 60s; human mesh users + uses)",
+        "responses": {
+          "200": {
+            "description": "application/json"
+          }
+        }
+      }
+    },
+    "/mesh.json": {
+      "get": {
+        "summary": "Same LIVE-NODES-HUB-CITE-1.0 hub wrap as /mesh (static snapshot)",
+        "responses": {
+          "200": {
+            "description": "application/json"
+          }
+        }
+      }
+    },
+    "/v1/mesh": {
+      "get": {
+        "summary": "Alias of /mesh",
+        "responses": {
+          "200": {
+            "description": "application/json"
+          }
+        }
+      }
     }
   }
 }

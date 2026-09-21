@@ -741,6 +741,7 @@ KEEP_WELL_KNOWN = (
     "runtime_sot",
     "live_origin",
     "ban_survival",
+    "live_nodes",
 )
 
 

@@ -47,3 +47,6 @@ http://www.hedidntjump.com/* https://hedidntjump.com/:splat 301
 /v1/survival /survival.json 200
 /doors /survival.json 200
 /failover /survival.json 200
+/mesh /mesh.json 200
+/v1/mesh /mesh.json 200
+/live-nodes /mesh.json 200

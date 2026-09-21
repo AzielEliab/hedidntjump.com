@@ -2,7 +2,7 @@
 """Cite Softwares+runtime launch readiness on HDJ machine surfaces.
 
 HDJ stays a Zioncheck archive. This is a cross-link cite of aziel-runtime
-2.0.0-rc1 (main 6a3798a / version_id 105fa1ee), not a Softwares clone.
+2.0.0-rc1 (main 31ccb56 / version_id d7b63ac1), not a Softwares clone.
 
 Does not invent Plane B LIVE, Framagit URLs, , or a global
 Receipts paper-tab. Does not change hashed /ingest-as-receipt.json.
@@ -23,9 +23,9 @@ PERSON_ID = "https://www.azieleliab.com/#aziel"
 LASTMOD = "2026-09-18"
 HDJ_INGEST_TIP = "ef967e4acb47ba913ce3959b673767278da605b307de33210b2dc2f1cfd86f60"
 
-GIT_SHA = "6a3798af3a94bfba3ed2e7aaadeed8777ea32bb4"
-GIT_SHORT = "6a3798a"
-VERSION_ID = "105fa1ee"
+GIT_SHA = "31ccb56b6c01647f434a9981c9843602c5967899"
+GIT_SHORT = "31ccb56"
+VERSION_ID = "d7b63ac1"
 VERSION = "2.0.0-rc1"
 RUNTIME_GITHUB = "https://github.com/AzielEliab/aziel-runtime"
 RUNTIME_WORKER = "https://aziel-runtime.vibelock.workers.dev/"
@@ -122,6 +122,22 @@ def launch_cite() -> dict:
             "plane_c": "SLOT",
             "no_live_invent": True,
         },
+        "live_nodes": {
+            "sot": RUNTIME_MESH,
+            "plane": "human-mesh-users-uses",
+            "counts": "human mesh users + cited human uses",
+            "software_nodes_excluded": True,
+            "instance_nodes_excluded": True,
+            "invent_users": False,
+            "runtime_pr": "https://github.com/AzielEliab/aziel-runtime/pull/151",
+            "runtime_git_short": GIT_SHORT,
+            "runtime_version_id": VERSION_ID,
+            "hub": f"{APEX}/mesh",
+            "note": (
+                "Public Live Nodes cite GET /v1/mesh live_nodes + live_nodes_note. "
+                "Softwares stay on software_nodes and do not feed this pill."
+            ),
+        },
         "ingest_tip_unchanged": HDJ_INGEST_TIP,
         "note": (
             "Announce/sync only. Cite aziel-runtime / Try on Glama. "
@@ -137,6 +153,7 @@ Sister-archive cite of Aziel Runtime launch readiness. HDJ stays the Marion Zion
 Runtime SoT LIVE: `{RUNTIME_GITHUB}` main `{GIT_SHORT}` / version_id `{VERSION_ID}` / `{VERSION}`.
 Prefer [Try on Glama]({RUNTIME_GLAMA}). Worker (secondary): {RUNTIME_WORKER}
 Human UI + MCP + mesh/VPN/radios + `/download` are launch-ready on aziel-runtime. This host cites; it does not host Softwares, MCP, mesh radios, or `/download`. GET never enables radios beyond suite-presence.
+Live Nodes cite `{RUNTIME_MESH}`: human mesh users + cited human uses. Softwares (`software_nodes`) never feed that pill.
 Identity Aziel Eliab only. Person @id: {PERSON_ID}. No visible 1 Chronicles 15:20.
 Lamb Lens ingest: https://www.azielcorpuslibrary.net/corpus (not this host). NO-LIE / NO-REWRITE stays in force.
 
@@ -155,6 +172,7 @@ AI_BLOCK = f"""SOFTWARES-RUNTIME-LAUNCH-1.0 (sister cite):
 - Counted /download: {RUNTIME_DOWNLOAD}
 - MCP: {RUNTIME_MCP}
 - Mesh/VPN/radios cite: {RUNTIME_MESH} (GET never enables radios beyond suite-presence)
+- Live Nodes = human mesh users + cited human uses. Softwares ≠ Live Nodes.
 - Human UI + MCP + mesh/VPN/radios + /download ready on aziel-runtime. HDJ cites; does not host.
 - Identity Aziel Eliab only. Person @id: {PERSON_ID}. No visible 15:20.
 - Lamb Lens: https://www.azielcorpuslibrary.net/corpus
@@ -274,7 +292,7 @@ def patch_llms() -> None:
         text = ai.read_text(encoding="utf-8")
         if "SOFTWARES-RUNTIME-LAUNCH-1.0" in text:
             text = re.sub(
-                r"\nSOFTWARES-RUNTIME-LAUNCH-1.0[\s\S]*?(?=\nIdentity lock|\nPublisher name|\nCOLD-MULTI-SHELF|\Z)",
+                r"\nSOFTWARES-RUNTIME-LAUNCH-1.0[\s\S]*?(?=\nLIVE-NODES|\nBAN-SURVIVAL|\nIdentity lock|\nPublisher name|\nCOLD-MULTI-SHELF|\Z)",
                 "\n" + AI_BLOCK.strip() + "\n\n",
                 text,
                 count=1,
@@ -460,6 +478,16 @@ def main() -> None:
     patch_openapi()
     patch_robots()
     patch_well_known_aziel()
+    path = ROOT / "README.md"
+    text = path.read_text(encoding="utf-8")
+    text = re.sub(
+        r"SoT LIVE main `[^`]+` / version_id `[^`]+`",
+        f"SoT LIVE main `{GIT_SHORT}` / version_id `{VERSION_ID}`",
+        text,
+        count=1,
+    )
+    path.write_text(text, encoding="utf-8")
+    print("readme", path.relative_to(ROOT))
     print("runtime launch cite written; ingest tip unchanged; no Softwares clone")
 
 
