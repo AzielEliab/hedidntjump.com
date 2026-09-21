@@ -108,6 +108,15 @@ def check_wrap(payload: dict, label: str) -> None:
     assert grid["azshift"]["honesty_public"] == "SLOT", label
     assert "hedidntjump.com" in grid["azshift"]["design_of"], label
     assert payload["ingest_tip_unchanged"] == HDJ_INGEST_TIP, label
+    assert payload["spore_spec"] == "SPORE-1.0", label
+    assert payload["spore_replaces_cold_shelves"] is False, label
+    assert payload["re_cold_store"]["hook"] == "RE-COLD-STORE", label
+    assert payload["re_cold_store"]["destinations"] == [], label
+    assert payload["re_cold_store"]["invent_destination"] is False, label
+    assert payload["spore"]["spec"] == "SPORE-1.0", label
+    assert payload["spore"]["software_tab"] is False, label
+    ids = [row["id"] for row in payload["survival_stack"]]
+    assert ids == ["live-fronts", "cold-shelves", "spore"], ids
 
 
 def main() -> None:

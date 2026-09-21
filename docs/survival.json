@@ -119,5 +119,98 @@
     }
   },
   "ingest_tip_unchanged": "ef967e4acb47ba913ce3959b673767278da605b307de33210b2dc2f1cfd86f60",
-  "note": "Hub pull of runtime /survival (short TTL) plus MirageGrid Cap-7 Worker cite. FragGate stays the door on the runtime sister. Zioncheck stays the HDJ mission. Do not invent case facts."
+  "note": "Hub pull of runtime /survival (short TTL) plus MirageGrid Cap-7 Worker cite. SPORE-1.0 last-resort failsafe + RE-COLD-STORE honest hook from Worker a8f7fdc9. FragGate stays the door on the runtime sister. Zioncheck stays the HDJ mission. Do not invent case facts.",
+  "spore_spec": "SPORE-1.0",
+  "spore_role": "failsafe",
+  "spore_replaces_cold_shelves": false,
+  "survival_stack": [
+    {
+      "layer": 1,
+      "id": "live-fronts",
+      "spec": "BAN-SURVIVAL-1.0",
+      "role": "failover",
+      "includes": [
+        "cap-7",
+        "calling-name",
+        "live-node-api"
+      ]
+    },
+    {
+      "layer": 2,
+      "id": "cold-shelves",
+      "spec": "COLD-MULTI-SHELF-1.0",
+      "role": "mutual-backup",
+      "mutual_backup_with": "BAN-SURVIVAL-1.0",
+      "plane_b": "slot",
+      "plane_c": "slot",
+      "replaced": false,
+      "failed": false
+    },
+    {
+      "layer": 3,
+      "id": "spore",
+      "spec": "SPORE-1.0",
+      "role": "failsafe",
+      "last_resort": true,
+      "replaces_cold_shelves": false,
+      "replaces_ban_survival": false
+    }
+  ],
+  "re_cold_store": {
+    "hook": "RE-COLD-STORE",
+    "allowed": true,
+    "trigger": "cold-shelves-wiped-or-failed",
+    "active": false,
+    "shelves_failed": false,
+    "shelves_intact": true,
+    "invent_live": false,
+    "invent_hash": false,
+    "invent_receipt": false,
+    "invent_destination": false,
+    "public_inventory_required": false,
+    "destinations": [],
+    "opaque_placement": true,
+    "note": "When cold stores are wiped or fail, the mesh may re-cold-store DNA wherever available. Never invent LIVE stores, hashes, receipts, or destinations. No required public inventory. Does not claim a wipe is happening now."
+  },
+  "spore": {
+    "spec": "SPORE-1.0",
+    "role": "failsafe",
+    "failsafe": true,
+    "last_resort": true,
+    "replaces_cold_shelves": false,
+    "replaces_ban_survival": false,
+    "cold_shelves_intact": true,
+    "mutual_backup_intact": true,
+    "faces": [
+      "pause",
+      "preserve",
+      "wait",
+      "physical-wipe-only"
+    ],
+    "re_cold_store": {
+      "hook": "RE-COLD-STORE",
+      "allowed": true,
+      "trigger": "cold-shelves-wiped-or-failed",
+      "active": false,
+      "shelves_failed": false,
+      "shelves_intact": true,
+      "invent_live": false,
+      "invent_hash": false,
+      "invent_receipt": false,
+      "invent_destination": false,
+      "public_inventory_required": false,
+      "destinations": [],
+      "opaque_placement": true,
+      "note": "When cold stores are wiped or fail, the mesh may re-cold-store DNA wherever available. Never invent LIVE stores, hashes, receipts, or destinations. No required public inventory. Does not claim a wipe is happening now."
+    },
+    "software_tab": false,
+    "fraggate_slug": false,
+    "paper": "https://github.com/AzielEliab/aziel-runtime/blob/main/docs/designs/SPORE-1.0.md",
+    "runtime_pr": "https://github.com/AzielEliab/aziel-runtime/pull/152",
+    "runtime_git_short": "231b02f",
+    "runtime_version_id": "a8f7fdc9"
+  },
+  "runtime_pr": "https://github.com/AzielEliab/aziel-runtime/pull/152",
+  "runtime_git_short": "231b02f",
+  "runtime_version_id": "a8f7fdc9"
 }

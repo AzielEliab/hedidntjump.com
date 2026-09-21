@@ -1113,6 +1113,23 @@ Zioncheck stays the HDJ mission. Do not invent court holdings, FOIA letters, or 
 HDJ ingest tip unchanged: `ef967e4acb47ba913ce3959b673767278da605b307de33210b2dc2f1cfd86f60`
 This host: https://hedidntjump.com/survival · https://hedidntjump.com/survival.json · https://hedidntjump.com/v1/survival
 
+## SPORE-1.0
+
+Hub cite of Aziel Runtime `GET /v1/survival` SPORE + RE-COLD-STORE. HDJ stays the Marion Zioncheck archive.
+
+SoT: https://aziel-runtime.vibelock.workers.dev/v1/survival
+Runtime lock: https://github.com/AzielEliab/aziel-runtime/pull/152 (main `231b02f` / Worker `a8f7fdc9`)
+SPORE-1.0 is the last-resort failsafe (layer 3) after live fronts and cold-shelf mutual backup: pause / preserve / wait / physical-wipe-only.
+Does not replace BAN-SURVIVAL or COLD-MULTI-SHELF. Cold shelves stay intact. Mutual backup stays intact.
+No electricity is PAUSE, not death. Dormant nodes do not invent live heartbeats. On restore, reconcile forward — no rewrite of history.
+RE-COLD-STORE is an honest hook (no invented destinations). `re_cold_store.destinations: []`. Does not claim a wipe is happening now.
+Plane B/C stay SLOT until attested. doi null. Softwares-tab product: false. FragGate slug: false.
+Paper: https://github.com/AzielEliab/aziel-runtime/blob/main/docs/designs/SPORE-1.0.md
+Person @id: https://www.azieleliab.com/#aziel. Lamb Lens ingest: https://www.azielcorpuslibrary.net/corpus (not this host). NO-LIE / NO-REWRITE. No visible 1 Chronicles 15:20.
+Zioncheck stays the HDJ mission. Do not invent court holdings, FOIA letters, or case quotes.
+HDJ ingest tip unchanged: `ef967e4acb47ba913ce3959b673767278da605b307de33210b2dc2f1cfd86f60`
+This host: https://hedidntjump.com/survival · https://hedidntjump.com/survival.json · https://hedidntjump.com/v1/survival
+
 
 ## Who / what / why Aziel Eliab (machine)
 

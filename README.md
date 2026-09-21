@@ -33,6 +33,8 @@ BAN-SURVIVAL-1.0 hub pull: `/survival` (short TTL) cites runtime `GET https://az
 LIVE-NODES-HUB-CITE-1.0 hub pull: `/mesh` (short TTL) cites runtime `GET https://aziel-runtime.vibelock.workers.dev/v1/mesh` — Live Nodes = human mesh users + cited human uses. Softwares (`software_nodes`) never feed that pill. Runtime lock https://github.com/AzielEliab/aziel-runtime/pull/151 (main `31ccb56` / Worker `d7b63ac1`). HDJ stays the Zioncheck archive.
 
 
+SPORE-1.0 + RE-COLD-STORE hub cite: `/survival` cites runtime `GET https://aziel-runtime.vibelock.workers.dev/v1/survival` — last-resort failsafe (pause / preserve / wait / physical-wipe-only). Does not replace cold shelves. RE-COLD-STORE honest hook (`destinations: []`). Runtime lock https://github.com/AzielEliab/aziel-runtime/pull/152 (main `231b02f` / Worker `a8f7fdc9`). HDJ stays the Zioncheck archive.
+
 Sister cite: Aziel Runtime 2.0.0-rc1 SoT LIVE main `31ccb56` / version_id `d7b63ac1`. Prefer [Try on Glama](https://glama.ai/mcp/servers/AzielEliab/aziel-runtime). Machine field: `/runtime-launch.json`.
 
 ## Validate the handoff

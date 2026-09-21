@@ -138,6 +138,24 @@ def launch_cite() -> dict:
                 "Softwares stay on software_nodes and do not feed this pill."
             ),
         },
+        "spore": {
+            "sot": "https://aziel-runtime.vibelock.workers.dev/v1/survival",
+            "spec": "SPORE-1.0",
+            "role": "failsafe",
+            "last_resort": True,
+            "replaces_cold_shelves": False,
+            "re_cold_store": "RE-COLD-STORE",
+            "destinations": [],
+            "runtime_pr": "https://github.com/AzielEliab/aziel-runtime/pull/152",
+            "runtime_git_short": "231b02f",
+            "runtime_version_id": "a8f7fdc9",
+            "hub": f"{APEX}/survival",
+            "note": (
+                "SPORE-1.0 last-resort failsafe + RE-COLD-STORE honest hook from "
+                "Worker GET /v1/survival (Worker a8f7fdc9). "
+                "Softwares blurbs unchanged."
+            ),
+        },
         "ingest_tip_unchanged": HDJ_INGEST_TIP,
         "note": (
             "Announce/sync only. Cite aziel-runtime / Try on Glama. "

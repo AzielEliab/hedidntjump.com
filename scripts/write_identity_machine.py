@@ -742,6 +742,7 @@ KEEP_WELL_KNOWN = (
     "live_origin",
     "ban_survival",
     "live_nodes",
+    "spore",
 )
 
 

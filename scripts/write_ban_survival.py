@@ -11,9 +11,15 @@ from __future__ import annotations
 import json
 import re
 import ssl
+import sys
 import urllib.request
 from pathlib import Path
 from typing import Any
+
+if str(Path(__file__).resolve().parent) not in sys.path:
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+
+from write_spore import survival_spore_fields  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 TREES = [ROOT / "dist", ROOT / "docs"]
@@ -151,7 +157,7 @@ def hub_wrap(sot: dict[str, Any], cap7: dict[str, Any], *, pulled: bool) -> dict
     azshift = next((row for row in sites if row.get("label") == "azshift"), None)
     honesty = dict(cap7.get("honesty") or {})
     app = dict(cap7.get("app_worker") or {})
-    return {
+    payload = {
         "spec": "BAN-SURVIVAL-1.0",
         "surface": "hedidntjump-hub-pull",
         "this_host": "hedidntjump.com",
@@ -240,10 +246,13 @@ def hub_wrap(sot: dict[str, Any], cap7: dict[str, Any], *, pulled: bool) -> dict
         "ingest_tip_unchanged": HDJ_INGEST_TIP,
         "note": (
             "Hub pull of runtime /survival (short TTL) plus MirageGrid Cap-7 Worker cite. "
+            "SPORE-1.0 last-resort failsafe + RE-COLD-STORE honest hook. "
             "FragGate stays the door on the runtime sister. "
             "Zioncheck stays the HDJ mission. Do not invent case facts."
         ),
     }
+    payload.update(survival_spore_fields(sot))
+    return payload
 
 
 def survival_cite() -> dict[str, Any]:
