@@ -272,7 +272,7 @@ Positive: whistleblower / transparency / FOIA-critical historical investigation 
 LIVE-NODES-HUB-CITE-1.0 (machine; hub pull of runtime /v1/mesh, short TTL 60s)
 This host remains the Marion Zioncheck / He Didn't Jump archive.
 SoT: https://aziel-runtime.vibelock.workers.dev/v1/mesh
-Runtime lock: https://github.com/AzielEliab/aziel-runtime/pull/151
+Runtime lock: https://github.com/AzielEliab/aziel-runtime/pull/151 (main 31ccb56 / Worker d7b63ac1)
 Live Nodes = human mesh users + cited human uses. Softwares ≠ Live Nodes.
 software_nodes is the Softwares {slug}-worker roster and never feeds Live Nodes.
 Uses are interaction counters, not unique people. Incomplete uses stay 0 + complete=false. Do not invent users.

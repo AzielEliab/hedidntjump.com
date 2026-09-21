@@ -20,7 +20,9 @@ from write_live_nodes import (  # noqa: E402
     LIVE_NODES_NOTE,
     LIVE_NODES_PLANE,
     PERSON_ID,
+    RUNTIME_GIT_SHORT,
     RUNTIME_PR,
+    RUNTIME_VERSION_ID,
     SOFTWARE_NODES_NOTE,
     SOT_URL,
     TTL_SECONDS,
@@ -73,6 +75,8 @@ def check_wrap(payload: dict, label: str) -> None:
     assert payload["ttl_seconds"] == TTL_SECONDS, label
     assert payload["sot"] == SOT_URL, label
     assert payload["runtime_pr"] == RUNTIME_PR, label
+    assert payload["runtime_git_short"] == RUNTIME_GIT_SHORT, label
+    assert payload["runtime_version_id"] == RUNTIME_VERSION_ID, label
     assert payload["live_nodes_plane"] == LIVE_NODES_PLANE, label
     assert payload["no_lie"].startswith("NO-LIE"), label
     assert payload["lamb_lens"]["shelf"] == LAMB_LENS, label
@@ -186,6 +190,8 @@ def main() -> None:
             assert "LIVE-NODES-HUB-CITE-1.0" in blob, label
             assert SOT_URL in blob, label
             assert RUNTIME_PR in blob, label
+            assert RUNTIME_VERSION_ID in blob, label
+            assert RUNTIME_GIT_SHORT in blob, label
             assert "human mesh users" in blob, label
             assert "Softwares ≠ Live Nodes" in blob or "Softwares stay on software_nodes" in blob or "never feeds Live Nodes" in blob, label
             assert "Do not invent users" in blob or "does not invent users" in blob, label
@@ -220,6 +226,7 @@ def main() -> None:
         assert wk["live_nodes"]["spec"] == "LIVE-NODES-HUB-CITE-1.0"
         assert wk["live_nodes"]["sot"] == SOT_URL
         assert wk["live_nodes"]["plane"] == LIVE_NODES_PLANE
+        assert wk["live_nodes"]["runtime_version_id"] == RUNTIME_VERSION_ID
         assert wk["live_nodes"]["software_nodes_excluded"] is True
         assert wk["live_nodes"]["invent_users"] is False
         assert wk["live_nodes"]["this_host_is_live_door"] is False
@@ -241,6 +248,8 @@ def main() -> None:
     assert SOT_URL in readme
     assert "human mesh users" in readme
     assert "software_nodes" in readme
+    assert RUNTIME_VERSION_ID in readme
+    assert RUNTIME_GIT_SHORT in readme
 
     print("live-nodes hub cite OK")
     print("sot", SOT_URL)

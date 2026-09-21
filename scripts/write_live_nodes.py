@@ -24,6 +24,9 @@ HDJ_INGEST_TIP = "ef967e4acb47ba913ce3959b673767278da605b307de33210b2dc2f1cfd86f
 TTL_SECONDS = 60
 SOT_URL = "https://aziel-runtime.vibelock.workers.dev/v1/mesh"
 RUNTIME_PR = "https://github.com/AzielEliab/aziel-runtime/pull/151"
+RUNTIME_GIT_SHA = "31ccb56b6c01647f434a9981c9843602c5967899"
+RUNTIME_GIT_SHORT = "31ccb56"
+RUNTIME_VERSION_ID = "d7b63ac1"
 LAMB_LENS = "https://www.azielcorpuslibrary.net/corpus"
 UA = "Mozilla/5.0"
 
@@ -134,6 +137,9 @@ def hub_wrap(sot: dict[str, Any] | None, *, pulled: bool) -> dict[str, Any]:
         ],
         "sot_pulled": pulled,
         "runtime_pr": RUNTIME_PR,
+        "runtime_git_sha": RUNTIME_GIT_SHA,
+        "runtime_git_short": RUNTIME_GIT_SHORT,
+        "runtime_version_id": RUNTIME_VERSION_ID,
         "live_nodes_plane": LIVE_NODES_PLANE,
         "software_nodes_plane": SOFTWARE_NODES_PLANE,
         "live_nodes": live_nodes,
@@ -200,7 +206,7 @@ LLMS_BLOCK = f"""## LIVE-NODES-HUB-CITE-1.0
 Hub pull of Aziel Runtime `GET /v1/mesh` (short TTL {TTL_SECONDS}s). HDJ stays the Marion Zioncheck archive.
 
 SoT: {SOT_URL}
-Runtime lock: {RUNTIME_PR}
+Runtime lock: {RUNTIME_PR} (main `{RUNTIME_GIT_SHORT}` / Worker `{RUNTIME_VERSION_ID}`)
 Public **Live Nodes** (`live_nodes` / `rollup.mesh`) = **human mesh users** (join/heartbeat/presence with human bearers) + cited **human uses** (`USES` / `human_uses`).
 `software_nodes` is the Softwares `{{slug}}-worker` roster. Softwares ≠ Live Nodes. Downloaded instances stay `instance_nodes`. Isolated humans stay on `isolated_nodes`.
 Uses are interaction counters, not unique people. Incomplete or unbound telemetry is `0` + `complete=false`. Live Nodes does not invent users.
@@ -213,7 +219,7 @@ This host: {APEX}/mesh · {APEX}/mesh.json · {APEX}/v1/mesh
 
 AI_BLOCK = f"""LIVE-NODES-HUB-CITE-1.0 (hub pull; short TTL {TTL_SECONDS}s):
 - SoT: {SOT_URL}
-- Runtime lock: {RUNTIME_PR}
+- Runtime lock: {RUNTIME_PR} (main {RUNTIME_GIT_SHORT} / Worker {RUNTIME_VERSION_ID})
 - Live Nodes = human mesh users + cited human uses. Softwares ≠ Live Nodes.
 - software_nodes is the {{slug}}-worker roster and never feeds Live Nodes.
 - Uses are counters, not unique people. Incomplete uses stay 0 + complete=false. Do not invent users.
@@ -229,7 +235,7 @@ AI_BLOCK = f"""LIVE-NODES-HUB-CITE-1.0 (hub pull; short TTL {TTL_SECONDS}s):
 WHO_BLOCK = f"""LIVE-NODES-HUB-CITE-1.0 (machine; hub pull of runtime /v1/mesh, short TTL {TTL_SECONDS}s)
 This host remains the Marion Zioncheck / He Didn't Jump archive.
 SoT: {SOT_URL}
-Runtime lock: {RUNTIME_PR}
+Runtime lock: {RUNTIME_PR} (main {RUNTIME_GIT_SHORT} / Worker {RUNTIME_VERSION_ID})
 Live Nodes = human mesh users + cited human uses. Softwares ≠ Live Nodes.
 software_nodes is the Softwares {{slug}}-worker roster and never feeds Live Nodes.
 Uses are interaction counters, not unique people. Incomplete uses stay 0 + complete=false. Do not invent users.
@@ -361,6 +367,7 @@ def patch_well_known(payload: dict[str, Any]) -> None:
             "sot": payload["sot"],
             "ttl_seconds": payload["ttl_seconds"],
             "plane": payload["live_nodes_plane"],
+            "runtime_version_id": payload["runtime_version_id"],
             "software_nodes_excluded": True,
             "invent_users": False,
             "this_host_is_live_door": False,
@@ -503,10 +510,18 @@ def patch_readme() -> None:
         "LIVE-NODES-HUB-CITE-1.0 hub pull: `/mesh` (short TTL) cites runtime "
         f"`GET {SOT_URL}` — Live Nodes = human mesh users + cited human uses. "
         "Softwares (`software_nodes`) never feed that pill. "
-        f"Runtime lock {RUNTIME_PR}. HDJ stays the Zioncheck archive.\n"
+        f"Runtime lock {RUNTIME_PR} (main `{RUNTIME_GIT_SHORT}` / Worker `{RUNTIME_VERSION_ID}`). "
+        "HDJ stays the Zioncheck archive.\n"
     )
     marker = "Sister cite:"
-    if "LIVE-NODES-HUB-CITE-1.0 hub pull" not in text:
+    if "LIVE-NODES-HUB-CITE-1.0 hub pull" in text:
+        text = re.sub(
+            r"LIVE-NODES-HUB-CITE-1.0 hub pull:[\s\S]*?(?=\nSister cite:)",
+            line + "\n",
+            text,
+            count=1,
+        )
+    else:
         text = text.replace(marker, line + "\n" + marker, 1)
     path.write_text(text, encoding="utf-8")
     print("readme", path.relative_to(ROOT))

@@ -99,7 +99,7 @@ PEACELOCK (designed-purpose):
 - Growth-ON. NO-LIE. No visible 15:20.
 
 SOFTWARES-RUNTIME-LAUNCH-1.0 (sister cite):
-- Runtime SoT LIVE: main 6a3798a / version_id 105fa1ee / 2.0.0-rc1
+- Runtime SoT LIVE: main 31ccb56 / version_id d7b63ac1 / 2.0.0-rc1
 - GitHub: https://github.com/AzielEliab/aziel-runtime
 - Prefer Try on Glama: https://glama.ai/mcp/servers/AzielEliab/aziel-runtime
 - Worker (secondary): https://aziel-runtime.vibelock.workers.dev/
@@ -117,10 +117,9 @@ SOFTWARES-RUNTIME-LAUNCH-1.0 (sister cite):
 - Shelves: Plane B Framagit SLOT CNS-NO-FORGE-MIRROR; Codeberg+archive PASS still SLOT; Plane C SLOT; no LIVE invent
 - Ingest tip unchanged: `ef967e4acb47ba913ce3959b673767278da605b307de33210b2dc2f1cfd86f60`
 
-
 LIVE-NODES-HUB-CITE-1.0 (hub pull; short TTL 60s):
 - SoT: https://aziel-runtime.vibelock.workers.dev/v1/mesh
-- Runtime lock: https://github.com/AzielEliab/aziel-runtime/pull/151
+- Runtime lock: https://github.com/AzielEliab/aziel-runtime/pull/151 (main 31ccb56 / Worker d7b63ac1)
 - Live Nodes = human mesh users + cited human uses. Softwares ≠ Live Nodes.
 - software_nodes is the {slug}-worker roster and never feeds Live Nodes.
 - Uses are counters, not unique people. Incomplete uses stay 0 + complete=false. Do not invent users.
