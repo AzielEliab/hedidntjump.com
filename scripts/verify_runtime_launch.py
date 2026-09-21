@@ -149,6 +149,13 @@ def main() -> None:
         assert live_nodes["runtime_git_short"] == GIT_SHORT
         assert live_nodes["runtime_version_id"] == VERSION_ID
         assert live_nodes["hub"] == f"{APEX}/mesh"
+        spore = launch["spore"]
+        assert spore["spec"] == "SPORE-1.0"
+        assert spore["sot"] == "https://aziel-runtime.vibelock.workers.dev/v1/survival"
+        assert spore["replaces_cold_shelves"] is False
+        assert spore["destinations"] == []
+        assert spore["runtime_version_id"] == "a8f7fdc9"
+        assert spore["hub"] == f"{APEX}/survival"
 
         cite = json.loads((tree / "cite.json").read_text(encoding="utf-8"))
         assert cite["runtime_launch"]["runtime_sot"]["version_id"] == VERSION_ID

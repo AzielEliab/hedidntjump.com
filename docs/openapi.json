@@ -514,7 +514,7 @@
     },
     "/survival": {
       "get": {
-        "summary": "BAN-SURVIVAL-1.0 hub pull of runtime /survival (short TTL 60s; Zioncheck archive hub pull)",
+        "summary": "BAN-SURVIVAL-1.0 hub pull of runtime /survival (short TTL 60s; SPORE-1.0 + RE-COLD-STORE; Zioncheck archive hub pull)",
         "responses": {
           "200": {
             "description": "application/json"
@@ -524,7 +524,7 @@
     },
     "/survival.json": {
       "get": {
-        "summary": "Same BAN-SURVIVAL-1.0 hub wrap as /survival (static snapshot)",
+        "summary": "Same BAN-SURVIVAL-1.0 hub wrap as /survival (static snapshot; SPORE-1.0 + RE-COLD-STORE)",
         "responses": {
           "200": {
             "description": "application/json"

@@ -131,6 +131,22 @@ LIVE-NODES-HUB-CITE-1.0 (hub pull; short TTL 60s):
 - This host: https://www.hedidntjump.com/mesh · https://www.hedidntjump.com/mesh.json
 - Ingest tip unchanged: `ef967e4acb47ba913ce3959b673767278da605b307de33210b2dc2f1cfd86f60`
 
+SPORE-1.0 (hub cite of Worker /v1/survival; Worker a8f7fdc9 LIVE):
+- SoT: https://aziel-runtime.vibelock.workers.dev/v1/survival
+- Runtime lock: https://github.com/AzielEliab/aziel-runtime/pull/152 (main 231b02f / Worker a8f7fdc9)
+- Last-resort failsafe (layer 3): pause / preserve / wait / physical-wipe-only
+- Does not replace BAN-SURVIVAL or COLD-MULTI-SHELF. Cold shelves stay intact.
+- RE-COLD-STORE is an honest hook. destinations: []. No invented LIVE store, hash, receipt, or destination.
+- Does not claim a wipe is happening now. Plane B/C SLOT. doi null.
+- Softwares-tab product: false. FragGate slug: false.
+- Paper: https://github.com/AzielEliab/aziel-runtime/blob/main/docs/designs/SPORE-1.0.md
+- Zioncheck stays the HDJ mission. Do not invent case facts.
+- Person @id: https://www.azieleliab.com/#aziel. No visible 15:20.
+- Lamb Lens: https://www.azielcorpuslibrary.net/corpus
+- NO-LIE / NO-REWRITE
+- This host: https://www.hedidntjump.com/survival · https://www.hedidntjump.com/survival.json
+- Ingest tip unchanged: `ef967e4acb47ba913ce3959b673767278da605b307de33210b2dc2f1cfd86f60`
+
 BAN-SURVIVAL-1.0 (hub pull; short TTL 60s):
 - SoT: https://aziel-runtime.vibelock.workers.dev/v1/survival
 - Mutual backup LIVE. Live doors: workers-dev, library-runtime, author-runtime, godlock-runtime. HDJ stays the Zioncheck archive.

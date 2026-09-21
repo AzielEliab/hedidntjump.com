@@ -9,6 +9,11 @@ const CAP7 = "https://miragegrid.vibelock.workers.dev/bridge";
 const PERSON_ID = "https://www.azieleliab.com/#aziel";
 const TTL = 60;
 const UA = "Mozilla/5.0";
+const RUNTIME_PR = "https://github.com/AzielEliab/aziel-runtime/pull/152";
+const RUNTIME_GIT_SHORT = "231b02f";
+const RUNTIME_VERSION_ID = "a8f7fdc9";
+const SPORE_PAPER =
+  "https://github.com/AzielEliab/aziel-runtime/blob/main/docs/designs/SPORE-1.0.md";
 
 const JSON_HEADERS = {
   "content-type": "application/json; charset=utf-8",
@@ -16,6 +21,90 @@ const JSON_HEADERS = {
   "cdn-cache-control": `public, max-age=${TTL}, stale-while-revalidate=300`,
   "cloudflare-cdn-cache-control": `public, max-age=${TTL}`,
 };
+
+function defaultStack() {
+  return [
+    {
+      layer: 1,
+      id: "live-fronts",
+      spec: "BAN-SURVIVAL-1.0",
+      role: "failover",
+      includes: ["cap-7", "calling-name", "live-node-api"],
+    },
+    {
+      layer: 2,
+      id: "cold-shelves",
+      spec: "COLD-MULTI-SHELF-1.0",
+      role: "mutual-backup",
+      mutual_backup_with: "BAN-SURVIVAL-1.0",
+      plane_b: "slot",
+      plane_c: "slot",
+      replaced: false,
+      failed: false,
+    },
+    {
+      layer: 3,
+      id: "spore",
+      spec: "SPORE-1.0",
+      role: "failsafe",
+      last_resort: true,
+      replaces_cold_shelves: false,
+      replaces_ban_survival: false,
+    },
+  ];
+}
+
+function compactStack(rows) {
+  const src = Array.isArray(rows) && rows.length ? rows : defaultStack();
+  return src.map((row) => {
+    const item = {
+      layer: row.layer,
+      id: row.id,
+      spec: row.spec,
+      role: row.role,
+    };
+    if (row.id === "live-fronts") {
+      item.includes = Array.isArray(row.includes)
+        ? row.includes
+        : ["cap-7", "calling-name", "live-node-api"];
+    }
+    if (row.id === "cold-shelves") {
+      item.mutual_backup_with = row.mutual_backup_with || "BAN-SURVIVAL-1.0";
+      item.plane_b = row.plane_b || "slot";
+      item.plane_c = row.plane_c || "slot";
+      item.replaced = row.replaced === true;
+      item.failed = row.failed === true;
+    }
+    if (row.id === "spore") {
+      item.last_resort = true;
+      item.replaces_cold_shelves = false;
+      item.replaces_ban_survival = false;
+    }
+    return item;
+  });
+}
+
+function compactReCold(raw) {
+  const src = raw && typeof raw === "object" ? raw : {};
+  return {
+    hook: "RE-COLD-STORE",
+    allowed: src.allowed !== false,
+    trigger: src.trigger || "cold-shelves-wiped-or-failed",
+    active: src.active === true,
+    shelves_failed: src.shelves_failed === true,
+    shelves_intact: src.shelves_intact !== false,
+    invent_live: false,
+    invent_hash: false,
+    invent_receipt: false,
+    invent_destination: false,
+    public_inventory_required: false,
+    destinations: Array.isArray(src.destinations) ? src.destinations : [],
+    opaque_placement: src.opaque_placement !== false,
+    note:
+      src.note ||
+      "When cold stores are wiped or fail, the mesh may re-cold-store DNA wherever available. Never invent LIVE stores, hashes, receipts, or destinations. No required public inventory. Does not claim a wipe is happening now.",
+  };
+}
 
 function wrap(sot, cap7, extra) {
   const liveDoors = Array.isArray(sot && sot.live_doors) ? sot.live_doors : [];
@@ -26,6 +115,9 @@ function wrap(sot, cap7, extra) {
   const honesty = (cap7 && cap7.honesty) || {};
   const sites = Array.isArray(cap7 && cap7.cap7) ? cap7.cap7 : [];
   const azshift = sites.find((row) => row && row.label === "azshift") || null;
+  const spore = (sot && sot.spore) || {};
+  const stack = compactStack((sot && sot.survival_stack) || spore.stack);
+  const reCold = compactReCold((sot && sot.re_cold_store) || spore.re_cold_store);
   return {
     spec: "BAN-SURVIVAL-1.0",
     surface: "hedidntjump-hub-pull",
@@ -115,7 +207,35 @@ function wrap(sot, cap7, extra) {
             reach: "aznet",
           },
     },
-    note: "Hub pull of runtime /survival (short TTL) plus MirageGrid Cap-7 Worker cite. HDJ is not a named live exec front. FragGate stays the door on the runtime sister.",
+    spore_spec: "SPORE-1.0",
+    spore_role: (sot && sot.spore_role) || spore.role || "failsafe",
+    spore_replaces_cold_shelves: false,
+    survival_stack: stack,
+    re_cold_store: reCold,
+    spore: {
+      spec: "SPORE-1.0",
+      role: (sot && sot.spore_role) || spore.role || "failsafe",
+      failsafe: true,
+      last_resort: true,
+      replaces_cold_shelves: false,
+      replaces_ban_survival: false,
+      cold_shelves_intact: spore.cold_shelves_intact !== false,
+      mutual_backup_intact: spore.mutual_backup_intact !== false,
+      faces: Array.isArray(spore.faces)
+        ? spore.faces
+        : ["pause", "preserve", "wait", "physical-wipe-only"],
+      re_cold_store: reCold,
+      software_tab: false,
+      fraggate_slug: false,
+      paper: SPORE_PAPER,
+      runtime_pr: RUNTIME_PR,
+      runtime_git_short: RUNTIME_GIT_SHORT,
+      runtime_version_id: RUNTIME_VERSION_ID,
+    },
+    runtime_pr: RUNTIME_PR,
+    runtime_git_short: RUNTIME_GIT_SHORT,
+    runtime_version_id: RUNTIME_VERSION_ID,
+    note: "Hub pull of runtime /survival (short TTL) plus MirageGrid Cap-7 Worker cite. SPORE-1.0 last-resort failsafe + RE-COLD-STORE honest hook. HDJ is not a named live exec front. FragGate stays the door on the runtime sister.",
     ...extra,
   };
 }

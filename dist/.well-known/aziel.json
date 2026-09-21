@@ -433,5 +433,22 @@
     "mission": "Zioncheck archive",
     "person_id": "https://www.azieleliab.com/#aziel",
     "visible_1520": false
+  },
+  "spore": {
+    "spec": "SPORE-1.0",
+    "sot": "https://aziel-runtime.vibelock.workers.dev/v1/survival",
+    "ttl_seconds": 60,
+    "role": "failsafe",
+    "failsafe": true,
+    "last_resort": true,
+    "replaces_cold_shelves": false,
+    "re_cold_store": "RE-COLD-STORE",
+    "destinations": [],
+    "runtime_version_id": "a8f7fdc9",
+    "software_tab": false,
+    "this_host_is_live_door": false,
+    "mission": "Zioncheck archive",
+    "person_id": "https://www.azieleliab.com/#aziel",
+    "visible_1520": false
   }
 }

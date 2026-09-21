@@ -79,6 +79,20 @@
     "hub": "https://hedidntjump.com/mesh",
     "note": "Public Live Nodes cite GET /v1/mesh live_nodes + live_nodes_note. Softwares stay on software_nodes and do not feed this pill."
   },
+  "spore": {
+    "sot": "https://aziel-runtime.vibelock.workers.dev/v1/survival",
+    "spec": "SPORE-1.0",
+    "role": "failsafe",
+    "last_resort": true,
+    "replaces_cold_shelves": false,
+    "re_cold_store": "RE-COLD-STORE",
+    "destinations": [],
+    "runtime_pr": "https://github.com/AzielEliab/aziel-runtime/pull/152",
+    "runtime_git_short": "231b02f",
+    "runtime_version_id": "a8f7fdc9",
+    "hub": "https://hedidntjump.com/survival",
+    "note": "SPORE-1.0 last-resort failsafe + RE-COLD-STORE honest hook from Worker GET /v1/survival (Worker a8f7fdc9). Softwares blurbs unchanged."
+  },
   "ingest_tip_unchanged": "ef967e4acb47ba913ce3959b673767278da605b307de33210b2dc2f1cfd86f60",
   "note": "Announce/sync only. Cite aziel-runtime / Try on Glama. Do not clone Softwares onto this Zioncheck archive."
 }
