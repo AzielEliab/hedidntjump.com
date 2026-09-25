@@ -5,6 +5,10 @@ Machine surfaces + sitemap/robots/llms/cite/openapi/headers only.
 Does not invent biography, FOIA letters, holdings, DOIs, or a local MCP.
 Does not change /ingest-as-receipt.json (tip stays stable).
 Writes dist/ and docs/.
+
+Operator 2026-09-24: HTML and _redirects stay frozen. main() is machine-only.
+--rewrite-html is refused. Zioncheck SERP strength is applied by
+zioncheck_serp_lattice.apply_zioncheck_subsurface.
 """
 from __future__ import annotations
 
@@ -26,18 +30,10 @@ PERSON_ID = "https://www.azieleliab.com/#aziel"
 ZION_ID = f"{APEX}/#marion-zioncheck"
 HDJ_INGEST_TIP = "ef967e4acb47ba913ce3959b673767278da605b307de33210b2dc2f1cfd86f60"
 
-MARION_AKA = [
-    "Marion Zioncheck",
-    "Marion Anthony Zioncheck",
-    "Congressman Marion A. Zioncheck",
-    "Congressman Zioncheck",
-]
-MARION_SAME_AS = [
-    "https://en.wikipedia.org/wiki/Marion_Zioncheck",
-    "https://history.house.gov/People/Listing/Z/ZIONCHECK,-Marion-Anthony-(Z000011)/",
-    "https://www.historylink.org/File/5528",
-    "https://id.loc.gov/authorities/names/n87891358",
-]
+from zioncheck_serp_lattice import (  # noqa: E402
+    ALTERNATE_NAMES as MARION_AKA,
+    SAME_AS as MARION_SAME_AS,
+)
 
 QUERY_URLS = [
     f"{APEX}/",
@@ -227,6 +223,8 @@ def patch_headers() -> None:
 
 
 def patch_redirects() -> None:
+    print("skip redirects: operator 2026-09-24, anti-loop _redirects frozen")
+    return
     pin = (
         "# LLM well-known (200 rewrite). Do not add /who → who.html, "
         "/aziel → aziel.html, /reader → reader.html, /receipts → receipts.html.\n"
@@ -442,6 +440,8 @@ def patch_llms() -> None:
 
 
 def patch_money_jsonld() -> None:
+    print("skip money-head: operator 2026-09-24, HTML frozen")
+    return
     old = """      "alternateName": [
         "Marion Zioncheck",
         "Marion Anthony Zioncheck"
@@ -481,6 +481,8 @@ def patch_money_jsonld() -> None:
 
 
 def patch_edition_og() -> None:
+    print("skip edition-og: operator 2026-09-24, HTML frozen")
+    return
     pages = {
         "press.html": {
             "og_title": "Press · Investigative Sources — He Didn't Jump",
@@ -561,6 +563,8 @@ def patch_cold_shelf_writer() -> None:
 
 
 def patch_serp_writer() -> None:
+    print("skip serp-writer source patch: lattice module owns subsurface SERP")
+    return
     path = ROOT / "scripts" / "write_zioncheck_serp.py"
     text = path.read_text(encoding="utf-8")
     text = text.replace(
@@ -680,6 +684,8 @@ def _set_or_insert_meta(text: str, attr: str, name: str, value: str) -> str:
 
 
 def patch_sitewide_pages() -> None:
+    print("skip sitewide HTML: operator 2026-09-24, HTML frozen")
+    return
     for tree in TREES:
         for name, canonical in PAGE_HEADS.items():
             path = tree / name
@@ -785,19 +791,22 @@ def patch_sitewide_pages() -> None:
 
 
 def main() -> None:
+    if "--rewrite-html" in sys.argv:
+        raise SystemExit(
+            "refusing HTML rewrite (operator 2026-09-24). "
+            "Default and --machine-only leave every *.html byte unchanged."
+        )
     patch_robots()
     patch_headers()
-    patch_redirects()
     patch_sitemap()
     patch_openapi()
     patch_cite()
     patch_llms()
-    patch_money_jsonld()
-    patch_edition_og()
-    patch_sitewide_pages()
     patch_cold_shelf_writer()
-    patch_serp_writer()
-    print("AZindex GROWTH-ON written; ingest tip unchanged")
+    from zioncheck_serp_lattice import apply_zioncheck_subsurface
+
+    apply_zioncheck_subsurface()
+    print("AZindex GROWTH-ON written (machine-only); ingest tip unchanged")
 
 
 if __name__ == "__main__":

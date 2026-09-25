@@ -155,6 +155,9 @@ def main() -> None:
         ):
             assert url in cite["marion_person"]["sameAs"]
         assert "Congressman Zioncheck" in cite["marion_person"]["alternateName"]
+        assert "Zioncheck" in cite["marion_person"]["alternateName"]
+        for loc in ("/Case", "/Narrative", "/Inquiries", "/Volumes", "/FOIA"):
+            assert f"Allow: {loc}" in robots, loc
 
         llms = (tree / "llms.txt").read_text(encoding="utf-8")
         lead = llms.split("## Marion")[0]
@@ -170,6 +173,9 @@ def main() -> None:
         assert "aziel-runtime" in ai.lower() or "glama" in ai.lower()
         assert "NOT an ARG" not in ai
         assert "whistleblower" in ai.lower()
+        assert "## Zioncheck query URLs" in ai
+        for loc in ("/Case", "/Narrative", "/Inquiries", "/Volumes", "/FOIA"):
+            assert f"{APEX}{loc}" in ai, loc
 
         idx = (tree / "index.html").read_text(encoding="utf-8")
         case = (tree / "case.html").read_text(encoding="utf-8")

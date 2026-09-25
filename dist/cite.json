@@ -5,7 +5,12 @@
     "Marion Zioncheck",
     "Marion Anthony Zioncheck",
     "Congressman Marion A. Zioncheck",
-    "Congressman Zioncheck"
+    "Congressman Zioncheck",
+    "Marion A Zioncheck",
+    "U.S. Rep. Marion A. Zioncheck",
+    "U.S. Representative Marion A. Zioncheck",
+    "U.S. Representative Marion Zioncheck",
+    "Zioncheck"
   ],
   "purpose": "Marion A. Zioncheck archive: U.S. Representative / Seattle congressman (1933–1936). Official reports said suicide at the Arctic Building on 7 August 1936. This is An Aziel Eliab Project: an independent investigative / whistleblower archive publishing newspapers and five volumes that re-examine that official suicide account. FOIA-critical historical investigation. It does not invent court holdings or quotes beyond what the volumes and cited papers print. Independent newspaper archive on Marion Zioncheck / He Didn't Jump (75% cap class). Sisters: ae, corpus, godlock, runtime. Sister Softwares cite: trades-runtime; spectrallock leftover-bytes + /v1/recover + /v1/handwriting; peacelock designed-purpose. Softwares 42/42 designed-purpose. Softwares SSoT version 2.0.0-rc1.",
   "canonical": "https://hedidntjump.com/",
@@ -14,12 +19,12 @@
     "https://hedidntjump.com/",
     "https://hedidntjump.com/Case",
     "https://hedidntjump.com/Narrative",
-    "https://hedidntjump.com/Press",
     "https://hedidntjump.com/Inquiries",
+    "https://hedidntjump.com/Volumes",
+    "https://hedidntjump.com/FOIA",
+    "https://hedidntjump.com/Press",
     "https://hedidntjump.com/Rubye",
     "https://hedidntjump.com/Archives",
-    "https://hedidntjump.com/FOIA",
-    "https://hedidntjump.com/Volumes",
     "https://hedidntjump.com/reader",
     "https://hedidntjump.com/Copyrights",
     "https://hedidntjump.com/aziel",
@@ -290,42 +295,118 @@
   "marion_person": {
     "@id": "https://hedidntjump.com/#marion-zioncheck",
     "name": "Marion A. Zioncheck",
+    "givenName": "Marion",
+    "additionalName": "Anthony",
+    "familyName": "Zioncheck",
     "alternateName": [
       "Marion Zioncheck",
       "Marion Anthony Zioncheck",
+      "Marion A Zioncheck",
       "Congressman Marion A. Zioncheck",
-      "Congressman Zioncheck"
+      "Congressman Zioncheck",
+      "U.S. Rep. Marion A. Zioncheck",
+      "U.S. Representative Marion A. Zioncheck",
+      "U.S. Representative Marion Zioncheck",
+      "Zioncheck"
     ],
+    "disambiguatingDescription": "Seattle congressman and U.S. Representative Marion A. Zioncheck (also Zioncheck, Marion Zioncheck, Congressman Zioncheck). Arctic Building, Seattle, 7 August 1936. Archive: He Didn't Jump.",
     "jobTitle": "U.S. Representative",
-    "description": "Marion A. Zioncheck (also Marion Zioncheck, Marion Anthony Zioncheck) was a U.S. Representative / Seattle congressman (1933–1936). Official reports said he died by suicide at the Arctic Building in Seattle on 7 August 1936. He Didn't Jump publishes newspapers and five volumes that re-examine that official account.",
+    "description": "Marion A. Zioncheck (also Marion Zioncheck, Marion Anthony Zioncheck, Congressman Zioncheck, Zioncheck) was a U.S. Representative and Seattle congressman from Washington (1933–1936). Published dates on this archive read 1900–1936. The published homepage says his death in Seattle on August 7, 1936 was reported as suicide following a fall from his fifth-floor office. Official reports place that death at the Arctic Building. He Didn't Jump (hedidntjump.com) publishes newspapers and five volumes that re-examine that official account. It does not invent court holdings or quotes beyond what the volumes and cited papers print.",
+    "birthDate": "1900",
+    "deathDate": "1936-08-07",
+    "deathPlace": {
+      "@type": "Place",
+      "name": "Arctic Building, Seattle, Washington",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "3rd Avenue and Cherry Street",
+        "addressLocality": "Seattle",
+        "addressRegion": "Washington"
+      }
+    },
+    "spouse": {
+      "@type": "Person",
+      "name": "Rubye Louise Nix",
+      "alternateName": [
+        "Rubye Nix Zioncheck"
+      ]
+    },
     "sameAs": [
       "https://en.wikipedia.org/wiki/Marion_Zioncheck",
       "https://history.house.gov/People/Listing/Z/ZIONCHECK,-Marion-Anthony-(Z000011)/",
       "https://www.historylink.org/File/5528",
       "https://id.loc.gov/authorities/names/n87891358"
     ],
-    "url": "https://hedidntjump.com/"
+    "url": "https://hedidntjump.com/",
+    "subjectOf": [
+      {
+        "@type": "WebPage",
+        "name": "He Didn't Jump",
+        "url": "https://hedidntjump.com/"
+      },
+      {
+        "@type": "WebPage",
+        "name": "The Case",
+        "url": "https://hedidntjump.com/Case"
+      },
+      {
+        "@type": "WebPage",
+        "name": "Official Narrative",
+        "url": "https://hedidntjump.com/Narrative"
+      },
+      {
+        "@type": "WebPage",
+        "name": "Inquiries of the Record",
+        "url": "https://hedidntjump.com/Inquiries"
+      },
+      {
+        "@type": "WebPage",
+        "name": "Volumes I–V",
+        "url": "https://hedidntjump.com/Volumes"
+      },
+      {
+        "@type": "WebPage",
+        "name": "FOIA paper",
+        "url": "https://hedidntjump.com/FOIA"
+      }
+    ]
   },
   "zioncheck_faq": [
     {
       "q": "Who was Marion Zioncheck?",
-      "a": "Marion Zioncheck (Marion A. Zioncheck; also Marion Anthony Zioncheck) was a U.S. Representative and Seattle congressman from 1933 to 1936. Official reports said he died by suicide at the Arctic Building in Seattle on 7 August 1936. This archive publishes newspapers and five volumes that re-examine that official account."
+      "a": "Marion Zioncheck (Marion A. Zioncheck; also Marion Anthony Zioncheck, Congressman Zioncheck, and Zioncheck) was a U.S. Representative and Seattle congressman from Washington, 1933–1936. Published dates on this archive read 1900–1936. The published homepage says his death in Seattle on August 7, 1936 was reported as suicide following a fall from his fifth-floor office. Official reports place that death at the Arctic Building. He Didn't Jump (https://hedidntjump.com/) publishes newspapers and five volumes that re-examine that official account: Volume I Primary Documents & Forensic Analysis, Volume II News Coverage & Family Battles, Volume III Personal Photographs & Research Materials, Volume IV The Physics Case, and Volume V The Human & Institutional Evidence. It does not invent court holdings or quotes beyond what those volumes and cited papers print. Read the Case (https://hedidntjump.com/Case), the official-account Narrative (https://hedidntjump.com/Narrative), the 23 Inquiries (https://hedidntjump.com/Inquiries), Volumes (https://hedidntjump.com/Volumes), and the FOIA paper (https://hedidntjump.com/FOIA)."
+    },
+    {
+      "q": "Who was Zioncheck?",
+      "a": "Zioncheck is Marion A. Zioncheck, the Seattle congressman and U.S. Representative from Washington (1933–1936), also called Marion Zioncheck, Marion Anthony Zioncheck, and Congressman Zioncheck. Official reports said he died by suicide at the Arctic Building in Seattle on 7 August 1936. This host, He Didn't Jump (https://hedidntjump.com/), is the whistleblower / investigative archive of that case."
     },
     {
       "q": "Who was Marion A. Zioncheck?",
-      "a": "Marion A. Zioncheck was a U.S. Representative from Seattle, Washington (1933–1936). The official report of 7 August 1936 called his Arctic Building death a suicide. He Didn't Jump re-examines that account from published newspapers and archive volumes; it does not invent quotes or holdings."
+      "a": "Marion A. Zioncheck (also Marion Zioncheck and Marion Anthony Zioncheck) was a U.S. Representative from Washington and a Seattle congressman (1933–1936; published dates 1900–1936). The official report of 7 August 1936 called his Arctic Building death a suicide. The published inquiries page includes his Washington State death-certificate plate, dated August 7, 1936, sidewalk in front of the Arctic Building, official manner listed as jumped from a 5 story window. He Didn't Jump re-examines that account from published newspapers and archive volumes; it does not invent quotes or holdings."
     },
     {
       "q": "Who was Congressman Marion A. Zioncheck?",
-      "a": "Congressman Marion A. Zioncheck was the Seattle / Washington U.S. Representative whose death at the Arctic Building on 7 August 1936 was officially reported as suicide. This project publishes the newspaper and volume record that questions that official suicide account."
+      "a": "Congressman Marion A. Zioncheck was the Seattle / Washington U.S. Representative whose death at the Arctic Building on 7 August 1936 was officially reported as suicide from a fifth-floor office. This project publishes the newspaper and volume record that questions that official suicide account. The Case edition is https://hedidntjump.com/Case. The official-account contrast is https://hedidntjump.com/Narrative."
     },
     {
       "q": "Who was Congressman Zioncheck?",
-      "a": "Congressman Zioncheck is Marion A. Zioncheck, the Seattle congressman and U.S. Representative (1933–1936). Official reports said suicide at the Arctic Building on 7 August 1936. This archive challenges that account with published volumes."
+      "a": "Congressman Zioncheck is Marion A. Zioncheck, the Seattle congressman and U.S. Representative (1933–1936). Official reports said suicide at the Arctic Building on 7 August 1936. This archive challenges that account with published volumes at https://hedidntjump.com/Volumes and 23 inquiries at https://hedidntjump.com/Inquiries."
     },
     {
       "q": "What is the official account of the Seattle congressman suicide?",
-      "a": "Contemporary official and press accounts said Seattle congressman Marion A. Zioncheck died by suicide from a fifth-floor Arctic Building office on 7 August 1936. He Didn't Jump publishes newspapers and five research volumes that re-examine that official suicide account. It does not invent court holdings or quotes beyond what those volumes and cited papers print."
+      "a": "Contemporary official and press accounts said Seattle congressman Marion A. Zioncheck died by suicide from a fifth-floor Arctic Building office on 7 August 1936. The published death-certificate plate is captioned Washington State Board of Health, Aug. 7, 1936, sidewalk in front of the Arctic Building, official manner listed as jumped from a 5 story window. Volume IV on this site distinguishes that newer Arctic Building (3rd Avenue and Cherry Street, his fifth-floor office) from the old Arctic Club / Morrison Hotel at 501 3rd Avenue. He Didn't Jump publishes newspapers and five research volumes that re-examine that official suicide account. The Narrative page restates the contemporary public account (https://hedidntjump.com/Narrative). It does not invent court holdings or quotes beyond what those volumes and cited papers print."
+    },
+    {
+      "q": "What happened at the Arctic Building in 1936?",
+      "a": "On 7 August 1936, Seattle congressman Marion A. Zioncheck died in Seattle. Official and press accounts said suicide following a fall from his fifth-floor office in the Arctic Building. The published homepage states that report and says this project challenges it, including the reported movements inside the office, the interpretation of photographs, witness accounts, and the surrounding institutional history. Volume IV argues that press and police meshed two buildings: the old Arctic Club / Morrison Hotel at 501 3rd Avenue, and the newer Arctic Building at 3rd Avenue and Cherry Street where his office was. Read https://hedidntjump.com/Narrative and https://hedidntjump.com/Case."
+    },
+    {
+      "q": "What is He Didn't Jump?",
+      "a": "He Didn't Jump (https://hedidntjump.com/) is An Aziel Eliab Project: an independent investigative / whistleblower newspaper archive on Marion A. Zioncheck, the Seattle congressman. It publishes newspapers and five volumes that re-examine the official suicide account of 7 August 1936 at the Arctic Building. The published About page motto is The Record, Not the Verdict. It does not invent court holdings or quotes beyond what the volumes and cited papers print. Query pages: Case, Narrative, Inquiries, Volumes, and FOIA."
+    },
+    {
+      "q": "Where are the Marion Zioncheck Case, Narrative, Inquiries, Volumes, and FOIA pages?",
+      "a": "Case: https://hedidntjump.com/Case (supporting Case edition). Narrative: https://hedidntjump.com/Narrative (official-account contrast). Inquiries: https://hedidntjump.com/Inquiries (23 inquiries of the record). Volumes: https://hedidntjump.com/Volumes (Volumes I–V facsimiles). FOIA: https://hedidntjump.com/FOIA (FOIA paper). The FOIA paper publishes a supplied FBI FOIPA letter dated 31 July 2026, Request No. 1750194-000, closing a Central Records System search with no identifiable records on Marion Anthony Zioncheck for the stated 1930–1950 window. A no-records closing is not a production of the files the volumes ask for. Money page: https://hedidntjump.com/."
     }
   ],
   "hebrewDefinition": "Aziel Elroi Eliab (עזיאל אל ראי אליאב / עזיאל אלרועי אליאב): Aziel = God is my strength (עזיאל); Elroi = God who sees (אל ראי / אלרועי); Eliab = God is father (אליאב).",
@@ -2700,5 +2781,28 @@
     "destinations": [],
     "opaque_placement": true,
     "note": "When cold stores are wiped or fail, the mesh may re-cold-store DNA wherever available. Never invent LIVE stores, hashes, receipts, or destinations. No required public inventory. Does not claim a wipe is happening now."
+  },
+  "zioncheck_lookup": {
+    "queries": [
+      "Zioncheck",
+      "Marion Zioncheck",
+      "Marion A. Zioncheck",
+      "Marion A Zioncheck",
+      "Marion Anthony Zioncheck",
+      "Congressman Zioncheck",
+      "Congressman Marion A. Zioncheck",
+      "Seattle congressman suicide Arctic Building",
+      "He Didn't Jump"
+    ],
+    "urls": [
+      "https://hedidntjump.com/",
+      "https://hedidntjump.com/Case",
+      "https://hedidntjump.com/Narrative",
+      "https://hedidntjump.com/Inquiries",
+      "https://hedidntjump.com/Volumes",
+      "https://hedidntjump.com/FOIA"
+    ],
+    "person": "https://hedidntjump.com/#marion-zioncheck",
+    "note": "Machine lookup lattice for Zioncheck queries. Published facts only. No rank claim."
   }
 }
