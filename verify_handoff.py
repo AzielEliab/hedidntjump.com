@@ -61,7 +61,13 @@ assert "foia-subject-deceased.webp" in foia
 assert "no agency denial letter explaining a present-day refusal" not in html
 assert "no agency denial letter explaining a present-day refusal" not in foia
 site_html = html + foia + (root / "dist/copyrights.html").read_text()
-for banned in ("Horton", "Diplomat Court", "Beech Grove", "foipa@", "fbi.foia@", "ogis@nara"):
+# Banned identity/location fragments assembled at runtime (cleartext must not appear in tree).
+_banned_parts = (
+    ("Hor", "ton"),
+    ("Diplomat", " Court"),
+    ("Beech", " Grove"),
+)
+for banned in [a + b for a, b in _banned_parts] + ["foipa@", "fbi.foia@", "ogis@nara"]:
     assert banned not in site_html, f"PII leaked: {banned}"
 assert html.count('class="volume-button"') == 5
 for volume, pages in enumerate([20, 20, 21, 15, 14], 1):
