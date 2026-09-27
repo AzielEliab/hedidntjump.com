@@ -95,7 +95,52 @@ def main() -> None:
         assert any(n.get("@id") == "https://www.hedidntjump.com/#zioncheck-faq" for n in graph_doc["@graph"])
         assert any(n.get("@id") == "https://www.azieleliab.com/#aziel" for n in graph_doc["@graph"])
         assert "## Marion A. Zioncheck FAQ (machine)" in llms
+        assert "## Zioncheck lookup (machine)" in llms
         assert "Who was Congressman Zioncheck?" in llms
+        assert "Who was Zioncheck?" in llms
+        assert "What happened at the Arctic Building in 1936?" in llms
+        assert "Seattle congressman suicide Arctic Building" in llms
+        assert cite["marion_person"]["birthDate"] == "1900"
+        assert cite["marion_person"]["deathDate"] == "1936-08-07"
+        assert "Arctic Building, Seattle, Washington" in cite["marion_person"]["deathPlace"]["name"]
+        assert cite["marion_person"]["spouse"]["name"] == "Rubye Louise Nix"
+        for name in ("Zioncheck", "Marion Anthony Zioncheck", "U.S. Rep. Marion A. Zioncheck"):
+            assert name in cite["marion_person"]["alternateName"], name
+        for loc in ("/Case", "/Narrative", "/Inquiries", "/Volumes", "/FOIA"):
+            assert f"{APEX}{loc}" in cite["query_urls"]
+            assert cite["query_urls"].index(f"{APEX}{loc}") < cite["query_urls"].index(
+                f"{APEX}/Press"
+            )
+        assert any(q["q"] == "Who was Marion Zioncheck?" for q in cite["zioncheck_faq"])
+        lead_a = next(q["a"] for q in cite["zioncheck_faq"] if q["q"] == "Who was Marion Zioncheck?")
+        assert "fifth-floor" in lead_a and "Arctic Building" in lead_a
+        assert "https://hedidntjump.com/Case" in lead_a
+        graph_marion = graph_doc["@graph"][0]
+        assert graph_marion["name"] == "Marion A. Zioncheck"
+        assert "Zioncheck" in graph_marion["alternateName"]
+        assert graph_marion["deathPlace"]["name"] == "Arctic Building, Seattle, Washington"
+        faq = next(n for n in graph_doc["@graph"] if n.get("@id") == "https://www.hedidntjump.com/#zioncheck-faq")
+        assert len(faq["mainEntity"]) >= 9
+        ai = (ROOT / tree / "ai.txt").read_text(encoding="utf-8")
+        assert "## Zioncheck query URLs" in ai
+        for loc in ("/Case", "/Narrative", "/Inquiries", "/Volumes", "/FOIA"):
+            assert f"{APEX}{loc}" in ai
+        robots = (ROOT / tree / "robots.txt").read_text(encoding="utf-8")
+        for allow in ("Allow: /Case", "Allow: /Narrative", "Allow: /Inquiries", "Allow: /Volumes", "Allow: /FOIA"):
+            assert allow in robots
+        assert "<priority>0.9</priority>" in sitemap
+        assert sitemap.count("<priority>1.0</priority>") == 1
+        narrative_pri = re.search(
+            rf"<loc>{APEX}/Narrative</loc>[\s\S]*?<priority>([^<]+)</priority>",
+            sitemap,
+        )
+        assert narrative_pri and narrative_pri.group(1) == "0.9"
+        openapi = json.loads((ROOT / tree / "openapi.json").read_text(encoding="utf-8"))
+        for loc in ("/Case", "/Narrative", "/Inquiries", "/Volumes", "/FOIA"):
+            summary = openapi["paths"][loc]["get"]["summary"]
+            assert "Zioncheck" in summary or "Marion" in summary or "Arctic" in summary, loc
+        full = (ROOT / tree / "llms-full.txt").read_text(encoding="utf-8")
+        assert "## Zioncheck lookup (machine)" in full
         # No second meter / stats rewrite in this lane.
         assert "views" in idx and "downloads" in idx
     print("zioncheck SERP lock OK")

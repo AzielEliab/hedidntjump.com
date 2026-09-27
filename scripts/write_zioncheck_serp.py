@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
-"""Marion Zioncheck SERP lock for the money page (/) and /Case.
+"""Marion Zioncheck SERP lock.
 
 Published-facts only. Crazytown is omitted — the word does not appear in
 repo HTML or Volume I–V PDFs. Aziel Eliab stays publisher, not mainEntity.
-Writes dist/ and docs/. ZionBot owns newspaper HTML beyond head/H1/schema.
+
+Operator 2026-09-24: main() is machine-only. It writes cite / graph / llms /
+ai.txt / openapi / sitemap / robots / _headers and does not open *.html or
+_redirects. --rewrite-html is refused. ZionBot owns newspaper HTML.
 """
 from __future__ import annotations
 
@@ -83,33 +86,9 @@ def dumps(obj) -> str:
 
 
 def zioncheck_person() -> dict:
-    return {
-        "@type": "Person",
-        "@id": ZION_ID,
-        "name": "Marion A. Zioncheck",
-        "alternateName": [
-            "Marion Zioncheck",
-            "Marion Anthony Zioncheck",
-            "Congressman Marion A. Zioncheck",
-            "Congressman Zioncheck",
-        ],
-        "additionalName": "Anthony",
-        "jobTitle": "U.S. Representative",
-        "description": (
-            "Marion A. Zioncheck (also Marion Zioncheck, Marion Anthony Zioncheck) "
-            "was a U.S. Representative / Seattle congressman (1933–1936). "
-            "Official reports said he died by suicide at the Arctic Building in "
-            "Seattle on 7 August 1936. He Didn't Jump publishes newspapers and "
-            "five volumes that re-examine that official account."
-        ),
-        "deathDate": "1936-08-07",
-        "deathPlace": {
-            "@type": "Place",
-            "name": "Seattle, Washington",
-        },
-        "sameAs": SAME_AS,
-        "url": f"{APEX}/",
-    }
+    from zioncheck_serp_lattice import zioncheck_person as lattice_person
+
+    return lattice_person()
 
 
 def publisher_person() -> dict:
@@ -258,83 +237,13 @@ def write_headers() -> None:
 
 
 def write_sitemap() -> None:
-    editions = [
-        ("/", "1.0"),
-        ("/Case", "0.9"),
-        ("/Press", "0.8"),
-        ("/Inquiries", "0.8"),
-        ("/Rubye", "0.7"),
-        ("/Archives", "0.6"),
-        ("/FOIA", "0.7"),
-        ("/Volumes", "0.8"),
-        ("/reader", "0.6"),
-        ("/Narrative", "0.6"),
-        ("/aziel", "0.5"),
-        ("/AzielEliab", "0.4"),
-        ("/AboutAziel", "0.4"),
-        ("/Copyrights", "0.3"),
-        ("/receipts", "0.4"),
-        ("/who", "0.6"),
-    ]
-    discovery = [
-        ("/llms.txt", "0.5"),
-        ("/llms-full.txt", "0.3"),
-        ("/ai.txt", "0.3"),
-        ("/cite.json", "0.5"),
-        ("/shelves", "0.5"),
-        ("/shelves.json", "0.4"),
-        ("/lockset.json", "0.4"),
-        ("/v1/shelves", "0.3"),
-        ("/cold-copy", "0.3"),
-        ("/ingest-as-receipt.json", "0.5"),
-        ("/openapi.json", "0.2"),
-        ("/mcp.json", "0.2"),
-        ("/.well-known/mcp.json", "0.2"),
-        ("/volumes.json", "0.3"),
-        ("/robots.txt", "0.2"),
-        ("/sitemap-index.xml", "0.2"),
-        ("/person.jsonld", "0.3"),
-        ("/identity.jsonld", "0.3"),
-        ("/graph.jsonld", "0.3"),
-        ("/who-is-aziel-eliab.txt", "0.4"),
-        ("/who-is", "0.4"),
-        ("/.well-known/aziel.json", "0.3"),
-        ("/.well-known/llms.txt", "0.4"),
-        ("/redline", "0.4"),
-        ("/redline.json", "0.4"),
-        ("/runtime-launch.json", "0.4"),
-        ("/help.txt", "0.5"),
-        ("/addendum.txt", "0.4"),
-        ("/help/how-to-read.txt", "0.5"),
-    ]
-    pdfs = [
-        ("/volumes/volume-1.pdf", "0.6"),
-        ("/volumes/volume-2.pdf", "0.6"),
-        ("/volumes/volume-3.pdf", "0.6"),
-        ("/volumes/volume-4.pdf", "0.6"),
-        ("/volumes/volume-5.pdf", "0.6"),
-        ("/assets/foia-binary-acknowledgement.pdf", "0.4"),
-    ]
-    parts = [
-        '<?xml version="1.0" encoding="UTF-8"?>',
-        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
-    ]
-    for loc, pri in editions + discovery + pdfs:
-        parts.extend(
-            [
-                "  <url>",
-                f"    <loc>{APEX}{loc}</loc>",
-                f"    <lastmod>{LASTMOD}</lastmod>",
-                "    <changefreq>weekly</changefreq>",
-                f"    <priority>{pri}</priority>",
-                "  </url>",
-            ]
-        )
-    parts.append("</urlset>\n")
-    body = "\n".join(parts)
+    """Patch priorities and missing pretty aliases. Do not rebuild the urlset."""
+    from zioncheck_serp_lattice import _patch_sitemap
+
     for tree in TREES:
-        (tree / "sitemap.xml").write_text(body, encoding="utf-8")
-        print("sitemap", (tree / "sitemap.xml").relative_to(ROOT))
+        path = tree / "sitemap.xml"
+        path.write_text(_patch_sitemap(path.read_text(encoding="utf-8")), encoding="utf-8")
+        print("sitemap", path.relative_to(ROOT))
 
 
 def strip_http_equiv_cache(text: str) -> str:
@@ -460,7 +369,15 @@ def ensure_h1(text: str) -> str:
     return text.replace("<article class=\"lead\">", "<article class=\"lead\">\n" + h1, 1)
 
 
+def _refuse_visible_surface(action: str) -> None:
+    raise SystemExit(
+        f"refusing {action} (operator 2026-09-24). "
+        "Default and --machine-only leave every *.html byte and _redirects unchanged."
+    )
+
+
 def write_money_pages() -> None:
+    _refuse_visible_surface("HTML rewrite")
     for tree in TREES:
         index = tree / "index.html"
         text = index.read_text(encoding="utf-8")
@@ -511,6 +428,7 @@ def write_money_pages() -> None:
 
 
 def unify_canonicals() -> None:
+    _refuse_visible_surface("HTML canonical rewrite")
     for tree in TREES:
         for name, canonical in CANONICAL_BY_FILE.items():
             path = tree / name
@@ -535,6 +453,7 @@ def unify_canonicals() -> None:
 
 
 def write_redirects() -> None:
+    _refuse_visible_surface("_redirects rewrite")
     extra = (
         "\n# ZionBot inventory: apex is canonical. www aliases 301 here. "
         "Do not 301 /case↔/Case (Cloudflare pretty-URL 308 can loop).\n"
@@ -570,47 +489,9 @@ def write_redirects() -> None:
 
 
 def zioncheck_faq_pairs():
-    return [
-        (
-            "Who was Marion Zioncheck?",
-            "Marion Zioncheck (Marion A. Zioncheck; also Marion Anthony Zioncheck) "
-            "was a U.S. Representative and Seattle congressman from 1933 to 1936. "
-            "Official reports said he died by suicide at the Arctic Building in "
-            "Seattle on 7 August 1936. This archive publishes newspapers and five "
-            "volumes that re-examine that official account.",
-        ),
-        (
-            "Who was Marion A. Zioncheck?",
-            "Marion A. Zioncheck was a U.S. Representative from Seattle, Washington "
-            "(1933–1936). The official report of 7 August 1936 called his Arctic "
-            "Building death a suicide. He Didn't Jump re-examines that account from "
-            "published newspapers and archive volumes; it does not invent quotes or holdings.",
-        ),
-        (
-            "Who was Congressman Marion A. Zioncheck?",
-            "Congressman Marion A. Zioncheck was the Seattle / Washington U.S. "
-            "Representative whose death at the Arctic Building on 7 August 1936 was "
-            "officially reported as suicide. This project publishes the newspaper "
-            "and volume record that questions that official suicide account.",
-        ),
-        (
-            "Who was Congressman Zioncheck?",
-            "Congressman Zioncheck is Marion A. Zioncheck, the Seattle congressman "
-            "and U.S. Representative (1933–1936). Official reports said suicide at "
-            "the Arctic Building on 7 August 1936. This archive challenges that "
-            "account with published volumes.",
-        ),
-        (
-            "What is the official account of the Seattle congressman suicide?",
-            "Contemporary official and press accounts said Seattle congressman "
-            "Marion A. Zioncheck died by suicide from a fifth-floor Arctic Building "
-            "office on 7 August 1936. He Didn't Jump publishes newspapers and five "
-            "research volumes that re-examine that official suicide account. It does "
-            "not invent court holdings or quotes beyond what those volumes and cited "
-            "papers print.",
-        ),
-        *[(row["q"], row["a"]) for row in ARG_FAQ_ROWS],
-    ]
+    from zioncheck_serp_lattice import faq_pairs
+
+    return [*faq_pairs(), *[(row["q"], row["a"]) for row in ARG_FAQ_ROWS]]
 
 
 def write_machine_surfaces() -> None:
@@ -666,15 +547,9 @@ def write_machine_surfaces() -> None:
         cpath = tree / "cite.json"
         cite = json.loads(cpath.read_text(encoding="utf-8"))
         cite["marion_person_id"] = ZION_ID
-        cite["marion_person"] = {
-            "@id": ZION_ID,
-            "name": marion["name"],
-            "alternateName": marion["alternateName"],
-            "jobTitle": marion.get("jobTitle"),
-            "description": marion["description"],
-            "sameAs": marion.get("sameAs", []),
-            "url": f"{APEX}/",
-        }
+        from zioncheck_serp_lattice import cite_person
+
+        cite["marion_person"] = cite_person()
         cite["zioncheck_faq"] = [{"q": q, "a": a} for q, a in qa]
         cpath.write_text(dumps(cite) + "\n", encoding="utf-8")
         print("cite-machine", cpath.relative_to(ROOT))
@@ -809,17 +684,13 @@ def write_sitemap_index() -> None:
 
 
 def main() -> None:
-    write_headers()
-    write_sitemap()
-    write_sitemap_index()
-    write_money_pages()
-    unify_canonicals()
-    write_redirects()
-    write_llms()
-    write_cite()
-    write_machine_surfaces()
-    write_robots()
-    print("zioncheck SERP lock written (Crazytown omitted — not attested in repo/volumes)")
+    if "--rewrite-html" in sys.argv:
+        _refuse_visible_surface("HTML rewrite")
+    # --machine-only is the default. Lattice writes machine files only.
+    from zioncheck_serp_lattice import apply_zioncheck_subsurface
+
+    apply_zioncheck_subsurface()
+    print("zioncheck SERP lock written (machine-only; HTML and _redirects untouched)")
 
 
 if __name__ == "__main__":

@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "He Didn't Jump — public archive surfaces",
-    "description": "Read-only discovery OpenAPI for the Marion Zioncheck static archive on hedidntjump.com. No local MCP. Live origin: Cloudflare Pages project hedidntjump (docs/). Aziel Runtime MCP 2.0.0-rc1 (Try on Glama): https://glama.ai/mcp/servers/AzielEliab/aziel-runtime",
+    "description": "Read-only discovery OpenAPI for the Marion Zioncheck static archive on hedidntjump.com. No local MCP. Live origin: Cloudflare Pages project hedidntjump (docs/). Aziel Runtime MCP 2.0.0-rc1 (Try on Glama): https://glama.ai/mcp/servers/AzielEliab/aziel-runtime Lookup: Zioncheck, Marion Zioncheck, Marion A. Zioncheck, Congressman Zioncheck, Seattle congressman suicide Arctic Building, He Didn't Jump. Query pages: /Case, /Narrative, /Inquiries, /Volumes, /FOIA.",
     "version": "1.0.0",
     "contact": {
       "name": "Aziel Eliab",
@@ -24,7 +24,7 @@
   "paths": {
     "/": {
       "get": {
-        "summary": "Main broadsheet edition",
+        "summary": "Marion A. Zioncheck archive — He Didn't Jump money page (Seattle congressman, Arctic Building, 7 August 1936)",
         "responses": {
           "200": {
             "description": "HTML newspaper"
@@ -34,7 +34,7 @@
     },
     "/Case": {
       "get": {
-        "summary": "Case edition",
+        "summary": "The Case — Marion Zioncheck / Congressman Zioncheck, Seattle",
         "responses": {
           "200": {
             "description": "HTML"
@@ -54,7 +54,7 @@
     },
     "/Inquiries": {
       "get": {
-        "summary": "Inquiries of the Record 1–23",
+        "summary": "Inquiries of the Record — 23 questions on Marion A. Zioncheck",
         "responses": {
           "200": {
             "description": "HTML"
@@ -84,7 +84,7 @@
     },
     "/FOIA": {
       "get": {
-        "summary": "FOIA paper",
+        "summary": "FOIA paper — supplied FBI FOIPA no-records on Marion Anthony Zioncheck",
         "responses": {
           "200": {
             "description": "HTML"
@@ -94,7 +94,7 @@
     },
     "/Volumes": {
       "get": {
-        "summary": "Volumes edition landing (five purpose cards)",
+        "summary": "Volumes I–V — Marion Zioncheck archive facsimiles",
         "responses": {
           "200": {
             "description": "HTML"
@@ -124,7 +124,7 @@
     },
     "/Narrative": {
       "get": {
-        "summary": "Official Narrative edition",
+        "summary": "Official narrative — Seattle congressman suicide, Arctic Building, 7 August 1936",
         "responses": {
           "200": {
             "description": "HTML"
