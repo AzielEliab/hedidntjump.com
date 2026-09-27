@@ -1181,30 +1181,14 @@ def patch_chrome():
 
 
 def main():
-    machine_only = "--machine-only" in sys.argv or "--skip-html" in sys.argv
-    write_crawl_files()
-    if machine_only:
-        print("inject_seo: --machine-only / --skip-html — newspaper HTML left untouched")
-        return
-    write_index()
-    write_official()
-    write_rubye()
-    write_foia()
-    write_copyrights()
-    write_reader()
-    write_aziel()
-    patch_chrome()
-    # Re-apply Zioncheck money-page SERP lock last (www canonical, Marion Person primary).
-    import importlib.util
+    from write_cross_cite import apply_trees, refuse_rewrite_html
 
-    spec = importlib.util.spec_from_file_location(
-        "write_zioncheck_serp",
-        Path(__file__).resolve().parent / "write_zioncheck_serp.py",
-    )
-    mod = importlib.util.module_from_spec(spec)
-    assert spec.loader is not None
-    spec.loader.exec_module(mod)
-    mod.main()
+    refuse_rewrite_html()
+    # Default is machine-only. write_crawl_files() is not called: its robots
+    # template drops Content-Signal and its sitemap thins the Growth-ON index.
+    # --rewrite-html is refused. Newspaper HTML stays with ZionBot.
+    apply_trees()
+    print("inject_seo: --machine-only (default) — newspaper HTML left untouched")
 
 
 if __name__ == "__main__":

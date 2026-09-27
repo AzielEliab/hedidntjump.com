@@ -78,7 +78,10 @@ SITEMAP_EXTRAS = [
 OPENAPI_PATHS = {
     "/who-is": "Who is Aziel Eliab — plain-text identity lock (alias of /who-is-aziel-eliab.txt)",
     "/who-is-aziel-eliab.txt": "Who is Aziel Eliab — plain-text identity lock",
-    "/graph.jsonld": "Machine graph (Marion Person + FAQ + publisher lattice)",
+    "/graph.jsonld": (
+        "Machine graph (Marion Person + FAQ + publisher lattice + "
+        "Aziel↔Marion cross-cite)"
+    ),
     "/identity.jsonld": "Identity JSON-LD (shared Person @id https://www.azieleliab.com/#aziel)",
     "/mcp.json": "Honest MCP pointer — aziel-runtime on Glama; no local tools/list",
     "/.well-known/mcp.json": "Same honest MCP pointer as /mcp.json",

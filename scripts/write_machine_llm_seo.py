@@ -1536,6 +1536,9 @@ def patch_txt(text: str, *, ai: bool = False) -> str:
 
 
 def write_trees() -> None:
+    from write_cross_cite import refuse_rewrite_html
+
+    refuse_rewrite_html()
     for tree in TREES:
         for rel in MACHINE_JSON:
             path = tree / rel
@@ -1589,6 +1592,9 @@ def write_trees() -> None:
     from write_llms_full_review import write_trees as write_review
 
     write_review()
+    from write_cross_cite import apply_trees
+
+    apply_trees()
 
 
 if __name__ == "__main__":

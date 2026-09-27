@@ -754,13 +754,13 @@
     },
     {
       "path": "dist/llms-full.txt",
-      "bytes": 9363,
-      "sha256": "0ee84c9d8afa83bfded2726137a55fcb723fbc9d446b88d7238e99a58cfad4b1"
+      "bytes": 112073,
+      "sha256": "f1e4cda56074a54e97bb0b8e2bc49d23d5ff6387e05bd2d18f4d107834dda050"
     },
     {
       "path": "dist/llms.txt",
-      "bytes": 10169,
-      "sha256": "89e576d9cbc5c4ad68b019535c42119bc5b516d13cf25679342063b7f2d05548"
+      "bytes": 45793,
+      "sha256": "a9194fbf1be8b5a242556af2064840d46bee8fcd87e844b6b27f3497bf1457bb"
     },
     {
       "path": "dist/official-narrative.html",
@@ -834,8 +834,8 @@
     },
     {
       "path": "scripts/inject_seo.py",
-      "bytes": 53039,
-      "sha256": "43eaf8b2149858757c0253684fe270837bcd3bbdf5c1edaf4f60e6e5c19419d2"
+      "bytes": 53226,
+      "sha256": "9e67a9f672887780b24febd4a48fcffb950387985376c19c3f631150cf9fbc7e"
     },
     {
       "path": "verify_handoff.py",
