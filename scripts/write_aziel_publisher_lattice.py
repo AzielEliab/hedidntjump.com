@@ -399,6 +399,9 @@ def guard_same_as() -> None:
 
 
 def main() -> None:
+    from write_cross_cite import apply_trees, refuse_rewrite_html
+
+    refuse_rewrite_html()
     guard_same_as()
     for tree in TREES:
         enrich_person_file(tree / "person.jsonld")
@@ -410,11 +413,8 @@ def main() -> None:
         enrich_llms(tree / "llms.txt")
         enrich_llms(tree / "llms-full.txt")
         enrich_ai(tree / "ai.txt")
-        for name in HTML_PAGES:
-            path = tree / name
-            if path.is_file():
-                enrich_html(path, money=name in MONEY_PAGES)
-    print("aziel publisher lattice written")
+    apply_trees()
+    print("aziel publisher lattice written (machine-only; HTML untouched)")
 
 
 if __name__ == "__main__":

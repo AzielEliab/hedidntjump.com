@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "He Didn't Jump — public archive surfaces",
-    "description": "Read-only discovery OpenAPI for the Marion Zioncheck static archive on hedidntjump.com. No local MCP. Live origin: Cloudflare Pages project hedidntjump (docs/). Aziel Runtime MCP 2.0.0-rc1 (Try on Glama): https://glama.ai/mcp/servers/AzielEliab/aziel-runtime Lookup: Zioncheck, Marion Zioncheck, Marion A. Zioncheck, Congressman Zioncheck, Seattle congressman suicide Arctic Building, He Didn't Jump. Query pages: /Case, /Narrative, /Inquiries, /Volumes, /FOIA.",
+    "description": "Read-only discovery OpenAPI for the Marion Zioncheck static archive on hedidntjump.com. No local MCP. Live origin: Cloudflare Pages project hedidntjump (docs/). Aziel Runtime MCP 2.0.0-rc1 (Try on Glama): https://glama.ai/mcp/servers/AzielEliab/aziel-runtime Lookup: Zioncheck, Marion Zioncheck, Marion A. Zioncheck, Congressman Zioncheck, Seattle congressman suicide Arctic Building, He Didn't Jump. Query pages: /Case, /Narrative, /Inquiries, /Volumes, /FOIA. Cross-cite: Aziel Eliab (https://www.azieleliab.com/#aziel) publishes He Didn't Jump; Marion A. Zioncheck (https://hedidntjump.com/#marion-zioncheck) is the subject. See cite.json cross_cite.",
     "version": "1.0.0",
     "contact": {
       "name": "Aziel Eliab",
@@ -434,7 +434,7 @@
     },
     "/graph.jsonld": {
       "get": {
-        "summary": "Machine graph (Marion Person + FAQ + publisher lattice)",
+        "summary": "Machine graph (Marion Person + FAQ + publisher lattice + Aziel↔Marion cross-cite)",
         "responses": {
           "200": {
             "description": "OK"

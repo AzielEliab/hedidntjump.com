@@ -84,6 +84,9 @@ def patch_cite(data: dict, payload: dict) -> dict:
 
 
 def write_trees() -> None:
+    from write_cross_cite import refuse_rewrite_html
+
+    refuse_rewrite_html()
     inquiries = extract_inquiries()
     volumes = extract_volumes()
     tabs = extract_tabs()
@@ -125,6 +128,9 @@ def write_trees() -> None:
 
     print("review head:", REVIEW_HEAD)
     print("inquiries:", len(inquiries), "volumes:", len(volumes), "tabs:", len(tabs))
+    from write_cross_cite import apply_trees
+
+    apply_trees()
 
 
 if __name__ == "__main__":

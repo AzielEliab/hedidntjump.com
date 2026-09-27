@@ -654,6 +654,11 @@ def apply_zioncheck_subsurface() -> None:
         openapi = json.loads(openapi_path.read_text(encoding="utf-8"))
         openapi_path.write_text(dumps(_patch_openapi(openapi)), encoding="utf-8")
         print("zioncheck subsurface", tree.name)
+    # Re-apply after the lattice replaces marion / zioncheck_faq, so the
+    # publisher↔subject edges stay additive and the SERP pack is not thinned.
+    from write_cross_cite import apply_trees
+
+    apply_trees()
 
 
 def main() -> None:

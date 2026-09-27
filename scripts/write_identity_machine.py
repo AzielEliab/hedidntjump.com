@@ -747,6 +747,9 @@ KEEP_WELL_KNOWN = (
 
 
 def write_identity_files() -> None:
+    from write_cross_cite import refuse_rewrite_html
+
+    refuse_rewrite_html()
     same_blob = " ".join(SAME_AS).lower()
     for banned in NEVER_SAME_AS:
         if banned.lower() in same_blob:
@@ -812,6 +815,9 @@ def write_identity_files() -> None:
                 body = dumps({**existing_graph, "@graph": old_graph})
             path.write_text(body, encoding="utf-8")
             print("wrote", path.relative_to(ROOT))
+    from write_cross_cite import apply_trees
+
+    apply_trees()
 
 
 if __name__ == "__main__":

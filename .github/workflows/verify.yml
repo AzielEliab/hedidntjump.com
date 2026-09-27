@@ -34,3 +34,5 @@ jobs:
         run: python3 scripts/verify_machine_llm_seo.py
       - name: LLM full project review
         run: python3 scripts/verify_llms_full_review.py
+      - name: Aziel ↔ Marion cross-cite
+        run: python3 scripts/verify_cross_cite.py
