@@ -241,7 +241,7 @@ PEACELOCK_AI_BLOCK = f"""PEACELOCK (designed-purpose):
 - Growth-ON. NO-LIE. No visible 15:20.
 """
 
-SITEMAP_LASTMOD = "2026-09-20"
+SITEMAP_LASTMOD = "2026-10-01"  # keep equal to write_sitemap.LASTMOD
 SITEMAP_BUMP_LOCS = ("/llms.txt", "/ai.txt", "/cite.json")
 
 SOFTWARES_LIST_BLOCK = softwares_list_markdown()
@@ -1366,20 +1366,22 @@ def ensure_related_spectrallock(text: str) -> str:
 
 
 def bump_sitemap_lastmod(text: str) -> str:
-    for loc in SITEMAP_BUMP_LOCS:
-        text = re.sub(
-            rf"(<loc>https://hedidntjump\.com{re.escape(loc)}</loc>\n    <lastmod>)[^<]+",
-            rf"\g<1>{SITEMAP_LASTMOD}",
+    """Stamp discovery lastmod. Urlset: every loc. Index: this host only."""
+    if "<urlset" in text:
+        for loc in SITEMAP_BUMP_LOCS:
+            if f"<loc>https://hedidntjump.com{loc}</loc>" not in text:
+                raise SystemExit(f"sitemap lost {loc}")
+        return re.sub(
+            r"<lastmod>[^<]+</lastmod>",
+            f"<lastmod>{SITEMAP_LASTMOD}</lastmod>",
             text,
-            count=1,
         )
-    text = re.sub(
+    return re.sub(
         r"(<loc>https://hedidntjump\.com/sitemap\.xml</loc>\n    <lastmod>)[^<]+",
         rf"\g<1>{SITEMAP_LASTMOD}",
         text,
         count=1,
     )
-    return text
 
 
 def ensure_genre_lock(text: str, *, ai: bool = False) -> str:

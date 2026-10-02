@@ -33,7 +33,7 @@ ROOT = Path(__file__).resolve().parents[1]
 TREES = [ROOT / "dist", ROOT / "docs"]
 APEX = "https://hedidntjump.com"
 WWW = "https://www.hedidntjump.com"
-LASTMOD = "2026-09-19"
+LASTMOD = "2026-10-01"  # keep equal to write_sitemap.LASTMOD
 
 HELP_TXT = f"""# He Didn't Jump — Help
 

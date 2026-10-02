@@ -570,7 +570,7 @@ def main() -> None:
         for loc in ("/llms.txt", "/ai.txt", "/cite.json"):
             assert f"<loc>https://hedidntjump.com{loc}</loc>" in sitemap, loc
             chunk = sitemap.split(f"<loc>https://hedidntjump.com{loc}</loc>", 1)[1][:80]
-            assert "<lastmod>2026-09-20</lastmod>" in chunk, loc
+            assert "<lastmod>2026-10-01</lastmod>" in chunk, loc
         for loc in ("/help.txt", "/addendum.txt", "/help/how-to-read.txt"):
             assert f"<loc>https://hedidntjump.com{loc}</loc>" in sitemap, loc
         assert TRADES_RUNTIME_WORKER not in sitemap

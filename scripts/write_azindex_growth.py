@@ -25,7 +25,7 @@ ROOT = Path(__file__).resolve().parents[1]
 TREES = [ROOT / "dist", ROOT / "docs"]
 APEX = "https://hedidntjump.com"
 WWW = "https://www.hedidntjump.com"
-LASTMOD = "2026-09-18"
+LASTMOD = "2026-10-01"  # keep equal to write_sitemap.LASTMOD
 PERSON_ID = "https://www.azieleliab.com/#aziel"
 ZION_ID = f"{APEX}/#marion-zioncheck"
 HDJ_INGEST_TIP = "ef967e4acb47ba913ce3959b673767278da605b307de33210b2dc2f1cfd86f60"
@@ -247,13 +247,15 @@ def patch_redirects() -> None:
 
 
 def patch_sitemap() -> None:
+    from write_sitemap import merge_sitemap
+
     for tree in TREES:
         path = tree / "sitemap.xml"
         text = path.read_text(encoding="utf-8")
         for loc, pri in SITEMAP_EXTRAS:
             if f"{APEX}{loc}</loc>" not in text:
                 text = text.replace("</urlset>", sitemap_entry(loc, pri) + "</urlset>", 1)
-        path.write_text(text, encoding="utf-8")
+        path.write_text(merge_sitemap(text, tree), encoding="utf-8")
         print("sitemap", path.relative_to(ROOT))
 
 
