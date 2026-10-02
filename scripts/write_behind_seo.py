@@ -289,11 +289,40 @@ def strengthen_aziel_head() -> None:
                 text,
                 count=1,
             )
-        if '"Living author"' not in text:
-            text = text.replace(
-                '"Historical archive publisher"',
-                '"Historical archive publisher",\n        "Living author"',
-            )
+        locked_jobs = (
+            '      "jobTitle": [\n'
+            '        "researcher",\n'
+            '        "digital rights activist",\n'
+            '        "software developer",\n'
+            '        "author",\n'
+            '        "philosopher"\n'
+            "      ],"
+        )
+        for stale in (
+            (
+                '      "jobTitle": [\n'
+                '        "Researcher",\n'
+                '        "Software developer",\n'
+                '        "Digital civil rights activist",\n'
+                '        "Truthseeker",\n'
+                '        "Independent investigator",\n'
+                '        "Historical archive publisher",\n'
+                '        "Living author"\n'
+                "      ],"
+            ),
+            (
+                '      "jobTitle": [\n'
+                '        "Researcher",\n'
+                '        "Software developer",\n'
+                '        "Digital civil rights activist",\n'
+                '        "Truthseeker",\n'
+                '        "Independent investigator",\n'
+                '        "Historical archive publisher"\n'
+                "      ],"
+            ),
+            '      "jobTitle": "Publisher",',
+        ):
+            text = text.replace(stale, locked_jobs)
         path.write_text(text, encoding="utf-8")
         print("strengthened head", path.relative_to(ROOT))
 

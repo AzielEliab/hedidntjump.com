@@ -150,7 +150,10 @@ def enrich_cite(path: Path) -> None:
     data["github_revealer"] = GITHUB_REVEALER
     data["sameAs"] = same_as(data.get("sameAs"))
     data["hubs"] = HUB_SAME_AS
-    data["publisher_person"] = publisher_person(job_title="Publisher")
+    existing_pub = data.get("publisher_person")
+    data["publisher_person"] = publisher_person(
+        existing=existing_pub if isinstance(existing_pub, dict) else None
+    )
     data["identity_note"] = (
         "Aziel Eliab only. Aziel Elroi Eliab, Elias Artista, and "
         "The Revealer of The Sealed are SEO alternateName tethers only. "

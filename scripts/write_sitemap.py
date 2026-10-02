@@ -21,6 +21,36 @@ APEX = "https://hedidntjump.com"
 LASTMOD = "2026-10-01"
 # Sister sitemaps in the index were not republished on this date.
 SISTER_LASTMOD = "2026-09-13"
+# Machine identity pass. Only these URLs change; other lastmods stay LASTMOD.
+IDENTITY_LASTMOD = "2026-10-02"
+IDENTITY_BUMP_PATHS = {
+    "/",
+    "/Case",
+    "/Press",
+    "/Inquiries",
+    "/inquires",
+    "/Rubye",
+    "/Rubeye",
+    "/Archives",
+    "/Archive",
+    "/FOIA",
+    "/Volumes",
+    "/reader",
+    "/Narrative",
+    "/aziel",
+    "/Aziel",
+    "/AzielEliab",
+    "/AboutAziel",
+    "/Copyrights",
+    "/who",
+    "/receipts",
+    "/cite.json",
+    "/reader?volume=1&page=1",
+    "/reader?volume=2&page=1",
+    "/reader?volume=3&page=1",
+    "/reader?volume=4&page=1",
+    "/reader?volume=5&page=1",
+}
 
 SKIP_NAMES = {"CNAME", "_headers", "_redirects", "sitemap.xml"}
 SKIP_SUFFIXES = {
@@ -139,7 +169,7 @@ HOURLY = {
 
 ENTRY_RE = re.compile(
     r"<loc>(?P<loc>[^<]+)</loc>\s*"
-    r"<lastmod>[^<]*</lastmod>\s*"
+    r"<lastmod>(?P<mod>[^<]*)</lastmod>\s*"
     r"<changefreq>(?P<cf>[^<]+)</changefreq>\s*"
     r"<priority>(?P<pri>[^<]+)</priority>",
     re.MULTILINE,
@@ -276,13 +306,15 @@ def discover(tree: Path) -> list[str]:
     return out
 
 
-def parse_entries(text: str) -> list[tuple[str, str, str]]:
+def parse_entries(text: str) -> list[tuple[str, str, str, str]]:
     entries = []
     for match in ENTRY_RE.finditer(text):
         path = path_of(match.group("loc"))
         if path in DENY_PATHS:
             continue
-        entries.append((path, match.group("pri"), match.group("cf")))
+        entries.append(
+            (path, match.group("pri"), match.group("cf"), match.group("mod"))
+        )
     return entries
 
 
@@ -290,16 +322,16 @@ def merge_sitemap(text: str, tree: Path | None = None) -> str:
     """Keep shipped order and priorities. Append real missing URLs. Stamp lastmod."""
     tree = tree or (ROOT / "docs")
     existing = parse_entries(text)
-    have = {path for path, _pri, _cf in existing}
-    extras: list[tuple[str, str, str]] = []
+    have = {path for path, _pri, _cf, _mod in existing}
+    extras: list[tuple[str, str, str, str]] = []
     for path in discover(tree):
         if path in have:
             continue
         pri, cf = defaults_for(path)
-        extras.append((path, pri, cf))
+        extras.append((path, pri, cf, LASTMOD))
         have.add(path)
 
-    def volume_key(item: tuple[str, str, str]) -> tuple[int, str]:
+    def volume_key(item: tuple[str, str, str, str]) -> tuple[int, str]:
         path = item[0]
         match = re.search(r"volume=(\d+)", path)
         if match and path.startswith("/reader?"):
@@ -310,15 +342,17 @@ def merge_sitemap(text: str, tree: Path | None = None) -> str:
     return render(existing + extras)
 
 
-def render(entries: list[tuple[str, str, str]]) -> str:
+def render(entries: list[tuple[str, str, str, str]]) -> str:
     lines = [
         '<?xml version="1.0" encoding="UTF-8"?>',
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
     ]
-    for path, pri, cf in entries:
+    for path, pri, cf, mod in entries:
+        if path in IDENTITY_BUMP_PATHS:
+            mod = IDENTITY_LASTMOD
         lines.append("  <url>")
         lines.append(f"    <loc>{APEX}{escape_loc(path)}</loc>")
-        lines.append(f"    <lastmod>{LASTMOD}</lastmod>")
+        lines.append(f"    <lastmod>{mod or LASTMOD}</lastmod>")
         lines.append(f"    <changefreq>{cf}</changefreq>")
         lines.append(f"    <priority>{pri}</priority>")
         lines.append("  </url>")
@@ -331,7 +365,7 @@ def render_index() -> str:
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <sitemap>
     <loc>{APEX}/sitemap.xml</loc>
-    <lastmod>{LASTMOD}</lastmod>
+    <lastmod>{IDENTITY_LASTMOD}</lastmod>
   </sitemap>
   <sitemap>
     <loc>https://www.azieleliab.com/sitemap.xml</loc>
@@ -368,7 +402,12 @@ def check(text: str, index: str) -> None:
     assert len(locs) == len(set(locs))
     assert text.count("<priority>1.0</priority>") == 1
     assert text.count("<lastmod>") == len(locs)
-    assert set(re.findall(r"<lastmod>([^<]+)</lastmod>", text)) == {LASTMOD}
+    dates = set(re.findall(r"<lastmod>([^<]+)</lastmod>", text))
+    assert dates <= {LASTMOD, IDENTITY_LASTMOD}, dates
+    for path in IDENTITY_BUMP_PATHS:
+        if path in locs:
+            block = text.split(f"<loc>{APEX}{escape_loc(path)}</loc>", 1)[1]
+            assert f"<lastmod>{IDENTITY_LASTMOD}</lastmod>" in block.split("</url>", 1)[0]
     for path, _pri, _cf in BASELINE:
         assert path in locs, path
     for n in range(1, 6):
@@ -378,7 +417,8 @@ def check(text: str, index: str) -> None:
     for path in ("/doors", "/failover", "/live-nodes", "/Volumes", "/reader"):
         assert path in locs, path
     assert "/Volumes/I" not in text
-    assert f"<lastmod>{LASTMOD}</lastmod>" in index
+    assert f"<lastmod>{IDENTITY_LASTMOD}</lastmod>" in index
+    assert f"<lastmod>{SISTER_LASTMOD}</lastmod>" in index
     assert f"<loc>{APEX}/sitemap.xml</loc>" in index
     docs = (ROOT / "docs" / "sitemap.xml").read_text(encoding="utf-8")
     dist = (ROOT / "dist" / "sitemap.xml").read_text(encoding="utf-8")

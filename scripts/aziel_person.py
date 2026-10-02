@@ -9,6 +9,9 @@ from __future__ import annotations
 import json
 from typing import Any
 
+from aziel_living import JOB_TITLES as LOCKED_JOB_TITLES
+from aziel_living import LIVING_STACK as LIVING_ROLE_STACK
+
 PERSON_ID = "https://www.azieleliab.com/#aziel"
 PERSON_NAME = "Aziel Eliab"
 CANONICAL_URL = "https://www.azieleliab.com/"
@@ -228,8 +231,85 @@ def hebrew_property() -> dict[str, str]:
     }
 
 
+def _rewrite_role_prose(text: str) -> str:
+    """Align retired Aziel role phrases to the locked living stack.
+
+    Does not invent biography. Marion job titles are not passed through here.
+    """
+    if not text:
+        return text
+    replacements = (
+        (
+            "researcher, software developer, digital civil rights activist, and truthseeker",
+            LIVING_ROLE_STACK,
+        ),
+        (
+            "researcher, software developer, digital civil rights activist, truthseeker",
+            LIVING_ROLE_STACK,
+        ),
+        (
+            "is an independent researcher, software designer, developer, and historian",
+            f"is a {LIVING_ROLE_STACK}",
+        ),
+        (
+            "independent researcher, software designer, developer, and historian",
+            LIVING_ROLE_STACK,
+        ),
+        (
+            "independent researcher, software designer, developer, historian",
+            LIVING_ROLE_STACK,
+        ),
+        (
+            "Living researcher and software designer named Aziel Eliab",
+            f"Living {LIVING_ROLE_STACK} named Aziel Eliab",
+        ),
+        (
+            "living researcher and software designer named Aziel Eliab",
+            f"living {LIVING_ROLE_STACK} named Aziel Eliab",
+        ),
+        (
+            "Aziel Eliab is a living researcher and software designer",
+            f"Aziel Eliab is a living {LIVING_ROLE_STACK}",
+        ),
+        (
+            "Aziel Eliab is one living researcher and software designer",
+            f"Aziel Eliab is one living {LIVING_ROLE_STACK}",
+        ),
+        (
+            "one living researcher and software designer",
+            f"one living {LIVING_ROLE_STACK}",
+        ),
+    )
+    out = text
+    for old, new in replacements:
+        out = out.replace(old, new)
+    bare = (
+        f"{PERSON_NAME} (also Aziel Elroi Eliab; Elias Artista; "
+        "The Revealer of The Sealed)."
+    )
+    role_lead = (
+        f"{PERSON_NAME} (also Aziel Elroi Eliab; Elias Artista; "
+        f"The Revealer of The Sealed) is a {LIVING_ROLE_STACK}."
+    )
+    if bare in out and LIVING_ROLE_STACK not in out:
+        out = out.replace(bare, role_lead, 1)
+    lead = "Publisher of this Marion Zioncheck archive."
+    aligned = (
+        f"{PERSON_NAME} is a {LIVING_ROLE_STACK}. "
+        "Publisher of this Marion Zioncheck archive."
+    )
+    if lead in out and LIVING_ROLE_STACK not in out:
+        out = out.replace(lead, aligned, 1)
+    return out
+
+
 def publisher_person(*, job_title: Any = None, existing: dict | None = None) -> dict:
-    """Full publisher Person node. job_title='Publisher' on Marion money pages."""
+    """Full publisher Person node. jobTitle is the locked living stack.
+
+    job_title is accepted for callers that used to pass \"Publisher\" on
+    Marion money pages. That fork is retired: one Person, one role stack.
+    """
+    del job_title
     src = dict(existing or {})
     existing_aka = src.get("alternateName")
     if isinstance(existing_aka, str):
@@ -253,10 +333,7 @@ def publisher_person(*, job_title: Any = None, existing: dict | None = None) -> 
         "sameAs": same_as(existing_same),
     }
 
-    if job_title is not None:
-        node["jobTitle"] = job_title
-    elif "jobTitle" not in node:
-        node["jobTitle"] = "Publisher"
+    node["jobTitle"] = list(LOCKED_JOB_TITLES)
 
     extras = src.get("additionalProperty")
     props: list[Any] = []
@@ -310,14 +387,19 @@ def publisher_person(*, job_title: Any = None, existing: dict | None = None) -> 
     node["alternateName"] = [
         n for n in node["alternateName"] if not any(b.lower() in n.lower() for b in BANNED_AKA)
     ]
+    if node.get("description"):
+        node["description"] = _rewrite_role_prose(node["description"])
+    if node.get("disambiguatingDescription"):
+        node["disambiguatingDescription"] = _rewrite_role_prose(
+            node["disambiguatingDescription"]
+        )
     return node
 
 
 def enrich_person_node(node: dict, *, money: bool = False) -> dict:
-    job = node.get("jobTitle")
-    if money or job == "Publisher":
-        return publisher_person(job_title="Publisher", existing=node)
-    return publisher_person(job_title=job, existing=node)
+    # money=True used to fork jobTitle to "Publisher". One locked stack now.
+    del money
+    return publisher_person(existing=node)
 
 
 def _is_full_aziel_person(obj: Any) -> bool:
@@ -355,7 +437,8 @@ def enrich_ld(data: Any, *, money: bool = False) -> Any:
     enriched = _walk_enrich(data, money=money)
     if _has_full_person(enriched):
         return enriched
-    person = publisher_person(job_title="Publisher" if money else None)
+    del money
+    person = publisher_person()
     if isinstance(enriched, dict) and "@graph" in enriched:
         enriched["@graph"] = list(enriched["@graph"]) + [person]
         return enriched

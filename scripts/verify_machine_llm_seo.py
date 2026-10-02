@@ -567,10 +567,16 @@ def main() -> None:
         assert "@AzielEliab" in aziel
 
         sitemap = (tree / "sitemap.xml").read_text(encoding="utf-8")
-        for loc in ("/llms.txt", "/ai.txt", "/cite.json"):
+        # cite.json jobTitle lock changed; llms/ai text did not.
+        expected_lastmod = {
+            "/llms.txt": "2026-10-01",
+            "/ai.txt": "2026-10-01",
+            "/cite.json": "2026-10-02",
+        }
+        for loc, lastmod in expected_lastmod.items():
             assert f"<loc>https://hedidntjump.com{loc}</loc>" in sitemap, loc
             chunk = sitemap.split(f"<loc>https://hedidntjump.com{loc}</loc>", 1)[1][:80]
-            assert "<lastmod>2026-10-01</lastmod>" in chunk, loc
+            assert f"<lastmod>{lastmod}</lastmod>" in chunk, loc
         for loc in ("/help.txt", "/addendum.txt", "/help/how-to-read.txt"):
             assert f"<loc>https://hedidntjump.com{loc}</loc>" in sitemap, loc
         assert TRADES_RUNTIME_WORKER not in sitemap

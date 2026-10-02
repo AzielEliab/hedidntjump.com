@@ -722,7 +722,8 @@ OLD_JOB_TITLES = {
     "Living author",
 }
 
-KEEP_JOB_TITLES = {"Publisher", "U.S. Representative"}
+# Marion's office title stays. Aziel "Publisher" is rewritten to JOB_TITLES.
+KEEP_JOB_TITLES = {"U.S. Representative"}
 
 
 def scrub_cite_ban_narratives(obj):
