@@ -54,3 +54,7 @@ http://www.hedidntjump.com/* https://hedidntjump.com/:splat 301
 # IndexNow verification key — pin the plain-text file ahead of fallback routing
 /4241818f-5799-488c-9457-da724a30831c.txt /4241818f-5799-488c-9457-da724a30831c.txt 200
 /.well-known/indexnow-key.txt /.well-known/indexnow-key.txt 200
+
+# Plain-text public URL map (soft link lattice). /shelves stays COLD-MULTI-SHELF JSON.
+/shelves.txt /shelves.txt 200
+/sitemap.txt /shelves.txt 200

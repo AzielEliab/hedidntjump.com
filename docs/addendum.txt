@@ -40,3 +40,4 @@ Lamb Lens order: Service → Clarity → Peace
 
 - https://hedidntjump.com/help.txt
 - https://hedidntjump.com/help/how-to-read.txt
+- https://hedidntjump.com/shelves.txt — plain-text sitemap of public URLs

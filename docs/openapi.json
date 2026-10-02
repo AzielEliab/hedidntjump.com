@@ -621,6 +621,26 @@
           }
         }
       }
+    },
+    "/shelves.txt": {
+      "get": {
+        "summary": "Plain-text sitemap of public URLs (soft link lattice; whistleblower archive)",
+        "responses": {
+          "200": {
+            "description": "text/plain"
+          }
+        }
+      }
+    },
+    "/sitemap.txt": {
+      "get": {
+        "summary": "Alias of /shelves.txt (plain-text sitemap)",
+        "responses": {
+          "200": {
+            "description": "text/plain"
+          }
+        }
+      }
     }
   }
 }

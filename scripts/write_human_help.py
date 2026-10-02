@@ -87,6 +87,8 @@ See [{APEX}/addendum.txt]({APEX}/addendum.txt)
 - [{APEX}/llms.txt]({APEX}/llms.txt)
 - [{APEX}/ai.txt]({APEX}/ai.txt)
 - [{APEX}/cite.json]({APEX}/cite.json)
+- [{APEX}/shelves.txt]({APEX}/shelves.txt) — plain-text sitemap (public URLs)
+- [{APEX}/shelves]({APEX}/shelves) — COLD-MULTI-SHELF JSON (corpus sister cite)
 """
 
 HOW_TO_READ = f"""# How to read He Didn't Jump
@@ -137,6 +139,7 @@ PDFs:
 
 Help: {APEX}/help.txt
 Addendum: {APEX}/addendum.txt
+Plain-text map: {APEX}/shelves.txt
 """
 
 ADDENDUM_TXT = f"""# He Didn't Jump — Addendum
@@ -181,6 +184,7 @@ Lamb Lens order: {LAMB_LENS_ORDER}
 
 - {APEX}/help.txt
 - {APEX}/help/how-to-read.txt
+- {APEX}/shelves.txt — plain-text sitemap of public URLs
 """
 
 HELP_FILES = {
@@ -376,6 +380,9 @@ def main() -> None:
     patch_headers()
     patch_openapi()
     scrub_paper_seo_arg()
+    from write_link_lattice import apply_lattice
+
+    apply_lattice()
     print("human help / addendum written")
 
 

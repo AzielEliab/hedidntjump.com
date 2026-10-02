@@ -1,0 +1,65 @@
+# He Didn't Jump — plain-text sitemap (shelves map)
+
+An Aziel Eliab Project. Independent investigative / whistleblower newspaper archive on Marion A. Zioncheck. Newspapers and five volumes re-examine the official suicide account of U.S. Rep. Marion A. Zioncheck (Arctic Building, Seattle, 7 August 1936).
+Positive genre: whistleblower / transparency / FOIA-critical historical investigation archive.
+NO-LIE. These URLs are already public on this host. Do not invent holdings.
+Publisher: Aziel Eliab — https://www.azieleliab.com/#aziel
+Subject: Marion A. Zioncheck — https://hedidntjump.com/#marion-zioncheck
+Ingest tip unchanged: ef967e4acb47ba913ce3959b673767278da605b307de33210b2dc2f1cfd86f60
+
+Each row below cites the other public tabs. Full see-also lists live in
+https://hedidntjump.com/cite.json (link_lattice) and https://hedidntjump.com/shelves (public_url_lattice).
+/shelves and /shelves.json stay the COLD-MULTI-SHELF sister cite of https://www.hedidntjump.com/shelves
+canonical https://www.azielcorpuslibrary.net/shelves. This file is the URL map.
+
+## Public URLs
+
+https://hedidntjump.com/ — Money page — Marion A. Zioncheck whistleblower archive
+https://hedidntjump.com/Case — Case edition
+https://hedidntjump.com/Volumes — Volumes I–V desk
+https://hedidntjump.com/Inquiries — 23 inquiries of the record
+https://hedidntjump.com/Press — Press tip and investigative source directory
+https://hedidntjump.com/Rubye — Rubye paper
+https://hedidntjump.com/FOIA — FOIA paper (supplied FBI FOIPA no-records only)
+https://hedidntjump.com/Archives — Archive and volume downloads
+https://hedidntjump.com/Narrative — Official-account contrast
+https://hedidntjump.com/aziel — About Aziel (one body)
+https://hedidntjump.com/Copyrights — Copyrights and historical-research notice
+https://hedidntjump.com/reader — Facsimile volume reader
+https://hedidntjump.com/reader?volume=1&page=1 — Volume I reader — Primary Documents & Forensic Analysis
+https://hedidntjump.com/volumes/volume-1.pdf — Volume I PDF — Primary Documents & Forensic Analysis
+https://hedidntjump.com/reader?volume=2&page=1 — Volume II reader — News Coverage & Family Battles
+https://hedidntjump.com/volumes/volume-2.pdf — Volume II PDF — News Coverage & Family Battles
+https://hedidntjump.com/reader?volume=3&page=1 — Volume III reader — Personal Photographs & Research Materials
+https://hedidntjump.com/volumes/volume-3.pdf — Volume III PDF — Personal Photographs & Research Materials
+https://hedidntjump.com/reader?volume=4&page=1 — Volume IV reader — The Physics Case
+https://hedidntjump.com/volumes/volume-4.pdf — Volume IV PDF — The Physics Case
+https://hedidntjump.com/reader?volume=5&page=1 — Volume V reader — The Human & Institutional Evidence
+https://hedidntjump.com/volumes/volume-5.pdf — Volume V PDF — The Human & Institutional Evidence
+https://hedidntjump.com/assets/foia-binary-acknowledgement.pdf — FOIA Binary citation transcript (labeled transcript)
+
+## Same-body aliases (not extra holdings)
+
+https://hedidntjump.com/AboutAziel — About Aziel alias (same body as /aziel)
+https://hedidntjump.com/Aziel — About Aziel alias (same body as /aziel)
+https://hedidntjump.com/AzielEliab — About Aziel alias (same body as /aziel)
+https://hedidntjump.com/inquires — Inquiries alias (same body as /Inquiries)
+https://hedidntjump.com/Rubeye — Rubye alias (same body as /Rubye)
+https://hedidntjump.com/Archive — Archives alias (same body as /Archives)
+
+## Machine discovery
+
+https://hedidntjump.com/llms.txt — LLM brief
+https://hedidntjump.com/llms-full.txt — Whole-project LLM review
+https://hedidntjump.com/ai.txt — AI crawl aid
+https://hedidntjump.com/help.txt — Human help
+https://hedidntjump.com/addendum.txt — Human addendum
+https://hedidntjump.com/help/how-to-read.txt — How to read the papers and volumes
+https://hedidntjump.com/cite.json — Citation lattice
+https://hedidntjump.com/shelves — COLD-MULTI-SHELF JSON (corpus sister cite)
+https://hedidntjump.com/shelves.json — Same COLD-MULTI-SHELF JSON as /shelves
+https://hedidntjump.com/shelves.txt — This plain-text sitemap
+https://hedidntjump.com/sitemap.txt — Alias of /shelves.txt
+https://hedidntjump.com/sitemap.xml — XML sitemap
+https://hedidntjump.com/robots.txt — robots (Growth-ON)
+https://hedidntjump.com/openapi.json — Read-only public surfaces

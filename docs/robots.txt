@@ -17,6 +17,8 @@ Allow: /reader
 Allow: /who
 Allow: /who.html
 Allow: /shelves
+Allow: /shelves.txt
+Allow: /sitemap.txt
 Allow: /lockset.json
 Allow: /redline
 Allow: /runtime-launch.json

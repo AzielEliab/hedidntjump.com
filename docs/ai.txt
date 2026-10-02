@@ -32,6 +32,36 @@ Look up Zioncheck, Marion Zioncheck, Marion A. Zioncheck, Congressman Zioncheck,
 - https://hedidntjump.com/graph.jsonld — Marion Person + query FAQ
 - https://hedidntjump.com/cite.json — marion_person + zioncheck_faq
 
+## Soft link lattice (machine)
+
+Soft internal links for crawler and agent discovery. Positive genre: whistleblower / transparency / FOIA-critical historical investigation archive. NO-LIE. Do not invent holdings, court records, FOIA letters, or quotes. Plain-text map: https://hedidntjump.com/shelves.txt (alias https://hedidntjump.com/sitemap.txt). Publisher @id: https://www.azieleliab.com/#aziel. Subject @id: https://hedidntjump.com/#marion-zioncheck. Ingest tip unchanged: `ef967e4acb47ba913ce3959b673767278da605b307de33210b2dc2f1cfd86f60`.
+
+- home — Money page — Marion A. Zioncheck whistleblower archive — https://hedidntjump.com/ — see also: case, volumes, inquiries, press, rubye, foia, archives, narrative, about-aziel, copyrights, reader, reader-1, pdf-1, reader-2, pdf-2, reader-3, pdf-3, reader-4, pdf-4, reader-5, pdf-5, foia-transcript
+- case — Case edition — https://hedidntjump.com/Case — see also: home, volumes, inquiries, press, rubye, foia, archives, narrative, about-aziel, copyrights, reader, reader-1, pdf-1, reader-2, pdf-2, reader-3, pdf-3, reader-4, pdf-4, reader-5, pdf-5, foia-transcript
+- volumes — Volumes I–V desk — https://hedidntjump.com/Volumes — see also: home, case, inquiries, press, rubye, foia, archives, narrative, about-aziel, copyrights, reader, reader-1, pdf-1, reader-2, pdf-2, reader-3, pdf-3, reader-4, pdf-4, reader-5, pdf-5, foia-transcript
+- inquiries — 23 inquiries of the record — https://hedidntjump.com/Inquiries — see also: home, case, volumes, press, rubye, foia, archives, narrative, about-aziel, copyrights, reader, reader-1, pdf-1, reader-2, pdf-2, reader-3, pdf-3, reader-4, pdf-4, reader-5, pdf-5, foia-transcript
+- press — Press tip and investigative source directory — https://hedidntjump.com/Press — see also: home, case, volumes, inquiries, rubye, foia, archives, narrative, about-aziel, copyrights, reader, reader-1, pdf-1, reader-2, pdf-2, reader-3, pdf-3, reader-4, pdf-4, reader-5, pdf-5, foia-transcript
+- rubye — Rubye paper — https://hedidntjump.com/Rubye — see also: home, case, volumes, inquiries, press, foia, archives, narrative, about-aziel, copyrights, reader, reader-1, pdf-1, reader-2, pdf-2, reader-3, pdf-3, reader-4, pdf-4, reader-5, pdf-5, foia-transcript
+- foia — FOIA paper (supplied FBI FOIPA no-records only) — https://hedidntjump.com/FOIA — see also: home, case, volumes, inquiries, press, rubye, archives, narrative, about-aziel, copyrights, reader, reader-1, pdf-1, reader-2, pdf-2, reader-3, pdf-3, reader-4, pdf-4, reader-5, pdf-5, foia-transcript
+- archives — Archive and volume downloads — https://hedidntjump.com/Archives — see also: home, case, volumes, inquiries, press, rubye, foia, narrative, about-aziel, copyrights, reader, reader-1, pdf-1, reader-2, pdf-2, reader-3, pdf-3, reader-4, pdf-4, reader-5, pdf-5, foia-transcript
+- narrative — Official-account contrast — https://hedidntjump.com/Narrative — see also: home, case, volumes, inquiries, press, rubye, foia, archives, about-aziel, copyrights, reader, reader-1, pdf-1, reader-2, pdf-2, reader-3, pdf-3, reader-4, pdf-4, reader-5, pdf-5, foia-transcript
+- about-aziel — About Aziel (one body) — https://hedidntjump.com/aziel — see also: home, case, volumes, inquiries, press, rubye, foia, archives, narrative, copyrights, reader, reader-1, pdf-1, reader-2, pdf-2, reader-3, pdf-3, reader-4, pdf-4, reader-5, pdf-5, foia-transcript
+- copyrights — Copyrights and historical-research notice — https://hedidntjump.com/Copyrights — see also: home, case, volumes, inquiries, press, rubye, foia, archives, narrative, about-aziel, reader, reader-1, pdf-1, reader-2, pdf-2, reader-3, pdf-3, reader-4, pdf-4, reader-5, pdf-5, foia-transcript
+- reader — Facsimile volume reader — https://hedidntjump.com/reader — see also: home, case, volumes, inquiries, press, rubye, foia, archives, narrative, about-aziel, copyrights, reader-1, pdf-1, reader-2, pdf-2, reader-3, pdf-3, reader-4, pdf-4, reader-5, pdf-5, foia-transcript
+- reader-1 — Volume I reader — Primary Documents & Forensic Analysis — https://hedidntjump.com/reader?volume=1&page=1 — see also: home, case, volumes, inquiries, press, rubye, foia, archives, narrative, about-aziel, copyrights, reader, pdf-1, reader-2, pdf-2, reader-3, pdf-3, reader-4, pdf-4, reader-5, pdf-5, foia-transcript
+- pdf-1 — Volume I PDF — Primary Documents & Forensic Analysis — https://hedidntjump.com/volumes/volume-1.pdf — see also: home, case, volumes, inquiries, press, rubye, foia, archives, narrative, about-aziel, copyrights, reader, reader-1, reader-2, pdf-2, reader-3, pdf-3, reader-4, pdf-4, reader-5, pdf-5, foia-transcript
+- reader-2 — Volume II reader — News Coverage & Family Battles — https://hedidntjump.com/reader?volume=2&page=1 — see also: home, case, volumes, inquiries, press, rubye, foia, archives, narrative, about-aziel, copyrights, reader, reader-1, pdf-1, pdf-2, reader-3, pdf-3, reader-4, pdf-4, reader-5, pdf-5, foia-transcript
+- pdf-2 — Volume II PDF — News Coverage & Family Battles — https://hedidntjump.com/volumes/volume-2.pdf — see also: home, case, volumes, inquiries, press, rubye, foia, archives, narrative, about-aziel, copyrights, reader, reader-1, pdf-1, reader-2, reader-3, pdf-3, reader-4, pdf-4, reader-5, pdf-5, foia-transcript
+- reader-3 — Volume III reader — Personal Photographs & Research Materials — https://hedidntjump.com/reader?volume=3&page=1 — see also: home, case, volumes, inquiries, press, rubye, foia, archives, narrative, about-aziel, copyrights, reader, reader-1, pdf-1, reader-2, pdf-2, pdf-3, reader-4, pdf-4, reader-5, pdf-5, foia-transcript
+- pdf-3 — Volume III PDF — Personal Photographs & Research Materials — https://hedidntjump.com/volumes/volume-3.pdf — see also: home, case, volumes, inquiries, press, rubye, foia, archives, narrative, about-aziel, copyrights, reader, reader-1, pdf-1, reader-2, pdf-2, reader-3, reader-4, pdf-4, reader-5, pdf-5, foia-transcript
+- reader-4 — Volume IV reader — The Physics Case — https://hedidntjump.com/reader?volume=4&page=1 — see also: home, case, volumes, inquiries, press, rubye, foia, archives, narrative, about-aziel, copyrights, reader, reader-1, pdf-1, reader-2, pdf-2, reader-3, pdf-3, pdf-4, reader-5, pdf-5, foia-transcript
+- pdf-4 — Volume IV PDF — The Physics Case — https://hedidntjump.com/volumes/volume-4.pdf — see also: home, case, volumes, inquiries, press, rubye, foia, archives, narrative, about-aziel, copyrights, reader, reader-1, pdf-1, reader-2, pdf-2, reader-3, pdf-3, reader-4, reader-5, pdf-5, foia-transcript
+- reader-5 — Volume V reader — The Human & Institutional Evidence — https://hedidntjump.com/reader?volume=5&page=1 — see also: home, case, volumes, inquiries, press, rubye, foia, archives, narrative, about-aziel, copyrights, reader, reader-1, pdf-1, reader-2, pdf-2, reader-3, pdf-3, reader-4, pdf-4, pdf-5, foia-transcript
+- pdf-5 — Volume V PDF — The Human & Institutional Evidence — https://hedidntjump.com/volumes/volume-5.pdf — see also: home, case, volumes, inquiries, press, rubye, foia, archives, narrative, about-aziel, copyrights, reader, reader-1, pdf-1, reader-2, pdf-2, reader-3, pdf-3, reader-4, pdf-4, reader-5, foia-transcript
+- foia-transcript — FOIA Binary citation transcript (labeled transcript) — https://hedidntjump.com/assets/foia-binary-acknowledgement.pdf — see also: home, case, volumes, inquiries, press, rubye, foia, archives, narrative, about-aziel, copyrights, reader, reader-1, pdf-1, reader-2, pdf-2, reader-3, pdf-3, reader-4, pdf-4, reader-5, pdf-5
+
+## End soft link lattice
+
 ## Cross-cite — publisher Aziel Eliab ↔ subject Marion Zioncheck (machine)
 
 Machine co-resolution only. One publisher Person. One subject Person.
@@ -86,6 +116,7 @@ Ingest tip unchanged: `ef967e4acb47ba913ce3959b673767278da605b307de33210b2dc2f1c
 ## End cross-cite
 
 Discovery on this host:
+- https://www.hedidntjump.com/shelves.txt
 - https://www.hedidntjump.com/llms.txt
 - https://www.hedidntjump.com/llms-full.txt — whole-project LLM review (23 inquiries + Volumes I–V + all tabs)
 - https://www.hedidntjump.com/ai.txt

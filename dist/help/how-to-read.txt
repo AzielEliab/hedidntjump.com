@@ -46,3 +46,4 @@ PDFs:
 
 Help: https://hedidntjump.com/help.txt
 Addendum: https://hedidntjump.com/addendum.txt
+Plain-text map: https://hedidntjump.com/shelves.txt
