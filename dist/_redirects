@@ -50,3 +50,7 @@ http://www.hedidntjump.com/* https://hedidntjump.com/:splat 301
 /mesh /mesh.json 200
 /v1/mesh /mesh.json 200
 /live-nodes /mesh.json 200
+
+# IndexNow verification key — pin the plain-text file ahead of fallback routing
+/4241818f-5799-488c-9457-da724a30831c.txt /4241818f-5799-488c-9457-da724a30831c.txt 200
+/.well-known/indexnow-key.txt /.well-known/indexnow-key.txt 200
