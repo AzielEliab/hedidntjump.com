@@ -874,7 +874,7 @@ def shelf_rows() -> list[dict]:
 
 
 def shelves_doc() -> dict:
-    return {
+    doc = {
         "spec": "COLD-MULTI-SHELF-1.0",
         "rule": COLD_RULE,
         "author": "Aziel Eliab",
@@ -944,6 +944,14 @@ def shelves_doc() -> dict:
             "hdj_ingest_tip": HDJ_INGEST_TIP,
         },
     }
+    # Soft internal link lattice. Newspaper URLs already on this host.
+    # Not a cold shelf, not a new holding. /shelves stays this JSON.
+    from write_link_lattice import public_url_lattice
+
+    doc["shelves_txt"] = f"{APEX}/shelves.txt"
+    doc["sitemap_txt"] = f"{APEX}/sitemap.txt"
+    doc["public_url_lattice"] = public_url_lattice()
+    return doc
 
 
 def lockset_doc() -> dict:

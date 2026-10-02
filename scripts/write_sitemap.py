@@ -82,6 +82,8 @@ BASELINE: list[tuple[str, str, str]] = [
     ("/cite.json", "0.5", "weekly"),
     ("/shelves", "0.5", "weekly"),
     ("/shelves.json", "0.4", "weekly"),
+    ("/shelves.txt", "0.5", "weekly"),
+    ("/sitemap.txt", "0.4", "weekly"),
     ("/lockset.json", "0.4", "weekly"),
     ("/v1/shelves", "0.3", "weekly"),
     ("/cold-copy", "0.3", "weekly"),
