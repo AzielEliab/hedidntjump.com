@@ -37,7 +37,7 @@ PERSON_ID = "https://www.azieleliab.com/#aziel"
 ZION_ID = f"{APEX}/#marion-zioncheck"
 ORG_ID = f"{APEX}/#organization"
 SITE_ID = f"{APEX}/#website"
-LASTMOD = "2026-09-13"
+LASTMOD = "2026-10-01"  # keep equal to write_sitemap.LASTMOD
 
 TITLE = "Marion A. Zioncheck — Seattle Congressman (1933–1936) Archive | He Didn't Jump"
 CASE_TITLE = "The Case — Marion A. Zioncheck, Seattle congressman | He Didn't Jump"
@@ -659,26 +659,12 @@ def write_robots() -> None:
 
 
 def write_sitemap_index() -> None:
-    body = f"""<?xml version="1.0" encoding="UTF-8"?>
-<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <sitemap>
-    <loc>{APEX}/sitemap.xml</loc>
-    <lastmod>{LASTMOD}</lastmod>
-  </sitemap>
-  <sitemap>
-    <loc>https://www.azieleliab.com/sitemap.xml</loc>
-    <lastmod>{LASTMOD}</lastmod>
-  </sitemap>
-  <sitemap>
-    <loc>https://www.azielcorpuslibrary.net/sitemap.xml</loc>
-    <lastmod>{LASTMOD}</lastmod>
-  </sitemap>
-  <sitemap>
-    <loc>https://godlock.uk/sitemap.xml</loc>
-    <lastmod>{LASTMOD}</lastmod>
-  </sitemap>
-</sitemapindex>
-"""
+    from write_sitemap import LASTMOD as SITEMAP_LASTMOD
+    from write_sitemap import render_index
+
+    if LASTMOD != SITEMAP_LASTMOD:
+        raise SystemExit("sitemap LASTMOD drifted from write_sitemap.LASTMOD")
+    body = render_index()
     for tree in TREES:
         (tree / "sitemap-index.xml").write_text(body, encoding="utf-8")
 

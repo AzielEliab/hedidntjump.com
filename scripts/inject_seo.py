@@ -833,34 +833,10 @@ Sitemap: https://hedidntjump.com/sitemap.xml
 """
     )
 
-    urls = [
-        ("/", "1.0"),
-        ("/official-narrative.html", "0.9"),
-        ("/rubye.html", "0.9"),
-        ("/foia.html", "0.9"),
-        ("/copyrights.html", "0.4"),
-        ("/reader.html", "0.8"),
-        ("/reader.html?volume=1", "0.7"),
-        ("/reader.html?volume=2", "0.7"),
-        ("/reader.html?volume=3", "0.7"),
-        ("/reader.html?volume=4", "0.7"),
-        ("/reader.html?volume=5", "0.7"),
-        ("/llms.txt", "0.4"),
-        ("/llms-full.txt", "0.3"),
-    ]
-    parts = [
-        '<?xml version="1.0" encoding="UTF-8"?>',
-        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
-    ]
-    for loc, pri in urls:
-        parts.append("  <url>")
-        parts.append(f"    <loc>{ORIGIN}{loc}</loc>")
-        parts.append(f"    <lastmod>{LASTMOD}</lastmod>")
-        parts.append("    <changefreq>weekly</changefreq>")
-        parts.append(f"    <priority>{pri}</priority>")
-        parts.append("  </url>")
-    parts.append("</urlset>\n")
-    (DIST / "sitemap.xml").write_text("\n".join(parts))
+    # Do not thin dist/sitemap.xml. Growth-ON locs and lastmod live in write_sitemap.
+    from write_sitemap import write_trees as write_full_sitemap
+
+    write_full_sitemap()
 
     llms_full_path = DIST / "llms-full.txt"
     keep_review = (

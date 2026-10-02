@@ -111,6 +111,16 @@ def main() -> None:
             "/help/how-to-read.txt",
         ):
             assert f"<loc>{APEX}{loc}</loc>" in sitemap, loc
+        assert set(re.findall(r"<lastmod>([^<]+)</lastmod>", sitemap)) == {"2026-10-01"}
+        for n in range(1, 6):
+            assert f"<loc>{APEX}/reader?volume={n}&amp;page=1</loc>" in sitemap
+            assert f"<loc>{APEX}/volumes/volume-{n}.pdf</loc>" in sitemap
+            assert f"<loc>{APEX}/Volumes/{n}</loc>" not in sitemap
+        for loc in ("/doors", "/failover", "/live-nodes", "/Volumes", "/reader"):
+            assert f"<loc>{APEX}{loc}</loc>" in sitemap, loc
+        index = (tree / "sitemap-index.xml").read_text(encoding="utf-8")
+        assert f"<loc>{APEX}/sitemap.xml</loc>" in index
+        assert "<lastmod>2026-10-01</lastmod>" in index.split("azieleliab.com")[0]
 
         openapi = json.loads((tree / "openapi.json").read_text(encoding="utf-8"))
         for loc in (

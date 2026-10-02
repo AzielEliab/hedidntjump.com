@@ -56,7 +56,7 @@ ARCHIVE_ORG_202609_ZIP_ALT = (
     "https://archive.org/download/aziel-lockset-tip_202609/aziel-lockset-tip%202.zip"
 )
 HDJ_INGEST_TIP = "ef967e4acb47ba913ce3959b673767278da605b307de33210b2dc2f1cfd86f60"
-LASTMOD = "2026-09-14"
+LASTMOD = "2026-10-01"  # keep equal to write_sitemap.LASTMOD
 
 COLD_RULE = (
     "Planes A/B/C: A=one CF/GitHub tunnel (5 surfaces / 2 family radii, not 5 shelves); "

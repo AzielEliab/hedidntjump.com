@@ -422,10 +422,9 @@ def _patch_sitemap(text: str) -> str:
         text, n = re.subn(pattern, rf"\g<1>{pri}\2", text, count=1)
         if n != 1:
             raise SystemExit(f"sitemap loc missing or unparsed: {loc}")
-    lastmod = "2026-09-13"
-    m = re.search(rf"<loc>{re.escape(APEX)}/Case</loc>\n    <lastmod>([^<]+)</lastmod>", text)
-    if m:
-        lastmod = m.group(1)
+    from write_sitemap import LASTMOD as SITEMAP_LASTMOD
+
+    lastmod = SITEMAP_LASTMOD
     for loc, pri in SITEMAP_ALIASES:
         if f"<loc>{APEX}{loc}</loc>" in text:
             continue
@@ -438,7 +437,9 @@ def _patch_sitemap(text: str) -> str:
             "  </url>\n"
         )
         text = text.replace("</urlset>", block + "</urlset>", 1)
-    return text
+    from write_sitemap import merge_sitemap
+
+    return merge_sitemap(text)
 
 
 def _patch_robots(text: str) -> str:

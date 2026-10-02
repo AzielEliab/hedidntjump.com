@@ -15,7 +15,7 @@ ROOT = Path(__file__).resolve().parents[1]
 TREES = [ROOT / "dist", ROOT / "docs"]
 ORIGIN = "https://hedidntjump.com"
 WWW = "https://www.hedidntjump.com"
-LASTMOD = "2026-09-13"
+LASTMOD = "2026-10-01"  # keep equal to write_sitemap.LASTMOD
 PERSON_ID = "https://www.azieleliab.com/#aziel"
 
 # Keep in lockstep with write_identity_machine.DISAMBIGUATING — one short field only.
@@ -448,13 +448,13 @@ def pin_who_is_plain() -> None:
     sitemap_chunk = (
         "  <url>\n"
         "    <loc>https://www.hedidntjump.com/who-is</loc>\n"
-        "    <lastmod>2026-09-13</lastmod>\n"
+        "    <lastmod>2026-10-01</lastmod>\n"
         "    <changefreq>weekly</changefreq>\n"
         "    <priority>0.8</priority>\n"
         "  </url>\n"
         "  <url>\n"
         "    <loc>https://hedidntjump.com/who-is</loc>\n"
-        "    <lastmod>2026-09-13</lastmod>\n"
+        "    <lastmod>2026-10-01</lastmod>\n"
         "    <changefreq>weekly</changefreq>\n"
         "    <priority>0.8</priority>\n"
         "  </url>\n"
@@ -494,12 +494,12 @@ def pin_who_is_plain() -> None:
             # Insert pretty /who-is after the apex .txt entry.
             stext = stext.replace(
                 "    <loc>https://hedidntjump.com/who-is-aziel-eliab.txt</loc>\n"
-                "    <lastmod>2026-09-13</lastmod>\n"
+                "    <lastmod>2026-10-01</lastmod>\n"
                 "    <changefreq>weekly</changefreq>\n"
                 "    <priority>0.8</priority>\n"
                 "  </url>\n",
                 "    <loc>https://hedidntjump.com/who-is-aziel-eliab.txt</loc>\n"
-                "    <lastmod>2026-09-13</lastmod>\n"
+                "    <lastmod>2026-10-01</lastmod>\n"
                 "    <changefreq>weekly</changefreq>\n"
                 "    <priority>0.8</priority>\n"
                 "  </url>\n" + sitemap_chunk,
