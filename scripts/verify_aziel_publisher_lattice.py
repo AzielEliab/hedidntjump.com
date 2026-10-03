@@ -16,6 +16,7 @@ from aziel_person import (
     GITHUB_REVEALER,
     HEBREW_ONELINER,
     HUB_SAME_AS,
+    LOCKED_JOB_TITLES,
     PERSON_ID,
     PERSON_NAME,
     REQUIRED_AKA,
@@ -117,8 +118,9 @@ def main() -> None:
             html = (ROOT / tree / name).read_text(encoding="utf-8")
             node = _person_from_html(html)
             assert_person_lock(node)
+            assert node["jobTitle"] == list(LOCKED_JOB_TITLES)
             if name in MONEY:
-                assert node["jobTitle"] == "Publisher"
+                assert "Publisher of this Marion Zioncheck archive" in html
             assert PERSON_ID in html
             for aka in REQUIRED_AKA:
                 assert aka in html

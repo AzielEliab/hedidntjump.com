@@ -47,7 +47,13 @@ def main() -> None:
         assert g["@graph"][0]["name"] == "Marion A. Zioncheck"
         assert any(n.get("@type") == "FAQPage" for n in g["@graph"])
         pub = next(n for n in g["@graph"] if n.get("@id") == "https://www.azieleliab.com/#aziel")
-        assert pub["jobTitle"] == "Publisher"
+        assert pub["jobTitle"] == [
+            "researcher",
+            "digital rights activist",
+            "software developer",
+            "author",
+            "philosopher",
+        ]
         assert pub["name"] == "Aziel Eliab"
         assert "Elias Artista" in pub["alternateName"]
         assert "The Revealer of The Sealed" in pub["alternateName"]

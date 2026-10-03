@@ -520,6 +520,8 @@ def rewrite_job_titles(value: Any) -> Any:
     if isinstance(value, str):
         if value in KEEP_JOB_TITLES:
             return value
+        if value == "Publisher":
+            return list(JOB_TITLES)
         return value
     if isinstance(value, list) and value and all(isinstance(x, str) for x in value):
         if any(x in KEEP_JOB_TITLES for x in value):
@@ -831,8 +833,8 @@ def patch_cite(data: dict) -> dict:
         pub["disambiguatingDescription"] = rewrite_stack(
             pub.get("disambiguatingDescription") or ""
         )
-        if "jobTitle" in pub and pub["jobTitle"] == "Publisher":
-            pub["living_stack"] = LIVING_STACK
+        pub["jobTitle"] = list(JOB_TITLES)
+        pub["living_stack"] = LIVING_STACK
     data["subtitle"] = (
         "Zioncheck / He Didn't Jump archive sister (75% cap class) — An Aziel Eliab Project"
     )

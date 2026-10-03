@@ -93,13 +93,11 @@ def zioncheck_person() -> dict:
 
 def publisher_person() -> dict:
     return aziel_publisher_person(
-        job_title="Publisher",
         existing={
             "@type": "Person",
             "@id": PERSON_ID,
             "name": "Aziel Eliab",
             "url": "https://www.azieleliab.com/",
-            "jobTitle": "Publisher",
             "description": PUBLISHER_NOT,
         },
     )
