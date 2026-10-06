@@ -25,9 +25,9 @@ About on this host: https://hedidntjump.com/aziel
 About aliases:
 - https://hedidntjump.com/aziel
 - https://www.hedidntjump.com/aziel
-- https://hedidntjump.com/AzielEliab
-- https://www.hedidntjump.com/AzielEliab
-- https://hedidntjump.com/AboutAziel
+- https://hedidntjump.com/aziel
+- https://hedidntjump.com/aziel
+- https://hedidntjump.com/aziel
 - https://hedidntjump.com/aziel.html
 - https://www.hedidntjump.com/aziel.html
 
@@ -259,7 +259,7 @@ Identity machine on this host
 - https://www.hedidntjump.com/.well-known/aziel.json
 
 Official-narrative page (90-year public suicide account, labeled as such):
-https://www.hedidntjump.com/official-narrative.html
+https://hedidntjump.com/official-narrative
 
 Independent archive (main paper + five volumes):
 https://www.hedidntjump.com/

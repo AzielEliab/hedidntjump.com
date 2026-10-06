@@ -51,14 +51,14 @@ Positive genre: {HDJ_POSITIVE_GENRE}
 ## Newspapers
 
 - [{APEX}/]({APEX}/) — money page (Marion A. Zioncheck archive)
-- [{APEX}/Case]({APEX}/Case) — supporting Case edition
-- [{APEX}/Press]({APEX}/Press) — press tip + investigative source directory
-- [{APEX}/Inquiries]({APEX}/Inquiries) — 23 inquiries of the record
-- [{APEX}/Rubye]({APEX}/Rubye) — Rubye paper
-- [{APEX}/Archives]({APEX}/Archives) — archive / volume downloads
-- [{APEX}/FOIA]({APEX}/FOIA) — FOIA paper (supplied FBI FOIPA no-records)
-- [{APEX}/Narrative]({APEX}/Narrative) — official-account contrast
-- [{APEX}/Copyrights]({APEX}/Copyrights) — copyrights / historical-research notice
+- [{APEX}/case]({APEX}/case) — supporting Case edition
+- [{APEX}/press]({APEX}/press) — press tip + investigative source directory
+- [{APEX}/inquiries]({APEX}/inquiries) — 23 inquiries of the record
+- [{APEX}/rubye]({APEX}/rubye) — Rubye paper
+- [{APEX}/archives]({APEX}/archives) — archive / volume downloads
+- [{APEX}/foia]({APEX}/foia) — FOIA paper (supplied FBI FOIPA no-records)
+- [{APEX}/official-narrative]({APEX}/official-narrative) — official-account contrast
+- [{APEX}/copyrights]({APEX}/copyrights) — copyrights / historical-research notice
 - [{APEX}/aziel]({APEX}/aziel) — About Aziel (one body)
 
 ## Volumes I–V
@@ -71,7 +71,7 @@ Facsimile reader and original PDFs:
 - Volume IV — [{APEX}/reader?volume=4&page=1]({APEX}/reader?volume=4&page=1) · PDF [{APEX}/volumes/volume-4.pdf]({APEX}/volumes/volume-4.pdf)
 - Volume V — [{APEX}/reader?volume=5&page=1]({APEX}/reader?volume=5&page=1) · PDF [{APEX}/volumes/volume-5.pdf]({APEX}/volumes/volume-5.pdf)
 
-Volume desk: [{APEX}/Volumes]({APEX}/Volumes)
+Volume desk: [{APEX}/volumes]({APEX}/volumes)
 Reader: [{APEX}/reader]({APEX}/reader)
 
 ## How to read
@@ -98,10 +98,10 @@ An Aziel Eliab Project. Independent investigative / whistleblower newspaper arch
 ## Start here
 
 1. Open the money page: {APEX}/
-2. Read the Case edition: {APEX}/Case
-3. Walk the 23 inquiries: {APEX}/Inquiries
+2. Read the Case edition: {APEX}/case
+3. Walk the 23 inquiries: {APEX}/inquiries
 4. Open Volumes I–V in the facsimile reader: {APEX}/reader
-5. Use the official-account contrast only as contrast: {APEX}/Narrative
+5. Use the official-account contrast only as contrast: {APEX}/official-narrative
 
 Motto: The Record, Not the Verdict.
 The published volumes re-examine the official suicide account of U.S. Rep. Marion A. Zioncheck (Arctic Building, Seattle, 7 August 1936). The project does not invent court holdings, quotes, or agency letters beyond what the volumes and cited papers already print.
@@ -111,13 +111,13 @@ The published volumes re-examine the official suicide account of U.S. Rep. Mario
 Each paper is a newspaper edition on this host:
 
 - Landing / money page — {APEX}/
-- Case — {APEX}/Case
-- Press — {APEX}/Press
-- Inquiries — {APEX}/Inquiries
-- Rubye — {APEX}/Rubye
-- Archives — {APEX}/Archives
-- FOIA — {APEX}/FOIA
-- Copyrights — {APEX}/Copyrights
+- Case — {APEX}/case
+- Press — {APEX}/press
+- Inquiries — {APEX}/inquiries
+- Rubye — {APEX}/rubye
+- Archives — {APEX}/archives
+- FOIA — {APEX}/foia
+- Copyrights — {APEX}/copyrights
 
 ## Volumes
 
@@ -154,8 +154,8 @@ Author: Aziel Eliab only. Person @id: {PERSON_ID}
 
 This host publishes newspapers and five volumes on Marion A. Zioncheck / Marion Zioncheck.
 
-- Newspapers: {APEX}/ · {APEX}/Case · {APEX}/Press · {APEX}/Inquiries · {APEX}/Rubye · {APEX}/Archives · {APEX}/FOIA · {APEX}/Narrative · {APEX}/Copyrights
-- Volumes desk: {APEX}/Volumes
+- Newspapers: {APEX}/ · {APEX}/case · {APEX}/press · {APEX}/inquiries · {APEX}/rubye · {APEX}/archives · {APEX}/foia · {APEX}/official-narrative · {APEX}/copyrights
+- Volumes desk: {APEX}/volumes
 - Reader: {APEX}/reader
 - PDFs: {APEX}/volumes/volume-1.pdf … {APEX}/volumes/volume-5.pdf
 

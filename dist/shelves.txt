@@ -15,16 +15,16 @@ canonical https://www.azielcorpuslibrary.net/shelves. This file is the URL map.
 ## Public URLs
 
 https://hedidntjump.com/ — Money page — Marion A. Zioncheck whistleblower archive
-https://hedidntjump.com/Case — Case edition
-https://hedidntjump.com/Volumes — Volumes I–V desk
-https://hedidntjump.com/Inquiries — 23 inquiries of the record
-https://hedidntjump.com/Press — Press tip and investigative source directory
-https://hedidntjump.com/Rubye — Rubye paper
-https://hedidntjump.com/FOIA — FOIA paper (supplied FBI FOIPA no-records only)
-https://hedidntjump.com/Archives — Archive and volume downloads
-https://hedidntjump.com/Narrative — Official-account contrast
+https://hedidntjump.com/case — Case edition
+https://hedidntjump.com/volumes — Volumes I–V desk
+https://hedidntjump.com/inquiries — 23 inquiries of the record
+https://hedidntjump.com/press — Press tip and investigative source directory
+https://hedidntjump.com/rubye — Rubye paper
+https://hedidntjump.com/foia — FOIA paper (supplied FBI FOIPA no-records only)
+https://hedidntjump.com/archives — Archive and volume downloads
+https://hedidntjump.com/official-narrative — Official-account contrast
 https://hedidntjump.com/aziel — About Aziel (one body)
-https://hedidntjump.com/Copyrights — Copyrights and historical-research notice
+https://hedidntjump.com/copyrights — Copyrights and historical-research notice
 https://hedidntjump.com/reader — Facsimile volume reader
 https://hedidntjump.com/reader?volume=1&page=1 — Volume I reader — Primary Documents & Forensic Analysis
 https://hedidntjump.com/volumes/volume-1.pdf — Volume I PDF — Primary Documents & Forensic Analysis
@@ -40,12 +40,12 @@ https://hedidntjump.com/assets/foia-binary-acknowledgement.pdf — FOIA Binary c
 
 ## Same-body aliases (not extra holdings)
 
-https://hedidntjump.com/AboutAziel — About Aziel alias (same body as /aziel)
-https://hedidntjump.com/Aziel — About Aziel alias (same body as /aziel)
-https://hedidntjump.com/AzielEliab — About Aziel alias (same body as /aziel)
-https://hedidntjump.com/inquires — Inquiries alias (same body as /Inquiries)
-https://hedidntjump.com/Rubeye — Rubye alias (same body as /Rubye)
-https://hedidntjump.com/Archive — Archives alias (same body as /Archives)
+https://hedidntjump.com/aziel — /AboutAziel 301s here (same body as /aziel)
+https://hedidntjump.com/aziel — /Aziel 301s here (same body as /aziel)
+https://hedidntjump.com/aziel — /AzielEliab 301s here (same body as /aziel)
+https://hedidntjump.com/inquiries — /inquires 301s here (same body as /inquiries)
+https://hedidntjump.com/rubye — /Rubeye 301s here (same body as /rubye)
+https://hedidntjump.com/archives — /Archive 301s here (same body as /archives)
 
 ## Machine discovery
 

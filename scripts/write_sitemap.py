@@ -25,31 +25,20 @@ SISTER_LASTMOD = "2026-09-13"
 IDENTITY_LASTMOD = "2026-10-02"
 IDENTITY_BUMP_PATHS = {
     "/",
-    "/Case",
-    "/Press",
-    "/Inquiries",
-    "/inquires",
-    "/Rubye",
-    "/Rubeye",
-    "/Archives",
-    "/Archive",
-    "/FOIA",
-    "/Volumes",
+    "/case",
+    "/press",
+    "/inquiries",
+    "/rubye",
+    "/archives",
+    "/foia",
+    "/volumes",
     "/reader",
-    "/Narrative",
+    "/official-narrative",
     "/aziel",
-    "/Aziel",
-    "/AzielEliab",
-    "/AboutAziel",
-    "/Copyrights",
+    "/copyrights",
     "/who",
     "/receipts",
     "/cite.json",
-    "/reader?volume=1&page=1",
-    "/reader?volume=2&page=1",
-    "/reader?volume=3&page=1",
-    "/reader?volume=4&page=1",
-    "/reader?volume=5&page=1",
 }
 
 SKIP_NAMES = {"CNAME", "_headers", "_redirects", "sitemap.xml"}
@@ -65,6 +54,29 @@ SKIP_SUFFIXES = {
     ".mp4",
     ".gif",
 }
+# Aliases and reader query URLs canonicalize elsewhere. Do not list them.
+SITEMAP_DROP = {
+    "/AzielEliab",
+    "/AboutAziel",
+    "/Aziel",
+    "/inquires",
+    "/Rubeye",
+    "/Archive",
+}
+SITEMAP_RENAME = {
+    "/Case": "/case",
+    "/Press": "/press",
+    "/Inquiries": "/inquiries",
+    "/Rubye": "/rubye",
+    "/Archives": "/archives",
+    "/FOIA": "/foia",
+    "/Volumes": "/volumes",
+    "/Narrative": "/official-narrative",
+    "/Copyrights": "/copyrights",
+}
+# inquires.html is an alias file. /inquiries is the 200 URL.
+ALIAS_HTML = {"inquires.html"}
+
 # Homepage shell. Confirmed live: title and canonical match /, not a volume hub.
 DENY_PATHS = {
     "/Volumes/1",
@@ -91,19 +103,17 @@ DENY_PATHS = {
 # Priority and changefreq already shipped. Kept so a regen does not drop them.
 BASELINE: list[tuple[str, str, str]] = [
     ("/", "1.0", "weekly"),
-    ("/Case", "0.9", "weekly"),
-    ("/Press", "0.8", "weekly"),
-    ("/Inquiries", "0.9", "weekly"),
-    ("/Rubye", "0.7", "weekly"),
-    ("/Archives", "0.7", "weekly"),
-    ("/FOIA", "0.8", "weekly"),
-    ("/Volumes", "0.9", "weekly"),
+    ("/case", "0.9", "weekly"),
+    ("/press", "0.8", "weekly"),
+    ("/inquiries", "0.9", "weekly"),
+    ("/rubye", "0.7", "weekly"),
+    ("/archives", "0.7", "weekly"),
+    ("/foia", "0.8", "weekly"),
+    ("/volumes", "0.9", "weekly"),
     ("/reader", "0.7", "weekly"),
-    ("/Narrative", "0.9", "weekly"),
+    ("/official-narrative", "0.9", "weekly"),
     ("/aziel", "0.5", "weekly"),
-    ("/AzielEliab", "0.4", "weekly"),
-    ("/AboutAziel", "0.4", "weekly"),
-    ("/Copyrights", "0.3", "weekly"),
+    ("/copyrights", "0.3", "weekly"),
     ("/receipts", "0.4", "weekly"),
     ("/who", "0.6", "weekly"),
     ("/llms.txt", "0.5", "weekly"),
@@ -149,10 +159,6 @@ BASELINE: list[tuple[str, str, str]] = [
     ("/mesh", "0.4", "hourly"),
     ("/mesh.json", "0.4", "hourly"),
     ("/v1/mesh", "0.4", "hourly"),
-    ("/Aziel", "0.3", "weekly"),
-    ("/inquires", "0.3", "weekly"),
-    ("/Rubeye", "0.3", "weekly"),
-    ("/Archive", "0.3", "weekly"),
 ]
 
 HOURLY = {
@@ -203,6 +209,16 @@ def defaults_for(path: str) -> tuple[str, str]:
     return "0.4", "weekly"
 
 
+def canonical_sitemap_path(path: str) -> str | None:
+    """Keep the 200 URL. Drop aliases and reader query URLs."""
+    if path.startswith("/reader?"):
+        return None
+    path = SITEMAP_RENAME.get(path, path)
+    if path in SITEMAP_DROP or path in DENY_PATHS:
+        return None
+    return path
+
+
 def redirect_paths(tree: Path) -> list[str]:
     path = tree / "_redirects"
     if not path.is_file():
@@ -226,6 +242,8 @@ def html_pretty_paths(tree: Path, redirect_targets: dict[str, list[str]]) -> lis
     """Pretty locs for real HTML files. Never the raw .html path (those 308)."""
     out = []
     for html in sorted(tree.glob("*.html")):
+        if html.name in ALIAS_HTML:
+            continue
         sources = redirect_targets.get(html.name, [])
         if sources:
             out.extend(sources)
@@ -277,13 +295,8 @@ def file_paths(tree: Path) -> list[str]:
 
 
 def reader_volume_paths(tree: Path) -> list[str]:
-    """Per-volume reader URLs published on the Volumes page. Not /Volumes/N."""
-    page = tree / "volumes.html"
-    if not page.is_file():
-        return []
-    text = page.read_text(encoding="utf-8")
-    nums = sorted({int(n) for n in READER_RE.findall(text)})
-    return [f"/reader?volume={n}&page=1" for n in nums]
+    """Reader query URLs canonicalize to /reader. They are not sitemap locs."""
+    return []
 
 
 def discover(tree: Path) -> list[str]:
@@ -299,7 +312,8 @@ def discover(tree: Path) -> list[str]:
     for path in paths:
         if not path.startswith("/"):
             continue
-        if path in DENY_PATHS or path in seen:
+        path = canonical_sitemap_path(path)
+        if path is None or path in seen:
             continue
         seen.add(path)
         out.append(path)
@@ -321,8 +335,14 @@ def parse_entries(text: str) -> list[tuple[str, str, str, str]]:
 def merge_sitemap(text: str, tree: Path | None = None) -> str:
     """Keep shipped order and priorities. Append real missing URLs. Stamp lastmod."""
     tree = tree or (ROOT / "docs")
-    existing = parse_entries(text)
-    have = {path for path, _pri, _cf, _mod in existing}
+    existing = []
+    have: set[str] = set()
+    for path, pri, cf, mod in parse_entries(text):
+        path = canonical_sitemap_path(path)
+        if path is None or path in have:
+            continue
+        have.add(path)
+        existing.append((path, pri, cf, mod))
     extras: list[tuple[str, str, str, str]] = []
     for path in discover(tree):
         if path in have:
@@ -411,11 +431,15 @@ def check(text: str, index: str) -> None:
     for path, _pri, _cf in BASELINE:
         assert path in locs, path
     for n in range(1, 6):
-        assert f"/reader?volume={n}&page=1" in locs
+        assert f"/reader?volume={n}&page=1" not in locs
         assert f"/volumes/volume-{n}.pdf" in locs
         assert f"/Volumes/{n}" not in locs
-    for path in ("/doors", "/failover", "/live-nodes", "/Volumes", "/reader"):
+    for path in ("/doors", "/failover", "/live-nodes", "/volumes", "/reader", "/official-narrative"):
         assert path in locs, path
+    for path in SITEMAP_DROP:
+        assert path not in locs, path
+    for path in SITEMAP_RENAME:
+        assert path not in locs, path
     assert "/Volumes/I" not in text
     assert f"<lastmod>{IDENTITY_LASTMOD}</lastmod>" in index
     assert f"<lastmod>{SISTER_LASTMOD}</lastmod>" in index

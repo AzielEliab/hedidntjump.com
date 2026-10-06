@@ -64,18 +64,18 @@ SAME_AS = [
 
 CANONICAL_BY_FILE = {
     "index.html": f"{APEX}/",
-    "case.html": f"{APEX}/Case",
-    "press.html": f"{APEX}/Press",
-    "inquiries.html": f"{APEX}/Inquiries",
-    "inquires.html": f"{APEX}/Inquiries",
-    "rubye.html": f"{APEX}/Rubye",
-    "archives.html": f"{APEX}/Archives",
-    "foia.html": f"{APEX}/FOIA",
-    "volumes.html": f"{APEX}/Volumes",
+    "case.html": f"{APEX}/case",
+    "press.html": f"{APEX}/press",
+    "inquiries.html": f"{APEX}/inquiries",
+    "inquires.html": f"{APEX}/inquiries",
+    "rubye.html": f"{APEX}/rubye",
+    "archives.html": f"{APEX}/archives",
+    "foia.html": f"{APEX}/foia",
+    "volumes.html": f"{APEX}/volumes",
     "reader.html": f"{APEX}/reader",
-    "official-narrative.html": f"{APEX}/Narrative",
+    "official-narrative.html": f"{APEX}/official-narrative",
     "aziel.html": f"{APEX}/aziel",
-    "copyrights.html": f"{APEX}/Copyrights",
+    "copyrights.html": f"{APEX}/copyrights",
 }
 
 HTML_CACHE = "public, max-age=300, stale-while-revalidate=86400"
@@ -370,7 +370,8 @@ def ensure_h1(text: str) -> str:
 def _refuse_visible_surface(action: str) -> None:
     raise SystemExit(
         f"refusing {action} (operator 2026-09-24). "
-        "Default and --machine-only leave every *.html byte and _redirects unchanged."
+        "Visible body HTML stays frozen. Head canonical, og:url, and JSON-LD "
+        "url/@id are not visible surface. Alias _redirects may 301 to the 200 URL."
     )
 
 
@@ -394,7 +395,7 @@ def write_money_pages() -> None:
 
         case = tree / "case.html"
         ctext = case.read_text(encoding="utf-8")
-        ctext = apply_money_meta(ctext, f"{APEX}/Case", title=CASE_TITLE)
+        ctext = apply_money_meta(ctext, f"{APEX}/case", title=CASE_TITLE)
         # Drop the mistaken inquiries alternate / OG leftover.
         ctext = re.sub(
             r'<link rel="alternate" href="[^"]*inquires[^"]*">\n?',
@@ -406,7 +407,7 @@ def write_money_pages() -> None:
                 "</head>",
                 f'<meta property="og:title" content="{CASE_TITLE}">\n'
                 f'<meta property="og:description" content="{DESCRIPTION}">\n'
-                f'<meta property="og:url" content="{APEX}/Case">\n'
+                f'<meta property="og:url" content="{APEX}/case">\n'
                 f'<meta name="twitter:title" content="{CASE_TITLE}">\n'
                 f'<meta name="twitter:description" content="{DESCRIPTION}">\n'
                 "</head>",
@@ -415,9 +416,9 @@ def write_money_pages() -> None:
         ctext = replace_or_insert_jsonld(
             ctext,
             money_graph(
-                page_url=f"{APEX}/Case",
+                page_url=f"{APEX}/case",
                 page_name=CASE_TITLE,
-                page_id=f"{APEX}/Case#webpage",
+                page_id=f"{APEX}/case#webpage",
             ),
         )
         ctext = ensure_h1(ctext)
@@ -426,41 +427,50 @@ def write_money_pages() -> None:
 
 
 def unify_canonicals() -> None:
-    _refuse_visible_surface("HTML canonical rewrite")
+    """Head only: canonical, og:url, and JSON-LD url/@id. Body bytes stay."""
+    from canonical_pages import rewrite_html
+
     for tree in TREES:
         for name, canonical in CANONICAL_BY_FILE.items():
             path = tree / name
             if not path.is_file():
                 continue
             text = path.read_text(encoding="utf-8")
-            text = strip_http_equiv_cache(text)
-            if 'rel="canonical"' in text:
-                text = set_tag(
-                    text,
+            head, sep, body = text.partition("</head>")
+            if not sep:
+                continue
+            head = strip_http_equiv_cache(head)
+            if 'rel="canonical"' in head:
+                head = set_tag(
+                    head,
                     r'<link rel="canonical" href="[^"]*">',
                     f'<link rel="canonical" href="{canonical}">',
                 )
-            if 'property="og:url"' in text and name not in {"index.html", "case.html"}:
-                text = set_tag(
-                    text,
+            if 'property="og:url"' in head:
+                head = set_tag(
+                    head,
                     r'<meta property="og:url" content="[^"]*">',
                     f'<meta property="og:url" content="{canonical}">',
                 )
-            path.write_text(text, encoding="utf-8")
+            head = rewrite_html(head + sep).removesuffix(sep)
+            new = head + sep + body
+            if new != text:
+                path.write_text(new, encoding="utf-8")
         print("canonicals", tree.name)
 
 
 def write_redirects() -> None:
-    _refuse_visible_surface("_redirects rewrite")
+    from canonical_pages import patch_redirect_text
+
     extra = (
         "\n# ZionBot inventory: apex is canonical. www aliases 301 here. "
-        "Do not 301 /case↔/Case (Cloudflare pretty-URL 308 can loop).\n"
+        "One-way 301 /Case → /case (case-sensitive; lowercase is already 200).\n"
         "https://www.hedidntjump.com/* https://hedidntjump.com/:splat 301\n"
         "http://www.hedidntjump.com/* https://hedidntjump.com/:splat 301\n"
     )
     for tree in TREES:
         path = tree / "_redirects"
-        text = path.read_text(encoding="utf-8")
+        text = patch_redirect_text(path.read_text(encoding="utf-8"))
         text = text.replace("/case /Case 301\n", "")
         text = text.replace("/case.html /Case 301\n", "")
         # Drop the earlier apex→www experiment.
@@ -614,19 +624,19 @@ def write_cite() -> None:
             ],
             "purpose": purpose,
             "canonical": f"{APEX}/",
-            "case": f"{APEX}/Case",
+            "case": f"{APEX}/case",
             "query_urls": [
                 f"{APEX}/",
-                f"{APEX}/Case",
-                f"{APEX}/Narrative",
-                f"{APEX}/Press",
-                f"{APEX}/Inquiries",
-                f"{APEX}/Rubye",
-                f"{APEX}/Archives",
-                f"{APEX}/FOIA",
-                f"{APEX}/Volumes",
+                f"{APEX}/case",
+                f"{APEX}/official-narrative",
+                f"{APEX}/press",
+                f"{APEX}/inquiries",
+                f"{APEX}/rubye",
+                f"{APEX}/archives",
+                f"{APEX}/foia",
+                f"{APEX}/volumes",
                 f"{APEX}/reader",
-                f"{APEX}/Copyrights",
+                f"{APEX}/copyrights",
                 f"{APEX}/aziel",
                 f"{APEX}/who",
                 f"{APEX}/receipts",
@@ -670,11 +680,15 @@ def write_sitemap_index() -> None:
 def main() -> None:
     if "--rewrite-html" in sys.argv:
         _refuse_visible_surface("HTML rewrite")
-    # --machine-only is the default. Lattice writes machine files only.
+    # Head canonical/og/JSON-LD and alias 301s are not visible surface.
+    unify_canonicals()
+    write_redirects()
     from zioncheck_serp_lattice import apply_zioncheck_subsurface
+    from canonical_pages import apply_machine_urls
 
     apply_zioncheck_subsurface()
-    print("zioncheck SERP lock written (machine-only; HTML and _redirects untouched)")
+    apply_machine_urls()
+    print("zioncheck SERP lock written (head canonicals, alias 301s, machine URLs)")
 
 
 if __name__ == "__main__":

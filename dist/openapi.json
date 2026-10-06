@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "He Didn't Jump — public archive surfaces",
-    "description": "Read-only discovery OpenAPI for the Marion Zioncheck static archive on hedidntjump.com. No local MCP. Live origin: Cloudflare Pages project hedidntjump (docs/). Aziel Runtime MCP 2.0.0-rc1 (Try on Glama): https://glama.ai/mcp/servers/AzielEliab/aziel-runtime Lookup: Zioncheck, Marion Zioncheck, Marion A. Zioncheck, Congressman Zioncheck, Seattle congressman suicide Arctic Building, He Didn't Jump. Query pages: /Case, /Narrative, /Inquiries, /Volumes, /FOIA. Cross-cite: Aziel Eliab (https://www.azieleliab.com/#aziel) publishes He Didn't Jump; Marion A. Zioncheck (https://hedidntjump.com/#marion-zioncheck) is the subject. See cite.json cross_cite.",
+    "description": "Read-only discovery OpenAPI for the Marion Zioncheck static archive on hedidntjump.com. No local MCP. Live origin: Cloudflare Pages project hedidntjump (docs/). Aziel Runtime MCP 2.0.0-rc1 (Try on Glama): https://glama.ai/mcp/servers/AzielEliab/aziel-runtime Lookup: Zioncheck, Marion Zioncheck, Marion A. Zioncheck, Congressman Zioncheck, Seattle congressman suicide Arctic Building, He Didn't Jump. Query pages: /case, /official-narrative, /inquiries, /volumes, /foia. Cross-cite: Aziel Eliab (https://www.azieleliab.com/#aziel) publishes He Didn't Jump; Marion A. Zioncheck (https://hedidntjump.com/#marion-zioncheck) is the subject. See cite.json cross_cite.",
     "version": "1.0.0",
     "contact": {
       "name": "Aziel Eliab",
@@ -32,76 +32,6 @@
         }
       }
     },
-    "/Case": {
-      "get": {
-        "summary": "The Case — Marion Zioncheck / Congressman Zioncheck, Seattle",
-        "responses": {
-          "200": {
-            "description": "HTML"
-          }
-        }
-      }
-    },
-    "/Press": {
-      "get": {
-        "summary": "Press tip + social directory",
-        "responses": {
-          "200": {
-            "description": "HTML"
-          }
-        }
-      }
-    },
-    "/Inquiries": {
-      "get": {
-        "summary": "Inquiries of the Record — 23 questions on Marion A. Zioncheck",
-        "responses": {
-          "200": {
-            "description": "HTML"
-          }
-        }
-      }
-    },
-    "/Rubye": {
-      "get": {
-        "summary": "Rubye paper",
-        "responses": {
-          "200": {
-            "description": "HTML"
-          }
-        }
-      }
-    },
-    "/Archives": {
-      "get": {
-        "summary": "Archives edition",
-        "responses": {
-          "200": {
-            "description": "HTML"
-          }
-        }
-      }
-    },
-    "/FOIA": {
-      "get": {
-        "summary": "FOIA paper — supplied FBI FOIPA no-records on Marion Anthony Zioncheck",
-        "responses": {
-          "200": {
-            "description": "HTML"
-          }
-        }
-      }
-    },
-    "/Volumes": {
-      "get": {
-        "summary": "Volumes I–V — Marion Zioncheck archive facsimiles",
-        "responses": {
-          "200": {
-            "description": "HTML"
-          }
-        }
-      }
-    },
     "/reader": {
       "get": {
         "summary": "In-site facsimile volume reader",
@@ -122,29 +52,9 @@
         }
       }
     },
-    "/Narrative": {
-      "get": {
-        "summary": "Official narrative — Seattle congressman suicide, Arctic Building, 7 August 1936",
-        "responses": {
-          "200": {
-            "description": "HTML"
-          }
-        }
-      }
-    },
     "/AboutAziel": {
       "get": {
-        "summary": "About Aziel / project",
-        "responses": {
-          "200": {
-            "description": "HTML"
-          }
-        }
-      }
-    },
-    "/Copyrights": {
-      "get": {
-        "summary": "Copyrights notice",
+        "summary": "Alias of /aziel (301). Not a second About body",
         "responses": {
           "200": {
             "description": "HTML"
@@ -304,7 +214,7 @@
     },
     "/AzielEliab": {
       "get": {
-        "summary": "200 rewrite to aziel.html — not a second About body",
+        "summary": "Alias of /aziel (301). Not a second About body",
         "responses": {
           "200": {
             "description": "OK"
@@ -574,7 +484,7 @@
     },
     "/inquires": {
       "get": {
-        "summary": "Typo alias of /Inquiries (200 rewrite to inquiries.html)",
+        "summary": "Alias of /inquiries (301 to the URL that returns 200)",
         "responses": {
           "200": {
             "description": "OK"
@@ -584,7 +494,7 @@
     },
     "/Aziel": {
       "get": {
-        "summary": "200 rewrite to aziel.html — not a second About body",
+        "summary": "Alias of /aziel (301). Not a second About body",
         "responses": {
           "200": {
             "description": "OK"
@@ -638,6 +548,96 @@
         "responses": {
           "200": {
             "description": "text/plain"
+          }
+        }
+      }
+    },
+    "/case": {
+      "get": {
+        "summary": "The Case — Marion Zioncheck / Congressman Zioncheck, Seattle",
+        "responses": {
+          "200": {
+            "description": "HTML"
+          }
+        }
+      }
+    },
+    "/official-narrative": {
+      "get": {
+        "summary": "Official narrative — Seattle congressman suicide, Arctic Building, 7 August 1936",
+        "responses": {
+          "200": {
+            "description": "HTML"
+          }
+        }
+      }
+    },
+    "/inquiries": {
+      "get": {
+        "summary": "Inquiries of the Record — 23 questions on Marion A. Zioncheck",
+        "responses": {
+          "200": {
+            "description": "HTML"
+          }
+        }
+      }
+    },
+    "/volumes": {
+      "get": {
+        "summary": "Volumes I–V — Marion Zioncheck archive facsimiles",
+        "responses": {
+          "200": {
+            "description": "HTML"
+          }
+        }
+      }
+    },
+    "/foia": {
+      "get": {
+        "summary": "FOIA paper — supplied FBI FOIPA no-records on Marion Anthony Zioncheck",
+        "responses": {
+          "200": {
+            "description": "HTML"
+          }
+        }
+      }
+    },
+    "/press": {
+      "get": {
+        "summary": "Press tip + social directory",
+        "responses": {
+          "200": {
+            "description": "HTML"
+          }
+        }
+      }
+    },
+    "/rubye": {
+      "get": {
+        "summary": "Rubye paper",
+        "responses": {
+          "200": {
+            "description": "HTML"
+          }
+        }
+      }
+    },
+    "/archives": {
+      "get": {
+        "summary": "Archives edition",
+        "responses": {
+          "200": {
+            "description": "HTML"
+          }
+        }
+      }
+    },
+    "/copyrights": {
+      "get": {
+        "summary": "Copyrights notice",
+        "responses": {
+          "200": {
+            "description": "HTML"
           }
         }
       }

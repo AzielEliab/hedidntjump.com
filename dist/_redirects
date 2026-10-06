@@ -11,28 +11,31 @@
 # LLM well-known (200 rewrite). Do not add /who → who.html, /aziel → aziel.html, /reader → reader.html, /receipts → receipts.html.
 /.well-known/llms.txt /llms.txt 200
 
-# Pretty tab paths (200 = rewrite, no redirect loop)
-/Case /case.html 200
-/Press /press.html 200
-/Inquiries /inquiries.html 200
-/inquires /inquiries.html 200
-/Rubye /rubye.html 200
-/Rubeye /rubye.html 200
-/Archives /archives.html 200
-/Archive /archives.html 200
-/FOIA /foia.html 200
-/Volumes /volumes.html 200
-/Narrative /official-narrative.html 200
-/Copyrights /copyrights.html 200
+# Pretty tab paths. Capitalised and alias paths 301 to the URL that returns 200.
+# Do not 200-rewrite these to *.html (Pages html-stripping turns that into a 308).
+# Do not add /case → /Case. Matching is case-sensitive and /case is already 200.
+/Case /case 301
+/Press /press 301
+/Inquiries /inquiries 301
+/inquires /inquiries 301
+/Rubye /rubye 301
+/Rubeye /rubye 301
+/Archives /archives 301
+/Archive /archives 301
+/FOIA /foia 301
+/Volumes /volumes 301
+/Narrative /official-narrative 301
+/Copyrights /copyrights 301
 # Do not add /reader → reader.html (Cloudflare 308 loop with html-extension strip).
 # Do not add /Volumes/read → reader.html (collides with /volumes/ PDF dir).
 
-# About Aziel — one body (aziel.html). Aliases 200 rewrite. Canonical /aziel.
+# About Aziel — one body (aziel.html). Canonical /aziel via html-extension 200.
+# Aliases 301 to /aziel. Do not 200-rewrite them to aziel.html.
 # Do not add /aziel → aziel.html (Cloudflare 308 loop with html-extension strip).
-/Aziel /aziel.html 200
-/AboutAziel /aziel.html 200
-/AzielEliab /aziel.html 200
-# ZionBot inventory: apex is canonical. www aliases 301 here. Do not 301 /case↔/Case (Cloudflare pretty-URL 308 can loop).
+/Aziel /aziel 301
+/AboutAziel /aziel 301
+/AzielEliab /aziel 301
+# ZionBot inventory: apex is canonical. www aliases 301 here. One-way 301 /Case → /case (case-sensitive; lowercase is already 200).
 https://www.hedidntjump.com/* https://hedidntjump.com/:splat 301
 http://www.hedidntjump.com/* https://hedidntjump.com/:splat 301
 

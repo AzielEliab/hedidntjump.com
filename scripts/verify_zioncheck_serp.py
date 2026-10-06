@@ -33,8 +33,12 @@ def main() -> None:
         assert "re-examines" in idx
         assert H1 in idx and H1 in case
         assert f'href="{APEX}/"' in idx
-        assert f'href="{APEX}/Case"' in case
-        assert f'href="{APEX}/Narrative"' in narrative
+        assert f'<link rel="canonical" href="{APEX}/case">' in case
+        assert f'og:url" content="{APEX}/case"' in case
+        assert f'<link rel="canonical" href="{APEX}/official-narrative">' in narrative
+        assert f'og:url" content="{APEX}/official-narrative"' in narrative
+        assert f'"{APEX}/case"' in case.split("</head>", 1)[0]
+        assert f'"{APEX}/official-narrative"' in narrative.split("</head>", 1)[0]
         assert "Official Narrative" in narrative or "official" in narrative.lower()
         assert TITLE not in narrative
         assert "stale-while-revalidate=86400" in headers
@@ -79,7 +83,8 @@ def main() -> None:
         assert "euaziel.site" in idx
         assert sitemap.count("<priority>1.0</priority>") == 1
         assert f"<loc>{APEX}/</loc>" in sitemap
-        assert f"<loc>{APEX}/Case</loc>" in sitemap
+        assert f"<loc>{APEX}/case</loc>" in sitemap
+        assert f"<loc>{APEX}/Case</loc>" not in sitemap
         assert "https://www.hedidntjump.com/* https://hedidntjump.com/:splat 301" in redirects
         assert "https://hedidntjump.com/* https://www.hedidntjump.com/:splat 301" not in redirects
         assert llms.startswith("# He Didn't Jump — Marion A. Zioncheck archive")
@@ -112,15 +117,15 @@ def main() -> None:
         assert cite["marion_person"]["spouse"]["name"] == "Rubye Louise Nix"
         for name in ("Zioncheck", "Marion Anthony Zioncheck", "U.S. Rep. Marion A. Zioncheck"):
             assert name in cite["marion_person"]["alternateName"], name
-        for loc in ("/Case", "/Narrative", "/Inquiries", "/Volumes", "/FOIA"):
+        for loc in ("/case", "/official-narrative", "/inquiries", "/volumes", "/foia"):
             assert f"{APEX}{loc}" in cite["query_urls"]
             assert cite["query_urls"].index(f"{APEX}{loc}") < cite["query_urls"].index(
-                f"{APEX}/Press"
+                f"{APEX}/press"
             )
         assert any(q["q"] == "Who was Marion Zioncheck?" for q in cite["zioncheck_faq"])
         lead_a = next(q["a"] for q in cite["zioncheck_faq"] if q["q"] == "Who was Marion Zioncheck?")
         assert "fifth-floor" in lead_a and "Arctic Building" in lead_a
-        assert "https://hedidntjump.com/Case" in lead_a
+        assert "https://hedidntjump.com/case" in lead_a
         graph_marion = graph_doc["@graph"][0]
         assert graph_marion["name"] == "Marion A. Zioncheck"
         assert "Zioncheck" in graph_marion["alternateName"]
@@ -129,20 +134,26 @@ def main() -> None:
         assert len(faq["mainEntity"]) >= 9
         ai = (ROOT / tree / "ai.txt").read_text(encoding="utf-8")
         assert "## Zioncheck query URLs" in ai
-        for loc in ("/Case", "/Narrative", "/Inquiries", "/Volumes", "/FOIA"):
+        for loc in ("/case", "/official-narrative", "/inquiries", "/volumes", "/foia"):
             assert f"{APEX}{loc}" in ai
         robots = (ROOT / tree / "robots.txt").read_text(encoding="utf-8")
-        for allow in ("Allow: /Case", "Allow: /Narrative", "Allow: /Inquiries", "Allow: /Volumes", "Allow: /FOIA"):
+        for allow in (
+            "Allow: /case",
+            "Allow: /official-narrative",
+            "Allow: /inquiries",
+            "Allow: /volumes",
+            "Allow: /foia",
+        ):
             assert allow in robots
         assert "<priority>0.9</priority>" in sitemap
         assert sitemap.count("<priority>1.0</priority>") == 1
         narrative_pri = re.search(
-            rf"<loc>{APEX}/Narrative</loc>[\s\S]*?<priority>([^<]+)</priority>",
+            rf"<loc>{APEX}/official-narrative</loc>[\s\S]*?<priority>([^<]+)</priority>",
             sitemap,
         )
         assert narrative_pri and narrative_pri.group(1) == "0.9"
         openapi = json.loads((ROOT / tree / "openapi.json").read_text(encoding="utf-8"))
-        for loc in ("/Case", "/Narrative", "/Inquiries", "/Volumes", "/FOIA"):
+        for loc in ("/case", "/official-narrative", "/inquiries", "/volumes", "/foia"):
             summary = openapi["paths"][loc]["get"]["summary"]
             assert "Zioncheck" in summary or "Marion" in summary or "Arctic" in summary, loc
         full = (ROOT / tree / "llms-full.txt").read_text(encoding="utf-8")

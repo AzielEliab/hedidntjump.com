@@ -7,43 +7,43 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://hedidntjump.com/Case</loc>
+    <loc>https://hedidntjump.com/case</loc>
     <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://hedidntjump.com/Press</loc>
+    <loc>https://hedidntjump.com/press</loc>
     <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hedidntjump.com/Inquiries</loc>
+    <loc>https://hedidntjump.com/inquiries</loc>
     <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://hedidntjump.com/Rubye</loc>
+    <loc>https://hedidntjump.com/rubye</loc>
     <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hedidntjump.com/Archives</loc>
+    <loc>https://hedidntjump.com/archives</loc>
     <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hedidntjump.com/FOIA</loc>
+    <loc>https://hedidntjump.com/foia</loc>
     <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hedidntjump.com/Volumes</loc>
+    <loc>https://hedidntjump.com/volumes</loc>
     <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -55,7 +55,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://hedidntjump.com/Narrative</loc>
+    <loc>https://hedidntjump.com/official-narrative</loc>
     <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -67,19 +67,7 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://hedidntjump.com/AzielEliab</loc>
-    <lastmod>2026-10-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
-  </url>
-  <url>
-    <loc>https://hedidntjump.com/AboutAziel</loc>
-    <lastmod>2026-10-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
-  </url>
-  <url>
-    <loc>https://hedidntjump.com/Copyrights</loc>
+    <loc>https://hedidntjump.com/copyrights</loc>
     <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.3</priority>
@@ -343,60 +331,6 @@
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://hedidntjump.com/Aziel</loc>
-    <lastmod>2026-10-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://hedidntjump.com/inquires</loc>
-    <lastmod>2026-10-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://hedidntjump.com/Rubeye</loc>
-    <lastmod>2026-10-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://hedidntjump.com/Archive</loc>
-    <lastmod>2026-10-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://hedidntjump.com/reader?volume=1&amp;page=1</loc>
-    <lastmod>2026-10-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://hedidntjump.com/reader?volume=2&amp;page=1</loc>
-    <lastmod>2026-10-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://hedidntjump.com/reader?volume=3&amp;page=1</loc>
-    <lastmod>2026-10-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://hedidntjump.com/reader?volume=4&amp;page=1</loc>
-    <lastmod>2026-10-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://hedidntjump.com/reader?volume=5&amp;page=1</loc>
-    <lastmod>2026-10-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://hedidntjump.com/doors</loc>
     <lastmod>2026-10-01</lastmod>
     <changefreq>hourly</changefreq>
@@ -422,6 +356,18 @@
   </url>
   <url>
     <loc>https://hedidntjump.com/sitemap.txt</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://hedidntjump.com/.well-known/indexnow-key.txt</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://hedidntjump.com/4241818f-5799-488c-9457-da724a30831c.txt</loc>
     <lastmod>2026-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.4</priority>

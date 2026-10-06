@@ -22,17 +22,17 @@ ANTI_LOOP = (
 
 PUBLIC_PAGES = (
     "/",
-    "/Case",
-    "/Press",
-    "/Inquiries",
-    "/Rubye",
-    "/Archives",
-    "/FOIA",
-    "/Volumes",
+    "/case",
+    "/press",
+    "/inquiries",
+    "/rubye",
+    "/archives",
+    "/foia",
+    "/volumes",
     "/reader",
-    "/Narrative",
+    "/official-narrative",
     "/aziel",
-    "/Copyrights",
+    "/copyrights",
     "/who",
     "/receipts",
 )
@@ -115,11 +115,22 @@ def main() -> None:
         assert dates <= {"2026-10-01", "2026-10-02"}, dates
         assert "2026-10-01" in dates and "2026-10-02" in dates
         for n in range(1, 6):
-            assert f"<loc>{APEX}/reader?volume={n}&amp;page=1</loc>" in sitemap
+            assert f"<loc>{APEX}/reader?volume={n}&amp;page=1</loc>" not in sitemap
             assert f"<loc>{APEX}/volumes/volume-{n}.pdf</loc>" in sitemap
             assert f"<loc>{APEX}/Volumes/{n}</loc>" not in sitemap
-        for loc in ("/doors", "/failover", "/live-nodes", "/Volumes", "/reader"):
+        for loc in ("/doors", "/failover", "/live-nodes", "/volumes", "/reader"):
             assert f"<loc>{APEX}{loc}</loc>" in sitemap, loc
+        for loc in (
+            "/AzielEliab",
+            "/AboutAziel",
+            "/Aziel",
+            "/inquires",
+            "/Rubeye",
+            "/Archive",
+            "/Case",
+            "/Narrative",
+        ):
+            assert f"<loc>{APEX}{loc}</loc>" not in sitemap, loc
         index = (tree / "sitemap-index.xml").read_text(encoding="utf-8")
         assert f"<loc>{APEX}/sitemap.xml</loc>" in index
         assert "<lastmod>2026-10-02</lastmod>" in index.split("azieleliab.com")[0]
@@ -168,14 +179,14 @@ def main() -> None:
             assert url in cite["marion_person"]["sameAs"]
         assert "Congressman Zioncheck" in cite["marion_person"]["alternateName"]
         assert "Zioncheck" in cite["marion_person"]["alternateName"]
-        for loc in ("/Case", "/Narrative", "/Inquiries", "/Volumes", "/FOIA"):
+        for loc in ("/case", "/official-narrative", "/inquiries", "/volumes", "/foia"):
             assert f"Allow: {loc}" in robots, loc
 
         llms = (tree / "llms.txt").read_text(encoding="utf-8")
         lead = llms.split("## Marion")[0]
         assert "NOT an ARG" not in lead
         assert "whistleblower" in lead.lower()
-        for loc in ("/Press", "/Rubye", "/Archives", "/FOIA", "/Copyrights", "/reader", "/who"):
+        for loc in ("/press", "/rubye", "/archives", "/foia", "/copyrights", "/reader", "/who"):
             assert f"{APEX}{loc}" in lead, loc
         assert "Service → Clarity → Peace" in llms
         assert HDJ_INGEST_TIP in llms
@@ -186,7 +197,7 @@ def main() -> None:
         assert "NOT an ARG" not in ai
         assert "whistleblower" in ai.lower()
         assert "## Zioncheck query URLs" in ai
-        for loc in ("/Case", "/Narrative", "/Inquiries", "/Volumes", "/FOIA"):
+        for loc in ("/case", "/official-narrative", "/inquiries", "/volumes", "/foia"):
             assert f"{APEX}{loc}" in ai, loc
 
         idx = (tree / "index.html").read_text(encoding="utf-8")
@@ -214,18 +225,18 @@ def main() -> None:
 
         pages = {
             "index.html": f"{APEX}/",
-            "case.html": f"{APEX}/Case",
-            "press.html": f"{APEX}/Press",
-            "inquiries.html": f"{APEX}/Inquiries",
-            "inquires.html": f"{APEX}/Inquiries",
-            "rubye.html": f"{APEX}/Rubye",
-            "archives.html": f"{APEX}/Archives",
-            "foia.html": f"{APEX}/FOIA",
-            "volumes.html": f"{APEX}/Volumes",
+            "case.html": f"{APEX}/case",
+            "press.html": f"{APEX}/press",
+            "inquiries.html": f"{APEX}/inquiries",
+            "inquires.html": f"{APEX}/inquiries",
+            "rubye.html": f"{APEX}/rubye",
+            "archives.html": f"{APEX}/archives",
+            "foia.html": f"{APEX}/foia",
+            "volumes.html": f"{APEX}/volumes",
             "reader.html": f"{APEX}/reader",
-            "official-narrative.html": f"{APEX}/Narrative",
+            "official-narrative.html": f"{APEX}/official-narrative",
             "aziel.html": f"{APEX}/aziel",
-            "copyrights.html": f"{APEX}/Copyrights",
+            "copyrights.html": f"{APEX}/copyrights",
             "receipts.html": f"{APEX}/receipts",
             "who.html": f"{APEX}/who",
         }

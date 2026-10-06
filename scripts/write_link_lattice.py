@@ -39,42 +39,42 @@ TABS: list[dict[str, str]] = [
     {
         "id": "case",
         "label": "Case edition",
-        "href": f"{APEX}/Case",
+        "href": f"{APEX}/case",
     },
     {
         "id": "volumes",
         "label": "Volumes I–V desk",
-        "href": f"{APEX}/Volumes",
+        "href": f"{APEX}/volumes",
     },
     {
         "id": "inquiries",
         "label": "23 inquiries of the record",
-        "href": f"{APEX}/Inquiries",
+        "href": f"{APEX}/inquiries",
     },
     {
         "id": "press",
         "label": "Press tip and investigative source directory",
-        "href": f"{APEX}/Press",
+        "href": f"{APEX}/press",
     },
     {
         "id": "rubye",
         "label": "Rubye paper",
-        "href": f"{APEX}/Rubye",
+        "href": f"{APEX}/rubye",
     },
     {
         "id": "foia",
         "label": "FOIA paper (supplied FBI FOIPA no-records only)",
-        "href": f"{APEX}/FOIA",
+        "href": f"{APEX}/foia",
     },
     {
         "id": "archives",
         "label": "Archive and volume downloads",
-        "href": f"{APEX}/Archives",
+        "href": f"{APEX}/archives",
     },
     {
         "id": "narrative",
         "label": "Official-account contrast",
-        "href": f"{APEX}/Narrative",
+        "href": f"{APEX}/official-narrative",
     },
     {
         "id": "about-aziel",
@@ -84,7 +84,7 @@ TABS: list[dict[str, str]] = [
     {
         "id": "copyrights",
         "label": "Copyrights and historical-research notice",
-        "href": f"{APEX}/Copyrights",
+        "href": f"{APEX}/copyrights",
     },
     {
         "id": "reader",
@@ -103,12 +103,12 @@ VOLUMES: list[tuple[int, str, str]] = [
 
 # Same body as an existing tab. Listed so crawlers do not treat them as extra holdings.
 ALIASES: list[tuple[str, str]] = [
-    (f"{APEX}/AboutAziel", "About Aziel alias (same body as /aziel)"),
-    (f"{APEX}/Aziel", "About Aziel alias (same body as /aziel)"),
-    (f"{APEX}/AzielEliab", "About Aziel alias (same body as /aziel)"),
-    (f"{APEX}/inquires", "Inquiries alias (same body as /Inquiries)"),
-    (f"{APEX}/Rubeye", "Rubye alias (same body as /Rubye)"),
-    (f"{APEX}/Archive", "Archives alias (same body as /Archives)"),
+    (f"{APEX}/aziel", "/AboutAziel 301s here (same body as /aziel)"),
+    (f"{APEX}/aziel", "/Aziel 301s here (same body as /aziel)"),
+    (f"{APEX}/aziel", "/AzielEliab 301s here (same body as /aziel)"),
+    (f"{APEX}/inquiries", "/inquires 301s here (same body as /inquiries)"),
+    (f"{APEX}/rubye", "/Rubeye 301s here (same body as /rubye)"),
+    (f"{APEX}/archives", "/Archive 301s here (same body as /archives)"),
 ]
 
 MACHINE: list[tuple[str, str]] = [

@@ -43,44 +43,21 @@ FAQ_NOT = (
     "Public identity is Aziel Eliab only. Use Person @id https://www.azieleliab.com/#aziel."
 )
 
-# Pretty path, html file, priority. /AzielEliab rewrites to aziel.html — no second body.
+# Pretty path, html file, priority. Unused by main(); aliases 301 in _redirects.
+# One row per URL that returns 200. Do not list /Case or *.html here.
 EDITION_PATHS = [
     ("/", "index.html", "1.0"),
-    ("/Case", "case.html", "1.0"),
-    ("/case", "case.html", "0.1"),
-    ("/case.html", "case.html", "0.1"),
-    ("/Press", "press.html", "0.9"),
-    ("/press", "press.html", "0.6"),
-    ("/press.html", "press.html", "0.5"),
-    ("/Inquiries", "inquiries.html", "0.9"),
-    ("/inquiries", "inquiries.html", "0.6"),
-    ("/inquiries.html", "inquiries.html", "0.5"),
-    ("/inquires", "inquiries.html", "0.3"),
-    ("/inquires.html", "inquires.html", "0.3"),
-    ("/Rubye", "rubye.html", "0.9"),
-    ("/rubye", "rubye.html", "0.6"),
-    ("/rubye.html", "rubye.html", "0.5"),
-    ("/Archives", "archives.html", "0.8"),
-    ("/archives", "archives.html", "0.6"),
-    ("/archives.html", "archives.html", "0.5"),
-    ("/FOIA", "foia.html", "0.9"),
-    ("/foia", "foia.html", "0.6"),
-    ("/foia.html", "foia.html", "0.5"),
-    ("/Volumes", "volumes.html", "0.9"),
-    ("/volumes", "volumes.html", "0.6"),
-    ("/volumes.html", "volumes.html", "0.5"),
-    ("/reader", "reader.html", "0.6"),
-    ("/reader.html", "reader.html", "0.6"),
-    ("/Narrative", "official-narrative.html", "0.9"),
-    ("/official-narrative.html", "official-narrative.html", "0.5"),
-    ("/aziel", "aziel.html", "0.9"),
-    ("/Aziel", "aziel.html", "0.7"),
-    ("/AzielEliab", "aziel.html", "0.8"),
-    ("/AboutAziel", "aziel.html", "0.7"),
-    ("/aziel.html", "aziel.html", "0.5"),
-    ("/Copyrights", "copyrights.html", "0.4"),
+    ("/case", "case.html", "0.9"),
+    ("/press", "press.html", "0.8"),
+    ("/inquiries", "inquiries.html", "0.9"),
+    ("/rubye", "rubye.html", "0.7"),
+    ("/archives", "archives.html", "0.7"),
+    ("/foia", "foia.html", "0.8"),
+    ("/volumes", "volumes.html", "0.9"),
+    ("/reader", "reader.html", "0.7"),
+    ("/official-narrative", "official-narrative.html", "0.9"),
+    ("/aziel", "aziel.html", "0.5"),
     ("/copyrights", "copyrights.html", "0.3"),
-    ("/copyrights.html", "copyrights.html", "0.3"),
     ("/receipts", "receipts.html", "0.4"),
 ]
 
@@ -154,27 +131,30 @@ def write_redirects() -> None:
 /who-is /who-is-aziel-eliab.txt 200
 /.well-known/aziel.json /.well-known/aziel.json 200
 
-# Pretty tab paths (200 = rewrite, no redirect loop)
-/Case /case.html 200
-/Press /press.html 200
-/Inquiries /inquiries.html 200
-/inquires /inquiries.html 200
-/Rubye /rubye.html 200
-/Rubeye /rubye.html 200
-/Archives /archives.html 200
-/Archive /archives.html 200
-/FOIA /foia.html 200
-/Volumes /volumes.html 200
-/Narrative /official-narrative.html 200
-/Copyrights /copyrights.html 200
+# Pretty tab paths. Capitalised and alias paths 301 to the URL that returns 200.
+# Do not 200-rewrite these to *.html (Pages html-stripping turns that into a 308).
+# Do not add /case → /Case. Matching is case-sensitive and /case is already 200.
+/Case /case 301
+/Press /press 301
+/Inquiries /inquiries 301
+/inquires /inquiries 301
+/Rubye /rubye 301
+/Rubeye /rubye 301
+/Archives /archives 301
+/Archive /archives 301
+/FOIA /foia 301
+/Volumes /volumes 301
+/Narrative /official-narrative 301
+/Copyrights /copyrights 301
 # Do not add /reader → reader.html (Cloudflare 308 loop with html-extension strip).
 # Do not add /Volumes/read → reader.html (collides with /volumes/ PDF dir).
 
-# About Aziel — one body (aziel.html). Aliases 200 rewrite. Canonical /aziel.
+# About Aziel — one body (aziel.html). Canonical /aziel via html-extension 200.
+# Aliases 301 to /aziel. Do not 200-rewrite them to aziel.html.
 # Do not add /aziel → aziel.html (Cloudflare 308 loop with html-extension strip).
-/Aziel /aziel.html 200
-/AboutAziel /aziel.html 200
-/AzielEliab /aziel.html 200
+/Aziel /aziel 301
+/AboutAziel /aziel 301
+/AzielEliab /aziel 301
 
 # COLD-MULTI-SHELF machine aliases (AZindex). JSON, not newspaper chrome.
 /shelves /shelves.json 200
@@ -346,10 +326,6 @@ def write_cite() -> None:
         data["about_page"] = f"{ORIGIN}/aziel"
         data["about_aliases"] = [
             f"{ORIGIN}/aziel",
-            f"{ORIGIN}/Aziel",
-            f"{ORIGIN}/AzielEliab",
-            f"{ORIGIN}/AboutAziel",
-            f"{ORIGIN}/aziel.html",
         ]
         data["identity_note"] = (
             "Aziel Eliab only. Aziel Elroi Eliab, Elias Artista, and "
