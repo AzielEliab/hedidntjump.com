@@ -5,14 +5,14 @@
 User-agent: *
 Allow: /
 # Zioncheck money paths stay Allow. Do not Disallow GPTBot/Claude for budget.
-Allow: /Case
-Allow: /Narrative
-Allow: /Inquiries
-Allow: /Volumes
-Allow: /FOIA
-Allow: /Press
-Allow: /Rubye
-Allow: /Archives
+Allow: /case
+Allow: /official-narrative
+Allow: /inquiries
+Allow: /volumes
+Allow: /foia
+Allow: /press
+Allow: /rubye
+Allow: /archives
 Allow: /reader
 Allow: /who
 Allow: /who.html

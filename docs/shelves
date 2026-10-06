@@ -1058,7 +1058,7 @@
       {
         "id": "case",
         "label": "Case edition",
-        "href": "https://hedidntjump.com/Case",
+        "href": "https://hedidntjump.com/case",
         "see_also": [
           "home",
           "volumes",
@@ -1087,7 +1087,7 @@
       {
         "id": "volumes",
         "label": "Volumes I–V desk",
-        "href": "https://hedidntjump.com/Volumes",
+        "href": "https://hedidntjump.com/volumes",
         "see_also": [
           "home",
           "case",
@@ -1116,7 +1116,7 @@
       {
         "id": "inquiries",
         "label": "23 inquiries of the record",
-        "href": "https://hedidntjump.com/Inquiries",
+        "href": "https://hedidntjump.com/inquiries",
         "see_also": [
           "home",
           "case",
@@ -1145,7 +1145,7 @@
       {
         "id": "press",
         "label": "Press tip and investigative source directory",
-        "href": "https://hedidntjump.com/Press",
+        "href": "https://hedidntjump.com/press",
         "see_also": [
           "home",
           "case",
@@ -1174,7 +1174,7 @@
       {
         "id": "rubye",
         "label": "Rubye paper",
-        "href": "https://hedidntjump.com/Rubye",
+        "href": "https://hedidntjump.com/rubye",
         "see_also": [
           "home",
           "case",
@@ -1203,7 +1203,7 @@
       {
         "id": "foia",
         "label": "FOIA paper (supplied FBI FOIPA no-records only)",
-        "href": "https://hedidntjump.com/FOIA",
+        "href": "https://hedidntjump.com/foia",
         "see_also": [
           "home",
           "case",
@@ -1232,7 +1232,7 @@
       {
         "id": "archives",
         "label": "Archive and volume downloads",
-        "href": "https://hedidntjump.com/Archives",
+        "href": "https://hedidntjump.com/archives",
         "see_also": [
           "home",
           "case",
@@ -1261,7 +1261,7 @@
       {
         "id": "narrative",
         "label": "Official-account contrast",
-        "href": "https://hedidntjump.com/Narrative",
+        "href": "https://hedidntjump.com/official-narrative",
         "see_also": [
           "home",
           "case",
@@ -1319,7 +1319,7 @@
       {
         "id": "copyrights",
         "label": "Copyrights and historical-research notice",
-        "href": "https://hedidntjump.com/Copyrights",
+        "href": "https://hedidntjump.com/copyrights",
         "see_also": [
           "home",
           "case",

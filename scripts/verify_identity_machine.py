@@ -199,10 +199,10 @@ def main() -> None:
             "/who-is",
             ".well-known/aziel.json",
             "/aziel",
-            "/AzielEliab",
-            "/AboutAziel",
         ):
             assert path in sitemap, path
+        for alias in ("/AzielEliab", "/AboutAziel", "/Aziel", "/inquires", "/Rubeye", "/Archive"):
+            assert f"<loc>https://hedidntjump.com{alias}</loc>" not in sitemap, alias
         assert "/inquiry/" not in sitemap
         assert "hedidntjump.com/who-is</loc>" in sitemap
         assert "/who-is /who-is-aziel-eliab.txt 200" in redirects
@@ -212,9 +212,12 @@ def main() -> None:
         assert (ROOT / tree / "who-is").read_text(encoding="utf-8") == who
         assert "/aziel /aziel.html 200" not in redirects
         assert "Do not add /aziel" in redirects
-        assert "/Aziel /aziel.html 200" in redirects
-        assert "/AboutAziel /aziel.html 200" in redirects
-        assert "/AzielEliab /aziel.html 200" in redirects
+        assert "/Aziel /aziel 301" in redirects
+        assert "/AboutAziel /aziel 301" in redirects
+        assert "/AzielEliab /aziel 301" in redirects
+        assert "/Aziel /aziel.html 200" not in redirects
+        assert "/Case /case 301" in redirects
+        assert "/Narrative /official-narrative 301" in redirects
         assert "/reader /reader.html 200" not in redirects
         assert "/Volumes/read /reader.html" not in redirects
         assert "/Volumes/read /volumes" not in redirects

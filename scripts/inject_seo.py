@@ -409,7 +409,7 @@ def write_rubye():
             *identity_nodes(),
             breadcrumbs(
                 ("Main paper", f"{ORIGIN}/"),
-                ("Rubye paper", f"{ORIGIN}/rubye.html"),
+                ("Rubye paper", f"{ORIGIN}/rubye"),
             ),
             image(
                 "/assets/marion-rubye.webp",
@@ -433,7 +433,7 @@ def write_rubye():
             ),
             {
                 "@type": "NewsArticle",
-                "@id": f"{ORIGIN}/rubye.html#lead-article",
+                "@id": f"{ORIGIN}/rubye#lead-article",
                 "headline": "Rubye in the record, and in court against Nadeau",
                 "alternativeHeadline": (
                     "The contemporary report places her in the car. Volume V places later lawsuits on the same name."
@@ -442,8 +442,8 @@ def write_rubye():
                     "Rubye Nix Zioncheck in the archive: the car below the window, Volume II family-battle "
                     "clippings, and later legal actions against Nadeau as Volume V states them."
                 ),
-                "url": f"{ORIGIN}/rubye.html",
-                "mainEntityOfPage": f"{ORIGIN}/rubye.html",
+                "url": f"{ORIGIN}/rubye",
+                "mainEntityOfPage": f"{ORIGIN}/rubye",
                 "image": [
                     f"{ORIGIN}/assets/social-card-rubye.jpg",
                     f"{ORIGIN}/assets/marion-rubye.webp",
@@ -463,14 +463,14 @@ def write_rubye():
             },
             {
                 "@type": "WebPage",
-                "@id": f"{ORIGIN}/rubye.html#webpage",
-                "url": f"{ORIGIN}/rubye.html",
+                "@id": f"{ORIGIN}/rubye#webpage",
+                "url": f"{ORIGIN}/rubye",
                 "name": "The Rubye Paper — He Didn't Jump",
                 "isPartOf": {"@id": f"{ORIGIN}/#website"},
                 "primaryImageOfPage": {"@id": f"{ORIGIN}/assets/marion-rubye.webp"},
                 "breadcrumb": breadcrumbs(
                     ("Main paper", f"{ORIGIN}/"),
-                    ("Rubye paper", f"{ORIGIN}/rubye.html"),
+                    ("Rubye paper", f"{ORIGIN}/rubye"),
                 ),
             },
         ],
@@ -481,7 +481,7 @@ def write_rubye():
             "Aziel Eliab project paper: Rubye Nix Zioncheck in the car, Volume II estate clippings, "
             "and later legal actions against Nadeau as printed in Volume V. Captioned to the reader."
         ),
-        canonical=f"{ORIGIN}/rubye.html",
+        canonical=f"{ORIGIN}/rubye",
         og_type="article",
         image_path="/assets/social-card-rubye.jpg",
         image_alt="Marion and Rubye Zioncheck, archive photograph used on the Rubye paper",
@@ -505,7 +505,7 @@ def write_foia():
             *identity_nodes(),
             breadcrumbs(
                 ("Main paper", f"{ORIGIN}/"),
-                ("FOIA paper", f"{ORIGIN}/foia.html"),
+                ("FOIA paper", f"{ORIGIN}/foia"),
             ),
             image(
                 "/assets/plates/nadeau-chapter.webp",
@@ -529,7 +529,7 @@ def write_foia():
             ),
             {
                 "@type": "NewsArticle",
-                "@id": f"{ORIGIN}/foia.html#lead-article",
+                "@id": f"{ORIGIN}/foia#lead-article",
                 "headline": "This is not freedom of information",
                 "alternativeHeadline": "A time-volume door. A cost door. Both leave the file on the institution’s side of the desk.",
                 "description": (
@@ -537,8 +537,8 @@ def write_foia():
                     "(Mode 1 clock-and-volume, Mode 2 fees); a supplied, redacted FBI FOIPA no-records letter; "
                     "a public hash-chained ledger of Zioncheck FOIA denials."
                 ),
-                "url": f"{ORIGIN}/foia.html",
-                "mainEntityOfPage": f"{ORIGIN}/foia.html",
+                "url": f"{ORIGIN}/foia",
+                "mainEntityOfPage": f"{ORIGIN}/foia",
                 "image": [
                     f"{ORIGIN}/assets/social-card-foia.jpg",
                     f"{ORIGIN}/assets/plates/nadeau-chapter.webp",
@@ -560,14 +560,14 @@ def write_foia():
             },
             {
                 "@type": "WebPage",
-                "@id": f"{ORIGIN}/foia.html#webpage",
-                "url": f"{ORIGIN}/foia.html",
+                "@id": f"{ORIGIN}/foia#webpage",
+                "url": f"{ORIGIN}/foia",
                 "name": "This Is Not Freedom of Information — He Didn't Jump",
                 "isPartOf": {"@id": f"{ORIGIN}/#website"},
                 "primaryImageOfPage": {"@id": f"{ORIGIN}/assets/social-card-foia.jpg"},
                 "breadcrumb": breadcrumbs(
                     ("Main paper", f"{ORIGIN}/"),
-                    ("FOIA paper", f"{ORIGIN}/foia.html"),
+                    ("FOIA paper", f"{ORIGIN}/foia"),
                 ),
             },
         ],
@@ -579,7 +579,7 @@ def write_foia():
             "Acknowledgement of 28 July 2026; a supplied, redacted FBI no-records letter; a gated, hash-chained "
             "public ledger of Zioncheck FOIA denials."
         ),
-        canonical=f"{ORIGIN}/foia.html",
+        canonical=f"{ORIGIN}/foia",
         og_type="article",
         image_path="/assets/social-card-foia.jpg",
         image_alt="The Arctic Building beside the FOIA paper headline This is not freedom of information",
@@ -602,7 +602,7 @@ def write_official():
             *identity_nodes(),
             breadcrumbs(
                 ("Main paper", f"{ORIGIN}/"),
-                ("Official narrative", f"{ORIGIN}/official-narrative.html"),
+                ("Official narrative", f"{ORIGIN}/official-narrative"),
             ),
             image(
                 "/assets/plates/playboy-leaps.webp",
@@ -619,7 +619,7 @@ def write_official():
             ),
             {
                 "@type": "NewsArticle",
-                "@id": f"{ORIGIN}/official-narrative.html#lead-article",
+                "@id": f"{ORIGIN}/official-narrative#lead-article",
                 "headline": "What the official narrative said happened",
                 "alternativeHeadline": (
                     "From the Washington apartment to a fifth-floor window in Seattle. "
@@ -630,8 +630,8 @@ def write_official():
                     "as Volume I–II clippings print it, from the Washington apartment through the "
                     "reported Arctic Building suicide of 7 August 1936."
                 ),
-                "url": f"{ORIGIN}/official-narrative.html",
-                "mainEntityOfPage": f"{ORIGIN}/official-narrative.html",
+                "url": f"{ORIGIN}/official-narrative",
+                "mainEntityOfPage": f"{ORIGIN}/official-narrative",
                 "image": [
                     f"{ORIGIN}/assets/social-card.jpg",
                     f"{ORIGIN}/assets/plates/playboy-leaps.webp",
@@ -651,14 +651,14 @@ def write_official():
             },
             {
                 "@type": "WebPage",
-                "@id": f"{ORIGIN}/official-narrative.html#webpage",
-                "url": f"{ORIGIN}/official-narrative.html",
+                "@id": f"{ORIGIN}/official-narrative#webpage",
+                "url": f"{ORIGIN}/official-narrative",
                 "name": "The Official Narrative — He Didn't Jump",
                 "isPartOf": {"@id": f"{ORIGIN}/#website"},
                 "primaryImageOfPage": {"@id": f"{ORIGIN}/assets/plates/playboy-leaps.webp"},
                 "breadcrumb": breadcrumbs(
                     ("Main paper", f"{ORIGIN}/"),
-                    ("Official narrative", f"{ORIGIN}/official-narrative.html"),
+                    ("Official narrative", f"{ORIGIN}/official-narrative"),
                 ),
             },
         ],
@@ -669,7 +669,7 @@ def write_official():
             "Aziel Eliab edition: the contemporary official account of Marion Zioncheck’s last months — "
             "Washington apartment press, Gallinger, the train west, and the reported Arctic Building suicide."
         ),
-        canonical=f"{ORIGIN}/official-narrative.html",
+        canonical=f"{ORIGIN}/official-narrative",
         og_type="article",
         image_path="/assets/social-card.jpg",
         image_alt="He Didn't Jump masthead beside a Marion Zioncheck archive portrait",
@@ -693,7 +693,7 @@ def write_reader():
             *identity_nodes(),
             breadcrumbs(
                 ("Main paper", f"{ORIGIN}/"),
-                ("Volume reader", f"{ORIGIN}/reader.html"),
+                ("Volume reader", f"{ORIGIN}/reader"),
             ),
             image(
                 "/assets/social-card.jpg",
@@ -703,8 +703,8 @@ def write_reader():
             ),
             {
                 "@type": "WebPage",
-                "@id": f"{ORIGIN}/reader.html#webpage",
-                "url": f"{ORIGIN}/reader.html",
+                "@id": f"{ORIGIN}/reader#webpage",
+                "url": f"{ORIGIN}/reader",
                 "name": "Volume Reader — He Didn't Jump",
                 "description": (
                     "Facsimile reader for five Marion Zioncheck archive volumes. "
@@ -713,7 +713,7 @@ def write_reader():
                 "isPartOf": {"@id": f"{ORIGIN}/#website"},
                 "breadcrumb": breadcrumbs(
                     ("Main paper", f"{ORIGIN}/"),
-                    ("Volume reader", f"{ORIGIN}/reader.html"),
+                    ("Volume reader", f"{ORIGIN}/reader"),
                 ),
             },
         ],
@@ -724,7 +724,7 @@ def write_reader():
             "Aziel Eliab’s Marion Zioncheck archive reader: five facsimile volumes. "
             "Original PDFs remain available without JavaScript."
         ),
-        canonical=f"{ORIGIN}/reader.html",
+        canonical=f"{ORIGIN}/reader",
         og_type="website",
         image_path="/assets/social-card.jpg",
         image_alt="He Didn't Jump — The Marion Zioncheck Archive",
@@ -771,17 +771,17 @@ def write_aziel():
 <meta name="author" content="Aziel Eliab">
 <meta name="keywords" content="Aziel Eliab, Rubye Zioncheck, An Aziel Eliab Project">
 <link rel="author" href="https://www.azieleliab.com/">
-<link rel="canonical" href="https://hedidntjump.com/rubye.html">
-<meta http-equiv="refresh" content="0; url=/rubye.html">
+<link rel="canonical" href="https://hedidntjump.com/rubye">
+<meta http-equiv="refresh" content="0; url=/rubye">
 <meta property="og:site_name" content="He Didn't Jump — An Aziel Eliab Project">
-<meta property="og:url" content="https://hedidntjump.com/rubye.html">
+<meta property="og:url" content="https://hedidntjump.com/rubye">
 <meta property="og:title" content="The Rubye Paper — He Didn't Jump">
 <meta property="og:image" content="https://hedidntjump.com/assets/social-card-rubye.jpg">
 <meta name="twitter:site" content="@AzielEliab">
 <meta name="twitter:creator" content="@AzielEliab">
 </head>
 <body>
-<p>Continue to the <a rel="author" href="/rubye.html">Rubye paper — An Aziel Eliab Project</a> by Aziel Eliab.</p>
+<p>Continue to the <a rel="author" href="/rubye">Rubye paper — An Aziel Eliab Project</a> by Aziel Eliab.</p>
 </body>
 </html>
 """
@@ -870,11 +870,11 @@ Related, not sameAs: [Donate]({DONATE_URL}). Statute only, not an Aziel property
 ## Editions on this host
 
 - [Main paper]({ORIGIN}/): Broadsheet. Lead: “What happened at the Arctic Building?” Twenty-three inquiries, plates, two Arctic buildings, Aziel’s Research Volumes (I–V) in the masthead.
-- [Official narrative]({ORIGIN}/official-narrative.html): The contemporary reported sequence, from the Washington apartment press through Gallinger, the train west, and the official Arctic Building suicide account.
-- [Rubye paper]({ORIGIN}/rubye.html): Rubye Nix Zioncheck in the car; Volume II family-battle clippings; later legal actions against Nadeau as Volume V states them. Alias: [{ORIGIN}/aziel.html]({ORIGIN}/aziel.html).
-- [FOIA paper]({ORIGIN}/foia.html): William Nadeau in Volumes IV–V; Aziel’s 28 July 2026 FOIA Binary Acknowledgement; supplied FBI FOIPA no-records packet (redacted); hash-chained ledger of Zioncheck FOIA denials only.
-- [Copyrights & historical research notice]({ORIGIN}/copyrights.html): Fair-use / source notice. Not legal advice.
-- [Volume reader]({ORIGIN}/reader.html): Facsimile WebP pages for Volumes I–V.
+- [Official narrative]({ORIGIN}/official-narrative): The contemporary reported sequence, from the Washington apartment press through Gallinger, the train west, and the official Arctic Building suicide account.
+- [Rubye paper]({ORIGIN}/rubye): Rubye Nix Zioncheck in the car; Volume II family-battle clippings; later legal actions against Nadeau as Volume V states them. Alias: [{ORIGIN}/aziel.html]({ORIGIN}/aziel.html).
+- [FOIA paper]({ORIGIN}/foia): William Nadeau in Volumes IV–V; Aziel’s 28 July 2026 FOIA Binary Acknowledgement; supplied FBI FOIPA no-records packet (redacted); hash-chained ledger of Zioncheck FOIA denials only.
+- [Copyrights & historical research notice]({ORIGIN}/copyrights): Fair-use / source notice. Not legal advice.
+- [Volume reader]({ORIGIN}/reader): Facsimile WebP pages for Volumes I–V.
 
 ## Record
 
@@ -950,25 +950,25 @@ Twenty-three inquiries of the record (titles only; answers live on the page and 
 
 Supplied plates on the main paper (cropped to the clipping or certificate, not WSU/catalog chrome): Marion’s death certificate in The Closed File; Frances’s certificate (Involutional Melancholia) with inquiry 22; bogeyman disguise; “‘Who’s Crazy?’ Will Be Topic For Zioncheck”; “Playboy Subdued After Battle”; “Last Picture of Congressman and Bride”; Hoover-era “Zioncheck Arrested” crop (Volume I, PDF p. 3); escort still on inquiry 01 (Aziel captions William Bishop, Capitol police; volumes do not print that name; LOC LCCN 2016878217); FBI FOIPA closing plate on inquiry 21 (full packet on the FOIA paper).
 
-## Official narrative ({ORIGIN}/official-narrative.html)
+## Official narrative ({ORIGIN}/official-narrative)
 
 Labeled contemporary / official reported sequence only: Washington apartment press, Gallinger and Maryland observation, Romney’s return west, and the August 7 Arctic Building suicide account as Volume I–II clippings print it. Contrasts with the investigation on the main paper. No invented quotes.
 
-## Rubye paper ({ORIGIN}/rubye.html)
+## Rubye paper ({ORIGIN}/rubye)
 
 Newspaper edition built from Volume II estate/will clippings and Volume V’s statement of later legal actions against Nadeau. Captions cite volume/page and open the reader. No holdings are added beyond the printed headlines and visible names (including Rubye Nix Zioncheck, Mrs. Ann Nadeau, Mrs. Frances Zioncheck, Miss Norma Zioncheck).
 
-## FOIA paper ({ORIGIN}/foia.html)
+## FOIA paper ({ORIGIN}/foia)
 
 William Nadeau only (the volumes do not use Eugene/Bert). Doorway / hat-and-coat discussion is Volume IV chapter material. Editorial cites Aziel’s 28 July 2026 FOIA Binary Acknowledgement: Mode 1 (clock and volume) and Mode 2 (fees); §8 Closing Acknowledgement — both pathways ration information; control is retained; that is not freedom of information. Supplied packet plates (unique beats only; one fee-waiver plate): request description; fee-waiver justification; deceased-subject fields; FBI FOIPA letter of 31 July 2026, Request No. 1750194-000, CRS search closed / no identifiable records on Marion Anthony Zioncheck (1930–1950). Requester identity and agency contact blocks are redacted. A no-records closing is not a production. Public ledger accepts Zioncheck FOIA denials only (attestation + content gate). Citation transcript: {ORIGIN}/assets/foia-binary-acknowledgement.pdf
 
-## Copyrights ({ORIGIN}/copyrights.html)
+## Copyrights ({ORIGIN}/copyrights)
 
 United States-facing historical-research notice. Nonprofit research and comment; facts vs expression; ~90 years since 7 August 1936; 17 U.S.C. § 107 factors; no claim that every state vital record is copyright-free; Wikimedia / LOC remain under their terms; prefer correction over erasure; not legal advice. Aziel original text/code © Aziel Eliab / Apache-2.0, separate from third-party plates.
 
 ## Reader
 
-{ORIGIN}/reader.html?volume=1 through volume=5. Static WebP pages under /assets/v{{N}}/{{page}}.webp. JavaScript only changes the visible page; PDFs work without it.
+{ORIGIN}/reader?volume=1 through volume=5. Static WebP pages under /assets/v{{N}}/{{page}}.webp. JavaScript only changes the visible page; PDFs work without it.
 
 ## Knowledge-graph hints
 
@@ -1053,18 +1053,18 @@ def write_copyrights():
             *identity_nodes(),
             breadcrumbs(
                 ("Main paper", f"{ORIGIN}/"),
-                ("Copyrights", f"{ORIGIN}/copyrights.html"),
+                ("Copyrights", f"{ORIGIN}/copyrights"),
             ),
             {
                 "@type": "WebPage",
-                "@id": f"{ORIGIN}/copyrights.html#webpage",
-                "url": f"{ORIGIN}/copyrights.html",
+                "@id": f"{ORIGIN}/copyrights#webpage",
+                "url": f"{ORIGIN}/copyrights",
                 "name": "Copyrights & Historical Research Notice — He Didn't Jump",
                 "isPartOf": {"@id": f"{ORIGIN}/#website"},
                 "about": "Copyright and historical-research notice for the Marion Zioncheck archive",
                 "breadcrumb": breadcrumbs(
                     ("Main paper", f"{ORIGIN}/"),
-                    ("Copyrights", f"{ORIGIN}/copyrights.html"),
+                    ("Copyrights", f"{ORIGIN}/copyrights"),
                 ),
             },
         ],
@@ -1076,7 +1076,7 @@ def write_copyrights():
             "fair use under 17 U.S.C. § 107, source terms, and a preference for correction over erasure. "
             "Not legal advice."
         ),
-        canonical=f"{ORIGIN}/copyrights.html",
+        canonical=f"{ORIGIN}/copyrights",
         og_type="article",
         image_path="/assets/social-card.jpg",
         image_alt="He Didn't Jump — The Marion Zioncheck Archive",

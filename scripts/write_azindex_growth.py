@@ -37,17 +37,17 @@ from zioncheck_serp_lattice import (  # noqa: E402
 
 QUERY_URLS = [
     f"{APEX}/",
-    f"{APEX}/Case",
-    f"{APEX}/Press",
-    f"{APEX}/Inquiries",
-    f"{APEX}/Rubye",
-    f"{APEX}/Archives",
-    f"{APEX}/FOIA",
-    f"{APEX}/Volumes",
+    f"{APEX}/case",
+    f"{APEX}/press",
+    f"{APEX}/inquiries",
+    f"{APEX}/rubye",
+    f"{APEX}/archives",
+    f"{APEX}/foia",
+    f"{APEX}/volumes",
     f"{APEX}/reader",
-    f"{APEX}/Narrative",
+    f"{APEX}/official-narrative",
     f"{APEX}/aziel",
-    f"{APEX}/Copyrights",
+    f"{APEX}/copyrights",
     f"{APEX}/who",
     f"{APEX}/receipts",
     f"{APEX}/ingest-as-receipt.json",
@@ -93,8 +93,10 @@ OPENAPI_PATHS = {
     "/help.txt": "Human help — Zioncheck mission, newspapers, volumes, links",
     "/addendum.txt": "Human addendum — volumes, FOIA, methodology, sister cites",
     "/help/how-to-read.txt": "How to read the newspapers and five volumes",
-    "/inquires": "Typo alias of /Inquiries (200 rewrite to inquiries.html)",
-    "/Aziel": "200 rewrite to aziel.html — not a second About body",
+    "/inquires": "Alias of /inquiries (301 to the URL that returns 200)",
+    "/Aziel": "Alias of /aziel (301). Not a second About body",
+    "/AboutAziel": "Alias of /aziel (301). Not a second About body",
+    "/AzielEliab": "Alias of /aziel (301). Not a second About body",
 }
 
 AI_AGENTS = [
@@ -265,7 +267,7 @@ def patch_openapi() -> None:
         data = json.loads(path.read_text(encoding="utf-8"))
         paths = data.setdefault("paths", {})
         for loc, summary in OPENAPI_PATHS.items():
-            paths.setdefault(
+            node = paths.setdefault(
                 loc,
                 {
                     "get": {
@@ -274,6 +276,8 @@ def patch_openapi() -> None:
                     }
                 },
             )
+            get = node.setdefault("get", {})
+            get["summary"] = summary
         path.write_text(dumps(data), encoding="utf-8")
         print("openapi", path.relative_to(ROOT))
 
@@ -282,7 +286,7 @@ def patch_cite() -> None:
     extra_editions = [
         {"id": "who", "href": f"{APEX}/who"},
         {"id": "reader", "href": f"{APEX}/reader"},
-        {"id": "press", "href": f"{WWW}/Press"},
+        {"id": "press", "href": f"{APEX}/press"},
     ]
     for tree in TREES:
         path = tree / "cite.json"
@@ -335,22 +339,22 @@ def patch_llms() -> None:
                 text,
                 count=1,
             )
-        if f"{APEX}/Press" not in text.split("## Marion")[0]:
+        if f"{APEX}/press" not in text.split("## Marion")[0]:
             text = text.replace(
-                f"- [{APEX}/Inquiries]({APEX}/Inquiries) — 23 inquiries of the record\n",
+                f"- [{APEX}/inquiries]({APEX}/inquiries) — 23 inquiries of the record\n",
                 (
-                    f"- [{APEX}/Press]({APEX}/Press) — press tip + investigative source directory\n"
-                    f"- [{APEX}/Inquiries]({APEX}/Inquiries) — 23 inquiries of the record\n"
-                    f"- [{APEX}/Rubye]({APEX}/Rubye) — Rubye paper\n"
-                    f"- [{APEX}/Archives]({APEX}/Archives) — archive / volume downloads\n"
-                    f"- [{APEX}/FOIA]({APEX}/FOIA) — FOIA paper (supplied FBI FOIPA no-records only)\n"
+                    f"- [{APEX}/press]({APEX}/press) — press tip + investigative source directory\n"
+                    f"- [{APEX}/inquiries]({APEX}/inquiries) — 23 inquiries of the record\n"
+                    f"- [{APEX}/rubye]({APEX}/rubye) — Rubye paper\n"
+                    f"- [{APEX}/archives]({APEX}/archives) — archive / volume downloads\n"
+                    f"- [{APEX}/foia]({APEX}/foia) — FOIA paper (supplied FBI FOIPA no-records only)\n"
                 ),
                 1,
             )
             text = text.replace(
                 f"- [{APEX}/who]({APEX}/who) — Who is Aziel Eliab (HTML lock)\n",
                 (
-                    f"- [{APEX}/Copyrights]({APEX}/Copyrights) — copyrights / historical-research notice\n"
+                    f"- [{APEX}/copyrights]({APEX}/copyrights) — copyrights / historical-research notice\n"
                     f"- [{APEX}/aziel]({APEX}/aziel) — About Aziel (one body)\n"
                     f"- [{APEX}/reader]({APEX}/reader) — facsimile volume reader\n"
                     f"- [{APEX}/who]({APEX}/who) — Who is Aziel Eliab (HTML lock)\n"
@@ -370,19 +374,35 @@ def patch_llms() -> None:
                 )
         text = text.replace(
             f"[Official narrative]({APEX}/official-narrative.html)",
+            f"[Official narrative]({APEX}/official-narrative)",
+        )
+        text = text.replace(
             f"[Official narrative]({APEX}/Narrative)",
+            f"[Official narrative]({APEX}/official-narrative)",
         )
         text = text.replace(
             f"[Rubye paper]({APEX}/rubye.html)",
+            f"[Rubye paper]({APEX}/rubye)",
+        )
+        text = text.replace(
             f"[Rubye paper]({APEX}/Rubye)",
+            f"[Rubye paper]({APEX}/rubye)",
         )
         text = text.replace(
             f"[FOIA paper]({APEX}/foia.html)",
+            f"[FOIA paper]({APEX}/foia)",
+        )
+        text = text.replace(
             f"[FOIA paper]({APEX}/FOIA)",
+            f"[FOIA paper]({APEX}/foia)",
         )
         text = text.replace(
             f"[Copyrights & historical research notice]({APEX}/copyrights.html)",
+            f"[Copyrights & historical research notice]({APEX}/copyrights)",
+        )
+        text = text.replace(
             f"[Copyrights & historical research notice]({APEX}/Copyrights)",
+            f"[Copyrights & historical research notice]({APEX}/copyrights)",
         )
         if "Service → Clarity → Peace" not in text:
             for needle in (
@@ -401,10 +421,10 @@ def patch_llms() -> None:
 
         full = tree / "llms-full.txt"
         ft = full.read_text(encoding="utf-8")
-        ft = ft.replace(f"{APEX}/official-narrative.html", f"{APEX}/Narrative")
-        ft = ft.replace(f"{APEX}/rubye.html", f"{APEX}/Rubye")
-        ft = ft.replace(f"{APEX}/foia.html", f"{APEX}/FOIA")
-        ft = ft.replace(f"{APEX}/copyrights.html", f"{APEX}/Copyrights")
+        ft = ft.replace(f"{APEX}/official-narrative.html", f"{APEX}/official-narrative")
+        ft = ft.replace(f"{APEX}/rubye.html", f"{APEX}/rubye")
+        ft = ft.replace(f"{APEX}/foia.html", f"{APEX}/foia")
+        ft = ft.replace(f"{APEX}/copyrights.html", f"{APEX}/copyrights")
         if "Service → Clarity → Peace" not in ft:
             for needle in (
                 "Lamb Lens (Corpus ingest): https://www.azielcorpuslibrary.net/corpus",
@@ -536,7 +556,7 @@ def patch_edition_og() -> None:
                 )
             if fields["drop_inquires_alt"]:
                 text = re.sub(
-                    r'<link rel="alternate" href="https://hedidntjump.com/inquires.html">\n',
+                    r'<link rel="alternate" href="https://hedidntjump.com/inquiries">\n',
                     "",
                     text,
                     count=1,
@@ -585,7 +605,7 @@ def patch_serp_writer() -> None:
         ],""",
         1,
     )
-    if '("/Press", "0.8")' in text and '"/who"' not in text[text.find("def write_sitemap") :]:
+    if '("/press", "0.8")' in text and '"/who"' not in text[text.find("def write_sitemap") :]:
         text = text.replace(
             '        ("/receipts", "0.4"),\n    ]',
             '        ("/receipts", "0.4"),\n        ("/who", "0.6"),\n    ]',
@@ -604,22 +624,22 @@ def patch_serp_writer() -> None:
             1,
         )
     text = text.replace(
-        """                f"{APEX}/Inquiries",
-                f"{APEX}/Volumes",
+        """                f"{APEX}/inquiries",
+                f"{APEX}/volumes",
                 f"{APEX}/receipts",
                 f"{APEX}/ingest-as-receipt.json",
                 f"{APEX}/llms.txt",
                 f"{APEX}/shelves",
                 f"{APEX}/lockset.json",
             ],""",
-        """                f"{APEX}/Press",
-                f"{APEX}/Inquiries",
-                f"{APEX}/Rubye",
-                f"{APEX}/Archives",
-                f"{APEX}/FOIA",
-                f"{APEX}/Volumes",
+        """                f"{APEX}/press",
+                f"{APEX}/inquiries",
+                f"{APEX}/rubye",
+                f"{APEX}/archives",
+                f"{APEX}/foia",
+                f"{APEX}/volumes",
                 f"{APEX}/reader",
-                f"{APEX}/Copyrights",
+                f"{APEX}/copyrights",
                 f"{APEX}/aziel",
                 f"{APEX}/who",
                 f"{APEX}/receipts",
@@ -639,18 +659,18 @@ def patch_serp_writer() -> None:
 
 PAGE_HEADS = {
     "index.html": f"{APEX}/",
-    "case.html": f"{APEX}/Case",
-    "press.html": f"{APEX}/Press",
-    "inquiries.html": f"{APEX}/Inquiries",
-    "inquires.html": f"{APEX}/Inquiries",
-    "rubye.html": f"{APEX}/Rubye",
-    "archives.html": f"{APEX}/Archives",
-    "foia.html": f"{APEX}/FOIA",
-    "volumes.html": f"{APEX}/Volumes",
+    "case.html": f"{APEX}/case",
+    "press.html": f"{APEX}/press",
+    "inquiries.html": f"{APEX}/inquiries",
+    "inquires.html": f"{APEX}/inquiries",
+    "rubye.html": f"{APEX}/rubye",
+    "archives.html": f"{APEX}/archives",
+    "foia.html": f"{APEX}/foia",
+    "volumes.html": f"{APEX}/volumes",
     "reader.html": f"{APEX}/reader",
-    "official-narrative.html": f"{APEX}/Narrative",
+    "official-narrative.html": f"{APEX}/official-narrative",
     "aziel.html": f"{APEX}/aziel",
-    "copyrights.html": f"{APEX}/Copyrights",
+    "copyrights.html": f"{APEX}/copyrights",
     "receipts.html": f"{APEX}/receipts",
     "who.html": f"{APEX}/who",
 }
@@ -665,10 +685,14 @@ NEED_WEBPAGE = {
 }
 
 STALE_JSONLD_URLS = (
-    (f"{APEX}/rubye.html", f"{APEX}/Rubye"),
-    (f"{APEX}/foia.html", f"{APEX}/FOIA"),
-    (f"{APEX}/copyrights.html", f"{APEX}/Copyrights"),
-    (f"{APEX}/official-narrative.html", f"{APEX}/Narrative"),
+    (f"{APEX}/rubye.html", f"{APEX}/rubye"),
+    (f"{APEX}/Rubye", f"{APEX}/rubye"),
+    (f"{APEX}/foia.html", f"{APEX}/foia"),
+    (f"{APEX}/FOIA", f"{APEX}/foia"),
+    (f"{APEX}/copyrights.html", f"{APEX}/copyrights"),
+    (f"{APEX}/Copyrights", f"{APEX}/copyrights"),
+    (f"{APEX}/official-narrative.html", f"{APEX}/official-narrative"),
+    (f"{APEX}/Narrative", f"{APEX}/official-narrative"),
     (f"{APEX}/reader.html", f"{APEX}/reader"),
     (f"{APEX}/aziel.html", f"{APEX}/aziel"),
 )

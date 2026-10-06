@@ -53,16 +53,16 @@ CHROME_LINES = (
 
 TAB_PAGES = (
     ("home", "/", "index.html", "Homepage money-page framing"),
-    ("case", "/Case", "case.html", "Case"),
-    ("press", "/Press", "press.html", "Press"),
-    ("inquiries", "/Inquiries", "inquiries.html", "Inquiries"),
-    ("rubye", "/Rubye", "rubye.html", "Rubye"),
-    ("archives", "/Archives", "archives.html", "Archives"),
-    ("foia", "/FOIA", "foia.html", "FOIA"),
-    ("volumes", "/Volumes", "volumes.html", "Volumes"),
-    ("narrative", "/Narrative", "official-narrative.html", "Narrative"),
+    ("case", "/case", "case.html", "Case"),
+    ("press", "/press", "press.html", "Press"),
+    ("inquiries", "/inquiries", "inquiries.html", "Inquiries"),
+    ("rubye", "/rubye", "rubye.html", "Rubye"),
+    ("archives", "/archives", "archives.html", "Archives"),
+    ("foia", "/foia", "foia.html", "FOIA"),
+    ("volumes", "/volumes", "volumes.html", "Volumes"),
+    ("narrative", "/official-narrative", "official-narrative.html", "Narrative"),
     ("aziel", "/aziel", "aziel.html", "About Aziel"),
-    ("copyrights", "/Copyrights", "copyrights.html", "Copyrights"),
+    ("copyrights", "/copyrights", "copyrights.html", "Copyrights"),
     ("receipts", "/receipts", "receipts.html", "Receipts / ingest (machine)"),
     ("who", "/who", "who.html", "Who"),
     ("reader", "/reader", "reader.html", "Reader"),
@@ -240,7 +240,7 @@ def extract_inquiries() -> list[dict]:
         by_id[qid] = {
             "n": num,
             "id": qid,
-            "url": f"{ORIGIN}/Inquiries#{qid}",
+            "url": f"{ORIGIN}/inquiries#{qid}",
             "question": question,
             "substance": paras,
             "plates": captions,
@@ -309,7 +309,7 @@ def extract_volumes() -> list[dict]:
                 "folio": html_to_text(folio_m.group(1)) if folio_m else "",
                 "pages": pages,
                 "bytes": int(info.get("bytes") or 0),
-                "canonical": f"{ORIGIN}/Volumes#volume-{n}",
+                "canonical": f"{ORIGIN}/volumes#volume-{n}",
                 "reader": f"{ORIGIN}/reader?volume={n}&page=1",
                 "pdf": f"{ORIGIN}/volumes/volume-{n}.pdf",
                 "webp_pattern": f"{ORIGIN}/assets/v{n}/{{page}}.webp",
@@ -442,7 +442,7 @@ def build_review_body(
     parts.append(format_tab(tabs["case"], skip_inquiry_bodies=True))
     parts.append(format_tab(tabs["press"]))
     parts.append("## Inquiries of the Record (1–23)")
-    parts.append(f"Canonical edition: {ORIGIN}/Inquiries")
+    parts.append(f"Canonical edition: {ORIGIN}/inquiries")
     parts.append("Alias rewrite: /inquires → inquiries.html. Anchors /Inquiries#q01 through #q23.")
     parts.append("")
     if two_arctics:
@@ -455,8 +455,8 @@ def build_review_body(
     parts.append(format_tab(tabs["archives"]))
     parts.append(format_tab(tabs["foia"]))
     parts.append("## Volumes I–V")
-    parts.append(f"Edition landing: {ORIGIN}/Volumes")
-    parts.append(f"Facsimile reader: {ORIGIN}/reader?volume=N&page=P (also {ORIGIN}/reader.html?volume=N&page=P).")
+    parts.append(f"Edition landing: {ORIGIN}/volumes")
+    parts.append(f"Facsimile reader: {ORIGIN}/reader?volume=N&page=P (also {ORIGIN}/reader?volume=N&page=P).")
     parts.append("Old /Volumes?volume=N&page=P links hand off to the reader.")
     parts.append("JavaScript only changes the visible page; PDFs work without it.")
     parts.append("Corpus Visual Archive indexes Vols 1–3 only. Do not invent AZDOC ids for Vols 4–5.")
@@ -493,7 +493,7 @@ def build_review_body(
     parts.append(format_tab(tabs["reader"]))
     parts.append("## Reader (machine how-to)")
     parts.append(
-        "Landing cards: https://hedidntjump.com/Volumes . "
+        "Landing cards: https://hedidntjump.com/volumes . "
         "Reader: https://hedidntjump.com/reader?volume=1 through volume=5. "
         "Page images are static WebP under /assets/v{N}/{page}.webp. "
         "Volume page counts: I=20, II=20, III=21, IV=15, V=14."
