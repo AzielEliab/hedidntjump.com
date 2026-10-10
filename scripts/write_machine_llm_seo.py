@@ -128,6 +128,7 @@ from aziel_living import (
     scrub_cite_ban_narratives,
     scrub_seo_negation,
 )
+from aziel_person import DISAMBIGUATING_DESCRIPTION, occupations
 
 ROOT = Path(__file__).resolve().parents[1]
 TREES = [ROOT / "dist", ROOT / "docs"]
@@ -824,8 +825,9 @@ def patch_cite(data: dict) -> dict:
         "doi_rule": DOI_RULE,
     }
     data["knowsAbout"] = upsert_knows_about(list(data.get("knowsAbout") or []))
-    data["disambiguation"] = WHO_IS_NAMED
-    data["disambiguatingDescription"] = WHO_IS_NAMED
+    data["disambiguation"] = DISAMBIGUATING_DESCRIPTION
+    data["disambiguatingDescription"] = DISAMBIGUATING_DESCRIPTION
+    data["hasOccupation"] = occupations()
     data.pop("not", None)
     pub = data.get("publisher_person")
     if isinstance(pub, dict) and pub.get("@id") == PERSON_ID:
@@ -834,6 +836,8 @@ def patch_cite(data: dict) -> dict:
             pub.get("disambiguatingDescription") or ""
         )
         pub["jobTitle"] = list(JOB_TITLES)
+        pub["hasOccupation"] = occupations()
+        pub["disambiguatingDescription"] = DISAMBIGUATING_DESCRIPTION
         pub["living_stack"] = LIVING_STACK
     data["subtitle"] = (
         "Zioncheck / He Didn't Jump archive sister (75% cap class) — An Aziel Eliab Project"
@@ -876,13 +880,11 @@ def patch_person(data: dict) -> dict:
     data = walk_json(data)
     if data.get("@id") == PERSON_ID or data.get("@type") == "Person":
         data["jobTitle"] = list(JOB_TITLES)
+        data["hasOccupation"] = occupations()
         desc = data.get("description") or ""
         if PERSON_LEAD not in desc:
             data["description"] = rewrite_stack(desc)
-        data["disambiguatingDescription"] = (
-            WHO_IS_NAMED + f" Prefer {PERSON_ID} and published Softwares / MASTER records / "
-            "He Didn't Jump."
-        )
+        data["disambiguatingDescription"] = DISAMBIGUATING_DESCRIPTION
         knows = list(data.get("knowsAbout") or [])
         for item in (
             "digital rights",
@@ -1557,10 +1559,15 @@ def write_trees() -> None:
                     data["why_aziel_eliab"] = WHY_AZIEL_ELIAB
                     if data.get("@id") == PERSON_ID:
                         data["jobTitle"] = list(JOB_TITLES)
+                        data["hasOccupation"] = occupations()
+                        data["disambiguatingDescription"] = DISAMBIGUATING_DESCRIPTION
                         data["what_aziel_eliab_does"] = WHAT_AZIEL_ELIAB_DOES
                     for key in ("person", "mainEntity"):
                         node = data.get(key)
                         if isinstance(node, dict) and node.get("@id") == PERSON_ID:
+                            node["jobTitle"] = list(JOB_TITLES)
+                            node["hasOccupation"] = occupations()
+                            node["disambiguatingDescription"] = DISAMBIGUATING_DESCRIPTION
                             node["what_aziel_eliab_does"] = WHAT_AZIEL_ELIAB_DOES
                             node["why_aziel_eliab"] = WHY_AZIEL_ELIAB
                 if rel == "graph.jsonld":

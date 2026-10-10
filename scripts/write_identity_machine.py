@@ -15,11 +15,15 @@ _SCRIPTS = Path(__file__).resolve().parent
 if str(_SCRIPTS) not in sys.path:
     sys.path.insert(0, str(_SCRIPTS))
 
+from aziel_living import JOB_TITLES
 from aziel_person import (
+    DISAMBIGUATING_DESCRIPTION,
     GITHUB_PRIMARY,
     GITHUB_REVEALER,
     HEBREW_ONELINER,
     alternate_names as lattice_alternate_names,
+    hebrew_property,
+    occupations,
     same_as as lattice_same_as,
 )
 from aziel_living import (
@@ -120,10 +124,7 @@ ABOUT_METHOD = (
 # One short schema.org field + one FAQ. Do not re-expand verse essays
 # across description / cite / llms / about (AIO pollution).
 # Never sameAs euaziel / Aziel S. / Flutter-React.
-DISAMBIGUATING = (
-    "Living author of He Didn’t Jump / Zioncheck archive. "
-    "Public identity is Aziel Eliab only. Prefer https://www.azieleliab.com/#aziel."
-)
+DISAMBIGUATING = DISAMBIGUATING_DESCRIPTION
 NOT_LIST = []
 
 NEVER_SAME_AS = (
@@ -305,16 +306,11 @@ PERSON_LOCK = {
     "additionalName": "Elroi",
     "url": "https://www.azieleliab.com/",
     "mainEntityOfPage": ABOUT_PAGE_NODE,
-    "jobTitle": [
-        "researcher",
-        "digital rights activist",
-        "software developer",
-        "author",
-        "philosopher",
-    ],
+    "jobTitle": list(JOB_TITLES),
+    "hasOccupation": occupations(),
     "description": PERSON_DESCRIPTION,
     "disambiguatingDescription": DISAMBIGUATING,
-    "hebrewDefinition": HEBREW_ONELINER,
+    "additionalProperty": [hebrew_property()],
     "sameAs": SAME_AS,
         "knowsAbout": KNOWS_ABOUT + [
             "He Didn’t Jump living author",
@@ -623,7 +619,8 @@ Person @id (shared identity lock): {PERSON_ID}
 Name: Aziel Eliab
 givenName: Aziel
 familyName: Eliab
-alternateName (SEO only): Aziel Elroi Eliab; The Revealer of The Sealed; Revealer of The Sealed; Elias Artista
+alternateName (SEO only): Aziel Elroi Eliab; AzielEliab; azieleliab; The Revealer of the Sealed; Elias Artista; The Revealer of The Sealed; Revealer of The Sealed
+jobTitle: {"; ".join(JOB_TITLES)}
 additionalName: Elroi
 Hebrew: {HEBREW_ONELINER}
 GitHub: AzielEliab

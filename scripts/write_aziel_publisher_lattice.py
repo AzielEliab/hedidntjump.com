@@ -85,7 +85,10 @@ def enrich_person_file(path: Path) -> None:
             data = enrich_ld(data)
     else:
         data = enrich_ld(data)
-    data["hebrewDefinition"] = HEBREW_ONELINER
+    if data.get("@type") == "Person" or data.get("@id") == PERSON_ID:
+        data.pop("hebrewDefinition", None)
+    else:
+        data["hebrewDefinition"] = HEBREW_ONELINER
     data["hebrewAka"] = {**data.get("hebrewAka", {}), **HEBREW_AKA}
     _write_json(path, data)
 
@@ -160,14 +163,10 @@ def enrich_cite(path: Path) -> None:
         f"Shared Person @id is {PERSON_ID}. "
         "Never sameAs euaziel.site."
     )
-    positive = (
-        "Living author of He Didn't Jump / Zioncheck archive. "
-        "Public identity is Aziel Eliab only."
-    )
-    for key in ("disambiguation", "disambiguatingDescription"):
-        val = data.get(key) or ""
-        if "Public identity is Aziel Eliab only" not in val:
-            data[key] = (val.rstrip().rstrip(".") + ". " + positive).strip()
+    from aziel_person import DISAMBIGUATING_DESCRIPTION
+
+    data["disambiguation"] = DISAMBIGUATING_DESCRIPTION
+    data["disambiguatingDescription"] = DISAMBIGUATING_DESCRIPTION
     data.pop("not", None)
     _write_json(path, data)
 
