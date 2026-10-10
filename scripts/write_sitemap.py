@@ -135,6 +135,7 @@ BASELINE: list[tuple[str, str, str]] = [
     ("/robots.txt", "0.2", "weekly"),
     ("/sitemap-index.xml", "0.2", "weekly"),
     ("/person.jsonld", "0.3", "weekly"),
+    ("/works.json", "0.4", "weekly"),
     ("/identity.jsonld", "0.3", "weekly"),
     ("/graph.jsonld", "0.3", "weekly"),
     ("/who-is-aziel-eliab.txt", "0.4", "weekly"),

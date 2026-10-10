@@ -15,12 +15,19 @@ LIVING_STACK = (
     "researcher, digital rights activist, software developer, author, and philosopher"
 )
 
+# Unified role list (identity spec 2026-10-06). Same order on every site.
 JOB_TITLES = [
-    "researcher",
-    "digital rights activist",
-    "software developer",
-    "author",
-    "philosopher",
+    "Digital rights activist",
+    "Software developer",
+    "Software engineer",
+    "Engineer",
+    "Designer",
+    "Philosopher",
+    "Author",
+    "Artist",
+    "Researcher",
+    "Archivist (He Didn't Jump / Marion Zioncheck archive)",
+    "Open-hardware designer",
 ]
 
 WHO_IS_SHORT = (

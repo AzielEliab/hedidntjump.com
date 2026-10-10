@@ -24,11 +24,15 @@ DONATE_URL = "https://www.azieleliab.com/donate?v=png"
 PERSON_ID = "https://www.azieleliab.com/#aziel"
 ORG_ID = f"{ORIGIN}/#organization"
 
+from aziel_living import JOB_TITLES
 from aziel_person import (
+    DISAMBIGUATING_DESCRIPTION,
     GITHUB_PRIMARY,
     GITHUB_REVEALER,
     HEBREW_ONELINER,
     alternate_names as lattice_alternate_names,
+    hebrew_property,
+    occupations,
     same_as as lattice_same_as,
 )
 
@@ -68,15 +72,11 @@ PERSON = {
     "name": "Aziel Eliab",
     "alternateName": lattice_alternate_names(["Aziel Elroi Eliab", "Elias Artista", "The Revealer of The Sealed", "AzielEliab"]),
     "additionalName": "Elroi",
-    "hebrewDefinition": HEBREW_ONELINER,
     "url": "https://www.azieleliab.com/",
-    "jobTitle": [
-        "researcher",
-        "digital rights activist",
-        "software developer",
-        "author",
-        "philosopher",
-    ],
+    "jobTitle": list(JOB_TITLES),
+    "hasOccupation": occupations(),
+    "disambiguatingDescription": DISAMBIGUATING_DESCRIPTION,
+    "additionalProperty": [hebrew_property()],
     "description": (
         "Aziel Eliab (also Aziel Elroi Eliab; GitHub AzielEliab) is a researcher, "
         "digital rights activist, software developer, author, and philosopher. "

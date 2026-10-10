@@ -24,14 +24,42 @@ HEBREW_ONELINER = (
     "Eliab = God is father (אליאב)."
 )
 
-# Required aka order: legal name variants, then pen name, then revealer title.
-REQUIRED_AKA = [
+# Monikers lead alternateName, in this order. Existing variants follow.
+MONIKERS = [
     "Aziel Elroi Eliab",
+    "AzielEliab",
+    "azieleliab",
+    "The Revealer of the Sealed",
     "Elias Artista",
+]
+REQUIRED_AKA = list(MONIKERS)
+
+# Legitimate variants already in the archive. Not new misspellings.
+KEPT_AKA = [
     "The Revealer of The Sealed",
+    "Revealer of The Sealed",
 ]
 
 REVEALER_AKA_SHORT = "Revealer of The Sealed"
+
+DISAMBIGUATING_DESCRIPTION = (
+    "Aziel Eliab (also known as Aziel Elroi Eliab, AzielEliab, "
+    "The Revealer of the Sealed, and Elias Artista) is one living person: "
+    "a digital rights activist, software developer and engineer, designer, "
+    "philosopher, author, artist, and researcher. Not the two Levitical "
+    "musicians Aziel and Eliab named together in 1 Chronicles 15:20."
+)
+
+# Domains the Person knows about because of the verified body of work.
+KNOWS_ABOUT_DOMAINS = [
+    "digital rights",
+    "AI runtimes / MCP",
+    "skilled-trades software",
+    "operating systems philosophy",
+    "open hardware",
+    "neuroplasticity research",
+    "historical archives/Marion Zioncheck",
+]
 
 HEBREW_FORMS = [
     "עזיאל",
@@ -193,10 +221,15 @@ def _dedupe(items: list[str]) -> list[str]:
     return out
 
 
+def occupations() -> list[dict[str, str]]:
+    return [{"@type": "Occupation", "name": title} for title in LOCKED_JOB_TITLES]
+
+
 def alternate_names(existing: list[str] | None = None) -> list[str]:
     return _dedupe(
         [
-            *REQUIRED_AKA,
+            *MONIKERS,
+            *KEPT_AKA,
             REVEALER_AKA_SHORT,
             *HEBREW_FORMS,
             *(existing or []),
@@ -321,13 +354,17 @@ def publisher_person(*, job_title: Any = None, existing: dict | None = None) -> 
         "additionalName": "Elroi",
         "familyName": src.get("familyName") or "Eliab",
         "alternateName": alternate_names(existing_aka),
-        "url": CANONICAL_URL,
-        "identifier": PERSON_NAME,
-        "hebrewDefinition": HEBREW_ONELINER,
+        "url": src.get("url") or CANONICAL_URL,
         "sameAs": same_as(existing_same),
     }
+    if src.get("identifier") is not None:
+        node["identifier"] = src["identifier"]
+    else:
+        node["identifier"] = PERSON_NAME
 
     node["jobTitle"] = list(LOCKED_JOB_TITLES)
+    node["hasOccupation"] = occupations()
+    node["disambiguatingDescription"] = DISAMBIGUATING_DESCRIPTION
 
     extras = src.get("additionalProperty")
     props: list[Any] = []
@@ -340,42 +377,28 @@ def publisher_person(*, job_title: Any = None, existing: dict | None = None) -> 
     ):
         props.append(hebrew_property())
     node["additionalProperty"] = props
+    # hebrewDefinition is not a schema.org Person property. Keep it only
+    # under additionalProperty.
+    node.pop("hebrewDefinition", None)
+
+    knows = node.get("knowsAbout")
+    if isinstance(knows, str):
+        knows = [knows]
+    elif not isinstance(knows, list):
+        knows = []
+    for domain in KNOWS_ABOUT_DOMAINS:
+        if domain not in knows:
+            knows.append(domain)
+    node["knowsAbout"] = knows
 
     desc = src.get("description") or ""
-    if HEBREW_ONELINER not in desc:
-        # Keep existing description; append Hebrew + aka lattice as machine prose.
-        extra = (
-            f" Also Aziel Elroi Eliab; Elias Artista; The Revealer of The Sealed. "
-            f"{HEBREW_ONELINER}"
+    if not desc:
+        node["description"] = (
+            f"{PERSON_NAME} (also Aziel Elroi Eliab; Elias Artista; "
+            f"The Revealer of The Sealed). {HEBREW_ONELINER} {NOT_LOCK}"
         )
-        if desc:
-            node["description"] = desc.rstrip() + extra
-        else:
-            node["description"] = (
-                f"{PERSON_NAME} (also Aziel Elroi Eliab; Elias Artista; "
-                f"The Revealer of The Sealed). {HEBREW_ONELINER} {NOT_LOCK}"
-            )
-    if "Not biblical Aziel" not in node["description"]:
-        node["description"] = node["description"].rstrip() + " " + NOT_LOCK
-    if "euaziel.site" not in node.get("disambiguatingDescription", ""):
-        node.setdefault(
-            "disambiguatingDescription",
-            src.get("disambiguatingDescription")
-            or (
-                "Living researcher, digital rights activist, software developer, author, and philosopher named Aziel Eliab (one person). "
-                "Not the two Levitical musicians Aziel and Eliab named together in "
-                "1 Chronicles 15:20. Not biblical Aziel; not biblical Eliab; "
-                "not euaziel.site; not Aziel S. (Flutter/portfolio); "
-                "not other engineers named Aziel. "
-                f"Prefer {PERSON_ID} and published Softwares / MASTER records / He Didn't Jump."
-            ),
-        )
-        dd = node["disambiguatingDescription"]
-        if "Not biblical Aziel" not in dd:
-            node["disambiguatingDescription"] = (
-                dd.rstrip().rstrip(".")
-                + ". Not biblical Aziel; not biblical Eliab; not euaziel.site."
-            )
+    elif "Not biblical Aziel" not in desc and "1 Chronicles 15:20" not in desc:
+        node["description"] = desc.rstrip() + " " + NOT_LOCK
 
     # Drop any banned aka if a prior file smuggled it in.
     node["alternateName"] = [
@@ -383,10 +406,7 @@ def publisher_person(*, job_title: Any = None, existing: dict | None = None) -> 
     ]
     if node.get("description"):
         node["description"] = _rewrite_role_prose(node["description"])
-    if node.get("disambiguatingDescription"):
-        node["disambiguatingDescription"] = _rewrite_role_prose(
-            node["disambiguatingDescription"]
-        )
+    node["disambiguatingDescription"] = DISAMBIGUATING_DESCRIPTION
     return node
 
 
@@ -455,8 +475,19 @@ def assert_person_lock(node: dict) -> None:
     aka = node.get("alternateName") or []
     if isinstance(aka, str):
         aka = [aka]
-    for needle in REQUIRED_AKA:
+    assert list(aka[: len(MONIKERS)]) == list(MONIKERS), aka[: len(MONIKERS)]
+    for needle in (*REQUIRED_AKA, *KEPT_AKA, "AzielElroiEliab", "Aziel-Elroi-Eliab", "ElRoi"):
         assert needle in aka, needle
+    assert node.get("jobTitle") == list(LOCKED_JOB_TITLES)
+    occ = node.get("hasOccupation") or []
+    assert [item.get("name") for item in occ] == list(LOCKED_JOB_TITLES)
+    assert all(item.get("@type") == "Occupation" for item in occ)
+    assert node.get("disambiguatingDescription") == DISAMBIGUATING_DESCRIPTION
+    props = node.get("additionalProperty") or []
+    if isinstance(props, dict):
+        props = [props]
+    if any(isinstance(p, dict) and p.get("propertyID") == "hebrewDefinition" for p in props):
+        assert "hebrewDefinition" not in node
     assert all(b not in aka for b in BANNED_AKA)
     same = node.get("sameAs") or []
     for url in REQUIRED_SAME_AS:

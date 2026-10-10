@@ -56,8 +56,11 @@ BANNED_FAQ = {
     "Is Aziel Eliab a 1 Chronicles 15:20 / concordance namesake?",
 }
 DISAMBIGUATING = (
-    "Living author of He Didn’t Jump / Zioncheck archive. "
-    "Public identity is Aziel Eliab only. Prefer https://www.azieleliab.com/#aziel."
+    "Aziel Eliab (also known as Aziel Elroi Eliab, AzielEliab, "
+    "The Revealer of the Sealed, and Elias Artista) is one living person: "
+    "a digital rights activist, software developer and engineer, designer, "
+    "philosopher, author, artist, and researcher. Not the two Levitical "
+    "musicians Aziel and Eliab named together in 1 Chronicles 15:20."
 )
 NOT_LIST = [
     "biblical Aziel",

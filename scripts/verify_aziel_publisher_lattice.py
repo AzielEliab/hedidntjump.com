@@ -79,7 +79,29 @@ def main() -> None:
         llms = (ROOT / tree / "llms.txt").read_text(encoding="utf-8")
         ai = (ROOT / tree / "ai.txt").read_text(encoding="utf-8")
 
+        works_doc = json.loads((ROOT / tree / "works.json").read_text(encoding="utf-8"))
+        assert works_doc["person_id"] == PERSON_ID
+        assert works_doc["works"]
+        works_blob = json.dumps(works_doc)
+        assert "doi.org" not in works_blob and "zenodo.org" not in works_blob
+        assert "Webslinger (Wearable Dual-Tether Web-Sling System)" in works_blob
+        cite_works = cite.get("works") or []
+        assert len(cite_works) == len(works_doc["works"])
         assert_person_lock(person)
+        assert "works.json" in json.dumps(person) or any(
+            isinstance(work, dict) and str(work.get("url", "")).startswith("https://")
+            for work in person.get("workExample") or []
+        )
+        assert any(
+            isinstance(work, dict) and "Webslinger" in (work.get("name") or "")
+            for work in person.get("workExample") or []
+        )
+        assert any(
+            isinstance(work, dict) and "AZDOC-E03E61D8E50B" in (work.get("url") or "")
+            for work in person.get("workExample") or []
+        )
+        blob = json.dumps(person)
+        assert "doi.org" not in blob and "zenodo.org" not in blob
         ident_person = identity.get("person") if isinstance(identity.get("person"), dict) else identity
         if ident_person.get("@id") == PERSON_ID:
             assert_person_lock(ident_person)
@@ -119,6 +141,17 @@ def main() -> None:
             node = _person_from_html(html)
             assert_person_lock(node)
             assert node["jobTitle"] == list(LOCKED_JOB_TITLES)
+            if name in {"index.html", "aziel.html"}:
+                assert any(
+                    isinstance(work, dict) and "Webslinger" in (work.get("name") or "")
+                    for work in node.get("workExample") or []
+                )
+                assert "doi.org" not in json.dumps(node)
+            else:
+                assert not any(
+                    isinstance(work, dict) and str(work.get("@id") or "").endswith("#aziel-work")
+                    for work in node.get("workExample") or []
+                )
             if name in MONEY:
                 assert "Publisher of this Marion Zioncheck archive" in html
             assert PERSON_ID in html

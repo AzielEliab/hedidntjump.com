@@ -18,11 +18,8 @@ WWW = "https://www.hedidntjump.com"
 LASTMOD = "2026-10-01"  # keep equal to write_sitemap.LASTMOD
 PERSON_ID = "https://www.azieleliab.com/#aziel"
 
-# Keep in lockstep with write_identity_machine.DISAMBIGUATING — one short field only.
-HUB_DISAMBIG = (
-    "Living author of He Didn’t Jump / Zioncheck archive. "
-    "Public identity is Aziel Eliab only. Prefer https://www.azieleliab.com/#aziel."
-)
+# Keep in lockstep with aziel_person.DISAMBIGUATING_DESCRIPTION.
+from aziel_person import DISAMBIGUATING_DESCRIPTION as HUB_DISAMBIG  # noqa: E402
 NOT_LIST = []
 META_DESC = (
     "Who is Aziel Eliab? Living author of He Didn’t Jump, the Marion Zioncheck "
@@ -271,11 +268,17 @@ def strengthen_aziel_head() -> None:
             )
         locked_jobs = (
             '      "jobTitle": [\n'
-            '        "researcher",\n'
-            '        "digital rights activist",\n'
-            '        "software developer",\n'
-            '        "author",\n'
-            '        "philosopher"\n'
+            '        "Digital rights activist",\n'
+            '        "Software developer",\n'
+            '        "Software engineer",\n'
+            '        "Engineer",\n'
+            '        "Designer",\n'
+            '        "Philosopher",\n'
+            '        "Author",\n'
+            '        "Artist",\n'
+            '        "Researcher",\n'
+            '        "Archivist (He Didn\'t Jump / Marion Zioncheck archive)",\n'
+            '        "Open-hardware designer"\n'
             "      ],"
         )
         for stale in (

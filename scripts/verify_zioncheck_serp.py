@@ -2,9 +2,14 @@
 """Assert Marion Zioncheck money-page SERP lock (published facts only)."""
 import json
 import re
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+_SCRIPTS = Path(__file__).resolve().parent
+if str(_SCRIPTS) not in sys.path:
+    sys.path.insert(0, str(_SCRIPTS))
+from aziel_living import JOB_TITLES
 APEX = "https://hedidntjump.com"
 TITLE = "Marion A. Zioncheck — Seattle Congressman (1933–1936) Archive | He Didn't Jump"
 CASE_TITLE = "The Case — Marion A. Zioncheck, Seattle congressman | He Didn't Jump"
@@ -51,12 +56,14 @@ def main() -> None:
         assert g["@graph"][0]["name"] == "Marion A. Zioncheck"
         assert any(n.get("@type") == "FAQPage" for n in g["@graph"])
         pub = next(n for n in g["@graph"] if n.get("@id") == "https://www.azieleliab.com/#aziel")
-        assert pub["jobTitle"] == [
-            "researcher",
-            "digital rights activist",
-            "software developer",
-            "author",
-            "philosopher",
+        assert pub["jobTitle"] == list(JOB_TITLES)
+        assert [item["name"] for item in pub["hasOccupation"]] == list(JOB_TITLES)
+        assert pub["alternateName"][:5] == [
+            "Aziel Elroi Eliab",
+            "AzielEliab",
+            "azieleliab",
+            "The Revealer of the Sealed",
+            "Elias Artista",
         ]
         assert pub["name"] == "Aziel Eliab"
         assert "Elias Artista" in pub["alternateName"]
