@@ -11,6 +11,17 @@ _SCRIPTS = Path(__file__).resolve().parent
 if str(_SCRIPTS) not in sys.path:
     sys.path.insert(0, str(_SCRIPTS))
 
+from aziel_works import (
+    AZOS_URL,
+    INTERFACE_PAPER,
+    INTERFACE_URL,
+    RUNTIME_ENDPOINT,
+    RUNTIME_GLAMA,
+    RUNTIME_URL,
+    TRIAD_DESCRIPTION,
+    TRIAD_ID,
+    TRIAD_NAME,
+)
 from aziel_person import (
     GITHUB_PRIMARY,
     GITHUB_REVEALER,
@@ -77,16 +88,43 @@ def main() -> None:
         who = (ROOT / tree / "who-is-aziel-eliab.txt").read_text(encoding="utf-8")
         who_plain = (ROOT / tree / "who-is").read_text(encoding="utf-8")
         llms = (ROOT / tree / "llms.txt").read_text(encoding="utf-8")
+        llms_full = (ROOT / tree / "llms-full.txt").read_text(encoding="utf-8")
         ai = (ROOT / tree / "ai.txt").read_text(encoding="utf-8")
 
         works_doc = json.loads((ROOT / tree / "works.json").read_text(encoding="utf-8"))
         assert works_doc["person_id"] == PERSON_ID
         assert works_doc["works"]
+        triad = works_doc.get("az_triad") or {}
+        assert triad.get("@id") == TRIAD_ID
+        assert triad.get("name") == TRIAD_NAME
+        assert triad.get("description") == TRIAD_DESCRIPTION
+        assert triad.get("author") == {"@id": PERSON_ID}
+        assert triad.get("creator") == {"@id": PERSON_ID}
+        parts = {part.get("url"): part for part in triad.get("hasPart") or []}
+        assert set(parts) == {AZOS_URL, RUNTIME_URL, INTERFACE_URL}
+        assert "not a kernel" in parts[AZOS_URL]["description"]
+        assert RUNTIME_ENDPOINT in parts[RUNTIME_URL]["description"]
+        assert RUNTIME_GLAMA in parts[RUNTIME_URL]["description"]
+        assert INTERFACE_PAPER in parts[INTERFACE_URL]["description"]
+        triad_blob = json.dumps(triad).lower()
+        assert "mesh-node" not in triad_blob
+        assert "one-click" not in triad_blob
+        assert "live" not in triad_blob
+        sides = {
+            work.get("url"): work
+            for work in works_doc["works"]
+            if isinstance(work, dict)
+        }
+        for url in (AZOS_URL, RUNTIME_URL, RUNTIME_ENDPOINT, INTERFACE_URL):
+            work = sides[url.rstrip("/")] if url.rstrip("/") in sides else sides[url]
+            assert work["isPartOf"]["@id"] == TRIAD_ID
+            assert "side of the AZ triad" in work["description"]
         works_blob = json.dumps(works_doc)
         assert "doi.org" not in works_blob and "zenodo.org" not in works_blob
         assert "Webslinger (Wearable Dual-Tether Web-Sling System)" in works_blob
         cite_works = cite.get("works") or []
         assert len(cite_works) == len(works_doc["works"])
+        assert cite.get("az_triad") == triad
         assert_person_lock(person)
         assert "works.json" in json.dumps(person) or any(
             isinstance(work, dict) and str(work.get("url", "")).startswith("https://")
@@ -98,6 +136,10 @@ def main() -> None:
         )
         assert any(
             isinstance(work, dict) and "AZDOC-E03E61D8E50B" in (work.get("url") or "")
+            for work in person.get("workExample") or []
+        )
+        assert any(
+            isinstance(work, dict) and work.get("@id") == TRIAD_ID
             for work in person.get("workExample") or []
         )
         blob = json.dumps(person)
@@ -119,6 +161,11 @@ def main() -> None:
             assert "An Aziel Eliab Project" in blob
             assert "living author of He Didn’t Jump" in blob or "living author of He Didn't Jump" in blob
             assert "https://www.hedidntjump.com/api/stats" in blob
+        for blob in (llms, llms_full):
+            assert TRIAD_ID in blob
+            assert TRIAD_NAME in blob
+            assert "Design relationship only." in blob
+            assert "not a kernel" in blob
         for blob in (who, who_plain, llms, ai):
             assert PERSON_ID in blob
             assert "Elias Artista" in blob
@@ -142,16 +189,31 @@ def main() -> None:
             assert_person_lock(node)
             assert node["jobTitle"] == list(LOCKED_JOB_TITLES)
             if name in {"index.html", "aziel.html"}:
+                examples = node.get("workExample") or []
                 assert any(
                     isinstance(work, dict) and "Webslinger" in (work.get("name") or "")
-                    for work in node.get("workExample") or []
+                    for work in examples
                 )
+                assert any(
+                    isinstance(work, dict) and work.get("@id") == TRIAD_ID
+                    for work in examples
+                )
+                linked = {
+                    str(work.get("url") or "").rstrip("/"): work
+                    for work in examples
+                    if isinstance(work, dict)
+                }
+                for url in (AZOS_URL, RUNTIME_URL, RUNTIME_ENDPOINT.rstrip("/")):
+                    match = linked[url]
+                    assert match["isPartOf"]["@id"] == TRIAD_ID
+                    assert "side of the AZ triad" in (match.get("description") or "")
                 assert "doi.org" not in json.dumps(node)
             else:
                 assert not any(
                     isinstance(work, dict) and str(work.get("@id") or "").endswith("#aziel-work")
                     for work in node.get("workExample") or []
                 )
+                assert TRIAD_ID not in html
             if name in MONEY:
                 assert "Publisher of this Marion Zioncheck archive" in html
             assert PERSON_ID in html

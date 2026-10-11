@@ -982,6 +982,16 @@ jobTitle: Digital rights activist; Software developer; Software engineer; Engine
 
 Aziel Eliab (also known as Aziel Elroi Eliab, AzielEliab, The Revealer of the Sealed, and Elias Artista) is one living person: a digital rights activist, software developer and engineer, designer, philosopher, author, artist, and researcher. Not the two Levitical musicians Aziel and Eliab named together in 1 Chronicles 15:20.
 
+AZ triad: AZ-OS, Aziel Runtime, The AZInterface
+One system with three sides: the operating-system layer (AZ-OS), the MCP runtime (Aziel Runtime), and the UI software (The AZInterface). Design relationship only.
+@id https://www.azieleliab.com/#az-triad
+- AZ-OS (operating-system side; local ethical overlay, not a kernel) — https://github.com/AzielEliab/azos
+- Aziel Runtime (MCP side) — https://github.com/AzielEliab/aziel-runtime
+  Public endpoint — https://aziel-runtime.vibelock.workers.dev/
+  Glama — https://glama.ai/mcp/servers/AzielEliab/aziel-runtime
+- The AZInterface (UI-software side) — https://github.com/AzielEliab/azinterface
+  White paper — https://www.azielcorpuslibrary.net/record/AZDOC-EB7454682E74
+
 ### software
 
 - 4dmap — https://github.com/AzielEliab/4dmap
@@ -997,13 +1007,13 @@ Aziel Eliab (also known as Aziel Elroi Eliab, AzielEliab, The Revealer of the Se
 - AZCoherence — https://github.com/AzielEliab/AZCoherence
 - azhub — https://github.com/AzielEliab/azhub
 - aziel-corpus — https://github.com/AzielEliab/aziel-corpus
-- aziel-runtime — https://github.com/AzielEliab/aziel-runtime
+- aziel-runtime — https://github.com/AzielEliab/aziel-runtime — MCP side of the AZ triad.
 - azieleliab — https://github.com/AzielEliab/azieleliab
 - azieltether — https://github.com/AzielEliab/azieltether
-- azinterface — https://github.com/AzielEliab/azinterface
+- azinterface — https://github.com/AzielEliab/azinterface — UI-software side of the AZ triad.
 - azmail — https://github.com/AzielEliab/azmail
 - aznet — https://github.com/AzielEliab/aznet
-- azos — https://github.com/AzielEliab/azos
+- azos — https://github.com/AzielEliab/azos — Operating-system side of the AZ triad: a local ethical overlay, not a kernel.
 - azvpn — https://github.com/AzielEliab/azvpn
 - chronolock — https://github.com/AzielEliab/chronolock
 - codelock — https://github.com/AzielEliab/codelock
@@ -1035,7 +1045,7 @@ Aziel Eliab (also known as Aziel Elroi Eliab, AzielEliab, The Revealer of the Se
 - ark (azieltherevealerofthesealed-arch) — https://github.com/azieltherevealerofthesealed-arch/ark
 - EmbryoLock (azieltherevealerofthesealed-arch) — https://github.com/azieltherevealerofthesealed-arch/EmbryoLock
 - TemporalLock (azieltherevealerofthesealed-arch) — https://github.com/azieltherevealerofthesealed-arch/TemporalLock
-- Aziel Runtime (live Worker + public MCP endpoint) — https://aziel-runtime.vibelock.workers.dev/
+- Aziel Runtime (live Worker + public MCP endpoint) — https://aziel-runtime.vibelock.workers.dev/ — MCP side of the AZ triad.
 - Trades-Runtime (public Worker) — https://trades-runtime.vibelock.workers.dev/
 - Whitestone (public Worker) — https://whitestone.vibelock.workers.dev/
 - MirageGrid (public Worker) — https://miragegrid.vibelock.workers.dev/

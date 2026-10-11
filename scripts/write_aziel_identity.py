@@ -27,9 +27,13 @@ from aziel_person import (
     occupations,
 )
 from aziel_works import (
+    TRIAD_ID,
     WORKS_URL,
-    curated_nodes,
     full_records,
+    person_works,
+    triad_markdown,
+    triad_node,
+    triad_side_note,
     works_document,
 )
 
@@ -115,7 +119,8 @@ def _merge_subject(node: dict, works: list[dict]) -> None:
         existing = []
     kept = []
     for work in existing:
-        if isinstance(work, dict) and str(work.get("@id") or "").endswith("#aziel-work"):
+        work_id = str(work.get("@id") or "") if isinstance(work, dict) else ""
+        if work_id.endswith("#aziel-work") or work_id == TRIAD_ID:
             continue
         if isinstance(work, dict) and work.get("@id") == ARCHIVE_ID:
             kept.append(work)
@@ -189,6 +194,7 @@ def stamp_json_file(path: Path, *, with_works: bool, works: list[dict]) -> None:
         data["disambiguatingDescription"] = DISAMBIGUATING_DESCRIPTION
         data["works"] = full_records()
         data["works_url"] = WORKS_URL
+        data["az_triad"] = triad_node()
     if path.name == "aziel.json" and isinstance(data, dict):
         aka = data.get("alternateName")
         if isinstance(aka, str):
@@ -235,6 +241,8 @@ def works_markdown() -> str:
         "",
         DISAMBIGUATING_DESCRIPTION,
         "",
+        triad_markdown(),
+        "",
     ]
     current = None
     for record in full_records():
@@ -243,7 +251,11 @@ def works_markdown() -> str:
             current = category
             lines.append(f"### {category}")
             lines.append("")
-        lines.append(f"- {record['name']} — {record['url']}")
+        line = f"- {record['name']} — {record['url']}"
+        note = triad_side_note(record["url"])
+        if note:
+            line += f" — {note}"
+        lines.append(line)
     lines.append("")
     lines.append(WORKS_END)
     return "\n".join(lines)
@@ -283,7 +295,7 @@ def stamp_text(path: Path, *, full_works: bool) -> None:
 
 
 def main() -> None:
-    works = curated_nodes()
+    works = person_works()
     document = dumps(works_document())
     json_names = (
         "person.jsonld",
