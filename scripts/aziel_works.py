@@ -28,6 +28,35 @@ CURATED_PAPER_IDS = (
 WEBSLINGER_ID = "AZDOC-AA8761FE16D0"
 WEBSLINGER_NAME = "Webslinger (Wearable Dual-Tether Web-Sling System)"
 
+# AZ triad: three sides of one system. Design relationship only.
+TRIAD_ID = "https://www.azieleliab.com/#az-triad"
+TRIAD_NAME = "AZ triad: AZ-OS, Aziel Runtime, The AZInterface"
+TRIAD_DESCRIPTION = (
+    "One system with three sides: the operating-system layer (AZ-OS), "
+    "the MCP runtime (Aziel Runtime), and the UI software (The AZInterface). "
+    "Design relationship only."
+)
+AZOS_URL = "https://github.com/AzielEliab/azos"
+RUNTIME_URL = "https://github.com/AzielEliab/aziel-runtime"
+RUNTIME_ENDPOINT = "https://aziel-runtime.vibelock.workers.dev/"
+RUNTIME_GLAMA = "https://glama.ai/mcp/servers/AzielEliab/aziel-runtime"
+INTERFACE_URL = "https://github.com/AzielEliab/azinterface"
+INTERFACE_PAPER = "https://www.azielcorpuslibrary.net/record/AZDOC-EB7454682E74"
+
+
+def _url_key(url: str) -> str:
+    return (url or "").rstrip("/")
+
+
+TRIAD_SIDE_NOTES = {
+    _url_key(AZOS_URL): (
+        "Operating-system side of the AZ triad: a local ethical overlay, not a kernel."
+    ),
+    _url_key(RUNTIME_URL): "MCP side of the AZ triad.",
+    _url_key(RUNTIME_ENDPOINT): "MCP side of the AZ triad.",
+    _url_key(INTERFACE_URL): "UI-software side of the AZ triad.",
+}
+
 CATEGORY_ORDER = (
     "software",
     "websites",
@@ -140,6 +169,89 @@ def curated_items(catalog: dict | None = None) -> list[dict]:
     return chosen
 
 
+def triad_side_note(url: str) -> str:
+    return TRIAD_SIDE_NOTES.get(_url_key(url), "")
+
+
+def _author_ref() -> dict:
+    return {"@id": PERSON_ID}
+
+
+def triad_node() -> dict:
+    """CreativeWork for the AZ triad. Author is an @id ref, not a nested Person."""
+    return {
+        "@type": "CreativeWork",
+        "@id": TRIAD_ID,
+        "name": TRIAD_NAME,
+        "description": TRIAD_DESCRIPTION,
+        "author": _author_ref(),
+        "creator": _author_ref(),
+        "hasPart": [
+            {
+                "@type": "SoftwareSourceCode",
+                "@id": _url_key(AZOS_URL) + "#aziel-work",
+                "name": "AZ-OS",
+                "url": AZOS_URL,
+                "applicationCategory": "operating-system side",
+                "description": (
+                    "Operating-system side of the AZ triad. "
+                    "A local ethical overlay that is not a kernel."
+                ),
+            },
+            {
+                "@type": "SoftwareSourceCode",
+                "@id": _url_key(RUNTIME_URL) + "#aziel-work",
+                "name": "Aziel Runtime",
+                "url": RUNTIME_URL,
+                "applicationCategory": "MCP side",
+                "description": (
+                    "MCP side of the AZ triad. "
+                    f"Public endpoint {RUNTIME_ENDPOINT} "
+                    f"Glama {RUNTIME_GLAMA}"
+                ),
+            },
+            {
+                "@type": "SoftwareSourceCode",
+                "@id": _url_key(INTERFACE_URL) + "#aziel-work",
+                "name": "The AZInterface",
+                "url": INTERFACE_URL,
+                "applicationCategory": "UI-software side",
+                "description": (
+                    "UI-software side of the AZ triad. "
+                    f"White paper {INTERFACE_PAPER}"
+                ),
+            },
+        ],
+    }
+
+
+def triad_markdown() -> str:
+    return "\n".join(
+        [
+            TRIAD_NAME,
+            TRIAD_DESCRIPTION,
+            f"@id {TRIAD_ID}",
+            f"- AZ-OS (operating-system side; local ethical overlay, not a kernel) — {AZOS_URL}",
+            f"- Aziel Runtime (MCP side) — {RUNTIME_URL}",
+            f"  Public endpoint — {RUNTIME_ENDPOINT}",
+            f"  Glama — {RUNTIME_GLAMA}",
+            f"- The AZInterface (UI-software side) — {INTERFACE_URL}",
+            f"  White paper — {INTERFACE_PAPER}",
+        ]
+    )
+
+
+def _annotate_triad(node: dict, url: str) -> dict:
+    note = triad_side_note(url)
+    if not note:
+        return node
+    description = node.get("description") or ""
+    if note not in description:
+        node["description"] = (description + " " + note).strip()
+    node["isPartOf"] = {"@id": TRIAD_ID}
+    return node
+
+
 def work_node(item: dict) -> dict:
     url = item["url"]
     node = {
@@ -151,11 +263,16 @@ def work_node(item: dict) -> dict:
     description = _clean(item.get("description") or "")
     if description:
         node["description"] = description
-    return node
+    return _annotate_triad(node, url)
 
 
 def curated_nodes(catalog: dict | None = None) -> list[dict]:
     return [work_node(item) for item in curated_items(catalog)]
+
+
+def person_works(catalog: dict | None = None) -> list[dict]:
+    """Curated works plus the triad node, for Person workExample / subjectOf."""
+    return [*curated_nodes(catalog), triad_node()]
 
 
 def machine_record(item: dict) -> dict:
@@ -169,7 +286,7 @@ def machine_record(item: dict) -> dict:
     description = _clean(item.get("description") or "")
     if description:
         record["description"] = description
-    return record
+    return _annotate_triad(record, item["url"])
 
 
 def full_records(catalog: dict | None = None) -> list[dict]:
@@ -190,4 +307,5 @@ def works_document(catalog: dict | None = None) -> dict:
         ),
         "works": full_records(catalog),
         "curated": curated_nodes(catalog),
+        "az_triad": triad_node(),
     }
