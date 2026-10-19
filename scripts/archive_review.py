@@ -8,6 +8,8 @@ from __future__ import annotations
 import html
 import json
 import re
+import shutil
+import subprocess
 from html.parser import HTMLParser
 from pathlib import Path
 
@@ -28,6 +30,60 @@ VOLUME_TITLES = {
     4: "The Physics Case",
     5: "The Human & Institutional Evidence",
 }
+# Vols 1–3 are image scans; a machine OCR text layer was added on this date.
+OCR_VOLUMES = {1, 2, 3}
+OCR_ADDED = "2026-10-18"
+
+
+def _pdf_pages(path: Path) -> int:
+    if shutil.which("pdfinfo"):
+        out = subprocess.run(["pdfinfo", str(path)], capture_output=True, text=True).stdout
+        m = re.search(r"^Pages:\s+(\d+)", out, re.M)
+        if m:
+            return int(m.group(1))
+    return 0
+
+
+def _pdf_words(path: Path) -> int | None:
+    if not shutil.which("pdftotext"):
+        return None
+    out = subprocess.run(
+        ["pdftotext", "-q", str(path), "-"], capture_output=True, text=True
+    ).stdout
+    return len(out.split())
+
+
+def folio_text(pages: int, size: int) -> str:
+    mb = size / 1_000_000
+    return f"{pages} PDF pages · {mb:.1f} MB" if mb >= 1 else f"{pages} PDF pages · {mb:.2f} MB"
+
+
+def pdf_facts(n: int, meta: dict | None = None) -> dict:
+    """Read real size, page count and text-layer status from the PDF bytes."""
+    path = DOCS / "volumes" / f"volume-{n}.pdf"
+    meta = meta or {}
+    size = path.stat().st_size
+    pages = _pdf_pages(path) or int(meta.get("pages") or 0)
+    words = _pdf_words(path)
+    if n in OCR_VOLUMES:
+        layer = "machine-ocr"
+        layer_note = (
+            f"Image-scan facsimile with an invisible machine OCR text layer added {OCR_ADDED}; "
+            "the OCR may contain recognition errors, so check quotations against the page images."
+        )
+    else:
+        layer = "native-text"
+        layer_note = "PDF with a native, extractable text layer (not OCR)."
+    return {
+        "bytes": size,
+        "pages": pages,
+        "folio": folio_text(pages, size),
+        "text_layer": layer,
+        "text_layer_note": layer_note,
+        "extractable_words": words,
+    }
+
+
 VOLUME_AZDOC = {
     1: "AZDOC-18DBE35A32DD",
     2: "AZDOC-A0223FC27A15",
@@ -292,13 +348,9 @@ def extract_volumes() -> list[dict]:
             r'<p class="volume-card-purpose">([\s\S]*?)</p>',
             frag,
         )
-        folio_m = re.search(
-            r'<p class="volume-card-folio">([\s\S]*?)</p>',
-            frag,
-        )
         title_m = re.search(r"<h2>([\s\S]*?)</h2>", frag)
-        info = meta.get(n, {})
-        pages = int(info.get("pages") or 0)
+        facts = pdf_facts(n, meta.get(n, {}))
+        pages = facts["pages"]
         cards.append(
             {
                 "n": n,
@@ -306,15 +358,17 @@ def extract_volumes() -> list[dict]:
                 "id": f"volume-{n}",
                 "title": html_to_text(title_m.group(1)) if title_m else VOLUME_TITLES[n],
                 "purpose": html_to_text(purpose_m.group(1)) if purpose_m else "",
-                "folio": html_to_text(folio_m.group(1)) if folio_m else "",
+                "folio": facts["folio"],
                 "pages": pages,
-                "bytes": int(info.get("bytes") or 0),
+                "bytes": facts["bytes"],
                 "canonical": f"{ORIGIN}/volumes#volume-{n}",
                 "reader": f"{ORIGIN}/reader?volume={n}&page=1",
                 "pdf": f"{ORIGIN}/volumes/volume-{n}.pdf",
                 "webp_pattern": f"{ORIGIN}/assets/v{n}/{{page}}.webp",
                 "azdoc": VOLUME_AZDOC[n],
-                "text_layer": "none-extractable",
+                "text_layer": facts["text_layer"],
+                "text_layer_note": facts["text_layer_note"],
+                "extractable_words": facts["extractable_words"],
             }
         )
     if len(cards) != 5:
@@ -345,6 +399,22 @@ def volume_outline(inquiries: list[dict]) -> dict[int, list[str]]:
     return outline
 
 
+def refresh_printed_folios(text: str) -> str:
+    """Swap stale size lines copied from the volume cards for the real PDF folios."""
+    raw = (DOCS / "volumes.html").read_text(encoding="utf-8")
+    for n, frag in re.findall(
+        r'<article class="volume-card" id="volume-(\d+)">([\s\S]*?)</article>', raw
+    ):
+        m = re.search(r'<p class="volume-card-folio">([\s\S]*?)</p>', frag)
+        if not m:
+            continue
+        printed = html_to_text(m.group(1))
+        real = pdf_facts(int(n))["folio"]
+        if printed and printed != real:
+            text = text.replace(printed, real)
+    return text
+
+
 def extract_tabs() -> dict[str, dict]:
     out = {}
     for key, path, rel, title in TAB_PAGES:
@@ -354,16 +424,21 @@ def extract_tabs() -> dict[str, dict]:
             "path": path,
             "url": ORIGIN + (path if path != "/" else "/"),
             "source_file": rel,
-            "substance": page_substance(rel),
+            "substance": refresh_printed_folios(page_substance(rel)),
         }
     return out
 
 
 def pdf_text_layer_note(vol: dict) -> str:
     return (
-        f"Repo PDF is a binary facsimile ({vol['bytes']} bytes; {vol['folio']}). "
-        "No faithful running text layer is extractable from the PDF bytes in this "
-        "repository without inventing OCR. Full facsimile at "
+        f"Repo PDF: {vol['bytes']} bytes; {vol['folio']}. "
+        f"{vol['text_layer_note']} "
+        + (
+            f"pdftotext extracts about {vol['extractable_words']} words. "
+            if vol.get("extractable_words") is not None
+            else ""
+        )
+        + "Full facsimile at "
         f"{vol['pdf']} . In-site reader: {vol['reader']} . "
         f"Static page images: {vol['webp_pattern']} for pages 1–{vol['pages']}."
     )
@@ -435,7 +510,7 @@ def build_review_body(
         "- Press, Rubye, Archives, FOIA, Narrative, About Aziel, Copyrights",
         "- Receipts / ingest (machine), Who, Reader",
         "- All 23 Inquiries of the Record (full question + surrounding substance)",
-        "- Volumes I–V (title, purpose, URLs, section outline from published pointers; facsimile, not invented OCR)",
+        "- Volumes I–V (title, purpose, URLs, section outline from published pointers; Vols I–III carry a machine OCR text layer)",
         "",
     ]
     parts.append(format_tab(tabs["home"], skip_inquiry_bodies=True))

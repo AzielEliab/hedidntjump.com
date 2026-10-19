@@ -95,7 +95,7 @@ hedidntjump.com is a whistleblower / investigative archive project. Motto: The R
 - Press, Rubye, Archives, FOIA, Narrative, About Aziel, Copyrights
 - Receipts / ingest (machine), Who, Reader
 - All 23 Inquiries of the Record (full question + surrounding substance)
-- Volumes I–V (title, purpose, URLs, section outline from published pointers; facsimile, not invented OCR)
+- Volumes I–V (title, purpose, URLs, section outline from published pointers; Vols I–III carry a machine OCR text layer)
 
 ## Homepage money-page framing
 Canonical: https://hedidntjump.com/
@@ -633,11 +633,11 @@ Corpus Visual Archive indexes Vols 1–3 only. Do not invent AZDOC ids for Vols 
 ### Volume I — Primary Documents & Forensic Analysis
 Canonical: https://hedidntjump.com/volumes#volume-1
 Purpose (as printed on /Volumes): This first book gathers the primary documents and forensic plates of the collection — clippings, photographs, and document images against which the later volumes are checked. It preserves the material examined in the investigation; it does not close the case.
-Folio: 20 PDF pages · 20.8 MB
+Folio: 20 PDF pages · 7.1 MB
 Download URL: https://hedidntjump.com/volumes/volume-1.pdf
 Reader URL: https://hedidntjump.com/reader?volume=1&page=1
 Corpus AZDOC: AZDOC-18DBE35A32DD
-Repo PDF is a binary facsimile (20766161 bytes; 20 PDF pages · 20.8 MB). No faithful running text layer is extractable from the PDF bytes in this repository without inventing OCR. Full facsimile at https://hedidntjump.com/volumes/volume-1.pdf . In-site reader: https://hedidntjump.com/reader?volume=1&page=1 . Static page images: https://hedidntjump.com/assets/v1/{page}.webp for pages 1–20.
+Repo PDF: 7144530 bytes; 20 PDF pages · 7.1 MB. Image-scan facsimile with an invisible machine OCR text layer added 2026-10-18; the OCR may contain recognition errors, so check quotations against the page images. pdftotext extracts about 2444 words. Full facsimile at https://hedidntjump.com/volumes/volume-1.pdf . In-site reader: https://hedidntjump.com/reader?volume=1&page=1 . Static page images: https://hedidntjump.com/assets/v1/{page}.webp for pages 1–20.
 Section outline from published inquiry sources (not an invented TOC):
 - PDF p. 18 — Volume I · PDF p. 18 (from Inquiry 02; https://hedidntjump.com/reader?volume=1&page=18)
 - PDF p. 18 — Writing account · Volume I, PDF p. 18 (from Inquiry 05; https://hedidntjump.com/reader?volume=1&page=18)
@@ -650,11 +650,11 @@ How to fetch the full facsimile:
 ### Volume II — News Coverage & Family Battles
 Canonical: https://hedidntjump.com/volumes#volume-2
 Purpose (as printed on /Volumes): Contemporary newspaper columns record how the death was told to the public in 1936, and how the family later fought over the will and the estate. The plates keep those headlines and the disputes that followed.
-Folio: 20 PDF pages · 18.4 MB
+Folio: 20 PDF pages · 6.8 MB
 Download URL: https://hedidntjump.com/volumes/volume-2.pdf
 Reader URL: https://hedidntjump.com/reader?volume=2&page=1
 Corpus AZDOC: AZDOC-A0223FC27A15
-Repo PDF is a binary facsimile (18361431 bytes; 20 PDF pages · 18.4 MB). No faithful running text layer is extractable from the PDF bytes in this repository without inventing OCR. Full facsimile at https://hedidntjump.com/volumes/volume-2.pdf . In-site reader: https://hedidntjump.com/reader?volume=2&page=1 . Static page images: https://hedidntjump.com/assets/v2/{page}.webp for pages 1–20.
+Repo PDF: 6823388 bytes; 20 PDF pages · 6.8 MB. Image-scan facsimile with an invisible machine OCR text layer added 2026-10-18; the OCR may contain recognition errors, so check quotations against the page images. pdftotext extracts about 4321 words. Full facsimile at https://hedidntjump.com/volumes/volume-2.pdf . In-site reader: https://hedidntjump.com/reader?volume=2&page=1 . Static page images: https://hedidntjump.com/assets/v2/{page}.webp for pages 1–20.
 Section outline from published inquiry sources (not an invented TOC):
 - PDF p. 5 — Volume II · PDF p. 5 (from Inquiry 01; https://hedidntjump.com/reader?volume=2&page=5)
 - PDF p. 13 — Volume II · PDF p. 13 (from Inquiry 02; https://hedidntjump.com/reader?volume=2&page=13)
@@ -674,11 +674,11 @@ How to fetch the full facsimile:
 ### Volume III — Personal Photographs & Research Materials
 Canonical: https://hedidntjump.com/volumes#volume-3
 Purpose (as printed on /Volumes): Personal photographs, funeral-related material, and research notes widen the record beyond the day of the death. The plates here are the private and documentary remainder of the collection.
-Folio: 21 PDF pages · 16.9 MB
+Folio: 21 PDF pages · 6.4 MB
 Download URL: https://hedidntjump.com/volumes/volume-3.pdf
 Reader URL: https://hedidntjump.com/reader?volume=3&page=1
 Corpus AZDOC: AZDOC-9673443C40F7
-Repo PDF is a binary facsimile (16869320 bytes; 21 PDF pages · 16.9 MB). No faithful running text layer is extractable from the PDF bytes in this repository without inventing OCR. Full facsimile at https://hedidntjump.com/volumes/volume-3.pdf . In-site reader: https://hedidntjump.com/reader?volume=3&page=1 . Static page images: https://hedidntjump.com/assets/v3/{page}.webp for pages 1–21.
+Repo PDF: 6392747 bytes; 21 PDF pages · 6.4 MB. Image-scan facsimile with an invisible machine OCR text layer added 2026-10-18; the OCR may contain recognition errors, so check quotations against the page images. pdftotext extracts about 4946 words. Full facsimile at https://hedidntjump.com/volumes/volume-3.pdf . In-site reader: https://hedidntjump.com/reader?volume=3&page=1 . Static page images: https://hedidntjump.com/assets/v3/{page}.webp for pages 1–21.
 Section outline from published inquiry sources (not an invented TOC):
 - PDF p. 3 — Bolton material · Volume III, PDF pp. 3–4 (from Inquiry 19; https://hedidntjump.com/reader?volume=3&page=3)
 - PDF p. 6 — Marion’s certificate · Volume III, PDF p. 6 (from Inquiry 22; https://hedidntjump.com/reader?volume=3&page=6)
@@ -691,11 +691,11 @@ How to fetch the full facsimile:
 ### Volume IV — The Physics Case
 Canonical: https://hedidntjump.com/volumes#volume-4
 Purpose (as printed on /Volumes): This volume tests the reported office sequence — window clearance, timing, and witness proximity — against the plates. It is the collection’s argument from space and time, not a courtroom finding.
-Folio: 15 PDF pages · 0.03 MB
+Folio: 15 PDF pages · 0.02 MB
 Download URL: https://hedidntjump.com/volumes/volume-4.pdf
 Reader URL: https://hedidntjump.com/reader?volume=4&page=1
 Corpus AZDOC: none published — do not invent
-Repo PDF is a binary facsimile (30137 bytes; 15 PDF pages · 0.03 MB). No faithful running text layer is extractable from the PDF bytes in this repository without inventing OCR. Full facsimile at https://hedidntjump.com/volumes/volume-4.pdf . In-site reader: https://hedidntjump.com/reader?volume=4&page=1 . Static page images: https://hedidntjump.com/assets/v4/{page}.webp for pages 1–15.
+Repo PDF: 22747 bytes; 15 PDF pages · 0.02 MB. PDF with a native, extractable text layer (not OCR). pdftotext extracts about 3229 words. Full facsimile at https://hedidntjump.com/volumes/volume-4.pdf . In-site reader: https://hedidntjump.com/reader?volume=4&page=1 . Static page images: https://hedidntjump.com/assets/v4/{page}.webp for pages 1–15.
 Section outline from published inquiry sources (not an invented TOC):
 - PDF p. 5 — Volume IV · PDF pp. 5–13 (from Inquiry 02; https://hedidntjump.com/reader?volume=4&page=5)
 - PDF p. 11 — Volume IV · PDF p. 11 (from Inquiry 04; https://hedidntjump.com/reader?volume=4&page=11)
@@ -719,7 +719,7 @@ Folio: 14 PDF pages · 0.02 MB
 Download URL: https://hedidntjump.com/volumes/volume-5.pdf
 Reader URL: https://hedidntjump.com/reader?volume=5&page=1
 Corpus AZDOC: none published — do not invent
-Repo PDF is a binary facsimile (27749 bytes; 14 PDF pages · 0.02 MB). No faithful running text layer is extractable from the PDF bytes in this repository without inventing OCR. Full facsimile at https://hedidntjump.com/volumes/volume-5.pdf . In-site reader: https://hedidntjump.com/reader?volume=5&page=1 . Static page images: https://hedidntjump.com/assets/v5/{page}.webp for pages 1–14.
+Repo PDF: 21158 bytes; 14 PDF pages · 0.02 MB. PDF with a native, extractable text layer (not OCR). pdftotext extracts about 3257 words. Full facsimile at https://hedidntjump.com/volumes/volume-5.pdf . In-site reader: https://hedidntjump.com/reader?volume=5&page=1 . Static page images: https://hedidntjump.com/assets/v5/{page}.webp for pages 1–14.
 Section outline from published inquiry sources (not an invented TOC):
 - PDF p. 9 — Volume V · PDF pp. 9–11 (from Inquiry 03; https://hedidntjump.com/reader?volume=5&page=9)
 - PDF p. 9 — Volume V · PDF p. 9 (from Inquiry 07; https://hedidntjump.com/reader?volume=5&page=9)
