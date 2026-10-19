@@ -227,3 +227,17 @@
 /sitemap.txt
   Content-Type: text/plain; charset=utf-8
   Cache-Control: public, max-age=3600
+
+# Duplicate hosts — keep only the apex https://hedidntjump.com in search indexes.
+# (Pages _redirects cannot do host-level redirects; canonicals already point to the apex.)
+https://hedidntjump.pages.dev/*
+  X-Robots-Tag: noindex
+
+https://:version.hedidntjump.pages.dev/*
+  X-Robots-Tag: noindex
+
+https://www.hedidntjump.com/*
+  X-Robots-Tag: noindex
+
+/404.html
+  X-Robots-Tag: noindex
