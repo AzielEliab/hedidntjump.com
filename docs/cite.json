@@ -7172,5 +7172,35 @@
         "description": "UI-software side of the AZ triad. White paper https://www.azielcorpuslibrary.net/record/AZDOC-EB7454682E74"
       }
     ]
+  },
+  "all_volumes_zip": {
+    "url": "https://hedidntjump.com/volumes/hedidntjump-all-volumes.zip",
+    "bytes": 19405560,
+    "size": "19.4 MB",
+    "sha256": "2504e7d6352a6113b775157d82e2f75870ed08af78e14313a10a645e3ffc2e0e",
+    "content_type": "application/zip",
+    "members": [
+      {
+        "name": "volume-1.pdf",
+        "bytes": 7144530
+      },
+      {
+        "name": "volume-2.pdf",
+        "bytes": 6823388
+      },
+      {
+        "name": "volume-3.pdf",
+        "bytes": 6392747
+      },
+      {
+        "name": "volume-4.pdf",
+        "bytes": 22747
+      },
+      {
+        "name": "volume-5.pdf",
+        "bytes": 21158
+      }
+    ],
+    "note": "All five volume PDFs (Volumes I–V) in one zip, byte-identical to the individual PDF downloads."
   }
 }
