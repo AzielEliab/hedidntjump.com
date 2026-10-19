@@ -154,7 +154,7 @@
     },
     "/volumes/volume-1.pdf": {
       "get": {
-        "summary": "Volume I PDF — Primary Documents & Forensic Analysis (full facsimile; no invented OCR)",
+        "summary": "Volume I PDF — Primary Documents & Forensic Analysis (full facsimile; machine OCR text layer added 2026-10-18)",
         "responses": {
           "200": {
             "description": "application/pdf"
@@ -164,7 +164,7 @@
     },
     "/volumes/volume-2.pdf": {
       "get": {
-        "summary": "Volume II PDF — News Coverage & Family Battles (full facsimile; no invented OCR)",
+        "summary": "Volume II PDF — News Coverage & Family Battles (full facsimile; machine OCR text layer added 2026-10-18)",
         "responses": {
           "200": {
             "description": "application/pdf"
@@ -174,7 +174,7 @@
     },
     "/volumes/volume-3.pdf": {
       "get": {
-        "summary": "Volume III PDF — Personal Photographs & Research Materials (full facsimile; no invented OCR)",
+        "summary": "Volume III PDF — Personal Photographs & Research Materials (full facsimile; machine OCR text layer added 2026-10-18)",
         "responses": {
           "200": {
             "description": "application/pdf"
@@ -184,7 +184,7 @@
     },
     "/volumes/volume-4.pdf": {
       "get": {
-        "summary": "Volume IV PDF — The Physics Case (full facsimile; no invented OCR)",
+        "summary": "Volume IV PDF — The Physics Case (full facsimile; native text layer)",
         "responses": {
           "200": {
             "description": "application/pdf"
@@ -194,7 +194,7 @@
     },
     "/volumes/volume-5.pdf": {
       "get": {
-        "summary": "Volume V PDF — The Human & Institutional Evidence (full facsimile; no invented OCR)",
+        "summary": "Volume V PDF — The Human & Institutional Evidence (full facsimile; native text layer)",
         "responses": {
           "200": {
             "description": "application/pdf"

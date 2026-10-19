@@ -60,7 +60,9 @@ def patch_openapi(data: dict) -> dict:
     ):
         node = paths.setdefault(f"/volumes/volume-{n}.pdf", {"get": {}})
         node.setdefault("get", {})["summary"] = (
-            f"Volume {roman} PDF — {title} (full facsimile; no invented OCR)"
+            f"Volume {roman} PDF — {title} (full facsimile; "
+            + ("machine OCR text layer added 2026-10-18" if n <= 3 else "native text layer")
+            + ")"
         )
     return data
 
