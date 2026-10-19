@@ -629,6 +629,7 @@ Facsimile reader: https://hedidntjump.com/reader?volume=N&page=P (also https://h
 Old /Volumes?volume=N&page=P links hand off to the reader.
 JavaScript only changes the visible page; PDFs work without it.
 Corpus Visual Archive indexes Vols 1–3 only. Do not invent AZDOC ids for Vols 4–5.
+All five volumes in one zip: https://hedidntjump.com/volumes/hedidntjump-all-volumes.zip (19405560 bytes · 19.4 MB; contains volume-1.pdf, volume-2.pdf, volume-3.pdf, volume-4.pdf, volume-5.pdf).
 
 ### Volume I — Primary Documents & Forensic Analysis
 Canonical: https://hedidntjump.com/volumes#volume-1

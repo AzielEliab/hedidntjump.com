@@ -9,6 +9,7 @@ This host is an independent investigative / whistleblower newspaper archive on M
 - [https://hedidntjump.com/official-narrative](https://hedidntjump.com/official-narrative) — official-account contrast (priority 0.9)
 - [https://hedidntjump.com/inquiries](https://hedidntjump.com/inquiries) — 23 inquiries of the record (priority 0.9)
 - [https://hedidntjump.com/volumes](https://hedidntjump.com/volumes) — Volumes I–V (priority 0.9)
+- [https://hedidntjump.com/volumes/hedidntjump-all-volumes.zip](https://hedidntjump.com/volumes/hedidntjump-all-volumes.zip) — all five volume PDFs in one zip (19.4 MB)
 - [https://hedidntjump.com/foia](https://hedidntjump.com/foia) — FOIA paper (supplied FBI FOIPA no-records only) (priority 0.8)
 - [https://hedidntjump.com/press](https://hedidntjump.com/press) — press tip + investigative source directory
 - [https://hedidntjump.com/rubye](https://hedidntjump.com/rubye) — Rubye paper

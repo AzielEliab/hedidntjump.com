@@ -84,6 +84,33 @@ def pdf_facts(n: int, meta: dict | None = None) -> dict:
     }
 
 
+ZIP_NAME = "hedidntjump-all-volumes.zip"
+
+
+def all_volumes_zip() -> dict | None:
+    """Facts for the all-volumes zip (built by scripts/make-all-volumes-zip.sh)."""
+    import hashlib
+    import zipfile
+
+    path = DOCS / "volumes" / ZIP_NAME
+    if not path.is_file():
+        return None
+    data = path.read_bytes()
+    with zipfile.ZipFile(path) as zf:
+        members = [
+            {"name": info.filename, "bytes": info.file_size} for info in zf.infolist()
+        ]
+    return {
+        "url": f"{ORIGIN}/volumes/{ZIP_NAME}",
+        "bytes": len(data),
+        "size": f"{len(data) / 1_000_000:.1f} MB",
+        "sha256": hashlib.sha256(data).hexdigest(),
+        "content_type": "application/zip",
+        "members": members,
+        "note": "All five volume PDFs (Volumes I–V) in one zip, byte-identical to the individual PDF downloads.",
+    }
+
+
 VOLUME_AZDOC = {
     1: "AZDOC-18DBE35A32DD",
     2: "AZDOC-A0223FC27A15",
@@ -535,6 +562,13 @@ def build_review_body(
     parts.append("Old /Volumes?volume=N&page=P links hand off to the reader.")
     parts.append("JavaScript only changes the visible page; PDFs work without it.")
     parts.append("Corpus Visual Archive indexes Vols 1–3 only. Do not invent AZDOC ids for Vols 4–5.")
+    bundle = all_volumes_zip()
+    if bundle:
+        names = ", ".join(m["name"] for m in bundle["members"])
+        parts.append(
+            f"All five volumes in one zip: {bundle['url']} "
+            f"({bundle['bytes']} bytes · {bundle['size']}; contains {names})."
+        )
     parts.append("")
     for vol in volumes:
         parts.append(f"### Volume {vol['roman']} — {vol['title']}")
@@ -626,6 +660,19 @@ def point_llms_txt(text: str) -> str:
                 "## Query-relevant URLs\n\n" + review_line,
                 1,
             )
+    bundle = all_volumes_zip()
+    if bundle:
+        zip_line = (
+            f"- [{bundle['url']}]({bundle['url']}) — all five volume PDFs in one zip "
+            f"({bundle['size']})"
+        )
+        lines = [ln for ln in text.split("\n") if f"]({bundle['url']})" not in ln]
+        anchor = "- [https://hedidntjump.com/volumes](https://hedidntjump.com/volumes) "
+        for idx, ln in enumerate(lines):
+            if ln.startswith(anchor):
+                lines.insert(idx + 1, zip_line)
+                break
+        text = "\n".join(lines)
     text = text.replace(
         "- [llms-full.txt](https://hedidntjump.com/llms-full.txt) — longer inventory of inquiries and plates",
         "- [llms-full.txt](https://hedidntjump.com/llms-full.txt) — whole-project LLM review (23 inquiries + Volumes I–V + all tabs)",
@@ -660,6 +707,7 @@ def cite_payload(inquiries: list[dict], volumes: list[dict], tabs: dict[str, dic
                 "whistleblower / transparency / FOIA-critical historical investigation archive"
             ),
         },
+        "all_volumes_zip": all_volumes_zip(),
         "inquiries_of_the_record": inquiries,
         "research_volumes": [
             {
