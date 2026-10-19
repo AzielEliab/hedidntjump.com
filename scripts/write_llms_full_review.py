@@ -134,6 +134,12 @@ def write_trees() -> None:
 
     apply_trees()
 
+    # Keep machine-file URLs on the 200 canonicals (e.g. /rubye, not
+    # /rubye.html or /Narrative). URL substitution only; never touches HTML.
+    from canonical_pages import apply_machine_urls
+
+    apply_machine_urls()
+
 
 if __name__ == "__main__":
     write_trees()

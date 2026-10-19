@@ -432,7 +432,12 @@ def _stamp_faq(node: dict) -> None:
     node["mainEntity"] = entities
 
 
-def _walk(obj) -> None:
+# cite.json publisher_person carries the curated short knowsAbout list from
+# aziel_person.publisher_person(); cross-cite phrase lines must not be re-added.
+CURATED_KNOWS_KEYS = {"publisher_person"}
+
+
+def _walk(obj, parent_key: str | None = None) -> None:
     if isinstance(obj, dict):
         if _is_aziel_person(obj):
             _stamp_publisher(obj)
@@ -445,13 +450,13 @@ def _walk(obj) -> None:
         if obj.get("@type") == "Organization" and obj.get("@id") == ORG_ID:
             obj.setdefault("about", {"@id": MARION_ID})
         knows = obj.get("knowsAbout")
-        if isinstance(knows, list):
+        if isinstance(knows, list) and parent_key not in CURATED_KNOWS_KEYS:
             obj["knowsAbout"] = _stamp_knows(knows)
-        for value in obj.values():
-            _walk(value)
+        for key, value in obj.items():
+            _walk(value, key)
     elif isinstance(obj, list):
         for value in obj:
-            _walk(value)
+            _walk(value, parent_key)
 
 
 def _ensure_archive_node(data: dict) -> None:
