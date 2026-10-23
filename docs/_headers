@@ -228,15 +228,14 @@
   Content-Type: text/plain; charset=utf-8
   Cache-Control: public, max-age=3600
 
-# Duplicate hosts — keep only the apex https://hedidntjump.com in search indexes.
-# (Pages _redirects cannot do host-level redirects; canonicals already point to the apex.)
+# Preview hosts stay out of search indexes. Apex and www share one indexing
+# posture: HTML meta is index,follow, and canonicals point at the apex.
+# www→apex 301 lines stay in _redirects for when Pages applies host redirects.
+# Do not send X-Robots-Tag: noindex for https://www.hedidntjump.com/.
 https://hedidntjump.pages.dev/*
   X-Robots-Tag: noindex
 
 https://:version.hedidntjump.pages.dev/*
-  X-Robots-Tag: noindex
-
-https://www.hedidntjump.com/*
   X-Robots-Tag: noindex
 
 /404.html

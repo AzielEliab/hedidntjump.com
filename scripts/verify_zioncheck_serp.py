@@ -94,6 +94,11 @@ def main() -> None:
         assert f"<loc>{APEX}/Case</loc>" not in sitemap
         assert "https://www.hedidntjump.com/* https://hedidntjump.com/:splat 301" in redirects
         assert "https://hedidntjump.com/* https://www.hedidntjump.com/:splat 301" not in redirects
+        # www matches apex indexing. Preview hosts and the 404 page stay noindex.
+        assert "https://www.hedidntjump.com/*\n  X-Robots-Tag: noindex" not in headers
+        assert "https://hedidntjump.pages.dev/*\n  X-Robots-Tag: noindex" in headers
+        assert "https://:version.hedidntjump.pages.dev/*\n  X-Robots-Tag: noindex" in headers
+        assert "/404.html\n  X-Robots-Tag: noindex" in headers
         assert llms.startswith("# He Didn't Jump — Marion A. Zioncheck archive")
         assert "NOT an ARG" not in llms
         assert "whistleblower" in llms.lower()
