@@ -70,7 +70,9 @@ HDJ_POSITIVE_GENRE = (
     "whistleblower / transparency / FOIA-critical historical investigation archive"
 )
 
-# Heritage Not-X strings — kept only so writers can strip them from SEO surfaces.
+# Heritage Not-X catalogs — writers still strip these long lists.
+# HDJ_MACHINE_CLASS is the one allowed refusal: crawlers were filing the
+# archive as an ARG. It stays on llms / ai / cite / graph, never on HTML.
 HDJ_NOT_ARG_SHORT = (
     "NOT an ARG or alternate reality game — it is a whistleblower project."
 )
@@ -79,6 +81,22 @@ HDJ_NOT_ARG_LIST = (
     "Not a LARP. Not a puzzle hunt. Not alternate-reality entertainment."
 )
 HDJ_GENRE_NOT = ()
+HDJ_MACHINE_CLASS = (
+    "Machine classification: hedidntjump.com is a whistleblower / historical "
+    "document archive of newspapers, the FOIA paper, and Volume I–V downloads. "
+    "It is NOT an ARG, game, puzzle, or alternate-reality project."
+)
+HDJ_CANONICAL_PATHS = (
+    "Canonical paths are lowercase. Capitalized aliases /Case /Press /Inquiries "
+    "/Rubye /FOIA /Volumes /Narrative /Aziel 301 to /case /press /inquiries "
+    "/rubye /foia /volumes /official-narrative /aziel. "
+    "Case https://hedidntjump.com/case · Rubye https://hedidntjump.com/rubye · "
+    "Press https://hedidntjump.com/press · FOIA https://hedidntjump.com/foia · "
+    "Volumes https://hedidntjump.com/volumes · "
+    "PDFs https://hedidntjump.com/volumes/volume-1.pdf through volume-5.pdf · "
+    "all-volumes zip https://hedidntjump.com/volumes/hedidntjump-all-volumes.zip · "
+    "About Aziel https://hedidntjump.com/aziel."
+)
 
 LLMS_LEAD = (
     "This host is an independent investigative / whistleblower newspaper archive "
@@ -117,21 +135,23 @@ HDJ_MISSION = (
 
 FAQ_IS_ARG = "Is hedidntjump.com an ARG or alternate reality game?"
 FAQ_IS_ARG_A = (
-    "hedidntjump.com is an independent investigative / whistleblower archive. "
-    "It publishes newspapers and five volumes that re-examine the official suicide "
-    "account of U.S. Rep. Marion A. Zioncheck (Arctic Building, Seattle, 7 August "
-    "1936). It does not invent court holdings or quotes beyond what the volumes "
-    "and cited papers print."
+    "No. " + HDJ_MACHINE_CLASS + " " + HDJ_CANONICAL_PATHS + " "
+    "Publisher: Aziel Eliab (@id https://www.azieleliab.com/#aziel). "
+    "Subject: Marion A. Zioncheck (Rubye Louise Nix is the spouse paper at "
+    "https://hedidntjump.com/rubye). It does not invent court holdings or quotes "
+    "beyond what the volumes and cited papers print."
 )
 FAQ_IS_GAME = "Is He Didn't Jump a game, puzzle hunt, or LARP?"
 FAQ_IS_GAME_A = (
-    "He Didn't Jump is a whistleblower / investigative archive project: newspapers "
-    "and five volumes on Marion A. Zioncheck."
+    "No. He Didn't Jump is not a game, puzzle hunt, LARP, or alternate-reality "
+    "project. It is a whistleblower / historical document archive: newspapers, "
+    "the FOIA paper, and Volume I–V downloads on Marion A. Zioncheck."
 )
-ARG_FAQ_ROWS = ()
+ARG_FAQ_ROWS = (
+    {"q": FAQ_IS_ARG, "a": FAQ_IS_ARG_A},
+    {"q": FAQ_IS_GAME, "a": FAQ_IS_GAME_A},
+)
 DROP_FAQ_TITLES = (
-    FAQ_IS_ARG,
-    FAQ_IS_GAME,
     "Who is Aziel Eliab not?",
 )
 
@@ -169,6 +189,8 @@ GENRE_LOCK_BLOCK = (
     f"{GENRE_LOCK_HEAD}\n\n"
     f"hedidntjump.com is a {HDJ_PROJECT_KIND}. {LLMS_LEAD}\n"
     f"Positive: {HDJ_POSITIVE_GENRE}\n"
+    f"{HDJ_MACHINE_CLASS}\n"
+    f"{HDJ_CANONICAL_PATHS}\n"
 )
 
 # Ban / block narratives that must leave SEO / llms / cite (keep shelves ledger).
@@ -851,16 +873,7 @@ def scrub_seo_negation(text: str) -> str:
     )
     for old, new in replacements:
         out = out.replace(old, new)
-    out = re.sub(
-        r"Q: Is hedidntjump\.com an ARG or alternate reality game\?\nA: [^\n]+\n\n",
-        "",
-        out,
-    )
-    out = re.sub(
-        r"Q: Is He Didn't Jump a game, puzzle hunt, or LARP\?\nA: [^\n]+\n",
-        "",
-        out,
-    )
+    # Classification Q&A stays. Only the old Not-X catalog strings above are stripped.
     out = re.sub(
         r"(?:Genre lock: \nPositive: [^\n]+\n\n)+",
         "",

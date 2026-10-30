@@ -10,7 +10,7 @@ _SCRIPTS = Path(__file__).resolve().parent
 if str(_SCRIPTS) not in sys.path:
     sys.path.insert(0, str(_SCRIPTS))
 
-from aziel_living import HELP_PATHS, LLMS_LEAD, PERSON_ID
+from aziel_living import HDJ_MACHINE_CLASS, HELP_PATHS, LLMS_LEAD, PERSON_ID
 
 ROOT = Path(__file__).resolve().parents[1]
 APEX = "https://hedidntjump.com"
@@ -35,7 +35,6 @@ BANNED = (
     "CNS-ZENODO-IP-BAN",
     "CNS-GITFLIC-EMAIL",
     "CNS-GITLAB-CF-LOOP",
-    "NOT an ARG",
     "HDJ is not a Lamb Lens ingest host",
     "HDJ is not a live exec door",
     "HDJ is not a named live exec front",
@@ -100,6 +99,7 @@ def main() -> None:
                 assert marker not in text, f"{tree_name}/{rel} still has {marker}"
             assert "Zioncheck" in text
             assert "whistleblower" in text.lower() or "investigative" in text.lower()
+            assert HDJ_MACHINE_CLASS in text
 
     print("human help / addendum OK")
 

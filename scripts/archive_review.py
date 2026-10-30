@@ -13,7 +13,7 @@ import subprocess
 from html.parser import HTMLParser
 from pathlib import Path
 
-from aziel_living import LIVING_STACK
+from aziel_living import HDJ_CANONICAL_PATHS, HDJ_MACHINE_CLASS, LIVING_STACK
 
 ROOT = Path(__file__).resolve().parents[1]
 DOCS = ROOT / "docs"
@@ -531,6 +531,8 @@ def build_review_body(
         "",
         "Genre (positive, machine): whistleblower / transparency / FOIA-critical historical investigation archive.",
         "hedidntjump.com is a whistleblower / investigative archive project. Motto: The Record, Not the Verdict.",
+        HDJ_MACHINE_CLASS,
+        HDJ_CANONICAL_PATHS,
         "",
         "## Review contents",
         "- Homepage money-page framing + Case",
@@ -706,6 +708,8 @@ def cite_payload(inquiries: list[dict], volumes: list[dict], tabs: dict[str, dic
             "positive_genre": (
                 "whistleblower / transparency / FOIA-critical historical investigation archive"
             ),
+            "machine_classification": HDJ_MACHINE_CLASS,
+            "document_archive": True,
         },
         "all_volumes_zip": all_volumes_zip(),
         "inquiries_of_the_record": inquiries,

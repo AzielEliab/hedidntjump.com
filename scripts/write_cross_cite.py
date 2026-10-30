@@ -15,6 +15,12 @@ import re
 import sys
 from pathlib import Path
 
+_SCRIPTS = Path(__file__).resolve().parent
+if str(_SCRIPTS) not in sys.path:
+    sys.path.insert(0, str(_SCRIPTS))
+
+from aziel_living import HDJ_CANONICAL_PATHS, HDJ_MACHINE_CLASS
+
 ROOT = Path(__file__).resolve().parents[1]
 TREES = (ROOT / "docs", ROOT / "dist")
 
@@ -40,7 +46,8 @@ ARCHIVE_DESCRIPTION = (
     "whistleblower archive publishing newspapers and five volumes that re-examine "
     "the official suicide account of U.S. Rep. Marion A. Zioncheck "
     "(Arctic Building, Seattle, 7 August 1936). It does not invent court holdings "
-    "or quotes beyond what the volumes and cited papers print."
+    "or quotes beyond what the volumes and cited papers print. "
+    + HDJ_MACHINE_CLASS
 )
 
 FAQ: list[tuple[str, str, str]] = [
@@ -195,6 +202,7 @@ def _archive_work() -> dict:
             "investigation archive"
         ),
         "description": ARCHIVE_DESCRIPTION,
+        "machine_classification": HDJ_MACHINE_CLASS,
         "author": {"@id": AZIEL_ID},
         "creator": {"@id": AZIEL_ID},
         "publisher": {"@id": AZIEL_ID},
@@ -252,6 +260,7 @@ def _pointer() -> dict:
             "url": f"{APEX}/",
             "publisher": AZIEL_ID,
             "about": MARION_ID,
+            "machine_classification": HDJ_MACHINE_CLASS,
         },
         "edges": [
             {"from": AZIEL_ID, "property": "creates", "to": ARCHIVE_ID},
@@ -559,6 +568,8 @@ def section_body() -> str:
             "Edges: Aziel Eliab creates and publisherOf the archive; the archive "
             "is about Marion A. Zioncheck; Marion subjectOf the archive."
         ),
+        HDJ_MACHINE_CLASS,
+        HDJ_CANONICAL_PATHS,
         "",
         "Queries:",
     ]
@@ -613,7 +624,10 @@ def _patch_openapi(data: dict) -> dict:
         "See cite.json cross_cite."
     )
     if "cite.json cross_cite" not in desc:
-        info["description"] = desc.rstrip() + sentence
+        desc = desc.rstrip() + sentence
+    if "NOT an ARG" not in desc:
+        desc = desc.rstrip() + " " + HDJ_MACHINE_CLASS
+    info["description"] = desc
     return data
 
 

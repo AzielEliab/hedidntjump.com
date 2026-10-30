@@ -112,8 +112,9 @@ def main() -> None:
         ):
             assert f"<loc>{APEX}{loc}</loc>" in sitemap, loc
         dates = set(re.findall(r"<lastmod>([^<]+)</lastmod>", sitemap))
-        assert dates <= {"2026-10-01", "2026-10-02"}, dates
-        assert "2026-10-01" in dates and "2026-10-02" in dates
+        assert dates <= {"2026-10-01", "2026-10-30"}, dates
+        assert "2026-10-01" in dates and "2026-10-30" in dates
+        assert f"<loc>{APEX}/volumes/hedidntjump-all-volumes.zip</loc>" in sitemap
         for n in range(1, 6):
             assert f"<loc>{APEX}/reader?volume={n}&amp;page=1</loc>" not in sitemap
             assert f"<loc>{APEX}/volumes/volume-{n}.pdf</loc>" in sitemap
@@ -133,7 +134,7 @@ def main() -> None:
             assert f"<loc>{APEX}{loc}</loc>" not in sitemap, loc
         index = (tree / "sitemap-index.xml").read_text(encoding="utf-8")
         assert f"<loc>{APEX}/sitemap.xml</loc>" in index
-        assert "<lastmod>2026-10-02</lastmod>" in index.split("azieleliab.com")[0]
+        assert "<lastmod>2026-10-30</lastmod>" in index.split("azieleliab.com")[0]
 
         openapi = json.loads((tree / "openapi.json").read_text(encoding="utf-8"))
         for loc in (
@@ -184,7 +185,8 @@ def main() -> None:
 
         llms = (tree / "llms.txt").read_text(encoding="utf-8")
         lead = llms.split("## Marion")[0]
-        assert "NOT an ARG" not in lead
+        assert "NOT an ARG" in lead
+        assert "document archive" in lead
         assert "whistleblower" in lead.lower()
         for loc in ("/press", "/rubye", "/archives", "/foia", "/copyrights", "/reader", "/who"):
             assert f"{APEX}{loc}" in lead, loc
@@ -194,7 +196,8 @@ def main() -> None:
         ai = (tree / "ai.txt").read_text(encoding="utf-8")
         assert "Service → Clarity → Peace" in ai
         assert "aziel-runtime" in ai.lower() or "glama" in ai.lower()
-        assert "NOT an ARG" not in ai
+        assert "NOT an ARG" in ai
+        assert "document archive" in ai
         assert "whistleblower" in ai.lower()
         assert "## Zioncheck query URLs" in ai
         for loc in ("/case", "/official-narrative", "/inquiries", "/volumes", "/foia"):

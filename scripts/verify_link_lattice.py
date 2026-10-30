@@ -79,7 +79,11 @@ def main() -> None:
             assert PERSON_ID in text, rel
             assert SUBJECT_ID in text, rel
             assert "whistleblower" in text.lower(), rel
-            assert "NOT an ARG" not in text, rel
+            if rel == "help.txt":
+                assert "NOT an ARG" not in text, rel
+            else:
+                assert "NOT an ARG" in text, rel
+                assert "document archive" in text, rel
             for row in TABS:
                 assert row["href"] in text, (rel, row["id"])
             for number in range(1, 6):
