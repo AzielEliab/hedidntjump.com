@@ -147,7 +147,8 @@ def main() -> None:
             assert AZIEL_ID in blob and MARION_ID in blob
             assert "Aziel Elroi Eliab Marion Zioncheck" in blob
             assert "who published the Zioncheck archive" in blob
-            assert "NOT an ARG" not in blob
+            assert "NOT an ARG" in blob
+            assert "document archive" in blob
             assert "Crazytown" not in blob
             assert TIP in blob
 

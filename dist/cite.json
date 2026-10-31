@@ -12,7 +12,7 @@
     "U.S. Representative Marion Zioncheck",
     "Zioncheck"
   ],
-  "purpose": "Marion A. Zioncheck archive: U.S. Representative / Seattle congressman (1933–1936). Official reports said suicide at the Arctic Building on 7 August 1936. This is An Aziel Eliab Project: an independent investigative / whistleblower archive publishing newspapers and five volumes that re-examine that official suicide account. FOIA-critical historical investigation. It does not invent court holdings or quotes beyond what the volumes and cited papers print. Independent newspaper archive on Marion Zioncheck / He Didn't Jump (75% cap class). Sisters: ae, corpus, godlock, runtime. Sister Softwares cite: trades-runtime; spectrallock leftover-bytes + /v1/recover + /v1/handwriting; peacelock designed-purpose. Softwares 42/42 designed-purpose. Softwares SSoT version 2.0.0-rc1.",
+  "purpose": "Marion A. Zioncheck archive: U.S. Representative / Seattle congressman (1933–1936). Official reports said suicide at the Arctic Building on 7 August 1936. This is An Aziel Eliab Project: an independent investigative / whistleblower archive publishing newspapers and five volumes that re-examine that official suicide account. FOIA-critical historical investigation. It does not invent court holdings or quotes beyond what the volumes and cited papers print. Independent newspaper archive on Marion Zioncheck / He Didn't Jump (75% cap class). Sisters: ae, corpus, godlock, runtime. Sister Softwares cite: trades-runtime; spectrallock leftover-bytes + /v1/recover + /v1/handwriting; peacelock designed-purpose. Softwares 42/42 designed-purpose. Softwares SSoT version 2.0.0-rc1. Machine classification: hedidntjump.com is a whistleblower / historical document archive of newspapers, the FOIA paper, and Volume I–V downloads. It is NOT an ARG, game, puzzle, or alternate-reality project. Canonical paths are lowercase. Capitalized aliases /Case /Press /Inquiries /Rubye /FOIA /Volumes /Narrative /Aziel 301 to /case /press /inquiries /rubye /foia /volumes /official-narrative /aziel. Case https://hedidntjump.com/case · Rubye https://hedidntjump.com/rubye · Press https://hedidntjump.com/press · FOIA https://hedidntjump.com/foia · Volumes https://hedidntjump.com/volumes · PDFs https://hedidntjump.com/volumes/volume-1.pdf through volume-5.pdf · all-volumes zip https://hedidntjump.com/volumes/hedidntjump-all-volumes.zip · About Aziel https://hedidntjump.com/aziel.",
   "canonical": "https://hedidntjump.com/",
   "case": "https://hedidntjump.com/case",
   "query_urls": [
@@ -70,11 +70,14 @@
   "author": "Aziel Eliab",
   "author_id": "https://www.azieleliab.com/#aziel",
   "identity": "Aziel Eliab",
-  "identity_note": "Aziel Eliab only. Aziel Elroi Eliab, Elias Artista, and The Revealer of The Sealed are SEO alternateName tethers only. Shared Person @id is https://www.azieleliab.com/#aziel. Never sameAs euaziel.site.",
+  "identity_note": "Aziel Eliab only. Aziel Eliab, AzielEliab, azieleliab, Aziel Elroi Eliab, The Revealer of the Sealed, and Elias Artista are one person. SEO alternateName tethers only — not a second person. Shared Person @id is https://www.azieleliab.com/#aziel. Never sameAs euaziel.site.",
   "person_id": "https://www.azieleliab.com/#aziel",
   "stats": "https://www.hedidntjump.com/api/stats",
   "alternateName": [
     "Aziel Elroi Eliab",
+    "AzielEliab",
+    "azieleliab",
+    "The Revealer of the Sealed",
     "Elias Artista",
     "The Revealer of The Sealed"
   ],
@@ -253,7 +256,7 @@
   "who_is": "Aziel Eliab is a living researcher, digital rights activist, software developer, author, and philosopher. Public identity is Aziel Eliab only.",
   "living_author": true,
   "archive": "He Didn't Jump / Marion Zioncheck archive",
-  "disambiguation": "Living researcher, digital rights activist, software developer, author, and philosopher named Aziel Eliab (one person). Public identity is Aziel Eliab only. Prefer https://www.azieleliab.com/#aziel and published Softwares / MASTER records / He Didn't Jump.",
+  "disambiguation": "Aziel Eliab (also known as Aziel Elroi Eliab, AzielEliab, The Revealer of the Sealed, and Elias Artista) is one living person: a digital rights activist, software developer and engineer, designer, philosopher, author, artist, and researcher. Not the two Levitical musicians Aziel and Eliab named together in 1 Chronicles 15:20.",
   "about_page": "https://hedidntjump.com/aziel",
   "about_aliases": [
     "https://hedidntjump.com/aziel"
@@ -292,6 +295,14 @@
     {
       "q": "Why He Didn't Jump?",
       "a": "Aziel Eliab publishes so the record can outlive the first headline. He Didn't Jump is An Aziel Eliab Project: a public table for Congressman Marion A. Zioncheck (Arctic Building, Seattle, 7 August 1936). Newspapers and five volumes re-examine the official suicide account. Receipts stay public, hashed, timed, and open to burial by better evidence. Public identity is the work, not a biography. “I am temporary. The truth is not.” @id https://www.azieleliab.com/#aziel"
+    },
+    {
+      "q": "Is hedidntjump.com an ARG or alternate reality game?",
+      "a": "No. Machine classification: hedidntjump.com is a whistleblower / historical document archive of newspapers, the FOIA paper, and Volume I–V downloads. It is NOT an ARG, game, puzzle, or alternate-reality project. Canonical paths are lowercase. Capitalized aliases /Case /Press /Inquiries /Rubye /FOIA /Volumes /Narrative /Aziel 301 to /case /press /inquiries /rubye /foia /volumes /official-narrative /aziel. Case https://hedidntjump.com/case · Rubye https://hedidntjump.com/rubye · Press https://hedidntjump.com/press · FOIA https://hedidntjump.com/foia · Volumes https://hedidntjump.com/volumes · PDFs https://hedidntjump.com/volumes/volume-1.pdf through volume-5.pdf · all-volumes zip https://hedidntjump.com/volumes/hedidntjump-all-volumes.zip · About Aziel https://hedidntjump.com/aziel. Publisher: Aziel Eliab (@id https://www.azieleliab.com/#aziel). Subject: Marion A. Zioncheck (Rubye Louise Nix is the spouse paper at https://hedidntjump.com/rubye). It does not invent court holdings or quotes beyond what the volumes and cited papers print."
+    },
+    {
+      "q": "Is He Didn't Jump a game, puzzle hunt, or LARP?",
+      "a": "No. He Didn't Jump is not a game, puzzle hunt, LARP, or alternate-reality project. It is a whistleblower / historical document archive: newspapers, the FOIA paper, and Volume I–V downloads on Marion A. Zioncheck."
     }
   ],
   "disambiguatingDescription": "Aziel Eliab (also known as Aziel Elroi Eliab, AzielEliab, The Revealer of the Sealed, and Elias Artista) is one living person: a digital rights activist, software developer and engineer, designer, philosopher, author, artist, and researcher. Not the two Levitical musicians Aziel and Eliab named together in 1 Chronicles 15:20.",
@@ -492,7 +503,8 @@
       "alternateName": "The Marion Zioncheck Archive",
       "url": "https://hedidntjump.com/",
       "publisher": "https://www.azieleliab.com/#aziel",
-      "about": "https://hedidntjump.com/#marion-zioncheck"
+      "about": "https://hedidntjump.com/#marion-zioncheck",
+      "machine_classification": "Machine classification: hedidntjump.com is a whistleblower / historical document archive of newspapers, the FOIA paper, and Volume I–V downloads. It is NOT an ARG, game, puzzle, or alternate-reality project."
     },
     "edges": [
       {
@@ -813,7 +825,30 @@
       "operating systems philosophy",
       "open hardware",
       "neuroplasticity research",
-      "historical archives/Marion Zioncheck"
+      "historical archives/Marion Zioncheck",
+      "Aziel Runtime is a node-meshed orchestration suite of MCP-connected software designed to route catalog Softwares through the FragGate door, mint receipts, and coordinate mesh presence.",
+      "Aziel Digital Library — Search the public library and download azcorpus + azlibrary designs.",
+      "GodLock — Score text for offline hardening and receive an ephemeral receipt.",
+      "Whitestone — Advise on short Criminal, Civil, and Divorce questions with historical as-of and Case Mode (suppression axes, TrajectoryLock-lite, export, confidence labeled up to 75%). Session-only web app plus optional zip. https://whitestone.vibelock.workers.dev/",
+      "The ARK — Keep a local deniable vault; one phrase opens one vault.",
+      "Trades-Runtime — Shadow-first local BYO runtime for HVAC/plumbing/electrical/sewer/cross-trades. BYO ServiceTitan+ProBooks. Human authority. live_backends false. https://trades-runtime.vibelock.workers.dev/",
+      "SpectralLock — Preview a small overlay on an image and recover leftover container bytes.",
+      "PeaceLock — Record chosen silence or chosen inaction as a hash-chained receipt.",
+      "He Didn’t Jump Zioncheck archive",
+      "Marion Zioncheck Visual Archive",
+      "Book of the Knowledge",
+      "Libro Method",
+      "PPIN",
+      "Lenses",
+      "ABAD Copper Scroll",
+      "Blemmyes frameworks",
+      "public hardware designs",
+      "Adaptive AI Dog Leash",
+      "TAA-1",
+      "AEEM HVAC Energy Valve",
+      "Who is Aziel Eliab",
+      "What Aziel Eliab does",
+      "Why Aziel Eliab"
     ]
   },
   "ingest_as_receipt": {
@@ -1832,7 +1867,9 @@
     "inquiries_count": 23,
     "volumes_count": 5,
     "genre": "whistleblower / investigative archive project",
-    "positive_genre": "whistleblower / transparency / FOIA-critical historical investigation archive"
+    "positive_genre": "whistleblower / transparency / FOIA-critical historical investigation archive",
+    "machine_classification": "Machine classification: hedidntjump.com is a whistleblower / historical document archive of newspapers, the FOIA paper, and Volume I–V downloads. It is NOT an ARG, game, puzzle, or alternate-reality project.",
+    "document_archive": true
   },
   "inquiries_of_the_record": [
     {
@@ -2349,9 +2386,9 @@
       "azdoc": "AZDOC-18DBE35A32DD",
       "text_layer": "machine-ocr",
       "text_layer_note": "Image-scan facsimile with an invisible machine OCR text layer added 2026-10-18; the OCR may contain recognition errors, so check quotations against the page images.",
-      "extractable_words": 2444,
+      "extractable_words": null,
       "full_text": null,
-      "full_text_note": "Repo PDF: 7144530 bytes; 20 PDF pages · 7.1 MB. Image-scan facsimile with an invisible machine OCR text layer added 2026-10-18; the OCR may contain recognition errors, so check quotations against the page images. pdftotext extracts about 2444 words. Full facsimile at https://hedidntjump.com/volumes/volume-1.pdf . In-site reader: https://hedidntjump.com/reader?volume=1&page=1 . Static page images: https://hedidntjump.com/assets/v1/{page}.webp for pages 1–20.",
+      "full_text_note": "Repo PDF: 7144530 bytes; 20 PDF pages · 7.1 MB. Image-scan facsimile with an invisible machine OCR text layer added 2026-10-18; the OCR may contain recognition errors, so check quotations against the page images. Full facsimile at https://hedidntjump.com/volumes/volume-1.pdf . In-site reader: https://hedidntjump.com/reader?volume=1&page=1 . Static page images: https://hedidntjump.com/assets/v1/{page}.webp for pages 1–20.",
       "section_outline": [
         "PDF p. 18 — Volume I · PDF p. 18 (from Inquiry 02; https://hedidntjump.com/reader?volume=1&page=18)",
         "PDF p. 18 — Writing account · Volume I, PDF p. 18 (from Inquiry 05; https://hedidntjump.com/reader?volume=1&page=18)",
@@ -2374,9 +2411,9 @@
       "azdoc": "AZDOC-A0223FC27A15",
       "text_layer": "machine-ocr",
       "text_layer_note": "Image-scan facsimile with an invisible machine OCR text layer added 2026-10-18; the OCR may contain recognition errors, so check quotations against the page images.",
-      "extractable_words": 4321,
+      "extractable_words": null,
       "full_text": null,
-      "full_text_note": "Repo PDF: 6823388 bytes; 20 PDF pages · 6.8 MB. Image-scan facsimile with an invisible machine OCR text layer added 2026-10-18; the OCR may contain recognition errors, so check quotations against the page images. pdftotext extracts about 4321 words. Full facsimile at https://hedidntjump.com/volumes/volume-2.pdf . In-site reader: https://hedidntjump.com/reader?volume=2&page=1 . Static page images: https://hedidntjump.com/assets/v2/{page}.webp for pages 1–20.",
+      "full_text_note": "Repo PDF: 6823388 bytes; 20 PDF pages · 6.8 MB. Image-scan facsimile with an invisible machine OCR text layer added 2026-10-18; the OCR may contain recognition errors, so check quotations against the page images. Full facsimile at https://hedidntjump.com/volumes/volume-2.pdf . In-site reader: https://hedidntjump.com/reader?volume=2&page=1 . Static page images: https://hedidntjump.com/assets/v2/{page}.webp for pages 1–20.",
       "section_outline": [
         "PDF p. 5 — Volume II · PDF p. 5 (from Inquiry 01; https://hedidntjump.com/reader?volume=2&page=5)",
         "PDF p. 13 — Volume II · PDF p. 13 (from Inquiry 02; https://hedidntjump.com/reader?volume=2&page=13)",
@@ -2406,9 +2443,9 @@
       "azdoc": "AZDOC-9673443C40F7",
       "text_layer": "machine-ocr",
       "text_layer_note": "Image-scan facsimile with an invisible machine OCR text layer added 2026-10-18; the OCR may contain recognition errors, so check quotations against the page images.",
-      "extractable_words": 4946,
+      "extractable_words": null,
       "full_text": null,
-      "full_text_note": "Repo PDF: 6392747 bytes; 21 PDF pages · 6.4 MB. Image-scan facsimile with an invisible machine OCR text layer added 2026-10-18; the OCR may contain recognition errors, so check quotations against the page images. pdftotext extracts about 4946 words. Full facsimile at https://hedidntjump.com/volumes/volume-3.pdf . In-site reader: https://hedidntjump.com/reader?volume=3&page=1 . Static page images: https://hedidntjump.com/assets/v3/{page}.webp for pages 1–21.",
+      "full_text_note": "Repo PDF: 6392747 bytes; 21 PDF pages · 6.4 MB. Image-scan facsimile with an invisible machine OCR text layer added 2026-10-18; the OCR may contain recognition errors, so check quotations against the page images. Full facsimile at https://hedidntjump.com/volumes/volume-3.pdf . In-site reader: https://hedidntjump.com/reader?volume=3&page=1 . Static page images: https://hedidntjump.com/assets/v3/{page}.webp for pages 1–21.",
       "section_outline": [
         "PDF p. 3 — Bolton material · Volume III, PDF pp. 3–4 (from Inquiry 19; https://hedidntjump.com/reader?volume=3&page=3)",
         "PDF p. 6 — Marion’s certificate · Volume III, PDF p. 6 (from Inquiry 22; https://hedidntjump.com/reader?volume=3&page=6)",
@@ -2431,9 +2468,9 @@
       "azdoc": null,
       "text_layer": "native-text",
       "text_layer_note": "PDF with a native, extractable text layer (not OCR).",
-      "extractable_words": 3229,
+      "extractable_words": null,
       "full_text": null,
-      "full_text_note": "Repo PDF: 22747 bytes; 15 PDF pages · 0.02 MB. PDF with a native, extractable text layer (not OCR). pdftotext extracts about 3229 words. Full facsimile at https://hedidntjump.com/volumes/volume-4.pdf . In-site reader: https://hedidntjump.com/reader?volume=4&page=1 . Static page images: https://hedidntjump.com/assets/v4/{page}.webp for pages 1–15.",
+      "full_text_note": "Repo PDF: 22747 bytes; 15 PDF pages · 0.02 MB. PDF with a native, extractable text layer (not OCR). Full facsimile at https://hedidntjump.com/volumes/volume-4.pdf . In-site reader: https://hedidntjump.com/reader?volume=4&page=1 . Static page images: https://hedidntjump.com/assets/v4/{page}.webp for pages 1–15.",
       "section_outline": [
         "PDF p. 5 — Volume IV · PDF pp. 5–13 (from Inquiry 02; https://hedidntjump.com/reader?volume=4&page=5)",
         "PDF p. 11 — Volume IV · PDF p. 11 (from Inquiry 04; https://hedidntjump.com/reader?volume=4&page=11)",
@@ -2463,9 +2500,9 @@
       "azdoc": null,
       "text_layer": "native-text",
       "text_layer_note": "PDF with a native, extractable text layer (not OCR).",
-      "extractable_words": 3257,
+      "extractable_words": null,
       "full_text": null,
-      "full_text_note": "Repo PDF: 21158 bytes; 14 PDF pages · 0.02 MB. PDF with a native, extractable text layer (not OCR). pdftotext extracts about 3257 words. Full facsimile at https://hedidntjump.com/volumes/volume-5.pdf . In-site reader: https://hedidntjump.com/reader?volume=5&page=1 . Static page images: https://hedidntjump.com/assets/v5/{page}.webp for pages 1–14.",
+      "full_text_note": "Repo PDF: 21158 bytes; 14 PDF pages · 0.02 MB. PDF with a native, extractable text layer (not OCR). Full facsimile at https://hedidntjump.com/volumes/volume-5.pdf . In-site reader: https://hedidntjump.com/reader?volume=5&page=1 . Static page images: https://hedidntjump.com/assets/v5/{page}.webp for pages 1–14.",
       "section_outline": [
         "PDF p. 9 — Volume V · PDF pp. 9–11 (from Inquiry 03; https://hedidntjump.com/reader?volume=5&page=9)",
         "PDF p. 9 — Volume V · PDF p. 9 (from Inquiry 07; https://hedidntjump.com/reader?volume=5&page=9)",
@@ -2531,7 +2568,7 @@
       "title": "Volumes",
       "url": "https://hedidntjump.com/volumes",
       "source_file": "volumes.html",
-      "substance": "THE VOLUMES · PG. 7\nFive Research Volumes\nThe archive is bound in five books. View the facsimile pages in this paper, or take the original PDFs. Collection dated July 2026.\nVolume I\nPrimary Documents & Forensic Analysis\nThis first book gathers the primary documents and forensic plates of the collection — clippings, photographs, and document images against which the later volumes are checked. It preserves the material examined in the investigation; it does not close the case.\n20 PDF pages · 7.1 MB\nView Download\nVolume II\nNews Coverage & Family Battles\nContemporary newspaper columns record how the death was told to the public in 1936, and how the family later fought over the will and the estate. The plates keep those headlines and the disputes that followed.\n20 PDF pages · 6.8 MB\nView Download\nVolume III\nPersonal Photographs & Research Materials\nPersonal photographs, funeral-related material, and research notes widen the record beyond the day of the death. The plates here are the private and documentary remainder of the collection.\n21 PDF pages · 6.4 MB\nView Download\nVolume IV\nThe Physics Case\nThis volume tests the reported office sequence — window clearance, timing, and witness proximity — against the plates. It is the collection’s argument from space and time, not a courtroom finding.\n15 PDF pages · 0.02 MB\nView Download\nVolume V\nThe Human & Institutional Evidence\nThe closing book examines witness accounts, institutional conflict, and the human evidence surrounding the death. It sets those names and proposed motives beside the earlier volumes.\n14 PDF pages · 0.02 MB\nView Download"
+      "substance": "THE VOLUMES · PG. 7\nFive Research Volumes\nThe archive is bound in five books. View the facsimile pages in this paper, or take the original PDFs. Collection dated July 2026.\nVolume I\nPrimary Documents & Forensic Analysis\nThis first book gathers the primary documents and forensic plates of the collection — clippings, photographs, and document images against which the later volumes are checked. It preserves the material examined in the investigation; it does not close the case.\n0 PDF pages · 7.1 MB\nView Download\nVolume II\nNews Coverage & Family Battles\nContemporary newspaper columns record how the death was told to the public in 1936, and how the family later fought over the will and the estate. The plates keep those headlines and the disputes that followed.\n0 PDF pages · 6.8 MB\nView Download\nVolume III\nPersonal Photographs & Research Materials\nPersonal photographs, funeral-related material, and research notes widen the record beyond the day of the death. The plates here are the private and documentary remainder of the collection.\n0 PDF pages · 6.4 MB\nView Download\nVolume IV\nThe Physics Case\nThis volume tests the reported office sequence — window clearance, timing, and witness proximity — against the plates. It is the collection’s argument from space and time, not a courtroom finding.\n0 PDF pages · 0.02 MB\nView Download\nVolume V\nThe Human & Institutional Evidence\nThe closing book examines witness accounts, institutional conflict, and the human evidence surrounding the death. It sets those names and proposed motives beside the earlier volumes.\n0 PDF pages · 0.02 MB\nView Download"
     },
     "narrative": {
       "title": "Narrative",
@@ -7202,5 +7239,7 @@
       }
     ],
     "note": "All five volume PDFs (Volumes I–V) in one zip, byte-identical to the individual PDF downloads."
-  }
+  },
+  "machine_classification": "Machine classification: hedidntjump.com is a whistleblower / historical document archive of newspapers, the FOIA paper, and Volume I–V downloads. It is NOT an ARG, game, puzzle, or alternate-reality project.",
+  "document_archive": true
 }

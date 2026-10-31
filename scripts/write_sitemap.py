@@ -21,8 +21,8 @@ APEX = "https://hedidntjump.com"
 LASTMOD = "2026-10-01"
 # Sister sitemaps in the index were not republished on this date.
 SISTER_LASTMOD = "2026-09-13"
-# Machine identity pass. Only these URLs change; other lastmods stay LASTMOD.
-IDENTITY_LASTMOD = "2026-10-02"
+# Public pages, volume downloads, and the discovery files this pass refreshed.
+IDENTITY_LASTMOD = "2026-10-30"
 IDENTITY_BUMP_PATHS = {
     "/",
     "/case",
@@ -39,6 +39,24 @@ IDENTITY_BUMP_PATHS = {
     "/who",
     "/receipts",
     "/cite.json",
+}
+# Volume downloads plus the discovery files rewritten with the archive class.
+FRESH_PATHS = IDENTITY_BUMP_PATHS | {
+    "/volumes/volume-1.pdf",
+    "/volumes/volume-2.pdf",
+    "/volumes/volume-3.pdf",
+    "/volumes/volume-4.pdf",
+    "/volumes/volume-5.pdf",
+    "/volumes/hedidntjump-all-volumes.zip",
+    "/assets/foia-binary-acknowledgement.pdf",
+    "/llms.txt",
+    "/llms-full.txt",
+    "/ai.txt",
+    "/graph.jsonld",
+    "/person.jsonld",
+    "/identity.jsonld",
+    "/who-is",
+    "/who-is-aziel-eliab.txt",
 }
 
 SKIP_NAMES = {"CNAME", "_headers", "_redirects", "sitemap.xml"}
@@ -98,6 +116,8 @@ DENY_PATHS = {
     "/volumes/1.html",
     "/Volumes/1.html",
     "/reader/1",
+    "/404",
+    "/404.html",
 }
 
 # Priority and changefreq already shipped. Kept so a regen does not drop them.
@@ -150,6 +170,7 @@ BASELINE: list[tuple[str, str, str]] = [
     ("/volumes/volume-3.pdf", "0.6", "weekly"),
     ("/volumes/volume-4.pdf", "0.6", "weekly"),
     ("/volumes/volume-5.pdf", "0.6", "weekly"),
+    ("/volumes/hedidntjump-all-volumes.zip", "0.6", "weekly"),
     ("/assets/foia-binary-acknowledgement.pdf", "0.4", "weekly"),
     ("/survival", "0.4", "hourly"),
     ("/survival.json", "0.4", "hourly"),
@@ -369,7 +390,7 @@ def render(entries: list[tuple[str, str, str, str]]) -> str:
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
     ]
     for path, pri, cf, mod in entries:
-        if path in IDENTITY_BUMP_PATHS:
+        if path in FRESH_PATHS:
             mod = IDENTITY_LASTMOD
         lines.append("  <url>")
         lines.append(f"    <loc>{APEX}{escape_loc(path)}</loc>")
@@ -435,6 +456,7 @@ def check(text: str, index: str) -> None:
         assert f"/reader?volume={n}&page=1" not in locs
         assert f"/volumes/volume-{n}.pdf" in locs
         assert f"/Volumes/{n}" not in locs
+    assert "/volumes/hedidntjump-all-volumes.zip" in locs
     for path in ("/doors", "/failover", "/live-nodes", "/volumes", "/reader", "/official-narrative"):
         assert path in locs, path
     for path in SITEMAP_DROP:

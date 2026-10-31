@@ -49,6 +49,8 @@ from aziel_living import (
     HDJ_BLURB,
     HDJ_GENRE,
     HDJ_GENRE_NOT,
+    HDJ_CANONICAL_PATHS,
+    HDJ_MACHINE_CLASS,
     HDJ_MISSION,
     HDJ_NOT_ARG_LIST,
     HDJ_NOT_ARG_SHORT,
@@ -128,7 +130,7 @@ from aziel_living import (
     scrub_cite_ban_narratives,
     scrub_seo_negation,
 )
-from aziel_person import DISAMBIGUATING_DESCRIPTION, occupations
+from aziel_person import DISAMBIGUATING_DESCRIPTION, REQUIRED_AKA, occupations
 
 ROOT = Path(__file__).resolve().parents[1]
 TREES = [ROOT / "dist", ROOT / "docs"]
@@ -242,7 +244,7 @@ PEACELOCK_AI_BLOCK = f"""PEACELOCK (designed-purpose):
 - Growth-ON. NO-LIE. No visible 15:20.
 """
 
-SITEMAP_LASTMOD = "2026-10-01"  # keep equal to write_sitemap.LASTMOD
+SITEMAP_LASTMOD = "2026-10-30"  # discovery files this writer refreshes
 SITEMAP_BUMP_LOCS = ("/llms.txt", "/ai.txt", "/cite.json")
 
 SOFTWARES_LIST_BLOCK = softwares_list_markdown()
@@ -323,9 +325,10 @@ def upsert_named_faq_rows(faq: list, rows: list) -> list:
 
 
 def upsert_faq_rows(faq: list) -> list:
-    return drop_faq_titles(
-        upsert_named_faq_rows(upsert_named_faq_rows(faq, WHAT_DOES_FAQ_ROWS), WHY_FAQ_ROWS)
-    )
+    faq = upsert_named_faq_rows(faq, WHAT_DOES_FAQ_ROWS)
+    faq = upsert_named_faq_rows(faq, WHY_FAQ_ROWS)
+    faq = upsert_named_faq_rows(faq, ARG_FAQ_LIST)
+    return drop_faq_titles(faq)
 
 
 def upsert_knows_about(knows: list) -> list:
@@ -846,7 +849,22 @@ def patch_cite(data: dict) -> dict:
         f"{HDJ_PURPOSE} {HDJ_BLURB} Sisters: ae, corpus, godlock, runtime. "
         "Sister Softwares cite: trades-runtime; spectrallock leftover-bytes + "
         "/v1/recover + /v1/handwriting; peacelock designed-purpose. "
-        f"Softwares 42/42 designed-purpose. Softwares SSoT version {SOFTWARES_SSOT_VERSION}."
+        f"Softwares 42/42 designed-purpose. Softwares SSoT version {SOFTWARES_SSOT_VERSION}. "
+        f"{HDJ_MACHINE_CLASS} {HDJ_CANONICAL_PATHS}"
+    )
+    data["machine_classification"] = HDJ_MACHINE_CLASS
+    data["document_archive"] = True
+    aka = data.get("alternateName")
+    names = [aka] if isinstance(aka, str) else list(aka or [])
+    # Required monikers lead. Keep every other already-published tether.
+    ordered = list(REQUIRED_AKA)
+    ordered.extend(name for name in names if name not in ordered)
+    data["alternateName"] = ordered
+    data["identity_note"] = (
+        "Aziel Eliab only. Aziel Eliab, AzielEliab, azieleliab, Aziel Elroi Eliab, "
+        "The Revealer of the Sealed, and Elias Artista are one person. "
+        "SEO alternateName tethers only — not a second person. "
+        f"Shared Person @id is {PERSON_ID}. Never sameAs euaziel.site."
     )
     data["project_kind"] = HDJ_PROJECT_KIND
     data["genre"] = HDJ_GENRE
@@ -1370,16 +1388,18 @@ def ensure_related_spectrallock(text: str) -> str:
 
 
 def bump_sitemap_lastmod(text: str) -> str:
-    """Stamp discovery lastmod. Urlset: every loc. Index: this host only."""
+    """Stamp llms/ai/cite lastmod only. write_sitemap owns the rest of the urlset."""
     if "<urlset" in text:
         for loc in SITEMAP_BUMP_LOCS:
             if f"<loc>https://hedidntjump.com{loc}</loc>" not in text:
                 raise SystemExit(f"sitemap lost {loc}")
-        return re.sub(
-            r"<lastmod>[^<]+</lastmod>",
-            f"<lastmod>{SITEMAP_LASTMOD}</lastmod>",
-            text,
-        )
+            text = re.sub(
+                rf"(<loc>https://hedidntjump\.com{re.escape(loc)}</loc>\n    <lastmod>)[^<]+",
+                rf"\g<1>{SITEMAP_LASTMOD}",
+                text,
+                count=1,
+            )
+        return text
     return re.sub(
         r"(<loc>https://hedidntjump\.com/sitemap\.xml</loc>\n    <lastmod>)[^<]+",
         rf"\g<1>{SITEMAP_LASTMOD}",
@@ -1400,7 +1420,7 @@ def ensure_genre_lock(text: str, *, ai: bool = False) -> str:
     text = text.replace("## Genre lock (machine)", GENRE_LOCK_HEAD)
     if GENRE_LOCK_HEAD in text:
         text = re.sub(
-            rf"{re.escape(GENRE_LOCK_HEAD)}\n[\s\S]*?(?=\n## |\nBAN-SURVIVAL|\nCOLD-MULTI-SHELF|\nCross-tether|\nSOFTWARES-RUNTIME|\nPEACELOCK|\nIdentity lock|\Z)",
+            rf"{re.escape(GENRE_LOCK_HEAD)}\n[\s\S]*?(?=\n## |\nBAN-SURVIVAL|\nCOLD-MULTI-SHELF|\nCross-tether|\nSOFTWARES-RUNTIME|\nPEACELOCK|\nIdentity lock|\nLIVE-NODES|\nSPORE-|\nQ: |\Z)",
             GENRE_LOCK_BLOCK.rstrip() + "\n\n",
             text,
             count=1,
@@ -1511,6 +1531,54 @@ def ensure_genre_lock(text: str, *, ai: bool = False) -> str:
     return text
 
 
+def ensure_machine_class(text: str) -> str:
+    """Put the archive-not-ARG line where a crawler reads first. Idempotent."""
+    if "## Query-relevant URLs" in text:
+        head, rest = text.split("## Query-relevant", 1)
+        if HDJ_MACHINE_CLASS not in head and LLMS_LEAD in head:
+            head = head.replace(LLMS_LEAD, f"{LLMS_LEAD}\n\n{HDJ_MACHINE_CLASS}", 1)
+        if HDJ_CANONICAL_PATHS not in head and HDJ_MACHINE_CLASS in head:
+            head = head.replace(
+                HDJ_MACHINE_CLASS,
+                f"{HDJ_MACHINE_CLASS}\n{HDJ_CANONICAL_PATHS}",
+                1,
+            )
+        text = head + "## Query-relevant" + rest
+    elif "Discovery on this host:" in text and HDJ_MACHINE_CLASS not in text.split(
+        "Discovery on this host:", 1
+    )[0]:
+        text = text.replace(
+            "Discovery on this host:",
+            f"{HDJ_MACHINE_CLASS}\n{HDJ_CANONICAL_PATHS}\n\nDiscovery on this host:",
+            1,
+        )
+    elif HDJ_MACHINE_CLASS not in text:
+        text = text.rstrip() + "\n\n" + HDJ_MACHINE_CLASS + "\n" + HDJ_CANONICAL_PATHS + "\n"
+    qa = (
+        f"Q: {FAQ_IS_ARG}\nA: {FAQ_IS_ARG_A}\n\n"
+        f"Q: {FAQ_IS_GAME}\nA: {FAQ_IS_GAME_A}\n"
+    )
+    if FAQ_IS_ARG not in text:
+        if HDJ_CANONICAL_PATHS in text:
+            text = text.replace(HDJ_CANONICAL_PATHS, HDJ_CANONICAL_PATHS + "\n\n" + qa, 1)
+        else:
+            text = text.replace(HDJ_MACHINE_CLASS, HDJ_MACHINE_CLASS + "\n\n" + qa, 1)
+    else:
+        text = re.sub(
+            rf"(Q: {re.escape(FAQ_IS_ARG)}\nA: )[^\n]*",
+            rf"\1{FAQ_IS_ARG_A}",
+            text,
+            count=1,
+        )
+        text = re.sub(
+            rf"(Q: {re.escape(FAQ_IS_GAME)}\nA: )[^\n]*",
+            rf"\1{FAQ_IS_GAME_A}",
+            text,
+            count=1,
+        )
+    return text
+
+
 def patch_txt(text: str, *, ai: bool = False) -> str:
     text = rewrite_stack(text)
     if WHAT_AZIEL_ELIAB_DOES_OLD in text:
@@ -1538,6 +1606,7 @@ def patch_txt(text: str, *, ai: bool = False) -> str:
             1,
         )
     text = scrub_seo_negation(text)
+    text = ensure_machine_class(text)
     return text if text.endswith("\n") else text + "\n"
 
 

@@ -100,7 +100,8 @@ def main() -> None:
         assert "https://:version.hedidntjump.pages.dev/*\n  X-Robots-Tag: noindex" in headers
         assert "/404.html\n  X-Robots-Tag: noindex" in headers
         assert llms.startswith("# He Didn't Jump — Marion A. Zioncheck archive")
-        assert "NOT an ARG" not in llms
+        assert "NOT an ARG" in llms
+        assert "document archive" in llms
         assert "whistleblower" in llms.lower()
         assert "Marion A. Zioncheck" in llms
         # Machine surfaces (cite / llms / graph) — no HTML required for Marion FAQ
@@ -110,7 +111,8 @@ def main() -> None:
         assert len(cite["zioncheck_faq"]) >= 5
         assert any(q["q"] == "Who was Marion A. Zioncheck?" for q in cite["zioncheck_faq"])
         assert all("ARG" not in q["q"] for q in cite["zioncheck_faq"])
-        assert "NOT an ARG" not in cite["purpose"]
+        assert "NOT an ARG" in cite["purpose"]
+        assert "document archive" in cite["purpose"]
         assert "whistleblower" in cite["purpose"]
         assert "Aziel Eliab only" in cite.get("disambiguatingDescription", "") + json.dumps(cite)
         graph_doc = json.loads((ROOT / tree / "graph.jsonld").read_text(encoding="utf-8"))

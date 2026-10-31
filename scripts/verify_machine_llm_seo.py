@@ -25,7 +25,12 @@ from aziel_living import (
     FAQ_WHY_HDJ,
     FAQ_WHY_PUBLISH,
     GITHUB_PRIMARY,
+    FAQ_IS_ARG,
+    FAQ_IS_ARG_A,
+    FAQ_IS_GAME,
+    FAQ_IS_GAME_A,
     HDJ_GENRE,
+    HDJ_MACHINE_CLASS,
     HDJ_PROJECT_KIND,
     LLMS_LEAD,
     SEO_BAN_MARKERS,
@@ -131,25 +136,31 @@ def main() -> None:
         assert cite["project_kind"] == HDJ_PROJECT_KIND
         assert cite["genre"] == HDJ_GENRE
         assert cite["whistleblower"] is True
+        assert cite["document_archive"] is True
+        assert cite["machine_classification"] == HDJ_MACHINE_CLASS
         assert "not_arg" not in cite
         assert "genre_not" not in cite
-        assert "NOT an ARG" not in cite["purpose"]
+        assert HDJ_MACHINE_CLASS in cite["purpose"]
         assert "whistleblower" in cite["purpose"]
         assert "independent investigative" in cite["purpose"]
         cite_faq = {item["q"]: item["a"] for item in cite["faq"]}
-        assert "Is hedidntjump.com an ARG or alternate reality game?" not in cite_faq
+        assert cite_faq[FAQ_IS_ARG] == FAQ_IS_ARG_A
+        assert cite_faq[FAQ_IS_GAME] == FAQ_IS_GAME_A
         assert "Who is Aziel Eliab not?" not in cite_faq
         zfaq = {item["q"]: item["a"] for item in cite["zioncheck_faq"]}
-        assert "Is hedidntjump.com an ARG or alternate reality game?" not in zfaq
+        assert FAQ_IS_ARG not in zfaq
         assert blobs["llms.txt"].startswith("# He Didn't Jump — Marion A. Zioncheck archive")
-        assert blobs["llms.txt"].split("## Query-relevant")[0].strip().endswith(LLMS_LEAD) or LLMS_LEAD in blobs["llms.txt"]
-        assert "NOT an ARG" not in blobs["llms.txt"]
+        assert LLMS_LEAD in blobs["llms.txt"]
+        assert HDJ_MACHINE_CLASS in blobs["llms.txt"].split("## Query-relevant")[0]
         assert "whistleblower" in blobs["llms.txt"].lower()
         assert "Marion A. Zioncheck" in blobs["llms.txt"]
-        assert "NOT an ARG" not in blobs["ai.txt"]
+        assert HDJ_MACHINE_CLASS in blobs["ai.txt"]
         assert "whistleblower" in blobs["ai.txt"].lower()
-        assert "NOT an ARG" not in blobs["llms-full.txt"]
+        assert HDJ_MACHINE_CLASS in blobs["llms-full.txt"]
         assert "whistleblower" in blobs["llms-full.txt"].lower()
+        for name in HTML:
+            html = (tree / name).read_text(encoding="utf-8")
+            assert "NOT an ARG" not in html, name
         for rel, text in blobs.items():
             if rel in ("cite.json", "llms.txt", "ai.txt", "llms-full.txt", "who-is", "who-is-aziel-eliab.txt"):
                 for marker in SEO_BAN_MARKERS:
@@ -569,9 +580,9 @@ def main() -> None:
         sitemap = (tree / "sitemap.xml").read_text(encoding="utf-8")
         # cite.json jobTitle lock changed; llms/ai text did not.
         expected_lastmod = {
-            "/llms.txt": "2026-10-01",
-            "/ai.txt": "2026-10-01",
-            "/cite.json": "2026-10-02",
+            "/llms.txt": "2026-10-30",
+            "/ai.txt": "2026-10-30",
+            "/cite.json": "2026-10-30",
         }
         for loc, lastmod in expected_lastmod.items():
             assert f"<loc>https://hedidntjump.com{loc}</loc>" in sitemap, loc

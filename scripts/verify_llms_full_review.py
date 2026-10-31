@@ -73,7 +73,8 @@ def main() -> None:
         assert REVIEW_HEAD in full, tree_name
         assert REVIEW_END in full, tree_name
         assert "whistleblower" in full.lower(), tree_name
-        assert "NOT an ARG" not in full, tree_name
+        assert "NOT an ARG" in full, tree_name
+        assert "document archive" in full, tree_name
         assert PERSON_ID in full, tree_name
         assert HDJ_INGEST_TIP in full, tree_name
         for marker in SEO_BAN_MARKERS:
