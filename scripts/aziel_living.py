@@ -222,11 +222,20 @@ HELP_PATHS = (
     "/help/how-to-read.txt",
 )
 
+# Official Softwares page already linked from sister hubs (godlock.uk calls it
+# "Official Softwares"). Machine catalog stays GET /v1/software on aziel-runtime.
+SOFTWARES_PUBLIC = "https://www.azieleliab.com/software"
+FURNACE_URL = "https://www.furnaceisntfree.com/"
+UNSEAL_URL = "https://www.timetounsealthebook.net/"
+
 SISTERS = {
     "ae": "https://www.azieleliab.com/",
     "corpus": "https://www.azielcorpuslibrary.net/",
     "godlock": "https://godlock.uk/",
     "runtime": "https://aziel-runtime.vibelock.workers.dev/",
+    "softwares": SOFTWARES_PUBLIC,
+    "furnace": FURNACE_URL,
+    "unseal": UNSEAL_URL,
 }
 
 SISTERS_GLAMA = "https://glama.ai/mcp/servers/AzielEliab/aziel-runtime"
@@ -241,6 +250,9 @@ CROSS_TETHER_SAME_AS = (
     SISTERS["ae"],
     SISTERS["corpus"],
     SISTERS["godlock"],
+    SISTERS["softwares"],
+    SISTERS["furnace"],
+    SISTERS["unseal"],
     SISTERS["runtime"],
     SISTERS_GLAMA,
     SISTERS_HDJ,
@@ -258,6 +270,9 @@ SITE_COVERAGE = (
     f"- ae: {SISTERS['ae']}\n"
     f"- corpus: {SISTERS['corpus']}\n"
     f"- godlock: {SISTERS['godlock']}\n"
+    f"- softwares: {SISTERS['softwares']}\n"
+    f"- furnace: {SISTERS['furnace']}\n"
+    f"- unseal: {SISTERS['unseal']}\n"
     f"- runtime: {SISTERS['runtime']}\n"
     f"- runtime (prefer Glama / Try on Glama): {SISTERS_GLAMA}\n"
     f"- GitHub AzielEliab: {GITHUB_PRIMARY}\n"

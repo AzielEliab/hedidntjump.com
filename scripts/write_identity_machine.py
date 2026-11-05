@@ -246,6 +246,9 @@ SAME_AS = lattice_same_as(
         "https://aziel-runtime.vibelock.workers.dev/",
         "https://x.com/AzielEliab",
         "https://twitter.com/AzielEliab",
+        "https://www.azieleliab.com/software",
+        "https://www.furnaceisntfree.com/",
+        "https://www.timetounsealthebook.net/",
     ]
 )
 
@@ -584,6 +587,9 @@ def well_known_aziel() -> dict:
         "official_site": "https://www.azieleliab.com/",
         "library": "https://www.azielcorpuslibrary.net/",
         "godlock": "https://godlock.uk/",
+        "softwares": "https://www.azieleliab.com/software",
+        "furnace": "https://www.furnaceisntfree.com/",
+        "unseal": "https://www.timetounsealthebook.net/",
         "github": "https://github.com/AzielEliab",
         "x": X_URL,
         "x_handle": X_HANDLE,

@@ -240,6 +240,18 @@ def shelves_txt() -> str:
         f"/shelves and /shelves.json stay the COLD-MULTI-SHELF sister cite of {WWW}/shelves",
         "canonical https://www.azielcorpuslibrary.net/shelves. This file is the URL map.",
         "",
+        "## Official sister sites",
+        (
+            "Official Aziel Eliab sister links. Not extra cold-shelf planes. "
+            "Cap-7 public_icann stays false. Paid sat stays held."
+        ),
+        "https://www.azieleliab.com/ — ae",
+        "https://www.azielcorpuslibrary.net/ — corpus",
+        "https://godlock.uk/ — godlock",
+        "https://www.azieleliab.com/software — Softwares",
+        "https://www.furnaceisntfree.com/ — FurnaceIsntFree",
+        "https://www.timetounsealthebook.net/ — TimeToUnsealTheBook",
+        "",
         "## Public URLs",
         "",
     ]

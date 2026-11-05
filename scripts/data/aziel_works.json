@@ -1295,6 +1295,42 @@
     "verified_at": "2026-10-06T10:51:36-04:00",
     "source": "hedidntjump.com/volumes links",
     "verified": true
+   },
+   {
+    "name": "Softwares",
+    "url": "https://www.azieleliab.com/software",
+    "type": "WebSite",
+    "description": "Software — Aziel Eliab. Official Softwares listing. Sister hubs (godlock.uk) already link this page as Official Softwares. Machine catalog remains https://aziel-runtime.vibelock.workers.dev/v1/software.",
+    "domain": "software catalog",
+    "http_status": 200,
+    "verified_at": "2026-11-05T15:31:40Z",
+    "source": "live fetch 2026-11-05; title Software — Aziel Eliab; canonical https://www.azieleliab.com/software",
+    "verified": true,
+    "featured": true
+   },
+   {
+    "name": "FurnaceIsntFree",
+    "url": "https://www.furnaceisntfree.com/",
+    "type": "WebSite",
+    "description": "The Furnace Isn't Free | HVAC quote transparency. Official Aziel Eliab sister site.",
+    "domain": "sister site",
+    "http_status": 200,
+    "verified_at": "2026-11-05T15:31:39Z",
+    "source": "live fetch 2026-11-05; title tag",
+    "verified": true,
+    "featured": true
+   },
+   {
+    "name": "TimeToUnsealTheBook",
+    "url": "https://www.timetounsealthebook.net/",
+    "type": "WebSite",
+    "description": "TimeToUnsealTheBook. Official Aziel Eliab sister site.",
+    "domain": "sister site",
+    "http_status": 200,
+    "verified_at": "2026-11-05T15:31:39Z",
+    "source": "live fetch 2026-11-05; title tag",
+    "verified": true,
+    "featured": true
    }
   ],
   "research_papers": [

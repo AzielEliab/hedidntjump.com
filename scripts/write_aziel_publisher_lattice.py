@@ -191,6 +191,11 @@ Hub sameAs
 - https://godlock.uk/
 - {WWW}/
 
+Official sister sites
+- Softwares: https://www.azieleliab.com/software
+- FurnaceIsntFree: https://www.furnaceisntfree.com/
+- TimeToUnsealTheBook: https://www.timetounsealthebook.net/
+
 X sameAs
 - https://x.com/AzielEliab
 

@@ -595,6 +595,9 @@ def patch_cite(data: dict) -> dict:
         "ae": SISTERS["ae"],
         "corpus": SISTERS["corpus"],
         "godlock": SISTERS["godlock"],
+        "softwares": SISTERS["softwares"],
+        "furnace": SISTERS["furnace"],
+        "unseal": SISTERS["unseal"],
         "runtime": SISTERS["runtime"],
         "runtime_glama": SISTERS_GLAMA,
         "try_on_glama": SISTERS_GLAMA,
@@ -623,6 +626,9 @@ def patch_cite(data: dict) -> dict:
     extra = [
         {"id": "ae", "label": "ae — official site", "href": SISTERS["ae"]},
         {"id": "corpus", "label": "corpus — Aziel Corpus Library", "href": SISTERS["corpus"]},
+        {"id": "softwares", "label": "Softwares", "href": SISTERS["softwares"]},
+        {"id": "furnace", "label": "FurnaceIsntFree", "href": SISTERS["furnace"]},
+        {"id": "unseal", "label": "TimeToUnsealTheBook", "href": SISTERS["unseal"]},
         {
             "id": "trades-runtime",
             "label": "Trades-Runtime (sister Softwares cite)",
@@ -937,6 +943,74 @@ def patch_person(data: dict) -> dict:
         data["peacelock"] = PEACELOCK
         data["peacelock_github"] = PEACELOCK_GITHUB
     return data
+
+
+def _insert_after_each(text: str, needle: str, addition: str, marker: str) -> str:
+    """Insert addition after needle when the following window lacks marker."""
+    if needle not in text:
+        return text
+    chunks: list[str] = []
+    start = 0
+    while True:
+        index = text.find(needle, start)
+        if index < 0:
+            chunks.append(text[start:])
+            break
+        chunks.append(text[start:index])
+        window = text[index + len(needle) : index + len(needle) + 700]
+        if marker in window:
+            chunks.append(needle)
+        else:
+            chunks.append(needle + addition)
+        start = index + len(needle)
+    return "".join(chunks)
+
+
+def ensure_official_sisters(text: str) -> str:
+    """Keep furnace, Unseal, and the official Softwares page on sister lists.
+
+    Does not rewrite an existing block. Regen inserts the lines when missing.
+    """
+    softwares = SISTERS["softwares"]
+    furnace = SISTERS["furnace"]
+    unseal = SISTERS["unseal"]
+    text = _insert_after_each(
+        text,
+        "- godlock: https://godlock.uk/\n",
+        (
+            f"- softwares: {softwares}\n"
+            f"- furnace: {furnace}\n"
+            f"- unseal: {unseal}\n"
+        ),
+        furnace,
+    )
+    text = _insert_after_each(
+        text,
+        "- https://godlock.uk/\n",
+        f"- {softwares}\n- {furnace}\n- {unseal}\n",
+        furnace,
+    )
+    text = _insert_after_each(
+        text,
+        "- [GodLock](https://godlock.uk/) — GodLock public board\n",
+        (
+            f"- [Softwares]({softwares}) — official Softwares listing\n"
+            f"- [FurnaceIsntFree]({furnace}) — official sister site\n"
+            f"- [TimeToUnsealTheBook]({unseal}) — official sister site\n"
+        ),
+        furnace,
+    )
+    text = _insert_after_each(
+        text,
+        "- https://godlock.uk/ — GodLock public board\n",
+        (
+            f"- {softwares} — Softwares\n"
+            f"- {furnace} — FurnaceIsntFree\n"
+            f"- {unseal} — TimeToUnsealTheBook\n"
+        ),
+        furnace,
+    )
+    return text
 
 
 def ensure_sisters_block(text: str) -> str:
@@ -1589,6 +1663,7 @@ def patch_txt(text: str, *, ai: bool = False) -> str:
         text = text.replace(SPECTRALLOCK_OLD, SPECTRALLOCK)
     text = ensure_genre_lock(text, ai=ai)
     text = ensure_sisters_block(text)
+    text = ensure_official_sisters(text)
     text = ensure_what_does_block(text)
     text = ensure_trades_runtime_cite(text, ai=ai)
     text = ensure_spectrallock_cite(text, ai=ai)

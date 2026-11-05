@@ -167,6 +167,9 @@ EXTRA_SAME_AS = [
     "https://x.com/AzielEliab",
     "https://x.com/AzielEliab",
     "https://twitter.com/AzielEliab",
+    "https://www.azieleliab.com/software",
+    "https://www.furnaceisntfree.com/",
+    "https://www.timetounsealthebook.net/",
 ]
 
 NEVER_SAME_AS = (
