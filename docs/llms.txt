@@ -688,6 +688,9 @@ Hub sameAs
 - https://www.azieleliab.com/
 - https://www.azielcorpuslibrary.net/
 - https://godlock.uk/
+- https://www.azieleliab.com/software
+- https://www.furnaceisntfree.com/
+- https://www.timetounsealthebook.net/
 - https://www.hedidntjump.com/
 
 X sameAs
@@ -742,6 +745,9 @@ Sister surfaces (this host is HDJ — Independent newspaper archive on Marion Zi
 - ae: https://www.azieleliab.com/
 - corpus: https://www.azielcorpuslibrary.net/
 - godlock: https://godlock.uk/
+- softwares: https://www.azieleliab.com/software
+- furnace: https://www.furnaceisntfree.com/
+- unseal: https://www.timetounsealthebook.net/
 - runtime: https://aziel-runtime.vibelock.workers.dev/
 - runtime (prefer Glama): https://glama.ai/mcp/servers/AzielEliab/aziel-runtime
 - trades-runtime (sister Softwares cite-only; cite-only): https://trades-runtime.vibelock.workers.dev
@@ -755,6 +761,9 @@ ZionBot owns newspaper HTML / Pages SEO chrome. This pack is machine files only.
 
 - [AzielEliab.com](https://www.azieleliab.com/) — primary web
 - [GodLock](https://godlock.uk/) — GodLock public board
+- [Softwares](https://www.azieleliab.com/software) — official Softwares listing
+- [FurnaceIsntFree](https://www.furnaceisntfree.com/) — official sister site
+- [TimeToUnsealTheBook](https://www.timetounsealthebook.net/) — official sister site
 - [Aziel Corpus Library](https://www.azielcorpuslibrary.net/)
 - [Corpus runtime](https://www.azielcorpuslibrary.net/runtime)
 - [He Didn't Jump](https://hedidntjump.com/) — this Marion Zioncheck archive

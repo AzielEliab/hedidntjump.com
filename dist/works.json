@@ -506,6 +506,30 @@
       "description": "Aziel Runtime — node-meshed MCP Softwares suite"
     },
     {
+      "name": "Softwares",
+      "url": "https://www.azieleliab.com/software",
+      "type": "WebSite",
+      "category": "websites",
+      "featured": true,
+      "description": "Software — Aziel Eliab. Official Softwares listing. Sister hubs (godlock.uk) already link this page as Official Softwares. Machine catalog remains https://aziel-runtime.vibelock.workers.dev/v1/software."
+    },
+    {
+      "name": "FurnaceIsntFree",
+      "url": "https://www.furnaceisntfree.com/",
+      "type": "WebSite",
+      "category": "websites",
+      "featured": true,
+      "description": "The Furnace Isn't Free | HVAC quote transparency. Official Aziel Eliab sister site."
+    },
+    {
+      "name": "TimeToUnsealTheBook",
+      "url": "https://www.timetounsealthebook.net/",
+      "type": "WebSite",
+      "category": "websites",
+      "featured": true,
+      "description": "TimeToUnsealTheBook. Official Aziel Eliab sister site."
+    },
+    {
       "name": "AEEM HVAC Energy Valve",
       "url": "https://www.azielcorpuslibrary.net/record/AZDOC-0302B7357EE0",
       "type": "CreativeWork",
@@ -3421,6 +3445,27 @@
       "name": "Aziel Corpus Library (Aziel Digital Library MASTER)",
       "url": "https://www.azielcorpuslibrary.net/",
       "description": "Aziel Corpus Library"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.azieleliab.com/software#aziel-work",
+      "name": "Softwares",
+      "url": "https://www.azieleliab.com/software",
+      "description": "Software — Aziel Eliab. Official Softwares listing. Sister hubs (godlock.uk) already link this page as Official Softwares. Machine catalog remains https://aziel-runtime.vibelock.workers.dev/v1/software."
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.furnaceisntfree.com#aziel-work",
+      "name": "FurnaceIsntFree",
+      "url": "https://www.furnaceisntfree.com/",
+      "description": "The Furnace Isn't Free | HVAC quote transparency. Official Aziel Eliab sister site."
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.timetounsealthebook.net#aziel-work",
+      "name": "TimeToUnsealTheBook",
+      "url": "https://www.timetounsealthebook.net/",
+      "description": "TimeToUnsealTheBook. Official Aziel Eliab sister site."
     },
     {
       "@type": "CreativeWork",

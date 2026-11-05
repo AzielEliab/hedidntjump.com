@@ -297,6 +297,9 @@ Sister surfaces (this host is HDJ — Independent newspaper archive on Marion Zi
 - ae: https://www.azieleliab.com/
 - corpus: https://www.azielcorpuslibrary.net/
 - godlock: https://godlock.uk/
+- softwares: https://www.azieleliab.com/software
+- furnace: https://www.furnaceisntfree.com/
+- unseal: https://www.timetounsealthebook.net/
 - runtime: https://aziel-runtime.vibelock.workers.dev/
 - runtime (prefer Glama / Try on Glama): https://glama.ai/mcp/servers/AzielEliab/aziel-runtime
 - GitHub AzielEliab: https://github.com/AzielEliab
@@ -413,6 +416,9 @@ Sister surfaces (this host is HDJ — Independent newspaper archive on Marion Zi
 - ae: https://www.azieleliab.com/
 - corpus: https://www.azielcorpuslibrary.net/
 - godlock: https://godlock.uk/
+- softwares: https://www.azieleliab.com/software
+- furnace: https://www.furnaceisntfree.com/
+- unseal: https://www.timetounsealthebook.net/
 - runtime: https://aziel-runtime.vibelock.workers.dev/
 - runtime (prefer Glama / Try on Glama): https://glama.ai/mcp/servers/AzielEliab/aziel-runtime
 - GitHub AzielEliab: https://github.com/AzielEliab

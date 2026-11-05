@@ -48,6 +48,9 @@ SAME_AS = lattice_same_as(
         "https://aziel-runtime.vibelock.workers.dev/",
         "https://x.com/AzielEliab",
         "https://twitter.com/AzielEliab",
+        "https://www.azieleliab.com/software",
+        "https://www.furnaceisntfree.com/",
+        "https://www.timetounsealthebook.net/",
     ]
 )
 
@@ -185,6 +188,31 @@ RELATED_SITES = [
         "alternateName": "aziel-runtime",
         "url": "https://aziel-runtime.vibelock.workers.dev/",
         "description": "Engine-runtime catalog / OpenAPI / MCP.",
+        "author": {"@id": PERSON_ID},
+        "creator": {"@id": PERSON_ID},
+    },
+    {
+        "@type": "WebSite",
+        "@id": "https://www.azieleliab.com/software#site",
+        "name": "Softwares",
+        "url": "https://www.azieleliab.com/software",
+        "description": "Official Softwares listing. Sister hubs already link this page.",
+        "author": {"@id": PERSON_ID},
+        "creator": {"@id": PERSON_ID},
+    },
+    {
+        "@type": "WebSite",
+        "@id": "https://www.furnaceisntfree.com/#site",
+        "name": "FurnaceIsntFree",
+        "url": "https://www.furnaceisntfree.com/",
+        "author": {"@id": PERSON_ID},
+        "creator": {"@id": PERSON_ID},
+    },
+    {
+        "@type": "WebSite",
+        "@id": "https://www.timetounsealthebook.net/#site",
+        "name": "TimeToUnsealTheBook",
+        "url": "https://www.timetounsealthebook.net/",
         "author": {"@id": PERSON_ID},
         "creator": {"@id": PERSON_ID},
     },
@@ -858,6 +886,9 @@ hedidntjump.com is An Aziel Eliab Project: an independent investigative / whistl
 
 - [AzielEliab.com](https://www.azieleliab.com/) — primary web
 - [GodLock](https://godlock.uk/) — GodLock public board
+- [Softwares](https://www.azieleliab.com/software) — official Softwares listing
+- [FurnaceIsntFree](https://www.furnaceisntfree.com/) — official sister site
+- [TimeToUnsealTheBook](https://www.timetounsealthebook.net/) — official sister site
 - [Aziel Corpus Library](https://www.azielcorpuslibrary.net/)
 - [Corpus runtime](https://www.azielcorpuslibrary.net/runtime)
 - [He Didn't Jump]({ORIGIN}/) — this Marion Zioncheck archive
@@ -905,6 +936,9 @@ hedidntjump.com is An Aziel Eliab Project. Person sameAs / related properties:
 
 - https://www.azieleliab.com/
 - https://godlock.uk/ — GodLock public board
+- https://www.azieleliab.com/software — Softwares
+- https://www.furnaceisntfree.com/ — FurnaceIsntFree
+- https://www.timetounsealthebook.net/ — TimeToUnsealTheBook
 - https://www.azielcorpuslibrary.net/ — Aziel Corpus Library
 - https://www.azielcorpuslibrary.net/runtime
 - https://hedidntjump.com/ — Marion Zioncheck archive (this site)

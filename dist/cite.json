@@ -169,6 +169,21 @@
       "id": "peacelock",
       "label": "PeaceLock (public git + local-only runtime)",
       "href": "https://github.com/AzielEliab/peacelock"
+    },
+    {
+      "id": "softwares",
+      "label": "Softwares",
+      "href": "https://www.azieleliab.com/software"
+    },
+    {
+      "id": "furnace",
+      "label": "FurnaceIsntFree",
+      "href": "https://www.furnaceisntfree.com/"
+    },
+    {
+      "id": "unseal",
+      "label": "TimeToUnsealTheBook",
+      "href": "https://www.timetounsealthebook.net/"
     }
   ],
   "editions": [
@@ -620,7 +635,10 @@
     "https://aziel-runtime.vibelock.workers.dev/",
     "https://glama.ai/mcp/servers/AzielEliab/aziel-runtime",
     "https://x.com/AzielEliab",
-    "https://twitter.com/AzielEliab"
+    "https://twitter.com/AzielEliab",
+    "https://www.azieleliab.com/software",
+    "https://www.furnaceisntfree.com/",
+    "https://www.timetounsealthebook.net/"
   ],
   "hubs": [
     "https://www.azieleliab.com/",
@@ -713,7 +731,10 @@
       "https://aziel-runtime.vibelock.workers.dev/",
       "https://glama.ai/mcp/servers/AzielEliab/aziel-runtime",
       "https://x.com/AzielEliab",
-      "https://twitter.com/AzielEliab"
+      "https://twitter.com/AzielEliab",
+      "https://www.azieleliab.com/software",
+      "https://www.furnaceisntfree.com/",
+      "https://www.timetounsealthebook.net/"
     ],
     "jobTitle": [
       "Digital rights activist",
@@ -1424,7 +1445,10 @@
     "peacelock": "https://github.com/AzielEliab/peacelock",
     "github": "https://github.com/AzielEliab",
     "x": "https://x.com/AzielEliab",
-    "x_handle": "@AzielEliab"
+    "x_handle": "@AzielEliab",
+    "softwares": "https://www.azieleliab.com/software",
+    "furnace": "https://www.furnaceisntfree.com/",
+    "unseal": "https://www.timetounsealthebook.net/"
   },
   "pages_seo": {
     "owner": "ZionBot",
@@ -2626,7 +2650,10 @@
       "https://glama.ai/mcp/servers/AzielEliab/aziel-runtime",
       "https://www.hedidntjump.com/",
       "https://github.com/AzielEliab",
-      "https://x.com/AzielEliab"
+      "https://x.com/AzielEliab",
+      "https://www.azieleliab.com/software",
+      "https://www.furnaceisntfree.com/",
+      "https://www.timetounsealthebook.net/"
     ],
     "stats": {
       "ae": "https://www.azieleliab.com/v1/stats",
@@ -2634,7 +2661,10 @@
       "hdj": "https://www.hedidntjump.com/api/stats"
     },
     "growth_on": true,
-    "receipts_chrome": "Aziel-page-only. Not global paper-tabs."
+    "receipts_chrome": "Aziel-page-only. Not global paper-tabs.",
+    "softwares": "https://www.azieleliab.com/software",
+    "furnace": "https://www.furnaceisntfree.com/",
+    "unseal": "https://www.timetounsealthebook.net/"
   },
   "x": "https://x.com/AzielEliab",
   "x_handle": "@AzielEliab",
@@ -4361,6 +4391,30 @@
       "category": "websites",
       "featured": false,
       "description": "Aziel Runtime — node-meshed MCP Softwares suite"
+    },
+    {
+      "name": "Softwares",
+      "url": "https://www.azieleliab.com/software",
+      "type": "WebSite",
+      "category": "websites",
+      "featured": true,
+      "description": "Software — Aziel Eliab. Official Softwares listing. Sister hubs (godlock.uk) already link this page as Official Softwares. Machine catalog remains https://aziel-runtime.vibelock.workers.dev/v1/software."
+    },
+    {
+      "name": "FurnaceIsntFree",
+      "url": "https://www.furnaceisntfree.com/",
+      "type": "WebSite",
+      "category": "websites",
+      "featured": true,
+      "description": "The Furnace Isn't Free | HVAC quote transparency. Official Aziel Eliab sister site."
+    },
+    {
+      "name": "TimeToUnsealTheBook",
+      "url": "https://www.timetounsealthebook.net/",
+      "type": "WebSite",
+      "category": "websites",
+      "featured": true,
+      "description": "TimeToUnsealTheBook. Official Aziel Eliab sister site."
     },
     {
       "name": "AEEM HVAC Energy Valve",
