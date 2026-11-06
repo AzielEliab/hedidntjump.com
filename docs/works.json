@@ -1,6 +1,16 @@
 {
   "@context": "https://schema.org",
   "person_id": "https://www.azieleliab.com/#aziel",
+  "one_person": "Aziel Eliab, AzielEliab, azieleliab, Aziel Elroi Eliab, The Revealer of the Sealed, and Elias Artista are one person.",
+  "official_sisters": {
+    "ae": "https://www.azieleliab.com/",
+    "softwares": "https://www.azieleliab.com/software",
+    "corpus": "https://www.azielcorpuslibrary.net/",
+    "godlock": "https://godlock.uk/",
+    "furnace": "https://www.furnaceisntfree.com/",
+    "unseal": "https://www.timetounsealthebook.net/",
+    "hdj": "https://www.hedidntjump.com/"
+  },
   "name": "Aziel Eliab",
   "url": "https://hedidntjump.com/works.json",
   "description": "Verified works of Aziel Eliab. URLs are http 200 from the 2026-10-06 catalog. Caution items, forks that are not his software, and Zenodo DOI links are omitted.",

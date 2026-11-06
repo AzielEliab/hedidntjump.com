@@ -98,6 +98,11 @@ def main() -> None:
 
         assert person["@id"] == PERSON_ID
         assert person["name"] == "Aziel Eliab"
+        mirror = (ROOT / tree / ".well-known" / "person.jsonld").read_bytes()
+        assert mirror == (ROOT / tree / "person.jsonld").read_bytes()
+        assert json.loads(mirror)["@id"] == PERSON_ID
+        redirects = (ROOT / tree / "_redirects").read_text(encoding="utf-8")
+        assert "/.well-known/person.jsonld /.well-known/person.jsonld 200" in redirects
         ident_id = (identity.get("person") or identity).get("@id")
         assert ident_id == PERSON_ID
         assert well["person_id"] == PERSON_ID

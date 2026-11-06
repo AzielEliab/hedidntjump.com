@@ -13,13 +13,14 @@ https://hedidntjump.com/cite.json (link_lattice) and https://hedidntjump.com/she
 canonical https://www.azielcorpuslibrary.net/shelves. This file is the URL map.
 
 ## Official sister sites
-Official Aziel Eliab sister links. Not extra cold-shelf planes. Cap-7 public_icann stays false. Paid sat stays held.
+One person: Aziel Eliab, AzielEliab, azieleliab, Aziel Elroi Eliab, The Revealer of the Sealed, and Elias Artista. Person @id https://www.azieleliab.com/#aziel. This host is one of the official sister sites. Not extra cold-shelf planes. Cap-7 public_icann stays false. Paid sat stays held. Unseal SEO is HELD elsewhere and is not opened on this host.
 https://www.azieleliab.com/ — ae
 https://www.azielcorpuslibrary.net/ — corpus
 https://godlock.uk/ — godlock
 https://www.azieleliab.com/software — Softwares
-https://www.furnaceisntfree.com/ — FurnaceIsntFree
-https://www.timetounsealthebook.net/ — TimeToUnsealTheBook
+https://www.furnaceisntfree.com/ — Furnace
+https://www.timetounsealthebook.net/ — Unseal
+https://www.hedidntjump.com/ — this site (He Didn't Jump)
 
 ## Public URLs
 
@@ -72,3 +73,8 @@ https://hedidntjump.com/sitemap.txt — Alias of /shelves.txt
 https://hedidntjump.com/sitemap.xml — XML sitemap
 https://hedidntjump.com/robots.txt — robots (Growth-ON)
 https://hedidntjump.com/openapi.json — Read-only public surfaces
+https://hedidntjump.com/who-is — Who is Aziel Eliab (plain text)
+https://hedidntjump.com/who-is-aziel-eliab.txt — Who is Aziel Eliab (alias)
+https://hedidntjump.com/person.jsonld — Person JSON-LD
+https://hedidntjump.com/.well-known/person.jsonld — Person JSON-LD mirror
+https://hedidntjump.com/tip.json — Tip door (NO-LIE; unobserved cos tip stays unobserved)

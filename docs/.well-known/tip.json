@@ -1,0 +1,32 @@
+{
+  "spec": "HDJ-TIP-DOOR-1.0",
+  "no_lie": "NO-LIE",
+  "person_id": "https://www.azieleliab.com/#aziel",
+  "observed": false,
+  "cos_tip": {
+    "candidate": "a536ec66",
+    "observed": false,
+    "pages_id_observed": false,
+    "note": "AuditBot did not observe cos tip a536ec66. This door does not claim that commit or a Pages deployment id was observed live."
+  },
+  "declarable": {
+    "kind": "repo-checkout-at-authoring",
+    "repo": "https://github.com/AzielEliab/hedidntjump.com",
+    "commit": "6b2a02fa7e8f93325bd3bb5facf6195b33e9a094",
+    "observed_as_pages_deploy": false,
+    "note": "Git checkout this door was authored from. Not a live Pages observation. Not a claim that Pages is serving this commit."
+  },
+  "runtime_sot_pin": {
+    "git_sha": "16b543b5961f03813076e38ff19d883d46845c48",
+    "git_short": "16b543b5",
+    "version_id": "21b64dc5",
+    "replaces_stale": "31ccb56b/d7b63ac1",
+    "git_object_resolved": true,
+    "worker_version_observed": false,
+    "note": "Dual re-lock. Git object 16b543b5961f03813076e38ff19d883d46845c48 resolved from GitHub AzielEliab/aziel-runtime (prefix 16b543b5). Worker version_id 21b64dc5 is the declared Dual pin replacing stale 31ccb56b/d7b63ac1. This file does not claim a live Worker GET observed version_id 21b64dc5."
+  },
+  "unseal_seo": "HELD",
+  "cap7_public_icann": false,
+  "paid_sat": "HELD",
+  "visible_1520": false
+}

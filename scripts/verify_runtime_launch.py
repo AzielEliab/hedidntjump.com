@@ -105,6 +105,19 @@ def main() -> None:
         assert sot["git_sha"] == GIT_SHA
         assert sot["git_short"] == GIT_SHORT
         assert sot["version_id"] == VERSION_ID
+        assert sot["worker_version_observed"] is False
+        assert sot["replaces_stale"] == "31ccb56b/d7b63ac1"
+        assert "31ccb56b6c01647f434a9981c9843602c5967899" not in sot["git_sha"]
+        tip = json.loads((tree / "tip.json").read_text(encoding="utf-8"))
+        assert tip["spec"] == "HDJ-TIP-DOOR-1.0"
+        assert tip["observed"] is False
+        assert tip["person_id"] == PERSON_ID
+        assert tip["cos_tip"]["candidate"] == "a536ec66"
+        assert tip["cos_tip"]["observed"] is False
+        assert tip["cos_tip"]["pages_id_observed"] is False
+        assert tip["declarable"]["observed_as_pages_deploy"] is False
+        assert "did not observe" in tip["cos_tip"]["note"]
+        assert (tree / ".well-known" / "tip.json").read_bytes() == (tree / "tip.json").read_bytes()
         assert sot["github"] == RUNTIME_GITHUB
         assert sot["worker"] == RUNTIME_WORKER
         assert sot["glama"] == RUNTIME_GLAMA
@@ -161,6 +174,10 @@ def main() -> None:
         assert cite["runtime_launch"]["runtime_sot"]["version_id"] == VERSION_ID
         assert cite["runtime_launch"]["runtime_sot"]["git_short"] == GIT_SHORT
         assert cite["runtime_sot"]["version_id"] == VERSION_ID
+        assert cite["runtime_sot"]["git_short"] == GIT_SHORT
+        assert cite["runtime_sot"]["worker_version_observed"] is False
+        assert cite["cos_tip"]["observed"] is False
+        assert cite["cos_tip"]["pages_id_observed"] is False
         assert cite["softwares_clone"] is False
         assert cite["live_origin"]["kind"] == "cloudflare-pages"
         assert cite["live_origin"]["project"] == PAGES_PROJECT

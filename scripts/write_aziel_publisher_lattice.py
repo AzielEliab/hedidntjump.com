@@ -191,10 +191,15 @@ Hub sameAs
 - https://godlock.uk/
 - {WWW}/
 
-Official sister sites
+Official sister sites (one person; this host is hdj)
+- ae: https://www.azieleliab.com/
 - Softwares: https://www.azieleliab.com/software
-- FurnaceIsntFree: https://www.furnaceisntfree.com/
-- TimeToUnsealTheBook: https://www.timetounsealthebook.net/
+- corpus: https://www.azielcorpuslibrary.net/
+- godlock: https://godlock.uk/
+- Furnace: https://www.furnaceisntfree.com/
+- Unseal: https://www.timetounsealthebook.net/
+- hdj: https://www.hedidntjump.com/
+Unseal SEO is HELD elsewhere and is not opened on this host.
 
 X sameAs
 - https://x.com/AzielEliab

@@ -27,9 +27,9 @@
   ],
   "sot_pulled": true,
   "runtime_pr": "https://github.com/AzielEliab/aziel-runtime/pull/151",
-  "runtime_git_sha": "31ccb56b6c01647f434a9981c9843602c5967899",
-  "runtime_git_short": "31ccb56",
-  "runtime_version_id": "d7b63ac1",
+  "runtime_git_sha": "16b543b5961f03813076e38ff19d883d46845c48",
+  "runtime_git_short": "16b543b5",
+  "runtime_version_id": "21b64dc5",
   "live_nodes_plane": "human-mesh-users-uses",
   "software_nodes_plane": "software-worker-fanout",
   "live_nodes": 27161,
@@ -58,5 +58,6 @@
     "invent_users": false
   },
   "ingest_tip_unchanged": "ef967e4acb47ba913ce3959b673767278da605b307de33210b2dc2f1cfd86f60",
-  "note": "Hub pull of runtime GET /v1/mesh (short TTL). Live Nodes = human mesh users + cited human uses. Softwares stay on software_nodes and do not feed this pill. Zioncheck stays the HDJ mission."
+  "note": "Hub pull of runtime GET /v1/mesh (short TTL). Live Nodes = human mesh users + cited human uses. Softwares stay on software_nodes and do not feed this pill. Zioncheck stays the HDJ mission.",
+  "pin_note": "Current Softwares pin is the Dual re-lock 16b543b5 / 21b64dc5. pull/151 stays the historical hub-cite PR and is not this git object. Worker version_id 21b64dc5 was declared, not observed by a live Worker GET."
 }

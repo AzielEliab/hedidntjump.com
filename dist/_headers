@@ -104,6 +104,9 @@
   Content-Type: text/plain; charset=utf-8
   Cache-Control: public, max-age=3600
 
+/.well-known/person.jsonld
+  Content-Type: application/ld+json; charset=utf-8
+  Cache-Control: public, max-age=3600
 /.well-known/aziel.json
   Content-Type: application/json; charset=utf-8
   Cache-Control: public, max-age=3600
@@ -240,3 +243,11 @@ https://:version.hedidntjump.pages.dev/*
 
 /404.html
   X-Robots-Tag: noindex
+
+/tip.json
+  Content-Type: application/json; charset=utf-8
+  Cache-Control: public, max-age=3600
+
+/.well-known/tip.json
+  Content-Type: application/json; charset=utf-8
+  Cache-Control: public, max-age=3600

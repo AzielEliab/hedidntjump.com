@@ -173,6 +173,15 @@ def main() -> None:
                 assert "blocked from" not in text, rel
                 assert "addendum; not a verdict" not in text, rel
         assert cite["person_id"] == PERSON_ID
+        assert cite["one_person"].startswith("Aziel Eliab, AzielEliab, azieleliab")
+        assert cite["official_sisters"]["hdj"] == "https://www.hedidntjump.com/"
+        assert cite["official_sisters"]["ae"] == "https://www.azieleliab.com/"
+        assert cite["official_sisters"]["softwares"] == "https://www.azieleliab.com/software"
+        assert cite["official_sisters"]["unseal"] == "https://www.timetounsealthebook.net/"
+        assert "Unseal SEO is HELD" in cite["one_person"]
+        assert "## One person, official sister sites (machine)" in blobs["llms.txt"]
+        assert "## One person, official sister sites (machine)" in blobs["ai.txt"]
+        assert "## One person, official sister sites (machine)" in blobs["who-is"]
         assert cite["author_id"] == PERSON_ID
         assert cite["growth_on"] is True
         assert cite["softwares_clone"] is False
