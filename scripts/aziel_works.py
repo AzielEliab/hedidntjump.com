@@ -298,6 +298,19 @@ def works_document(catalog: dict | None = None) -> dict:
     return {
         "@context": "https://schema.org",
         "person_id": PERSON_ID,
+        "one_person": (
+            "Aziel Eliab, AzielEliab, azieleliab, Aziel Elroi Eliab, "
+            "The Revealer of the Sealed, and Elias Artista are one person."
+        ),
+        "official_sisters": {
+            "ae": "https://www.azieleliab.com/",
+            "softwares": "https://www.azieleliab.com/software",
+            "corpus": "https://www.azielcorpuslibrary.net/",
+            "godlock": "https://godlock.uk/",
+            "furnace": "https://www.furnaceisntfree.com/",
+            "unseal": "https://www.timetounsealthebook.net/",
+            "hdj": "https://www.hedidntjump.com/",
+        },
         "name": "Aziel Eliab",
         "url": WORKS_URL,
         "description": (

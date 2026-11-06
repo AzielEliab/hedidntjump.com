@@ -11,6 +11,8 @@ from typing import Any
 
 from aziel_living import JOB_TITLES as LOCKED_JOB_TITLES
 from aziel_living import LIVING_STACK as LIVING_ROLE_STACK
+from aziel_living import SISTERS
+from aziel_living import SISTERS_HDJ
 
 PERSON_ID = "https://www.azieleliab.com/#aziel"
 PERSON_NAME = "Aziel Eliab"
@@ -145,12 +147,15 @@ BANNED_AKA = (
 GITHUB_PRIMARY = "https://github.com/AzielEliab"
 GITHUB_REVEALER = "https://github.com/azieltherevealerofthesealed-arch"
 
-# Four public hubs + both GitHub accounts. Extra runtime/X links may ride along.
+# Official sister https canonicals + both GitHub accounts. Extra runtime/X links may ride along.
 HUB_SAME_AS = [
-    CANONICAL_URL,
-    "https://www.azielcorpuslibrary.net/",
-    "https://godlock.uk/",
-    f"{WWW}/",
+    SISTERS["ae"],
+    SISTERS["softwares"],
+    SISTERS["corpus"],
+    SISTERS["godlock"],
+    SISTERS["furnace"],
+    SISTERS["unseal"],
+    SISTERS_HDJ,
 ]
 
 REQUIRED_SAME_AS = [

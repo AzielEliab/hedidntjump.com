@@ -126,6 +126,11 @@ MACHINE: list[tuple[str, str]] = [
     (f"{APEX}/sitemap.xml", "XML sitemap"),
     (f"{APEX}/robots.txt", "robots (Growth-ON)"),
     (f"{APEX}/openapi.json", "Read-only public surfaces"),
+    (f"{APEX}/who-is", "Who is Aziel Eliab (plain text)"),
+    (f"{APEX}/who-is-aziel-eliab.txt", "Who is Aziel Eliab (alias)"),
+    (f"{APEX}/person.jsonld", "Person JSON-LD"),
+    (f"{APEX}/.well-known/person.jsonld", "Person JSON-LD mirror"),
+    (f"{APEX}/tip.json", "Tip door (NO-LIE; unobserved cos tip stays unobserved)"),
 ]
 
 
@@ -242,15 +247,21 @@ def shelves_txt() -> str:
         "",
         "## Official sister sites",
         (
-            "Official Aziel Eliab sister links. Not extra cold-shelf planes. "
-            "Cap-7 public_icann stays false. Paid sat stays held."
+            "One person: Aziel Eliab, AzielEliab, azieleliab, Aziel Elroi Eliab, "
+            "The Revealer of the Sealed, and Elias Artista. "
+            f"Person @id {PERSON_ID}. "
+            "This host is one of the official sister sites. "
+            "Not extra cold-shelf planes. "
+            "Cap-7 public_icann stays false. Paid sat stays held. "
+            "Unseal SEO is HELD elsewhere and is not opened on this host."
         ),
         "https://www.azieleliab.com/ — ae",
         "https://www.azielcorpuslibrary.net/ — corpus",
         "https://godlock.uk/ — godlock",
         "https://www.azieleliab.com/software — Softwares",
-        "https://www.furnaceisntfree.com/ — FurnaceIsntFree",
-        "https://www.timetounsealthebook.net/ — TimeToUnsealTheBook",
+        "https://www.furnaceisntfree.com/ — Furnace",
+        "https://www.timetounsealthebook.net/ — Unseal",
+        "https://www.hedidntjump.com/ — this site (He Didn't Jump)",
         "",
         "## Public URLs",
         "",
@@ -312,6 +323,25 @@ def patch_sitemap(text: str) -> str:
 
 
 def patch_robots(text: str) -> str:
+    identity_lines = (
+        "Allow: /who-is",
+        "Allow: /who-is-aziel-eliab.txt",
+        "Allow: /person.jsonld",
+        "Allow: /identity.jsonld",
+        "Allow: /graph.jsonld",
+        "Allow: /.well-known/aziel.json",
+        "Allow: /.well-known/person.jsonld",
+        "Allow: /works.json",
+        "Allow: /tip.json",
+        "Allow: /.well-known/tip.json",
+    )
+    missing = [line for line in identity_lines if f"{line}\n" not in text]
+    if missing and "Allow: /ai.txt\n" in text:
+        text = text.replace(
+            "Allow: /ai.txt\n",
+            "Allow: /ai.txt\n" + "\n".join(missing) + "\n",
+            1,
+        )
     allow = "Allow: /shelves.txt\nAllow: /sitemap.txt\n"
     if "Allow: /shelves.txt" not in text:
         needle = "Allow: /shelves\n"

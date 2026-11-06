@@ -70,6 +70,9 @@ from aziel_living import (
     PEACELOCK_GITHUB,
     PEACELOCK_HONESTY,
     PEACELOCK_SPEC,
+    ONE_PERSON_END,
+    ONE_PERSON_HEAD,
+    ONE_PERSON_LOCK,
     PERSON_ID,
     PERSON_LEAD,
     PRIMARY_SURFACES,
@@ -119,6 +122,8 @@ from aziel_living import (
     X_HANDLE,
     X_URL,
     cross_tether_markdown,
+    official_sister_map,
+    one_person_block,
     softwares_list_markdown,
     softwares_suite_line,
     who_what_why_markdown,
@@ -130,7 +135,20 @@ from aziel_living import (
     scrub_cite_ban_narratives,
     scrub_seo_negation,
 )
-from aziel_person import DISAMBIGUATING_DESCRIPTION, REQUIRED_AKA, occupations
+from aziel_person import DISAMBIGUATING_DESCRIPTION, HUB_SAME_AS, REQUIRED_AKA, occupations
+
+# Sentence already published on machine surfaces. Regen replaces it in place.
+_PREVIOUS_PRIMARY_SURFACES = (
+    "Primary surfaces: ae (https://www.azieleliab.com/), "
+    "corpus (https://www.azielcorpuslibrary.net/), "
+    "godlock (https://godlock.uk/), "
+    "hedidntjump.com — Zioncheck / He Didn't Jump archive sister (75% cap class), "
+    "runtime (https://aziel-runtime.vibelock.workers.dev/ ; "
+    "prefer https://glama.ai/mcp/servers/AzielEliab/aziel-runtime), "
+    "GitHub AzielEliab (https://github.com/AzielEliab), "
+    "X @AzielEliab (https://x.com/AzielEliab)."
+)
+OFFICIAL_LIST_ID = "https://hedidntjump.com/#official-sisters"
 
 ROOT = Path(__file__).resolve().parents[1]
 TREES = [ROOT / "dist", ROOT / "docs"]
@@ -466,6 +484,7 @@ def walk_mission(obj: Any) -> Any:
 def rewrite_stack(text: str) -> str:
     out = text
     replacements = (
+        (_PREVIOUS_PRIMARY_SURFACES, PRIMARY_SURFACES),
         (
             "researcher, software developer, digital civil rights activist, and truthseeker",
             LIVING_STACK,
@@ -852,12 +871,17 @@ def patch_cite(data: dict) -> dict:
         "Zioncheck / He Didn't Jump archive sister (75% cap class) — An Aziel Eliab Project"
     )
     data["purpose"] = (
-        f"{HDJ_PURPOSE} {HDJ_BLURB} Sisters: ae, corpus, godlock, runtime. "
+        f"{HDJ_PURPOSE} {HDJ_BLURB} "
+        "Official sister sites (one person): ae, Softwares, corpus, godlock, Furnace, Unseal, hdj. "
+        "Also cited: runtime. "
         "Sister Softwares cite: trades-runtime; spectrallock leftover-bytes + "
         "/v1/recover + /v1/handwriting; peacelock designed-purpose. "
         f"Softwares 42/42 designed-purpose. Softwares SSoT version {SOFTWARES_SSOT_VERSION}. "
         f"{HDJ_MACHINE_CLASS} {HDJ_CANONICAL_PATHS}"
     )
+    data["one_person"] = ONE_PERSON_LOCK
+    data["official_sisters"] = official_sister_map()
+    data["hubs"] = list(HUB_SAME_AS)
     data["machine_classification"] = HDJ_MACHINE_CLASS
     data["document_archive"] = True
     aka = data.get("alternateName")
@@ -870,7 +894,10 @@ def patch_cite(data: dict) -> dict:
         "Aziel Eliab only. Aziel Eliab, AzielEliab, azieleliab, Aziel Elroi Eliab, "
         "The Revealer of the Sealed, and Elias Artista are one person. "
         "SEO alternateName tethers only — not a second person. "
-        f"Shared Person @id is {PERSON_ID}. Never sameAs euaziel.site."
+        f"Shared Person @id is {PERSON_ID}. Never sameAs euaziel.site. "
+        "Official sister sites: ae, Softwares, corpus, godlock, Furnace, Unseal, "
+        "and this host (https://www.hedidntjump.com/). "
+        "Unseal SEO is HELD elsewhere and is not opened on this host."
     )
     data["project_kind"] = HDJ_PROJECT_KIND
     data["genre"] = HDJ_GENRE
@@ -942,7 +969,134 @@ def patch_person(data: dict) -> dict:
         data["spectrallock_download"] = SPECTRALLOCK_DOWNLOAD
         data["peacelock"] = PEACELOCK
         data["peacelock_github"] = PEACELOCK_GITHUB
+        stamp_person_association(data)
     return data
+
+
+def stamp_person_association(node: dict) -> None:
+    """Machine-only one-person + official sister lock on a Person node."""
+    if node.get("@id") != PERSON_ID:
+        return
+    props = node.get("additionalProperty")
+    if isinstance(props, dict):
+        props = [props]
+    elif not isinstance(props, list):
+        props = []
+    sisters = " | ".join(f"{key} {url}" for key, url in official_sister_map().items())
+    by_id = {
+        item.get("propertyID"): item
+        for item in props
+        if isinstance(item, dict) and item.get("propertyID")
+    }
+    one = by_id.get("onePerson")
+    if one is None:
+        props.append(
+            {
+                "@type": "PropertyValue",
+                "name": "One person",
+                "propertyID": "onePerson",
+                "value": ONE_PERSON_LOCK,
+            }
+        )
+    else:
+        one["value"] = ONE_PERSON_LOCK
+    official = by_id.get("officialSisters")
+    if official is None:
+        props.append(
+            {
+                "@type": "PropertyValue",
+                "name": "Official sister sites",
+                "propertyID": "officialSisters",
+                "value": sisters,
+            }
+        )
+    else:
+        official["value"] = sisters
+    node["additionalProperty"] = props
+    same = node.get("sameAs")
+    if isinstance(same, str):
+        same = [same]
+    elif not isinstance(same, list):
+        same = []
+    for url in official_sister_map().values():
+        if url not in same:
+            same.append(url)
+    node["sameAs"] = same
+
+
+def sister_site_id(row: dict) -> str:
+    if row["id"] == "hdj":
+        return "https://hedidntjump.com/#website"
+    return row["url"] + "#site"
+
+
+def upsert_official_sisters(data: dict) -> dict:
+    graph = data.get("@graph")
+    if not isinstance(graph, list):
+        return data
+    ids = {node.get("@id"): node for node in graph if isinstance(node, dict)}
+    elements = []
+    for position, row in enumerate(official_sister_map_rows(), start=1):
+        sid = sister_site_id(row)
+        if row["id"] != "hdj" and sid not in ids:
+            node = {
+                "@type": "WebSite",
+                "@id": sid,
+                "name": row["name"],
+                "url": row["url"],
+                "author": {"@id": PERSON_ID},
+                "creator": {"@id": PERSON_ID},
+                "description": (
+                    f"Official sister site of Aziel Eliab. Person @id {PERSON_ID}. "
+                    "One person with He Didn't Jump (https://www.hedidntjump.com/)."
+                ),
+            }
+            graph.append(node)
+            ids[sid] = node
+        elements.append(
+            {
+                "@type": "ListItem",
+                "position": position,
+                "name": row["name"],
+                "url": row["url"],
+                "item": {"@id": sid},
+            }
+        )
+    listing = ids.get(OFFICIAL_LIST_ID)
+    payload = {
+        "@type": "ItemList",
+        "@id": OFFICIAL_LIST_ID,
+        "name": "Official Aziel Eliab sister sites",
+        "description": ONE_PERSON_LOCK,
+        "author": {"@id": PERSON_ID},
+        "numberOfItems": len(elements),
+        "itemListElement": elements,
+    }
+    if listing is None:
+        graph.append(payload)
+    else:
+        listing.clear()
+        listing.update(payload)
+    site = ids.get("https://hedidntjump.com/#website")
+    if isinstance(site, dict):
+        mentions = site.get("mentions")
+        if isinstance(mentions, dict):
+            mentions = [mentions]
+        elif not isinstance(mentions, list):
+            mentions = []
+        if not any(isinstance(item, dict) and item.get("@id") == OFFICIAL_LIST_ID for item in mentions):
+            mentions.append({"@id": OFFICIAL_LIST_ID})
+        site["mentions"] = mentions
+    aziel = ids.get(PERSON_ID)
+    if isinstance(aziel, dict):
+        stamp_person_association(aziel)
+    return data
+
+
+def official_sister_map_rows() -> list[dict]:
+    from aziel_living import OFFICIAL_SISTER_SITES
+
+    return list(OFFICIAL_SISTER_SITES)
 
 
 def _insert_after_each(text: str, needle: str, addition: str, marker: str) -> str:
@@ -1653,8 +1807,30 @@ def ensure_machine_class(text: str) -> str:
     return text
 
 
+def ensure_one_person_lock(text: str) -> str:
+    """Put the one-person + official sister set where a crawler reads first."""
+    block = one_person_block()
+    if ONE_PERSON_HEAD in text and ONE_PERSON_END in text:
+        return re.sub(
+            rf"{re.escape(ONE_PERSON_HEAD)}\n[\s\S]*?{re.escape(ONE_PERSON_END)}\n?",
+            block,
+            text,
+            count=1,
+        )
+    anchors = (
+        "## Query-relevant URLs",
+        "## Zioncheck query URLs",
+        "Search resolution (assistants and crawlers):",
+    )
+    for anchor in anchors:
+        if anchor in text:
+            return text.replace(anchor, block + "\n" + anchor, 1)
+    return text.rstrip() + "\n\n" + block
+
+
 def patch_txt(text: str, *, ai: bool = False) -> str:
     text = rewrite_stack(text)
+    text = ensure_one_person_lock(text)
     if WHAT_AZIEL_ELIAB_DOES_OLD in text:
         text = text.replace(WHAT_AZIEL_ELIAB_DOES_OLD, WHAT_AZIEL_ELIAB_DOES)
     if SPECTRALLOCK_ADDENDUM_OLD in text:
@@ -1716,6 +1892,23 @@ def write_trees() -> None:
                             node["why_aziel_eliab"] = WHY_AZIEL_ELIAB
                 if rel == "graph.jsonld":
                     data = upsert_graph_faq(data)
+                    data = upsert_official_sisters(data)
+                if rel in ("identity.jsonld", ".well-known/aziel.json"):
+                    data["one_person"] = ONE_PERSON_LOCK
+                    data["official_sisters"] = official_sister_map()
+                    if data.get("@id") == PERSON_ID:
+                        stamp_person_association(data)
+                    surfaces = data.get("surfaces")
+                    if isinstance(surfaces, dict):
+                        surfaces["person_well_known"] = (
+                            "https://www.hedidntjump.com/.well-known/person.jsonld"
+                        )
+                    person = data.get("person")
+                    if isinstance(person, dict):
+                        stamp_person_association(person)
+                    main_entity = data.get("mainEntity")
+                    if isinstance(main_entity, dict) and main_entity is not person:
+                        stamp_person_association(main_entity)
             data = walk_mission(data)
             data = walk_knows_about(data)
             path.write_text(dumps(data), encoding="utf-8")
@@ -1750,6 +1943,9 @@ def write_trees() -> None:
     from write_cross_cite import apply_trees
 
     apply_trees()
+    from write_identity_machine import publish_well_known_person
+
+    publish_well_known_person()
 
 
 if __name__ == "__main__":

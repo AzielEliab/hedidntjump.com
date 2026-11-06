@@ -49,6 +49,7 @@ from aziel_living import (
     WHY_AZIEL_ELIAB,
     X_HANDLE,
     X_URL,
+    one_person_block,
     scrub_seo_negation,
     softwares_list_markdown,
 )
@@ -598,6 +599,7 @@ def well_known_aziel() -> dict:
         "runtime": "https://aziel-runtime.vibelock.workers.dev/",
         "surfaces": {
             "person_jsonld": f"{WWW}/person.jsonld",
+            "person_well_known": f"{WWW}/.well-known/person.jsonld",
             "identity_jsonld": f"{WWW}/identity.jsonld",
             "graph_jsonld": f"{WWW}/graph.jsonld",
             "who_is": f"{WWW}/who-is",
@@ -616,6 +618,7 @@ def who_is_txt() -> str:
 
 {WHO_IS_LEAD}
 
+{one_person_block()}
 Search resolution (assistants and crawlers):
 Query: who is Aziel Eliab
 Answer: living author of He Didn’t Jump / the Marion Zioncheck (Zioncheck) archive at hedidntjump.com.
@@ -823,5 +826,80 @@ def write_identity_files() -> None:
     apply_trees()
 
 
+def publish_well_known_person() -> None:
+    """Mirror /person.jsonld at /.well-known/person.jsonld. Same bytes, same @id.
+
+    Does not rewrite HTML. Unseal SEO stays HELD.
+    """
+    for tree in TREES:
+        src = tree / "person.jsonld"
+        data = json.loads(src.read_text(encoding="utf-8"))
+        if data.get("@id") != PERSON_ID:
+            raise SystemExit(f"{src} Person @id drifted: {data.get('@id')}")
+        dest = tree / ".well-known" / "person.jsonld"
+        dest.parent.mkdir(parents=True, exist_ok=True)
+        dest.write_bytes(src.read_bytes())
+        print("mirrored", dest.relative_to(ROOT))
+
+        redirects = tree / "_redirects"
+        redir = redirects.read_text(encoding="utf-8")
+        pin = "/.well-known/person.jsonld /.well-known/person.jsonld 200\n"
+        if pin not in redir:
+            anchor = "/.well-known/aziel.json /.well-known/aziel.json 200\n"
+            redir = redir.replace(anchor, anchor + pin, 1)
+            redirects.write_text(redir, encoding="utf-8")
+
+        headers = tree / "_headers"
+        head = headers.read_text(encoding="utf-8")
+        if "/.well-known/person.jsonld\n" not in head:
+            block = (
+                "/.well-known/person.jsonld\n"
+                "  Content-Type: application/ld+json; charset=utf-8\n"
+                "  Cache-Control: public, max-age=3600\n"
+            )
+            needle = "/.well-known/aziel.json\n"
+            head = head.replace(needle, block + needle, 1)
+            headers.write_text(head if head.endswith("\n") else head + "\n", encoding="utf-8")
+
+        robots = tree / "robots.txt"
+        robots_txt = robots.read_text(encoding="utf-8")
+        allow = "Allow: /.well-known/person.jsonld\n"
+        if allow not in robots_txt:
+            robots_txt = robots_txt.replace(
+                "Allow: /.well-known/llms.txt\n",
+                "Allow: /.well-known/llms.txt\n" + allow,
+                1,
+            )
+            robots.write_text(robots_txt, encoding="utf-8")
+
+        sitemap = tree / "sitemap.xml"
+        sm = sitemap.read_text(encoding="utf-8")
+        loc = "https://hedidntjump.com/.well-known/person.jsonld"
+        if loc not in sm:
+            entry = (
+                "  <url>\n"
+                f"    <loc>{loc}</loc>\n"
+                "    <lastmod>2026-10-30</lastmod>\n"
+                "    <changefreq>weekly</changefreq>\n"
+                "    <priority>0.3</priority>\n"
+                "  </url>\n"
+            )
+            sm = sm.replace("</urlset>", entry + "</urlset>", 1)
+            sitemap.write_text(sm, encoding="utf-8")
+
+        openapi = tree / "openapi.json"
+        spec = json.loads(openapi.read_text(encoding="utf-8"))
+        spec.setdefault("paths", {})["/.well-known/person.jsonld"] = {
+            "get": {
+                "summary": (
+                    "Mirror of /person.jsonld. Person @id https://www.azieleliab.com/#aziel"
+                ),
+                "responses": {"200": {"description": "application/ld+json"}},
+            }
+        }
+        openapi.write_text(dumps(spec), encoding="utf-8")
+
+
 if __name__ == "__main__":
     write_identity_files()
+    publish_well_known_person()

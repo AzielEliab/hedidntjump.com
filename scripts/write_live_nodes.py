@@ -24,9 +24,9 @@ HDJ_INGEST_TIP = "ef967e4acb47ba913ce3959b673767278da605b307de33210b2dc2f1cfd86f
 TTL_SECONDS = 60
 SOT_URL = "https://aziel-runtime.vibelock.workers.dev/v1/mesh"
 RUNTIME_PR = "https://github.com/AzielEliab/aziel-runtime/pull/151"
-RUNTIME_GIT_SHA = "31ccb56b6c01647f434a9981c9843602c5967899"
-RUNTIME_GIT_SHORT = "31ccb56"
-RUNTIME_VERSION_ID = "d7b63ac1"
+RUNTIME_GIT_SHA = "16b543b5961f03813076e38ff19d883d46845c48"
+RUNTIME_GIT_SHORT = "16b543b5"
+RUNTIME_VERSION_ID = "21b64dc5"
 LAMB_LENS = "https://www.azielcorpuslibrary.net/corpus"
 UA = "Mozilla/5.0"
 
@@ -140,6 +140,11 @@ def hub_wrap(sot: dict[str, Any] | None, *, pulled: bool) -> dict[str, Any]:
         "runtime_git_sha": RUNTIME_GIT_SHA,
         "runtime_git_short": RUNTIME_GIT_SHORT,
         "runtime_version_id": RUNTIME_VERSION_ID,
+        "pin_note": (
+            "Current Softwares pin is the Dual re-lock 16b543b5 / 21b64dc5. "
+            "pull/151 stays the historical hub-cite PR and is not this git object. "
+            "Worker version_id 21b64dc5 was declared, not observed by a live Worker GET."
+        ),
         "live_nodes_plane": LIVE_NODES_PLANE,
         "software_nodes_plane": SOFTWARE_NODES_PLANE,
         "live_nodes": live_nodes,
@@ -525,6 +530,39 @@ def patch_readme() -> None:
         text = text.replace(marker, line + "\n" + marker, 1)
     path.write_text(text, encoding="utf-8")
     print("readme", path.relative_to(ROOT))
+
+
+def refresh_declared_pins() -> None:
+    """Stamp the Dual Softwares pin onto existing hub files. Does not GET the worker."""
+    note = (
+        "Current Softwares pin is the Dual re-lock 16b543b5 / 21b64dc5. "
+        "pull/151 stays the historical hub-cite PR and is not this git object. "
+        "Worker version_id 21b64dc5 was declared, not observed by a live Worker GET."
+    )
+    for tree in TREES:
+        mesh_path = tree / "mesh.json"
+        mesh = json.loads(mesh_path.read_text(encoding="utf-8"))
+        mesh["runtime_git_sha"] = RUNTIME_GIT_SHA
+        mesh["runtime_git_short"] = RUNTIME_GIT_SHORT
+        mesh["runtime_version_id"] = RUNTIME_VERSION_ID
+        mesh["pin_note"] = note
+        mesh_path.write_text(dumps(mesh), encoding="utf-8")
+        cite_path = tree / "cite.json"
+        cite = json.loads(cite_path.read_text(encoding="utf-8"))
+        live = cite.get("live_nodes")
+        if isinstance(live, dict):
+            live["runtime_git_sha"] = RUNTIME_GIT_SHA
+            live["runtime_git_short"] = RUNTIME_GIT_SHORT
+            live["runtime_version_id"] = RUNTIME_VERSION_ID
+            live["pin_note"] = note
+            cite_path.write_text(dumps(cite), encoding="utf-8")
+        wk_path = tree / ".well-known" / "aziel.json"
+        well = json.loads(wk_path.read_text(encoding="utf-8"))
+        nodes = well.get("live_nodes")
+        if isinstance(nodes, dict):
+            nodes["runtime_version_id"] = RUNTIME_VERSION_ID
+            wk_path.write_text(dumps(well), encoding="utf-8")
+        print("pin", tree.name)
 
 
 def main() -> None:

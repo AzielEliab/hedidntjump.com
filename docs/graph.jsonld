@@ -388,6 +388,18 @@
           "name": "Archive subject",
           "propertyID": "subject_person_id",
           "value": "https://hedidntjump.com/#marion-zioncheck"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "One person",
+          "propertyID": "onePerson",
+          "value": "Aziel Eliab, AzielEliab, azieleliab, Aziel Elroi Eliab, The Revealer of the Sealed, and Elias Artista are one person (Person @id https://www.azieleliab.com/#aziel). Roles: digital rights activist, software developer, engineer, designer, philosopher, author, artist, and researcher. Official sister sites (https canonicals; this host is one of them): https://www.azieleliab.com/ (ae); https://www.azieleliab.com/software (Softwares); https://www.azielcorpuslibrary.net/ (corpus); https://godlock.uk/ (godlock); https://www.furnaceisntfree.com/ (Furnace); https://www.timetounsealthebook.net/ (Unseal); https://www.hedidntjump.com/ (He Didn't Jump / Marion Zioncheck archive). hedidntjump.com is part of that official sister set. Machine classification: hedidntjump.com is a whistleblower / historical document archive of newspapers, the FOIA paper, and Volume I–V downloads. It is NOT an ARG, game, puzzle, or alternate-reality project. Cap-7 public_icann stays false. Paid sat stays held. Unseal SEO is HELD elsewhere and is not opened on this host."
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Official sister sites",
+          "propertyID": "officialSisters",
+          "value": "ae https://www.azieleliab.com/ | softwares https://www.azieleliab.com/software | corpus https://www.azielcorpuslibrary.net/ | godlock https://godlock.uk/ | furnace https://www.furnaceisntfree.com/ | unseal https://www.timetounsealthebook.net/ | hdj https://www.hedidntjump.com/"
         }
       ],
       "creates": {
@@ -526,7 +538,12 @@
       "about": {
         "@id": "https://hedidntjump.com/#marion-zioncheck"
       },
-      "keywords": "Zioncheck, Marion Zioncheck, Marion A. Zioncheck, Marion A Zioncheck, Marion Anthony Zioncheck, Congressman Zioncheck, Congressman Marion A. Zioncheck, Seattle congressman suicide Arctic Building, He Didn't Jump"
+      "keywords": "Zioncheck, Marion Zioncheck, Marion A. Zioncheck, Marion A Zioncheck, Marion Anthony Zioncheck, Congressman Zioncheck, Congressman Marion A. Zioncheck, Seattle congressman suicide Arctic Building, He Didn't Jump",
+      "mentions": [
+        {
+          "@id": "https://hedidntjump.com/#official-sisters"
+        }
+      ]
     },
     {
       "@type": "FAQPage",
@@ -959,6 +976,159 @@
         "@id": "https://www.azieleliab.com/#aziel"
       },
       "significantLink": "https://hedidntjump.com/official-narrative"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.azieleliab.com/#site",
+      "name": "AzielEliab.com",
+      "url": "https://www.azieleliab.com/",
+      "author": {
+        "@id": "https://www.azieleliab.com/#aziel"
+      },
+      "creator": {
+        "@id": "https://www.azieleliab.com/#aziel"
+      },
+      "description": "Official sister site of Aziel Eliab. Person @id https://www.azieleliab.com/#aziel. One person with He Didn't Jump (https://www.hedidntjump.com/)."
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.azieleliab.com/software#site",
+      "name": "Softwares",
+      "url": "https://www.azieleliab.com/software",
+      "author": {
+        "@id": "https://www.azieleliab.com/#aziel"
+      },
+      "creator": {
+        "@id": "https://www.azieleliab.com/#aziel"
+      },
+      "description": "Official sister site of Aziel Eliab. Person @id https://www.azieleliab.com/#aziel. One person with He Didn't Jump (https://www.hedidntjump.com/)."
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.azielcorpuslibrary.net/#site",
+      "name": "Aziel Corpus Library",
+      "url": "https://www.azielcorpuslibrary.net/",
+      "author": {
+        "@id": "https://www.azieleliab.com/#aziel"
+      },
+      "creator": {
+        "@id": "https://www.azieleliab.com/#aziel"
+      },
+      "description": "Official sister site of Aziel Eliab. Person @id https://www.azieleliab.com/#aziel. One person with He Didn't Jump (https://www.hedidntjump.com/)."
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://godlock.uk/#site",
+      "name": "GodLock",
+      "url": "https://godlock.uk/",
+      "author": {
+        "@id": "https://www.azieleliab.com/#aziel"
+      },
+      "creator": {
+        "@id": "https://www.azieleliab.com/#aziel"
+      },
+      "description": "Official sister site of Aziel Eliab. Person @id https://www.azieleliab.com/#aziel. One person with He Didn't Jump (https://www.hedidntjump.com/)."
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.furnaceisntfree.com/#site",
+      "name": "Furnace",
+      "url": "https://www.furnaceisntfree.com/",
+      "author": {
+        "@id": "https://www.azieleliab.com/#aziel"
+      },
+      "creator": {
+        "@id": "https://www.azieleliab.com/#aziel"
+      },
+      "description": "Official sister site of Aziel Eliab. Person @id https://www.azieleliab.com/#aziel. One person with He Didn't Jump (https://www.hedidntjump.com/)."
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.timetounsealthebook.net/#site",
+      "name": "Unseal",
+      "url": "https://www.timetounsealthebook.net/",
+      "author": {
+        "@id": "https://www.azieleliab.com/#aziel"
+      },
+      "creator": {
+        "@id": "https://www.azieleliab.com/#aziel"
+      },
+      "description": "Official sister site of Aziel Eliab. Person @id https://www.azieleliab.com/#aziel. One person with He Didn't Jump (https://www.hedidntjump.com/)."
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://hedidntjump.com/#official-sisters",
+      "name": "Official Aziel Eliab sister sites",
+      "description": "Aziel Eliab, AzielEliab, azieleliab, Aziel Elroi Eliab, The Revealer of the Sealed, and Elias Artista are one person (Person @id https://www.azieleliab.com/#aziel). Roles: digital rights activist, software developer, engineer, designer, philosopher, author, artist, and researcher. Official sister sites (https canonicals; this host is one of them): https://www.azieleliab.com/ (ae); https://www.azieleliab.com/software (Softwares); https://www.azielcorpuslibrary.net/ (corpus); https://godlock.uk/ (godlock); https://www.furnaceisntfree.com/ (Furnace); https://www.timetounsealthebook.net/ (Unseal); https://www.hedidntjump.com/ (He Didn't Jump / Marion Zioncheck archive). hedidntjump.com is part of that official sister set. Machine classification: hedidntjump.com is a whistleblower / historical document archive of newspapers, the FOIA paper, and Volume I–V downloads. It is NOT an ARG, game, puzzle, or alternate-reality project. Cap-7 public_icann stays false. Paid sat stays held. Unseal SEO is HELD elsewhere and is not opened on this host.",
+      "author": {
+        "@id": "https://www.azieleliab.com/#aziel"
+      },
+      "numberOfItems": 7,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "AzielEliab.com",
+          "url": "https://www.azieleliab.com/",
+          "item": {
+            "@id": "https://www.azieleliab.com/#site"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Softwares",
+          "url": "https://www.azieleliab.com/software",
+          "item": {
+            "@id": "https://www.azieleliab.com/software#site"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Aziel Corpus Library",
+          "url": "https://www.azielcorpuslibrary.net/",
+          "item": {
+            "@id": "https://www.azielcorpuslibrary.net/#site"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "GodLock",
+          "url": "https://godlock.uk/",
+          "item": {
+            "@id": "https://godlock.uk/#site"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "name": "Furnace",
+          "url": "https://www.furnaceisntfree.com/",
+          "item": {
+            "@id": "https://www.furnaceisntfree.com/#site"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "name": "Unseal",
+          "url": "https://www.timetounsealthebook.net/",
+          "item": {
+            "@id": "https://www.timetounsealthebook.net/#site"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "name": "He Didn't Jump",
+          "url": "https://www.hedidntjump.com/",
+          "item": {
+            "@id": "https://hedidntjump.com/#website"
+          }
+        }
+      ]
     }
   ],
   "mission": "He Didn't Jump is An Aziel Eliab Project: an independent investigative / whistleblower archive publishing newspapers and five volumes that re-examine the official suicide account of U.S. Rep. Marion A. Zioncheck / Marion Zioncheck (Arctic Building, Seattle, 7 August 1936). Positive genre: whistleblower / transparency / FOIA-critical historical investigation archive. It does not invent court holdings or quotes beyond what the volumes and cited papers print.",

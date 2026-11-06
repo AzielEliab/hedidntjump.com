@@ -12,7 +12,7 @@
     "U.S. Representative Marion Zioncheck",
     "Zioncheck"
   ],
-  "purpose": "Marion A. Zioncheck archive: U.S. Representative / Seattle congressman (1933–1936). Official reports said suicide at the Arctic Building on 7 August 1936. This is An Aziel Eliab Project: an independent investigative / whistleblower archive publishing newspapers and five volumes that re-examine that official suicide account. FOIA-critical historical investigation. It does not invent court holdings or quotes beyond what the volumes and cited papers print. Independent newspaper archive on Marion Zioncheck / He Didn't Jump (75% cap class). Sisters: ae, corpus, godlock, runtime. Sister Softwares cite: trades-runtime; spectrallock leftover-bytes + /v1/recover + /v1/handwriting; peacelock designed-purpose. Softwares 42/42 designed-purpose. Softwares SSoT version 2.0.0-rc1. Machine classification: hedidntjump.com is a whistleblower / historical document archive of newspapers, the FOIA paper, and Volume I–V downloads. It is NOT an ARG, game, puzzle, or alternate-reality project. Canonical paths are lowercase. Capitalized aliases /Case /Press /Inquiries /Rubye /FOIA /Volumes /Narrative /Aziel 301 to /case /press /inquiries /rubye /foia /volumes /official-narrative /aziel. Case https://hedidntjump.com/case · Rubye https://hedidntjump.com/rubye · Press https://hedidntjump.com/press · FOIA https://hedidntjump.com/foia · Volumes https://hedidntjump.com/volumes · PDFs https://hedidntjump.com/volumes/volume-1.pdf through volume-5.pdf · all-volumes zip https://hedidntjump.com/volumes/hedidntjump-all-volumes.zip · About Aziel https://hedidntjump.com/aziel.",
+  "purpose": "Marion A. Zioncheck archive: U.S. Representative / Seattle congressman (1933–1936). Official reports said suicide at the Arctic Building on 7 August 1936. This is An Aziel Eliab Project: an independent investigative / whistleblower archive publishing newspapers and five volumes that re-examine that official suicide account. FOIA-critical historical investigation. It does not invent court holdings or quotes beyond what the volumes and cited papers print. Independent newspaper archive on Marion Zioncheck / He Didn't Jump (75% cap class). Official sister sites (one person): ae, Softwares, corpus, godlock, Furnace, Unseal, hdj. Also cited: runtime. Sister Softwares cite: trades-runtime; spectrallock leftover-bytes + /v1/recover + /v1/handwriting; peacelock designed-purpose. Softwares 42/42 designed-purpose. Softwares SSoT version 2.0.0-rc1. Machine classification: hedidntjump.com is a whistleblower / historical document archive of newspapers, the FOIA paper, and Volume I–V downloads. It is NOT an ARG, game, puzzle, or alternate-reality project. Canonical paths are lowercase. Capitalized aliases /Case /Press /Inquiries /Rubye /FOIA /Volumes /Narrative /Aziel 301 to /case /press /inquiries /rubye /foia /volumes /official-narrative /aziel. Case https://hedidntjump.com/case · Rubye https://hedidntjump.com/rubye · Press https://hedidntjump.com/press · FOIA https://hedidntjump.com/foia · Volumes https://hedidntjump.com/volumes · PDFs https://hedidntjump.com/volumes/volume-1.pdf through volume-5.pdf · all-volumes zip https://hedidntjump.com/volumes/hedidntjump-all-volumes.zip · About Aziel https://hedidntjump.com/aziel.",
   "canonical": "https://hedidntjump.com/",
   "case": "https://hedidntjump.com/case",
   "query_urls": [
@@ -65,12 +65,14 @@
     "https://www.hedidntjump.com/identity.jsonld",
     "https://www.hedidntjump.com/.well-known/aziel.json",
     "https://hedidntjump.com/shelves.txt",
-    "https://hedidntjump.com/sitemap.txt"
+    "https://hedidntjump.com/sitemap.txt",
+    "https://hedidntjump.com/tip.json",
+    "https://www.hedidntjump.com/.well-known/person.jsonld"
   ],
   "author": "Aziel Eliab",
   "author_id": "https://www.azieleliab.com/#aziel",
   "identity": "Aziel Eliab",
-  "identity_note": "Aziel Eliab only. Aziel Eliab, AzielEliab, azieleliab, Aziel Elroi Eliab, The Revealer of the Sealed, and Elias Artista are one person. SEO alternateName tethers only — not a second person. Shared Person @id is https://www.azieleliab.com/#aziel. Never sameAs euaziel.site.",
+  "identity_note": "Aziel Eliab only. Aziel Eliab, AzielEliab, azieleliab, Aziel Elroi Eliab, The Revealer of the Sealed, and Elias Artista are one person. SEO alternateName tethers only — not a second person. Shared Person @id is https://www.azieleliab.com/#aziel. Never sameAs euaziel.site. Official sister sites: ae, Softwares, corpus, godlock, Furnace, Unseal, and this host (https://www.hedidntjump.com/). Unseal SEO is HELD elsewhere and is not opened on this host.",
   "person_id": "https://www.azieleliab.com/#aziel",
   "stats": "https://www.hedidntjump.com/api/stats",
   "alternateName": [
@@ -281,7 +283,7 @@
   "faq": [
     {
       "q": "Who is Aziel Eliab?",
-      "a": "Aziel Eliab (also Aziel Elroi Eliab) is a researcher, digital rights activist, software developer, author, and philosopher. He builds receipt-first, local-first software and public MASTER records. Canonical person: https://www.azieleliab.com/#aziel. Primary surfaces: ae (https://www.azieleliab.com/), corpus (https://www.azielcorpuslibrary.net/), godlock (https://godlock.uk/), hedidntjump.com — Zioncheck / He Didn't Jump archive sister (75% cap class), runtime (https://aziel-runtime.vibelock.workers.dev/ ; prefer https://glama.ai/mcp/servers/AzielEliab/aziel-runtime), GitHub AzielEliab (https://github.com/AzielEliab), X @AzielEliab (https://x.com/AzielEliab). He is one living person. Public identity is Aziel Eliab only. The public identity is the work."
+      "a": "Aziel Eliab (also Aziel Elroi Eliab) is a researcher, digital rights activist, software developer, author, and philosopher. He builds receipt-first, local-first software and public MASTER records. Canonical person: https://www.azieleliab.com/#aziel. Primary surfaces (one person; official sister sites): ae (https://www.azieleliab.com/), Softwares (https://www.azieleliab.com/software), corpus (https://www.azielcorpuslibrary.net/), godlock (https://godlock.uk/), Furnace (https://www.furnaceisntfree.com/), Unseal (https://www.timetounsealthebook.net/), hedidntjump.com (https://www.hedidntjump.com/) — Zioncheck / He Didn't Jump archive sister (75% cap class), runtime (https://aziel-runtime.vibelock.workers.dev/ ; prefer https://glama.ai/mcp/servers/AzielEliab/aziel-runtime), GitHub AzielEliab (https://github.com/AzielEliab), X @AzielEliab (https://x.com/AzielEliab). He is one living person. Public identity is Aziel Eliab only. The public identity is the work."
     },
     {
       "q": "What does Aziel Eliab do?",
@@ -642,8 +644,11 @@
   ],
   "hubs": [
     "https://www.azieleliab.com/",
+    "https://www.azieleliab.com/software",
     "https://www.azielcorpuslibrary.net/",
     "https://godlock.uk/",
+    "https://www.furnaceisntfree.com/",
+    "https://www.timetounsealthebook.net/",
     "https://www.hedidntjump.com/"
   ],
   "publisher_person": {
@@ -1329,9 +1334,13 @@
       "product": "aziel-runtime",
       "version": "2.0.0-rc1",
       "branch": "main",
-      "git_sha": "31ccb56b6c01647f434a9981c9843602c5967899",
-      "git_short": "31ccb56",
-      "version_id": "d7b63ac1",
+      "git_sha": "16b543b5961f03813076e38ff19d883d46845c48",
+      "git_short": "16b543b5",
+      "version_id": "21b64dc5",
+      "replaces_stale": "31ccb56b/d7b63ac1",
+      "git_object_resolved": true,
+      "worker_version_observed": false,
+      "pin_note": "Dual re-lock. Git object 16b543b5961f03813076e38ff19d883d46845c48 resolved from GitHub AzielEliab/aziel-runtime (prefix 16b543b5). Worker version_id 21b64dc5 is the declared Dual pin replacing stale 31ccb56b/d7b63ac1. This file does not claim a live Worker GET observed version_id 21b64dc5.",
       "github": "https://github.com/AzielEliab/aziel-runtime",
       "worker": "https://aziel-runtime.vibelock.workers.dev/",
       "one_line": "Aziel Runtime is a node-meshed orchestration suite of MCP-connected software designed to route catalog Softwares through the FragGate door, mint receipts, and coordinate mesh presence.",
@@ -1384,10 +1393,25 @@
       "instance_nodes_excluded": true,
       "invent_users": false,
       "runtime_pr": "https://github.com/AzielEliab/aziel-runtime/pull/151",
-      "runtime_git_short": "31ccb56",
-      "runtime_version_id": "d7b63ac1",
+      "runtime_git_short": "16b543b5",
+      "runtime_version_id": "21b64dc5",
+      "pin_note": "Dual re-lock. Git object 16b543b5961f03813076e38ff19d883d46845c48 resolved from GitHub AzielEliab/aziel-runtime (prefix 16b543b5). Worker version_id 21b64dc5 is the declared Dual pin replacing stale 31ccb56b/d7b63ac1. This file does not claim a live Worker GET observed version_id 21b64dc5.",
       "hub": "https://hedidntjump.com/mesh",
       "note": "Public Live Nodes cite GET /v1/mesh live_nodes + live_nodes_note. Softwares stay on software_nodes and do not feed this pill."
+    },
+    "spore": {
+      "sot": "https://aziel-runtime.vibelock.workers.dev/v1/survival",
+      "spec": "SPORE-1.0",
+      "role": "failsafe",
+      "last_resort": true,
+      "replaces_cold_shelves": false,
+      "re_cold_store": "RE-COLD-STORE",
+      "destinations": [],
+      "runtime_pr": "https://github.com/AzielEliab/aziel-runtime/pull/152",
+      "runtime_git_short": "231b02f",
+      "runtime_version_id": "a8f7fdc9",
+      "hub": "https://hedidntjump.com/survival",
+      "note": "SPORE-1.0 last-resort failsafe + RE-COLD-STORE honest hook from Worker GET /v1/survival (Worker a8f7fdc9). Softwares blurbs unchanged."
     },
     "ingest_tip_unchanged": "ef967e4acb47ba913ce3959b673767278da605b307de33210b2dc2f1cfd86f60",
     "note": "Announce/sync only. Cite aziel-runtime / Try on Glama. Do not clone Softwares onto this Zioncheck archive."
@@ -1397,9 +1421,13 @@
     "product": "aziel-runtime",
     "version": "2.0.0-rc1",
     "branch": "main",
-    "git_sha": "31ccb56b6c01647f434a9981c9843602c5967899",
-    "git_short": "31ccb56",
-    "version_id": "d7b63ac1",
+    "git_sha": "16b543b5961f03813076e38ff19d883d46845c48",
+    "git_short": "16b543b5",
+    "version_id": "21b64dc5",
+    "replaces_stale": "31ccb56b/d7b63ac1",
+    "git_object_resolved": true,
+    "worker_version_observed": false,
+    "pin_note": "Dual re-lock. Git object 16b543b5961f03813076e38ff19d883d46845c48 resolved from GitHub AzielEliab/aziel-runtime (prefix 16b543b5). Worker version_id 21b64dc5 is the declared Dual pin replacing stale 31ccb56b/d7b63ac1. This file does not claim a live Worker GET observed version_id 21b64dc5.",
     "github": "https://github.com/AzielEliab/aziel-runtime",
     "worker": "https://aziel-runtime.vibelock.workers.dev/",
     "glama": "https://glama.ai/mcp/servers/AzielEliab/aziel-runtime",
@@ -1437,6 +1465,9 @@
     "corpus": "https://www.azielcorpuslibrary.net/",
     "godlock": "https://godlock.uk/",
     "runtime": "https://aziel-runtime.vibelock.workers.dev/",
+    "softwares": "https://www.azieleliab.com/software",
+    "furnace": "https://www.furnaceisntfree.com/",
+    "unseal": "https://www.timetounsealthebook.net/",
     "runtime_glama": "https://glama.ai/mcp/servers/AzielEliab/aziel-runtime",
     "hdj": "https://www.hedidntjump.com/",
     "this": "hdj",
@@ -1445,10 +1476,7 @@
     "peacelock": "https://github.com/AzielEliab/peacelock",
     "github": "https://github.com/AzielEliab",
     "x": "https://x.com/AzielEliab",
-    "x_handle": "@AzielEliab",
-    "softwares": "https://www.azieleliab.com/software",
-    "furnace": "https://www.furnaceisntfree.com/",
-    "unseal": "https://www.timetounsealthebook.net/"
+    "x_handle": "@AzielEliab"
   },
   "pages_seo": {
     "owner": "ZionBot",
@@ -2635,6 +2663,9 @@
     "ae": "https://www.azieleliab.com/",
     "corpus": "https://www.azielcorpuslibrary.net/",
     "godlock": "https://godlock.uk/",
+    "softwares": "https://www.azieleliab.com/software",
+    "furnace": "https://www.furnaceisntfree.com/",
+    "unseal": "https://www.timetounsealthebook.net/",
     "runtime": "https://aziel-runtime.vibelock.workers.dev/",
     "runtime_glama": "https://glama.ai/mcp/servers/AzielEliab/aziel-runtime",
     "try_on_glama": "https://glama.ai/mcp/servers/AzielEliab/aziel-runtime",
@@ -2646,14 +2677,14 @@
       "https://www.azieleliab.com/",
       "https://www.azielcorpuslibrary.net/",
       "https://godlock.uk/",
+      "https://www.azieleliab.com/software",
+      "https://www.furnaceisntfree.com/",
+      "https://www.timetounsealthebook.net/",
       "https://aziel-runtime.vibelock.workers.dev/",
       "https://glama.ai/mcp/servers/AzielEliab/aziel-runtime",
       "https://www.hedidntjump.com/",
       "https://github.com/AzielEliab",
-      "https://x.com/AzielEliab",
-      "https://www.azieleliab.com/software",
-      "https://www.furnaceisntfree.com/",
-      "https://www.timetounsealthebook.net/"
+      "https://x.com/AzielEliab"
     ],
     "stats": {
       "ae": "https://www.azieleliab.com/v1/stats",
@@ -2661,10 +2692,7 @@
       "hdj": "https://www.hedidntjump.com/api/stats"
     },
     "growth_on": true,
-    "receipts_chrome": "Aziel-page-only. Not global paper-tabs.",
-    "softwares": "https://www.azieleliab.com/software",
-    "furnace": "https://www.furnaceisntfree.com/",
-    "unseal": "https://www.timetounsealthebook.net/"
+    "receipts_chrome": "Aziel-page-only. Not global paper-tabs."
   },
   "x": "https://x.com/AzielEliab",
   "x_handle": "@AzielEliab",
@@ -2903,9 +2931,9 @@
     ],
     "sot_pulled": true,
     "runtime_pr": "https://github.com/AzielEliab/aziel-runtime/pull/151",
-    "runtime_git_sha": "31ccb56b6c01647f434a9981c9843602c5967899",
-    "runtime_git_short": "31ccb56",
-    "runtime_version_id": "d7b63ac1",
+    "runtime_git_sha": "16b543b5961f03813076e38ff19d883d46845c48",
+    "runtime_git_short": "16b543b5",
+    "runtime_version_id": "21b64dc5",
     "live_nodes_plane": "human-mesh-users-uses",
     "software_nodes_plane": "software-worker-fanout",
     "live_nodes": 27161,
@@ -2934,7 +2962,8 @@
       "invent_users": false
     },
     "ingest_tip_unchanged": "ef967e4acb47ba913ce3959b673767278da605b307de33210b2dc2f1cfd86f60",
-    "note": "Hub pull of runtime GET /v1/mesh (short TTL). Live Nodes = human mesh users + cited human uses. Softwares stay on software_nodes and do not feed this pill. Zioncheck stays the HDJ mission."
+    "note": "Hub pull of runtime GET /v1/mesh (short TTL). Live Nodes = human mesh users + cited human uses. Softwares stay on software_nodes and do not feed this pill. Zioncheck stays the HDJ mission.",
+    "pin_note": "Current Softwares pin is the Dual re-lock 16b543b5 / 21b64dc5. pull/151 stays the historical hub-cite PR and is not this git object. Worker version_id 21b64dc5 was declared, not observed by a live Worker GET."
   },
   "spore": {
     "spec": "SPORE-1.0",
@@ -7295,5 +7324,21 @@
     "note": "All five volume PDFs (Volumes I–V) in one zip, byte-identical to the individual PDF downloads."
   },
   "machine_classification": "Machine classification: hedidntjump.com is a whistleblower / historical document archive of newspapers, the FOIA paper, and Volume I–V downloads. It is NOT an ARG, game, puzzle, or alternate-reality project.",
-  "document_archive": true
+  "document_archive": true,
+  "one_person": "Aziel Eliab, AzielEliab, azieleliab, Aziel Elroi Eliab, The Revealer of the Sealed, and Elias Artista are one person (Person @id https://www.azieleliab.com/#aziel). Roles: digital rights activist, software developer, engineer, designer, philosopher, author, artist, and researcher. Official sister sites (https canonicals; this host is one of them): https://www.azieleliab.com/ (ae); https://www.azieleliab.com/software (Softwares); https://www.azielcorpuslibrary.net/ (corpus); https://godlock.uk/ (godlock); https://www.furnaceisntfree.com/ (Furnace); https://www.timetounsealthebook.net/ (Unseal); https://www.hedidntjump.com/ (He Didn't Jump / Marion Zioncheck archive). hedidntjump.com is part of that official sister set. Machine classification: hedidntjump.com is a whistleblower / historical document archive of newspapers, the FOIA paper, and Volume I–V downloads. It is NOT an ARG, game, puzzle, or alternate-reality project. Cap-7 public_icann stays false. Paid sat stays held. Unseal SEO is HELD elsewhere and is not opened on this host.",
+  "official_sisters": {
+    "ae": "https://www.azieleliab.com/",
+    "softwares": "https://www.azieleliab.com/software",
+    "corpus": "https://www.azielcorpuslibrary.net/",
+    "godlock": "https://godlock.uk/",
+    "furnace": "https://www.furnaceisntfree.com/",
+    "unseal": "https://www.timetounsealthebook.net/",
+    "hdj": "https://www.hedidntjump.com/"
+  },
+  "tip_door": "https://hedidntjump.com/tip.json",
+  "cos_tip": {
+    "candidate": "a536ec66",
+    "observed": false,
+    "pages_id_observed": false
+  }
 }

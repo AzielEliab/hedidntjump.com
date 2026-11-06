@@ -30,6 +30,15 @@ Allow: /cite.json
 Allow: /llms.txt
 Allow: /llms-full.txt
 Allow: /ai.txt
+Allow: /who-is
+Allow: /who-is-aziel-eliab.txt
+Allow: /person.jsonld
+Allow: /identity.jsonld
+Allow: /graph.jsonld
+Allow: /.well-known/aziel.json
+Allow: /works.json
+Allow: /tip.json
+Allow: /.well-known/tip.json
 Allow: /help.txt
 Allow: /addendum.txt
 Allow: /help/how-to-read.txt
@@ -37,6 +46,7 @@ Allow: /openapi.json
 Allow: /receipts
 Allow: /ingest-as-receipt.json
 Allow: /.well-known/llms.txt
+Allow: /.well-known/person.jsonld
 Disallow: /api/
 Disallow: /functions/
 Content-Signal: search=yes, ai-input=yes, ai-train=yes

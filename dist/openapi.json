@@ -641,6 +641,36 @@
           }
         }
       }
+    },
+    "/.well-known/person.jsonld": {
+      "get": {
+        "summary": "Mirror of /person.jsonld. Person @id https://www.azieleliab.com/#aziel",
+        "responses": {
+          "200": {
+            "description": "application/ld+json"
+          }
+        }
+      }
+    },
+    "/tip.json": {
+      "get": {
+        "summary": "HDJ tip door. Cos tip a536ec66 was not observed. NO-LIE.",
+        "responses": {
+          "200": {
+            "description": "application/json"
+          }
+        }
+      }
+    },
+    "/.well-known/tip.json": {
+      "get": {
+        "summary": "Same HDJ tip door as /tip.json",
+        "responses": {
+          "200": {
+            "description": "application/json"
+          }
+        }
+      }
     }
   }
 }

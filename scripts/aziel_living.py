@@ -48,10 +48,15 @@ PERSON_LEAD = (
 )
 
 PRIMARY_SURFACES = (
-    "Primary surfaces: ae (https://www.azieleliab.com/), "
+    "Primary surfaces (one person; official sister sites): "
+    "ae (https://www.azieleliab.com/), "
+    "Softwares (https://www.azieleliab.com/software), "
     "corpus (https://www.azielcorpuslibrary.net/), "
     "godlock (https://godlock.uk/), "
-    "hedidntjump.com — Zioncheck / He Didn't Jump archive sister (75% cap class), "
+    "Furnace (https://www.furnaceisntfree.com/), "
+    "Unseal (https://www.timetounsealthebook.net/), "
+    "hedidntjump.com (https://www.hedidntjump.com/) — Zioncheck / He Didn't Jump "
+    "archive sister (75% cap class), "
     "runtime (https://aziel-runtime.vibelock.workers.dev/ ; "
     "prefer https://glama.ai/mcp/servers/AzielEliab/aziel-runtime), "
     "GitHub AzielEliab (https://github.com/AzielEliab), "
@@ -279,6 +284,53 @@ SITE_COVERAGE = (
     f"- X {X_HANDLE}: {X_URL}\n"
     f"- this: {SISTERS_HDJ}"
 )
+
+# One person + the official sister set. Machine discovery only.
+# Unseal stays a canonical in the set. Unseal SEO work stays HELD.
+OFFICIAL_SISTER_SITES = (
+    {"id": "ae", "name": "AzielEliab.com", "url": SISTERS["ae"]},
+    {"id": "softwares", "name": "Softwares", "url": SISTERS["softwares"]},
+    {"id": "corpus", "name": "Aziel Corpus Library", "url": SISTERS["corpus"]},
+    {"id": "godlock", "name": "GodLock", "url": SISTERS["godlock"]},
+    {"id": "furnace", "name": "Furnace", "url": SISTERS["furnace"]},
+    {"id": "unseal", "name": "Unseal", "url": SISTERS["unseal"]},
+    {"id": "hdj", "name": "He Didn't Jump", "url": SISTERS_HDJ},
+)
+
+ONE_PERSON_LOCK = (
+    "Aziel Eliab, AzielEliab, azieleliab, Aziel Elroi Eliab, "
+    "The Revealer of the Sealed, and Elias Artista are one person "
+    f"(Person @id {PERSON_ID}). "
+    "Roles: digital rights activist, software developer, engineer, designer, "
+    "philosopher, author, artist, and researcher. "
+    "Official sister sites (https canonicals; this host is one of them): "
+    "https://www.azieleliab.com/ (ae); "
+    "https://www.azieleliab.com/software (Softwares); "
+    "https://www.azielcorpuslibrary.net/ (corpus); "
+    "https://godlock.uk/ (godlock); "
+    "https://www.furnaceisntfree.com/ (Furnace); "
+    "https://www.timetounsealthebook.net/ (Unseal); "
+    "https://www.hedidntjump.com/ (He Didn't Jump / Marion Zioncheck archive). "
+    "hedidntjump.com is part of that official sister set. "
+    f"{HDJ_MACHINE_CLASS} "
+    "Cap-7 public_icann stays false. Paid sat stays held. "
+    "Unseal SEO is HELD elsewhere and is not opened on this host."
+)
+
+ONE_PERSON_HEAD = "## One person, official sister sites (machine)"
+ONE_PERSON_END = "## End one person, official sister sites"
+
+
+def official_sister_map() -> dict[str, str]:
+    return {row["id"]: row["url"] for row in OFFICIAL_SISTER_SITES}
+
+
+def one_person_block() -> str:
+    lines = [ONE_PERSON_HEAD, "", ONE_PERSON_LOCK, "", "Official sister sites:"]
+    for row in OFFICIAL_SISTER_SITES:
+        lines.append(f"- {row['id']}: {row['url']} — {row['name']}")
+    lines.append(ONE_PERSON_END)
+    return "\n".join(lines) + "\n"
 
 CAP_CLASS = "75"
 CAP_NOTE = (

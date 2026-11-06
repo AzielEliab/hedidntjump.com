@@ -8,6 +8,7 @@
 # /who is who.html via Cloudflare html-extension strip. Do not rewrite /who → /who-is or /who → who.html (308 loop).
 # /receipts is receipts.html via Cloudflare html-extension strip. Do not rewrite /receipts → receipts.html (308 loop).
 /.well-known/aziel.json /.well-known/aziel.json 200
+/.well-known/person.jsonld /.well-known/person.jsonld 200
 # LLM well-known (200 rewrite). Do not add /who → who.html, /aziel → aziel.html, /reader → reader.html, /receipts → receipts.html.
 /.well-known/llms.txt /llms.txt 200
 
@@ -61,3 +62,5 @@ http://www.hedidntjump.com/* https://hedidntjump.com/:splat 301
 # Plain-text public URL map (soft link lattice). /shelves stays COLD-MULTI-SHELF JSON.
 /shelves.txt /shelves.txt 200
 /sitemap.txt /shelves.txt 200
+/tip.json /tip.json 200
+/.well-known/tip.json /.well-known/tip.json 200

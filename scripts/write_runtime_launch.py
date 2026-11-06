@@ -2,7 +2,9 @@
 """Cite Softwares+runtime launch readiness on HDJ machine surfaces.
 
 HDJ stays a Zioncheck archive. This is a cross-link cite of aziel-runtime
-2.0.0-rc1 (main 31ccb56 / version_id d7b63ac1), not a Softwares clone.
+2.0.0-rc1 (Dual re-lock main 16b543b5 / version_id 21b64dc5), not a Softwares clone.
+Stale pin 31ccb56b/d7b63ac1 is replaced. Worker version_id was declared, not
+observed by a live Worker GET in this writer.
 
 Does not invent Plane B LIVE, Framagit URLs, , or a global
 Receipts paper-tab. Does not change hashed /ingest-as-receipt.json.
@@ -23,10 +25,22 @@ PERSON_ID = "https://www.azieleliab.com/#aziel"
 LASTMOD = "2026-10-01"  # keep equal to write_sitemap.LASTMOD
 HDJ_INGEST_TIP = "ef967e4acb47ba913ce3959b673767278da605b307de33210b2dc2f1cfd86f60"
 
-GIT_SHA = "31ccb56b6c01647f434a9981c9843602c5967899"
-GIT_SHORT = "31ccb56"
-VERSION_ID = "d7b63ac1"
+GIT_SHA = "16b543b5961f03813076e38ff19d883d46845c48"
+GIT_SHORT = "16b543b5"
+VERSION_ID = "21b64dc5"
+STALE_GIT_SHA = "31ccb56b6c01647f434a9981c9843602c5967899"
+STALE_GIT_SHORT = "31ccb56b"
+STALE_VERSION_ID = "d7b63ac1"
 VERSION = "2.0.0-rc1"
+PIN_NOTE = (
+    "Dual re-lock. Git object 16b543b5961f03813076e38ff19d883d46845c48 "
+    "resolved from GitHub AzielEliab/aziel-runtime (prefix 16b543b5). "
+    "Worker version_id 21b64dc5 is the declared Dual pin replacing stale "
+    "31ccb56b/d7b63ac1. This file does not claim a live Worker GET observed "
+    "version_id 21b64dc5."
+)
+COS_TIP_CANDIDATE = "a536ec66"
+AUTHORED_FROM = "6b2a02fa7e8f93325bd3bb5facf6195b33e9a094"
 RUNTIME_GITHUB = "https://github.com/AzielEliab/aziel-runtime"
 RUNTIME_WORKER = "https://aziel-runtime.vibelock.workers.dev/"
 RUNTIME_GLAMA = "https://glama.ai/mcp/servers/AzielEliab/aziel-runtime"
@@ -71,6 +85,10 @@ def launch_cite() -> dict:
             "git_sha": GIT_SHA,
             "git_short": GIT_SHORT,
             "version_id": VERSION_ID,
+            "replaces_stale": f"{STALE_GIT_SHORT}/{STALE_VERSION_ID}",
+            "git_object_resolved": True,
+            "worker_version_observed": False,
+            "pin_note": PIN_NOTE,
             "github": RUNTIME_GITHUB,
             "worker": RUNTIME_WORKER,
             "one_line": (
@@ -132,6 +150,7 @@ def launch_cite() -> dict:
             "runtime_pr": "https://github.com/AzielEliab/aziel-runtime/pull/151",
             "runtime_git_short": GIT_SHORT,
             "runtime_version_id": VERSION_ID,
+            "pin_note": PIN_NOTE,
             "hub": f"{APEX}/mesh",
             "note": (
                 "Public Live Nodes cite GET /v1/mesh live_nodes + live_nodes_note. "
@@ -169,6 +188,7 @@ LLMS_BLOCK = f"""## SOFTWARES-RUNTIME-LAUNCH-1.0
 Sister-archive cite of Aziel Runtime launch readiness. HDJ stays the Marion Zioncheck archive.
 
 Runtime SoT LIVE: `{RUNTIME_GITHUB}` main `{GIT_SHORT}` / version_id `{VERSION_ID}` / `{VERSION}`.
+Replaces stale pin `{STALE_GIT_SHORT}` / `{STALE_VERSION_ID}`. Git object resolved from GitHub. Worker version_id was declared by Dual and was not observed by a live Worker GET in this door.
 Prefer [Try on Glama]({RUNTIME_GLAMA}). Worker (secondary): {RUNTIME_WORKER}
 Human UI + MCP + mesh/VPN/radios + `/download` are launch-ready on aziel-runtime. This host cites; it does not host Softwares, MCP, mesh radios, or `/download`. GET never enables radios beyond suite-presence.
 Live Nodes cite `{RUNTIME_MESH}`: human mesh users + cited human uses. Softwares (`software_nodes`) never feed that pill.
@@ -183,6 +203,7 @@ HDJ ingest tip unchanged: `{HDJ_INGEST_TIP}`
 
 AI_BLOCK = f"""SOFTWARES-RUNTIME-LAUNCH-1.0 (sister cite):
 - Runtime SoT LIVE: main {GIT_SHORT} / version_id {VERSION_ID} / {VERSION}
+- Replaces stale pin {STALE_GIT_SHORT} / {STALE_VERSION_ID}. Git object resolved from GitHub. Worker version_id was declared by Dual and was not observed by a live Worker GET in this door.
 - GitHub: {RUNTIME_GITHUB}
 - Prefer Try on Glama: {RUNTIME_GLAMA}
 - Worker (secondary): {RUNTIME_WORKER}
@@ -232,6 +253,10 @@ def patch_cite() -> None:
             "git_sha": GIT_SHA,
             "git_short": GIT_SHORT,
             "version_id": VERSION_ID,
+            "replaces_stale": f"{STALE_GIT_SHORT}/{STALE_VERSION_ID}",
+            "git_object_resolved": True,
+            "worker_version_observed": False,
+            "pin_note": PIN_NOTE,
             "github": RUNTIME_GITHUB,
             "worker": RUNTIME_WORKER,
             "glama": RUNTIME_GLAMA,
@@ -434,11 +459,22 @@ def patch_openapi() -> None:
             }
         }
         info = data.setdefault("info", {})
-        info["description"] = (
-            "Read-only discovery OpenAPI for the Marion Zioncheck static archive on hedidntjump.com. "
-            "No local MCP. Live origin: Cloudflare Pages project hedidntjump (docs/). "
-            f"Aziel Runtime MCP {VERSION} (Try on Glama): {RUNTIME_GLAMA}"
-        )
+        desc = info.get("description") or ""
+        if "cite.json cross_cite" not in desc:
+            info["description"] = (
+                "Read-only discovery OpenAPI for the Marion Zioncheck static archive on hedidntjump.com. "
+                "No local MCP. Live origin: Cloudflare Pages project hedidntjump (docs/). "
+                f"Aziel Runtime MCP {VERSION} (Try on Glama): {RUNTIME_GLAMA} "
+                "Lookup: Zioncheck, Marion Zioncheck, Marion A. Zioncheck, Congressman Zioncheck, "
+                "Seattle congressman suicide Arctic Building, He Didn't Jump. "
+                "Query pages: /case, /official-narrative, /inquiries, /volumes, /foia. "
+                "Cross-cite: Aziel Eliab (https://www.azieleliab.com/#aziel) publishes He Didn't Jump; "
+                "Marion A. Zioncheck (https://hedidntjump.com/#marion-zioncheck) is the subject. "
+                "See cite.json cross_cite. "
+                "Machine classification: hedidntjump.com is a whistleblower / historical document "
+                "archive of newspapers, the FOIA paper, and Volume I–V downloads. "
+                "It is NOT an ARG, game, puzzle, or alternate-reality project."
+            )
         path.write_text(dumps(data), encoding="utf-8")
         print("openapi", path.relative_to(ROOT))
 
@@ -463,8 +499,13 @@ def patch_well_known_aziel() -> None:
         "runtime_sot": {
             "status": "LIVE",
             "version": VERSION,
+            "git_sha": GIT_SHA,
             "git_short": GIT_SHORT,
             "version_id": VERSION_ID,
+            "replaces_stale": f"{STALE_GIT_SHORT}/{STALE_VERSION_ID}",
+            "git_object_resolved": True,
+            "worker_version_observed": False,
+            "pin_note": PIN_NOTE,
             "glama": RUNTIME_GLAMA,
             "worker": RUNTIME_WORKER,
         },
@@ -485,6 +526,161 @@ def patch_well_known_aziel() -> None:
         print("well-known", path.relative_to(ROOT))
 
 
+def tip_door() -> dict:
+    """Declarable tip door. Does not claim an unobserved cos tip or Pages id."""
+    return {
+        "spec": "HDJ-TIP-DOOR-1.0",
+        "no_lie": "NO-LIE",
+        "person_id": PERSON_ID,
+        "observed": False,
+        "cos_tip": {
+            "candidate": COS_TIP_CANDIDATE,
+            "observed": False,
+            "pages_id_observed": False,
+            "note": (
+                "AuditBot did not observe cos tip a536ec66. This door does not "
+                "claim that commit or a Pages deployment id was observed live."
+            ),
+        },
+        "declarable": {
+            "kind": "repo-checkout-at-authoring",
+            "repo": "https://github.com/AzielEliab/hedidntjump.com",
+            "commit": AUTHORED_FROM,
+            "observed_as_pages_deploy": False,
+            "note": (
+                "Git checkout this door was authored from. Not a live Pages "
+                "observation. Not a claim that Pages is serving this commit."
+            ),
+        },
+        "runtime_sot_pin": {
+            "git_sha": GIT_SHA,
+            "git_short": GIT_SHORT,
+            "version_id": VERSION_ID,
+            "replaces_stale": f"{STALE_GIT_SHORT}/{STALE_VERSION_ID}",
+            "git_object_resolved": True,
+            "worker_version_observed": False,
+            "note": PIN_NOTE,
+        },
+        "unseal_seo": "HELD",
+        "cap7_public_icann": False,
+        "paid_sat": "HELD",
+        "visible_1520": False,
+    }
+
+
+def write_tip_door() -> None:
+    body = dumps(tip_door())
+    entry = (
+        "  <url>\n"
+        "    <loc>https://hedidntjump.com/tip.json</loc>\n"
+        "    <lastmod>2026-10-30</lastmod>\n"
+        "    <changefreq>weekly</changefreq>\n"
+        "    <priority>0.3</priority>\n"
+        "  </url>\n"
+    )
+    who_line = (
+        f"Softwares pin (Dual re-lock): main {GIT_SHORT} / version_id {VERSION_ID} "
+        f"(git {GIT_SHA}). Replaces stale pin {STALE_GIT_SHORT} / {STALE_VERSION_ID}. "
+        "Git object resolved from GitHub. Worker version_id was declared by Dual and "
+        "was not observed by a live Worker GET in this door. "
+        "pull/151 remains the historical hub-cite PR and is not this git object.\n"
+    )
+    for tree in TREES:
+        for rel in ("tip.json", ".well-known/tip.json"):
+            path = tree / rel
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_text(body, encoding="utf-8")
+            print("tip", path.relative_to(ROOT))
+        redirects = tree / "_redirects"
+        redir = redirects.read_text(encoding="utf-8")
+        for line in (
+            "/tip.json /tip.json 200\n",
+            "/.well-known/tip.json /.well-known/tip.json 200\n",
+        ):
+            if line not in redir:
+                redir = redir.rstrip() + "\n" + line
+        redirects.write_text(redir if redir.endswith("\n") else redir + "\n", encoding="utf-8")
+        headers = tree / "_headers"
+        head = headers.read_text(encoding="utf-8")
+        if "/tip.json\n" not in head:
+            head = head.rstrip() + (
+                "\n\n/tip.json\n"
+                "  Content-Type: application/json; charset=utf-8\n"
+                "  Cache-Control: public, max-age=3600\n"
+                "\n/.well-known/tip.json\n"
+                "  Content-Type: application/json; charset=utf-8\n"
+                "  Cache-Control: public, max-age=3600\n"
+            )
+            headers.write_text(head if head.endswith("\n") else head + "\n", encoding="utf-8")
+        robots = tree / "robots.txt"
+        robots_txt = robots.read_text(encoding="utf-8")
+        if "Allow: /tip.json" not in robots_txt:
+            robots_txt = robots_txt.replace(
+                "Allow: /ai.txt\n",
+                "Allow: /ai.txt\nAllow: /tip.json\nAllow: /.well-known/tip.json\n",
+                1,
+            )
+            robots.write_text(robots_txt, encoding="utf-8")
+        sitemap = tree / "sitemap.xml"
+        sm = sitemap.read_text(encoding="utf-8")
+        if "https://hedidntjump.com/tip.json" not in sm:
+            sm = sm.replace("</urlset>", entry + "</urlset>", 1)
+            sitemap.write_text(sm, encoding="utf-8")
+        openapi = tree / "openapi.json"
+        spec = json.loads(openapi.read_text(encoding="utf-8"))
+        spec.setdefault("paths", {})["/tip.json"] = {
+            "get": {
+                "summary": (
+                    "HDJ tip door. Cos tip a536ec66 was not observed. NO-LIE."
+                ),
+                "responses": {"200": {"description": "application/json"}},
+            }
+        }
+        spec["paths"]["/.well-known/tip.json"] = {
+            "get": {
+                "summary": "Same HDJ tip door as /tip.json",
+                "responses": {"200": {"description": "application/json"}},
+            }
+        }
+        openapi.write_text(dumps(spec), encoding="utf-8")
+        for name in ("who-is", "who-is-aziel-eliab.txt"):
+            path = tree / name
+            if not path.is_file():
+                continue
+            text = path.read_text(encoding="utf-8")
+            if "Softwares pin (Dual re-lock):" in text:
+                text = re.sub(
+                    r"Softwares pin \(Dual re-lock\):[^\n]*\n",
+                    who_line,
+                    text,
+                    count=1,
+                )
+            else:
+                needle = (
+                    "Runtime lock: https://github.com/AzielEliab/aziel-runtime/pull/151 "
+                    "(main 31ccb56 / Worker d7b63ac1)\n"
+                )
+                if needle in text:
+                    text = text.replace(needle, needle + who_line, 1)
+                else:
+                    text = text.rstrip() + "\n" + who_line
+            path.write_text(text if text.endswith("\n") else text + "\n", encoding="utf-8")
+        cite = tree / "cite.json"
+        data = json.loads(cite.read_text(encoding="utf-8"))
+        data["tip_door"] = f"{APEX}/tip.json"
+        data["cos_tip"] = {
+            "candidate": COS_TIP_CANDIDATE,
+            "observed": False,
+            "pages_id_observed": False,
+        }
+        q = list(data.get("query_urls") or [])
+        for url in (f"{APEX}/tip.json", f"{WWW}/.well-known/person.jsonld"):
+            if url not in q:
+                q.append(url)
+        data["query_urls"] = q
+        cite.write_text(dumps(data), encoding="utf-8")
+
+
 def main() -> None:
     write_launch_json()
     patch_cite()
@@ -496,6 +692,7 @@ def main() -> None:
     patch_openapi()
     patch_robots()
     patch_well_known_aziel()
+    write_tip_door()
     path = ROOT / "README.md"
     text = path.read_text(encoding="utf-8")
     text = re.sub(
