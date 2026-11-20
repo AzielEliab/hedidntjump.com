@@ -477,7 +477,7 @@ def patch_redirects() -> None:
     lines = (
         "/survival /survival.json 200\n"
         "/v1/survival /survival.json 200\n"
-        "/doors /survival.json 200\n"
+        "# /doors is doors.html (the human exchange list). Do not proxy it to survival.json.\n"
         "/failover /survival.json 200\n"
     )
     for tree in TREES:

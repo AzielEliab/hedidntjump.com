@@ -262,8 +262,13 @@ PEACELOCK_AI_BLOCK = f"""PEACELOCK (designed-purpose):
 - Growth-ON. NO-LIE. No visible 15:20.
 """
 
-SITEMAP_LASTMOD = "2026-10-30"  # discovery files this writer refreshes
-SITEMAP_BUMP_LOCS = ("/llms.txt", "/ai.txt", "/cite.json")
+SITEMAP_LASTMOD = "2026-10-30"  # cite.json unchanged when only the ecosystem list moves
+ECOSYSTEM_SITEMAP_LASTMOD = "2026-11-20"  # llms.txt, ai.txt, /doors, sitemap index
+SITEMAP_BUMP_LOCS = {
+    "/llms.txt": ECOSYSTEM_SITEMAP_LASTMOD,
+    "/ai.txt": ECOSYSTEM_SITEMAP_LASTMOD,
+    "/cite.json": SITEMAP_LASTMOD,
+}
 
 SOFTWARES_LIST_BLOCK = softwares_list_markdown()
 SOFTWARES_LIST_HEAD = "Softwares (list; HDJ cites, does not host):"
@@ -1618,19 +1623,19 @@ def ensure_related_spectrallock(text: str) -> str:
 def bump_sitemap_lastmod(text: str) -> str:
     """Stamp llms/ai/cite lastmod only. write_sitemap owns the rest of the urlset."""
     if "<urlset" in text:
-        for loc in SITEMAP_BUMP_LOCS:
+        for loc, lastmod in SITEMAP_BUMP_LOCS.items():
             if f"<loc>https://hedidntjump.com{loc}</loc>" not in text:
                 raise SystemExit(f"sitemap lost {loc}")
             text = re.sub(
                 rf"(<loc>https://hedidntjump\.com{re.escape(loc)}</loc>\n    <lastmod>)[^<]+",
-                rf"\g<1>{SITEMAP_LASTMOD}",
+                rf"\g<1>{lastmod}",
                 text,
                 count=1,
             )
         return text
     return re.sub(
         r"(<loc>https://hedidntjump\.com/sitemap\.xml</loc>\n    <lastmod>)[^<]+",
-        rf"\g<1>{SITEMAP_LASTMOD}",
+        rf"\g<1>{ECOSYSTEM_SITEMAP_LASTMOD}",
         text,
         count=1,
     )
@@ -1807,6 +1812,53 @@ def ensure_machine_class(text: str) -> str:
     return text
 
 
+LIVE_ECOSYSTEM_HEAD = "## Live public ecosystem (canonical, verified 2026-11-19)"
+LIVE_ECOSYSTEM_END = "## End live public ecosystem"
+
+
+def live_public_ecosystem_block() -> str:
+    """The ten live public sites. Download-tracker hosts are not doors."""
+    return (
+        f"{LIVE_ECOSYSTEM_HEAD}\n"
+        "\n"
+        "Ten live public Aziel Eliab websites and runtimes. This host is one of them "
+        "(the Marion Zioncheck archive). Human clickable list: https://hedidntjump.com/doors\n"
+        "Person @id: https://www.azieleliab.com/#aziel\n"
+        "\n"
+        "1. https://www.azieleliab.com/ — Aziel Eliab (Identity Hub)\n"
+        "2. https://www.azielcorpuslibrary.net/ — Aziel Corpus Library\n"
+        "3. https://godlock.uk/ — GodLock\n"
+        "4. https://hedidntjump.com/ — He Didn't Jump (Marion Zioncheck Archive)\n"
+        "5. https://furnaceisntfree.com/ — Furnace Isn't Free. Canonical host is "
+        "furnaceisntfree.com. A host that prefixes that name with the word the is not a door.\n"
+        "6. https://timetounsealthebook.net/ — Time to Unseal the Book\n"
+        "7. https://whitestone.vibelock.workers.dev/ — Whitestone (live pro se web app). Not a lawyer.\n"
+        "8. https://aziel-runtime.vibelock.workers.dev/ — Aziel Runtime (MCP/Softwares). "
+        "Glama: https://glama.ai/mcp/servers/AzielEliab/aziel-runtime\n"
+        "9. https://trades-runtime.vibelock.workers.dev/ — Trades Runtime (public MCP runtime). "
+        "Glama: https://glama.ai/mcp/servers/AzielEliab/trades-runtime\n"
+        "10. https://miragegrid.vibelock.workers.dev/ — MirageGrid (Cap-7 mesh DNS factory Worker). "
+        "Mesh-only. public_icann: false. It is not an ICANN registrar.\n"
+        "\n"
+        f"{LIVE_ECOSYSTEM_END}\n"
+    )
+
+
+def ensure_live_public_ecosystem(text: str) -> str:
+    block = live_public_ecosystem_block()
+    if LIVE_ECOSYSTEM_HEAD in text and LIVE_ECOSYSTEM_END in text:
+        return re.sub(
+            rf"{re.escape(LIVE_ECOSYSTEM_HEAD)}\n[\s\S]*?{re.escape(LIVE_ECOSYSTEM_END)}\n?",
+            block,
+            text,
+            count=1,
+        )
+    anchor = ONE_PERSON_END + "\n"
+    if anchor in text:
+        return text.replace(anchor, anchor + "\n" + block, 1)
+    return block + "\n" + text
+
+
 def ensure_one_person_lock(text: str) -> str:
     """Put the one-person + official sister set where a crawler reads first."""
     block = one_person_block()
@@ -1858,6 +1910,7 @@ def patch_txt(text: str, *, ai: bool = False) -> str:
         )
     text = scrub_seo_negation(text)
     text = ensure_machine_class(text)
+    text = ensure_live_public_ecosystem(text)
     return text if text.endswith("\n") else text + "\n"
 
 
