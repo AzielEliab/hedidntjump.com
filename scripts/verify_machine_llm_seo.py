@@ -181,6 +181,24 @@ def main() -> None:
         assert "Unseal SEO is HELD" in cite["one_person"]
         assert "## One person, official sister sites (machine)" in blobs["llms.txt"]
         assert "## One person, official sister sites (machine)" in blobs["ai.txt"]
+        live_urls = (
+            "https://furnaceisntfree.com/",
+            "https://timetounsealthebook.net/",
+            "https://whitestone.vibelock.workers.dev/",
+            "https://glama.ai/mcp/servers/AzielEliab/trades-runtime",
+            "https://miragegrid.vibelock.workers.dev/",
+            "https://hedidntjump.com/doors",
+        )
+        for rel in ("llms.txt", "ai.txt"):
+            block = blobs[rel].split("## Live public ecosystem", 1)[1]
+            block = block.split("## End live public ecosystem", 1)[0]
+            assert "public_icann: false" in block, rel
+            assert "not an ICANN registrar" in block, rel
+            assert "Mesh-only" in block, rel
+            assert "download-tracker" not in block, rel
+            assert "thefurnaceisntfree.com" not in block, rel
+            for url in live_urls:
+                assert url in block, f"{rel} missing {url}"
         assert "## One person, official sister sites (machine)" in blobs["who-is"]
         assert cite["author_id"] == PERSON_ID
         assert cite["growth_on"] is True
@@ -589,8 +607,8 @@ def main() -> None:
         sitemap = (tree / "sitemap.xml").read_text(encoding="utf-8")
         # cite.json jobTitle lock changed; llms/ai text did not.
         expected_lastmod = {
-            "/llms.txt": "2026-10-30",
-            "/ai.txt": "2026-10-30",
+            "/llms.txt": "2026-11-20",
+            "/ai.txt": "2026-11-20",
             "/cite.json": "2026-10-30",
         }
         for loc, lastmod in expected_lastmod.items():

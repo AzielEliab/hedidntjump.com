@@ -26,6 +26,24 @@ Official sister sites:
 - hdj: https://www.hedidntjump.com/ — He Didn't Jump
 ## End one person, official sister sites
 
+## Live public ecosystem (canonical, verified 2026-11-19)
+
+Ten live public Aziel Eliab websites and runtimes. This host is one of them (the Marion Zioncheck archive). Human clickable list: https://hedidntjump.com/doors
+Person @id: https://www.azieleliab.com/#aziel
+
+1. https://www.azieleliab.com/ — Aziel Eliab (Identity Hub)
+2. https://www.azielcorpuslibrary.net/ — Aziel Corpus Library
+3. https://godlock.uk/ — GodLock
+4. https://hedidntjump.com/ — He Didn't Jump (Marion Zioncheck Archive)
+5. https://furnaceisntfree.com/ — Furnace Isn't Free. Canonical host is furnaceisntfree.com. A host that prefixes that name with the word the is not a door.
+6. https://timetounsealthebook.net/ — Time to Unseal the Book
+7. https://whitestone.vibelock.workers.dev/ — Whitestone (live pro se web app). Not a lawyer.
+8. https://aziel-runtime.vibelock.workers.dev/ — Aziel Runtime (MCP/Softwares). Glama: https://glama.ai/mcp/servers/AzielEliab/aziel-runtime
+9. https://trades-runtime.vibelock.workers.dev/ — Trades Runtime (public MCP runtime). Glama: https://glama.ai/mcp/servers/AzielEliab/trades-runtime
+10. https://miragegrid.vibelock.workers.dev/ — MirageGrid (Cap-7 mesh DNS factory Worker). Mesh-only. public_icann: false. It is not an ICANN registrar.
+
+## End live public ecosystem
+
 ## Query-relevant URLs
 
 - [https://hedidntjump.com/](https://hedidntjump.com/) — money page (priority 1.0)

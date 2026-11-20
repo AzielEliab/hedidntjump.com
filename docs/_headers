@@ -233,7 +233,7 @@
 
 # Preview hosts stay out of search indexes. Apex and www share one indexing
 # posture: HTML meta is index,follow, and canonicals point at the apex.
-# www→apex 301 lines stay in _redirects for when Pages applies host redirects.
+# www→apex 301 is functions/_middleware.js. Pages ignores domain-level _redirects.
 # Do not send X-Robots-Tag: noindex for https://www.hedidntjump.com/.
 https://hedidntjump.pages.dev/*
   X-Robots-Tag: noindex

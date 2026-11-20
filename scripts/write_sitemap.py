@@ -19,6 +19,9 @@ ROOT = Path(__file__).resolve().parents[1]
 TREES = [ROOT / "docs", ROOT / "dist"]
 APEX = "https://hedidntjump.com"
 LASTMOD = "2026-10-01"
+# /doors, llms.txt, and ai.txt were refreshed with the ten live public doors.
+ECOSYSTEM_LASTMOD = "2026-11-20"
+ECOSYSTEM_PATHS = {"/doors", "/llms.txt", "/ai.txt"}
 # Sister sitemaps in the index were not republished on this date.
 SISTER_LASTMOD = "2026-09-13"
 # Public pages, volume downloads, and the discovery files this pass refreshed.
@@ -80,6 +83,8 @@ SITEMAP_DROP = {
     "/inquires",
     "/Rubeye",
     "/Archive",
+    # Alias of /tip.json. The well-known path is a rewrite, not a second URL.
+    "/.well-known/tip.json",
 }
 SITEMAP_RENAME = {
     "/Case": "/case",
@@ -187,7 +192,6 @@ HOURLY = {
     "/survival",
     "/survival.json",
     "/v1/survival",
-    "/doors",
     "/failover",
     "/mesh",
     "/mesh.json",
@@ -364,6 +368,8 @@ def merge_sitemap(text: str, tree: Path | None = None) -> str:
         if path is None or path in have:
             continue
         have.add(path)
+        if path == "/doors":
+            cf = "weekly"
         existing.append((path, pri, cf, mod))
     extras: list[tuple[str, str, str, str]] = []
     for path in discover(tree):
@@ -390,7 +396,9 @@ def render(entries: list[tuple[str, str, str, str]]) -> str:
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
     ]
     for path, pri, cf, mod in entries:
-        if path in FRESH_PATHS:
+        if path in ECOSYSTEM_PATHS:
+            mod = ECOSYSTEM_LASTMOD
+        elif path in FRESH_PATHS:
             mod = IDENTITY_LASTMOD
         lines.append("  <url>")
         lines.append(f"    <loc>{APEX}{escape_loc(path)}</loc>")
@@ -407,7 +415,7 @@ def render_index() -> str:
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <sitemap>
     <loc>{APEX}/sitemap.xml</loc>
-    <lastmod>{IDENTITY_LASTMOD}</lastmod>
+    <lastmod>{ECOSYSTEM_LASTMOD}</lastmod>
   </sitemap>
   <sitemap>
     <loc>https://www.azieleliab.com/sitemap.xml</loc>
@@ -445,7 +453,8 @@ def check(text: str, index: str) -> None:
     assert text.count("<priority>1.0</priority>") == 1
     assert text.count("<lastmod>") == len(locs)
     dates = set(re.findall(r"<lastmod>([^<]+)</lastmod>", text))
-    assert dates <= {LASTMOD, IDENTITY_LASTMOD}, dates
+    assert dates <= {LASTMOD, IDENTITY_LASTMOD, ECOSYSTEM_LASTMOD}, dates
+    assert ECOSYSTEM_LASTMOD in dates
     for path in IDENTITY_BUMP_PATHS:
         if path in locs:
             block = text.split(f"<loc>{APEX}{escape_loc(path)}</loc>", 1)[1]
@@ -464,7 +473,7 @@ def check(text: str, index: str) -> None:
     for path in SITEMAP_RENAME:
         assert path not in locs, path
     assert "/Volumes/I" not in text
-    assert f"<lastmod>{IDENTITY_LASTMOD}</lastmod>" in index
+    assert f"<lastmod>{ECOSYSTEM_LASTMOD}</lastmod>" in index
     assert f"<lastmod>{SISTER_LASTMOD}</lastmod>" in index
     assert f"<loc>{APEX}/sitemap.xml</loc>" in index
     docs = (ROOT / "docs" / "sitemap.xml").read_text(encoding="utf-8")
