@@ -2,6 +2,7 @@
 """Assert the RSS 2.0 and Atom feeds match the published pages."""
 from __future__ import annotations
 
+import re
 import sys
 import xml.etree.ElementTree as ET
 from pathlib import Path
@@ -12,7 +13,7 @@ if str(_SCRIPTS) not in sys.path:
 
 from write_rss import (  # noqa: E402
     APEX,
-    FEED_DAY,
+    AUTHOR,
     HEAD_LINKS,
     build_items,
     channel_description,
@@ -33,6 +34,13 @@ from write_rss import (  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 ATOM_NS = "{http://www.w3.org/2005/Atom}"
+DC_NS = "{http://purl.org/dc/elements/1.1/}"
+# A visible feed link is an anchor in the page body. Head autodiscovery is
+# a <link>, not an <a>, and stays above </head>.
+VISIBLE_FEED = re.compile(
+    r"<a\b[^>]*\bhref\s*=\s*[\"'][^\"']*(?:rss\.xml|atom\.xml|(?:^|/)(?:rss|atom|feed)(?:\.xml)?)[^\"']*[\"']",
+    re.I,
+)
 PATCHES = {
     "_headers": patch_headers,
     "robots.txt": patch_robots,
@@ -87,6 +95,8 @@ def main() -> None:
         assert node.findtext("guid") == item.link
         assert node.find("guid").attrib.get("isPermaLink") == "true"
         assert node.findtext("description") == item.description
+        assert node.find("pubDate") is None
+        assert node.findtext(f"{DC_NS}creator") == AUTHOR
         assert item.link.startswith(f"{APEX}/")
         enc = node.find("enclosure")
         if item.enclosure is None:
@@ -110,6 +120,12 @@ def main() -> None:
         assert node.findtext(f"{ATOM_NS}title") == item.title
         assert node.findtext(f"{ATOM_NS}id") == item.link
         assert node.findtext(f"{ATOM_NS}summary") == item.description
+        assert node.find(f"{ATOM_NS}updated") is None
+        assert node.find(f"{ATOM_NS}published") is None
+        author = node.find(f"{ATOM_NS}author")
+        assert author is not None
+        assert author.findtext(f"{ATOM_NS}name") == AUTHOR
+        assert author.find(f"{ATOM_NS}email") is None
         links = node.findall(f"{ATOM_NS}link")
         alternate = [link for link in links if link.attrib.get("rel") == "alternate"]
         enclosed = [link for link in links if link.attrib.get("rel") == "enclosure"]
@@ -121,7 +137,10 @@ def main() -> None:
             assert enclosed[0].attrib["href"] == item.enclosure.href
             assert enclosed[0].attrib["length"] == str(item.enclosure.length)
 
-    assert any(item.day == FEED_DAY for item in items)
+    assert "<pubDate>" not in rss
+    assert rss.count(f"<dc:creator>{AUTHOR}</dc:creator>") == len(items) + 1
+    assert atom.count(f"<name>{AUTHOR}</name>") == len(items) + 1
+    assert "<email>" not in atom
     assert any(item.path.startswith("/reader?volume=") for item in items)
 
     for tree_name in ("docs", "dist"):
@@ -132,6 +151,11 @@ def main() -> None:
             text = path.read_text(encoding="utf-8")
             assert HEAD_LINKS in text, path.name
             assert patch_html(text) == text, path.name
+            head, _sep, body = text.partition("</head>")
+            assert _sep, path.name
+            assert HEAD_LINKS in head, path.name
+            assert "rss.xml" not in body and "atom.xml" not in body, path.name
+            assert VISIBLE_FEED.search(body) is None, path.name
         for name, patch in PATCHES.items():
             text = (tree / name).read_text(encoding="utf-8")
             assert patch(text) == text, f"{tree_name}/{name}"

@@ -25,28 +25,27 @@ TREES = [ROOT / "docs", ROOT / "dist"]
 APEX = "https://hedidntjump.com"
 PERSON = "https://www.azieleliab.com/#aziel"
 CHANNEL_TITLE = "He Didn't Jump"
-# Newest published surface in the feed (doors / ecosystem stamp). Sitemap
-# lastmod stays inside the dates verify_azindex_growth.py already allows.
+AUTHOR = "Aziel Eliab"
+# Feed-file discovery stamp. Item dates are not generated.
 FEED_DAY = "2026-11-20"
-PAGE_DAY = "2026-10-30"
 
 # Reading order of the newspaper, not a claim of new historical events.
-PAGES: list[tuple[str, str, str]] = [
-    ("index.html", "/", PAGE_DAY),
-    ("case.html", "/case", PAGE_DAY),
-    ("inquiries.html", "/inquiries", PAGE_DAY),
-    ("official-narrative.html", "/official-narrative", PAGE_DAY),
-    ("volumes.html", "/volumes", PAGE_DAY),
-    ("foia.html", "/foia", PAGE_DAY),
-    ("press.html", "/press", PAGE_DAY),
-    ("rubye.html", "/rubye", PAGE_DAY),
-    ("archives.html", "/archives", PAGE_DAY),
-    ("reader.html", "/reader", PAGE_DAY),
-    ("aziel.html", "/aziel", PAGE_DAY),
-    ("who.html", "/who", PAGE_DAY),
-    ("doors.html", "/doors", FEED_DAY),
-    ("copyrights.html", "/copyrights", PAGE_DAY),
-    ("receipts.html", "/receipts", PAGE_DAY),
+PAGES: list[tuple[str, str]] = [
+    ("index.html", "/"),
+    ("case.html", "/case"),
+    ("inquiries.html", "/inquiries"),
+    ("official-narrative.html", "/official-narrative"),
+    ("volumes.html", "/volumes"),
+    ("foia.html", "/foia"),
+    ("press.html", "/press"),
+    ("rubye.html", "/rubye"),
+    ("archives.html", "/archives"),
+    ("reader.html", "/reader"),
+    ("aziel.html", "/aziel"),
+    ("who.html", "/who"),
+    ("doors.html", "/doors"),
+    ("copyrights.html", "/copyrights"),
+    ("receipts.html", "/receipts"),
 ]
 
 VOLUME_CARD = re.compile(
@@ -130,7 +129,6 @@ class Item:
     title: str
     path: str
     description: str
-    day: str
     enclosure: Enclosure | None = None
 
     @property
@@ -200,7 +198,6 @@ def volume_items(tree: Path) -> list[Item]:
                 title=f"Volume {roman} — {plain(title)}",
                 path=f"/reader?volume={number}&page=1",
                 description=plain(purpose),
-                day=PAGE_DAY,
                 enclosure=enclosure_for(
                     tree, f"/volumes/volume-{number}.pdf", "application/pdf"
                 ),
@@ -211,7 +208,7 @@ def volume_items(tree: Path) -> list[Item]:
 
 def build_items(tree: Path) -> list[Item]:
     items: list[Item] = []
-    for name, path, day in PAGES:
+    for name, path in PAGES:
         page = (tree / name).read_text(encoding="utf-8")
         enc = None
         if path == "/archives":
@@ -223,7 +220,6 @@ def build_items(tree: Path) -> list[Item]:
                 title=extract_title(page),
                 path=path,
                 description=extract_description(page),
-                day=day,
                 enclosure=enc,
             )
         )
@@ -249,8 +245,8 @@ def render_rss(items: list[Item], description: str) -> str:
         "    <language>en-us</language>",
         f"    <lastBuildDate>{rfc822(FEED_DAY)}</lastBuildDate>",
         "    <generator>scripts/write_rss.py</generator>",
-        "    <copyright>Aziel Eliab</copyright>",
-        "    <dc:creator>Aziel Eliab</dc:creator>",
+        f"    <copyright>{AUTHOR}</copyright>",
+        f"    <dc:creator>{AUTHOR}</dc:creator>",
         f"    <dc:rights>See {APEX}/copyrights</dc:rights>",
         "    <image>",
         f"      <url>{APEX}/assets/logo.jpg</url>",
@@ -265,8 +261,7 @@ def render_rss(items: list[Item], description: str) -> str:
                 f"      <title>{xml_text(item.title)}</title>",
                 f"      <link>{xml_text(item.link)}</link>",
                 f'      <guid isPermaLink="true">{xml_text(item.link)}</guid>',
-                f"      <pubDate>{rfc822(item.day)}</pubDate>",
-                "      <dc:creator>Aziel Eliab</dc:creator>",
+                f"      <dc:creator>{AUTHOR}</dc:creator>",
                 f"      <description>{xml_text(item.description)}</description>",
             ]
         )
@@ -295,10 +290,10 @@ def render_atom(items: list[Item], description: str) -> str:
         f"  <id>{APEX}/atom.xml</id>",
         f"  <updated>{atom_time(FEED_DAY)}</updated>",
         "  <author>",
-        "    <name>Aziel Eliab</name>",
+        f"    <name>{AUTHOR}</name>",
         f"    <uri>{PERSON}</uri>",
         "  </author>",
-        f"  <rights>Aziel Eliab. See {APEX}/copyrights</rights>",
+        f"  <rights>{AUTHOR}. See {APEX}/copyrights</rights>",
         "  <generator>scripts/write_rss.py</generator>",
     ]
     for item in items:
@@ -308,8 +303,7 @@ def render_atom(items: list[Item], description: str) -> str:
                 f"    <title>{xml_text(item.title)}</title>",
                 f'    <link href="{xml_attr(item.link)}" rel="alternate" type="text/html"/>',
                 f"    <id>{xml_text(item.link)}</id>",
-                f"    <updated>{atom_time(item.day)}</updated>",
-                '    <author><name>Aziel Eliab</name></author>',
+                f"    <author><name>{AUTHOR}</name></author>",
                 f'    <summary type="text">{xml_text(item.description)}</summary>',
             ]
         )
