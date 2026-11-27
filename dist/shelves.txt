@@ -71,6 +71,8 @@ https://hedidntjump.com/shelves.json — Same COLD-MULTI-SHELF JSON as /shelves
 https://hedidntjump.com/shelves.txt — This plain-text sitemap
 https://hedidntjump.com/sitemap.txt — Alias of /shelves.txt
 https://hedidntjump.com/sitemap.xml — XML sitemap
+https://hedidntjump.com/rss.xml — RSS 2.0 of the published papers and Volumes I–V
+https://hedidntjump.com/atom.xml — Atom of the same items
 https://hedidntjump.com/robots.txt — robots (Growth-ON)
 https://hedidntjump.com/openapi.json — Read-only public surfaces
 https://hedidntjump.com/who-is — Who is Aziel Eliab (plain text)

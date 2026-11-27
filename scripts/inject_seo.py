@@ -299,6 +299,8 @@ def head_meta(
 <meta name="keywords" content="{keywords}">
 <link rel="author" href="https://www.azieleliab.com/">
 <link rel="canonical" href="{canonical}">
+<link rel="alternate" type="application/rss+xml" title="He Didn't Jump (RSS)" href="{ORIGIN}/rss.xml">
+<link rel="alternate" type="application/atom+xml" title="He Didn't Jump (Atom)" href="{ORIGIN}/atom.xml">
 <link rel="alternate" type="text/plain" href="{ORIGIN}/llms.txt" title="LLM instructions">
 {REL_ME}
 <meta property="og:site_name" content="He Didn't Jump — An Aziel Eliab Project">

@@ -85,6 +85,8 @@ See [{APEX}/addendum.txt]({APEX}/addendum.txt)
 ## Machine surfaces (optional)
 
 - [{APEX}/llms.txt]({APEX}/llms.txt)
+- [{APEX}/rss.xml]({APEX}/rss.xml) — RSS 2.0 of the published papers and Volumes I–V
+- [{APEX}/atom.xml]({APEX}/atom.xml) — Atom of the same items
 - [{APEX}/ai.txt]({APEX}/ai.txt)
 - [{APEX}/cite.json]({APEX}/cite.json)
 - [{APEX}/shelves.txt]({APEX}/shelves.txt) — plain-text sitemap (public URLs)

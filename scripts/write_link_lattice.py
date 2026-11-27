@@ -124,6 +124,8 @@ MACHINE: list[tuple[str, str]] = [
     (f"{APEX}/shelves.txt", "This plain-text sitemap"),
     (f"{APEX}/sitemap.txt", "Alias of /shelves.txt"),
     (f"{APEX}/sitemap.xml", "XML sitemap"),
+    (f"{APEX}/rss.xml", "RSS 2.0 of the published papers and Volumes I–V"),
+    (f"{APEX}/atom.xml", "Atom of the same items"),
     (f"{APEX}/robots.txt", "robots (Growth-ON)"),
     (f"{APEX}/openapi.json", "Read-only public surfaces"),
     (f"{APEX}/who-is", "Who is Aziel Eliab (plain text)"),
