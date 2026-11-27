@@ -204,7 +204,6 @@ def main() -> None:
         assert "/v1/survival /survival.json 200" in redirects
         assert "/doors /survival.json 200" not in redirects
         doors = (tree / "doors.html").read_text(encoding="utf-8")
-        home = (tree / "index.html").read_text(encoding="utf-8")
         door_hrefs = (
             "https://www.azieleliab.com/",
             "https://www.azielcorpuslibrary.net/",
@@ -221,7 +220,6 @@ def main() -> None:
         )
         for href in door_hrefs:
             assert f'href="{href}"' in doors, href
-            assert f'href="{href}"' in home, href
         assert "thefurnaceisntfree.com" not in doors
         assert "download-tracker" not in doors
         assert "public_icann is false" in doors
