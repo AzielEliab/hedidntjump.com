@@ -36,7 +36,9 @@
 /Aziel /aziel 301
 /AboutAziel /aziel 301
 /AzielEliab /aziel 301
-# ZionBot inventory: apex is canonical. www aliases 301 here. One-way 301 /Case → /case (case-sensitive; lowercase is already 200).
+# ZionBot inventory: apex is canonical. One-way 301 /Case → /case (case-sensitive; lowercase is already 200).
+# Pages _redirects does not apply domain-level rules (they are ignored). The 301
+# that preserves path and query is functions/_middleware.js.
 https://www.hedidntjump.com/* https://hedidntjump.com/:splat 301
 http://www.hedidntjump.com/* https://hedidntjump.com/:splat 301
 
@@ -49,7 +51,7 @@ http://www.hedidntjump.com/* https://hedidntjump.com/:splat 301
 /runtime-launch.json /runtime-launch.json 200
 /survival /survival.json 200
 /v1/survival /survival.json 200
-/doors /survival.json 200
+# /doors is doors.html (the human exchange list). Do not proxy it to survival.json.
 /failover /survival.json 200
 /mesh /mesh.json 200
 /v1/mesh /mesh.json 200

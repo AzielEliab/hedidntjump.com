@@ -112,8 +112,8 @@ def main() -> None:
         ):
             assert f"<loc>{APEX}{loc}</loc>" in sitemap, loc
         dates = set(re.findall(r"<lastmod>([^<]+)</lastmod>", sitemap))
-        assert dates <= {"2026-10-01", "2026-10-30"}, dates
-        assert "2026-10-01" in dates and "2026-10-30" in dates
+        assert dates <= {"2026-10-01", "2026-10-30", "2026-11-20"}, dates
+        assert "2026-10-01" in dates and "2026-10-30" in dates and "2026-11-20" in dates
         assert f"<loc>{APEX}/volumes/hedidntjump-all-volumes.zip</loc>" in sitemap
         for n in range(1, 6):
             assert f"<loc>{APEX}/reader?volume={n}&amp;page=1</loc>" not in sitemap
@@ -134,7 +134,7 @@ def main() -> None:
             assert f"<loc>{APEX}{loc}</loc>" not in sitemap, loc
         index = (tree / "sitemap-index.xml").read_text(encoding="utf-8")
         assert f"<loc>{APEX}/sitemap.xml</loc>" in index
-        assert "<lastmod>2026-10-30</lastmod>" in index.split("azieleliab.com")[0]
+        assert "<lastmod>2026-11-20</lastmod>" in index.split("azieleliab.com")[0]
 
         openapi = json.loads((tree / "openapi.json").read_text(encoding="utf-8"))
         for loc in (

@@ -36,3 +36,8 @@ jobs:
         run: python3 scripts/verify_llms_full_review.py
       - name: Aziel ↔ Marion cross-cite
         run: python3 scripts/verify_cross_cite.py
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: www canonical Node tests
+        run: node --test functions/_lib/www-canonical.test.mjs

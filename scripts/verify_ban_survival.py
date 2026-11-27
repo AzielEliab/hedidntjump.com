@@ -202,6 +202,32 @@ def main() -> None:
         redirects = (tree / "_redirects").read_text(encoding="utf-8")
         assert "/survival /survival.json 200" in redirects
         assert "/v1/survival /survival.json 200" in redirects
+        assert "/doors /survival.json 200" not in redirects
+        doors = (tree / "doors.html").read_text(encoding="utf-8")
+        door_hrefs = (
+            "https://www.azieleliab.com/",
+            "https://www.azielcorpuslibrary.net/",
+            "https://godlock.uk/",
+            "https://hedidntjump.com/",
+            "https://furnaceisntfree.com/",
+            "https://timetounsealthebook.net/",
+            "https://whitestone.vibelock.workers.dev/",
+            "https://aziel-runtime.vibelock.workers.dev/",
+            "https://glama.ai/mcp/servers/AzielEliab/aziel-runtime",
+            "https://trades-runtime.vibelock.workers.dev/",
+            "https://glama.ai/mcp/servers/AzielEliab/trades-runtime",
+            "https://miragegrid.vibelock.workers.dev/",
+        )
+        for href in door_hrefs:
+            assert f'href="{href}"' in doors, href
+        assert "thefurnaceisntfree.com" not in doors
+        assert "download-tracker" not in doors
+        assert "public_icann is false" in doors
+        assert "Not an ICANN registrar" in doors
+        assert "mesh only" in doors.lower()
+        assert "15:20" not in visible_text(doors)
+        assert "lumen" not in doors.lower()
+        assert "ark-private" not in doors
         sitemap = (tree / "sitemap.xml").read_text(encoding="utf-8")
         assert f"{APEX}/survival</loc>" in sitemap
         assert f"{APEX}/survival.json</loc>" in sitemap

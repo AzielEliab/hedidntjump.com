@@ -672,6 +672,45 @@ footer .ecosystem a{
   text-underline-offset:2px;
 }
 footer .ecosystem a:hover{color:var(--ink)}
+.door-intro{max-width:42em}
+.door-intro p{margin:0 0 12px}
+.door-list{
+  list-style:none;
+  margin:22px 0 0;
+  padding:0;
+  counter-reset:door;
+}
+.door-list li{
+  margin:0;
+  padding:14px 0 14px 2.4em;
+  border-top:1px solid rgba(20,17,13,.18);
+  position:relative;
+  counter-increment:door;
+}
+.door-list li::before{
+  content:counter(door, decimal-leading-zero);
+  position:absolute;
+  left:0;
+  top:14px;
+  font-size:12px;
+  letter-spacing:.08em;
+  color:var(--muted);
+}
+.door-list a{
+  overflow-wrap:anywhere;
+}
+.door-list .door-name{
+  font-weight:700;
+  text-decoration:underline;
+  text-underline-offset:3px;
+}
+.door-list .door-note{
+  display:block;
+  margin-top:4px;
+  color:var(--muted);
+  font-size:15px;
+  line-height:1.45;
+}
 footer .ecosystem-secondary{opacity:.82}
 .rights-bar{
   width:100%;
