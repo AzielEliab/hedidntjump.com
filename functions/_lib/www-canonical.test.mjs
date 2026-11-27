@@ -88,3 +88,23 @@ test("trailing-dot www host redirects", () => {
     "https://hedidntjump.com/case",
   );
 });
+
+test("extra slash, at-sign, query, backslash, and dot-segment payloads stay on the apex", () => {
+  const cases = [
+    ["///evil.com", "https://hedidntjump.com/evil.com"],
+    ["////evil.com", "https://hedidntjump.com/evil.com"],
+    ["//@evil.com", "https://hedidntjump.com/@evil.com"],
+    ["//evil.com?x=1", "https://hedidntjump.com/evil.com?x=1"],
+    ["/foo/../..///evil.com", "https://hedidntjump.com/evil.com"],
+    [String.raw`/\\evil.com`, "https://hedidntjump.com/evil.com"],
+    [String.raw`/\/\/evil.com`, "https://hedidntjump.com/evil.com"],
+  ];
+  for (const [path, expected] of cases) {
+    const out = canonicalRedirectUrl("https://www.hedidntjump.com" + path, "www.hedidntjump.com");
+    assert.equal(out, expected, path);
+    const location = new URL(out);
+    assert.equal(location.origin, "https://hedidntjump.com", path);
+    assert.equal(location.hostname, "hedidntjump.com", path);
+    assert.ok(!location.pathname.startsWith("//"), path);
+  }
+});
