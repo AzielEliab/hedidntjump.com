@@ -64,3 +64,27 @@ test("onRequest passes apex traffic through", async () => {
   assert.equal(response.status, 200);
   assert.equal(await response.text(), "doors");
 });
+
+test("protocol-relative and backslash paths stay on the apex", () => {
+  for (const path of ["//evil.com", "///evil.com/x", "/\\evil.com", "/\\/evil.com", "//%2F%2Fevil.com", "/%5C%5Cevil.com"]) {
+    const out = canonicalRedirectUrl("https://www.hedidntjump.com" + path, "www.hedidntjump.com");
+    assert.ok(out, path);
+    const u = new URL(out);
+    assert.equal(u.origin, "https://hedidntjump.com", path);
+    assert.ok(!u.pathname.startsWith("//"), path);
+  }
+});
+
+test("percent-encoded slashes never throw", async () => {
+  const request = new Request("https://www.hedidntjump.com//%2F%2F");
+  const response = await onRequest({ request, next: async () => new Response("x") });
+  assert.equal(response.status, 301);
+  assert.equal(new URL(response.headers.get("location")).origin, "https://hedidntjump.com");
+});
+
+test("trailing-dot www host redirects", () => {
+  assert.equal(
+    canonicalRedirectUrl("https://www.hedidntjump.com./case", "www.hedidntjump.com."),
+    "https://hedidntjump.com/case",
+  );
+});
