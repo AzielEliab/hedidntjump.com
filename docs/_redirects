@@ -39,6 +39,11 @@
 # ZionBot inventory: apex is canonical. One-way 301 /Case → /case (case-sensitive; lowercase is already 200).
 # Pages _redirects does not apply domain-level rules (they are ignored). The 301
 # that preserves path and query is functions/_middleware.js.
+# RSS and Atom. Aliases 301 to the files that return 200.
+/rss /rss.xml 301
+/feed /rss.xml 301
+/feed.xml /rss.xml 301
+/atom /atom.xml 301
 https://www.hedidntjump.com/* https://hedidntjump.com/:splat 301
 http://www.hedidntjump.com/* https://hedidntjump.com/:splat 301
 

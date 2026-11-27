@@ -28,6 +28,8 @@ Allow: /mesh
 Allow: /mesh.json
 Allow: /cite.json
 Allow: /llms.txt
+Allow: /rss.xml
+Allow: /atom.xml
 Allow: /llms-full.txt
 Allow: /ai.txt
 Allow: /who-is

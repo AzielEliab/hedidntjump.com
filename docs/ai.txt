@@ -179,6 +179,8 @@ Discovery on this host:
 - https://www.hedidntjump.com/openapi.json
 - https://hedidntjump.com/.well-known/llms.txt
 - https://www.hedidntjump.com/sitemap.xml
+- https://hedidntjump.com/rss.xml — RSS 2.0 of the published papers and Volumes I–V
+- https://hedidntjump.com/atom.xml — Atom of the same items
 - https://www.hedidntjump.com/robots.txt
 - https://hedidntjump.com/receipts
 - https://hedidntjump.com/ingest-as-receipt.json

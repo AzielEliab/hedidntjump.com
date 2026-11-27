@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>He Didn't Jump</title>
+    <link>https://hedidntjump.com/</link>
+    <atom:link href="https://hedidntjump.com/rss.xml" rel="self" type="application/rss+xml"/>
+    <description>Investigative / whistleblower newspaper archive on Marion A. Zioncheck, U.S. Representative and Seattle congressman. Official reports said suicide at the Arctic Building on 7 August 1936. This archive re-examines that account through newspapers and five volumes.</description>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 20 Nov 2026 00:00:00 +0000</lastBuildDate>
+    <generator>scripts/write_rss.py</generator>
+    <copyright>Aziel Eliab</copyright>
+    <dc:creator>Aziel Eliab</dc:creator>
+    <dc:rights>See https://hedidntjump.com/copyrights</dc:rights>
+    <image>
+      <url>https://hedidntjump.com/assets/logo.jpg</url>
+      <title>He Didn't Jump</title>
+      <link>https://hedidntjump.com/</link>
+    </image>
+    <item>
+      <title>Marion A. Zioncheck — Seattle Congressman (1933–1936) Archive | He Didn't Jump</title>
+      <link>https://hedidntjump.com/</link>
+      <guid isPermaLink="true">https://hedidntjump.com/</guid>
+      <dc:creator>Aziel Eliab</dc:creator>
+      <description>Investigative / whistleblower newspaper archive on Marion A. Zioncheck, U.S. Representative and Seattle congressman. Official reports said suicide at the Arctic Building on 7 August 1936. This archive re-examines that account through newspapers and five volumes.</description>
+    </item>
+    <item>
+      <title>The Case — Marion A. Zioncheck, Seattle congressman | He Didn't Jump</title>
+      <link>https://hedidntjump.com/case</link>
+      <guid isPermaLink="true">https://hedidntjump.com/case</guid>
+      <dc:creator>Aziel Eliab</dc:creator>
+      <description>Case edition: Marion A. Zioncheck's August 7, 1936 death was reported as suicide from a fifth-floor Seattle office. This archive challenges that account and indexes 23 inquiries.</description>
+    </item>
+    <item>
+      <title>Inquiries of the Record — He Didn't Jump</title>
+      <link>https://hedidntjump.com/inquiries</link>
+      <guid isPermaLink="true">https://hedidntjump.com/inquiries</guid>
+      <dc:creator>Aziel Eliab</dc:creator>
+      <description>Twenty-three inquiries of the Marion Zioncheck whistleblower / investigative archive, ordered 1–23. An Aziel Eliab Project newspaper edition.</description>
+    </item>
+    <item>
+      <title>The Narrative — Official Account — He Didn't Jump</title>
+      <link>https://hedidntjump.com/official-narrative</link>
+      <guid isPermaLink="true">https://hedidntjump.com/official-narrative</guid>
+      <dc:creator>Aziel Eliab</dc:creator>
+      <description>The official narrative of Marion Zioncheck’s 1936 death as the contemporary public account told it — with archive clippings side by side.</description>
+    </item>
+    <item>
+      <title>Five Research Volumes — He Didn't Jump</title>
+      <link>https://hedidntjump.com/volumes</link>
+      <guid isPermaLink="true">https://hedidntjump.com/volumes</guid>
+      <dc:creator>Aziel Eliab</dc:creator>
+      <description>Five Marion Zioncheck research volumes: primary documents, 1936 news and family battles, personal photographs, the physics case, and human and institutional evidence. Facsimile reader or original PDFs.</description>
+    </item>
+    <item>
+      <title>Volume I — Primary Documents &amp; Forensic Analysis</title>
+      <link>https://hedidntjump.com/reader?volume=1&amp;page=1</link>
+      <guid isPermaLink="true">https://hedidntjump.com/reader?volume=1&amp;page=1</guid>
+      <dc:creator>Aziel Eliab</dc:creator>
+      <description>This first book gathers the primary documents and forensic plates of the collection — clippings, photographs, and document images against which the later volumes are checked. It preserves the material examined in the investigation; it does not close the case.</description>
+      <enclosure url="https://hedidntjump.com/volumes/volume-1.pdf" length="7144530" type="application/pdf"/>
+    </item>
+    <item>
+      <title>Volume II — News Coverage &amp; Family Battles</title>
+      <link>https://hedidntjump.com/reader?volume=2&amp;page=1</link>
+      <guid isPermaLink="true">https://hedidntjump.com/reader?volume=2&amp;page=1</guid>
+      <dc:creator>Aziel Eliab</dc:creator>
+      <description>Contemporary newspaper columns record how the death was told to the public in 1936, and how the family later fought over the will and the estate. The plates keep those headlines and the disputes that followed.</description>
+      <enclosure url="https://hedidntjump.com/volumes/volume-2.pdf" length="6823388" type="application/pdf"/>
+    </item>
+    <item>
+      <title>Volume III — Personal Photographs &amp; Research Materials</title>
+      <link>https://hedidntjump.com/reader?volume=3&amp;page=1</link>
+      <guid isPermaLink="true">https://hedidntjump.com/reader?volume=3&amp;page=1</guid>
+      <dc:creator>Aziel Eliab</dc:creator>
+      <description>Personal photographs, funeral-related material, and research notes widen the record beyond the day of the death. The plates here are the private and documentary remainder of the collection.</description>
+      <enclosure url="https://hedidntjump.com/volumes/volume-3.pdf" length="6392747" type="application/pdf"/>
+    </item>
+    <item>
+      <title>Volume IV — The Physics Case</title>
+      <link>https://hedidntjump.com/reader?volume=4&amp;page=1</link>
+      <guid isPermaLink="true">https://hedidntjump.com/reader?volume=4&amp;page=1</guid>
+      <dc:creator>Aziel Eliab</dc:creator>
+      <description>This volume tests the reported office sequence — window clearance, timing, and witness proximity — against the plates. It is the collection’s argument from space and time, not a courtroom finding.</description>
+      <enclosure url="https://hedidntjump.com/volumes/volume-4.pdf" length="22747" type="application/pdf"/>
+    </item>
+    <item>
+      <title>Volume V — The Human &amp; Institutional Evidence</title>
+      <link>https://hedidntjump.com/reader?volume=5&amp;page=1</link>
+      <guid isPermaLink="true">https://hedidntjump.com/reader?volume=5&amp;page=1</guid>
+      <dc:creator>Aziel Eliab</dc:creator>
+      <description>The closing book examines witness accounts, institutional conflict, and the human evidence surrounding the death. It sets those names and proposed motives beside the earlier volumes.</description>
+      <enclosure url="https://hedidntjump.com/volumes/volume-5.pdf" length="21158" type="application/pdf"/>
+    </item>
+    <item>
+      <title>This Is Not Freedom of Information — He Didn't Jump</title>
+      <link>https://hedidntjump.com/foia</link>
+      <guid isPermaLink="true">https://hedidntjump.com/foia</guid>
+      <dc:creator>Aziel Eliab</dc:creator>
+      <description>FOIA newspaper by Aziel Eliab: William Nadeau in the Zioncheck volumes; Aziel’s FOIA Binary Acknowledgement of 28 July 2026; a supplied, redacted FBI no-records letter; a gated, hash-chained public ledger of Zioncheck FOIA denials.</description>
+    </item>
+    <item>
+      <title>Press · Investigative Sources — He Didn't Jump</title>
+      <link>https://hedidntjump.com/press</link>
+      <guid isPermaLink="true">https://hedidntjump.com/press</guid>
+      <dc:creator>Aziel Eliab</dc:creator>
+      <description>Public tip and newsroom emails for investigative outlets — ask them to look at the Marion Zioncheck archive on hedidntjump.com.</description>
+    </item>
+    <item>
+      <title>The Rubye Paper — He Didn't Jump</title>
+      <link>https://hedidntjump.com/rubye</link>
+      <guid isPermaLink="true">https://hedidntjump.com/rubye</guid>
+      <dc:creator>Aziel Eliab</dc:creator>
+      <description>Aziel Eliab project paper: Rubye Nix Zioncheck in the car, Volume II estate clippings, and later legal actions against Nadeau as printed in Volume V. Captioned to the reader.</description>
+    </item>
+    <item>
+      <title>Archives — He Didn't Jump</title>
+      <link>https://hedidntjump.com/archives</link>
+      <guid isPermaLink="true">https://hedidntjump.com/archives</guid>
+      <dc:creator>Aziel Eliab</dc:creator>
+      <description>Research volumes and archive downloads — Marion Zioncheck collection on hedidntjump.com.</description>
+      <enclosure url="https://hedidntjump.com/volumes/hedidntjump-all-volumes.zip" length="19405560" type="application/zip"/>
+    </item>
+    <item>
+      <title>Volume Reader — He Didn't Jump</title>
+      <link>https://hedidntjump.com/reader</link>
+      <guid isPermaLink="true">https://hedidntjump.com/reader</guid>
+      <dc:creator>Aziel Eliab</dc:creator>
+      <description>Aziel Eliab’s Marion Zioncheck archive reader: five facsimile volumes. Original PDFs remain available without JavaScript.</description>
+    </item>
+    <item>
+      <title>About Aziel — He Didn't Jump</title>
+      <link>https://hedidntjump.com/aziel</link>
+      <guid isPermaLink="true">https://hedidntjump.com/aziel</guid>
+      <dc:creator>Aziel Eliab</dc:creator>
+      <description>Who is Aziel Eliab? Living author of He Didn’t Jump, the Marion Zioncheck archive. Researcher, digital rights activist, software developer, author, philosopher.</description>
+    </item>
+    <item>
+      <title>Who is Aziel Eliab</title>
+      <link>https://hedidntjump.com/who</link>
+      <guid isPermaLink="true">https://hedidntjump.com/who</guid>
+      <dc:creator>Aziel Eliab</dc:creator>
+      <description>Aziel Eliab is a living researcher, digital rights activist, software developer, author, and philosopher. Not the two Levitical musicians Aziel and Eliab named together in 1 Chronicles 15:20.</description>
+    </item>
+    <item>
+      <title>Doors — He Didn't Jump</title>
+      <link>https://hedidntjump.com/doors</link>
+      <guid isPermaLink="true">https://hedidntjump.com/doors</guid>
+      <dc:creator>Aziel Eliab</dc:creator>
+      <description>Ten live public Aziel Eliab sites and runtimes, listed from the Marion Zioncheck archive. Includes Furnace Isn't Free, Whitestone, both runtimes, and mesh-only MirageGrid.</description>
+    </item>
+    <item>
+      <title>Copyrights &amp; Historical Research Notice — He Didn't Jump</title>
+      <link>https://hedidntjump.com/copyrights</link>
+      <guid isPermaLink="true">https://hedidntjump.com/copyrights</guid>
+      <dc:creator>Aziel Eliab</dc:creator>
+      <description>Copyrights and historical-research notice for Aziel Eliab’s Marion Zioncheck archive: fair use under 17 U.S.C. § 107, source terms, and a preference for correction over erasure. Not legal advice.</description>
+    </item>
+    <item>
+      <title>Receipts — Ingest as receipt — He Didn't Jump</title>
+      <link>https://hedidntjump.com/receipts</link>
+      <guid isPermaLink="true">https://hedidntjump.com/receipts</guid>
+      <dc:creator>Aziel Eliab</dc:creator>
+      <description>CRAWLER/AI INGEST-AS-RECEIPT, RE-EXPAND-FROM-ARCHIVE, CROSS-NETWORK-SURVIVAL-1.0, NO-LIE / NO-REWRITE. First-screen SHA-256 of bytes. Survival = bytes↔hash. Author Aziel Eliab only.</description>
+    </item>
+  </channel>
+</rss>

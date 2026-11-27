@@ -57,6 +57,8 @@ Person @id: https://www.azieleliab.com/#aziel
 - [https://hedidntjump.com/rubye](https://hedidntjump.com/rubye) — Rubye paper
 - [https://hedidntjump.com/archives](https://hedidntjump.com/archives) — archive / volume downloads
 - [https://hedidntjump.com/llms.txt](https://hedidntjump.com/llms.txt)
+- [https://hedidntjump.com/rss.xml](https://hedidntjump.com/rss.xml) — RSS 2.0 of the published papers and Volumes I–V
+- [https://hedidntjump.com/atom.xml](https://hedidntjump.com/atom.xml) — Atom of the same items
 - [https://hedidntjump.com/llms-full.txt](https://hedidntjump.com/llms-full.txt) — whole-project LLM review: inquiries 1–23 (full text), Volumes I–V (purpose + facsimile URLs + published outline), and every public tab
 - [https://hedidntjump.com/copyrights](https://hedidntjump.com/copyrights) — copyrights / historical-research notice
 - [https://hedidntjump.com/aziel](https://hedidntjump.com/aziel) — About Aziel (one body)

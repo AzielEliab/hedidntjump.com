@@ -79,6 +79,8 @@ Soft internal links for crawler and agent discovery. Positive genre: whistleblow
 ## Machine surfaces (optional)
 
 - [https://hedidntjump.com/llms.txt](https://hedidntjump.com/llms.txt)
+- [https://hedidntjump.com/rss.xml](https://hedidntjump.com/rss.xml) — RSS 2.0 of the published papers and Volumes I–V
+- [https://hedidntjump.com/atom.xml](https://hedidntjump.com/atom.xml) — Atom of the same items
 - [https://hedidntjump.com/ai.txt](https://hedidntjump.com/ai.txt)
 - [https://hedidntjump.com/cite.json](https://hedidntjump.com/cite.json)
 - [https://hedidntjump.com/shelves.txt](https://hedidntjump.com/shelves.txt) — plain-text sitemap (public URLs)

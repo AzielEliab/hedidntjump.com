@@ -21,7 +21,7 @@ APEX = "https://hedidntjump.com"
 LASTMOD = "2026-10-01"
 # /doors, llms.txt, and ai.txt were refreshed with the ten live public doors.
 ECOSYSTEM_LASTMOD = "2026-11-20"
-ECOSYSTEM_PATHS = {"/doors", "/llms.txt", "/ai.txt"}
+ECOSYSTEM_PATHS = {"/doors", "/llms.txt", "/ai.txt", "/rss.xml", "/atom.xml"}
 # Sister sitemaps in the index were not republished on this date.
 SISTER_LASTMOD = "2026-09-13"
 # Public pages, volume downloads, and the discovery files this pass refreshed.
@@ -158,6 +158,8 @@ BASELINE: list[tuple[str, str, str]] = [
     ("/.well-known/mcp.json", "0.2", "weekly"),
     ("/volumes.json", "0.3", "weekly"),
     ("/robots.txt", "0.2", "weekly"),
+    ("/rss.xml", "0.5", "weekly"),
+    ("/atom.xml", "0.4", "weekly"),
     ("/sitemap-index.xml", "0.2", "weekly"),
     ("/person.jsonld", "0.3", "weekly"),
     ("/works.json", "0.4", "weekly"),

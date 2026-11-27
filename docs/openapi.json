@@ -671,6 +671,26 @@
           }
         }
       }
+    },
+    "/rss.xml": {
+      "get": {
+        "summary": "RSS 2.0 of the published papers and Volumes I–V",
+        "responses": {
+          "200": {
+            "description": "application/rss+xml"
+          }
+        }
+      }
+    },
+    "/atom.xml": {
+      "get": {
+        "summary": "Atom feed of the same published papers and Volumes I–V",
+        "responses": {
+          "200": {
+            "description": "application/atom+xml"
+          }
+        }
+      }
     }
   }
 }
